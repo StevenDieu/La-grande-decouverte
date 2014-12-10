@@ -1,0 +1,17 @@
+SetEnv PHP_VER 5_TEST
+SetEnv REGISTER_GLOBALS 0
+ErrorDocument 404 http://www.remplir.com/404
+RewriteEngine on
+
+AddType application/vnd.ms-fontobject eot
+AddType font/truetype ttf
+AddType font/opentype otf
+AddType application/x-font-woff woff
+
+RewriteRule accueil accueil.php
+RewriteRule accueil-francais accueil.php?lang=fr
+
+RewriteRule 404$ 404.php
+Options +FollowSymlinks
+RewriteCond %{HTTP_HOST} ^remplir.com$
+RewriteRule ^(.*) http://www.remplir.com/$1 [QSA,L,R=301]
