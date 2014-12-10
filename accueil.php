@@ -4,7 +4,7 @@ $page = "accueil";
 include $point.'view/en-tete/head.php';
 ?>
 
-<div ng-controller="remplirCtrl">
+<div>
 
     
 </div>
