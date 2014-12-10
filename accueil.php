@@ -11,5 +11,3 @@ include $point.'view/en-tete/head.php';
 
 <?php
 include $point.'view/en-tete/tail.php';
-
-//test
