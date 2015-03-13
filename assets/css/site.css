@@ -12,7 +12,10 @@ body {margin:auto;}
 }
 
 .logo {float:left;}
-.profil {float:right;}
+.profil {
+	float:right;
+	margin: 20px 50px 0 ;
+	}
 .menu {padding:35px;}
 .filAriane {padding:2% 0;}
 
