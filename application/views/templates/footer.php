@@ -1,11 +1,4 @@
 <!---------- FOOTER --------->	
-<style>
-a:link {color:white}
-.basPage {width:100%; display:flex; margin:0 auto; width:900px;}
-.basPage img {float:left;padding:10px;}
-.menuBas {float:right;padding:10px;}
-.menuBas span {margin:0 5px;}
-</style>
 <div class="footer">
     <div class="infoSupplementaires">
         <div class="enSavoirPlus bloc_footer">

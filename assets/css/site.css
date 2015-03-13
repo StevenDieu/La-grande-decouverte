@@ -102,6 +102,11 @@ body {margin:auto;}
 .newsletter button {background-color:#0076a3;float:right;margin-bottom:20px;}
 .enSavoirPlus ul, .nosServices ul{padding:0;margin-top:0;list-style-type:none;}
 .enSavoirPlus ul li {display:block;text-decoration:none;}
+a:link {color:white}
+.basPage {width:100%; display:flex; margin:0 auto; width:900px;}
+.basPage img {float:left;padding:10px;}
+.menuBas {float:right;padding:10px;}
+.menuBas span {margin:0 5px;}
 
 @media screen and (max-width: 900px) {
 	.infoSupplementaires {display:inline-block;width:300px;}
