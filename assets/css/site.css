@@ -95,9 +95,15 @@ body {margin:auto;}
 	margin:10px 10px 10px 0px;
 }
 /******* footer *********/
-.footer {width:100%;display:block;float: left;text-align:left;}
-.infoSupplementaires {margin-left:10px;display:flex;}
-.enSavoirPlus, .nosServices, .newsletter {margin-left:10px;}
-.enSavoirPlus ul,.nosServices ul{padding:0;margin-top:0;list-style-type:none;}
+.footer {text-align:center;width:100%;background-color:#0e1728;color:white;padding:20px auto;}
+.bloc_footer {text-align:left;width:300px;margin-left:20px;padding: 20px 30px;}
+.infoSupplementaires {display: inline-flex;margin:0 auto; width:900px;}
+.newsletter input {width:100%;margin:5px 0px;}
+.newsletter button {background-color:#0076a3;float:right;margin-bottom:20px;}
+.enSavoirPlus ul, .nosServices ul{padding:0;margin-top:0;list-style-type:none;}
 .enSavoirPlus ul li {display:block;text-decoration:none;}
+
+@media screen and (max-width: 900px) {
+	.infoSupplementaires {display:inline-block;width:300px;}
+}
 /******* end footer *********/
