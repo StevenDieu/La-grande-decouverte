@@ -25,17 +25,17 @@
         <!---------- HEADER --------->	
         <div class="header">
             <div class="logo">
-                <img src="<?php echo asset_url(''); ?>img/logo.jpg"/>
+                <img src="<?php echo asset_url(''); ?>img/logo_final.png" width=250px height=100px/>
             </div>
             <div class="profil">
-                <img src="<?php echo asset_url(''); ?>img/profil.jpg"/>
+                <img src="<?php echo asset_url(''); ?>img/compte.png"/>
             </div>
             <div class="menu">
-                <span>VOYAGES</span>
+                <span><a href="#">VOYAGES</a></span>
                 |
-                <span>CARNETS DE VOYAGES</span>
+                <span><a href="#">CARNETS DE VOYAGES</a></span>
                 |
-                <span>ACTUALIT&Eacute;S</span>
+                <span><a href="#">ACTUALIT&Eacute;S</a></span>
             </div>
         </div>
         <div class="filAriane">
