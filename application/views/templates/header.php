@@ -28,7 +28,7 @@
                 <img src="<?php echo asset_url(''); ?>img/logo_final.png" width=250px height=100px/>
             </div>
             <div class="profil">
-                <img src="<?php echo asset_url(''); ?>img/compte.png"/>
+                <img src="<?php echo asset_url(''); ?>img/compte.png" width=45px height=45px/>
             </div>
             <div class="menu">
                 <span><a href="#">VOYAGES</a></span>
