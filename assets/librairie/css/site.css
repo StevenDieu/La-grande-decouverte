@@ -1,0 +1,77 @@
+body {width:980px;margin:auto;}
+
+/******* header *********/
+.header {width:100%;height:136px;background-color:#040e20;color:white;margin: 0px;text-align:center;vertical-align:middle;}
+.logo {float:left;}
+.profil {float:right;}
+.menu {padding:6% 0;}
+.filAriane {padding:2% 0;}
+/******* end header *********/
+
+
+.image
+{
+	text-align:center;
+	display: inline-block;
+}
+.original
+{
+	height:100px;
+}
+
+.compte
+{
+	float:right;
+	text-align:right;
+}
+
+.content
+{
+	width:80%;
+	display:block;
+	float: right;
+	text-align:left;
+}
+
+.top
+{
+	background-color: #E6E6E6;
+	padding:30px 0px 15px 50px;
+}
+
+.filtres
+{
+	margin-top:50px;
+	margin-bottom:20px;
+	display:inline-block;
+	width:100%;
+}
+
+.nbArticle
+{
+	float:left;
+}
+
+.tri
+{
+	float:right;
+}
+
+.articles 
+{
+	text-align:left;
+	width:100%;
+}
+
+.articles article 
+{
+	display:inline-block;
+	margin:10px 10px 10px 0px;
+}
+/******* footer *********/
+.footer {width:100%;display:block;float: left;text-align:left;}
+.infoSupplementaires {margin-left:10px;display:flex;}
+.enSavoirPlus, .nosServices, .newsletter {margin-left:10px;}
+.enSavoirPlus ul,.nosServices ul{padding:0;margin-top:0;list-style-type:none;}
+.enSavoirPlus ul li {display:block;text-decoration:none;}
+/******* end footer *********/
