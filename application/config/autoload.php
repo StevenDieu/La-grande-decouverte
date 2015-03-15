@@ -110,7 +110,7 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array();
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database','session');
 
 
 /* End of file autoload.php */

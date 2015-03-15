@@ -5,8 +5,21 @@ if (!defined('BASEPATH'))
 
 class Utilisateur extends CI_Controller {
 
+    /**
+     *
+     */
     public function index() {
-        $this->load->templateUtilisateur('developpement');
+        if($this->session->userdata('logged_in'))
+        {
+            $session_data = $this->session->userdata('logged_in');
+            $data['username'] = $session_data['username'];
+            $data['logger'] = true;
+            $this->load->templateUtilisateur('developpement', $data);
+        }else{
+            $this->load->helper(array('form'));
+            $data['logger'] = false;
+            $this->load->templateUtilisateur('developpement', $data);
+        }
     }
 
     public function accueil() {
