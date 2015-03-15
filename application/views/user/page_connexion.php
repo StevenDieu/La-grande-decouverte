@@ -1,19 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Simple Login with CodeIgniter</title>
-</head>
-<body>
-<h1>Simple Login with CodeIgniter</h1>
-<?php echo validation_errors(); ?>
-<?php echo form_open('user/verifylogin'); ?>
-<label for="username">Username:</label>
-<input type="text" size="20" id="username" name="username"/>
-<br/>
-<label for="password">Password:</label>
-<input type="password" size="20" id="passowrd" name="password"/>
-<br/>
-<input type="submit" value="Login"/>
-</form>
-</body>
-</html>
+<div class="content ">
+    <div class="content-inscription form-horizontal">
+        <legend>Connexion</legend>
+        <?php echo validation_errors(); ?>
+        <?php echo form_open('user/verifIdentification/verifLogin'); ?>
+        <div class="form-group">
+            <label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>
+            <div class="col-sm-7">
+                <input type="text" name="user" maxlength="50" class="form-control" id="user" placeholder="Nom d'utilisateur">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mdp" class="col-sm-5 control-label">Mot de passe</label>
+            <div class="col-sm-7">
+                <input type="text" name="mdp" maxlength="50" class="form-control" id="mdp" placeholder="Mot de passe">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-7">
+                <input type="submit" name="submit" class="btn btn-default btn-mobile" value="Valider"/>
+            </div>
+        </div>
+        <?php
+        echo form_close();
+        ?>
+    </div>
+</div>
