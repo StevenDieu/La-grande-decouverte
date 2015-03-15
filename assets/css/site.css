@@ -76,6 +76,12 @@ a{
     text-decoration: underline;
 }
 
+
+.content-inscription{
+    width: 600px;
+    margin: 0 auto;
+}
+
 .top
 {
     padding:30px 0px 15px 50px;
@@ -210,6 +216,14 @@ a:link {
         text-align: center;
         margin:  0 auto;
         float: inherit;
+    }
+
+    .content-inscription{
+        width: 100%;
+    }
+    
+    .btn-mobile{
+        width: 100%;
     }
 
 }

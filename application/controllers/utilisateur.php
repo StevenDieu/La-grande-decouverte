@@ -31,16 +31,49 @@ class Utilisateur extends CI_Controller {
         $this->load->templateTemplates('connexion');
     }
 
-    public function validerConnexion() {
+    public function valider_connexion() {
         
     }
 
     public function inscription() {
+        $this->load->helper(array('form'));
         $this->load->templateTemplates('inscription');
     }
 
-    public function validerInscription() {
-        
+    public function valider_inscription() {
+        if ($this->input->post('submit')) {
+            $nom = $this->input->post('nom');
+            $prenom = $this->input->post('prenom');
+            $user = $this->input->post('user');
+            $mdp = $this->input->post('mdp');
+            $cmdp = $this->input->post('cmdp');
+            $email = $this->input->post('email');
+            $cemail = $this->input->post('cemail');
+            $form = Array($nom, $prenom, $user, $mdp, $cmdp, $email, $cemail);
+            $formTexte = Array("nom", "prenom", "user", "mdp", "cmdp", "email", "cemail");
+
+            $resul_asset_isset = asset_isset($form, $formTexte);
+            if ($resul_asset_isset["flag"] == true) {
+                $resul_nombre_caratere = nombre_caratere($form, $formTexte, -2);
+                if ($resul_nombre_caratere["flag"] == true) {
+                    if ($email == $cemail) {
+                        if ($mdp == $cmdp) {
+                            
+                        } else {
+                            $this->form_validation->set_message('check_database', 'Invalid username or password');
+                        }
+                    } else {
+                        $this->form_validation->set_message('check_database', 'Invalid username or password');
+                    }
+                } else {
+                    $this->form_validation->set_message('check_database', 'Invalid username or password');
+                }
+            } else {
+                $this->form_validation->set_message('check_database', 'Invalid username or password');
+            }
+        } else {
+            $this->form_validation->set_message('check_database', 'Invalid username or password');
+        }
     }
 
     public function fiche_voyage_descriptif() {
