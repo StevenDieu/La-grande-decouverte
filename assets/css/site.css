@@ -1,115 +1,268 @@
-body {margin:auto;}
+body {
+    margin:auto;
+    background-color: #040e20;
+    color: white;
+}
 
 /******* header *********/
 .header {
-		width:100%;
-		height:105px;
-		background-color:#040e20;
-		color:white;margin: 0px;
-		text-align:center;
-		font-size: 20px;
-		vertical-align:middle;
+    height:105px;
+    color:white;
+    font-size: 19px;
+    vertical-align:middle;
 }
 
 .logo {float:left;}
 .profil {
-	float:right;
-	margin: 25px 75px 0 ;
-	}
+    float:right;
+    margin: 25px 75px 0 ;
+}
 .menu {padding:35px;}
 .filAriane {padding:2% 0;}
 
 .menu span{
-	padding-right: 20px;
-	padding-left: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
-.menu a{
-	text-decoration: none;
-	color : #fff;
+a{
+    text-decoration: none;
+    color : #fff;
 }
 
 .menu a:hover{
-	border-bottom: 2px solid;
+    border-bottom: 2px solid;
 }
+
+.imageLogo{
+    width:250px;
+    height:100px;
+}
+.imageCompte{
+    width: 37px;
+    height: 37px;
+}
+
+
 /******* end header *********/
 
 
 .image
 {
-	text-align:center;
-	display: inline-block;
+    text-align:center;
+    display: inline-block;
 }
 .original
 {
-	height:100px;
+    height:100px;
 }
 
 .compte
 {
-	float:right;
-	text-align:right;
+    float:right;
+    text-align:right;
 }
 
 .content
 {
-	width:80%;
-	display:block;
-	float: right;
-	text-align:left;
+    text-align:left;
+    background-color: white;
+    color: black;
+    padding: 34px;
+}
+
+.content a{
+    color: black !important;
+    text-decoration: underline;
 }
 
 .top
 {
-	background-color: #E6E6E6;
-	padding:30px 0px 15px 50px;
+    padding:30px 0px 15px 50px;
 }
 
 .filtres
 {
-	margin-top:50px;
-	margin-bottom:20px;
-	display:inline-block;
-	width:100%;
+    margin-top:50px;
+    margin-bottom:20px;
+    display:inline-block;
+    width:100%;
 }
 
 .nbArticle
 {
-	float:left;
+    float:left;
 }
 
 .tri
 {
-	float:right;
+    float:right;
 }
 
 .articles 
 {
-	text-align:left;
-	width:100%;
+    text-align:left;
+    width:100%;
 }
 
 .articles article 
 {
-	display:inline-block;
-	margin:10px 10px 10px 0px;
+    display:inline-block;
+    margin:10px 10px 10px 0px;
 }
 /******* footer *********/
-.footer {text-align:center;width:100%;background-color:#0e1728;color:white;padding:20px auto;}
-.bfooter {width:900px;margin:0 auto;}
-.bloc_footer {text-align:left;width:300px;margin-left:20px;padding: 20px 30px;}
-.infoSupplementaires {display: inline-flex;margin:0 auto; width:900px;}
-.newsletter input {width:100%;margin:5px 0px;}
-.newsletter button {background-color:#0076a3;float:right;margin-bottom:20px;}
-.enSavoirPlus ul, .nosServices ul{padding:0;margin-top:0;list-style-type:none;}
-.enSavoirPlus ul li {display:block;text-decoration:none;}
-a:link {color:white}
-.basPage {display:inline-block; margin:0 auto; width:900px;}
-.basPage img {float:left;padding:10px;}
-.menuBas {float:right;padding:10px;}
-.menuBas span {margin:0 5px;}
+.footer {
+    text-align:center;
+    /* border-bottom: 1px solid rgb(105, 102, 102); */
+    border-top: 1px solid rgb(105, 102, 102);
+}
+.bloc_footer {
+    text-align: left;
+    width: 300px;
+    padding: 20px 30px;
+    float: left;
+}
+.infoSupplementaires {
+    width: 900px;
+
+    margin: 0 auto;
+    display: flex;
+}
+.newsletter input {
+    width:100%;
+    margin:5px 0px;
+}
+.newsletter button {
+    background-color:#0076a3;
+    float:right;
+    margin-bottom:20px;
+}
+.enSavoirPlus ul, .nosServices ul{
+    padding: 8px 0 0px 0px;
+    margin-top:0;
+    list-style-type:none;
+}
+.enSavoirPlus ul li {
+    display:block;
+    text-decoration:none;
+}
+a:link {
+    color:white}
+.basPage {
+    display:inline-block; 
+    margin:0 auto; 
+    width: 900px;
+}
+.basPage img {
+    float:left;
+    padding:10px;
+}
+.menuBas {
+    float:right;
+    padding:10px;
+    font-weight: 600;
+}
+.menuBas span {
+    margin:0 5px;
+}
+.reseauxSociaux{
+    margin:  0 auto;
+    text-align: center;
+}
+
+.navbar-right{
+    display: none;
+}
 
 @media screen and (max-width: 900px) {
-	.infoSupplementaires {display:inline-block;width:300px;}
+    .infoSupplementaires {
+        width: 596px;
+        display: block;
+    }
+    .enSavoirPlus{
+        width: 173px;
+        padding: 20px 10px;
+    }
+    .nosServices{
+        padding: 20px 10px;
+        width: 185px;
+    }
+    .basPage{
+        width: 100%;
+    }
+    .newsletter{
+        padding: 20px 10px;
+        width: 238px;
+    }
 }
+
+@media screen and (max-width: 600px) {
+    .bloc_footer{
+        width: 300px;
+    }
+    .infoSupplementaires {
+        width: 300px;
+    }
+    .basPage{
+        width: 300px;
+    }
+    .basPage img{
+        text-align: center;
+        margin:  0 auto;
+        float: inherit;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    .header {
+        height:52px;
+        font-size: 15px;
+    }
+
+    .imageLogo{
+        width: 125px;
+        height: 50px;
+
+    }
+
+    .navbar-nav>li {
+        margin-top: 3px;
+    }
+    .imageCompte{
+        width: 35px;
+        height: 35px;
+
+        margin-top: 5px;
+        margin-bottom: -7px;
+    }
+    .navbar-nav {
+        padding-left: 2%;
+    }
+}
+
+@media (max-width: 1200px){
+    .navbar-nav {
+        padding-left: 6.79%;
+
+        /* margin: 0 auto; */
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px){
+    .traitHorizontale{
+        border-right: 1px solid white;
+        height: 20px;
+        margin-top: -36px;
+    }
+    .navbar-right{
+        display: block;
+    }
+
+    .cacher{
+        display: none !important;
+    }
+}
+
 /******* end footer *********/
