@@ -12,7 +12,7 @@ class Account extends CI_Controller {
         if($this->session->userdata('logged_in'))
         {
             $session_data = $this->session->userdata('logged_in');
-            $data['username'] = $session_data['username'];
+            $data['username'] = $session_data['user'];
             $this->load->view('user/account', $data);
         }
         else
@@ -27,6 +27,16 @@ class Account extends CI_Controller {
         $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect('', 'refresh');
+    }
+    
+    function connexion() {
+        $this->load->helper(array('form'));
+        $this->load->templateUser('page_connexion');
+    }
+
+    function inscription() {
+        $this->load->helper(array('form'));
+        $this->load->templateUser('page_inscription');
     }
 
 }
