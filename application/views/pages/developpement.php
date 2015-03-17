@@ -18,7 +18,7 @@
         Cette page vas juste référencer tous les liens pour ce balader sur le site <br/><br/>
         <a href="<?php echo base_url('user/account/inscription') ?>">Inscription</a><br/>
         
-        <a href="<?php echo base_url('/pages/fiche_voyage_descriptif') ?>">Fiche Voyage</a><br/>
+        <a href="<?php echo base_url('/voyage/') ?>">Fiche Voyage</a><br/>
 
 
 </div>
