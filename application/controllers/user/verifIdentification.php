@@ -29,20 +29,17 @@ class VerifIdentification extends CI_Controller {
     function verifInscription() {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');
-        $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean|callback_check_size_50');
+        $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('user', 'user', 'trim|required|xss_clean|callback_check_database_user|callback_check_size');
         $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('cemail', 'cemail', 'trim|required|xss_clean|callback_check_email');
-        $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_size');
+        $this->form_validation->set_rules('cemail', 'cemail', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_size|callback_check_size');
         $this->form_validation->set_rules('cmdp', 'cmdp', 'trim|required|xss_clean|callback_check_mdp');
-        $this->form_validation->set_message('check_database', "Nom d'utilisateur déja utiliser");
 
         if ($this->form_validation->run() == FALSE) {
-            //Field validation failed.  User redirected to login page
             $this->load->templateUser('page_inscription');
         } else {
-            //Go to private area
             $nom = $this->input->post('nom');
             $prenom = $this->input->post('prenom');
             $user = $this->input->post('user');
@@ -61,10 +58,15 @@ class VerifIdentification extends CI_Controller {
     }
 
     function check_size($valeur) {
-        if (sizeof($valeur) >= 6 && sizeof($valeur) <= 50) {
+        if (strlen($valeur) >= 6 && strlen($valeur) <= 50) {
             return true;
         }
-        $this->form_validation->set_message('check_size', $valeur . ' doit être compris entre 6 et 50 caractères');
+        if ('%s' == "mdp") {
+            $label = "Mot de passe";
+        } else {
+            $label = "Nom d'utilisateur";
+        }
+        $this->form_validation->set_message('check_size', $label . ' doit être compris entre 6 et 50 caractères');
         return false;
     }
 
@@ -81,7 +83,7 @@ class VerifIdentification extends CI_Controller {
     }
 
     function check_size_50($valeur) {
-        if (sizeof($valeur) <= 50) {
+        if (strlen($valeur) <= 50) {
             return true;
         }
         $this->form_validation->set_message('check_size', $valeur . ' doit être inférieur à 50 caractères');
@@ -119,7 +121,7 @@ class VerifIdentification extends CI_Controller {
             }
             return TRUE;
         } else {
-            $this->form_validation->set_message('check_database', 'Invalid user or mdp');
+            $this->form_validation->set_message('check_database', "Le nom d'utilisateur ou le mot de passe ne sont pas valides");
             return false;
         }
     }
