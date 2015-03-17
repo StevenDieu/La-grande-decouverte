@@ -64,6 +64,7 @@ class VerifIdentification extends CI_Controller {
         if (sizeof($valeur) >= 6 && sizeof($valeur) <= 50) {
             return true;
         }
+        $this->form_validation->set_message('check_size', $valeur . ' doit être compris entre 6 et 50 caractères');
         return false;
     }
 
@@ -83,6 +84,8 @@ class VerifIdentification extends CI_Controller {
         if (sizeof($valeur) <= 50) {
             return true;
         }
+        $this->form_validation->set_message('check_size', $valeur . ' doit être inférieur à 50 caractères');
+
         return false;
     }
 
