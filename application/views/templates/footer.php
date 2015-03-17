@@ -51,5 +51,7 @@
 
 <script src="<?php echo asset_url(''); ?>/librairie/js/jquery.min.js"></script>
 <script src="<?php echo asset_url(''); ?>/librairie/js/bootstrap.min.js"></script>
+<script type="text/javascript" src = "<?php echo asset_url(''); ?>js/responsiveslides.min.js" ></script>
+
 </body> 
 </html>

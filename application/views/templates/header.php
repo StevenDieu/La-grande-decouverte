@@ -50,7 +50,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><img src="<?php echo asset_url(''); ?>img/compte.png" class="imageCompte" /></a></li>
+                        <li><a class="last" href="#"><img src="<?php echo asset_url(''); ?>img/compte.png" class="imageCompte" /></a></li>
                     </ul>
                 </nav>
             </div>
