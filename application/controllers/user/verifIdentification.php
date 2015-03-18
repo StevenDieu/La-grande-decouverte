@@ -29,8 +29,8 @@ class VerifIdentification extends CI_Controller {
     function verifInscription() {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');
+        $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean|callback_check_size_50');
         $this->form_validation->set_rules('user', 'user', 'trim|required|xss_clean|callback_check_database_user|callback_check_size');
         $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
         $this->form_validation->set_rules('cemail', 'cemail', 'trim|required|xss_clean');
@@ -86,7 +86,12 @@ class VerifIdentification extends CI_Controller {
         if (strlen($valeur) <= 50) {
             return true;
         }
-        $this->form_validation->set_message('check_size', $valeur . ' doit être inférieur à 50 caractères');
+        if ('%s' == "prenom") {
+            $label = "Prenom";
+        } else {
+            $label = "Nom";
+        }
+        $this->form_validation->set_message('check_size_50', $label . ' doit être inférieur à 50 caractères');
 
         return false;
     }
