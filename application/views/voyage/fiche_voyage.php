@@ -56,10 +56,6 @@
 	
 	<div style="clear:both"></div>
 	
-	<div class="entete_fiche_produit">
-	
-	</div>
-	
 	<div class="onglet_fiche">
 		<div class="onglet_fiche_inner">
 			<div id="onglet1" class="onglet onglet1 active"><a href="#">Description du voyage</a></div>
@@ -73,13 +69,20 @@
 		<div id="onglet1" class="contenu_fiche_onglet onglet1mobile active"></div>
 		<div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
 		<div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
-		<div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
+		<div id="onglet3mobile" class="onglet_mobile"><a href="#">Carnet de voyage</a></div>
 		<div id="onglet3" class="contenu_fiche_onglet onglet3mobile"></div>
-	</div>	
+	</div>
+	
+	<div style="clear:both"></div>
+	
 	<br>
-</div>
+        	
 
+</div>
 <script type="text/javascript">
+
+
+
 $(document).ready(function() {
     $('.onglet_fiche_inner a').click(function(event){
 	    event.preventDefault();
@@ -98,7 +101,7 @@ $(document).ready(function() {
 		$(this).parent().toggleClass('active');
 		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
 		$('.contenu_onglet #'+$(this).parent().attr('id')+"mobile").toggleClass('active');
-		$('.contenu_onglet #'+$(this).parent().attr('id')).slideDown("slow");
+		$('.contenu_onglet #'+$(this).parent().attr('id')).show();
 	});
 	
 	$( ".contenu_onglet .onglet_mobile a" ).click(function() {
