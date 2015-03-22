@@ -1,7 +1,7 @@
 <!---------- CONTENT --------->	
-	<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI">
-    </script><div class="content fiche_voyage">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
+    
+<div class="content fiche_voyage">
 	<script>
 	// You can also use "$(window).load(function() {"
 	jQuery(function () {
@@ -22,7 +22,25 @@
 	
 	});
 	
-      function initialize() {
+	jQuery(function () {
+	  // Slideshow 4
+	  jQuery("#slidercarnet1").responsiveSlides({
+	    auto: false,
+	    pager: false,
+	    nav: true,
+	    speed: 500,
+	    namespace: "callbacks",
+	    before: function () {
+	      jQuery('.events').append("<li>before event fired.</li>");
+	    },
+	    after: function () {
+	      jQuery('.events').append("<li>after event fired.</li>");
+	    }
+	  });
+	
+	});
+	
+    function initialize() {
         var mapOptions = {
           center: { lat: 50.633333, lng: 3.066667},
           scrollwheel: false,
@@ -32,10 +50,31 @@
             mapOptions);
       }
       google.maps.event.addDomListener(window, 'load', initialize);
-      
 	</script>
-
 	
+	<script type="text/javascript">
+    $(document).ready(function(){ // quand la page est chargée
+        $(".test").fancybox({
+ 		maxWidth	: 800, 		
+        maxHeight	: 600,
+        fitToView	: false,
+ 		width		: '50%',
+ 		height		: '50%',
+ 		autoSize	: false,
+ 		closeClick	: false,
+ 		openEffect	: 'none',
+ 		closeEffect	: 'none',
+ 		ajax: {
+ 			type     : "POST",
+ 			cache    : false,
+ 			data	 : "var=Artcompix à votre service",
+ 			success	 : function(data){ $.fancybox(data); },
+ 			error 	 : alert('nok'),
+ 		}
+     }); 
+});
+</script>
+		
 	<!-- Slideshow 4 -->
 	<div class="callbacks_container">
 	  <ul class="rslides" id="slider4">
@@ -69,12 +108,40 @@
 		<div id="onglet1" class="contenu_fiche_onglet onglet1mobile active"></div>
 		<div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
 		<div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
+<<<<<<< Updated upstream
 		<div id="onglet3mobile" class="onglet_mobile"><a href="#">Carnet de voyage</a></div>
 		<div id="onglet3" class="contenu_fiche_onglet onglet3mobile"></div>
 	</div>
 	
 	<div style="clear:both"></div>
 	
+=======
+		<div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
+		<div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
+			<div class="article_first">
+				<div class="image">
+					<div class="callbacks_container carnet">
+					  <ul class="rslides" id="slidercarnet1">
+					    <li>
+					      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+					    </li>
+					    <li>
+					      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+					    </li>
+					  </ul>
+					</div>
+					
+					<a class="test fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/test.php"></a>			
+				</div>
+			</div>
+			
+			<div class="article">
+				
+			</div>
+			
+		</div>
+	</div>	
+>>>>>>> Stashed changes
 	<br>
         	
 
@@ -84,6 +151,8 @@
 
 
 $(document).ready(function() {
+
+
     $('.onglet_fiche_inner a').click(function(event){
 	    event.preventDefault();
 	});

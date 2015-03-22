@@ -13,6 +13,7 @@
 
         <!-- CSS -->
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+
         <link href="<?php echo asset_url(''); ?>css/site.css" type="text/css" rel="stylesheet"/>
         <?php if (isset($css)) { ?> 
             <link href="<?php echo asset_url(''); ?>css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
@@ -20,6 +21,8 @@
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>
+        <link href="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5" type="text/css" rel="stylesheet"/>
+        <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 
     </head>
     <body>
