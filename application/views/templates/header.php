@@ -22,7 +22,7 @@
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>
-        <link href="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
         <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 
     </head>

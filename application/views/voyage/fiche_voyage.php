@@ -2,78 +2,55 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
     
 <div class="content fiche_voyage">
-	<script>
-	// You can also use "$(window).load(function() {"
-	jQuery(function () {
-	  // Slideshow 4
-	  jQuery("#slider4").responsiveSlides({
-	    auto: false,
-	    pager: false,
-	    nav: true,
-	    speed: 500,
-	    namespace: "callbacks",
-	    before: function () {
-	      jQuery('.events').append("<li>before event fired.</li>");
-	    },
-	    after: function () {
-	      jQuery('.events').append("<li>after event fired.</li>");
-	    }
-	  });
-	
-	});
-	
-	jQuery(function () {
-	  // Slideshow 4
-	  jQuery("#slidercarnet1").responsiveSlides({
-	    auto: false,
-	    pager: false,
-	    nav: true,
-	    speed: 500,
-	    namespace: "callbacks",
-	    before: function () {
-	      jQuery('.events').append("<li>before event fired.</li>");
-	    },
-	    after: function () {
-	      jQuery('.events').append("<li>after event fired.</li>");
-	    }
-	  });
-	
-	});
-	
-    function initialize() {
-        var mapOptions = {
-          center: { lat: 50.633333, lng: 3.066667},
-          scrollwheel: false,
-          zoom: 10
-        };
-        var map = new google.maps.Map(document.getElementById('carte'),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+	<script type="text/javascript"> 
+		jQuery(function () {
+		  // Slideshow 4
+		  jQuery("#slider4").responsiveSlides({
+		    auto: false,
+		    pager: false,
+		    nav: true,
+		    speed: 500,
+		    namespace: "callbacks",
+		    before: function () {
+		      jQuery('.events').append("<li>before event fired.</li>");
+		    },
+		    after: function () {
+		      jQuery('.events').append("<li>after event fired.</li>");
+		    }
+		  });
+		
+		});
+		
+		jQuery(function () {
+		  jQuery("#slidercarnet1").responsiveSlides({
+		    auto: false,
+		    pager: false,
+		    nav: true,
+		    speed: 500,
+		    namespace: "callbacks",
+		    before: function () {
+		      jQuery('.events').append("<li>before event fired.</li>");
+		    },
+		    after: function () {
+		      jQuery('.events').append("<li>after event fired.</li>");
+		    }
+		  });
+		
+		});
+		
+	    function initialize() {
+	        var mapOptions = {
+	          center: { lat: 50.633333, lng: 3.066667},
+	          scrollwheel: false,
+	          zoom: 10
+	        };
+	        var map = new google.maps.Map(document.getElementById('carte'),
+	            mapOptions);
+	      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
 	
-	<script type="text/javascript">
-    $(document).ready(function(){ // quand la page est chargée
-        $(".test").fancybox({
- 		maxWidth	: 800, 		
-        maxHeight	: 600,
-        fitToView	: false,
- 		width		: '50%',
- 		height		: '50%',
- 		autoSize	: false,
- 		closeClick	: false,
- 		openEffect	: 'none',
- 		closeEffect	: 'none',
- 		ajax: {
- 			type     : "POST",
- 			cache    : false,
- 			data	 : "var=Artcompix à votre service",
- 			success	 : function(data){ $.fancybox(data); },
- 			error 	 : alert('nok'),
- 		}
-     }); 
-});
-</script>
+
 		
 	<!-- Slideshow 4 -->
 	<div class="callbacks_container">
@@ -142,8 +119,6 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-
-
     $('.onglet_fiche_inner a').click(function(event){
 	    event.preventDefault();
 	});
@@ -178,6 +153,25 @@ $(document).ready(function() {
 		$('.contenu_onglet .'+$(this).parent().attr('id')).slideDown("slow");
 		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
 	});
+});
+$(document).ready(function(){ 
+    $(".test").fancybox({
+ 		maxWidth	: 800, 		
+        maxHeight	: 600,
+        fitToView	: false,
+ 		width		: '50%',
+ 		height		: '50%',
+ 		autoSize	: false,
+ 		closeClick	: false,
+ 		openEffect	: 'none',
+ 		closeEffect	: 'none',
+ 		ajax: {
+ 			type     : "POST",
+ 			cache    : false,
+ 			data	 : "var=Artcompix à votre service",
+ 			success	 : function(data){ $.fancybox(data); },
+ 		}
+     }); 
 });
 </script>
 
