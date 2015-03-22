@@ -14,6 +14,7 @@
         <!-- CSS -->
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="<?php echo asset_url(''); ?>css/site.css" type="text/css" rel="stylesheet"/>
+        <link href="<?php echo asset_url(''); ?>css/ficheproduit.css" type="text/css" rel="stylesheet"/>
         <?php if (isset($css)) { ?> 
             <link href="<?php echo asset_url(''); ?>css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
         <?php } ?> 
