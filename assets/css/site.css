@@ -1,7 +1,7 @@
 @font-face { 
-		font-family: 'Open Sans Condensed'; 
-		src: url('../fonts/OpenSans-CondLight.ttf'); 
-	}
+    font-family: 'Open Sans Condensed'; 
+    src: url('../fonts/OpenSans-CondLight.ttf'); 
+}
 
 body {
     margin:auto;
@@ -10,6 +10,12 @@ body {
 }
 
 /******* header *********/
+
+.blockFooter_1{
+    margin: 54px 0 15px 0;
+    
+}
+
 .header {
     height:105px;
     color:white;
@@ -121,117 +127,7 @@ a{
     display:inline-block;
     margin:10px 10px 10px 0px;
 }
-/******* footer *********/
-.footer {
-    text-align:center;
-    /* border-bottom: 1px solid rgb(105, 102, 102); */
-    border-top: 1px solid rgb(105, 102, 102);
-}
-.bloc_footer {
-    text-align: left;
-    width: 300px;
-    padding: 20px 30px;
-    float: left;
-}
-.infoSupplementaires {
-    width: 900px;
 
-    margin: 0 auto;
-    display: flex;
-}
-.newsletter input {
-    width:100%;
-    margin:5px 0px;
-}
-.newsletter button {
-    background-color:#0076a3;
-    float:right;
-    margin-bottom:20px;
-}
-.enSavoirPlus ul, .nosServices ul{
-    padding: 8px 0 0px 0px;
-    margin-top:0;
-    list-style-type:none;
-}
-.enSavoirPlus ul li {
-    display:block;
-    text-decoration:none;
-}
-a:link {
-    color:white}
-.basPage {
-    display:inline-block; 
-    margin:0 auto; 
-    width: 900px;
-}
-.basPage img {
-    float:left;
-    padding:10px;
-}
-.menuBas {
-    float:right;
-    padding:10px;
-    font-weight: 600;
-}
-.menuBas span {
-    margin:0 5px;
-}
-.reseauxSociaux{
-    margin:  0 auto;
-    text-align: center;
-}
-
-.navbar-right{
-    display: none;
-}
-
-@media screen and (max-width: 900px) {
-    .infoSupplementaires {
-        width: 596px;
-        display: block;
-    }
-    .enSavoirPlus{
-        width: 173px;
-        padding: 20px 10px;
-    }
-    .nosServices{
-        padding: 20px 10px;
-        width: 185px;
-    }
-    .basPage{
-        width: 100%;
-    }
-    .newsletter{
-        padding: 20px 10px;
-        width: 238px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .bloc_footer{
-        width: 300px;
-    }
-    .infoSupplementaires {
-        width: 300px;
-    }
-    .basPage{
-        width: 300px;
-    }
-    .basPage img{
-        text-align: center;
-        margin:  0 auto;
-        float: inherit;
-    }
-
-    .content-inscription{
-        width: 100%;
-    }
-    
-    .btn-mobile{
-        width: 100%;
-    }
-
-}
 
 @media screen and (max-width: 992px) {
     .header {
@@ -250,7 +146,7 @@ a:link {
     }
     .imageCompte{
         width: 35px;
-        height: 35px;
+        height: 35px; 
 
         margin-top: 5px;
         margin-bottom: -7px;
@@ -283,6 +179,30 @@ a:link {
         display: none !important;
     }
 }
+
+
+
+/******* footer *********/
+.tailleTitreContact{
+
+}
+.numerosFooter{
+    font-size: 24px;
+    
+}
+h2.titre{
+    font-size: 23px;
+    white-space: nowrap;        
+}
+#footer{
+    text-align: center;
+    margin: 0 auto;
+}
+.trait{
+    margin: 30px 0 0 0;
+    border-bottom: 1px solid white;
+}
+
 
 /******* end footer *********/
 

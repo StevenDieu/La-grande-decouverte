@@ -1,52 +1,37 @@
-<!---------- FOOTER --------->	
-<div class="footer">
-    <div class="infoSupplementaires">
-        <div class="enSavoirPlus bloc_footer">
-            <b>EN SAVOIR PLUS</b>
-            <ul>
-                <li><a href="#">- Qui sommes-nous ?</a></li>
-                <li><a href="#">- Espace presse</a></li>
-                <li><a href="#">- Nous contacter</a></li>
-                <li><a href="#">- Nous rejoindre</a></li>
-                <li><a href="#">- Mensions legales</a></li>
-                <li><a href="#">- CGV</a></li>
-            </ul>
+<div id="footer" >
+    <div class="row blockFooter_1">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div id="footer" class="row">
+                <div class="col-md-4 trait"></div>
+                <div class="col-md-4 tailleTitreContact"><h2 class="titre">CONTACTEZ NOUS</h2></div>
+                <div class="col-md-4 trait"></div>
+            </div>
         </div>
-        <div class="nosServices bloc_footer">
-            <b>NOS SERVICES</b>
-            <ul>
-                <li><a href="#">- Information voyages</a></li>
-                <li><a href="#">- Remboursement voyage</a></li>
-                <li><a href="#">- Paiement sécurisé</a></li>
-                <li><a href="#">- Télécharger notre RIB</a></li>
-                <li><a href="#">- FAQ</a></li>
-            </ul>
-        </div>
-        <div class="newsletter bloc_footer">
-            <form action="" method="post">
-                <b>S'INSCRIRE A LA NEWSLETTER</b><br/>
-                <input type="text" class="form-control" placeholder="votre e-mail"/>
-                <input type="button" class="btn btn-primary" value="S'INSCRIRE" />
-            </form>
-        </div>
+        <div class="col-md-2"></div>
     </div>
-    <div class="basPage">
-        <div class="reseauxSociaux">
-            <img src="#">
-            <img src="#">
-            <img src="#">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            au
         </div>
-        <div class="menuBas">
-            <span><a href="#">Qui sommes-nous ?</a></span>
-            - 
-            <span><a href="#">CGV</a></span>
-            - 
-            <span><a href="#">Mentions legales</a></span>
-            - 
-            <span><a href="#">Contact</a></span>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 numerosFooter">
+            06 71 69 85 16
         </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
+
+
+
+</div>
+
+
 <!---------- / FOOTER --------->	
 
 <script src="<?php echo asset_url(''); ?>/librairie/js/bootstrap.min.js"></script>
