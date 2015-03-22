@@ -26,7 +26,7 @@
         var mapOptions = {
           center: { lat: 50.633333, lng: 3.066667},
           scrollwheel: false,
-          zoom: 8
+          zoom: 10
         };
         var map = new google.maps.Map(document.getElementById('carte'),
             mapOptions);
@@ -65,7 +65,7 @@
 	</div>
 	
 	<div class="contenu_onglet">
-		<div id="onglet1mobile" class="onglet_mobile"><a href="#">Description du voyage</a></div>
+		<div id="onglet1mobile" class="onglet_mobile active"><a href="#">Description du voyage</a></div>
 		<div id="onglet1" class="contenu_fiche_onglet onglet1mobile active"></div>
 		<div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
 		<div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
@@ -75,12 +75,12 @@
 	
 	<div style="clear:both"></div>
 	
-	
+	<br>
         	
 
 </div>
-
 <script type="text/javascript">
+
 
 
 $(document).ready(function() {
@@ -96,15 +96,27 @@ $(document).ready(function() {
 		$('.contenu_onglet .contenu_fiche_onglet').hide();
 		$('.onglet_fiche .onglet_fiche_inner .onglet' ).removeClass('active');
 		$('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
+		$('.contenu_onglet .onglet_mobile' ).removeClass('active');
 		
 		$(this).parent().toggleClass('active');
 		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
+		$('.contenu_onglet #'+$(this).parent().attr('id')+"mobile").toggleClass('active');
 		$('.contenu_onglet #'+$(this).parent().attr('id')).show();
 	});
 	
 	$( ".contenu_onglet .onglet_mobile a" ).click(function() {
+		if($('.contenu_onglet #'+$(this).parent().attr('id')).hasClass('active')){
+			$('.contenu_onglet .contenu_fiche_onglet').slideUp("slow");
+			$('.contenu_onglet .onglet_mobile').removeClass('active');
+			$('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
+			return true;
+		}
 		$('.contenu_onglet .contenu_fiche_onglet').hide();
-		$('.contenu_onglet .'+$(this).parent().attr('id')).show();
+		$('.contenu_onglet .onglet_mobile').removeClass('active');
+		$('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
+		
+		$('.contenu_onglet .'+$(this).parent().attr('id')).slideDown("slow");
+		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
 	});
 });
 </script>
