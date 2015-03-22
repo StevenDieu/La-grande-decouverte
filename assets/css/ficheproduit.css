@@ -1,190 +1,6 @@
-@font-face { 
-		font-family: 'Open Sans Condensed'; 
-		src: url('../fonts/OpenSans-CondLight.ttf'); 
-	}
-
-body {
-    margin:auto;
-    background-color: #1a171b;
-    color: white;
-}
-
-/******* header *********/
-.header {
-    height:105px;
-    color:white;
-    font-size: 19px;
-    vertical-align:middle;
-}
-
-.logo {float:left;}
-.profil {
-    float:right;
-    margin: 25px 75px 0 ;
-}
-.menu {padding:35px;}
-.filAriane {padding:2% 0;}
-
-.menu span{
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-a{
-    text-decoration: none;
-    color : #fff;
-}
-
-.menu a:hover{
-    border-bottom: 2px solid;
-}
-
-.imageLogo{
-    width:250px;
-    height:100px;
-}
-.imageCompte{
-    width: 37px;
-    height: 37px;
-}
-
-@media screen and (max-width: 992px) {
-    .header {
-        height:52px;
-        font-size: 15px;
-    }
-
-    .imageLogo{
-        width: 125px;
-        height: 50px;
-
-    }
-
-    .navbar-nav>li {
-        margin-top: 3px;
-    }
-    .imageCompte{
-        width: 35px;
-        height: 35px;
-
-        margin-top: 5px;
-        margin-bottom: -7px;
-    }
-    .navbar-nav {
-        padding-left: 2%;
-    }
-}
-
-@media (max-width: 1200px){
-    .navbar-nav {
-        padding-left: 6.79%;
-
-        /* margin: 0 auto; */
-        text-align: center;
-    }
-}
-
-@media (min-width: 768px){
-    .traitHorizontale{
-        border-right: 1px solid white;
-        height: 20px;
-        margin-top: -36px;
-    }
-    .navbar-right{
-        display: block;
-    }
-
-    .cacher{
-        display: none !important;
-    }
-}
-
-
-/******* end header *********/
-
-
-.image
-{
-    text-align:center;
-    display: inline-block;
-}
-.original
-{
-    height:100px;
-}
-
-.compte
-{
-    float:right;
-    text-align:right;
-}
-
-.content
-{
-    text-align:left;
-    background-color: white;
-    color: black;
-    padding: 34px;
-}
-
-.content a{
-    color: black !important;
-    text-decoration: underline;
-}
-
-.content-inscription{
-    width: 600px;
-    margin: 0 auto;
-}
-
-.top
-{
-    padding:30px 0px 15px 50px;
-}
-
-.filtres
-{
-    margin-top:50px;
-    margin-bottom:20px;
-    display:inline-block;
-    width:100%;
-}
-
-.nbArticle
-{
-    float:left;
-}
-
-.tri
-{
-    float:right;
-}
-
-.articles 
-{
-    text-align:left;
-    width:100%;
-}
-
-.articles article 
-{
-    display:inline-block;
-    margin:10px 10px 10px 0px;
-}
-/******* footer *********/
-#footer{
-    text-align: center;
-}
-
-/******* end footer *********/
 
 
 
-
-
-
-
-<<<<<<< HEAD
 /**** fiche produit voyage ***/
 
 .content.fiche_voyage{
@@ -215,8 +31,11 @@ a{
   width: 100%;
   }
 
+
+
+
 .callbacks_container {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   position: relative;
   float: left;
   width: 100%;
@@ -259,7 +78,7 @@ a{
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 10px 20px;
+  padding: 20px 20px;
   margin: 0;
   max-width: none;
   }
@@ -294,24 +113,19 @@ a{
 .fiche_voyage .onglet_fiche{
 	width: 100%;
 	height: 50px;
-	border: 1px solid black;
+	border-bottom: 1px solid #CDCDCD;
+	border-top: 1px solid #CDCDCD;
 	display: block;
 	background-color: #fff;
-	border-right:none;
-	border-left:none;
+	margin-bottom: 15px;
 }
 
 .fiche_voyage .onglet_fiche .onglet{
 	display: inline-block;
 	width: 31%;
-	line-height: 48px;
-	padding-left: 10px;
+	line-height: 46px;
+	text-align: center;
 	max-width: 290px;
-}
-
-.fiche_voyage .onglet_fiche .onglet2{
-	border-right: 1px solid black;
-	border-left: 1px solid black;
 }
 
 .fiche_voyage .onglet_fiche .onglet_fiche_inner,.fiche_voyage .onglet_fiche .contenu_fiche_onglet{
@@ -341,6 +155,7 @@ a{
 
 .fiche_voyage .contenu_onglet .contenu_fiche_onglet{
 	min-height: 200px;
+	  margin-bottom: 15px;
 }
 
 .fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet1{
@@ -348,7 +163,6 @@ a{
 }
 
 .fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet2{
-	background: blue;
 	display: none;
 }
 
@@ -370,11 +184,70 @@ a{
 }
 
 .fiche_voyage .onglet_mobile{
-	border-top:1px solid black;
-	border-bottom:1px solid black;
+	border-top:1px solid #CDCDCD;
+	border-bottom:1px solid #CDCDCD;
 	width: 100%;
 	height: 48px;
 	line-height: 48px;
+}
+
+
+#carte{
+	width: 100%;
+	height: 100%;
+}
+
+.onglet a,.onglet_mobile a{
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: 'Open Sans Condensed',sans-serif;
+	font-size: 1.5em;
+	font-weight: 100;
+}
+
+.onglet.active a,.onglet:hover a{
+	font-family: 'Open Sans Condensed',sans-serif;
+	font-size: 1.5em;
+	font-weight: 500;
+	color: #0A1E39;
+}
+
+.onglet_fiche_inner .onglet.active,.fiche_voyage .onglet_mobile.active,.onglet_fiche_inner .onglet:hover,.fiche_voyage .onglet_mobile:hover{
+	border-bottom: 3px solid #0A1E39;
+
+}
+
+.fiche_voyage .onglet_mobile.active{
+	margin-bottom: 10;
+}
+
+#onglet3mobile{
+	border-bottom: none;
+}
+
+#onglet3mobile.active, #onglet3mobile:hover{
+	border-bottom: 3px solid #0A1E39;
+}
+
+.onglet_mobile a{
+	display: block;
+	width: 90%;
+	margin: auto;
+	text-align: center;
+	background: url("../images/ficheproduit/plus-upsell.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+}
+
+.onglet_mobile.active a{
+	background: url("../images/ficheproduit/minus-upsell.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+}
+
+.fiche_voyage .entete_fiche_produit{
+	max-width: 1200px;
+	width: 100%;
+	min-height: 200px;
+	margin: auto;
+	background: black;
+	margin-bottom: 15px;
 }
 
 /*******************      ****/
@@ -383,19 +256,6 @@ a{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> origin/master
 
 
 
