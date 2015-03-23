@@ -26,8 +26,4 @@ class Pages extends CI_Controller {
         $this->load->templatePages('accueil', $data);
     }
 
-    public function fiche_voyage_descriptif() {
-        $this->load->templatePages('fiche_voyage_descriptif');
-    }
-
 }

@@ -9,7 +9,8 @@ class Fiche extends CI_Controller {
      * 
      */
     public function index() {
-        $this->load->templateVoyage('/fiche_voyage');
+        $data["css"] = "ficheVoyage";
+        $this->load->templateVoyage('/fiche_voyage', $data);
         
     }
 }
