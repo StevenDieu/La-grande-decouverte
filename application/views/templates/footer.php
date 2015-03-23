@@ -1,4 +1,4 @@
-<div id="footer" >
+<footer id="footer" >
     <div class="row blockFooter_1">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -141,13 +141,10 @@
         <div class="col-md-1"></div>
     </div>
 
-
-
-</div>
+</footer>
 
 
 
-</div>
 
 
 <!---------- / FOOTER --------->	

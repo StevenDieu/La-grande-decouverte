@@ -8,16 +8,22 @@
     src: url('../fonts/Apercu-Light.otf'); 
 }
 
+@font-face { 
+    font-family: 'Open Sans Condensed'; 
+    src: url('../fonts/OpenSans-CondLight.ttf'); 
+}
+
+
 
 body {
     margin:auto;
     background-color: #1a171b;
     color: white;
     font-family: 'Apercu Light'; 
+
 }
 
 /******* header *********/
-
 .header {
     height: 75px;
     color:white;
