@@ -83,7 +83,7 @@ a{
 }
 
 .content a{
-    color: black !important;
+    color: black;
     text-decoration: underline;
 }
 

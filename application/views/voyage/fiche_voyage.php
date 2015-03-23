@@ -1,59 +1,60 @@
-<!---------- CONTENT --------->	
+<!---------- CONTENT ---------->	
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
-    
-<div class="content fiche_voyage">
-	<script type="text/javascript"> 
-		jQuery(function () {
-		  // Slideshow 4
-		  jQuery("#slider4").responsiveSlides({
-		    auto: false,
-		    pager: false,
-		    nav: true,
-		    speed: 500,
-		    namespace: "callbacks",
-		    before: function () {
-		      jQuery('.events').append("<li>before event fired.</li>");
-		    },
-		    after: function () {
-		      jQuery('.events').append("<li>after event fired.</li>");
-		    }
-		  });
-		
-		});
-		
-		jQuery(function () {
-		  jQuery("#slidercarnet1").responsiveSlides({
-		    auto: false,
-		    pager: false,
-		    nav: true,
-		    speed: 500,
-		    namespace: "callbacks",
-		    before: function () {
-		      jQuery('.events').append("<li>before event fired.</li>");
-		    },
-		    after: function () {
-		      jQuery('.events').append("<li>after event fired.</li>");
-		    }
-		  });
-		
-		});
-		
-	    function initialize() {
-	        var mapOptions = {
-	          center: { lat: 50.633333, lng: 3.066667},
-	          scrollwheel: false,
-	          zoom: 10
-	        };
-	        var map = new google.maps.Map(document.getElementById('carte'),
-	            mapOptions);
-	      }
-	      google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
-	
 
-		
+<script type="text/javascript"> 
+	jQuery(function () {
+	  jQuery("#slider4").responsiveSlides({
+	    auto: false,
+	    pager: false,
+	    nav: true,
+	    speed: 500,
+	    namespace: "callbacks",
+	    before: function () {
+	      jQuery('.events').append("<li>before event fired.</li>");
+	    },
+	    after: function () {
+	      jQuery('.events').append("<li>after event fired.</li>");
+	    }
+	  });
+	
+	});
+	
+	jQuery(function () {
+	  jQuery("#slidercarnet1").responsiveSlides({
+	    auto: false,
+	    pager: false,
+	    nav: true,
+	    speed: 500,
+	    namespace: "callbacks",
+	    before: function () {
+	      jQuery('.events').append("<li>before event fired.</li>");
+	    },
+	    after: function () {
+	      jQuery('.events').append("<li>after event fired.</li>");
+	    }
+	  });
+	
+	});
+    function initialize() {
+        var mapOptions = {
+          center: { lat: 50.633333, lng: 3.066667},
+          scrollwheel: false,
+          zoom: 8,
+        };
+        map = new google.maps.Map(document.getElementById('carte'),mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+      function centrage(){
+      	var center = map.getCenter();
+	    google.maps.event.trigger(map, "resize");
+	    map.setCenter(center);
+      }
+</script>
+
+<div class="content fiche_voyage">		
 	<!-- Slideshow 4 -->
 	<div class="callbacks_container">
 	  <ul class="rslides" id="slider4">
@@ -87,7 +88,7 @@
 	</div>
 	
 	<div class="contenu_onglet">
-		<div id="onglet1mobile" class="onglet_mobile active"><a href="#">Description du voyage</a></div>
+		<div id="onglet1mobile" class="onglet_mobile "><a href="#">Description du voyage</a></div>
 		<div id="onglet1" class="contenu_fiche_onglet onglet1mobile active"></div>
 		<div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
 		<div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
@@ -96,28 +97,173 @@
 			<div class="article_first">
 				<div class="image">
 					<div class="callbacks_container carnet">
-					  <ul class="rslides" id="slidercarnet1">
-					    <li>
-					      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
-					    </li>
-					    <li>
-					      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
-					    </li>
-					  </ul>
+						<a href="#">
+						  <ul class="rslides" id="slidercarnet1">
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+						    </li>
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+						    </li>
+						  </ul>
+						</a>
 					</div>
-					
-					<a class="test fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/test.php"></a>			
+					<script type="text/javascript">
+						$(document).ready(function(){ 
+						    $(".slide_carnet1").fancybox({
+						 		maxWidth	: 1000, 		
+						        maxHeight	: 600,
+						        fitToView	: false,
+						 		width		: '80%',
+						 		height		: '80%',
+						 		autoSize	: false,
+						 		closeClick	: false,
+						 		openEffect	: 'none',
+						 		closeEffect	: 'none',
+						 		ajax: {
+						 			type     : "POST",
+						 			cache    : false,
+						 			data	 : "var=1|<?php echo asset_url(''); ?>",
+						 			success	 : function(data){ $.fancybox(data); },
+						 		}
+						     }); 
+						});
+					</script>
+					<a class="slide_carnet1 fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/popup_carnet.php"></a>
+					<div style="clear:both"></div>
+				</div>
+				<div class="partie_droite">
+					<a class="titre">Deux semaines au Chili</a>
+					<div class="date_auteur">Thomas l'aventurier - 22 / 03 / 2015</div>
+					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
+					<a href="#" class="lire_suite">Voir le carnet ></a>
 				</div>
 			</div>
+
+			<div class="separateur_article"></div>
 			
-			<div class="article">
-				
-			</div>
-			
+			<div class="contenu_article_suivant">
+				<div class="un_article left">
+					<div class="callbacks_container carnet">
+						<a href="#">
+						  <ul class="rslides" id="slidercarnet2">
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+						    </li>
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+						    </li>
+						  </ul>
+						</a>
+					</div>
+					<div style="clear:both"></div>
+					<div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
+					<a class="titre">Deux semaines au Chili</a>
+					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
+					<a href="#" class="lire_suite">Voir le carnet ></a>
+					<script type="text/javascript">
+						jQuery(function () {
+							jQuery("#slidercarnet2").responsiveSlides({
+								auto: false,
+								pager: false,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+									jQuery('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+									jQuery('.events').append("<li>after event fired.</li>");
+								}
+							});
+						});
+					</script>
+					
+				</div>
+
+				<div class="un_article">
+					<div class="callbacks_container carnet">
+						<a href="#">
+						  <ul class="rslides" id="slidercarnet3">
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+						    </li>
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+						    </li>
+						  </ul>
+						</a>
+					</div>
+					<div style="clear:both"></div>
+					<div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
+					<a class="titre">Deux semaines au Chili</a>
+					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
+					<a href="#" class="lire_suite">Voir le carnet ></a>
+					<script type="text/javascript">
+						jQuery(function () {
+							jQuery("#slidercarnet3").responsiveSlides({
+								auto: false,
+								pager: false,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+									jQuery('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+									jQuery('.events').append("<li>after event fired.</li>");
+								}
+							});
+						});
+					</script>
+				</div>
+
+				<div style="clear:both"></div>
+
+				<div class="un_article left">
+					<div class="callbacks_container carnet">
+						<a href="#">
+						  <ul class="rslides" id="slidercarnet4">
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+						    </li>
+						    <li>
+						      <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+						    </li>
+						  </ul>
+						</a>
+					</div>
+					<div style="clear:both"></div>
+					<div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
+					<a class="titre">Deux semaines au Chili</a>
+					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
+					<a href="#" class="lire_suite">Voir le carnet ></a>
+					<script type="text/javascript">
+						jQuery(function () {
+							jQuery("#slidercarnet4").responsiveSlides({
+								auto: false,
+								pager: false,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+									jQuery('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+									jQuery('.events').append("<li>after event fired.</li>");
+								}
+							});
+						});
+					</script>
+				</div>
+
+				<div style="clear:both"></div>
+			</div>	
 		</div>
 	</div>	
 	<br>
 </div>
+
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -138,7 +284,12 @@ $(document).ready(function() {
 		$(this).parent().toggleClass('active');
 		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
 		$('.contenu_onglet #'+$(this).parent().attr('id')+"mobile").toggleClass('active');
-		$('.contenu_onglet #'+$(this).parent().attr('id')).slideDown("slow");
+		if($(this).parent().attr('id') == 'onglet2'){
+			$('.contenu_onglet #'+$(this).parent().attr('id')).show();
+			centrage();
+		}else{
+			$('.contenu_onglet #'+$(this).parent().attr('id')).slideDown("slow");
+		}
 	});
 	
 	$( ".contenu_onglet .onglet_mobile a" ).click(function() {
@@ -152,28 +303,14 @@ $(document).ready(function() {
 		$('.contenu_onglet .onglet_mobile').removeClass('active');
 		$('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
 		
-		$('.contenu_onglet .'+$(this).parent().attr('id')).slideDown("slow");
+		
 		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
+		if($(this).parent().attr('id') == 'onglet2mobile'){		
+			$('.contenu_onglet .'+$(this).parent().attr('id')).show();centrage();
+		}else{
+			$('.contenu_onglet .'+$(this).parent().attr('id')).slideDown("slow");
+		}
 	});
-});
-$(document).ready(function(){ 
-    $(".test").fancybox({
- 		maxWidth	: 800, 		
-        maxHeight	: 600,
-        fitToView	: false,
- 		width		: '50%',
- 		height		: '50%',
- 		autoSize	: false,
- 		closeClick	: false,
- 		openEffect	: 'none',
- 		closeEffect	: 'none',
- 		ajax: {
- 			type     : "POST",
- 			cache    : false,
- 			data	 : "var=Artcompix à votre service",
- 			success	 : function(data){ $.fancybox(data); },
- 		}
-     }); 
 });
 </script>
 
