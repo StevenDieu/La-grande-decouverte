@@ -4,39 +4,28 @@
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 
 <script type="text/javascript"> 
-	jQuery(function () {
-	  jQuery("#slider4").responsiveSlides({
-	    auto: false,
-	    pager: false,
-	    nav: true,
-	    speed: 500,
-	    namespace: "callbacks",
-	    before: function () {
-	      jQuery('.events').append("<li>before event fired.</li>");
-	    },
-	    after: function () {
-	      jQuery('.events').append("<li>after event fired.</li>");
-	    }
-	  });
-	
-	});
-	
-	jQuery(function () {
-	  jQuery("#slidercarnet1").responsiveSlides({
-	    auto: false,
-	    pager: false,
-	    nav: true,
-	    speed: 500,
-	    namespace: "callbacks",
-	    before: function () {
-	      jQuery('.events').append("<li>before event fired.</li>");
-	    },
-	    after: function () {
-	      jQuery('.events').append("<li>after event fired.</li>");
-	    }
-	  });
-	
-	});
+	//initialise le slider en prenant en param un id
+	function initialiseResponsiveSilide(id){
+		jQuery(function () {
+		  jQuery(id).responsiveSlides({
+		    auto: true,
+		    pager: false,
+		    timeout: 6000,
+		    nav: true,
+		    speed: 500,
+		    namespace: "callbacks",
+		    before: function () {
+		      jQuery('.events').append("<li>before event fired.</li>");
+		    },
+		    after: function () {
+		      jQuery('.events').append("<li>after event fired.</li>");
+		    }
+		  });
+		
+		});
+	}
+
+	//initialise la map google
     function initialize() {
         var mapOptions = {
           center: { lat: 50.633333, lng: 3.066667},
@@ -44,20 +33,21 @@
           zoom: 8,
         };
         map = new google.maps.Map(document.getElementById('carte'),mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
 
-      function centrage(){
-      	var center = map.getCenter();
-	    google.maps.event.trigger(map, "resize");
-	    map.setCenter(center);
-      }
+    //centre la map google
+	function centrage(){
+		var center = map.getCenter();
+		google.maps.event.trigger(map, "resize");
+		map.setCenter(center);
+	}
 </script>
 
 <div class="content fiche_voyage">		
 	<!-- Slideshow 4 -->
 	<div class="callbacks_container">
-	  <ul class="rslides" id="slider4">
+	  <ul class="rslides" id="slider_top">
 	    <li>
 	      <img src="<?php echo asset_url(''); ?>images/1.jpg" alt="">
 	      <p class="caption">This is a caption</p>
@@ -110,6 +100,7 @@
 					</div>
 					<script type="text/javascript">
 						$(document).ready(function(){ 
+							initialiseResponsiveSilide('#slidercarnet1');
 						    $(".slide_carnet1").fancybox({
 						 		maxWidth	: 1000, 		
 						        maxHeight	: 600,
@@ -161,24 +152,7 @@
 					<a class="titre">Deux semaines au Chili</a>
 					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
 					<a href="#" class="lire_suite">Voir le carnet ></a>
-					<script type="text/javascript">
-						jQuery(function () {
-							jQuery("#slidercarnet2").responsiveSlides({
-								auto: false,
-								pager: false,
-								nav: true,
-								speed: 500,
-								namespace: "callbacks",
-								before: function () {
-									jQuery('.events').append("<li>before event fired.</li>");
-								},
-								after: function () {
-									jQuery('.events').append("<li>after event fired.</li>");
-								}
-							});
-						});
-					</script>
-					
+					<script type="text/javascript">initialiseResponsiveSilide('#slidercarnet2');</script>
 				</div>
 
 				<div class="un_article">
@@ -199,23 +173,7 @@
 					<a class="titre">Deux semaines au Chili</a>
 					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
 					<a href="#" class="lire_suite">Voir le carnet ></a>
-					<script type="text/javascript">
-						jQuery(function () {
-							jQuery("#slidercarnet3").responsiveSlides({
-								auto: false,
-								pager: false,
-								nav: true,
-								speed: 500,
-								namespace: "callbacks",
-								before: function () {
-									jQuery('.events').append("<li>before event fired.</li>");
-								},
-								after: function () {
-									jQuery('.events').append("<li>after event fired.</li>");
-								}
-							});
-						});
-					</script>
+					<script type="text/javascript">initialiseResponsiveSilide('#slidercarnet3');</script>
 				</div>
 
 				<div style="clear:both"></div>
@@ -238,25 +196,8 @@
 					<a class="titre">Deux semaines au Chili</a>
 					<div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
 					<a href="#" class="lire_suite">Voir le carnet ></a>
-					<script type="text/javascript">
-						jQuery(function () {
-							jQuery("#slidercarnet4").responsiveSlides({
-								auto: false,
-								pager: false,
-								nav: true,
-								speed: 500,
-								namespace: "callbacks",
-								before: function () {
-									jQuery('.events').append("<li>before event fired.</li>");
-								},
-								after: function () {
-									jQuery('.events').append("<li>after event fired.</li>");
-								}
-							});
-						});
-					</script>
+					<script type="text/javascript">initialiseResponsiveSilide('#slidercarnet4');</script>
 				</div>
-
 				<div style="clear:both"></div>
 			</div>	
 		</div>
@@ -267,6 +208,8 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+	initialiseResponsiveSilide('#slider_top');
+	
     $('.onglet_fiche_inner a').click(function(event){
 	    event.preventDefault();
 	});
@@ -302,7 +245,6 @@ $(document).ready(function() {
 		$('.contenu_onglet .contenu_fiche_onglet').hide();
 		$('.contenu_onglet .onglet_mobile').removeClass('active');
 		$('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
-		
 		
 		$('.contenu_onglet #'+$(this).parent().attr('id')).toggleClass('active');
 		if($(this).parent().attr('id') == 'onglet2mobile'){		
