@@ -133,7 +133,7 @@
 
 .fiche_voyage .onglet_fiche .onglet{
 	display: inline-block;
-	width: 31%;
+	width: 24%;
 	line-height: 46px;
 	text-align: center;
 	max-width: 290px;
@@ -169,15 +169,7 @@
 	  margin-bottom: 15px;
 }
 
-.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet1{
-	background: red;
-}
-
-.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet2{
-	display: none;
-}
-
-.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet3{
+.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet3,.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet2,.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet4{
 	display: none;
 }
 
@@ -303,7 +295,7 @@
 	margin-bottom: 10;
 }
 
-#onglet3mobile{
+#onglet4mobile{
 	border-bottom: none;
 }
 
@@ -477,6 +469,47 @@
 	margin: auto;
 }
 
+.vignette-paysage .header{
+	height: 15px;
+}
+
+.onglet4mobile .contenu{
+	max-width: 900px;
+	width: 100%;
+	margin: auto;
+	min-height: 150px;
+	padding-top: 20px;
+}
+
+.onglet4mobile .contenu .titre,.onglet4mobile .contenu .description{
+	width: 85%;
+	margin: auto;
+}
+
+.onglet4mobile .contenu .description{
+	margin-bottom: 25px;
+	font-size: 14px;
+}
+
+.onglet4mobile .contenu .titre span{
+  font-family: Apercu Bold,Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.onglet4mobile .contenu .titre{
+	font-family: Apercu Light,Helvetica,Arial,sans-serif;
+	margin-bottom: 5px;
+}
+
+.onglet4mobile .contenu .inter_jour{
+	width: 20%;
+	height: 1px;
+	border-top: 1px solid black;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 
 /*******************      ****/
 

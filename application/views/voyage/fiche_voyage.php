@@ -73,13 +73,16 @@
 		<div class="onglet_fiche_inner">
 			<div id="onglet1" class="onglet onglet1 active"><a href="#">Description du voyage</a></div>
 			<div id="onglet2" class="onglet onglet2"><a href="#">Carte</a></div>
-			<div id="onglet3" class="onglet onglet3"><a href="#">Carnet de voyage</a></div>	
+			<div id="onglet3" class="onglet onglet3"><a href="#">Carnet de voyage</a></div>
+			<div id="onglet4" class="onglet onglet4"><a href="#">Déroulement</a></div>	
 		</div>
 	</div>
 	
 	<div class="contenu_onglet">
 		<div id="onglet1mobile" class="onglet_mobile "><a href="#">Description du voyage</a></div>
-		<div id="onglet1" class="contenu_fiche_onglet onglet1mobile active"></div>
+		<div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
+			<script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/624980/type/VILLE_FRANCE/size/PAYSAGE_VIGNETTE' type='text/javascript'></script>
+		</div>
 		<div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
 		<div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
 		<div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
@@ -200,6 +203,32 @@
 				</div>
 				<div style="clear:both"></div>
 			</div>	
+		</div>
+		<div id="onglet4mobile" class="onglet_mobile"><a href="#">Déroulement</a></div>
+		<div id="onglet4" class="contenu_fiche_onglet onglet4mobile">
+			<div class="contenu">
+				<div class="titre"><span>JOUR 1</span> - Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
+				<div class="description">4 nuits à l'Alto Atacama dans une Chambre Quitor en pension complète avec activités.</div>
+				<div class="inter_jour"></div>
+
+				<div class="titre"><span>JOURS 2 à 5</span> - Désert d'Atacama</div>
+				<div class="description">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+Le soir, l'observation des étoiles y est incroyable !</div>
+				<div class="inter_jour"></div>
+
+				<div class="titre"><span>JOUR 5</span> - Transfert en voiture vers Atacama.</div>
+				<div class="description">Vol domestique vers Punta Arenas (avec escale nécessaire à Santiago).
+Transfert en voiture de Punta Arenas à votre lodge.
+4 nuits au Patagonia Camp dans une yourte de luxe en pension complète avec activités.</div>
+				<div class="inter_jour"></div>
+
+				<div class="titre"><span>JOURS 6 à 9</span> - Patagonie & Torres del Paine</div>
+				<div class="description">Patagonia Camp propose un large éventail d'activités au choix : randonnées dans le Parc de Torres del Paine à la découverte de la faune, de la flore, des lacs et des glaciers.</div>
+				<div class="inter_jour"></div>
+				
+				<div class="titre"><span>JOUR 9</span> - Transfert en voiture vers Punta Arenas.</div>
+				<div class="description">Vol vers Santiago de Chile.</div>
+			</div>
 		</div>
 	</div>	
 	<br>
