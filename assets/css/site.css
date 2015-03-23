@@ -25,9 +25,9 @@ body {
 
 /******* header *********/
 .header {
-    height: 75px;
+    height: 50px;
     color:white;
-    font-size: 19px;
+    font-size: 16px;
     vertical-align:middle;
 }
 
@@ -54,33 +54,35 @@ a{
 }
 
 .imageLogo{
-    width: 200px;
-    height: 75px;
+    width: 150px;
+    height: 50px;
 }
 .imageCompte{
-    width: 37px;
-    height: 37px;
+    width: 33px;
+    height: 33px;
 }
 
 
 .textMenu{
-    margin: 0 0% -40px 0;
+    margin: 0 45px -50px 0;
     position: inherit;
-    height: 75px;
+    height: 50px;
     vertical-align: middle;
-    width: 30%;
-    padding-top: 24px;
+    width: 26%;
     text-align: center;
+    padding-top: 14px;
 }
 
 .allTextMenu{
-    margin: 0px 0 -70px 0;
+    margin: 0px 0px 0 29px;
+    padding-left: 0;
     display: flex;
+    /* margin: 0 auto; */
+    text-align: center;
 }
 
 .textMenu:hover{
-    background-color: rgba(255, 255, 255, 1);
-    color: #747474 !important;
+    color: #DFDEDE !important;
 }
 
 
@@ -125,7 +127,7 @@ a{
         width: 35px;
         height: 35px; 
 
-        margin-top: 5px;
+        margin-top: 25px;
         margin-bottom: -7px;
     }
     .navbar-nav {
@@ -138,7 +140,9 @@ a{
 @media (min-width: 768px){
     .navbar-right{
         display: block;
-    }
+    
+        margin-top: -20px;
+}
 
     .cacher{
         display: none !important;
@@ -146,7 +150,7 @@ a{
 
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     .textMenu{
         margin: 0;
 
