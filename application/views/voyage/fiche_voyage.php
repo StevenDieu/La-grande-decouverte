@@ -30,7 +30,7 @@
         var mapOptions = {
           center: { lat: 50.633333, lng: 3.066667},
           scrollwheel: false,
-          zoom: 8,
+          zoom: 10,
         };
         map = new google.maps.Map(document.getElementById('carte'),mapOptions);
     }
