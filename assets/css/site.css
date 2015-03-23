@@ -1,18 +1,25 @@
 @font-face { 
-    font-family: 'Open Sans Condensed'; 
-    src: url('../fonts/OpenSans-CondLight.ttf'); 
+    font-family: 'Apercu Bold'; 
+    src: url('../fonts/Apercu-Bold.otf'); 
 }
+
+@font-face { 
+    font-family: 'Apercu Light'; 
+    src: url('../fonts/Apercu-Light.otf'); 
+}
+
 
 body {
     margin:auto;
     background-color: #1a171b;
     color: white;
+    font-family: 'Apercu Light'; 
 }
 
 /******* header *********/
 
 .header {
-    height:105px;
+    height: 75px;
     color:white;
     font-size: 19px;
     vertical-align:middle;
@@ -41,8 +48,8 @@ a{
 }
 
 .imageLogo{
-    width:250px;
-    height:100px;
+    width: 200px;
+    height: 75px;
 }
 .imageCompte{
     width: 37px;
@@ -50,6 +57,113 @@ a{
 }
 
 
+.textMenu{
+    margin: 0 0% -40px 0;
+    position: inherit;
+    height: 75px;
+    vertical-align: middle;
+    width: 30%;
+    padding-top: 24px;
+    text-align: center;
+}
+
+.allTextMenu{
+    margin: 0px 0 -70px 0;
+    display: flex;
+}
+
+.textMenu:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: #747474 !important;
+}
+
+
+@media (max-width: 1200px){
+    .navbar-nav {
+        padding-left: 6.79%;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .textMenu {
+        white-space: nowrap;
+        margin: -27px 0% -41px 0;
+
+        height: 64px;
+        padding-top: 28px;
+    }
+    .allTextMenu{
+        margin: 0 10% 0 0;
+    }
+    .allTextMenu{
+        margin: 14px 0 -85px 0;
+    }
+
+    .header {
+        height: 50px;
+        font-size: 15px;
+    }
+
+    .imageLogo{
+        width: 125px;
+        height: 50px;
+
+    }
+
+    .navbar-nav>li {
+        margin-top: 3px;
+    }
+    .imageCompte{
+        width: 35px;
+        height: 35px; 
+
+        margin-top: 5px;
+        margin-bottom: -7px;
+    }
+    .navbar-nav {
+        padding-left: 2%;
+    }
+}
+
+
+
+@media (min-width: 768px){
+    .navbar-right{
+        display: block;
+    }
+
+    .cacher{
+        display: none !important;
+    }
+
+}
+
+@media (max-width: 768px){
+    .textMenu{
+        margin: 0;
+
+        width: 100px;
+        height: 50px;
+        padding-top: 15px;
+    }
+    .navbar-right{
+        display: none;
+    }
+    .allTextMenu{
+        margin: 20px 0 20px 0;
+
+        width: 100%;
+        text-align: center;
+
+
+        display: initial;
+    }
+
+
+
+}
 /******* end header *********/
 
 
@@ -121,58 +235,6 @@ a{
 {
     display:inline-block;
     margin:10px 10px 10px 0px;
-}
-
-
-@media screen and (max-width: 992px) {
-    .header {
-        height:70px;
-        font-size: 15px;
-    }
-
-    .imageLogo{
-        width: 125px;
-        height: 50px;
-
-    }
-
-    .navbar-nav>li {
-        margin-top: 3px;
-    }
-    .imageCompte{
-        width: 35px;
-        height: 35px; 
-
-        margin-top: 5px;
-        margin-bottom: -7px;
-    }
-    .navbar-nav {
-        padding-left: 2%;
-    }
-}
-
-@media (max-width: 1200px){
-    .navbar-nav {
-        padding-left: 6.79%;
-
-        /* margin: 0 auto; */
-        text-align: center;
-    }
-}
-
-@media (min-width: 768px){
-    .traitHorizontale{
-        border-right: 1px solid white;
-        height: 20px;
-        margin-top: -36px;
-    }
-    .navbar-right{
-        display: block;
-    }
-
-    .cacher{
-        display: none !important;
-    }
 }
 
 li{

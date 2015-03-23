@@ -37,19 +37,28 @@
                     <a href="#"><img src="<?php echo asset_url(''); ?>img/logo_final.png" class="imageLogo" /></a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="#">VOYAGES</a><div class="traitHorizontale"></div>
-                        </li>
-                        <li>
-                            <a href="#">CARNETS DE VOYAGES</a><div class="traitHorizontale"></div>
-                        </li>
-                        <li>
-                            <a href="#">ACTUALIT&Eacute;S</a>
-                        </li>
-                        <li class="cacher">
-                            <a href="#">CONNEXION / INSCRIPTION</a>
-                        </li>
+                    <div class="allTextMenu">
+                        <a href="#" class="textMenu">
+                            <div>
+                                VOYAGES
+                            </div>
+                        </a>
+                        <a href="#" class="textMenu">
+                            <div>
+                                CARNETS DE VOYAGES
+                            </div>
+                        </a>
+                        <a href="#" class="textMenu">
+                            <div>
+                                ACTUALIT&Eacute;S
+                            </div>
+                        </a>
+                        <a href="#" class="textMenu cacher">
+                            <div>
+                                CONNEXION / INSCRIPTION
+                            </div>
+                        </a>
+                    </div>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="last" href="#"><img src="<?php echo asset_url(''); ?>img/compte.png" class="imageCompte" /></a></li>
@@ -57,23 +66,3 @@
                 </nav>
             </div>
         </header>
-        <!---------- HEADER --------->	
-        <!--        <div class="header">
-                    <div class="logo">
-                        <a href="#"><img src="<?php echo asset_url(''); ?>img/logo_final.png" width=250px height=100px/></a>
-                    </div>
-                    <div class="profil">
-                        <a href="#"><img src="<?php echo asset_url(''); ?>img/compte.png" width=45px height=45px/></a>
-                    </div>
-                    <div class="menu">
-                        <span><a href="#">VOYAGES</a></span>
-                        |
-                        <span><a href="#">CARNETS DE VOYAGES</a></span>
-                        |
-                        <span><a href="#">ACTUALIT&Eacute;S</a></span>
-                    </div>
-                </div>
-                <div class="filAriane">
-                    <span>Accueil > </span>
-                </div>-->
-        <!---------- / HEADER --------->	
