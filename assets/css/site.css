@@ -48,6 +48,17 @@ a{
     color : #fff;
 }
 
+.content{
+    background-color: #fff;
+    color: #000;
+    padding: 25px 0;
+}
+
+.content a{
+    color: #000;
+}
+
+
 .menu a:hover{
     border-bottom: 2px solid;
 }

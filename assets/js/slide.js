@@ -17,7 +17,6 @@ function initialiseResponsiveSilide(id) {
     });
 }
 function resizeSlide() {
-    console.log("test");
     if ($(".callbacks_container ul li img").height() >= (window.innerHeight - $(".header").height())) {
         $('.slider_principal').css('height', window.innerHeight - 50);
         $('#slider_top').css('height', window.innerHeight - 50);
@@ -27,6 +26,44 @@ function resizeSlide() {
         $('#slider_top').css('height', '');
         $('#slider_top li').css('height', '');
     }
+}
+
+function  clickContenuOnglet(element) {
+    $('.contenu_onglet .contenu_fiche_onglet').hide();
+    $('.onglet_fiche .onglet_fiche_inner .onglet').removeClass('active');
+    $('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
+    $('.contenu_onglet .onglet_mobile').removeClass('active');
+
+    $(element).parent().toggleClass('active');
+    $('.contenu_onglet #' + $(element).parent().attr('id')).toggleClass('active');
+    $('.contenu_onglet #' + $(element).parent().attr('id') + "mobile").toggleClass('active');
+    if ($(element).parent().attr('id') == 'onglet2') {
+        $('.contenu_onglet #' + $(element).parent().attr('id')).show();
+        centrage();
+    } else {
+        $('.contenu_onglet #' + $(element).parent().attr('id')).slideDown("slow");
+    }
+}
+
+function  clickContenuOngletMobile(element) {
+    if ($('.contenu_onglet #' + $(element).parent().attr('id')).hasClass('active')) {
+        $('.contenu_onglet .contenu_fiche_onglet').slideUp("slow");
+        $('.contenu_onglet .onglet_mobile').removeClass('active');
+        $('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
+        return true;
+    }
+    $('.contenu_onglet .contenu_fiche_onglet').hide();
+    $('.contenu_onglet .onglet_mobile').removeClass('active');
+    $('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
+
+    $('.contenu_onglet #' + $(element).parent().attr('id')).toggleClass('active');
+    if ($(element).parent().attr('id') == 'onglet2mobile') {
+        $('.contenu_onglet .' + $(element).parent().attr('id')).show();
+        centrage();
+    } else {
+        $('.contenu_onglet .' + $(element).parent().attr('id')).slideDown("slow");
+    }
+
 }
 
 
@@ -48,39 +85,10 @@ $(window).load(function () {
     });
 
     $(".onglet_fiche_inner a").click(function () {
-        $('.contenu_onglet .contenu_fiche_onglet').hide();
-        $('.onglet_fiche .onglet_fiche_inner .onglet').removeClass('active');
-        $('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
-        $('.contenu_onglet .onglet_mobile').removeClass('active');
-
-        $(this).parent().toggleClass('active');
-        $('.contenu_onglet #' + $(this).parent().attr('id')).toggleClass('active');
-        $('.contenu_onglet #' + $(this).parent().attr('id') + "mobile").toggleClass('active');
-        if ($(this).parent().attr('id') == 'onglet2') {
-            $('.contenu_onglet #' + $(this).parent().attr('id')).show();
-            centrage();
-        } else {
-            $('.contenu_onglet #' + $(this).parent().attr('id')).slideDown("slow");
-        }
+        clickContenuOnglet(this);
     });
 
     $(".contenu_onglet .onglet_mobile a").click(function () {
-        if ($('.contenu_onglet #' + $(this).parent().attr('id')).hasClass('active')) {
-            $('.contenu_onglet .contenu_fiche_onglet').slideUp("slow");
-            $('.contenu_onglet .onglet_mobile').removeClass('active');
-            $('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
-            return true;
-        }
-        $('.contenu_onglet .contenu_fiche_onglet').hide();
-        $('.contenu_onglet .onglet_mobile').removeClass('active');
-        $('.contenu_onglet .contenu_fiche_onglet').removeClass('active');
-
-        $('.contenu_onglet #' + $(this).parent().attr('id')).toggleClass('active');
-        if ($(this).parent().attr('id') == 'onglet2mobile') {
-            $('.contenu_onglet .' + $(this).parent().attr('id')).show();
-            centrage();
-        } else {
-            $('.contenu_onglet .' + $(this).parent().attr('id')).slideDown("slow");
-        }
+        clickContenuOngletMobile(this);
     });
 });
