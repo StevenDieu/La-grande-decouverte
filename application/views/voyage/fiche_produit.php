@@ -55,7 +55,7 @@
     <div class="onglet_fiche">
         <div class="onglet_fiche_inner">
             <!-- onglet vu desktop -->
-            <div id="onglet1" class="onglet onglet1 active"><a href="#">Description du voyage</a></div>
+            <div id="onglet1" class="onglet onglet1 active"><a href="#">Description voyage</a></div>
             <div id="onglet2" class="onglet onglet2"><a href="#">Carte</a></div>
             <div id="onglet3" class="onglet onglet3"><a href="#">Carnet de voyage</a></div>
             <div id="onglet4" class="onglet onglet4"><a href="#">Déroulement</a></div>	
