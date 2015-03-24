@@ -18,7 +18,7 @@
 body {
     margin:auto;
     background-color: #1a171b;
-    color: white;
+    color: #FFF;
 
 }
 
@@ -197,7 +197,7 @@ a{
     text-align:left;
     background-color: white;
     color: black;
-    padding: 34px;
+    padding: 25px 0%;
 }
 
 .content a{
@@ -249,16 +249,16 @@ a{
     margin:10px 10px 10px 0px;
 }
 
-li{
-    display: inherit;
-}
-a:hover,a:focus{
+
+
+/******* footer *********/
+footer a:hover,a:focus{
     color: #BBBBBB !important;
     text-decoration: none;
 }
-
-/******* footer *********/
-
+footer li{
+    display: inherit;
+}
 
 #footer li{
     margin-top: 10px;
