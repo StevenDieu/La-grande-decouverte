@@ -217,6 +217,14 @@ a{
     text-decoration: none;
 }
 
+.content-contact{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.content-contact textarea{
+    resize: vertical;
+    height: 200px;}
+
 .top
 {
     padding:30px 0px 15px 50px;

@@ -1,64 +1,61 @@
-<!DOCTYPE html>
-<html>
-<form class="form-horizontal">
-<fieldset>
+<div class="content">
+    <form class="content-contact form-horizontal">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Contact</legend>
 
-<!-- Form Name -->
-<legend>Contact</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label for="Nom" class="control-label col-sm-3">Nom *</label>
+                <div class="col-sm-9">
+                    <input id="Nom" name="Nom" type="text" placeholder="nom" class="form-control">
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="Nom">Nom</label>
-  <div class="controls">
-    <input id="Nom" name="Nom" type="text" placeholder="nom" class="input-xlarge">
-    
-  </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Prénom">Prénom *</label>
+                <div class="col-sm-9">
+                    <input id="Prénom" name="Prénom" type="text" placeholder="prénom" class="form-control">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="mail">Email *</label>
+                <div class="col-sm-9">
+                    <input id="mail" name="mail" type="text" placeholder="email" class="form-control">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Objet">Objet *</label>
+                <div class="col-sm-9">
+                    <input id="Objet" name="Objet" type="text" placeholder="objet" class="form-control">
+
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Message">Votre message *</label>
+                <div class="col-sm-9">                     
+                    <textarea id="Message" class="form-control" placeholder="Votre message" name="Message"></textarea>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Envoyer"></label>
+                <div class="col-sm-9">
+                    <button id="Envoyer" name="Envoyer" class="btn btn-success">Envoyer</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
 </div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="Prénom">Prénom</label>
-  <div class="controls">
-    <input id="Prénom" name="Prénom" type="text" placeholder="prénom" class="input-xlarge">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="mail">Email</label>
-  <div class="controls">
-    <input id="mail" name="mail" type="text" placeholder="email" class="input-xlarge">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="Objet">Objet</label>
-  <div class="controls">
-    <input id="Objet" name="Objet" type="text" placeholder="objet" class="input-xlarge">
-    
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="control-group">
-  <label class="control-label" for="Message">Votre message</label>
-  <div class="controls">                     
-    <textarea id="Message" name="Message"></textarea>
-  </div>
-</div>
-
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="Envoyer"></label>
-  <div class="controls">
-    <button id="Envoyer" name="Envoyer" class="btn btn-success">Envoyer</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-</html>
