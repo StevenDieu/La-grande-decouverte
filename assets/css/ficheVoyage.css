@@ -1,8 +1,13 @@
 .fiche_voyage{
-    background-color: #fff;
+    background: #fff;
+    text-align: left;        
+    color: #000;
 }
 
-
+.content_fiche_voyage{
+    max-width: 1200px;
+    margin: 0 auto
+}
 .rslides {
     margin: 0 auto 40px;
 }
@@ -109,7 +114,7 @@
 
 .carnet_user{
     padding-left: 25px;
-    padding-top : 20px;
+    padding-top: 0px;
     float : left;
 }
 
@@ -117,4 +122,18 @@
     float: right;
     padding-right: 25px;
 
+}
+
+.content_fiche_voyage .share_carnet .icone-social{
+    width: 30px;
+    height: 30px;
+}
+
+.content_fiche_voyage .image_profile{
+    max-width: 225px;
+}
+
+.content_fiche_voyage .bloc_image_profile{
+    max-height: 225px;
+    overflow: hidden; 
 }

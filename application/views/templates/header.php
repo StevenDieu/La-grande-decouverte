@@ -49,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="<?php echo base_url('pages') ?>"><img src="<?php echo asset_url(''); ?>img/logo_final.png" class="imageLogo" /></a>
+                    <a href="<?php echo base_url('pages') ?>"><img src="<?php echo asset_url(''); ?>images/header/finalogo_blanc.png" class="imageLogo" /></a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <div class="allTextMenu">
@@ -76,7 +76,7 @@
                     </div>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="last" href="#"><img src="<?php echo asset_url(''); ?>img/compte.png" class="imageCompte" /></a></li>
+                        <li><a class="last" href="#"><img src="<?php echo asset_url(''); ?>images/header/compte.png" class="imageCompte" /></a></li>
                     </ul>
                 </nav>
             </div>

@@ -17,16 +17,33 @@
         </ul>
     </div>
 
-        <div style="clear:both"></div>
+    <div style="clear:both"></div>
+    <div class="content_fiche_voyage">
+        <div class="carnet_user">
+            <p>Carnet : public</p>
+        </div>
+        <div class="share_carnet">
+            <p>Partager ce carnet de voyage :
+                <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" class="icone-social" alt=""></a>
+                <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" class="icone-social" alt=""></a>
+                <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" class="icone-social" alt=""></a>
+            </p>
+        </div> 
 
-            <div class="carnet_user">
-                <p>Carnet : public</p>
+        <div style="clear:both"></div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="bloc_image_profile">
+                    <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
+                </div>
             </div>
-            <div class="share_carnet">
-                <p>Partager ce carnet de voyage :
-                    <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
-                    <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
-                    <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
-                </p>
-            </div>   
+            <div class="col-lg-9">
+
+            </div>
+        </div>
+
+
+
+
+    </div>
 </div>
