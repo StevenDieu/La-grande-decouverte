@@ -94,33 +94,27 @@
                 <div id="jcl-demo">
                     <div class="custom-container widget">
                         <div class="mid">
-                            <img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt="">
+                            <img class="zoom" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt="">
                         </div>
-                        <a href="#" class="prev">&lsaquo;</a>  
                         <div class="carousel">  
                                                   
                             <ul>
-                                <li><img width="100%" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
-                                <li><img width="100%" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                                <li><img width="100%" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
+                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
+                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
+                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
+                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
                             </ul> 
                                                    
-                        </div>
-                        <a href="#" class="next">&rsaquo;</a>  
-                        
+                        </div>                        
                         <div class="clear"></div>
                     </div>
 
 
                     <script type="text/javascript">
                         $(function() {
-                            $(".widget .carousel").jCarouselLite({
-                                btnNext: ".widget .next",
-                                btnPrev: ".widget .prev",
-                                speed: 800,
-                                visible: 2,
-                                easing: "easeOutBack"
-                            });
+      
                             $(".widget img").click(function() {
                                 $(".widget .mid img").attr("src", $(this).attr("src"));
                             })
@@ -132,13 +126,6 @@
 
             </div>
             <script type="text/javascript">
-            $(".slide_bottom .carousel").jCarouselLite({
-                btnNext: ".widget .next",
-                btnPrev: ".widget .prev",
-                speed: 800,
-                easing: "backout"
-            });
-
             $(".slide_bottom img").click(function() {
                 $(".widget .mid img").attr("src", $(this).attr("src"));
             });
