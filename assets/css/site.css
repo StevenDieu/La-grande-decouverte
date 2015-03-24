@@ -206,10 +206,17 @@ a{
 }
 
 
-.content-inscription{
-    width: 600px;
+.content-inscription, .content-connexion{
+    max-width: 600px;
     margin: 0 auto;
 }
+/*
+.connexion-right{
+	float:right;
+}
+.connexion-left{
+	float:left;
+}*/
 
 .top
 {
