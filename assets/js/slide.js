@@ -18,9 +18,16 @@ function initialiseResponsiveSilide(id) {
 }
 
 
-
 $(document).ready(function () {
     initialiseResponsiveSilide('#slider_top');
+    $('html,body').animate({scrollTop: 0}, 'slow');
+
+    if (document.body.clientWidth > 780) {
+        $('.slider_principal').css('height', document.body.clientHeight - 50);
+        $('#slider_top').css('height', document.body.clientHeight - 50);
+        $('#slider_top li').css('height', document.body.clientHeight - 50);
+    }
+
 
     $('.onglet_fiche_inner a').click(function (event) {
         event.preventDefault();
