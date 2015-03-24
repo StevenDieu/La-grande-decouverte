@@ -15,13 +15,28 @@
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
 
         <link href="<?php echo asset_url(''); ?>css/site.css" type="text/css" rel="stylesheet"/>
-        <?php if (isset($css)) { ?> 
-            <link href="<?php echo asset_url(''); ?>css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
-        <?php } ?> 
+        <?php
+        if (isset($allCss)) {
+            foreach ($allCss as $css) {
+                ?> 
+                <link href="<?php echo asset_url(''); ?>css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
+                <?php
+            }
+        }
+        ?> 
+                
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>
-
+        <?php
+        if (isset($alljs)) {
+            foreach ($alljs as $js) {
+                ?> 
+                <script src="<?php echo asset_url(''); ?>js/<?php echo $js; ?>.js" type="text/javascript"></script>
+                <?php
+            }
+        }
+        ?> 
 
     </head>
     <body>

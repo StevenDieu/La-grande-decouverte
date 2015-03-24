@@ -9,7 +9,8 @@ class Fiche extends CI_Controller {
      * 
      */
     public function ficheProduit() {
-        $data["css"] = "ficheProduit";
+        $data["allCss"] = array("ficheProduit");
+        $data["alljs"] = array("slide");
         $this->load->templateVoyage('/fiche_produit', $data);
     }
 
@@ -17,7 +18,8 @@ class Fiche extends CI_Controller {
      * 
      */
     public function ficheVoyage() {
-        $data["css"] = "ficheVoyage";
+        $data["allCss"] = array("ficheVoyage");
+        $data["alljs"] = array("slide");
         $this->load->templateVoyage('/fiche_voyage', $data);
     }
 
