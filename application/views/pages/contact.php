@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<title>Contact Form</title>
-	<script  src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
-	<link href="contact.css" type="text/css" rel="stylesheet"/>
-	<!--[if IE]><script>
-	$(document).ready(function() { 
+<form class="form-horizontal">
+<fieldset>
 
-$("#form_wrap").addClass('hide');
+<!-- Form Name -->
+<legend>Contact</legend>
 
-})
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="Nom">Nom</label>
+  <div class="controls">
+    <input id="Nom" name="Nom" type="text" placeholder="nom" class="input-xlarge">
+    
+  </div>
+</div>
 
-</script><![endif]-->
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="Prénom">Prénom</label>
+  <div class="controls">
+    <input id="Prénom" name="Prénom" type="text" placeholder="prénom" class="input-xlarge">
+    
+  </div>
+</div>
 
-</head>
-<body>
-	<div id="wrap">
-		<h1>Contact</h1>
-		<div id='form_wrap'>
-			<form>
-				<p>Bonjour TomDtx,</p>
-				<label for="email">Votre Message : </label>
-				<textarea  name="message" value="Votre Message" id="message" ></textarea>
-				<label for="name">Nom : </label>
-				<input type="text" name="nom" value="" id="name" />
-				<label for="email">Email : </label>
-				<input type="text" name="email" value="" id="email" />
-				<input type="submit" name ="submit" value="Now, I send, thanks!" />
-			</form>
-		</div>
-	</div>
-</body>
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="mail">Email</label>
+  <div class="controls">
+    <input id="mail" name="mail" type="text" placeholder="email" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="Objet">Objet</label>
+  <div class="controls">
+    <input id="Objet" name="Objet" type="text" placeholder="objet" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="Message">Votre message</label>
+  <div class="controls">                     
+    <textarea id="Message" name="Message"></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="Envoyer"></label>
+  <div class="controls">
+    <button id="Envoyer" name="Envoyer" class="btn btn-success">Envoyer</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
 </html>
