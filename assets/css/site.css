@@ -352,6 +352,8 @@ h2.titre{
     border-bottom: 1px solid white;
 }
 
+#footer .blocPicReseau.col-md-12 {  max-width: 302px !important;margin: auto;width: 100%;float: none;}
+
 
 /******* end footer *********/
 

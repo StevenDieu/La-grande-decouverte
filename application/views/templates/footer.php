@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 textFooter">
+                    <div class="col-md-12 textFooter blocPicReseau">
                         <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
