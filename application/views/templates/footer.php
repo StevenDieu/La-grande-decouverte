@@ -80,7 +80,6 @@
                         <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
-                        <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-rss.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-tumblr.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
                         <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-youtube.png" alt=""></a>
