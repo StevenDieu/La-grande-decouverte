@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#"><img src="<?php echo asset_url(''); ?>img/logo_final.png" class="imageLogo" /></a>
+                    <a href="<?php echo base_url('pages') ?>"><img src="<?php echo asset_url(''); ?>img/logo_final.png" class="imageLogo" /></a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <div class="allTextMenu">

@@ -68,7 +68,7 @@ a{
     position: inherit;
     height: 50px;
     vertical-align: middle;
-    width: 26%;
+    width: 28%;
     text-align: center;
     padding-top: 14px;
 }
@@ -150,7 +150,7 @@ a{
 
 }
 
-@media (max-width: 767px){
+@media (max-width: 768px){
     .textMenu{
         margin: 0;
 
