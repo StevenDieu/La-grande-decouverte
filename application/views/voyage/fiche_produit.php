@@ -11,7 +11,7 @@
     //initialise la map google
     function initialize() {
         var mapOptions = {
-            center: {lat: 50.633333, lng: 3.066667},
+            center: {lat: -35.675147, lng: -71.54296899999997},
             scrollwheel: false,
             zoom: 10,
         };
