@@ -20,4 +20,10 @@ class Pages extends CI_Controller {
             $this->load->templatePages('home', $data);
         }
     }
+
+    public function contact() {
+        $data['css'] = "contact";
+        $this->load->templatePages('contact', $data);
+    }
+
 }
