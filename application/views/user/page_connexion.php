@@ -1,7 +1,7 @@
 <div class="content">
 	<div class="row">
 		<div class="col-md-push-2 col-md-4">
-			<div class="content-connexion connexion-right form-horizontal ">
+			<div class="content-connexion form-horizontal ">
 				<legend>Connexion</legend>
 				<?php echo validation_errors(); ?>
 				<?php echo form_open('user/verifIdentification/verifLogin'); ?>
@@ -28,11 +28,15 @@
 			</div>
 		</div>
 		<div class="col-md-push-2 col-md-4">
-			<div class="content-inscription connexion-left form-horizontal">
+			<div class="content-inscription form-horizontal">
 				<legend>Nouveaux Utilisateurs</legend>
+				<p>
+				En créant un compte, vous serez capable de procéder aux achats plus rapidement, 
+				de voir et suivre vos commandes sur votre compte et plus encore.
+				</p>
 				<div class="form-group">
 					<div class="col-sm-offset-5 col-sm-7">
-						<a class="btn btn-default btn-mobile" href="<?php echo base_url('user/account/inscription') ?>">Créer un compte</a>
+						<a class="truc btn btn-default btn-mobile" href="<?php echo base_url('user/account/inscription') ?>">Créer un compte</a>
 					</div>
 				</div>
 			</div>

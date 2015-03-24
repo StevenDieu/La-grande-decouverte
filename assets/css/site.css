@@ -210,13 +210,9 @@ a{
     max-width: 600px;
     margin: 0 auto;
 }
-/*
-.connexion-right{
-	float:right;
+.content-inscription a {
+	text-decoration: none;
 }
-.connexion-left{
-	float:left;
-}*/
 
 .top
 {
