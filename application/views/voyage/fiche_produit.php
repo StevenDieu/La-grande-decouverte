@@ -27,7 +27,7 @@
     }
 </script>
 
-<div class="content fiche_produit">		
+<div class="fiche_produit">		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
