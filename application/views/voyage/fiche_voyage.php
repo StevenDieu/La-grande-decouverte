@@ -17,22 +17,16 @@
         </ul>
     </div>
 
-    <div style="clear:both"></div>
+        <div style="clear:both"></div>
 
-    <div class="entete_fiche_produit">
-
-    </div>
-
-    <div class="onglet_reseaux">
-            <div>
+            <div class="carnet_user">
                 <p>Carnet : public</p>
             </div>
-            <div>
-                <p>Partager ce carnet de voyage :</p>
-                <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
-                <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
-                <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
-            </div>
-        </div>
-    </div>
+            <div class="share_carnet">
+                <p>Partager ce carnet de voyage :
+                    <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
+                    <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
+                    <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
+                </p>
+            </div>   
 </div>

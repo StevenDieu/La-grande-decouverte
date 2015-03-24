@@ -1,4 +1,5 @@
 .fiche_voyage{
+    background-color: #fff;
 }
 
 
@@ -101,3 +102,17 @@
     background-position: right top;
     right: 0;
 }
+
+.body_carnet{
+    background-color : #fff;
+}
+
+.carnet_user{
+    padding-left: 25px;
+    padding-top : 20px;
+    float : left;
+}
+
+.share_carnet{
+    float: right;
+    padding-right: 25px;
