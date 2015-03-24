@@ -17,16 +17,15 @@ $("#form_wrap").addClass('hide');
 </head>
 <body>
 	<div id="wrap">
-		<h1>Send a message</h1>
+		<h1>Contact</h1>
 		<div id='form_wrap'>
 			<form>
-				<p>Hello Joe,</p>
-				<label for="email">Your Message : </label>
-				<textarea  name="message" value="Your Message" id="message" ></textarea>
-				<p>Best,</p>	
-				<label for="name">Name: </label>
-				<input type="text" name="name" value="" id="name" />
-				<label for="email">Email: </label>
+				<p>Bonjour TomDtx,</p>
+				<label for="email">Votre Message : </label>
+				<textarea  name="message" value="Votre Message" id="message" ></textarea>
+				<label for="name">Nom : </label>
+				<input type="text" name="nom" value="" id="name" />
+				<label for="email">Email : </label>
 				<input type="text" name="email" value="" id="email" />
 				<input type="submit" name ="submit" value="Now, I send, thanks!" />
 			</form>
