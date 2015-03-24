@@ -1,4 +1,3 @@
-<!---------- CONTENT ---------->	
 <div class="fiche_voyage">
     <!-- Slideshow 4 -->
     <div class="callbacks_container">
