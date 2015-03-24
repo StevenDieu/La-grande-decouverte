@@ -1,6 +1,8 @@
 <!---------- CONTENT ---------->	
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/jquery.jcarousellite.js"></script>
+<script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/jquery.easing-1.3.js"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 
 <script type="text/javascript">
@@ -45,19 +47,19 @@
 
 <div class="content fiche_produit">		
     <!-- Slideshow 4 -->
-    <div class="callbacks_container">
+    <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
             <li>
                 <img src="<?php echo asset_url(''); ?>images/1.jpg" alt="">
-                <p class="caption">This is a caption</p>
+                <p class="caption">Au coeur du Chili</p>
             </li>
             <li>
                 <img src="<?php echo asset_url(''); ?>images/2.jpg" alt="">
-                <p class="caption">This is another caption</p>
+                <p class="caption">Au coeur du Chili</p>
             </li>
             <li>
                 <img src="<?php echo asset_url(''); ?>images/3.jpg" alt="">
-                <p class="caption">The third caption</p>
+                <p class="caption">Au coeur du Chili</p>
             </li>
         </ul>
     </div>
@@ -65,27 +67,111 @@
     <div style="clear:both"></div>
 
     <div class="entete_fiche_produit">
-
+        <h2 class="accroche">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</h2>
     </div>
 
     <div class="onglet_fiche">
         <div class="onglet_fiche_inner">
+            <!-- onglet vu desktop -->
             <div id="onglet1" class="onglet onglet1 active"><a href="#">Description du voyage</a></div>
             <div id="onglet2" class="onglet onglet2"><a href="#">Carte</a></div>
             <div id="onglet3" class="onglet onglet3"><a href="#">Carnet de voyage</a></div>
             <div id="onglet4" class="onglet onglet4"><a href="#">Déroulement</a></div>	
+            <!-- fin onglet vu desktop -->
         </div>
     </div>
 
     <div class="contenu_onglet">
         <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description du voyage</a></div>
         <div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
-            <script charset='UTF-8' src='http://www.meteofrance.com/mf3-rpc-portlet/rest/vignettepartenaire/624980/type/VILLE_FRANCE/size/PAYSAGE_VIGNETTE' type='text/javascript'></script>
+            <!-- contenu description -->
+            <div class="conteneur_gauche">
+
+                <div class="header_partie"><h3>Carte d'identité</h3></div>
+                <div class="contenu_partie">
+                    <ul>
+                        <li>Capitale : Santiago du Chili</li>
+                        <li>Monnaie : Le Peso chilien (CLP) est utilisé au <strong>Chili</strong></li>
+                        <li>Fête : Indépendance du Chili, 18 Septembre (1810)</li>
+                        <li>Décalage horaire : lorsqu'il est midi en France, au <strong>Chili</strong> il est 7h en été (8h en hiver)</li>
+                        <li>Langue officielle : l'espagnol est la langue officielle du Chili</li>
+                        <li>Villes principales : Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
+                        <li>Religion : Au <strong>Chili</strong>, la religion catholique est majoritaire.</li>
+                        <li>Nombre d'habitants : Le Chili compte 16 600 000 habitants</li>
+                    </ul>
+                </div>
+
+                <div class="header_partie"><h3>Description</h3></div>
+                <div class="contenu_partie">
+                    Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.<br><br>
+                    La deuxième partie de votre voyage nous transporte à l'autre bout de la cordillère des Andes. Nous quitterons l'Altiplano et les paysages lunaires de l'Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.<br><br>
+                    Après un court passage par le mythique port de Valparaiso, l'une des villes les plus singulières d'Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l'Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l'une des terres les plus isolées du globe!<br><br>
+                    Bref, nous vous proposons ici un voyage d'exception pour une découverte des multiples facettes d'un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie...
+                </div>
+
+                <div id="jcl-demo">
+                    <div class="custom-container widget">
+                        <div class="mid">
+                            <img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt="">
+                        </div>
+                        <a href="#" class="prev">&lsaquo;</a>  
+                        <div class="carousel">  
+                                                  
+                            <ul>
+                                <li><img width="100%" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
+                                <li><img width="100%" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
+                                <li><img width="100%" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                            </ul> 
+                                                   
+                        </div>
+                        <a href="#" class="next">&rsaquo;</a>  
+                        
+                        <div class="clear"></div>
+                    </div>
+
+
+                    <script type="text/javascript">
+                        $(function() {
+                            $(".widget .carousel").jCarouselLite({
+                                btnNext: ".widget .next",
+                                btnPrev: ".widget .prev",
+                                speed: 800,
+                                visible: 2,
+                                easing: "easeOutBack"
+                            });
+                            $(".widget img").click(function() {
+                                $(".widget .mid img").attr("src", $(this).attr("src"));
+                            })
+                        });
+                    </script>
+
+                </div>
+
+
+            </div>
+            <script type="text/javascript">
+            $(".slide_bottom .carousel").jCarouselLite({
+                btnNext: ".widget .next",
+                btnPrev: ".widget .prev",
+                speed: 800,
+                easing: "backout"
+            });
+
+            $(".slide_bottom img").click(function() {
+                $(".widget .mid img").attr("src", $(this).attr("src"));
+            });
+            </script>
+            <div class="conteneur_droit">
+                
+            </div>
+            <div style="clear:both"></div>
+            <!-- fin contenu description -->
         </div>
         <div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
         <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
         <div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
         <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
+        <!-- contenu carnet de voyage -->
             <div class="article_first">
                 <div class="image">
                     <div class="callbacks_container carnet">
@@ -101,34 +187,34 @@
                         </a>
                     </div>
                     <script type="text/javascript">
-    $(document).ready(function () {
-        initialiseResponsiveSilide('#slidercarnet1');
-        $(".slide_carnet1").fancybox({
-            maxWidth: 1000,
-            maxHeight: 600,
-            fitToView: false,
-            width: '80%',
-            height: '80%',
-            autoSize: false,
-            closeClick: false,
-            openEffect: 'none',
-            closeEffect: 'none',
-            ajax: {
-                type: "POST",
-                cache: false,
-                data: "var=1|<?php echo asset_url(''); ?>",
-                success: function (data) {
-                    $.fancybox(data);
-                }
-            }
-        });
-    });
+                        $(document).ready(function () {
+                            initialiseResponsiveSilide('#slidercarnet1');
+                            $(".slide_carnet1").fancybox({
+                                maxWidth: 1000,
+                                maxHeight: 600,
+                                fitToView: false,
+                                width: '80%',
+                                height: '80%',
+                                autoSize: false,
+                                closeClick: false,
+                                openEffect: 'none',
+                                closeEffect: 'none',
+                                ajax: {
+                                    type: "POST",
+                                    cache: false,
+                                    data: "var=1|<?php echo asset_url(''); ?>",
+                                    success: function (data) {
+                                        $.fancybox(data);
+                                    }
+                                }
+                            });
+                        });
                     </script>
                     <a class="slide_carnet1 fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/popup_carnet.php"></a>
                     <div style="clear:both"></div>
                 </div>
                 <div class="partie_droite">
-                    <a class="titre">Deux semaines au Chili</a>
+                    <a  href="#" class="titre">Deux semaines au Chili</a>
                     <div class="date_auteur">Thomas l'aventurier - 22 / 03 / 2015</div>
                     <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
                     <a href="#" class="lire_suite">Voir le carnet ></a>
@@ -174,7 +260,7 @@
                     </div>
                     <div style="clear:both"></div>
                     <div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
-                    <a class="titre">Deux semaines au Chili</a>
+                    <a  href="#" class="titre">Deux semaines au Chili</a>
                     <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
                     <a href="#" class="lire_suite">Voir le carnet ></a>
                     <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet3');</script>
@@ -197,13 +283,14 @@
                     </div>
                     <div style="clear:both"></div>
                     <div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
-                    <a class="titre">Deux semaines au Chili</a>
+                    <a href="#" class="titre">Deux semaines au Chili</a>
                     <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
                     <a href="#" class="lire_suite">Voir le carnet ></a>
                     <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet4');</script>
                 </div>
                 <div style="clear:both"></div>
-            </div>	
+            </div>
+        <!-- fin contenu carnet de voyage -->	
         </div>
         <div id="onglet4mobile" class="onglet_mobile"><a href="#">Déroulement</a></div>
         <div id="onglet4" class="contenu_fiche_onglet onglet4mobile">
@@ -217,13 +304,12 @@
                     Le soir, l'observation des étoiles y est incroyable !</div>
                 <div class="inter_jour"></div>
 
-                <div class="titre"><span>JOUR 5</span> - Transfert en voiture vers Atacama.</div>
-                <div class="description">Vol domestique vers Punta Arenas (avec escale nécessaire à Santiago).
-                    Transfert en voiture de Punta Arenas à votre lodge.
-                    4 nuits au Patagonia Camp dans une yourte de luxe en pension complète avec activités.</div>
+                <div class="titre"><span>JOUR 5 à 8</span> - Lac Budi</div>
+                <div class="description">A une heure de la ville de Temuco, au sud du Chili et près de l’Océan Pacifique, le Lac Budi est une des destinations les plus photogéniques et paisibles de l’Araucanía. Encore méconnue des touristes étrangers, vous allez y rester 3 jours et dormir dans ses « rucas », goûter sa gastronomie et connaître de première main les secrets de la culture mapuche.</div>
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/deroulement/imagen_unidad_2.jpg" alt="">
                 <div class="inter_jour"></div>
 
-                <div class="titre"><span>JOURS 6 à 9</span> - Patagonie & Torres del Paine</div>
+                <div class="titre"><span>JOURS 9</span> - Patagonie & Torres del Paine</div>
                 <div class="description">Patagonia Camp propose un large éventail d'activités au choix : randonnées dans le Parc de Torres del Paine à la découverte de la faune, de la flore, des lacs et des glaciers.</div>
                 <div class="inter_jour"></div>
 
@@ -239,6 +325,14 @@
 <script type="text/javascript">
     $(document).ready(function () {
         initialiseResponsiveSilide('#slider_top');
+        $('html,body').animate({scrollTop: 0}, 'slow');
+
+        if(document.body.clientWidth>780){
+            $('.slider_principal').css('height',document.body.clientHeight-50);
+            $('#slider_top').css('height',document.body.clientHeight-50);
+            $('#slider_top li').css('height',document.body.clientHeight-50);
+        }
+        
 
         $('.onglet_fiche_inner a').click(function (event) {
             event.preventDefault();

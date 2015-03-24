@@ -112,8 +112,8 @@
 
 .fiche_produit .onglet_fiche{
 	width: 100%;
-	height: 50px;
-	border-bottom: 1px solid #CDCDCD;
+	height: 49px;
+	border-bottom: 2px solid #CDCDCD;
 	border-top: 1px solid #CDCDCD;
 	display: block;
 	background-color: #fff;
@@ -126,6 +126,7 @@
 	line-height: 46px;
 	text-align: center;
 	max-width: 290px;
+	height: 48px;
 }
 
 .fiche_produit .onglet_fiche .onglet_fiche_inner,.fiche_produit .onglet_fiche .contenu_fiche_onglet{
@@ -155,7 +156,10 @@
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet{
 	min-height: 200px;
-	  margin-bottom: 15px;
+	margin-bottom: 15px;
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet3,.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet2,.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet4{
@@ -200,9 +204,36 @@
 	.onglet3mobile .separateur_article{
 		width: 400px;
 	}
+
+	.onglet1mobile .conteneur_gauche, .onglet1mobile .conteneur_droit{
+		float: left;
+		min-height: 200px;
+		padding: 12px;
+	}
+
+	.onglet1mobile .conteneur_gauche{
+		width: 60%;
+		max-width: 720px;
+	}
+
+	.onglet1mobile .conteneur_droit{
+		width: 40%;
+	}
+
+	.onglet1mobile .conteneur_gauche{
+		border-right: 1px solid #CDCDCD;
+	}
 }
 
 @media (max-width: 845px){
+
+	.onglet1mobile .conteneur_gauche, .onglet1mobile .conteneur_droit{
+		width: 100%;
+		float: none;
+		border: 1px solid black;
+		min-height: 200px;
+	}
+
 	.onglet3mobile .article_first .partie_droite{
 		max-width: 424px;
 		width:100% !important;
@@ -284,8 +315,7 @@
 }
 
 .onglet_fiche_inner .onglet.active,.fiche_produit .onglet_mobile.active,.onglet_fiche_inner .onglet:hover,.fiche_produit .onglet_mobile:hover{
-	border-bottom: 3px solid #0A1E39;
-
+	border-bottom: 2px solid #6cb900;
 }
 
 .fiche_produit .onglet_mobile.active{
@@ -315,10 +345,18 @@
 .fiche_produit .entete_fiche_produit{
 	max-width: 1200px;
 	width: 100%;
-	min-height: 200px;
+	min-height: 50px;
 	margin: auto;
-	background: black;
 	margin-bottom: 15px;
+	border:1px solid black;
+}
+
+.fiche_produit .entete_fiche_produit h2.accroche{
+	font-size: 1.8rem;
+  	line-height: 1.2;
+  	font-weight: bold;
+  	  color: #333;
+
 }
 
 .onglet3mobile .article_first,.onglet3mobile .contenu_article_suivant{
@@ -445,6 +483,11 @@
 	max-height: 50px;
 	overflow: hidden;
 }
+.onglet3mobile .contenu_article_suivant .un_article a.titre:hover,.onglet3mobile .article_first .partie_droite a.titre:hover{
+	color: #6cb900 !important;
+	cursor: pointer;
+}
+
 
 .onglet3mobile .contenu_article_suivant .un_article .texte{
   text-align: center;
@@ -492,6 +535,11 @@
 	margin: auto;
 }
 
+.onglet4mobile .contenu img{
+	margin: auto;
+	display: block;
+}
+
 .onglet4mobile .contenu .description{
 	margin-bottom: 25px;
 	font-size: 14px;
@@ -501,6 +549,7 @@
   font-family: Apercu Bold,Helvetica,Arial,sans-serif;
   text-transform: uppercase;
   font-size: 18px;
+  color: #6cb900;
 }
 
 .onglet4mobile .contenu .titre{
@@ -516,6 +565,146 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+.conteneur_gauche .header_partie{
+	width: 100%;
+	height: 40px;
+	padding-left: 50px;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+	font-size: 2.375rem;
+  font-family: Apercu Bold,Helvetica,Arial,sans-serif;
+}
+
+.conteneur_gauche .contenu_partie{
+	margin-bottom: 50px;
+	padding: 10px
+}
+
+.slide_bottom .any-class{
+	width: 650px !important;
+}
+
+
+/** slider */
+#jcl-demo .carousel {
+    position: relative;
+    visibility: hidden;
+    left: -5000px;
+    margin: auto;
+}
+
+    /* Styling for image based carousel content. Only width and height are mandatory */
+    #jcl-demo .carousel>ul>li>img {
+        width: 150px;
+        height: 118px;
+        vertical-align:middle;
+
+        /* optional */
+        margin: 10px 10px 10px 0;
+        border-radius: 5px;
+    }
+
+    /* Styling for text based carousel content. Only width and height are mandatory */
+    #jcl-demo .carousel>ul>li>p {
+        width: 130px;
+        height: 98px;
+
+        margin: 10px 10px 10px 0;
+        border: 1px solid #808080;
+        border-radius: 5px;
+        line-height: normal;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+/* Styles for PREV and NEXT anchor buttons */
+#jcl-demo a.prev, #jcl-demo a.next, #jcl-demo a.go {
+    display: block;
+    width: 26px;
+    height: 30px;
+    line-height: 1;
+
+    background-color: #333333;
+    color: ghostwhite;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+
+    border-radius: 8px;
+    float: left;
+}
+    #jcl-demo a.prev.disabled, #jcl-demo a.next.disabled,
+    #jcl-demo a.prev.disabled:hover, #jcl-demo a.next.disabled:hover {
+        background-color: #8d8d8d;
+        cursor: default;
+    }
+    #jcl-demo a.go.highlight {
+        background-color: #dedede;
+        color: #000;
+    }
+    #jcl-demo a.prev {
+        display: block;
+    }
+    #jcl-demo a.next {
+        margin: 50px 0 0 -5px;
+        text-indent: 10px;
+    }
+        #jcl-demo a.prev:hover, #jcl-demo a.next:hover, #jcl-demo a.go:hover {
+            background-color: #666666;
+        }
+
+/* Additional carousel styles for external controls, slider, widget, mid etc. */
+
+#jcl-demo .externalControl button,
+#jcl-demo .imageSliderExt button {
+    margin: 5px 5px 0 0;
+}
+#jcl-demo .externalControl a.next, #jcl-demo .externalControl a.prev, #jcl-demo .externalControl a.go,
+#jcl-demo .imageSliderExt a.next, #jcl-demo .imageSliderExt a.prev, #jcl-demo .imageSliderExt a.go
+{
+    margin: 0 5px 0 0;
+    padding: 7px 5px 0 5px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+#jcl-demo .widget img {
+    cursor: pointer;
+}
+#jcl-demo .mid {
+    max-width: 650px;
+    height: auto;
+    width: 100%;
+    margin:auto;
+}
+
+#jcl-demo .mid img{
+	width: 100%;
+}
+#jcl-demo .vertical {
+    margin-left: 170px;
+}
+
+#jcl-demo .imageSlider .carousel>ul>li>img,
+#jcl-demo .imageSliderExt .carousel>ul>li>img {
+    width: 400px;
+    height: 300px;
+}
+#jcl-demo .imageSlider .carousel>ul>li>p,
+#jcl-demo .imageSliderExt .carousel>ul>li>p {
+    width: 380px;
+    height: 280px;
+}
+
+/* Other common styles */
+
+.clear {
+    clear: both;
+}
+
+
 
 /*******************      ****/
 
