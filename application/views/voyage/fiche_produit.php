@@ -114,7 +114,6 @@
 
                     <script type="text/javascript">
                         $(function() {
-      
                             $(".widget img").click(function() {
                                 $(".widget .mid img").attr("src", $(this).attr("src"));
                             })
