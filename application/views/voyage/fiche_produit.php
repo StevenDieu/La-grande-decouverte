@@ -43,7 +43,7 @@
     }
 </script>
 
-<div class="content fiche_voyage">		
+<div class="content fiche_produit">		
     <!-- Slideshow 4 -->
     <div class="callbacks_container">
         <ul class="rslides" id="slider_top">

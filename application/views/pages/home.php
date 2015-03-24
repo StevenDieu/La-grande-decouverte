@@ -21,7 +21,9 @@
 
         <a href="<?php echo base_url('user/account/inscription') ?>">Inscription</a><br/>
 
-        <a href="<?php echo base_url('/voyage/fiche/ficheProduit') ?>">Fiche Voyage</a><br/>
+        <a href="<?php echo base_url('/voyage/fiche/ficheProduit') ?>">Fiche Produit</a><br/>
+
+        <a href="<?php echo base_url('/voyage/fiche/ficheVoyage') ?>">Fiche Voyage</a><br/>
 
     </div>
 </div>

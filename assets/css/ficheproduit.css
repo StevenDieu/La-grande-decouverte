@@ -3,7 +3,7 @@
 
 /**** fiche produit voyage ***/
 
-.content.fiche_voyage{
+.content.fiche_produit{
 
 	padding: 0px;
 }
@@ -110,7 +110,7 @@
   }
   
 
-.fiche_voyage .onglet_fiche{
+.fiche_produit .onglet_fiche{
 	width: 100%;
 	height: 50px;
 	border-bottom: 1px solid #CDCDCD;
@@ -120,7 +120,7 @@
 	margin-bottom: 15px;
 }
 
-.fiche_voyage .onglet_fiche .onglet{
+.fiche_produit .onglet_fiche .onglet{
 	display: inline-block;
 	width: 24%;
 	line-height: 46px;
@@ -128,42 +128,42 @@
 	max-width: 290px;
 }
 
-.fiche_voyage .onglet_fiche .onglet_fiche_inner,.fiche_voyage .onglet_fiche .contenu_fiche_onglet{
+.fiche_produit .onglet_fiche .onglet_fiche_inner,.fiche_produit .onglet_fiche .contenu_fiche_onglet{
 	width: 910px; 
 	margin: auto;
 }
 
-.fiche_voyage .onglet_fiche .contenu_fiche_onglet{
+.fiche_produit .onglet_fiche .contenu_fiche_onglet{
 	border: 1px solid black;
 	min-height: 200px;
 	display: block;
 }
 
 @media (max-width: 1200px){
-	.fiche_voyage .onglet_fiche .onglet_fiche_inner,.fiche_voyage .onglet_fiche .contenu_fiche_onglet{
+	.fiche_produit .onglet_fiche .onglet_fiche_inner,.fiche_produit .onglet_fiche .contenu_fiche_onglet{
 		width: 100%; 
 	}
 	
 }
 
-.fiche_voyage .contenu_onglet{
+.fiche_produit .contenu_onglet{
 	max-width: 1200px;
 	width: 100%;
 	min-height: 200px;
 	margin: auto;
 }
 
-.fiche_voyage .contenu_onglet .contenu_fiche_onglet{
+.fiche_produit .contenu_onglet .contenu_fiche_onglet{
 	min-height: 200px;
 	  margin-bottom: 15px;
 }
 
-.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet3,.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet2,.fiche_voyage .contenu_onglet .contenu_fiche_onglet#onglet4{
+.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet3,.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet2,.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet4{
 	display: none;
 }
 
 @media (max-width: 780px){
-	.fiche_voyage .onglet_fiche{
+	.fiche_produit .onglet_fiche{
 		display: none;
 	}
 }
@@ -245,12 +245,12 @@
 }
 
 @media (min-width: 780px){
-	.fiche_voyage .onglet_mobile{
+	.fiche_produit .onglet_mobile{
 		display: none;
 	}
 }
 
-.fiche_voyage .onglet_mobile{
+.fiche_produit .onglet_mobile{
 	border-top:1px solid #CDCDCD;
 	border-bottom:1px solid #CDCDCD;
 	width: 100%;
@@ -283,12 +283,12 @@
 	color:#000 !important;
 }
 
-.onglet_fiche_inner .onglet.active,.fiche_voyage .onglet_mobile.active,.onglet_fiche_inner .onglet:hover,.fiche_voyage .onglet_mobile:hover{
+.onglet_fiche_inner .onglet.active,.fiche_produit .onglet_mobile.active,.onglet_fiche_inner .onglet:hover,.fiche_produit .onglet_mobile:hover{
 	border-bottom: 3px solid #0A1E39;
 
 }
 
-.fiche_voyage .onglet_mobile.active{
+.fiche_produit .onglet_mobile.active{
 	margin-bottom: 10;
 }
 
@@ -312,7 +312,7 @@
 	background: url("../images/ficheproduit/minus-upsell.png") no-repeat scroll left center rgba(0, 0, 0, 0);
 }
 
-.fiche_voyage .entete_fiche_produit{
+.fiche_produit .entete_fiche_produit{
 	max-width: 1200px;
 	width: 100%;
 	min-height: 200px;
