@@ -19,9 +19,6 @@
             <a href="<?php echo base_url('user/account/connexion') ?>">Connexion</a><br/>
         <?php } ?>
 
-        <a href="<?php echo base_url('pages/contact') ?>">Contact</a><br/>
-        <?php } ?>
-
         <a href="<?php echo base_url('user/account/inscription') ?>">Inscription</a><br/>
 
         <a href="<?php echo base_url('/voyage/fiche/ficheProduit') ?>">Fiche Produit</a><br/>
