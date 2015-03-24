@@ -8,8 +8,8 @@ class Fiche extends CI_Controller {
     /**
      * 
      */
-    public function index() {
+    public function ficheProduit() {
         $data["css"] = "ficheproduit";
-        $this->load->templateVoyage('/fiche_voyage', $data);
+        $this->load->templateVoyage('/fiche_produit', $data);
     }
 }

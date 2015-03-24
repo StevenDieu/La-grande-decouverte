@@ -13,17 +13,11 @@ class Pages extends CI_Controller {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['user'];
             $data['logger'] = true;
-            $this->load->templatePages('developpement', $data);
+            $this->load->templatePages('home', $data);
         } else {
             $this->load->helper(array('form'));
             $data['logger'] = false;
-            $this->load->templatePages('developpement', $data);
+            $this->load->templatePages('home', $data);
         }
     }
-
-    public function accueil() {
-        $data["css"] = "accueil";
-        $this->load->templatePages('accueil', $data);
-    }
-
 }

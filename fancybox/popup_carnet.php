@@ -3,7 +3,6 @@
     $var = explode('|',$_POST['var']);
     $id = $var[0];
     $url = $var[1];
-    
 ?>
  
 <script type="text/javascript">
@@ -40,4 +39,3 @@ jQuery(function () {
   } else {
     echo 'Une erreur est survenue.';
   }
-?>
