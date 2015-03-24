@@ -195,18 +195,7 @@ a{
     text-align:right;
 }
 
-.content
-{
-    text-align:left;
-    background-color: white;
-    color: black;
-    padding: 25px 0%;
-}
 
-.content a{
-    color: black;
-    text-decoration: underline;
-}
 
 
 .content-inscription, .content-connexion{
