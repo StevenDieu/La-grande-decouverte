@@ -139,9 +139,9 @@ a{
 @media (min-width: 768px){
     .navbar-right{
         display: block;
-    
+
         margin-top: -20px;
-}
+    }
 
     .cacher{
         display: none !important;
@@ -169,9 +169,12 @@ a{
 
         display: initial;
     }
+}
 
-
-
+@media (max-width: 400px){
+    .btn{
+        width: 100%;
+    }
 }
 /******* end header *********/
 
@@ -211,7 +214,7 @@ a{
     margin: 0 auto;
 }
 .content-inscription a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .top
@@ -248,8 +251,6 @@ a{
     display:inline-block;
     margin:10px 10px 10px 0px;
 }
-
-
 
 /******* footer *********/
 footer a:hover,a:focus{
@@ -312,7 +313,7 @@ h3.titre{
     letter-spacing: 3px;
     line-height: 23px;
     margin: 0 0 30px 0;
-      font-family: Apercu Bold,Helvetica,Arial,sans-serif;
+    font-family: Apercu Bold,Helvetica,Arial,sans-serif;
 }
 .blockFooter_1{
     margin: 54px 0 15px 0;
@@ -334,7 +335,7 @@ h3.titre{
 }
 .explicationFooter{
     font-style: italic;
-      font-family: Apercu Light,Helvetica,Arial,sans-serif;
+    font-family: Apercu Light,Helvetica,Arial,sans-serif;
 }
 
 .blockFooter_7{
@@ -342,12 +343,12 @@ h3.titre{
 }
 .numerosFooter{
     font-size: 24px;
-      font-family: Apercu Bold,Helvetica,Arial,sans-serif;
+    font-family: Apercu Bold,Helvetica,Arial,sans-serif;
 }
 h2.titre{
     font-size: 23px;
     white-space: nowrap; 
-      font-family: Apercu Bold,Helvetica,Arial,sans-serif;       
+    font-family: Apercu Bold,Helvetica,Arial,sans-serif;       
 }
 #footer{
     text-align: center;
