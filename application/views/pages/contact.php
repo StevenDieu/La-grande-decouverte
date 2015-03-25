@@ -4,7 +4,15 @@
         echo validation_errors();
         echo form_open('contact/index/verifContact');
         // echo form_open('user/verifIdentification/verifInscription');
-        
+
+        //message d'erreur/validation après envoie du formulaire de contact.
+        if ($error == 1) {
+            echo "Votre message à bien été envoyer, nous vous répondrons dès que possible.";
+        }
+        elseif ($error == -1) {
+            echo "Erreur lors de l'envoie du message.";
+        }
+
         ?>
             <!-- Form Name -->
             <legend>Contact</legend>
