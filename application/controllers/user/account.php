@@ -13,7 +13,7 @@ class Account extends CI_Controller {
         {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['user'];
-            $this->load->view('user/account', $data);
+            $this->load->templateUser('account', $data);
         }
         else
         {
