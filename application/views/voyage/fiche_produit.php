@@ -67,7 +67,7 @@
             <!-- contenu description -->
             <div class="conteneur_gauche">
 
-                <div class="header_partie"><h3>Carte d'identité</h3></div>
+                <div class="header_partie"><div class="icon"><img src="<?php echo asset_url(''); ?>images/ficheproduit/carteidentite.png" alt="carte identité"></div><h3>Carte d'identité</h3></div>
                 <div class="contenu_partie">
                     <ul>
                         <li>Capitale : Santiago du Chili</li>
@@ -81,7 +81,7 @@
                     </ul>
                 </div>
 
-                <div class="header_partie"><h3>Description</h3></div>
+                <div class="header_partie"><div class="icon"><img src="<?php echo asset_url(''); ?>images/ficheproduit/information2.png" alt="description"></div><h3>Description</h3></div>
                 <div class="contenu_partie">
                     Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.<br><br>
                     La deuxième partie de votre voyage nous transporte à l'autre bout de la cordillère des Andes. Nous quitterons l'Altiplano et les paysages lunaires de l'Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.<br><br>
@@ -119,19 +119,30 @@
                     </script>
 
                 </div>
-
-
             </div>
+
             <script type="text/javascript">
             $(".slide_bottom img").click(function() {
                 $(".widget .mid img").attr("src", $(this).attr("src"));
             });
             </script>
+
             <div class="conteneur_droit">
-                
+                <div class="header_partie"><div class="icon"><img src="<?php echo asset_url(''); ?>images/ficheproduit/carteidentite.png" alt="carte identité"></div><h3>Infos pratiques</h3></div>
+                <div class="contenu_partie">
+                    <div class="picto">
+                        <ul>
+                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
+                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/excursion.png" alt="excursion"></li>
+                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/google.png" alt="google"></li>
+                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/sunblock.png" alt="sunblock"></li>
+                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
+                            <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div style="clear:both"></div>
-            <!-- fin contenu description -->
         </div>
         <div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
         <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
