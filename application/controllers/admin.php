@@ -3,11 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Utilisateur extends CI_Controller {
+class Admin extends CI_Controller {
 
     public function index() {
-
-        $this->load->templateAdministrateur('accueil');
+    	var_dump('ok');
+        //$this->load->templateAdministrateur('accueil');
         
     }
     
