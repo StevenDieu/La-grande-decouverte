@@ -225,8 +225,11 @@
     .onglet1mobile .conteneur_gauche, .onglet1mobile .conteneur_droit{
         width: 100%;
         float: none;
-        border: 1px solid black;
         min-height: 200px;
+    }
+
+    .onglet1mobile .conteneur_gauche{
+        border-bottom: 1px solid black;
     }
 
     .onglet3mobile .article_first .partie_droite{
