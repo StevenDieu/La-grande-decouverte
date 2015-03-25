@@ -6,7 +6,7 @@ body {
 
 /******* header *********/
 .header {
-    height: 50px;
+    height: 76px;
     color:white;
     font-size: 16px;
     vertical-align:middle;
@@ -102,7 +102,7 @@ a{
     }
 
     .header {
-        height: 50px;
+        height: 51px;
         font-size: 15px;
     }
 
@@ -113,7 +113,7 @@ a{
     }
 
     .navbar-nav>li {
-        margin-top: 3px;
+        margin-top: 15px;
     }
     .imageCompte{
         width: 35px;
