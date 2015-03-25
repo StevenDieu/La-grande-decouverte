@@ -38,7 +38,8 @@
                 </div>
             </div>
             <div class="col-lg-9">
-
+                <h1>JOHN DOE</h1>
+                <p>je m'appelle JOhn Doe, je suis étudiant sur lIlle. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la littérature, les questions environnementales,les théroies socialogiques...</P>
             </div>
         </div>
 
