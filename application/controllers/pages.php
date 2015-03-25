@@ -25,4 +25,8 @@ class Pages extends CI_Controller {
         $this->load->templatePages('contact');
     }
 
+    public function mailling() {
+        $this->load->view('mailling/mailling');
+    }
+
 }
