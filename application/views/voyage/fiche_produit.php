@@ -31,23 +31,22 @@
         <ul class="rslides" id="slider_top">
             <li>
                 <img src="<?php echo asset_url(''); ?>images/1.jpg" alt="">
-                <p class="caption">Au coeur du Chili</p>
             </li>
             <li>
                 <img src="<?php echo asset_url(''); ?>images/2.jpg" alt="">
-                <p class="caption">Au coeur du Chili</p>
             </li>
             <li>
                 <img src="<?php echo asset_url(''); ?>images/3.jpg" alt="">
-                <p class="caption">Au coeur du Chili</p>
             </li>
         </ul>
+        <h1 class="caption_titre"><span>Au coeur du Chili</span></h1>
+        <h2 class="caption"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
     </div>
 
     <div style="clear:both"></div>
 
     <div class="entete_fiche_produit">
-        <h2 class="accroche">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</h2>
+        <h2 class="accroche"></h2>
     </div>
 
     <div class="onglet_fiche">
@@ -62,7 +61,7 @@
     </div>
 
     <div class="contenu_onglet">
-        <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description du voyage</a></div>
+        <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description voyage</a></div>
         <div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
             <!-- contenu description -->
             <div class="conteneur_gauche">
