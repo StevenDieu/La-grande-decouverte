@@ -1,23 +1,28 @@
 <div class="content">
-    <form class="content-contact form-horizontal">
-        <fieldset>
+	<div class="content-contact form-horizontal">
+		<?php
+        echo validation_errors();
+        echo form_open('contact/index/verifContact');
+        // echo form_open('user/verifIdentification/verifInscription');
+        
+        ?>
             <!-- Form Name -->
             <legend>Contact</legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label for="Nom" class="control-label col-sm-3">Nom *</label>
+                <label for="nom" class="control-label col-sm-3">Nom *</label>
                 <div class="col-sm-9">
-                    <input id="Nom" name="Nom" type="text" placeholder="nom" class="form-control">
+                    <input id="nom" name="nom" type="text" placeholder="nom" class="form-control">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="control-label col-sm-3" for="Prénom">Prénom *</label>
+                <label class="control-label col-sm-3" for="prenom">Prénom *</label>
                 <div class="col-sm-9">
-                    <input id="Prénom" name="Prénom" type="text" placeholder="prénom" class="form-control">
+                    <input id="prenom" name="prenom" type="text" placeholder="prenom" class="form-control">
 
                 </div>
             </div>
@@ -26,36 +31,40 @@
             <div class="form-group">
                 <label class="control-label col-sm-3" for="mail">Email *</label>
                 <div class="col-sm-9">
-                    <input id="mail" name="mail" type="text" placeholder="email" class="form-control">
+                    <input id="mail" name="mail" type="text" placeholder="mail" class="form-control">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="control-label col-sm-3" for="Objet">Objet *</label>
+                <label class="control-label col-sm-3" for="objet">Objet *</label>
                 <div class="col-sm-9">
-                    <input id="Objet" name="Objet" type="text" placeholder="objet" class="form-control">
+                    <input id="objet" name="objet" type="text" placeholder="objet" class="form-control">
 
                 </div>
             </div>
 
             <!-- Textarea -->
             <div class="form-group">
-                <label class="control-label col-sm-3" for="Message">Votre message *</label>
+                <label class="control-label col-sm-3" for="message">Votre message *</label>
                 <div class="col-sm-9">                     
-                    <textarea id="Message" class="form-control" placeholder="Votre message" name="Message"></textarea>
+                    <textarea id="message" class="form-control" placeholder="Votre message" name="message"></textarea>
                 </div>
             </div>
 
             <!-- Button -->
             <div class="form-group">
-                <label class="control-label col-sm-3" for="Envoyer"></label>
+                <label class="control-label col-sm-3" for="envoyer"></label>
                 <div class="col-sm-9">
-                    <button id="Envoyer" name="Envoyer" class="btn btn-success">Envoyer</button>
+                    <button id="envoyer" name="nvoyer" class="btn btn-success">Envoyer</button>
                 </div>
             </div>
-
-        </fieldset>
-    </form>
+			<div class="form-group">
+				<span class="help-block">* Champs obligatoires.</span>
+			</div>
+		<?php
+        echo form_close();
+        ?>
+	</div>
 </div>
