@@ -243,7 +243,7 @@ a{
 }
 
 /******* footer *********/
-footer a:hover,a:focus{
+footer a:hover,footer a:focus{
     color: #BBBBBB !important;
     text-decoration: none;
 }
@@ -289,7 +289,7 @@ footer li{
     margin: -33px 0px 0 0;
     background: none;
     border: 0;
-    color: #23b7e1;
+    color: #7C8081;
     height: 32px;
     float: right;
     border-radius: 4px;
