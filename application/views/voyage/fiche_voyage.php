@@ -71,8 +71,7 @@
                     <div class="col-md-8">
                         <div class="descriptionJour">
                             <div class="textDescriptionJourHaut">
-                                Arrivée à Santiago après 14 heures de vol.<br/>
-                                Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                                Arrivée à Santiago après 14 heures de vol. Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
                             </div>
                             <div class="textDescriptionJourBas">
                                 <a href="#">Lire la fiche</a>
