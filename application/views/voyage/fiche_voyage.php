@@ -186,32 +186,6 @@
         <div class="row blocVoyage">
             <div class="col-md-5">
                 <div class="textJour">
-                    Jour 1 : Arrivée à Santiago
-                </div>
-            </div>
-            <div class="col-md-1">
-                <div class="pointRouge"></div>
-            </div>
-            <div class="col-md-6">
-                <div class="blockJour">
-                    <div class="descriptionJour">
-                        <div class="textDescriptionJourHaut">
-                            Arrivée à Santiago après 14 heures de vol.<br/>
-                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
-                        </div>
-                        <div class="textDescriptionJourBas">
-                            <a href="#">Lire la fiche</a>
-                        </div>
-                    </div>
-                    <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row blocVoyage">
-            <div class="col-md-5">
-                <div class="textJour">
                     Jour 6&7 : Visite de Santiago et retour Paris
                 </div>
             </div>
