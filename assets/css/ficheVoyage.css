@@ -2,6 +2,8 @@
     background: #fff;
     text-align: left;        
     color: #000;
+    margin: 0 auto 44px auto;
+    height: auto;
 }
 
 .carnet_presentation{
@@ -12,8 +14,7 @@
 
 .content_fiche_voyage{
     max-width: 1200px;
-    margin: 0 auto
-}
+    margin: 0px auto;}
 .rslides {
     margin: 0 auto 40px;
 }
@@ -143,12 +144,14 @@
 }
 
 .content_fiche_voyage .image_profile{
-    max-width: 225px;
+    max-width: 325px;
 }
 
 .content_fiche_voyage .bloc_image_profile{
     max-height: 225px;
     overflow: hidden; 
+    margin: 0 auto;
+    text-align: center;
 }
 
 .baniere_description{
@@ -158,8 +161,9 @@
 }
 
 .descriptionJour{
-    width : 50%;
+    width: 360px;
     float : left;
+    padding: 14px 14px 14px 0;
 }
 
 .textJour{
@@ -171,6 +175,7 @@
 .textDescriptionJourHaut{
     font-size: 14px;
     font-family: 'Avenir'
+        ;color: #c0ac79;
 }
 
 .textDescriptionJourBas {
@@ -183,19 +188,22 @@
 }
 
 .textDescriptionJourBas a{
-    padding: 12px 6px 0 0;
     text-align: right;
-    color : #000;
     font-family: 'Avenir'
+        ;color: #c0ac79;
 }
 
-.textDescriptionJourBas, a:hover{
-    color : #000;
+.textDescriptionJourBas{
+    position: absolute;
+    bottom: 12px;
+    margin-left: 230px;
 }
 
 .imgJour{
-    width : 50%;
+    width: 176px;
     float : right;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .pointRouge{
@@ -203,6 +211,33 @@
     border-radius:50%;
     width: 25px;
     height: 25px; 
-    margin-top: 7px;
-    margin: 0 auto;
+    margin: 4px auto;
+}
+
+.blockJour{
+    display: flex;
+    width: 477px;
+    margin: -6px auto 0 auto;
+}
+
+.blocVoyage{
+
+    margin: 0 0 85px  0 !important;
+}
+
+
+.blocTraiVerticalePoitiller{
+    height: 50px;
+}
+
+@media (min-width: 992px){
+    .traiVerticalePoitiller{
+        margin: 0px auto;
+        border-left: 1px dashed #000;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        left: 0px;
+        width: 0px;
+    }
 }

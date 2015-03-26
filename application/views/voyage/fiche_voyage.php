@@ -36,29 +36,193 @@
         <div class="content_fiche_voyage">
 
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <div class="bloc_image_profile">
                         <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
                     </div>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-md-9">
                     <h1>JOHN DOE</h1>
                     <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la littérature, les questions environnementales,les théroies socialogiques...</P>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="content_fiche_voyage">
-        <div class="row">
-            <div class="col-lg-5">
+        <div class="row blocTraiVerticalePoitiller">
+            <div class="col-md-5"></div>
+            <div class="col-md-1">
+                <div class="traiVerticalePoitiller"></div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
                 <div class="textJour">
                     Jour 1 : Arrivée à Santiago
                 </div>
             </div>
-            <div class="col-lg-1">
+            <div class="col-md-1">
                 <div class="pointRouge"></div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
+                <div class="blockJour">
+                    <div class="descriptionJour">
+                        <div class="textDescriptionJourHaut">
+                            Arrivée à Santiago après 14 heures de vol.<br/>
+                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                        </div>
+                        <div class="textDescriptionJourBas">
+                            <a href="#">Lire la fiche</a>
+                        </div>
+                    </div>
+                    <div class="imgJour">
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
+                <div class="textJour">
+                    Jour 1 : Arrivée à Santiago
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="pointRouge"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="blockJour">
+                    <div class="descriptionJour">
+                        <div class="textDescriptionJourHaut">
+                            Arrivée à Santiago après 14 heures de vol.<br/>
+                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                        </div>
+                        <div class="textDescriptionJourBas">
+                            <a href="#">Lire la fiche</a>
+                        </div>
+                    </div>
+                    <div class="imgJour">
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
+                <div class="textJour">
+                    Jour 1 : Arrivée à Santiago
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="pointRouge"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="blockJour">
+                    <div class="descriptionJour">
+                        <div class="textDescriptionJourHaut">
+                            Arrivée à Santiago après 14 heures de vol.<br/>
+                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                        </div>
+                        <div class="textDescriptionJourBas">
+                            <a href="#">Lire la fiche</a>
+                        </div>
+                    </div>
+                    <div class="imgJour">
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
+                <div class="textJour">
+                    Jour 1 : Arrivée à Santiago
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="pointRouge"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="blockJour">
+                    <div class="descriptionJour">
+                        <div class="textDescriptionJourHaut">
+                            Arrivée à Santiago après 14 heures de vol.<br/>
+                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                        </div>
+                        <div class="textDescriptionJourBas">
+                            <a href="#">Lire la fiche</a>
+                        </div>
+                    </div>
+                    <div class="imgJour">
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
+                <div class="textJour">
+                    Jour 1 : Arrivée à Santiago
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="pointRouge"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="blockJour">
+                    <div class="descriptionJour">
+                        <div class="textDescriptionJourHaut">
+                            Arrivée à Santiago après 14 heures de vol.<br/>
+                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                        </div>
+                        <div class="textDescriptionJourBas">
+                            <a href="#">Lire la fiche</a>
+                        </div>
+                    </div>
+                    <div class="imgJour">
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
+                <div class="textJour">
+                    Jour 1 : Arrivée à Santiago
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="pointRouge"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="blockJour">
+                    <div class="descriptionJour">
+                        <div class="textDescriptionJourHaut">
+                            Arrivée à Santiago après 14 heures de vol.<br/>
+                            Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
+                        </div>
+                        <div class="textDescriptionJourBas">
+                            <a href="#">Lire la fiche</a>
+                        </div>
+                    </div>
+                    <div class="imgJour">
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blocVoyage">
+            <div class="col-md-5">
+                <div class="textJour">
+                    Jour 1 : Arrivée à Santiago
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="pointRouge"></div>
+            </div>
+            <div class="col-md-6">
                 <div class="blockJour">
                     <div class="descriptionJour">
                         <div class="textDescriptionJourHaut">
@@ -76,5 +240,5 @@
             </div>
         </div>
     </div>
-    <div style="clear:both"></div>
+    <br/><br/><br/>
 </div>
