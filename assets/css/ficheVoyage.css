@@ -157,10 +157,45 @@
     margin-bottom: 30px;
 }
 
+.descriptionJour{
+    width : 50%;
+    float : left;
+}
+
 .textJour{
     color: #c0ac79;
     font-size: 24px;
     text-align: center;
+}
+
+.textDescriptionJourHaut{
+    font-size: 14px;
+    font-family: 'Avenir'
+}
+
+.textDescriptionJourBas {
+    padding: 12px 6px 0 0;
+    text-align: right;
+    text-decoration: underline;
+    font-size: 15px;
+    color : #000;
+    font-family: 'Avenir'
+}
+
+.textDescriptionJourBas a{
+    padding: 12px 6px 0 0;
+    text-align: right;
+    color : #000;
+    font-family: 'Avenir'
+}
+
+.textDescriptionJourBas, a:hover{
+    color : #000;
+}
+
+.imgJour{
+    width : 50%;
+    float : right;
 }
 
 .pointRouge{

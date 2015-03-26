@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-lg-9">
                     <h1>JOHN DOE</h1>
-                    <p>Je m'appelle John Doe, je suis étudiant sur lIlle. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la littérature, les questions environnementales,les théroies socialogiques...</P>
+                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la littérature, les questions environnementales,les théroies socialogiques...</P>
                 </div>
             </div>
         </div>
@@ -66,13 +66,11 @@
                             Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
                         </div>
                         <div class="textDescriptionJourBas">
-                            Lire la fiche
+                            <a href="#">Lire la fiche</a>
                         </div>
                     </div>
                     <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/>
-
-                        
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
                     </div>
                 </div>
             </div>
