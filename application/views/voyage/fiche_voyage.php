@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/region_lacs.jpg" class="image_profile" alt="Image Voyage 1"/> 
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/san_pedro.jpg" class="image_profile" alt="Image Voyage 1"/> 
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/route_vins.jpg" class="image_profile" alt="Image Voyage 1"/> 
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/valparaiso.jpg" class="image_profile" alt="Image Voyage 1"/> 
                     </div>
                 </div>
             </div>
@@ -203,7 +203,7 @@
                         </div>
                     </div>
                     <div class="imgJour">
-                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/visite.jpg" class="image_profile" alt="Image Voyage 1"/> 
                     </div>
                 </div>
             </div>
