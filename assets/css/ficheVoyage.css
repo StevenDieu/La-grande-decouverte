@@ -2,18 +2,13 @@
     background: #fff;
     text-align: left;        
     color: #000;
-}
-
-.carnet_presentation{
-    background-color : #e6ddd6;
-    width : 100%;
-    padding : 20px;
+    margin: 0 auto 44px auto;
+    height: auto;
 }
 
 .content_fiche_voyage{
     max-width: 1200px;
-    margin: 0 auto
-}
+    margin: 0px auto;}
 .rslides {
     margin: 0 auto 40px;
 }
@@ -125,17 +120,6 @@
     background-color : #fff;
 }
 
-.carnet_user{
-    padding-left: 25px;
-    padding-top: 0px;
-    float : left;
-}
-
-.share_carnet{
-    float: right;
-    padding-right: 25px;
-
-}
 
 .content_fiche_voyage .share_carnet .icone-social{
     width: 30px;
@@ -143,12 +127,14 @@
 }
 
 .content_fiche_voyage .image_profile{
-    max-width: 225px;
+    max-width: 240px;
 }
 
 .content_fiche_voyage .bloc_image_profile{
     max-height: 225px;
     overflow: hidden; 
+    margin: 0 auto;
+    text-align: center;
 }
 
 .baniere_description{
@@ -158,19 +144,62 @@
 }
 
 .descriptionJour{
-    width : 50%;
+    max-width: 360px;
     float : left;
+    padding: 8px 14px 21px 0;
+    margin: 0 auto;
+    min-height: 160px;
 }
 
-.textJour{
-    color: #c0ac79;
-    font-size: 24px;
-    text-align: center;
-}
+
 
 .textDescriptionJourHaut{
     font-size: 14px;
     font-family: 'Avenir'
+        ;color: #c0ac79;
+    max-height: 140px;
+    text-align: justify;
+}
+
+
+.textDescriptionJourBas a{
+    font-family: 'Avenir'
+        ;color: #c0ac79;
+}
+
+.imgJour{
+    width: 176px;
+    overflow: hidden;
+    margin: 0 auto;
+    float: right;
+}
+
+
+
+.blockJour{
+    display: flex;
+    max-width: 500px;
+    padding-left: 0;
+    margin: 0 auto;
+}
+
+.blocVoyage{
+
+    margin: 0 0 40px  0 !important;
+}
+.pointRouge{ 
+    height: 30px;
+}
+.textJour{
+    color: #c0ac79;
+    font-size: 24px;
+    text-align: center;
+    padding-right: 0;
+}
+
+.blockRow{
+    margin: 0 auto;
+    max-width: 540px;
 }
 
 .textDescriptionJourBas {
@@ -179,30 +208,102 @@
     text-decoration: underline;
     font-size: 15px;
     color : #000;
-    font-family: 'Avenir'
+    font-family: 'Avenir';
 }
 
-.textDescriptionJourBas a{
-    padding: 12px 6px 0 0;
-    text-align: right;
-    color : #000;
-    font-family: 'Avenir'
+
+
+@media (min-width: 992px){
+    .traiVerticalePoitiller{
+        margin: 0px auto;
+        border-left: 1px dashed #000;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        left: 0px;
+        width: 0px;
+    }
+
+    .pointRouge{
+        background: #9c0f17;
+        border-radius:50%;
+        width: 25px;
+        height: 25px; 
+        margin: 4px auto;
+    }
+    .blocVoyage{
+
+        margin: 0 0 85px  0 !important;
+    }
+
+    .textJour{
+        text-align: right;
+        padding-right: 20px;
+    }
+
+
+    .blockJour{
+        margin: 0px 0 0 0;
+        padding-left: 20px;
+
+    }
+
+
+    .textDescriptionJourBas {
+        padding: 12px 6px 0 0;
+        text-align: right;
+        text-decoration: underline;
+        font-size: 15px;
+        color : #000;
+        font-family: 'Avenir';
+        position: absolute;
+        bottom: 0;
+        right: 13px;
+    }
+
+
 }
 
-.textDescriptionJourBas, a:hover{
-    color : #000;
+.carnet_user{
+    text-align: center;
 }
 
-.imgJour{
-    width : 50%;
-    float : right;
-}
-
-.pointRouge{
-    background: #9c0f17;
-    border-radius:50%;
-    width: 25px;
-    height: 25px; 
-    margin-top: 7px;
+.share_carnet{
+    padding-bottom: 6px;
+    width: 245px;
+    text-align: center;
     margin: 0 auto;
+}
+
+@media (max-width: 540px){
+    .descriptionJour{
+        float: none;
+    }
+    .textDescriptionJourBas {
+        margin: 0 auto;
+
+        text-align: center;
+    }
+    .imgJour{
+        float: none;
+    }
+}
+@media (min-width: 540px){
+    .carnet_user{
+        padding-left: 25px;
+        padding-top: 3px;
+        float : left;
+    }
+
+    .share_carnet{
+        float: right;
+        padding-right: 25px;
+        padding-bottom: 6px;
+        width: auto;
+    }
+}
+
+
+.blocTraiVerticalePoitiller{
+    height: 50px;
 }

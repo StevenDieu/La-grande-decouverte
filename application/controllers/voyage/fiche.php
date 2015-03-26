@@ -19,7 +19,7 @@ class Fiche extends CI_Controller {
      */
     public function ficheVoyage() {
         $data["allCss"] = array("ficheVoyage");
-        $data["alljs"] = array("slide");
+        $data["alljs"] = array("slide","ficheVoyage");
         $this->load->templateVoyage('/fiche_voyage', $data);
     }
 

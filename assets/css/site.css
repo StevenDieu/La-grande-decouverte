@@ -330,13 +330,14 @@ h3.titre{
     margin: 0 0 0px 0;
 }
 .blockFooter_6_1{
-    margin-top: 50px;
+    max-width: 300px;
+    margin: 50px auto 0 auto;
 }
 .blockFooter_6_2{
-    margin-top: 50px;
+    max-width: 300px;    margin: 50px auto 0 auto;
 }
 .blockFooter_6_3{
-    margin-top: 50px;
+    max-width: 300px;    margin: 50px auto 0 auto;
 }
 .explicationFooter{
     font-style: italic;
@@ -358,6 +359,7 @@ h2.titre{
 #footer{
     text-align: center;
     margin: 0 auto;
+    max-width: 1400px;
 }
 .trait{
     margin: 30px 0 0 0;
