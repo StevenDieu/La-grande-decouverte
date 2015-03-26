@@ -31,15 +31,17 @@
         </div> 
 
         <div style="clear:both"></div>
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="bloc_image_profile">
-                    <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
+        <div class="carnet_presentation">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="bloc_image_profile">
+                        <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-9">
-                <h1>JOHN DOE</h1>
-                <p>Je m'appelle John Doe, je suis étudiant sur lIlle. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la littérature, les questions environnementales,les théroies socialogiques...</P>
+                <div class="col-lg-9">
+                    <h1>JOHN DOE</h1>
+                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la littérature, les questions environnementales,les théroies socialogiques...</P>
+                </div>
             </div>
         </div>
 

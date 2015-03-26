@@ -4,6 +4,12 @@
     color: #000;
 }
 
+.carnet_presentation{
+    background-color : #e6ddd6;
+    width : 100%;
+    padding : 20px;
+}
+
 .content_fiche_voyage{
     max-width: 1200px;
     margin: 0 auto
@@ -14,6 +20,10 @@
 
 .col-lg-9{
     font-family: 'Avenir'
+}
+
+.row{
+
 }
 
 
