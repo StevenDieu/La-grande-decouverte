@@ -1,16 +1,21 @@
 <div class="content">
 	<div class="content-contact form-horizontal">
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 		<?php
         echo validation_errors();
         echo form_open('contact/index/verifContact');
         // echo form_open('user/verifIdentification/verifInscription');
 
         //message d'erreur/validation après envoie du formulaire de contact.
-        if ($error == 1) {
+        if ($error == -1) {
+            echo "Erreur lors de l'envoie du message.";
+        }
+        elseif ($error == 1) {
             echo "Votre message à bien été envoyer, nous vous répondrons dès que possible.";
         }
-        elseif ($error == -1) {
-            echo "Erreur lors de l'envoie du message.";
+        elseif($error == 2) {
+            echo "N'oubliez pas de dire que vous n'êtes pas un robot.";
         }
 
         ?>
@@ -60,11 +65,16 @@
                     <textarea id="message" class="form-control" placeholder="Votre message" name="message"></textarea>
                 </div>
             </div>
-
+            <!-- ReCaptcha -->
+            <div class="form-group">
+                <div class="col-sm-9">  
+                    <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
+                </div>
+            </div>
             <!-- Button -->
             <div class="form-group">
                 <label class="control-label col-sm-3" for="envoyer"></label>
-                <div class="col-sm-9">
+                <div class="col-sm-push-3 col-sm-9">
                     <button id="envoyer" name="nvoyer" class="btn btn-success">Envoyer</button>
                 </div>
             </div>
