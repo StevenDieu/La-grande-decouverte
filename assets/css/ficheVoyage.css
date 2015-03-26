@@ -140,3 +140,24 @@
     max-height: 225px;
     overflow: hidden; 
 }
+
+.baniere_description{
+    background-color: #e6ded6;
+    padding: 25px 0;
+    margin-bottom: 30px;
+}
+
+.textJour{
+    color: #c0ac79;
+    font-size: 24px;
+    text-align: center;
+}
+
+.pointRouge{
+    background: #9c0f17;
+    border-radius:50%;
+    width: 25px;
+    height: 25px; 
+    margin-top: 7px;
+    margin: 0 auto;
+}
