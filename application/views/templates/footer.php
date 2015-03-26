@@ -64,8 +64,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="votre e-mail"/>
-                        <input type="button" class="btn btn-primary buttonNewsletter" value="S'INSCRIRE" />
+                        <form action="#" >
+                            <input type="text" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
+                            <input type="submit" class="buttonNewsletter" value="OK" />
+                        </form>
                     </div>
                 </div>
             </div>

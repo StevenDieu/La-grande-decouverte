@@ -285,8 +285,23 @@ footer li{
 
 }
 .buttonNewsletter{
-    width: 100%;
-    margin: 4px 0 0 0;
+    width: 50px;
+    margin: -33px 0px 0 0;
+    background: none;
+    border: 0;
+    color: #23b7e1;
+    height: 32px;
+    float: right;
+    border-radius: 4px;
+}
+
+.buttonNewsletter:hover{
+    background: #E2E2E2;
+}
+.buttonNewsletter:focus{
+    border: 0;
+    text-decoration: none;
+    outline-style: none;
 }
 .textFooter{
     font-size: 13px;
