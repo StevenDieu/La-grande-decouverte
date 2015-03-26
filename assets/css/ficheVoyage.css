@@ -120,17 +120,6 @@
     background-color : #fff;
 }
 
-.carnet_user{
-    padding-left: 25px;
-    padding-top: 0px;
-    float : left;
-}
-
-.share_carnet{
-    float: right;
-    padding-right: 25px;
-
-}
 
 .content_fiche_voyage .share_carnet .icone-social{
     width: 30px;
@@ -157,11 +146,10 @@
 .descriptionJour{
     max-width: 360px;
     float : left;
-    position: relative;
     padding: 8px 14px 21px 0;
+    margin: 0 auto;
 }
 
-.descriptionJour {}
 
 
 .textDescriptionJourHaut{
@@ -171,25 +159,11 @@
     max-height: 140px;
 }
 
-.textDescriptionJourBas {
-    padding: 12px 6px 0 0;
-    text-align: right;
-    text-decoration: underline;
-    font-size: 15px;
-    color : #000;
-    font-family: 'Avenir'
-}
 
 .textDescriptionJourBas a{
     text-align: right;
     font-family: 'Avenir'
         ;color: #c0ac79;
-}
-
-.textDescriptionJourBas{
-    position: absolute;
-    bottom: 12px;
-    right: 13px;
 }
 
 .imgJour{
@@ -203,7 +177,7 @@
 .blockJour{
     display: flex;
     max-width: 500px;
-    padding-left: 20px;
+    padding-left: 0;
     margin: 0 auto;
 }
 
@@ -220,6 +194,22 @@
     text-align: center;
     padding-right: 0;
 }
+
+.blockRow{
+    margin: 0 auto;
+    max-width: 540px;
+}
+
+.textDescriptionJourBas {
+    padding: 12px 6px 0 0;
+    text-align: right;
+    text-decoration: underline;
+    font-size: 15px;
+    color : #000;
+    font-family: 'Avenir';
+}
+
+
 
 @media (min-width: 992px){
     .traiVerticalePoitiller{
@@ -251,11 +241,58 @@
 
 
     .blockJour{
-        margin: 0 ;
+        margin: 0px 0 0 0;
+        padding-left: 20px;
+
+    }
+
+
+    .textDescriptionJourBas {
+        padding: 12px 6px 0 0;
+        text-align: right;
+        text-decoration: underline;
+        font-size: 15px;
+        color : #000;
+        font-family: 'Avenir';
+        position: absolute;
+        bottom: 12px;
+        right: 13px;
     }
 
 
 }
+
+.carnet_user{
+    text-align: center;
+}
+
+.share_carnet{
+    padding-bottom: 6px;
+    width: 245px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media (max-width: 540px){
+    .descriptionJour{
+        float: none;
+    }
+}
+@media (min-width: 540px){
+    .carnet_user{
+        padding-left: 25px;
+        padding-top: 3px;
+        float : left;
+    }
+
+    .share_carnet{
+        float: right;
+        padding-right: 25px;
+        padding-bottom: 6px;
+        width: auto;
+    }
+}
+
 
 .blocTraiVerticalePoitiller{
     height: 50px;
