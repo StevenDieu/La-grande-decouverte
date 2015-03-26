@@ -16,13 +16,13 @@
         map = new google.maps.Map(document.getElementById('carte'), mapOptions);
     }
     google.maps.event.addDomListener(window, 'load', initialize);
-
     //centre la map google
     function centrage() {
         var center = map.getCenter();
         google.maps.event.trigger(map, "resize");
         map.setCenter(center);
     }
+
 </script>
 
 <div class="fiche_produit">		
@@ -271,26 +271,75 @@
         <div id="onglet4mobile" class="onglet_mobile"><a href="#">Déroulement</a></div>
         <div id="onglet4" class="contenu_fiche_onglet onglet4mobile">
             <div class="contenu">
-                <div class="titre"><span>JOUR 1</span> - Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
-                <div class="description">4 nuits à l'Alto Atacama dans une Chambre Quitor en pension complète avec activités.</div>
-                <div class="inter_jour"></div>
+                <div class="blue_line"></div>
 
-                <div class="titre"><span>JOURS 2 à 5</span> - Désert d'Atacama</div>
-                <div class="description">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+                <!-- 1 jour -->
+                <div class="jour_container">
+                    <div class="day_counter">
+                        <div class="day">Jour 1</div>                       
+                    </div>
+                    <div class="day_container">
+                        <div class="fleche_jour"></div>
+                        <div class="description_container">
+                            <div class="image">
+                                <img src="<?php echo asset_url(''); ?>images/ficheproduit/deroulement/imagen_unidad_2.jpg" alt="">
+                            </div>
+                            <div class="texte">
+                                <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
+                                <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+                    Le soir, l'observation des étoiles y est incroyable !ma propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
                     Le soir, l'observation des étoiles y est incroyable !</div>
-                <div class="inter_jour"></div>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </div>
+                <!-- fin 1 jour -->
 
-                <div class="titre"><span>JOUR 5 à 8</span> - Lac Budi</div>
-                <div class="description">A une heure de la ville de Temuco, au sud du Chili et près de l’Océan Pacifique, le Lac Budi est une des destinations les plus photogéniques et paisibles de l’Araucanía. Encore méconnue des touristes étrangers, vous allez y rester 3 jours et dormir dans ses « rucas », goûter sa gastronomie et connaître de première main les secrets de la culture mapuche.</div>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/deroulement/imagen_unidad_2.jpg" alt="">
-                <div class="inter_jour"></div>
+                <!-- 1 jour -->
+                <div class="jour_container">
+                    <div class="day_counter">
+                        <div class="day">Jour 2</div>                       
+                    </div>
+                    <div class="day_container">
+                        <div class="fleche_jour"></div>
+                        <div class="description_container">
+                            <div class="texte no-image">
+                                <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
+                                <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+                    Le soir, l'observation des étoiles y est incroyable !ma propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+                    Le soir, l'observation des étoiles y est incroyable !</div>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </div>
+                <!-- fin 1 jour -->
 
-                <div class="titre"><span>JOURS 9</span> - Patagonie & Torres del Paine</div>
-                <div class="description">Patagonia Camp propose un large éventail d'activités au choix : randonnées dans le Parc de Torres del Paine à la découverte de la faune, de la flore, des lacs et des glaciers.</div>
-                <div class="inter_jour"></div>
+                <!-- 1 jour -->
+                <div class="jour_container">
+                    <div class="day_counter">
+                        <div class="day">Jour 3</div>                       
+                    </div>
+                    <div class="day_container">
+                        <div class="fleche_jour"></div>
+                        <div class="description_container">
+                            <div class="image">
+                                <img src="<?php echo asset_url(''); ?>images/ficheproduit/deroulement/imagen_unidad_2.jpg" alt="">
+                            </div>
+                            <div class="texte">
+                                <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
+                                <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+                    Le soir, l'observation des étoiles y est incroyable !ma propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
+                    Le soir, l'observation des étoiles y est incroyable !</div>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </div>
+                <!-- fin 1 jour -->
 
-                <div class="titre"><span>JOUR 9</span> - Transfert en voiture vers Punta Arenas.</div>
-                <div class="description">Vol vers Santiago de Chile.</div>
+
             </div>
         </div>
     </div>	

@@ -190,7 +190,6 @@
     .fiche_produit .onglet_fiche .onglet_fiche_inner,.fiche_produit .onglet_fiche .contenu_fiche_onglet{
         width: 100%; 
     }
-
 }
 
 .fiche_produit .contenu_onglet{
@@ -215,6 +214,18 @@
 @media (max-width: 780px){
     .fiche_produit .onglet_fiche{
         display: none;
+    }
+}
+
+@media (max-width: 600px){
+    .onglet4mobile .contenu .jour_container .day_container .description_container .image{
+        float: none !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .onglet4mobile .contenu .jour_container .day_container .description_container .texte{
+        width: 100% !important;
     }
 }
 
@@ -268,6 +279,14 @@
 
     .onglet1mobile .conteneur_gauche{
         border-right: 1px solid #CDCDCD;
+    }
+
+    .onglet4mobile .contenu .jour_container .day_counter{
+        position: absolute;
+    }
+
+    .onglet4mobile .contenu .jour_container .day_container{
+        margin-right: 10px;
     }
 }
 
@@ -331,6 +350,27 @@
     }
     .onglet3mobile .separateur_article{
         width: 80%;
+    }
+
+    .onglet4mobile .contenu .blue_line,.onglet4mobile .contenu .jour_container .day_container .fleche_jour{
+        display: none;
+    }
+
+    .onglet4mobile .contenu .jour_container .day_counter{
+        position: relative;
+        width: 100% !important;
+        margin: 0px !important;
+       
+    }
+
+    .onglet4mobile .contenu .jour_container .day_counter .day{
+        text-align: left;
+    }
+
+    .onglet4mobile .contenu .jour_container{
+        padding-left: 0px !important;
+          margin-left: 10px;
+            margin-right: 10px;
     }
 
 }
@@ -600,44 +640,88 @@
     margin: auto;
     min-height: 150px;
     padding-top: 20px;
+    position:relative;
 }
 
-.onglet4mobile .contenu .titre,.onglet4mobile .contenu .description{
+.onglet4mobile .contenu .blue_line{
+    top: 0px;
+    bottom: -15px;
+    width: 6px;
+    background: #006695;
+    margin-left: 102px;
+    position: absolute;
+    z-index: 0;
+}
+
+.onglet4mobile .contenu .jour_container{
+    padding-left: 122px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.onglet4mobile .contenu .jour_container .day_counter{
+    margin-left: -173px;
+    margin-top: 5px;
+    width: 145px;
+    text-align: right;
+    z-index: 99999;
+    color: #000;
+    font-size: 24px;
+    font-family: 'NewCicleGordita';
+    font-size: 1.5em;
+}
+
+.onglet4mobile .contenu .jour_container .day_container{
+    box-shadow: #CDCDCD 0px 0px 3px 0px;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+    padding: 10px;
+}
+
+.onglet4mobile .contenu .jour_container .day_container .fleche_jour{
+    width: 10px;
+    height: 12px;
+    position: absolute;
+    background-color: #fff;
+    top: 15px;
+    left: -10px;
+    background: #fff url("../images/ficheproduit/fleche.png") no-repeat left -6px;
+}
+
+.onglet4mobile .contenu .jour_container .day_container .description_container .image{
+width: 30%;
+float: left;
+display: block;
+margin-right: 20px;
+height: auto;
+}
+
+.onglet4mobile .contenu .jour_container .day_container .description_container .texte{
+    float: left;
+    width: 65%;
+}
+
+.onglet4mobile .contenu .jour_container .day_container .description_container .texte.no-image{
     width: 100%;
 }
 
-.onglet4mobile .contenu img{
-    margin: auto;
-    display: block;
+.onglet4mobile .contenu .jour_container .day_container .description_container .texte .titre{
+    font-size: 2.375rem;
+    font-family: "NewCicleGordita";
+    line-height: 2.5625rem;
+    margin-bottom: 15px;
 }
 
-.onglet4mobile .contenu .description{
-    margin-bottom: 25px;
-    font-size: 16px;
+.onglet4mobile .contenu .jour_container .day_container .description_container .texte .text{
     font-family: "NewCicleSemi";
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.onglet4mobile .contenu .titre span{
-    font-family: 'NewCicleGordita';
-    text-transform: uppercase;
-    font-size: 18px;
-    color: #006695;
+.onglet4mobile .contenu .jour_container .day_container .description_container .image img{
+    width: 100%;
 }
 
-.onglet4mobile .contenu .titre{
-      font-family: 'NewCicleGordita';
-    margin-bottom: 5px;
-}
-
-.onglet4mobile .contenu .inter_jour{
-    width: 20%;
-    height: 1px;
-    border-top: 1px solid #006695;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
 .conteneur_gauche .header_partie, .conteneur_droit .header_partie{
     width: 100%;
@@ -738,6 +822,10 @@
     width: 100%;
     margin: auto;
     max-width: 650px;
+}
+
+.onglet_mobile a, .onglet_mobile a:focus{
+    color: #000;
 }
 
 /* Other common styles */
