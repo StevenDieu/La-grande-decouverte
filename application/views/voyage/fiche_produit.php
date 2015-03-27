@@ -87,8 +87,52 @@
         <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description voyage</a></div>
         <div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
             <!-- contenu description -->
+
+            <div class="text">
+                <p>Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.</p>
+            </div>
+
             <div class="info_pratique">
-                
+                <div class="inner">
+                    <div class="left">
+                        <ul>
+                            <li><span>Capitale :</span> Santiago du Chili</li>
+                            <li><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></li>
+                            <li><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</li>
+                            <li><span>Décalage horaire :</span> lorsqu'il est midi en France, au <u>Chili</u> il est 7h en été (8h en hiver)</li>
+                            <li><span>Langue officielle :</span> l'espagnol est la langue officielle du Chili</li>
+                            <li><span>Villes principales :</span> Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
+                            <li><span>Religion :</span> Au <u>Chili</u>, la religion catholique est majoritaire.</li>
+                            <li><span>Nombre d'habitants :</span> Le Chili compte 16 600 000 habitants</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <div class="picto">
+                            <ul>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/excursion.png" alt="excursion"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/google.png" alt="google"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/sunblock.png" alt="sunblock"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
+                                <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
+                            </ul>
+                        </div>
+                        <div class="meteo"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="text">
+                <p>Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.</p>
+            </div>
+
+            <div class="text">
+                <p>La deuxième partie de votre voyage nous transporte à l'autre bout de la cordillère des Andes. Nous quitterons l'Altiplano et les paysages lunaires de l'Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.</p>
+            </div>
+
+            <div class="text">
+                <p>Après un court passage par le mythique port de Valparaiso, l'une des villes les plus singulières d'Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l'Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l'une des terres les plus isolées du globe!</p>
             </div>
 
             <div class="ligne_image">
@@ -97,8 +141,41 @@
                 <div class="separation_image"></div>
                 <div class="img img3"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/3.jpg" alt=""></div>
                 <div class="img img4"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/4.jpg" alt=""></div>
+                <div class="clear"></div>
             </div>
 
+            <div class="text">
+                <p>Après un court passage par le mythique port de Valparaiso, l'une des villes les plus singulières d'Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l'Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature
+                 et culture sur l'une des terres les plus isolées du globe! Bref, nous vous proposons ici un voyage d'exception pour une découverte des multiples facettes d'un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie...</p>
+            </div>
+
+            <div id="jcl-demo">
+                <div class="custom-container widget">
+                    <div class="mid">
+                        <img class="zoom" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt="">
+                    </div>
+                    <div class="carousel">  
+                        <ul>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                        </ul> 
+                    </div>                        
+                    <div class="clear"></div>
+                </div>
+
+
+                <script type="text/javascript">
+                    $(function() {
+                        $(".widget img").click(function() {
+                            $(".widget .mid img").attr("src", $(this).attr("src"));
+                        })
+                    });
+                </script>
+            </div>
             <!-- fin contenu description -->
             <div class="clear"></div>
         </div>

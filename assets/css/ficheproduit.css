@@ -217,6 +217,11 @@
     .fiche_produit .onglet_fiche .onglet_fiche_inner,.fiche_produit .onglet_fiche .contenu_fiche_onglet{
         width: 100%; 
     }
+
+    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
+        margin-bottom: 20px;
+        padding: 10px;
+    }
 }
 
 .fiche_produit .contenu_onglet{
@@ -242,11 +247,22 @@
     z-index: 100;
 }
 
+.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .ligne_image{
+    margin-bottom: 15px;
+}
+
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
-    min-height: 200px;
     background-color: #e6ded6;
     margin-bottom: 20px;
 }
+
+.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet3,.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet2,.fiche_produit .contenu_onglet .contenu_fiche_onglet#onglet4{
     display: none;
@@ -334,10 +350,16 @@
         width: 25%;
         float: left;
     }
-}
 
-.ligne_image .img img{
-    width: 100%;
+    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left,
+    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .right{
+        width: 50%;
+        float: left;
+    }
+    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
+        border-right: 1px solid #cdcdcd;
+
+    }
 }
 
 @media (max-width: 978px){
@@ -359,6 +381,10 @@
 
     .onglet.active a,.onglet:hover a{
         font-size: 1.2em !important;
+    }
+
+    .contenu_onglet .onglet1mobile .text{
+        padding: 10px;
     }
 }
 
@@ -444,6 +470,9 @@
         float: left;
     }
 
+    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
+        margin-top: 15px;
+    }
 }
 
 @media (min-width: 780px){
@@ -851,6 +880,62 @@ height: auto;
   position: absolute;
   right: -25px;
   top: 6px;
+}
+
+.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
+    font-family: "NewCicleSemi";
+  
+}
+
+.ligne_image .img img{
+    width: 100%;
+}
+
+.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left ul li{
+    list-style-type: none;
+}
+
+.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left ul{
+    margin-bottom: 0px;
+}
+
+.info_pratique {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.info_pratique .right .picto {
+    text-align: center;
+}
+
+.info_pratique .right .picto ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 5%;
+    width:10%;
+    max-width: 40px;
+}
+
+.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left span{
+    font-family: "NewCicleGordita";
+    font-weight: bold;
+}
+
+.info_pratique .right .picto ul li img{
+    width: 100%;
+}
+
+.contenu_onglet .onglet1mobile .text{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 15px;
+    text-align: justify;
+    font-family: "NewCicleSemi";
+}
+
+.contenu_onglet .onglet1mobile .text p{
+    text-indent: 30px; 
 }
 
 /* Other common styles */
