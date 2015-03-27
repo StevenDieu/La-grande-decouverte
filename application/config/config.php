@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/TVAFS-1.0';
+$config['base_url']	= '';
 
 /*
 |--------------------------------------------------------------------------
