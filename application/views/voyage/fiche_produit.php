@@ -87,84 +87,16 @@
         <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description voyage</a></div>
         <div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
             <!-- contenu description -->
-            <div class="conteneur_gauche">
-
-                <div class="header_partie"><div class="icon"><img src="<?php echo asset_url(''); ?>images/ficheproduit/carteidentite.png" alt="carte identité"></div><h3>Carte d'identité</h3></div>
-                <div class="contenu_partie">
-                    <ul>
-                        <li>Capitale : Santiago du Chili</li>
-                        <li>Monnaie : Le Peso chilien (CLP) est utilisé au <strong>Chili</strong></li>
-                        <li>Fête : Indépendance du Chili, 18 Septembre (1810)</li>
-                        <li>Décalage horaire : lorsqu'il est midi en France, au <strong>Chili</strong> il est 7h en été (8h en hiver)</li>
-                        <li>Langue officielle : l'espagnol est la langue officielle du Chili</li>
-                        <li>Villes principales : Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
-                        <li>Religion : Au <strong>Chili</strong>, la religion catholique est majoritaire.</li>
-                        <li>Nombre d'habitants : Le Chili compte 16 600 000 habitants</li>
-                    </ul>
-                </div>
-
-                <div class="header_partie"><div class="icon"><img src="<?php echo asset_url(''); ?>images/ficheproduit/information2.png" alt="description"></div><h3>Description</h3></div>
-                <div class="contenu_partie">
-                    Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.<br><br>
-                    La deuxième partie de votre voyage nous transporte à l'autre bout de la cordillère des Andes. Nous quitterons l'Altiplano et les paysages lunaires de l'Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.<br><br>
-                    Après un court passage par le mythique port de Valparaiso, l'une des villes les plus singulières d'Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l'Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l'une des terres les plus isolées du globe!<br><br>
-                    Bref, nous vous proposons ici un voyage d'exception pour une découverte des multiples facettes d'un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie...
-                </div>
-
-                <div id="jcl-demo">
-                    <div class="custom-container widget">
-                        <div class="mid">
-                            <img class="zoom" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt="">
-                        </div>
-                        <div class="carousel">  
-                                                  
-                            <ul>
-                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
-                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
-                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
-                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                                <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
-                            </ul> 
-                                                   
-                        </div>                        
-                        <div class="clear"></div>
-                    </div>
-
-
-                    <script type="text/javascript">
-                        $(function() {
-                            $(".widget img").click(function() {
-                                $(".widget .mid img").attr("src", $(this).attr("src"));
-                            })
-                        });
-                    </script>
-
-                </div>
+            <div class="ligne_image">
+                <div class="img img1"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/1.jpg" alt=""></div>
+                <div class="img img2"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/2.jpg" alt=""></div>
+                <div class="separation_image"></div>
+                <div class="img img3"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/3.jpg" alt=""></div>
+                <div class="img img4"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/4.jpg" alt=""></div>
             </div>
 
-            <script type="text/javascript">
-            $(".slide_bottom img").click(function() {
-                $(".widget .mid img").attr("src", $(this).attr("src"));
-            });
-            </script>
-
-            <div class="conteneur_droit">
-                <div class="header_partie"><div class="icon"><img src="<?php echo asset_url(''); ?>images/ficheproduit/carteidentite.png" alt="carte identité"></div><h3>Infos pratiques</h3></div>
-                <div class="contenu_partie">
-                    <div class="picto">
-                        <ul>
-                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
-                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/excursion.png" alt="excursion"></li>
-                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/google.png" alt="google"></li>
-                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/sunblock.png" alt="sunblock"></li>
-                            <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
-                            <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div style="clear:both"></div>
+            <!-- fin contenu description -->
+            <div class="clear"></div>
         </div>
         <div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
         <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
