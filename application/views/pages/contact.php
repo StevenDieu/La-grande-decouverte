@@ -1,3 +1,4 @@
+<br/><br/><br/>
 <div class="content">
 	<div class="content-contact form-horizontal">
 
@@ -14,7 +15,7 @@
         elseif ($error == 1) {
             echo "Votre message à bien été envoyer, nous vous répondrons dès que possible.";
         }
-        elseif($error == 2) {
+        elseif($error == -2) {
             echo "N'oubliez pas de dire que vous n'êtes pas un robot.";
         }
 

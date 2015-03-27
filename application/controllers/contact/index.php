@@ -8,13 +8,12 @@ class Index extends CI_Controller {
     function __construct() {
         parent::__construct();
         //recaptcha
-        $this->load->library('curl');
-
+        $this->load->library('form_validation');
         $this->load->library('session');
     }
 
     function verifContact() {
-        $this->load->library('form_validation');
+
 
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean');
@@ -32,29 +31,22 @@ class Index extends CI_Controller {
             $objet = $this->input->post('objet');
             $message = $this->input->post('message');
 
-            //traitement captcha google
             $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
-
-            $userIp = $this->input->ip_address();
 
             $secret = '6LdLFAQTAAAAACM8KXqIYKU8Wfo_Hn4Kc_0ny8IH';
 
-            $url = "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $recaptchaResponse . "&remoteip=" . $userIp;
-            $response = $this->curl->simple_get($url);
-
-            $status = json_decode($response, true);
-
-            if ($status['success']) {
+            $url = "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $recaptchaResponse;
+            $response=file_get_contents($url);
+            $resultat = json_decode($response);
+            if ($resultat->success == true) {
                 $this->session->set_flashdata('flashSuccess', 'Google Recaptcha Successful');
-                $data ["error"] = 1;    //humain
-                // envoie_mail($mail,$objet,$message);
+                $data ["error"] = 1; 
             } else {
                 $this->session->set_flashdata('flashSuccess', 'Sorry Google Recaptcha Unsuccessful!!');
-                $data ["error"] = -1;   //bot
+                $data ["error"] = -2;  
             }
 
             $this->load->templatePages('contact', $data);
-            //renvoyer erreur = 0 / 1 pour afficher message
         }
     }
 
