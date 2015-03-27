@@ -1,6 +1,6 @@
 <div class="content">
     <div class="row">
-        <div class="col-md-push-2 col-md-4">
+        <div class="col-md-push-2 col-md-4 ecartConnexionInscription">
             <div class="content-connexion form-horizontal ">
                 <legend>Connexion</legend>
                 <?php echo validation_errors(); ?>
@@ -33,7 +33,8 @@
                 <p>
                     En créant un compte, vous serez capable de procéder aux achats plus rapidement, 
                     de voir et suivre vos commandes sur votre compte et plus encore.
-                </p><br/>
+                </p>
+                <br/>
 
                 <a class="btn btn-default btn-mobile" href="<?php echo base_url('user/account/inscription') ?>">Créer un compte</a>
 
