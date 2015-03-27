@@ -6,7 +6,11 @@ body {
 
 /******* header *********/
 .header {
+<<<<<<< Updated upstream
     height: 76px;
+=======
+    height: 70px;
+>>>>>>> Stashed changes
     color:white;
     font-size: 16px;
     vertical-align:middle;
