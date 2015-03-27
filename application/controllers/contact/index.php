@@ -9,7 +9,7 @@ class Index extends CI_Controller {
         parent::__construct();
         //recaptcha
         $this->load->library('curl');
-        F
+
         $this->load->library('session');
     }
 
