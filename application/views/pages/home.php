@@ -26,6 +26,7 @@
         <a href="<?php echo base_url('/voyage/fiche/ficheVoyage') ?>">Fiche Voyage</a><br/>
         
         <a href="<?php echo base_url('/pages/contact') ?>">Contact</a><br/>
+        <a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mention Légales</a><br/>
 
     </div>
 </div>

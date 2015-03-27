@@ -339,19 +339,27 @@ h2.titre{
 
 #footer .blocPicReseau.col-md-12 {  max-width: 302px !important;margin: auto;width: 100%;float: none;}
 
-    .content-inscription, .content-connexion, .content-contact{
-        max-width: 600px;
-        margin: 80px auto 0px auto;
-    }
+.content-inscription, .content-connexion, .content-contact{
+    max-width: 600px;
+    margin: 80px auto 0px auto;
+}
 
 
+.mentionLegales{
+    max-width: 1000px;
+}
+.contentPageSansSlide{
+    margin: 0 auto;
+}
 /******* end footer *********/
 @media (min-width: 768px){
     .ecartConnexionInscription{
-    margin-right: 30px;
-        
-    margin-left: -15px;
-}
+        margin-right: 30px;
+        margin-left: -15px;
+    }
+    .contentPageSansSlide{
+        padding-top: 80px;
+    }
 }
 @media (max-width: 768px){
     .textMenu{
