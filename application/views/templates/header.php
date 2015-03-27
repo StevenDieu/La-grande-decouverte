@@ -49,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="<?php echo base_url('pages') ?>"><img src="<?php echo asset_url(''); ?>images/header/finalogo_blanc.png" class="imageLogo" /></a>
+                    <a href="<?php echo base_url('pages') ?>"><img src="<?php echo asset_url(''); ?>images/header/finalogo_blanc.jpg" class="imageLogo" /></a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <div class="allTextMenu">

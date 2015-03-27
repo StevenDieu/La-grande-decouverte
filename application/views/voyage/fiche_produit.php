@@ -87,6 +87,10 @@
         <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description voyage</a></div>
         <div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
             <!-- contenu description -->
+            <div class="info_pratique">
+                
+            </div>
+
             <div class="ligne_image">
                 <div class="img img1"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/1.jpg" alt=""></div>
                 <div class="img img2"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/2.jpg" alt=""></div>
