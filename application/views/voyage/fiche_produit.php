@@ -15,13 +15,23 @@
         };
         map = new google.maps.Map(document.getElementById('carte'), mapOptions);
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
     //centre la map google
     function centrage() {
-        var center = map.getCenter();
-        google.maps.event.trigger(map, "resize");
-        map.setCenter(center);
+        if(typeof map != "undefined"){
+            var center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        }      
     }
+
+    
+    $( document ).ready(function() {
+        $('#onglet2').click(function() {
+          if(typeof map == "undefined"){
+            initialize();
+          }
+        });
+    });
 
 </script>
 
@@ -44,6 +54,19 @@
     </div>
 
     <div style="clear:both"></div>
+
+    <div class="fil_arianne_conteneur">
+        <div class="fil_arianne">
+            <ul class="breadcrumbs">
+                <li class="acceuil"><a href="/">Acceuil</a></li>
+                <li><a href="/">Voyage</a></li>
+                <li class="last">Au coeur du Chili</li>
+            </ul>
+        </div>
+    </div>
+
+    <h1 class="caption_titre_mobile"><span>Au coeur du Chili</span></h1>
+    <h2 class="caption_mobile"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
 
     <div class="entete_fiche_produit">
         <h2 class="accroche"></h2>
@@ -276,7 +299,7 @@
                 <!-- 1 jour -->
                 <div class="jour_container">
                     <div class="day_counter">
-                        <div class="day">Jour 1</div>                       
+                        <div class="pointRouge"></div><div class="day">Jour 1</div>                       
                     </div>
                     <div class="day_container">
                         <div class="fleche_jour"></div>
@@ -287,7 +310,6 @@
                             <div class="texte">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !ma propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
                     Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
@@ -299,7 +321,7 @@
                 <!-- 1 jour -->
                 <div class="jour_container">
                     <div class="day_counter">
-                        <div class="day">Jour 2</div>                       
+                        <div class="pointRouge"></div><div class="day">Jour 2</div>                       
                     </div>
                     <div class="day_container">
                         <div class="fleche_jour"></div>
@@ -307,7 +329,6 @@
                             <div class="texte no-image">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !ma propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
                     Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
@@ -319,7 +340,7 @@
                 <!-- 1 jour -->
                 <div class="jour_container">
                     <div class="day_counter">
-                        <div class="day">Jour 3</div>                       
+                        <div class="pointRouge"></div><div class="day">Jour 3</div>                       
                     </div>
                     <div class="day_container">
                         <div class="fleche_jour"></div>
@@ -330,7 +351,6 @@
                             <div class="texte">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !ma propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
                     Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>

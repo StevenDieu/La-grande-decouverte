@@ -49,7 +49,6 @@
 }
 
 .callbacks_container {
-    margin-bottom: 20px;
     position: relative;
     float: left;
     width: 100%;
@@ -110,6 +109,34 @@
     font-size: 50px;
     letter-spacing: 2px;
     font-weight: bold;
+}
+
+.fiche_produit .caption_mobile {
+    display: block;
+    font-size: 20px;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fiche_produit .caption_titre_mobile {
+    display: block;
+    font-size: 20px;
+    color: #000;
+    max-width: none;
+    text-align: left;
+    font-size: 50px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fiche_produit .caption_titre_mobile span{
+    font-family: "NewCicleGordita";
+}
+
+.fiche_produit .caption_mobile span{
+    font-family: "NewCicleGordita";
 }
 
 .callbacks_nav {
@@ -290,6 +317,18 @@
     }
 }
 
+@media (max-width: 978px){
+    .callbacks_container .caption,.callbacks_container .caption_titre {
+        display: none;
+    }
+}
+
+@media (min-width: 978px){
+    .fiche_produit .caption_mobile,.fiche_produit .caption_titre_mobile {
+        display: none;
+    }
+}
+
 @media (max-width: 910px){
     .onglet a,.onglet_mobile a{
         font-size: 1.2em !important;
@@ -352,7 +391,7 @@
         width: 80%;
     }
 
-    .onglet4mobile .contenu .blue_line,.onglet4mobile .contenu .jour_container .day_container .fleche_jour{
+    .onglet4mobile .contenu .blue_line,.onglet4mobile .contenu .jour_container .day_container .fleche_jour,.pointRouge{
         display: none;
     }
 
@@ -532,6 +571,7 @@
     padding-top: 20px;
     font-family: "NewCicleSemi";
     font-weight: bold;
+      color: #c0ac79;
 }
 
 .onglet3mobile .article_first .partie_droite a.lire_suite{
@@ -646,9 +686,10 @@
 .onglet4mobile .contenu .blue_line{
     top: 0px;
     bottom: -15px;
-    width: 6px;
-    background: #006695;
-    margin-left: 102px;
+    width: 2px;
+    border-right: 1px dashed #000;
+    background: #fff;
+    margin-left: 96px;
     position: absolute;
     z-index: 0;
 }
@@ -660,7 +701,7 @@
 }
 
 .onglet4mobile .contenu .jour_container .day_counter{
-    margin-left: -173px;
+    margin-left: -185px;
     margin-top: 5px;
     width: 145px;
     text-align: right;
@@ -673,7 +714,7 @@
 
 .onglet4mobile .contenu .jour_container .day_container{
     box-shadow: #CDCDCD 0px 0px 3px 0px;
-    background: white;
+    background: #e6ded6;
     border-radius: 5px;
     position: relative;
     padding: 10px;
@@ -828,6 +869,16 @@ height: auto;
     color: #000;
 }
 
+.pointRouge{
+  background: #9c0f17;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: -25px;
+  top: 6px;
+}
+
 /* Other common styles */
 
 .clear {
@@ -841,6 +892,44 @@ height: auto;
 
 
 
+/** fil arianne */
+ .fil_arianne_conteneur{
+    width: 100%;
+    margin: auto;
+    height: 30px;
+    margin-bottom: 20px;
+ }
+
+.fil_arianne_conteneur .fil_arianne{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    height: 40px;
+    line-height: 40px;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li a{
+    text-decoration: none;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li a:hover{
+    text-decoration: underline;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li::before{
+  content: ">";
+  margin-right: 5px;
+}
+.fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
+  content: "";
+}
+
+/********/
 
 
 
