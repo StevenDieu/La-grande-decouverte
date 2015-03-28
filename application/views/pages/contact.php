@@ -1,7 +1,6 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="content">
-    <div class="content-contact form-horizontal">
-
-        <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="content-contact">
         <?php
         echo validation_errors();
         echo form_open('contact/index/verifContact');
@@ -16,69 +15,64 @@
         }
         ?>
         <!-- Form Name -->
-        <legend>Contact</legend>
+        <div class="legend">Contact</div>
 
         <!-- Text input-->
-        <div class="form-group">
-            <label for="nom" class="control-label col-sm-4">Nom *</label>
-            <div class="controls">
-                <div class="col-sm-8">
-                    <input id="nom" name="nom" type="text" placeholder="nom" class="form-control">
-                </div>
-            </div>
-
+        <div class="une_row">
+            <!--<label for="nom" class="control-label col-sm-4">Nom *</label>-->
+            <p>
+                <input id="nom" name="nom" type="text" placeholder="Votre nom*" class="">
+            </p>
         </div>
 
         <!-- Text input-->
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="prenom">Prénom *</label>
-            <div class="col-sm-8">
-                <input id="prenom" name="prenom" type="text" placeholder="prenom" class="form-control">
-
-            </div>
+        <div class="une_row">
+            <!--<label class="control-label col-sm-4" for="prenom">Prénom *</label>-->
+            <p>
+                <input id="prenom" name="prenom" type="text" placeholder="Votre prénom*" class="">
+            </p>
         </div>
 
         <!-- Text input-->
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="mail">Email *</label>
-            <div class="col-sm-8">
-                <input id="mail" name="mail" type="text" placeholder="mail" class="form-control">
+        <div class="une_row">
+            <!--<label class="control-label col-sm-4" for="mail">Email *</label>-->
+            <p>
+                <input id="mail" name="mail" type="text" placeholder="Votre mail*" class="">
 
-            </div>
+            </p>
         </div>
 
         <!-- Text input-->
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="objet">Objet *</label>
-            <div class="col-sm-8">
-                <input id="objet" name="objet" type="text" placeholder="objet" class="form-control">
-
-            </div>
+        <div class="une_row">
+            <!--<label class="control-label col-sm-4" for="objet">Objet *</label>-->
+            <p>
+                <input id="objet" name="objet" type="text" placeholder="Votre objet*" class="">
+            </p>
         </div>
 
         <!-- Textarea -->
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="message">Votre message *</label>
-            <div class="col-sm-8">                     
-                <textarea id="message" class="form-control" placeholder="Votre message" name="message"></textarea>
-            </div>
+        <div class="une_row">
+            <!--<label class="control-label col-sm-4" for="message">Votre message *</label>-->
+                <textarea id="message" class="" placeholder="Votre message*" name="message"></textarea>
         </div>
         <!-- ReCaptcha -->
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="captacha"></label>
-            <div class="col-sm-8">  
+        <div class="">
+            <!--<label class="control-label col-sm-4" for="captacha"></label>-->
+            <p>  
                 <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
-            </div>
+            </p>
+        </div>
+        <div class="une_row">
+            <a href="#" class="">
+                <span class="floatright">* Champs obligatoires</span>
+            </a>
+            <div class="clear"></div>
         </div>
         <!-- Button -->
-        <div class="form-group">
-            <label class="control-label col-sm-4" for="envoyer"></label>
-            <div class="col-sm-push-3 col-sm-8">
-                <button id="envoyer" name="nvoyer" class="btn btn-success">Envoyer</button>
+        <div class="une_row">
+            <div class="submit_all_text">
+                <button id="envoyer" name="nvoyer" class="">Envoyer</button>
             </div>
-        </div>
-        <div class="form-group">
-            <span class="help-block">* Champs obligatoires.</span>
         </div>
         <?php
         echo form_close();

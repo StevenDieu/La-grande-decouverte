@@ -9,17 +9,17 @@
                 <div class="une_row">
                     <!--<label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>-->
                     <p>
-                        <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur">
+                        <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*">
                     </p>
                 </div>
                 <div class="une_row">
                     <!--<label for="mdp" class="col-sm-5 control-label">Mot de passe</label>-->
                     <p>
-                        <input type="text" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe">
+                        <input type="text" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe*">
                     </p>
                 </div>
                 <div class="une_row">
-                    <a href="#" class="back-link">
+                    <a href="#" class="">
                         Mot de passe oublié?
                         <span class="floatright">* Champs obligatoires</span>
                     </a>

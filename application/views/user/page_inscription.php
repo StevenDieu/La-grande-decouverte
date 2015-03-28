@@ -9,54 +9,53 @@
         <div class="une_row">
             <!--<label for="nom" class="">Nom *</label>-->
             <p>
-                <input type="text" name="nom" maxlength="50" class="" id="nom" placeholder="Votre nom">
+                <input type="text" name="nom" maxlength="50" class="" id="nom" placeholder="Votre nom*">
             </p>
         </div>
 
         <div class="une_row">
             <!--<label for="prenom" class="">Prenom *</label>-->
             <p>
-                <input type="text" name="prenom" maxlength="50" class="" id="prenom" placeholder="Votre prenom">
+                <input type="text" name="prenom" maxlength="50" class="" id="prenom" placeholder="Votre prenom*">
             </p>
         </div>
 
         <div class="une_row">
             <!--<label for="user" class="">Nom d'utilisateur *</label>-->
             <p>
-                <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Votre nom d'utilisateur">
+                <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Votre nom d'utilisateur*">
             </p>
         </div>
 
         <div class="une_row">
             <!--<label for="email" class="">E-mail *</label>-->
             <p>
-                <input type="email" name="email" class="" id="email" placeholder="Votre e-mail">
+                <input type="email" name="email" class="" id="email" placeholder="Votre e-mail*">
             </p>
         </div>
 
         <div class="une_row">
             <!--<label for="cemail" class="">Confirmation E-mail *</label>-->
             <p>
-                <input type="email" name="cemail" class="" id="cemail" placeholder="Confirmer votre e-mail">
+                <input type="email" name="cemail" class="" id="cemail" placeholder="Confirmer votre e-mail*">
             </p>
-            <div class="clear"></div>
         </div>
         <h3>INFORMATION DE CONNEXION</h3>
         <div class="une_row">
             <!--<label for="mdp" class="">Mot de passe *</label>-->
             <p>
-                <input type="password" name="mdp" maxlength="50" class="" id="mdp" placeholder="Votre mot de passe">
+                <input type="password" name="mdp" maxlength="50" class="" id="mdp" placeholder="Votre mot de passe*">
             </p>
         </div>
 
         <div class="une_row">
             <!--<label for="cmdp" class="">Confirmation mot de passe *</label>-->
             <p>
-                <input type="password" name="cmdp" maxlength="50" class="" id="cmdp" placeholder="Confirmer votre mot de passe">
+                <input type="password" name="cmdp" maxlength="50" class="" id="cmdp" placeholder="Confirmer votre mot de passe*">
             </p>
         </div>
         <div class="une_row">
-            <a href="<?php echo base_url('user/account/connexion') ?>" class="back-link">
+            <a href="<?php echo base_url('user/account/connexion') ?>" class="">
                 <small>«</small>Retour
                 <span class="floatright">* Champs obligatoires</span>
             </a>
