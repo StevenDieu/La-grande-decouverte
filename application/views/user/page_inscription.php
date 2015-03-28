@@ -1,72 +1,75 @@
-<div class="content ">
-    <div class="content-inscription form-horizontal">
+<div class="content">
+    <div class="content-inscription">
         <?php
         echo validation_errors();
         echo form_open('user/verifIdentification/verifInscription');
         ?>
-        <legend>Inscription</legend>
-        <div class="form-group">
-            <label for="nom" class="col-sm-5 control-label">Nom *</label>
-            <div class="col-sm-7">
-                <input type="text" name="nom" maxlength="50" class="form-control" id="nom" placeholder="Nom">
-                <span class="help-block">Moins de 50 caratères</span>
-            </div>
+        <div class="legend">Inscription</div>
+        <h3>INFORMATION PERSONNELLE</h3>
+        <div class="une_row">
+            <!--<label for="nom" class="">Nom *</label>-->
+            <p>
+                <input type="text" name="nom" maxlength="50" class="" id="nom" placeholder="Votre nom">
+            </p>
         </div>
 
-        <div class="form-group">
-            <label for="prenom" class="col-sm-5 control-label">Prenom *</label>
-            <div class="col-sm-7">
-                <input type="text" name="prenom" maxlength="50" class="form-control" id="prenom" placeholder="Prenom">
-                <span class="help-block">Moins de 50 caratères</span>
-            </div>
+        <div class="une_row">
+            <!--<label for="prenom" class="">Prenom *</label>-->
+            <p>
+                <input type="text" name="prenom" maxlength="50" class="" id="prenom" placeholder="Votre prenom">
+            </p>
         </div>
 
-        <div class="form-group">
-            <label for="user" class="col-sm-5 control-label">Nom d'utilisateur *</label>
-            <div class="col-sm-7">
-                <input type="text" name="user" maxlength="50" class="form-control" id="user" placeholder="Nom d'utilisateur">
-                <span class="help-block">Entre 6 et 50 caratères</span>
-            </div>
+        <div class="une_row">
+            <!--<label for="user" class="">Nom d'utilisateur *</label>-->
+            <p>
+                <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Votre nom d'utilisateur">
+            </p>
         </div>
 
-        <div class="form-group">
-            <label for="email" class="col-sm-5 control-label">E-mail *</label>
-            <div class="col-sm-7">
-                <input type="email" name="email" class="form-control" id="email" placeholder="E-mail">
-            </div>
+        <div class="une_row">
+            <!--<label for="email" class="">E-mail *</label>-->
+            <p>
+                <input type="email" name="email" class="" id="email" placeholder="Votre e-mail">
+            </p>
         </div>
 
-        <div class="form-group">
-            <label for="cemail" class="col-sm-5 control-label">Confirmation E-mail *</label>
-            <div class="col-sm-7">
-                <input type="email" name="cemail" class="form-control" id="cemail" placeholder="Confirmation E-mail">
-            </div>
+        <div class="une_row">
+            <!--<label for="cemail" class="">Confirmation E-mail *</label>-->
+            <p>
+                <input type="email" name="cemail" class="" id="cemail" placeholder="Confirmer votre e-mail">
+            </p>
+            <div class="clear"></div>
+        </div>
+        <h3>INFORMATION DE CONNEXION</h3>
+        <div class="une_row">
+            <!--<label for="mdp" class="">Mot de passe *</label>-->
+            <p>
+                <input type="password" name="mdp" maxlength="50" class="" id="mdp" placeholder="Votre mot de passe">
+            </p>
         </div>
 
-        <div class="form-group">
-            <label for="mdp" class="col-sm-5 control-label">Mot de passe *</label>
-            <div class="col-sm-7">
-                <input type="password" name="mdp" maxlength="50" class="form-control" id="mdp" placeholder="Mot de passe">
-                <span class="help-block">Entre 6 et 50 caratères</span>
-            </div>
+        <div class="une_row">
+            <!--<label for="cmdp" class="">Confirmation mot de passe *</label>-->
+            <p>
+                <input type="password" name="cmdp" maxlength="50" class="" id="cmdp" placeholder="Confirmer votre mot de passe">
+            </p>
         </div>
-
-        <div class="form-group">
-            <label for="cmdp" class="col-sm-5 control-label">Confirmation mot de passe *</label>
-            <div class="col-sm-7">
-                <input type="password" name="cmdp" maxlength="50" class="form-control" id="cmdp" placeholder="Confirmation mot de passe">
-            </div>
+        <div class="une_row">
+            <a href="<?php echo base_url('user/account/connexion') ?>" class="back-link">
+                <small>«</small>Retour
+                <span class="floatright">* Champs obligatoires</span>
+            </a>
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-7">
-                <input type="submit" name="submit" class="btn btn-default btn-mobile" value="Valider"/>
+        <div class="une_row">
+            <div class="submit_all_text">
+                <input type="submit" name="submit" class="" value="Valider"/>
             </div>
-        </div>
-        <div class="form-group">
-            <span class="help-block">* Champs obligatoires.</span>
+            <div class="clear"></div>
         </div>
         <?php
         echo form_close();
         ?>
+        <div class="clear"></div>
     </div>
 </div>

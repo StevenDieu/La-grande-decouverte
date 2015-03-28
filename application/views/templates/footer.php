@@ -1,3 +1,4 @@
+</body>
 <footer id="footer" >
     <div class="row blockFooter_1">
         <div class="col-md-1"></div>
@@ -152,7 +153,7 @@
 
 
 
-<!---------- / FOOTER --------->	
+<!---------- / FOOTER -------->	
 
 <script src="<?php echo asset_url(''); ?>/librairie/js/bootstrap.min.js"></script>
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/responsiveslides.min.js" ></script>

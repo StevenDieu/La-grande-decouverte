@@ -34,12 +34,6 @@ a{
     color : #fff;
 }
 
-.content{
-    background-color: #fff;
-    color: #000;
-    padding: 25px 0;
-}
-
 .content a{
     color: #000;
 }
@@ -166,18 +160,6 @@ a{
     text-align:right;
 }
 
-
-
-
-
-.content-inscription a {
-    text-decoration: none;
-}
-
-.content-contact{
-    max-width: 700px;
-    margin: 0 auto;
-}
 .content-contact textarea{
     resize: vertical;
     height: 200px;}
@@ -236,6 +218,7 @@ footer li{
     line-height: 17px;
     color: #BBBBBB !important;
     margin: 0 0 15px 0;
+    font-family: sans-serif;
 }
 
 .textFooter a:hover{
@@ -283,7 +266,7 @@ footer li{
     line-height: 17px;
     color: #BBBBBB !important;
     margin: 0 0 15px 0;
-    font-family: "NewCicleSemi";
+    font-family: "NewCicleSemi", sans-serif;
 }
 h3.titre{
     font-weight: 500;
@@ -294,7 +277,7 @@ h3.titre{
     letter-spacing: 3px;
     line-height: 23px;
     margin: 0 0 30px 0;
-    font-family: 'NewCicleGordita';
+    font-family: 'NewCicleGordita', sans-serif;
 }
 .blockFooter_1{
     margin: 54px 0 15px 0;
@@ -318,6 +301,7 @@ h3.titre{
 .explicationFooter{
     font-style: italic;
     font-family: "NewCicleSemi";
+    font-size: 16px;
 }
 
 .blockFooter_7{
@@ -330,7 +314,7 @@ h3.titre{
 h2.titre{
     font-size: 23px;
     white-space: nowrap; 
-    font-family: 'NewCicleGordita';     
+    font-family: 'NewCicleGordita', sans-serif;     
 }
 #footer{
     text-align: center;
@@ -344,15 +328,10 @@ h2.titre{
 
 #footer .blocPicReseau.col-md-12 {  max-width: 302px !important;margin: auto;width: 100%;float: none;}
 
-.content-inscription, .content-connexion, .content-contact{
-    max-width: 600px;
-    margin: 80px auto 0px auto;
-}
-
-.menuBas a{
+.menuBas a, .menuBas{
     font-family: 'NewCicleGordita';
+    font-size: 16px;
 }
-
 
 .mentionLegales{
     max-width: 1000px;
@@ -368,6 +347,9 @@ h2.titre{
     }
     .contentPageSansSlide{
         padding-top: 80px;
+    }
+    .content{
+        padding-top: 76px;
     }
 }
 @media (max-width: 768px){
@@ -390,12 +372,6 @@ h2.titre{
 
         display: initial;
     }
-
-    .content-inscription, .content-connexion, .content-contact{
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
 }
 
 @media (max-width: 400px){
@@ -405,13 +381,166 @@ h2.titre{
 }
 
 
+/*page inscription */
+.content{
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    color: #000;
+}
+
+.content-inscription{
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    padding: 25px 10px;
+}
+
+.content .legend{
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 22px;
+    font-weight: 500 !important;
+    color: #0A1E39 !important;
+    width: 100%;
+    padding-left: 10px;
+    border-bottom: 1px solid #cdcdcd;
+    margin-bottom: 20px;
+}
+
+.une_row input[type='text'],.une_row input[type='password'],
+.une_row input[type='email']{
+    width: 94%;
+    height: 17px;
+    border: none;
+    background: none;
+    font-size: 12px;
+    color: #818181;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 18px 3%;
+}
+
+.content-inscription .une_row p,.content-connexion .une_row p{
+    min-height: 35px;
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    background: url(../images/img/bgr_text_field.png) repeat-x;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.une_row .floatright {
+  float: right;
+  color: #8b8b8b;
+}
+
+.une_row a{
+    color: #8b8b8b;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.content-inscription h3,
+.content-connexion h3{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "NewCicleGordita", sans-serif;
+    color: #006695;
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+.clear{
+    clear: both;
+}
 
 
+.une_row .submit_all_text{
+    border: 2px solid #006695;
+    margin-top: 15px;
+}
 
+.une_row .submit_all_text input{
+    height: 38px;
+    background: #fff;
+    width: 100%;
+    font-size: 14px;
+    color: #006695;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: normal;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
 
+.une_row .submit_all_text input:hover{
+    color: #fff;
+    background-color: #006695;
+}
 
+.btn_inscription{
+    display: block;
+    border: 2px solid #006695;
+    height: 42px;
+    background: #fff;
+    font-size: 14px;
+    color: #006695 !important;
+    text-align: center;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 42px;
+    font-family: sans-serif;
+}
 
+.btn_inscription:hover{
+    text-decoration: none;
+    color: #fff !important;
+    background: #006695;
+}
+/*page connexion */
+.content-connexion{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
 
+@media (min-width: 820px){
+    .content-connexion .colonne_left{
+        float: left;
+        width: 400px;
+    }
+
+    .content-connexion .colonne_left.first{
+        width: 380px;
+        padding-right: 20px;
+    }
+
+    .btn_inscription{
+        margin-top: 83px;
+    }
+}
+
+@media (max-width: 820px){
+    .content-connexion .colonne_left{
+        width: 100%;
+        padding: 10px;
+    }
+    .content-connexion .colonne_left.second{
+        margin-top: 50px;
+    }
+}
+
+.colonne_left p{
+    font-family: "NewCicleSemi", sans-serif;
+    font-size: 12px;
+}
 
 
 
