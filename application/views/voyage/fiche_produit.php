@@ -3,38 +3,6 @@
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 
-<script type="text/javascript">
-    //initialise le slider en prenant en param un id
-
-    //initialise la map google
-    function initialize() {
-        var mapOptions = {
-            center: {lat: -35.675147, lng: -71.54296899999997},
-            scrollwheel: false,
-            zoom: 10,
-        };
-        map = new google.maps.Map(document.getElementById('carte'), mapOptions);
-    }
-    //centre la map google
-    function centrage() {
-        if(typeof map != "undefined"){
-            var center = map.getCenter();
-            google.maps.event.trigger(map, "resize");
-            map.setCenter(center);
-        }      
-    }
-
-    
-    $( document ).ready(function() {
-        $('#onglet2').click(function() {
-          if(typeof map == "undefined"){
-            initialize();
-          }
-        });
-    });
-
-</script>
-
 <div class="fiche_produit">		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
@@ -49,8 +17,8 @@
                 <img src="<?php echo asset_url(''); ?>images/3.jpg" alt="">
             </li>
         </ul>
-        <h1 class="caption_titre"><span>Au coeur du Chili</span></h1>
-        <h2 class="caption"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
+        <h1 id="caption" class="caption_titre"><span>Au coeur du Chili</span></h1>
+        <h2 id="caption_titre" class="caption"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
     </div>
 
     <div style="clear:both"></div>
@@ -84,7 +52,7 @@
     </div>
 
     <div class="contenu_onglet">
-        <div id="onglet1mobile" class="onglet_mobile "><a href="#">Description voyage</a></div>
+        <div id="onglet1mobile" class="onglet_mobile active"><a href="#">Description voyage</a></div>
         <div id="onglet1" class="contenu_fiche_onglet onglet1mobile active">
             <!-- contenu description -->
 
@@ -158,10 +126,10 @@
                         <ul>
                             <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
                             <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
                             <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
                             <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
                         </ul> 
                     </div>                        
                     <div class="clear"></div>
@@ -198,30 +166,6 @@
                             </ul>
                         </a>
                     </div>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            initialiseResponsiveSilide('#slidercarnet1');
-                            $(".slide_carnet1").fancybox({
-                                maxWidth: 1000,
-                                maxHeight: 600,
-                                fitToView: false,
-                                width: '80%',
-                                height: '80%',
-                                autoSize: false,
-                                closeClick: false,
-                                openEffect: 'none',
-                                closeEffect: 'none',
-                                ajax: {
-                                    type: "POST",
-                                    cache: false,
-                                    data: "var=1|<?php echo asset_url(''); ?>",
-                                    success: function (data) {
-                                        $.fancybox(data);
-                                    }
-                                }
-                            });
-                        });
-                    </script>
                     <a class="slide_carnet1 fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/popup_carnet.php"></a>
                     <div style="clear:both"></div>
                 </div>
@@ -371,10 +315,9 @@
                     </div>
                 </div>
                 <!-- fin 1 jour -->
-
-
             </div>
         </div>
     </div>	
     <br>
 </div>
+

@@ -283,17 +283,18 @@ footer li{
     line-height: 17px;
     color: #BBBBBB !important;
     margin: 0 0 15px 0;
+    font-family: "NewCicleSemi";
 }
 h3.titre{
     font-weight: 500;
     font-style: normal;
-    font-size: 16px;
+    font-size: 17px;
     color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 3px;
     line-height: 23px;
     margin: 0 0 30px 0;
-    font-family: Apercu Bold,Helvetica,Arial,sans-serif;
+    font-family: 'NewCicleGordita';
 }
 .blockFooter_1{
     margin: 54px 0 15px 0;
@@ -316,7 +317,7 @@ h3.titre{
 }
 .explicationFooter{
     font-style: italic;
-    font-family: Apercu Light,Helvetica,Arial,sans-serif;
+    font-family: "NewCicleSemi";
 }
 
 .blockFooter_7{
@@ -324,12 +325,12 @@ h3.titre{
 }
 .numerosFooter{
     font-size: 24px;
-    font-family: Apercu Bold,Helvetica,Arial,sans-serif;
+    font-family: 'NewCicleGordita';
 }
 h2.titre{
     font-size: 23px;
     white-space: nowrap; 
-    font-family: Apercu Bold,Helvetica,Arial,sans-serif;       
+    font-family: 'NewCicleGordita';     
 }
 #footer{
     text-align: center;
@@ -346,6 +347,10 @@ h2.titre{
 .content-inscription, .content-connexion, .content-contact{
     max-width: 600px;
     margin: 80px auto 0px auto;
+}
+
+.menuBas a{
+    font-family: 'NewCicleGordita';
 }
 
 

@@ -10,7 +10,7 @@ class Fiche extends CI_Controller {
      */
     public function ficheProduit() {
         $data["allCss"] = array("ficheProduit");
-        $data["alljs"] = array("slide");
+        $data["alljs"] = array("slide","ficheProduit");
         $this->load->templateVoyage('/fiche_produit', $data);
     }
 

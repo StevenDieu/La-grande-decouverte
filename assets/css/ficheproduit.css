@@ -86,12 +86,15 @@
     font-size: 20px;
     text-shadow: none;
     color: #fff;
-    /*background: #000;
-    background: rgba(0,0,0, .8);*/
+    /*background: #000;*/
     left: 0;
     right: 0;
     bottom: 0;
     margin: 0; 
+}
+
+.papa:hover .callbacks_container .caption{
+    background: rgba(0,0,0, .8);
 }
 
 .callbacks_container .caption_titre {
@@ -833,14 +836,17 @@ height: auto;
 }
 
 .carousel .miniature{
-    width: 134px;
-    height: 100px;
-    max-height: 120px;
+    width: 32%;
+    margin-right: 2%;
+    height: auto;
     list-style-type:none;
-    display: inline-block;
+    float: left;
     vertical-align: middle;
-    margin-right: 12px;
     margin-bottom: 12px;
+}
+
+.carousel .miniature.last{
+    margin-right: 0px;
 }
 
 .carousel ul{
