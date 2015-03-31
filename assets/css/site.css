@@ -1,6 +1,6 @@
 @font-face { 
   font-family: 'NewCicleSemi'; 
-  src: url('../fonts/avenir/NewCicleSemi.ttf'); 
+  src: url('../fonts/avenir/HelveticaNeueLTStd-Cn.otf'); 
 }
 
 @font-face { 
@@ -12,6 +12,10 @@
   font-family: 'NewCicleGordita'; 
   src: url('../fonts/avenir/NewCicleGordita.ttf'); 
 }
+
+
+
+
 
 body {
     margin:auto;
