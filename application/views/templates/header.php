@@ -42,7 +42,7 @@
     </head>
     <body>
         <header class="navbar navbar-static-top bs-docs-nav " id="top" role="banner">
-            <div class="container header">
+            <div class="header">
                 <div class="navbar-header ">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>

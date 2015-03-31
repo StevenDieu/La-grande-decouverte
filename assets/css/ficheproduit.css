@@ -1,21 +1,3 @@
-@font-face { 
-  font-family: 'NewCicleSemi'; 
-  src: url('../fonts/avenir/NewCicleSemi.ttf'); 
-}
-
-@font-face { 
-  font-family: 'NewCicleFinaItalic'; 
-  src: url('../fonts/avenir/NewCicleFinaItalic.ttf'); 
-}
-
-@font-face { 
-  font-family: 'NewCicleGordita'; 
-  src: url('../fonts/avenir/NewCicleGordita.ttf'); 
-}
-
-
-
-
 
 /**** fiche produit voyage ***/
 .fiche_produit{

@@ -4,9 +4,9 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div id="footer" class="row">
-                <div class="col-md-4 trait"></div>
+                <div class="col-md-4 trait bas"></div>
                 <div class="col-md-4 tailleTitreContact"><h2 class="titre">CONTACTEZ NOUS</h2></div>
-                <div class="col-md-4 trait"></div>
+                <div class="col-md-4 trait bas"></div>
             </div>
         </div>
         <div class="col-md-1"></div>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 textFooter">
+                        <div class="col-md-12 textFooter newsletter">
                             <p>Restez à jour avec nos voyages, nos carnets de voyage, nos aventures et des invitations à des événements spéciaux.</p>
                             <p>Vous pouvez vous retirer à tout moment.</p>
                         </div>
@@ -136,11 +136,11 @@
         <div class="col-md-10">
             <div class="menuBas">
                 <span><a href="#">Infos légales</a></span>
-                &nbsp; | &nbsp;
+                &nbsp; . &nbsp;
                 <span><a href="#">FAQ</a></span>
-                &nbsp; | &nbsp;
+                &nbsp; . &nbsp;
                 <span><a href="#">Conditions générales de vente</a></span>
-                &nbsp; | &nbsp;
+                &nbsp; . &nbsp;
                 <span><a href="#">Conditions générales d'utilisation du site </a></span>
             </div>
         </div>
