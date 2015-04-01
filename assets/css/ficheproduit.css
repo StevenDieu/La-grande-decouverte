@@ -68,36 +68,40 @@
     display: block;
     position: absolute;
     z-index: 2;
-    font-size: 20px;
     text-shadow: none;
     color: #fff;
-    /*background: #000;*/
     left: 0;
     right: 0;
     bottom: 0;
     margin: 0; 
 }
 
-.papa:hover .callbacks_container .caption{
+.callbacks_container .caption:hover{
     background: rgba(0,0,0, .8);
 }
 
-.callbacks_container .caption_titre {
-    display: block;
-    position: absolute;
-    z-index: 2;
+.callbacks_container h1{
     font-size: 20px;
     text-shadow: none;
     color: #fff;
     max-width: none;
-    bottom:10%;
-    left: 0;
-    right: 0;
     text-align: left;
     font-size: 50px;
     letter-spacing: 2px;
     font-weight: bold;
     margin-bottom: 0px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.callbacks_container h2{
+    z-index: 2;
+    text-shadow: none;
+    color: #fff;
+    text-align: left;
+    font-family: "helvetica";
+    font-size: 20px;
+    padding-left: 10px;
 }
 
 .fiche_produit .caption_mobile {
@@ -122,10 +126,12 @@
 
 .fiche_produit .caption_titre_mobile span{
     font-family: "NewCicleGordita";
+    font-weight: bold;
 }
 
 .fiche_produit .caption_mobile span{
-    font-family: "NewCicleGordita";
+    font-family: "helvetica";
+    font-size: 20px;
 }
 
 .callbacks_nav {
@@ -150,7 +156,7 @@
     max-width: 1200px;
     margin: auto;
     padding: 20px 0px; 
-    font-family: "NewCicleSemi";
+    font-family: "helvetica";
 }
 
 .callbacks_container .caption_titre span{
@@ -348,6 +354,10 @@
     .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
         border-right: 1px solid #cdcdcd;
 
+    }
+
+    .right .separation{
+        display: none;
     }
 }
 
@@ -619,8 +629,8 @@
 .onglet3mobile .article_first .partie_droite .texte{
     padding-left: 20px;
     padding-top: 20px;
-    font-family: "NewCicleSemi";
-    font-weight: bold;
+    font-family: "helvetica";
+    text-align: justify;
 }
 
 .onglet3mobile .article_first .partie_droite a.lire_suite{
@@ -631,7 +641,7 @@
     text-decoration: none;
     padding-top: 20px;
     padding-left: 20px;
-    font-family: "NewCicleSemi";
+    font-family: "helvetica";
     font-weight: bold;
 }
 
@@ -693,8 +703,8 @@
     height: 90px;
     max-height: 90px;
     overflow: hidden;
-    font-family: "NewCicleSemi";
-    font-weight: bold;
+    font-family: "helvetica";
+    text-align: justify;
 }
 
 .onglet3mobile .contenu_article_suivant .un_article a.lire_suite{
@@ -704,7 +714,7 @@
     color: #989898;
     text-decoration: none;
     padding-top: 20px;
-    font-family: "NewCicleSemi";
+    font-family: "helvetica";
     font-weight: bold;
 }
 
@@ -804,8 +814,7 @@ height: auto;
 }
 
 .onglet4mobile .contenu .jour_container .day_container .description_container .texte .text{
-    font-family: "NewCicleSemi";
-  font-weight: bold;
+    font-family: "helvetica";
 }
 
 .onglet4mobile .contenu .jour_container .day_container .description_container .image img{
@@ -875,7 +884,7 @@ height: auto;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
-    font-family: "NewCicleSemi";
+    font-family: "helvetica";
   
 }
 
@@ -909,8 +918,9 @@ height: auto;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left span{
-    font-family: "NewCicleGordita";
+    font-family: "helvetica";
     font-weight: bold;
+    font-size: 17px;
 }
 
 .info_pratique .right .picto ul li img{
@@ -923,7 +933,21 @@ height: auto;
     margin: auto;
     margin-bottom: 15px;
     text-align: justify;
-    font-family: "NewCicleSemi";
+    font-family: "helvetica";
+}
+
+.heure_locale{
+    font-family: "helvetica";
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.right .separation{
+    width: 60%;
+    margin: auto;
+    height: 2px;
+    border-bottom: 1px solid #cdcdcd;
+    margin-bottom: 30px;
 }
 
 /* Other common styles */

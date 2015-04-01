@@ -86,24 +86,4 @@ $( document ).ready(function() {
 
     initialiseResponsiveSilide('#slidercarnet1');
     
-    $(".slide_carnet1").fancybox({
-        maxWidth: 1000,
-        maxHeight: 600,
-        fitToView: false,
-        width: '80%',
-        height: '80%',
-        autoSize: false,
-        closeClick: false,
-        openEffect: 'none',
-        closeEffect: 'none',
-        ajax: {
-            type: "POST",
-            cache: false,
-            data: "var=1|<?php echo asset_url(''); ?>",
-            success: function (data) {
-                $.fancybox(data);
-            }
-        }
-    });
-
 });

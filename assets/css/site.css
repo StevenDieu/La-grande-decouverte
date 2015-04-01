@@ -1,5 +1,5 @@
 @font-face { 
-  font-family: 'NewCicleSemi'; 
+  font-family: 'helvetica'; 
   src: url('../fonts/avenir/HelveticaNeueLTStd-Cn.otf'); 
 }
 
@@ -208,7 +208,7 @@ footer li{
     line-height: 17px;
     color: #BBBBBB !important;
     margin: 0 0 15px 0;
-    font-family: sans-serif;
+    font-family: "helvetica";
 }
 
 .textFooter a:hover{
@@ -252,11 +252,11 @@ footer li{
     outline-style: none;
 }
 .textFooter{
-    font-size: 13px;
+    font-size: 16px;
     line-height: 17px;
     color: #BBBBBB !important;
     margin: 0 0 15px 0;
-    font-family: "NewCicleSemi", sans-serif;
+    font-family: "helvetica";
 }
 h3.titre{
     font-weight: 500;
@@ -270,7 +270,7 @@ h3.titre{
     font-family: 'NewCicleGordita', sans-serif;
 }
 .blockFooter_1{
-    margin: 54px 0 15px 0;
+    margin: 54px 0 0px 0;
 }
 .blockFooter_3{
     margin: 0 0px 27px 0;
@@ -318,8 +318,13 @@ h2.titre{
 
 #footer .blocPicReseau.col-md-12 {  max-width: 302px !important;margin: auto;width: 100%;float: none;}
 
+
+.col-md-10.au{
+    margin-bottom: 20px;
+}
+
 .menuBas a, .menuBas{
-    font-family: 'NewCicleGordita';
+    font-family: 'helvetica';
     font-size: 16px;
 }
 
@@ -449,14 +454,15 @@ h2.titre{
 .une_row a{
     color: #8b8b8b;
     text-decoration: none;
-    font-size: 12px;
+    font-family: "helvetica";
+    font-size: 13px;
 }
 
 .content-inscription h3,
 .content-connexion h3{
     font-size: 14px;
     text-transform: uppercase;
-    font-family: "NewCicleGordita", sans-serif;
+    font-family: "helvetica";
     color: #006695;
     font-weight: normal;
     margin-top: 0px;
@@ -557,7 +563,7 @@ h2.titre{
     }
 
     .btn_inscription{
-        margin-top: 83px;
+        margin-top: 72px;
     }
 }
 
@@ -572,8 +578,8 @@ h2.titre{
 }
 
 .colonne_left p{
-    font-family: "NewCicleSemi", sans-serif;
-    font-size: 12px;
+    font-family: "helvetica";
+    font-size: 14px;
 }
 
 

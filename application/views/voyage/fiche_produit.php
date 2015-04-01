@@ -17,8 +17,10 @@
                 <img src="<?php echo asset_url(''); ?>images/3.jpg" alt="">
             </li>
         </ul>
-        <h1 id="caption" class="caption_titre"><span>Au coeur du Chili</span></h1>
-        <h2 id="caption_titre" class="caption"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
+        <div class="caption">
+            <h1>Au coeur du Chili</h1>
+            <h2>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</h2>
+        </div>
     </div>
 
     <div style="clear:both"></div>
@@ -75,6 +77,7 @@
                         </ul>
                     </div>
                     <div class="right">
+                        <div class="separation"></div>
                         <div class="picto">
                             <ul>
                                 <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
@@ -84,6 +87,13 @@
                                 <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
                                 <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
                             </ul>
+                        </div>
+                        <div class="heure_locale">
+                            <strong>Heure locale : </strong>
+                            <?php
+                                date_default_timezone_set('America/Detroit');
+                                echo str_replace(':','h',date('h:i'));
+                            ?>
                         </div>
                         <div class="meteo"></div>
                     </div>
@@ -168,6 +178,27 @@
                     </div>
                     <a class="slide_carnet1 fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/popup_carnet.php"></a>
                     <div style="clear:both"></div>
+                    <script type="text/javascript">
+                        $(".slide_carnet1").fancybox({
+                            maxWidth: 1000,
+                            maxHeight: 600,
+                            fitToView: false,
+                            width: '80%',
+                            height: '80%',
+                            autoSize: false,
+                            closeClick: false,
+                            openEffect: 'none',
+                            closeEffect: 'none',
+                            ajax: {
+                                type: "POST",
+                                cache: false,
+                                data: "var=1|<?php echo asset_url(''); ?>",
+                                success: function (data) {
+                                    $.fancybox(data);
+                                }
+                            }
+                        });
+                    </script>
                 </div>
                 <div class="partie_droite">
                     <a  href="#" class="titre">Deux semaines au Chili</a>
