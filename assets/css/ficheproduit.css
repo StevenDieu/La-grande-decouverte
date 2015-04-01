@@ -968,14 +968,39 @@ height: auto;
     width: 48%;
     float: left;
     height: 40px;
-  line-height: 38px;
-  margin-bottom: 12px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #cdcdcd;
+    line-height: 38px;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.right .table_info .gauche span,.right .table_info .droit span{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    text-align: left;
 }
 
 .right .table_info .gauche{
     margin-right: 4%;
+}
+
+.right .table_info .gauche span.tdroit,.right .table_info .droit span.tdroit{
+    text-align: right;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.right .table_info .gauche span.tdroit img{
+    height: 30px;
+}
+
+.right .table_info .gauche span.tgauche,.right .table_info .droit span.tgauche{
+    text-transform: uppercase;
+    font-size: 14px;
+    overflow: hidden;
 }
 
 

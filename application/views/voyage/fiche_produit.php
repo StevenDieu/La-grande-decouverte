@@ -66,7 +66,6 @@
                 <div class="inner">
                     <div class="left">
                         <ul>
-                            <li><span>Capitale :</span> Santiago du Chili</li>
                             <li><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></li>
                             <li><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</li>
                             <li><span>Décalage horaire :</span> lorsqu'il est midi en France, au <u>Chili</u> il est 7h en été (8h en hiver)</li>
@@ -90,28 +89,26 @@
                         </div>
                         <div class="table_info">
                             <div class="une_ligne">
-                                <div class="gauche"></div>
-                                <div class="droit"></div>
+                                <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo asset_url(''); ?>images/ficheproduit/drapeau/chili.png" alt="car"></span></div>
+                                 <?php
+                                    $date = new DateTime(null, new DateTimeZone('America/Santiago'));
+                                ?>
+                                <div class="droit"><span class="tgauche">Heure locale</span><span class="tdroit"><?php echo str_replace(':','h',$date->format('H:i')); ?></span></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="une_ligne">
-                                <div class="gauche"></div>
-                                <div class="droit"></div>
+                                <div class="gauche"><span class="tgauche">Capital</span><span class="tdroit">SANTIAGO DU chili</span></div>
+                                <div class="droit"><span class="tgauche">Météo</span><span class="tdroit">Météo</span></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="une_ligne">
-                                <div class="gauche"></div>
+                                <div class="gauche"><span class="tgauche">Continent</span><span class="tdroit">AMÉRIQUE</span></div>
                                 <div class="clear"></div>
                             </div>
                         </div>
 
-                        <!--<div class="heure_locale">
-                            <strong>Heure locale : </strong>
-                            <?php
-                                date_default_timezone_set('America/Detroit');
-                                echo str_replace(':','h',date('h:i'));
-                            ?>
-                        </div>-->
+                           
+                        </div>
                         <div class="meteo"></div>
                     </div>
                     <div class="clear"></div>
