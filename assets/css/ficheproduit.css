@@ -957,6 +957,27 @@ height: auto;
 }
 
 
+.right .table_info{
+    width: 90%;
+    margin: auto;
+    min-height: 30px;
+    margin-top: 20px;
+}
+
+.right .table_info .gauche,.right .table_info .droit{
+    width: 48%;
+    float: left;
+    height: 40px;
+  line-height: 38px;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.right .table_info .gauche{
+    margin-right: 4%;
+}
+
 
 /*******************      ****/
 

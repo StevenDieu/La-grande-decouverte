@@ -88,13 +88,30 @@
                                 <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
                             </ul>
                         </div>
-                        <div class="heure_locale">
+                        <div class="table_info">
+                            <div class="une_ligne">
+                                <div class="gauche"></div>
+                                <div class="droit"></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="une_ligne">
+                                <div class="gauche"></div>
+                                <div class="droit"></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="une_ligne">
+                                <div class="gauche"></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                        <!--<div class="heure_locale">
                             <strong>Heure locale : </strong>
                             <?php
                                 date_default_timezone_set('America/Detroit');
                                 echo str_replace(':','h',date('h:i'));
                             ?>
-                        </div>
+                        </div>-->
                         <div class="meteo"></div>
                     </div>
                     <div class="clear"></div>
