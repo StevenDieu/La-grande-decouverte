@@ -3,15 +3,15 @@
     <div class="callbacks_container">
         <ul class="rslides" id="slider_top">
             <li>
-                <img src="<?php echo asset_url(''); ?>images/1.jpg" alt="">
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/1.jpg" alt="">
                 <p class="caption">This is a caption</p>
             </li>
             <li>
-                <img src="<?php echo asset_url(''); ?>images/2.jpg" alt="">
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/2.jpg" alt="">
                 <p class="caption">This is another caption</p>
             </li>
             <li>
-                <img src="<?php echo asset_url(''); ?>images/3.jpg" alt="">
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/3.jpg" alt="">
                 <p class="caption">The third caption</p>
             </li>
         </ul>

@@ -81,7 +81,6 @@
 }
 
 .callbacks_container h1{
-    font-size: 20px;
     text-shadow: none;
     color: #fff;
     max-width: none;
@@ -91,6 +90,9 @@
     font-weight: bold;
     margin-bottom: 0px;
     padding-left: 10px;
+    margin-top: 10px;
+    max-width: 1200px;
+    margin: auto;
     margin-top: 10px;
 }
 
@@ -102,6 +104,10 @@
     font-family: "helvetica";
     font-size: 20px;
     padding-left: 10px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .fiche_produit .caption_mobile {
@@ -217,6 +223,14 @@
         margin-bottom: 20px;
         padding: 10px;
     }
+
+    .entete_fiche_produit button{
+        margin-right: 10px;
+    }
+
+    .entete_fiche_produit a.voir_date{
+        margin-left: 10px;
+    }
 }
 
 .fiche_produit .contenu_onglet{
@@ -226,7 +240,6 @@
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet{
-    min-height: 200px;
     margin-bottom: 15px;
     width: 100%;
     max-width: 1200px;
@@ -278,6 +291,11 @@
 
     .onglet4mobile .contenu .jour_container .day_container .description_container .texte{
         width: 100% !important;
+    }
+
+    .entete_fiche_produit .info_prix,.entete_fiche_produit .nom_pays{
+        float: left !important;
+        margin-left: 10px;
     }
 }
 
@@ -563,7 +581,6 @@
     min-height: 50px;
     margin: auto;
     margin-bottom: 15px;
-    border:1px solid black;
 }
 
 .fiche_produit .entete_fiche_produit h2.accroche{
@@ -982,7 +999,7 @@ height: auto;
 
 
 .table_info{
-    width: 90%;
+    width: 96%;
     margin: auto;
     min-height: 30px;
     margin-top: 20px;
@@ -1036,47 +1053,116 @@ height: auto;
 
 /*******************      ****/
 
-
-
-
-/** fil arianne */
- .fil_arianne_conteneur{
-    width: 100%;
-    margin: auto;
-    height: 30px;
-    margin-bottom: 20px;
- }
-
-.fil_arianne_conteneur .fil_arianne{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
+.entete_fiche_produit button{
+    display: block;
     height: 40px;
-    line-height: 40px;
+    width: 170px;
+    font-family: "helvetica";
+    text-align: left;
+    background: #F47A0C url("../images/ficheproduit/billet.png") right 7px center no-repeat;
+    border-radius: 5px;
+    border-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    float: right;
+    line-height: 37px;
+    padding-left: 8px;
 }
 
-.fil_arianne_conteneur .fil_arianne ul li{
-    display: inline-block;
-    list-style-type: none;
-}
-
-.fil_arianne_conteneur .fil_arianne ul li a{
+.entete_fiche_produit a.voir_date{
     text-decoration: none;
+    display: block;
+    float: left;
+    height: 40px;
+    width: 200px;
+    background-color: #006695;
+    color: #fff;
+    line-height: 47px;
+    border-radius: 5px;
+    font-family: "helvetica";
+    font-size: 20px;
+    padding-left: 20px;
 }
 
-.fil_arianne_conteneur .fil_arianne ul li a:hover{
-    text-decoration: underline;
+.entete_fiche_produit a.voir_date span{
+    display: block;
+    height: 40px;
+    width: 50px;
+    float: right;
+    border-left: 1px solid #CDCDCD;
+    background: url("../images/ficheproduit/flechedates.png") center center no-repeat;
 }
 
-.fil_arianne_conteneur .fil_arianne ul li::before{
-  content: ">";
-  margin-right: 5px;
-}
-.fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
-  content: "";
+.entete_fiche_produit a.voir_date span.active{
+    background: url("../images/ficheproduit/flechedatesactive.png") center center no-repeat;
 }
 
-/********/
+.entete_fiche_produit .container_dates{
+    width: 100%;
+    border:1px solid black;
+    float:left;
+    margin-top: 10px;
+}
+
+.entete_fiche_produit .info_prix{
+    width: 290px;
+    height: 80px;
+    float: right;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.entete_fiche_produit .nom_pays{
+    font-family: "helvetica";
+    font-size: 16px;
+    text-align: center;
+    width: 290px;
+    float: right;
+    background: #006695;
+    color: #fff;
+    line-height: 30px;
+}
+
+.entete_fiche_produit .info_prix .info,.entete_fiche_produit .info_prix .prix {
+    width: auto;
+    height: 100%;
+    font-family: "helvetica";
+}
+
+.entete_fiche_produit .info_prix .info{
+    float: left;
+}
+
+.entete_fiche_produit .info_prix .prix{
+    float: right;
+}
+
+.entete_fiche_produit .info_prix .info span,.entete_fiche_produit .info_prix .prix span{
+    display: block;
+}
+
+.entete_fiche_produit .info_prix span.valeur{
+    font-size: 33px;
+    margin-top: 10px;
+}
+
+@media (max-width: 400px){
+.entete_fiche_produit button, .entete_fiche_produit a.voir_date{
+    float: left;
+}
+
+.entete_fiche_produit button{
+    width: 200px;
+    margin-top: 10px; 
+}
+
+.entete_fiche_produit button{
+    margin-left: 10px;
+}
+}
+
+
 
 
 

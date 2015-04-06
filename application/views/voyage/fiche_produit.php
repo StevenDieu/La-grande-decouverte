@@ -39,8 +39,38 @@
     <h2 class="caption_mobile"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
 
     <div class="entete_fiche_produit">
-        <h2 class="accroche"></h2>
+        <form action="#">
+            <div class="nom_pays">Chili - Santiago - Torres del Paine</div>
+            <div style="clear:both"></div>
+            <div class="info_prix">
+                <div class="info">
+                    <span class="titre">Durée</span>
+                    <span class="valeur">9 jours</span>
+                </div>
+                <div class="prix">
+                    <span class="titre">à partir de</span>
+                    <span class="valeur">4990 €</span>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+            <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
+            <button type="submit" value="J'embarque">> J'embarque</button>
+            <div class="container_dates" style="display:none">
+                du au<br>
+                du au<br>du au<br>
+            </div>
+        </form>
+        <div style="clear:both"></div>
     </div>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('#deplier_date').click(function() {
+                $('.container_dates').slideToggle("slow" );
+                jQuery('#deplier_date span').toggleClass( "active" );
+            });            
+        });
+    </script>
 
     <div class="onglet_fiche">
         <div class="onglet_fiche_inner">
@@ -105,14 +135,14 @@
                     </div>
                     <div class="sous_info">
                         <div class="sous_info_left">
-                            <p><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></p>
-                            <p><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</p>
-                            <p><span>Langue officielle :</span> l'espagnol est la langue officielle du Chili</p>
-                        </div>
-                        <div class="sous_info_right">
                             <p><span>Villes principales :</span> Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
                             <p><span>Religion :</span> Au <u>Chili</u>, la religion catholique est majoritaire.</p>
                             <p><span>Nombre d'habitants :</span> Le Chili compte 16 600 000 habitants</p>
+                        </div>
+                        <div class="sous_info_right">
+                            <p><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></p>
+                            <p><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</p>
+                            <p><span>Langue officielle :</span> l'espagnol est la langue officielle du Chili</p>
                         </div>
                     </div>                   
                     <div class="clear"></div>

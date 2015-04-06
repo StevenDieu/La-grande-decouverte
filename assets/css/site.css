@@ -35,6 +35,10 @@ body {
     margin: auto;
 }
 
+.nav>li>a {
+    padding: 10px 0px !important;
+}
+
 .logo {float:left;}
 .profil {
     float:right;
@@ -121,7 +125,7 @@ a{
         width: 35px;
         height: 35px; 
 
-        margin-top: 25px;
+        margin-top: 15px;
         margin-bottom: -7px;
     }
     .navbar-nav>li{
@@ -132,8 +136,6 @@ a{
 
 
 /******* end header *********/
-
-
 .image
 {
     text-align:center;
@@ -583,6 +585,44 @@ h2.titre{
     font-size: 14px;
 }
 
+/** fil arianne */
+ .fil_arianne_conteneur{
+    width: 100%;
+    margin: auto;
+    height: 30px;
+    margin-bottom: 20px;
+ }
+
+.fil_arianne_conteneur .fil_arianne{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    height: 40px;
+    line-height: 40px;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li a{
+    text-decoration: none;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li a:hover{
+    text-decoration: underline;
+}
+
+.fil_arianne_conteneur .fil_arianne ul li::before{
+  content: ">";
+  margin-right: 5px;
+}
+.fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
+  content: "";
+}
+
+/********/
 
 
 

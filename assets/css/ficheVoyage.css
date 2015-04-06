@@ -292,14 +292,12 @@
 }
 @media (min-width: 540px){
     .carnet_user{
-        padding-left: 25px;
         padding-top: 3px;
         float : left;
     }
 
     .share_carnet{
         float: right;
-        padding-right: 25px;
         padding-bottom: 6px;
         width: auto;
     }
@@ -309,3 +307,17 @@
 .blocTraiVerticalePoitiller{
     height: 50px;
 }
+
+
+@media (max-width: 1200px){
+    .carnet_user{
+        padding-left: 10px;
+    }
+
+    .share_carnet{
+        padding-right: 10px;
+    }
+}
+
+
+    .share_carnet{
