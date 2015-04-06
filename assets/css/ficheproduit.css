@@ -472,6 +472,16 @@
     .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
         margin-top: 15px;
     }
+
+    .inner .sous_info .sous_info_left,.inner .sous_info .sous_info_right{
+        width: 100% !important;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;
+    }
+
+    .inner .sous_info{
+        margin-top: 15px;
+    }
 }
 
 @media (min-width: 780px){
@@ -892,11 +902,25 @@ height: auto;
     width: 100%;
 }
 
-.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left ul li{
-    list-style-type: none;
+.inner .sous_info .sous_info_left,.inner .sous_info .sous_info_right{
+    display: inline-block;
+    width: 50%;
+    float: left;
+    text-align: justify;
+    font-family: "helvetica";
+    padding: 10px;
 }
 
-.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left ul{
+.inner .sous_info span{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.inner .sous_info{
+    margin-top: 15px;
+}
+
+.inner .sous_info p{
     margin-bottom: 0px;
 }
 
@@ -957,14 +981,14 @@ height: auto;
 }
 
 
-.right .table_info{
+.table_info{
     width: 90%;
     margin: auto;
     min-height: 30px;
     margin-top: 20px;
 }
 
-.right .table_info .gauche,.right .table_info .droit{
+.table_info .gauche,.table_info .droit{
     width: 48%;
     float: left;
     height: 40px;
@@ -974,35 +998,41 @@ height: auto;
     border-bottom: 1px solid #cdcdcd;
 }
 
-.right .table_info .gauche span,.right .table_info .droit span{
+.table_info .gauche span,.table_info .droit span{
     display: inline-block;
     width: 50%;
     height: 100%;
     text-align: left;
 }
 
-.right .table_info .gauche{
+.table_info .gauche{
     margin-right: 4%;
 }
 
-.right .table_info .gauche span.tdroit,.right .table_info .droit span.tdroit{
+.table_info .gauche span.tdroit,.table_info .droit span.tdroit{
     text-align: right;
     overflow: hidden;
     text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
 }
 
-.right .table_info .gauche span.tdroit img{
+.table_info .gauche span.tdroit, .table_info .droit span.tdroit{
+    font-weight: normal !important;
+    font-size: 16px !important;
+}
+
+.table_info .gauche span.tdroit img{
     height: 30px;
 }
 
-.right .table_info .gauche span.tgauche,.right .table_info .droit span.tgauche{
+.table_info .gauche span.tgauche,.table_info .droit span.tgauche{
     text-transform: uppercase;
-    font-size: 14px;
     overflow: hidden;
 }
 
+.inner .sous_info{
+    float: left;
+    width: 100%;
+}
 
 /*******************      ****/
 

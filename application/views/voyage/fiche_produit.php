@@ -8,13 +8,13 @@
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
             <li>
-                <img src="<?php echo asset_url(''); ?>images/1.jpg" alt="">
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/1.jpg" alt="image1">
             </li>
             <li>
-                <img src="<?php echo asset_url(''); ?>images/2.jpg" alt="">
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/2.jpg" alt="image2">
             </li>
             <li>
-                <img src="<?php echo asset_url(''); ?>images/3.jpg" alt="">
+                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/3.jpg" alt="image3">
             </li>
         </ul>
         <div class="caption">
@@ -65,28 +65,7 @@
             <div class="info_pratique">
                 <div class="inner">
                     <div class="left">
-                        <ul>
-                            <li><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></li>
-                            <li><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</li>
-                            <li><span>Décalage horaire :</span> lorsqu'il est midi en France, au <u>Chili</u> il est 7h en été (8h en hiver)</li>
-                            <li><span>Langue officielle :</span> l'espagnol est la langue officielle du Chili</li>
-                            <li><span>Villes principales :</span> Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
-                            <li><span>Religion :</span> Au <u>Chili</u>, la religion catholique est majoritaire.</li>
-                            <li><span>Nombre d'habitants :</span> Le Chili compte 16 600 000 habitants</li>
-                        </ul>
-                    </div>
-                    <div class="right">
-                        <div class="separation"></div>
-                        <div class="picto">
-                            <ul>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/excursion.png" alt="excursion"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/google.png" alt="google"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/sunblock.png" alt="sunblock"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
-                                <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
-                            </ul>
-                        </div>
+                        <!-- tableau d'info pays -->
                         <div class="table_info">
                             <div class="une_ligne">
                                 <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo asset_url(''); ?>images/ficheproduit/drapeau/chili.png" alt="car"></span></div>
@@ -106,11 +85,36 @@
                                 <div class="clear"></div>
                             </div>
                         </div>
-
-                           
-                        </div>
-                        <div class="meteo"></div>
+                        <!-- fin tableau d'info pays -->
                     </div>
+                    <div class="right">
+                        <div class="separation"></div>
+                        <div class="picto">
+                            <ul>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/excursion.png" alt="excursion"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/google.png" alt="google"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/sunblock.png" alt="sunblock"></li>
+                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
+                                <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
+                            </ul>
+                        </div>
+                        <div class="information_medicale">
+
+                        </div>
+                    </div>
+                    <div class="sous_info">
+                        <div class="sous_info_left">
+                            <p><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></p>
+                            <p><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</p>
+                            <p><span>Langue officielle :</span> l'espagnol est la langue officielle du Chili</p>
+                        </div>
+                        <div class="sous_info_right">
+                            <p><span>Villes principales :</span> Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
+                            <p><span>Religion :</span> Au <u>Chili</u>, la religion catholique est majoritaire.</p>
+                            <p><span>Nombre d'habitants :</span> Le Chili compte 16 600 000 habitants</p>
+                        </div>
+                    </div>                   
                     <div class="clear"></div>
                 </div>
             </div>
