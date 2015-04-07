@@ -135,7 +135,7 @@ function initialize() {
 
             $('#embarque').click(function() {
                 if(jQuery("#choix_date").val() == 0){
-                    alert("Vous devez séléctionné un voyage");
+                    alert("Vous devez séléctionner un voyage");
                     $('.container_dates').slideToggle("slow" );
                     jQuery('#deplier_date span').toggleClass( "active" );
                     return false;

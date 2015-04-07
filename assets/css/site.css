@@ -385,6 +385,9 @@ h2.titre{
     .navbar-collapse{
         background: rgba(0,0,0, .8);
     }
+    .connexion_popin{
+        display: none !important;
+    }
 
     .navbar-toggle{
         margin-top: 20px !important;
@@ -438,7 +441,7 @@ h2.titre{
     padding: 18px 3%;
 }
 
-.content-inscription .une_row p,.content-connexion .une_row p,.content-contact .une_row p {
+.content-inscription .une_row p,.content-connexion .une_row p,.content-contact .une_row p, .connexion_popin .une_row p {
     min-height: 35px;
     border-left: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
@@ -476,9 +479,14 @@ h2.titre{
 }
 
 
-.une_row .submit_all_text{
+.une_row .submit_all_text, .connexion_form .submit_all_text {
     border: 2px solid #006695;
     margin-top: 15px;
+}
+
+.connexion_form .submit_all_text, .connexion_form .une_row{
+    width: 95%;
+    margin: auto;
 }
 
 .une_row .submit_all_text input,.une_row .submit_all_text button{
@@ -495,6 +503,24 @@ h2.titre{
     border: none;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
+}
+
+.connexion_form .submit_all_text input{
+    height: 30px;
+    background: #fff;
+    width: 100%;
+    margin: auto;
+    font-size: 14px;
+    color: #006695;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: normal;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+      line-height: 30px;
 }
 
 .une_row textarea{
@@ -521,7 +547,7 @@ h2.titre{
     font-size: 12px;
 }
 
-.une_row .submit_all_text input:hover,.une_row .submit_all_text button:hover{
+.une_row .submit_all_text input:hover,.une_row .submit_all_text button:hover, .connexion_form .submit_all_text input:hover{
     color: #fff;
     background-color: #006695;
 }
@@ -623,5 +649,69 @@ h2.titre{
 
 /********/
 
+/***popup login */
+.connexion_popin {
+    width:280px;
+    text-align: center;
+    border-radius:10px;
+    background: #fff;
+    position: absolute;
+    top: 76px;
+    right: 5px;
+    color: #000;
+    font-family: "helvetica";
 
+}
+
+.connexion_header {
+    background-color: #1a171b;
+    color:white;
+    border-radius: 10px 10px 0px 0px;
+    height: 40px; 
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+
+.connexion_input{
+    padding:5px;
+    border:1px solid #AAAAAA;
+}
+
+.connexion_submit {
+    color:white;
+    background-color:#009BE5;
+    padding:10px;
+}
+
+.connexion_hr {
+    display:inline;
+    margin:7px 10px 0px 10px;
+    width:90px;
+    border:0px;
+    height:2px;
+    background-color:black;
+}
+
+.g {
+    float:left; 
+}
+
+.d {
+    float:right;    
+}
+
+.connexion_footer {
+    background-color: #1a171b;
+    color:white;
+    border-radius: 0px 0px 10px 10px;
+    height:40px;
+    line-height: 40px;
+    padding: 0 5px;
+}
+
+.connexion_footer a {
+    color:white;
+}
+/*******/
 
