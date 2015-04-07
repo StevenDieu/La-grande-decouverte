@@ -38,29 +38,39 @@
     <h1 class="caption_titre_mobile"><span>Au coeur du Chili</span></h1>
     <h2 class="caption_mobile"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
 
-    <div class="entete_fiche_produit">
-        <form action="#">
-            <div class="nom_pays">Chili - Santiago - Torres del Paine</div>
-            <div style="clear:both"></div>
-            <div class="info_prix">
-                <div class="info">
-                    <span class="titre">Durée</span>
-                    <span class="valeur">9 jours</span>
-                </div>
-                <div class="prix">
-                    <span class="titre">à partir de</span>
-                    <span class="valeur">4990 €</span>
-                </div>
+
+
+    <div class="contain_top_bloc">
+        <div class="top_bloc">
+            <div class="image_fond"><img src="<?php echo asset_url(''); ?>images/ficheproduit/paysage.jpg" alt="paysage"></div>
+            <div class="bloc_achat">
+                <form action="#">
+                    <div class="nom_pays">Chili - Santiago - Torres del Paine</div>
+                    <div class="info_prix">
+                        <div class="info">
+                            <span class="titre">Durée</span>
+                            <span class="valeur">9 jours</span>
+                        </div>
+                        <div class="prix">
+                            <span class="titre">à partir de</span>
+                            <span class="valeur">4990 €</span>
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
+                    <button type="submit" value="J'embarque">> J'embarque</button>
+                    <div class="container_dates" style="display:none">
+                        du au<br>
+                        du au<br>du au<br>
+                    </div>
+                    <div style="clear:both"></div>
+                </form>
+                <div style="clear:both"></div>
             </div>
-            <div style="clear:both"></div>
-            <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
-            <button type="submit" value="J'embarque">> J'embarque</button>
-            <div class="container_dates" style="display:none">
-                du au<br>
-                du au<br>du au<br>
-            </div>
-        </form>
-        <div style="clear:both"></div>
+            <div class="ombreright"></div>
+            <div class="ombreleft"></div>
+        </div>
+        <div class="clear"></div>
     </div>
 
     <script type="text/javascript">
