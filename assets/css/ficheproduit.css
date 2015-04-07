@@ -1053,7 +1053,7 @@ height: auto;
 
 /*******************      ****/
 
-.top_bloc button{
+.top_bloc .bloc_achat button{
     display: block;
     position: absolute;
     height: 40px;
@@ -1131,6 +1131,19 @@ height: auto;
     padding: 10px 20px;
 }
 
+.container_dates .choix{
+    position: relative;
+}
+
+.container_dates .choix button{
+    position: absolute;
+    bottom:0px;
+    right: 0px;
+    border: none;
+    background: transparent;
+    color: #006695;
+}
+
 .choix ul li{
     list-style-type: none;
     font-family: "helvetica";
@@ -1155,6 +1168,7 @@ height: auto;
     font-size: 20px;
     text-transform: uppercase;
     color: #006695;
+    padding-bottom: 10px;
 }
 
 .choix ul li.description{

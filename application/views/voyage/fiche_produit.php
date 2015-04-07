@@ -40,7 +40,7 @@ function initialize() {
         <div class="fil_arianne">
             <ul class="breadcrumbs">
                 <li class="acceuil"><a href="/">Acceuil</a></li>
-                <li><a href="/">Voyage</a></li>
+                <li><a href="/">Voyages</a></li>
                 <li class="last">Au coeur du Chili</li>
             </ul>
         </div>
@@ -57,7 +57,7 @@ function initialize() {
             <div class="image_fond"><img src="<?php echo asset_url(''); ?>images/ficheproduit/paysage.jpg" alt="paysage"></div>
             <div class="bloc_achat">
                 <form action="#">
-                    <div class="nom_pays">Chili - Santiago - Torres del Paine</div>
+                    <div class="nom_pays">Au coeur du Chili</div>
                     <div class="trait_sous_titre"></div>
                     <div class="info_prix">
                         <div class="info">
@@ -72,8 +72,9 @@ function initialize() {
                     <div style="clear:both"></div>
                     <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
                     <span class="result_date">Vous n'avez pas sélectionné de date.</span>
-                    <button type="submit" value="J'embarque">> J'embarque</button>
+                    <button id="embarque" type="submit" value="J'embarque">> J'embarque</button>
                     <div style="clear:both"></div>
+                    <input type="hidden" name="choix_date" id="choix_date" value="0">
                 </form>
                 <div style="clear:both"></div>
             </div>
@@ -84,7 +85,7 @@ function initialize() {
             <!-- bloc choix date -->
             <div class="container_dates" style="display:none">
                 <!-- choix d'un départ -->
-                <div class="choix">
+                <div class="choix" id="1">
                     <ul>
                         <li class="titre">Du 12 mai 2015 au 21 mai 2015</li>
                         <li class="nb_places instock">Il reste 8 places pour ce voyages.</li>
@@ -93,11 +94,12 @@ function initialize() {
                         <li class="description"><span>Compagnie :</span> Air France</li>
                         <li class="description"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
                     </ul>
+                    <button id="choisir_date" type="submit" value="J'embarque">> Choisir ce voyage</button>
                 </div>
                 <!-- fin choix d'un départ -->
                 <div class="separation_choix_date"></div>
                 <!-- choix d'un départ -->
-                <div class="choix">
+                <div class="choix" id="2">
                     <ul>
                         <li class="titre">Du 12 mai 2015 au 21 mai 2015</li>
                         <li class="nb_places outstock">Il ne reste plus de place pour ce voyages.</li>
@@ -121,7 +123,23 @@ function initialize() {
             $('#deplier_date').click(function() {
                 $('.container_dates').slideToggle("slow" );
                 jQuery('#deplier_date span').toggleClass( "active" );
-            });                       
+            });    
+
+            $('#choisir_date').click(function() {
+                jQuery("#choix_date").val(jQuery(this).parent().attr('id'));
+                $('.container_dates').slideToggle("slow" );
+                jQuery('#deplier_date span').toggleClass( "active" );
+                jQuery(".result_date").html("Vous avez sélectionné le voyage "+jQuery("#"+jQuery(this).parent().attr('id')+" li.titre").html());
+            });   
+
+            $('#embarque').click(function() {
+                if(jQuery("#choix_date").val() == 0){
+                    alert("Vous devez séléctionné un voyage");
+                    $('.container_dates').slideToggle("slow" );
+                    jQuery('#deplier_date span').toggleClass( "active" );
+                    return false;
+                }
+            });
         });
     </script>
 
@@ -231,16 +249,16 @@ function initialize() {
             <div id="jcl-demo">
                 <div class="custom-container widget">
                     <div class="mid">
-                        <img class="zoom" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt="">
+                        <img class="zoom" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description1.jpg" alt="">
                     </div>
                     <div class="carousel">  
                         <ul>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/carnaval.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/paysages_web.jpg" alt=""></li>
-                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/piment.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description1.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description2.jpg" alt=""></li>
+                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description3.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description4.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description5.jpg" alt=""></li>
+                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description6.jpg" alt=""></li>
                         </ul> 
                     </div>                        
                     <div class="clear"></div>
