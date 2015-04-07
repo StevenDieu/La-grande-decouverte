@@ -1,0 +1,86 @@
+<div class="connexion_popin">
+	<div class="connexion_header">
+		<span>Connexion</span>
+	</div>
+	<div class="connexion_form">
+		<form>
+			<input type="text" class="connexion_input" placeholder="ADRESSE MAIL"/>
+			<input type="text" class="connexion_input" placeholder="MOT DE PASSE"/>
+
+			<input type="submit" class="connexion_submit" value="Connexion"/>
+		</form>
+	</div>
+	<hr class="connexion_hr g"/><span>OU</span><hr class="connexion_hr d"/>
+	<div class="connexion_form">
+		<input type="text" class="connexion_input" placeholder="ADRESSE MAIL"/>
+	</div>
+	<div class="connexion_footer">
+		<a href="#"><span class="g">Mot de passe oubli&eacute; ?</span></a>
+		<a href="#"><span class="d">S'inscrire</span></a>
+	</div>
+</div>
+
+
+<style>
+.connexion_popin {
+	width:280px;
+	text-align: center;
+	border-radius:10px;
+	margin:5px;
+}
+
+.connexion_header {
+	background-color:#050D22;
+	color:white;
+	border-radius: 10px 10px 0px 0px;
+	padding:5px 10px;
+	margin:10px auto;
+	
+}
+
+.connexion_form input {
+	width:250px;
+	margin: 10px 5px;
+	border-radius: 10px;
+}
+
+.connexion_input{
+	padding:5px;
+	border:1px solid #AAAAAA;
+}
+
+.connexion_submit {
+	color:white;
+	background-color:#009BE5;
+	padding:10px;
+}
+
+.connexion_hr {
+	display:inline;
+	margin:7px 10px 0px 10px;
+	width:90px;
+	border:0px;
+	height:2px;
+	background-color:black;
+}
+
+.g {
+	float:left;	
+}
+
+.d {
+	float:right;	
+}
+
+.connexion_footer {
+	background-color:#050D22;
+	color:white;
+	border-radius: 0px 0px 10px 10px;
+	padding:10px 10px;
+	height:20px;
+}
+
+.connexion_footer a {
+	color:white;
+}
+</style>
