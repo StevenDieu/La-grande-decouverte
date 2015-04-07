@@ -71,6 +71,7 @@ function initialize() {
                     </div>
                     <div style="clear:both"></div>
                     <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
+                    <a href="javascript:;" class="voir_date" id="deplier_date_mobile">Dates de départ <span></span></a>
                     <span class="result_date">Vous n'avez pas sélectionné de date.</span>
                     <button id="embarque" type="submit" value="J'embarque">> J'embarque</button>
                     <div style="clear:both"></div>
@@ -83,7 +84,7 @@ function initialize() {
             <div class="ombreleft"></div>
             <div class="clear"></div>
             <!-- bloc choix date -->
-            <div class="container_dates" style="display:none">
+            <div class="container_dates desktop" style="display:none">
                 <!-- choix d'un départ -->
                 <div class="choix" id="1">
                     <ul>
@@ -92,7 +93,7 @@ function initialize() {
                         <li class="description"><span>Départ de :</span> Paris Roissy- Charles de Gaulle à 6h45</li>
                         <li class="description"><span>Arrivée :</span> Santiago, Chili à 20h55</li>
                         <li class="description"><span>Compagnie :</span> Air France</li>
-                        <li class="description"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
+                        <li class="description last"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
                     </ul>
                     <button id="choisir_date" type="submit" value="J'embarque">> Choisir ce voyage</button>
                 </div>
@@ -101,12 +102,12 @@ function initialize() {
                 <!-- choix d'un départ -->
                 <div class="choix" id="2">
                     <ul>
-                        <li class="titre">Du 12 mai 2015 au 21 mai 2015</li>
+                        <li class="titre">Du 22 mai 2015 au 31 mai 2015</li>
                         <li class="nb_places outstock">Il ne reste plus de place pour ce voyages.</li>
                         <li class="description"><span>Départ de :</span> Paris Roissy- Charles de Gaulle à 8h55</li>
                         <li class="description"><span>Arrivée :</span> Santiago, Chili à 23h05</li>
                         <li class="description"><span>Compagnie :</span> Air France</li>
-                        <li class="description"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
+                        <li class="description last"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
                     </ul>
                 </div>
                 <!-- fin choix d'un départ -->
