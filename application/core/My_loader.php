@@ -52,4 +52,15 @@ class My_loader extends CI_Loader {
         }
     }
 
+    public function templateCheckout($template_name, $vars = array(), $return = FALSE) {
+
+        $content = $this->view('templates/header', $vars, $return);
+        $content .= $this->view('checkout/' . $template_name, $vars, $return);
+        $content .= $this->view('templates/footer', $vars, $return);
+
+        if ($return) {
+            return $content;
+        }
+    }
+
 }
