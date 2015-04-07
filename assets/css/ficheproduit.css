@@ -83,17 +83,15 @@
 .callbacks_container h1{
     text-shadow: none;
     color: #fff;
-    max-width: none;
     text-align: left;
     font-size: 50px;
     letter-spacing: 2px;
-    font-weight: bold;
     margin-bottom: 0px;
     padding-left: 10px;
-    margin-top: 10px;
     max-width: 1200px;
     margin: auto;
     margin-top: 10px;
+    font-family: 'NewCicleGordita';
 }
 
 .callbacks_container h2{
@@ -901,13 +899,13 @@ height: auto;
 }
 
 .pointRouge{
-  background: #9c0f17;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: -25px;
-  top: 6px;
+    background: #9c0f17;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -25px;
+    top: 6px;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
@@ -930,7 +928,8 @@ height: auto;
 
 .inner .sous_info span{
     font-weight: bold;
-    font-size: 17px;
+    font-family: arial;
+    font-size: 15px;
 }
 
 .inner .sous_info{
@@ -959,9 +958,9 @@ height: auto;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left span{
-    font-family: "helvetica";
+    font-family: arial;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .info_pratique .right .picto ul li img{
@@ -1035,6 +1034,7 @@ height: auto;
 .table_info .gauche span.tdroit, .table_info .droit span.tdroit{
     font-weight: normal !important;
     font-size: 16px !important;
+    font-family: "helvetica" !important;
 }
 
 .table_info .gauche span.tdroit img{
@@ -1087,6 +1087,14 @@ height: auto;
     padding-left: 20px;
 }
 
+.separation_choix_date{
+    width: 30%;
+    height: 1px;
+    border-bottom: 1px solid #989898;;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
 .top_bloc a.voir_date span{
     display: block;
     height: 40px;
@@ -1101,10 +1109,18 @@ height: auto;
 }
 
 .top_bloc .container_dates{
-    width: 100%;
-    border:1px solid black;
-    float:left;
-    margin-top: 10px;
+    position: absolute;
+    top:15px;
+    left: 350px;
+    background:rgba(255,255,255, .7);
+    padding: 10px;
+      border-radius: 3px;
+}
+
+@media (min-width: 900px){
+    .top_bloc .container_dates{
+        width: 60%;
+    }
 }
 
 .top_bloc .info_prix{
@@ -1115,12 +1131,50 @@ height: auto;
     padding: 10px 20px;
 }
 
+.choix ul li{
+    list-style-type: none;
+    font-family: "helvetica";
+    font-size: 15px;
+}
+
+.choix ul li.nb_places.instock{
+    color:#269639;
+
+}
+
+.choix ul li.nb_places.outstock{
+    color:#ff0000;
+}
+
+.choix ul li.nb_places{
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.choix ul li.titre{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #006695;
+}
+
+.choix ul li.description{
+    line-height: 14px;
+    font-size: 14px;
+}
+.choix ul li.description span{
+    font-weight: bold;
+    font-family: arial; 
+    font-size: 13px  
+}
+
+
 .top_bloc .nom_pays{
     font-family: "helvetica";
     font-size: 22px;
     text-align: center;
     width: 100%;
     padding: 15px 0;
+    color: #006695;
 }
 
 .top_bloc .info_prix .info,.top_bloc .info_prix .prix {
@@ -1141,9 +1195,25 @@ height: auto;
     display: block;
 }
 
+.top_bloc span.result_date{
+    display: block;
+    width: 278px;
+    margin: auto;
+    font-family: "helvetica";
+    margin-top: 10px;
+    color: #989898;
+}
+
 .top_bloc .info_prix span.valeur{
     font-size: 33px;
     margin-top: 10px;
+}
+
+.top_bloc .trait_sous_titre{
+    width: 20%;
+    height: 1px;
+    border-bottom: 1px solid black;
+    margin: auto;
 }
 
 @media (max-width: 400px){
@@ -1181,7 +1251,7 @@ height: auto;
 
 .top_bloc .bloc_achat{
     width: 320px;
-    height: 400px;
+    min-height: 400px;
     position: absolute;
     top:15px;
     left: 15px;

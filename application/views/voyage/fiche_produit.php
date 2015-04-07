@@ -2,7 +2,16 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
-
+<script type="text/javascript">
+function initialize() {
+    var mapOptions = {
+        center: {lat: -33.46912, lng: -70.641997},
+        scrollwheel: false,
+        zoom: 8,
+    };
+    map = new google.maps.Map(document.getElementById('carte'), mapOptions);
+}
+</script>
 <div class="fiche_produit">		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
@@ -17,10 +26,12 @@
                 <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/3.jpg" alt="image3">
             </li>
         </ul>
+        <!-- caption desktop -->
         <div class="caption">
             <h1>Au coeur du Chili</h1>
             <h2>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</h2>
         </div>
+        <!-- fin caption desktop -->
     </div>
 
     <div style="clear:both"></div>
@@ -35,17 +46,19 @@
         </div>
     </div>
 
+    <!-- caption mobile -->
     <h1 class="caption_titre_mobile"><span>Au coeur du Chili</span></h1>
     <h2 class="caption_mobile"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
-
-
+    <!-- fin caption mobile -->
 
     <div class="contain_top_bloc">
         <div class="top_bloc">
+            <!-- bloc achat -->
             <div class="image_fond"><img src="<?php echo asset_url(''); ?>images/ficheproduit/paysage.jpg" alt="paysage"></div>
             <div class="bloc_achat">
                 <form action="#">
                     <div class="nom_pays">Chili - Santiago - Torres del Paine</div>
+                    <div class="trait_sous_titre"></div>
                     <div class="info_prix">
                         <div class="info">
                             <span class="titre">Durée</span>
@@ -58,17 +71,47 @@
                     </div>
                     <div style="clear:both"></div>
                     <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
+                    <span class="result_date">Vous n'avez pas sélectionné de date.</span>
                     <button type="submit" value="J'embarque">> J'embarque</button>
-                    <div class="container_dates" style="display:none">
-                        du au<br>
-                        du au<br>du au<br>
-                    </div>
                     <div style="clear:both"></div>
                 </form>
                 <div style="clear:both"></div>
             </div>
+            <!-- fin bloc achat -->
             <div class="ombreright"></div>
             <div class="ombreleft"></div>
+            <div class="clear"></div>
+            <!-- bloc choix date -->
+            <div class="container_dates" style="display:none">
+                <!-- choix d'un départ -->
+                <div class="choix">
+                    <ul>
+                        <li class="titre">Du 12 mai 2015 au 21 mai 2015</li>
+                        <li class="nb_places instock">Il reste 8 places pour ce voyages.</li>
+                        <li class="description"><span>Départ de :</span> Paris Roissy- Charles de Gaulle à 6h45</li>
+                        <li class="description"><span>Arrivée :</span> Santiago, Chili à 20h55</li>
+                        <li class="description"><span>Compagnie :</span> Air France</li>
+                        <li class="description"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
+                    </ul>
+                </div>
+                <!-- fin choix d'un départ -->
+                <div class="separation_choix_date"></div>
+                <!-- choix d'un départ -->
+                <div class="choix">
+                    <ul>
+                        <li class="titre">Du 12 mai 2015 au 21 mai 2015</li>
+                        <li class="nb_places outstock">Il ne reste plus de place pour ce voyages.</li>
+                        <li class="description"><span>Départ de :</span> Paris Roissy- Charles de Gaulle à 8h55</li>
+                        <li class="description"><span>Arrivée :</span> Santiago, Chili à 23h05</li>
+                        <li class="description"><span>Compagnie :</span> Air France</li>
+                        <li class="description"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
+                    </ul>
+                </div>
+                <!-- fin choix d'un départ -->
+                
+                
+            </div>
+            <!-- fin bloc choix date -->
         </div>
         <div class="clear"></div>
     </div>
@@ -78,7 +121,7 @@
             $('#deplier_date').click(function() {
                 $('.container_dates').slideToggle("slow" );
                 jQuery('#deplier_date span').toggleClass( "active" );
-            });            
+            });                       
         });
     </script>
 
@@ -269,6 +312,8 @@
             <div class="separateur_article"></div>
 
             <div class="contenu_article_suivant">
+
+                <!-- un article -->
                 <div class="un_article left">
                     <div class="callbacks_container carnet">
                         <a href="#">
@@ -289,7 +334,9 @@
                     <a href="#" class="lire_suite">Voir le carnet ></a>
                     <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet2');</script>
                 </div>
+                <!-- fin un article -->
 
+                <!-- un article -->
                 <div class="un_article">
                     <div class="callbacks_container carnet">
                         <a href="#">
@@ -310,9 +357,11 @@
                     <a href="#" class="lire_suite">Voir le carnet ></a>
                     <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet3');</script>
                 </div>
+                <!-- fin un article -->
 
                 <div style="clear:both"></div>
 
+                <!-- un article -->
                 <div class="un_article left">
                     <div class="callbacks_container carnet">
                         <a href="#">
@@ -333,6 +382,8 @@
                     <a href="#" class="lire_suite">Voir le carnet ></a>
                     <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet4');</script>
                 </div>
+                <!-- fin un article -->
+
                 <div style="clear:both"></div>
             </div>
         <!-- fin contenu carnet de voyage -->	

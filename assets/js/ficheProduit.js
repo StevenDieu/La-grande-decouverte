@@ -36,15 +36,6 @@ function  clickContenuOngletMobile(element) {
 
 }
 
-//initialise la map google
-function initialize() {
-    var mapOptions = {
-        center: {lat: -35.675147, lng: -71.54296899999997},
-        scrollwheel: false,
-        zoom: 10,
-    };
-    map = new google.maps.Map(document.getElementById('carte'), mapOptions);
-}
 //centre la map google
 function centrage() {
     if(typeof map != "undefined"){
