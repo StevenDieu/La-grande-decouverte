@@ -23,4 +23,8 @@ class Fiche extends CI_Controller {
         $this->load->templateVoyage('/fiche_voyage', $data);
     }
 
+    public function article(){
+        $this->load->templateVoyage('/article');
+    }
+
 }
