@@ -24,7 +24,9 @@ class Fiche extends CI_Controller {
     }
 
     public function article(){
-        $this->load->templateVoyage('/article');
+        $data["allCss"] = array("article");
+        $data["alljs"] = array("slide","ficheVoyage");
+        $this->load->templateVoyage('/article',$data);
     }
 
 }
