@@ -12,6 +12,11 @@ class Index extends CI_Controller {
         $this->load->library('session');
     }
 
+    public function index() {
+        $data ["error"] = 0;
+        $this->load->templatePages('contact', $data);
+    }
+
     function verifContact() {
 
 

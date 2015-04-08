@@ -14,7 +14,36 @@
 }
 
 
+.mess_required{
+    color: #eb340a;
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
+
+.une_row p.failed{
+    border: 1px dashed #eb340a!important;
+    background: #faebe7!important;
+    margin-bottom: 2px !important;
+}
+
+.une_row.mail p.failed, .une_row.mdp p.failed{
+    margin-bottom: 10px !important;
+}
+
+.une_row textarea.failed{
+    border: 1px dashed #eb340a!important;
+    background: #faebe7!important;
+}
+
+.une_row p.failed input{
+    background-color: #faebe7!important;
+    box-shadow: none;
+}
 
 
 body {
@@ -525,6 +554,7 @@ span.ou{
     border: none;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
+    outline: none;
 }
 
 .connexion_form .submit_all_text input{
@@ -683,7 +713,6 @@ span.ou{
     right: 0px;
     color: #000;
     font-family: "helvetica";
-    border: 2px solid white;
 }
 
 .connexion_header {

@@ -87,21 +87,21 @@
                     <div class="connexion_header">
                         <span>Connexion</span>
                     </div>
-                    <div class="connexion_form">
+                    <div class="connexion_form login">
                         <?php echo form_open('user/verifIdentification/verifLogin'); ?>
                             <div class="une_row">
                                 <p>
-                                    <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*">
+                                    <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*">
                                 </p>
                             </div>
                             <div class="une_row">
                                 <p>
-                                    <input type="password" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe*">
+                                    <input type="password" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
                                 </p>
                             </div>
 
                             <div class="submit_all_text">
-                                <input type="submit" name="submit" class="" value="Se connecter">
+                                <input type="submit" name="submit" class="" id="popup_input_connexion" value="Se connecter">
                             </div>
                         </form>
                     </div>
@@ -110,11 +110,11 @@
                         <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
                                 <p>
-                                    <input type="text" name="mail" class="" id="mail" placeholder="Votre mail">
+                                    <input type="text" name="mail" class="required" id="mail" placeholder="Votre mail">
                                 </p>
                             </div>
                              <div class="submit_all_text">
-                                <input type="submit" name="submit" class="" value="S'inscrire">
+                                <input type="submit" name="submit" class="" id="popup_login_inscription" value="S'inscrire">
                             </div>
                         </form>
                     </div>
@@ -137,10 +137,3 @@
                 </div>
             </div>
         </header>
-            <script type="text/javascript">
-        $( document ).ready(function() {
-            $('li a.last').click(function() {
-                $('.connexion_popin').slideToggle("slow" );
-            }); 
-        });
-        </script>  

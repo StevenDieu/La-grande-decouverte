@@ -1,4 +1,4 @@
-<!---------- CONTENT --------->	
+<!---------- CONTENT ------- -->	
 <div class="content">
     <div>
 
@@ -25,9 +25,9 @@
 
         <a href="<?php echo base_url('/voyage/fiche/ficheVoyage') ?>">Carnet Voyage</a><br/>
         
-        <a href="<?php echo base_url('/pages/contact') ?>">Contact</a><br/>
+        <a href="<?php echo base_url('/contact/index') ?>">Contact</a><br/>
         <a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mention Légales</a><br/>
 
     </div>
 </div>
-<!---------- CONTENT --------->	
+<!---------- CONTENT ------- -->	

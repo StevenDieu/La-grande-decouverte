@@ -21,11 +21,6 @@ class Pages extends CI_Controller {
         }
     }
 
-    public function contact() {
-        $data ["error"] = 0;
-        $this->load->templatePages('contact', $data);
-    }
-
     public function mailling() {
         $this->load->view('mailling/mailling');
     }

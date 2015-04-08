@@ -1,8 +1,8 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="content">
     <div class="content-contact">
+        <span class="mess_required"><?php echo validation_errors(); ?></span>
         <?php
-        echo validation_errors();
         echo form_open('contact/index/verifContact');
         // echo form_open('user/verifIdentification/verifInscription');
         //message d'erreur/validation après envoie du formulaire de contact.
@@ -21,7 +21,7 @@
         <div class="une_row">
             <!--<label for="nom" class="control-label col-sm-4">Nom *</label>-->
             <p>
-                <input id="nom" name="nom" type="text" placeholder="Votre nom*" class="">
+                <input id="nom" name="nom" type="text" placeholder="Votre nom*" class="required">
             </p>
         </div>
 
@@ -29,7 +29,7 @@
         <div class="une_row">
             <!--<label class="control-label col-sm-4" for="prenom">Prénom *</label>-->
             <p>
-                <input id="prenom" name="prenom" type="text" placeholder="Votre prénom*" class="">
+                <input id="prenom" name="prenom" type="text" placeholder="Votre prénom*" class="required">
             </p>
         </div>
 
@@ -37,7 +37,7 @@
         <div class="une_row">
             <!--<label class="control-label col-sm-4" for="mail">Email *</label>-->
             <p>
-                <input id="mail" name="mail" type="text" placeholder="Votre mail*" class="">
+                <input id="mail" name="mail" type="text" placeholder="Votre mail*" class="required">
 
             </p>
         </div>
@@ -46,14 +46,14 @@
         <div class="une_row">
             <!--<label class="control-label col-sm-4" for="objet">Objet *</label>-->
             <p>
-                <input id="objet" name="objet" type="text" placeholder="Votre objet*" class="">
+                <input id="objet" name="objet" type="text" placeholder="Votre objet*" class="required">
             </p>
         </div>
 
         <!-- Textarea -->
         <div class="une_row">
             <!--<label class="control-label col-sm-4" for="message">Votre message *</label>-->
-                <textarea id="message" class="" placeholder="Votre message*" name="message"></textarea>
+                <textarea id="message" class="required" placeholder="Votre message*" name="message"></textarea>
         </div>
         <!-- ReCaptcha -->
         <div class="">
@@ -71,7 +71,7 @@
         <!-- Button -->
         <div class="une_row">
             <div class="submit_all_text">
-                <button id="envoyer" name="nvoyer" class="">Envoyer</button>
+                <button name="envoyer" id="bouton_envoi_contact" class="">Envoyer</button>
             </div>
         </div>
         <?php

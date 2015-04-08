@@ -4,18 +4,18 @@
 
         <div class="colonne_left first">
             <h3>VOUS AVEZ DÉJÀ UN COMPTE ?</h3>
-                <?php echo validation_errors(); ?>
+                <span class="mess_required"><?php echo validation_errors(); ?></span>
                 <?php echo form_open('user/verifIdentification/verifLogin'); ?>
                 <div class="une_row">
                     <!--<label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>-->
                     <p>
-                        <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*">
+                        <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*">
                     </p>
                 </div>
                 <div class="une_row">
                     <!--<label for="mdp" class="col-sm-5 control-label">Mot de passe</label>-->
                     <p>
-                        <input type="text" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe*">
+                        <input type="text" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
                     </p>
                 </div>
                 <div class="une_row">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="une_row">
                     <div class="submit_all_text">
-                        <input type="submit" name="submit" class="" value="Valider"/>
+                        <input type="submit" name="submit" class="" id="input_page_connexion" value="Valider"/>
                     </div>
                 </div>
 
