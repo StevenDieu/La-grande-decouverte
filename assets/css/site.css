@@ -438,8 +438,13 @@ h2.titre{
     color: #818181;
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 18px 3%;
+    padding: 15px 3%;
+    margin-top: 2px;
     outline : none;
+     -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #a9a9a9 !important;
+      -webkit-box-shadow: 0 0 0px 1000px #F7F7F7 inset;
+  -webkit-text-fill-color: #a9a9a9 !important;
 }
 
 .content-inscription .une_row p,.content-connexion .une_row p,.content-contact .une_row p, .connexion_popin .une_row p {
