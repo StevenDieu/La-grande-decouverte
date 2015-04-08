@@ -439,6 +439,7 @@ h2.titre{
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
     padding: 18px 3%;
+    outline : none;
 }
 
 .content-inscription .une_row p,.content-connexion .une_row p,.content-contact .une_row p, .connexion_popin .une_row p {
@@ -489,6 +490,22 @@ h2.titre{
     margin: auto;
 }
 
+.connexion_form{
+    margin-bottom: 10px;
+}
+
+.connexion_form.bottom{
+    margin-top: 10px;
+}
+
+.connexion_header span{
+    font-size: 15px;
+}
+
+span.ou{
+    font-size: 16px;
+}
+
 .une_row .submit_all_text input,.une_row .submit_all_text button{
     height: 38px;
     background: #fff;
@@ -520,7 +537,8 @@ h2.titre{
     border: none;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
-      line-height: 30px;
+    line-height: 30px;
+    font-family: sans-serif;
 }
 
 .une_row textarea{
@@ -712,6 +730,10 @@ h2.titre{
 
 .connexion_footer a {
     color:white;
+}
+
+.connexion_footer a span.d:hover{
+    text-decoration: underline;
 }
 /*******/
 

@@ -99,12 +99,12 @@
                         </div>
 
                         <div class="submit_all_text">
-                            <input type="submit" name="submit" class="" value="Valider">
+                            <input type="submit" name="submit" class="" value="Se connecter">
                         </div>
                     </form>
                 </div>
-                <hr class="connexion_hr g"/><span>OU</span><hr class="connexion_hr d"/>
-                <div class="connexion_form">
+                <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
+                <div class="connexion_form bottom">
                     <form action="#">
                         <div class="une_row">
                             <p>
@@ -117,8 +117,7 @@
                     </form>
                 </div>
                 <div class="connexion_footer">
-                    <a href="#"><span class="g">Mot de passe oubli&eacute; ?</span></a>
-                    <a href="#"><span class="d">S'inscrire</span></a>
+                    <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
                 </div>
             </div>
         </header>
