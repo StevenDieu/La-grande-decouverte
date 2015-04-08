@@ -81,43 +81,45 @@
                     </ul>
                 </nav>
             </div>
-            <div class="connexion_popin" style="display:none">
-                <div class="connexion_header">
-                    <span>Connexion</span>
-                </div>
-                <div class="connexion_form">
-                    <form action="#">
-                        <div class="une_row">
-                            <p>
-                                <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*">
-                            </p>
-                        </div>
-                        <div class="une_row">
-                            <p>
-                                <input type="password" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe*">
-                            </p>
-                        </div>
+            <div class="content_popup">
+                <div class="connexion_popin" style="display:none">
+                    <div class="connexion_header">
+                        <span>Connexion</span>
+                    </div>
+                    <div class="connexion_form">
+                        <form action="#">
+                            <div class="une_row">
+                                <p>
+                                    <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*">
+                                </p>
+                            </div>
+                            <div class="une_row">
+                                <p>
+                                    <input type="password" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe*">
+                                </p>
+                            </div>
 
-                        <div class="submit_all_text">
-                            <input type="submit" name="submit" class="" value="Se connecter">
-                        </div>
-                    </form>
-                </div>
-                <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
-                <div class="connexion_form bottom">
-                    <form action="#">
-                        <div class="une_row">
-                            <p>
-                                <input type="text" name="mail" class="" id="mail" placeholder="Votre mail">
-                            </p>
-                        </div>
-                         <div class="submit_all_text">
-                            <input type="submit" name="submit" class="" value="S'inscrire">
-                        </div>
-                    </form>
-                </div>
-                <div class="connexion_footer">
-                    <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
+                            <div class="submit_all_text">
+                                <input type="submit" name="submit" class="" value="Se connecter">
+                            </div>
+                        </form>
+                    </div>
+                    <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
+                    <div class="connexion_form bottom">
+                        <form action="#">
+                            <div class="une_row">
+                                <p>
+                                    <input type="text" name="mail" class="" id="mail" placeholder="Votre mail">
+                                </p>
+                            </div>
+                             <div class="submit_all_text">
+                                <input type="submit" name="submit" class="" value="S'inscrire">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="connexion_footer">
+                        <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
+                    </div>
                 </div>
             </div>
         </header>
