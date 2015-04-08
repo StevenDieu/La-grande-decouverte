@@ -30,7 +30,7 @@
         <div class="une_row">
             <!--<label for="email" class="">E-mail *</label>-->
             <p>
-                <input type="email" name="email" class="" id="email" placeholder="Votre e-mail*">
+                <input type="email" name="email" class="" id="email" placeholder="Votre e-mail*" <?php if(isset($mail)){ echo "value='".$mail."'"; } ?>>
             </p>
         </div>
 

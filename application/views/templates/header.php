@@ -83,11 +83,12 @@
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
+                    <?php  if(!$this->session->userdata('logged_in')){ ?>
                     <div class="connexion_header">
                         <span>Connexion</span>
                     </div>
                     <div class="connexion_form">
-                        <form action="#">
+                        <?php echo form_open('user/verifIdentification/verifLogin'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*">
@@ -106,7 +107,7 @@
                     </div>
                     <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
                     <div class="connexion_form bottom">
-                        <form action="#">
+                        <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="mail" class="" id="mail" placeholder="Votre mail">
@@ -120,6 +121,19 @@
                     <div class="connexion_footer">
                         <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
                     </div>
+                    <?php }else{
+                        $session_data = $this->session->userdata('logged_in');
+                        $user_name = $session_data['user']; ?>
+                            <div class="connexion_header">
+                                <span>Bienvenue <?php echo $user_name ?></span>
+                            </div>
+                            <ul class="menu_popup">
+                                <li><a href="<?php echo base_url('user/account') ?>">- Mon compte</a></li>
+                                <li><a href="<?php echo base_url('user/account/logout') ?>">- Se déconnecter</a></li>
+                            <ul>
+                            <div class="connexion_footer">
+                            </div>
+                    <?php } ?>
                 </div>
             </div>
         </header>

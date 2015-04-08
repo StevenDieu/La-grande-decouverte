@@ -18,7 +18,7 @@ class Account extends CI_Controller {
         else
         {
             //If no session, redirect to login page
-            redirect('user/login', 'refresh');
+            redirect('user/account/connexion', 'refresh');
         }
     }
 
@@ -35,8 +35,18 @@ class Account extends CI_Controller {
     }
 
     function inscription() {
-        $this->load->helper(array('form'));
-        $this->load->templateUser('page_inscription');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('mail', 'mail', 'trim');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->helper(array('form'));
+            $this->load->templateUser('page_inscription');
+        } else {
+            $data['mail'] = $this->input->post('mail');
+            $this->load->helper(array('form'));
+            $this->load->templateUser('page_inscription', $data);
+        }
+
+        
     }
 
 }
