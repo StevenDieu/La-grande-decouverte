@@ -74,7 +74,7 @@
                                 Arrivée à Santiago après 14 heures de vol. Accueil à l'aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, temps libre pour découverte individuelle...	
                             </div>
                             <div class="textDescriptionJourBas">
-                                <a href="<?php echo base_url('voyage/fiche/article') ?>">Lire la fiche</a>
+                                <a href="<?php echo base_url('voyage/carnet/article') ?>">Lire la fiche</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                 Comprise entre Villarrica et Puerto Montt, cette superbe région peut se prêter à un séjour de plusieurs jours si l’on souhaite pratiquer des sports en pleine nature ou encore s’aventurer à l’assaut du volcan Villarrica ! Pucón est une bonne base pour sillonner la région.	
                             </div>
                             <div class="textDescriptionJourBas">
-                                <a href="<?php echo base_url('voyage/fiche/article') ?>">Lire la fiche</a>
+                                <a href="<?php echo base_url('voyage/carnet/article') ?>">Lire la fiche</a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                                 Ce gros village de 5 000 habitants est construit à plus de 2 400 m d’altitude. Il a gardé son ambiance coloniale avec ses rues pavées qui invitent à la flânerie et ses jolies bâtisses en adobe. En vous baladant dans les rues de la ville, ne maquez pas l’église de San Pedro et ...	
                             </div>
                             <div class="textDescriptionJourBas">
-                                <a href="<?php echo base_url('voyage/fiche/article') ?>">Lire la fiche</a>
+                                <a href="<?php echo base_url('voyage/carnet/article') ?>">Lire la fiche</a>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                                 La culture de la vigne est de plus en plus développée dans la région centrale du Chili. Le pays est désormais un acteur majeur sur la scène internationale du vin ...
                             </div>
                             <div class="textDescriptionJourBas">
-                                <a href="<?php echo base_url('voyage/fiche/article') ?>">Lire la fiche</a>
+                                <a href="<?php echo base_url('voyage/carnet/article') ?>">Lire la fiche</a>
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                                 Pour ceux qui préfèrent la mer, c’est en direction de la belle Valparaiso qu’il faut se rendre. La 2ème ville du pays en nombre d’habitant a su garder le charme du village de pêcheur qu’elle était autrefois. ...
                             </div>
                             <div class="textDescriptionJourBas">
-                                <a href="<?php echo base_url('voyage/fiche/article') ?>">Lire la fiche</a>
+                                <a href="<?php echo base_url('voyage/carnet/article') ?>">Lire la fiche</a>
                             </div>
                         </div>
                     </div>
@@ -219,7 +219,7 @@
                                 Santiago est l'une de ces grandes villes où plus vous regardez, plus vous en trouvez : les cafés et boîtes de nuit branchés qui pullulent à Bellavista, les collections artistiques - dont regorge le parc Forestal - ...
                             </div>
                             <div class="textDescriptionJourBas">
-                                <a href="<?php echo base_url('voyage/fiche/article') ?>">Lire la fiche</a>
+                                <a href="<?php echo base_url('voyage/carnet/article') ?>">Lire la fiche</a>
                             </div>
                         </div>
                     </div>
