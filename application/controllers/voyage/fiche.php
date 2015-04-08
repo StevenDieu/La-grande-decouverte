@@ -9,8 +9,8 @@ class Fiche extends CI_Controller {
      * 
      */
     public function ficheProduit() {
-        $data["allCss"] = array("ficheProduit","normalize.min");
-        $data["alljs"] = array("slide","ficheProduit","para.min","jquery.parallax-scroll.min");
+        $data["allCss"] = array("ficheProduit");
+        $data["alljs"] = array("slide","ficheProduit");
         $this->load->templateVoyage('/fiche_produit', $data);
     }
 
