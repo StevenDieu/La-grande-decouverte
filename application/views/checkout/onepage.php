@@ -11,100 +11,46 @@
                                 	<div class="identification">
                                     	<div class="identification_left">
                                         	<h3>vous avez déjà un compte ?</h3>
-                                            <form action="#">
-                                            	<p><input type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
-                                                <p><input type="text" value="Votre Mot de passe" onClick="if(this.value=='Votre Mot de passe')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Mot de passe')" /></p>
-                                                <span><a href="#">J’ai perdu mon mot de passe ?</a></span>
-                                                <div class="submit_command"><input type="submit" value="connexion" /></div>
-                                            </form>
+                                            <?php echo form_open('checkout/cart/onepage'); ?>
+                                            	<p><input type="text" name="user" maxlength="50" class="" id="user" placeholder="Nom d'utilisateur*" /></p>
+                                                <p><input type="text" name="mdp" maxlength="50" class="" id="mdp" placeholder="Mot de passe*"></p>
+                                                <span><a href="#">J’ai perdu mon mot de passe ?</a></span>  
+                                                <div class="submit_command"><input type="submit" name="submit" class="" value="Valider"/></div>
+                                                <?php
+                                                echo form_close();
+                                                ?>
                                         </div>
                                         <div class="identification_left rgt_command">
                                         	<h3>VOUS êtes Nouveau client ?</h3>
-                                            <h4>Gagnez du temps !</h4>
-                                            <p>Enregistrez-vous et profitez de nombreux avantages :</p>
-                                            <ul class="list_item">
-                                            	<li>Commander plus vite et plus facilement</li>
-                                                <li>Consultez et suivez vos commandes</li>
-                                            </ul>
-                                            <a href="#" class="command_btn">créer un compte</a>
+                                            <a href="<?php echo base_url('user/account/inscription') ?>" class="command_btn">créer un compte</a>
                                         </div>
                                     </div>
                                 </div>
                             </div><!--//end .command_panel-->
                             <div class="command_panel"><!--start command_panel-->
-                            	<h2 class="open_command">Adresse de facturation </h2>
+                            	<h2 class="open_command">Liste des participants </h2>
                                 <div class="inside_command_panel">
                                 	<form action="#" class="adress_form">
-                                    	<div class="address_fields">
-                                        	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre Mot de passe" onClick="if(this.value=='Votre Mot de passe')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Mot de passe')" /></p>
-                                                <p><input type="text" value="Confirmation de votre mot de passe*" onClick="if(this.value=='Confirmation de votre mot de passe*')(this.value='')"  onBlur="if(this.value=='')(this.value='Confirmation de votre mot de passe*')" /></p>
-                                            </div>
-                                        </div>
-                                        <div class="all_text_field">
-                                        	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Nom*" onClick="if(this.value=='Votre Nom*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Nom*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre Prénom*" onClick="if(this.value=='Votre Prénom*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Prénom*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Société" onClick="if(this.value=='Votre Société')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Société')" /></p>
+                                        <h3>Merci de choisir le nombre de participants au voyage et de remplir les champs d'informations ci-dessous.</h3>
+                                        <div class="nb_participants_fields">
+                                            <h4>Nombres de participants :</h4>
+                                            <div class="select_bg">
+                                                <select class="nb_participants">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="full_text">
-                                        	<p><input type="text" value="Votre Adresse*" onClick="if(this.value=='Votre Adresse*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Adresse*')" /></p>
-                                        </div>
-                                        <div class="full_text">
-                                        	<p><input type="text" value="Complément de votre Adresse" onClick="if(this.value=='Complément de votre Adresse')(this.value='')"  onBlur="if(this.value=='')(this.value='Complément de votre Adresse')" /></p>
-                                        </div>
-                                        <div class="all_text_field">
-                                        	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Code postal*" onClick="if(this.value=='Votre Code postal*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Code postal*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre Ville*" onClick="if(this.value=='Votre Ville*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Ville*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left">
-                                            	<div class="select_bg">
-                                                	<select>
-                                                    	<option>L’État / La Région*</option>
-                                                        <option>L’État / La Région*</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<div class="select_bg">
-                                                	<select>
-                                                    	<option>Le Pays*</option>
-                                                        <option>Le Pays*</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="all_text_field">
-                                        	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre numéro de téléphone*" onClick="if(this.value=='Votre numéro de téléphone*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de téléphone*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre numéro de fax" onClick="if(this.value=='Votre numéro de fax')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de fax')" /></p>
-                                            </div>
-                                        </div>
-                                        <div class="require_field">* Champs obligatoires</div>
-                                        <div class="btn_check_box">
-                                        	<div class="check_widget">
-                                                <div class="rowElem">
-                                                   <label><input name="radio"  type="radio" /> Livrer à cette adresse</label>
-                                                </div>
-                                            </div>
-                                            <div class="check_widget">
-                                                <div class="rowElem">
-                                                   <label><input name="radio"  type="radio" /> Livrer à une autre adresse</label>
-                                                </div>
-                                            </div>
+                                        <!-- Contenu dynamique -->
+                                        <div class="participants">
                                         </div>
                                         <div class="all_text_field">
                                         	<div class="address_fields_left">
@@ -115,58 +61,64 @@
                                 </div>
                             </div><!--//end .command_panel-->
                             <div class="command_panel"><!--start command_panel-->
-                            	<h2 class="open_command">Adresse de livraison</h2>
+                            	<h2 class="open_command">Informations de facturation</h2>
                                 <div class="inside_command_panel">
                                 	<form action="#" class="adress_form">
-                                    	
-                                        <div class="all_text_field">
-                                        	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Nom*" onClick="if(this.value=='Votre Nom*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Nom*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre Prénom*" onClick="if(this.value=='Votre Prénom*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Prénom*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Société" onClick="if(this.value=='Votre Société')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Société')" /></p>
-                                            </div>
-                                        </div>
-                                        <div class="full_text">
-                                        	<p><input type="text" value="Votre Adresse*" onClick="if(this.value=='Votre Adresse*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Adresse*')" /></p>
-                                        </div>
-                                        <div class="full_text">
-                                        	<p><input type="text" value="Complément de votre Adresse" onClick="if(this.value=='Complément de votre Adresse')(this.value='')"  onBlur="if(this.value=='')(this.value='Complément de votre Adresse')" /></p>
-                                        </div>
-                                        <div class="all_text_field">
-                                        	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre Code postal*" onClick="if(this.value=='Votre Code postal*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Code postal*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre Ville*" onClick="if(this.value=='Votre Ville*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Ville*')" /></p>
-                                            </div>
-                                            <div class="address_fields_left">
-                                            	<div class="select_bg">
-                                                	<select>
-                                                    	<option>L’État / La Région*</option>
-                                                        <option>L’État / La Région*</option>
-                                                    </select>
+                                    	<h3>Merce de reiseigner les informations ci-dessous concernant la facturation.</h3>
+                                        <div class="btn_check_box">
+                                            <div class="check_widget">
+                                                <div class="rowElem">
+                                                   <label><input name="civilite"  type="radio" /> Madame</label>
                                                 </div>
                                             </div>
-                                            <div class="address_fields_left address_fields_rgt">
-                                            	<div class="select_bg">
-                                                	<select>
-                                                    	<option>Le Pays*</option>
-                                                        <option>Le Pays*</option>
-                                                    </select>
+                                            <div class="check_widget">
+                                                <div class="rowElem">
+                                                   <label><input name="civilite"  type="radio" /> Mademoiselle</label>
+                                                </div>
+                                            </div>
+                                            <div class="check_widget">
+                                                <div class="rowElem">
+                                                   <label><input name="civilite"  type="radio" /> Monsieur</label>
                                                 </div>
                                             </div>
                                         </div>
+                                        <!--<div class="radio_holder">
+                                            <input type="radio" name="civilite" value="Mme">Mme
+                                            <input type="radio" name="civilite" value="Mlle">Mlle
+                                            <input type="radio" name="civilite" value="M">M
+                                        </div>-->
                                         <div class="all_text_field">
                                         	<div class="address_fields_left">
-                                            	<p><input type="text" value="Votre numéro de téléphone*" onClick="if(this.value=='Votre numéro de téléphone*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de téléphone*')" /></p>
+                                            	<p><input type="text" placeholder="Votre Nom*" name="nom" /></p>
                                             </div>
                                             <div class="address_fields_left address_fields_rgt">
-                                            	<p><input type="text" value="Votre numéro de fax" onClick="if(this.value=='Votre numéro de fax')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de fax')" /></p>
+                                            	<p><input type="text" placeholder="Votre Prénom*" name="prenom" /></p>
                                             </div>
+                                        </div>
+                                        <div class="full_text">
+                                        	<p><input type="text" placeholder="Votre Adresse*" name="adresse" /></p>
+                                        </div>
+                                        <div class="full_text">
+                                        	<p><input type="text" placeholder="Complément de votre Adresse" name="complementAdresse" /></p>
+                                        </div>
+                                        <div class="all_text_field">
+                                        	<div class="address_fields_left">
+                                            	<p><input type="text" placeholder="Votre Code postal*" name="codePostal" /></p>
+                                            </div>
+                                            <div class="address_fields_left address_fields_rgt">
+                                            	<p><input type="text" placeholder="Votre Ville*" name="ville" /></p>
+                                            </div>
+                                            <div class="address_fields_left address_fields_rgt">
+                                                <p><input type="text" placeholder="Votre Pays*" name="pays" /></p>
+                                            </div>
+                                        </div>
+                                        <div class="all_text_field">
+                                        	<div class="address_fields_left">
+                                            	<p><input type="text" placeholder="Votre numéro de téléphone*" name="telephone" /></p>
+                                            </div>
+                                            <div class="address_fields_left address_fields_rgt">
+                                            	<p><input type="text" placeholder="Votre numéro de fax" name="fax" /></p>
+                                            </div>  
                                         </div>
                                         <div class="require_field">* Champs obligatoires</div>
                                         
@@ -182,33 +134,38 @@
                             <div class="command_panel"><!--start command_panel-->
                             	<h2 class="open_command">Mode de paiement</h2>
                                 <div class="inside_command_panel">
-                                	<form action="#" class="form_option differ_bg">
-                                    	<div class="radio_holder">
-                                        	<div class="radio_option"><input name="radio"  type="radio" /></div>
-                                            <div class="payment_rgt">
-                                            	<h6>carte bancaire</h6>
-                                                <div class="payment_drop">
-                                                	<select>
-                                                    	<option>MasterCard</option>
-                                                        <option>MasterCard</option>
-                                                        <option>MasterCard</option>
-                                                    </select>
+                                	<form action="#" class="form_option differ_bg adress_form">
+                                        <div class="btn_check_box">
+                                            <div class="check_widget">
+                                                <div class="rowElem">
+                                                   <label><input name="modePayement"  type="radio" /> Carte Bleu</label>
                                                 </div>
-                                                <p>Vous serez redirigé vers le site Sogenactif à la fin du processus de commande pour procéder au paiement.</p>
+                                            </div>
+                                            <div class="check_widget">
+                                                <div class="rowElem">
+                                                   <label><input name="modePayement"  type="radio" /> Visa</label>
+                                                </div>
+                                            </div>
+                                            <div class="check_widget">
+                                                <div class="rowElem">
+                                                   <label><input name="modePayement"  type="radio" /> MasterCard</label>
+                                                </div>
                                             </div>
                                         </div>
-                                        
-                                        <div class="radio_holder">
-                                        	<div class="radio_option"><input name="radio"  type="radio" /></div>
-                                            <div class="payment_rgt">
-                                            	<h6>paypal</h6>
+                                        <div class="full_text">
+                                            <p><input type="text" placeholder="Nom du titulaire de la carte*" name="titulaire"/></p>
+                                        </div>
+                                        <div class="full_text">
+                                            <p><input type="text" placeholder="Numero de la carte*" name="numeroCB"/></p>
+                                        </div>
+                                        <div class="full_text">
+                                            <h4>Date de validite</h4>
+                                            <div class="select_bg">
+                                                <input type="text" class="datepicker">
                                             </div>
                                         </div>
-                                        <div class="radio_holder">
-                                        	<div class="radio_option"><input name="radio"  type="radio" /></div>
-                                            <div class="payment_rgt">
-                                            	<h6>Chèque / Mandat</h6>
-                                            </div>
+                                        <div class="full_text">
+                                            <p><input type="text" placeholder="Cryptogramme de sécurité*" name="cryptogramme"/></p>
                                         </div>
                                         <div class="btn_postal_submit"><input type="submit" value="continuer" /></div>
                                     </form>
@@ -319,16 +276,34 @@
 </div>
     <script type="text/javascript" src="<?php echo asset_url(''); ?>js/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo asset_url(''); ?>js/jquery.uniform.js" ></script>
-    <!--<script type="text/javascript" src="<?php echo asset_url(''); ?>js/custom.js"></script>-->  
+    <!--<script type="text/javascript" src="<?php echo asset_url(''); ?>js/custom.js"></script>-->
     <script type="text/javascript">
 		jQuery(function () {
 			var jQuerymin, jQueryremove, jQueryapply, jQueryuniformed;
-			// Debugging code to check for multiple click events
-			jQueryselects = jQuery("select").click(function () {
-				if (typeof console !== 'undefined' && typeof console.log !== 'undefined') {
-					console.log(jQuery(this).attr('id') + " clicked");
-				}
-			});
+
+            /*******************************************************
+			 * génère le contenu HTML pour pouvoir saisir les informations des participats, en fonction du nombre de participants sélectionnés.
+             *******************************************************/
+            jQuery(".nb_participants").change(function () {
+                if (typeof console !== 'undefined' && typeof console.log !== 'undefined') {
+                    jQuery(".participants").empty();
+                    for (var i=1; i<=jQuery(this).val(); i++)
+                    {
+                        jQuery(".participants").append(
+                            "<div class='participant'><h3>Participant " + i + "</h3>" +
+                                "<div class='info_participants'>" +
+                                    "<p><input type='text' name='participant_nom" + i + "' placeholder='Nom*'/></p>" +
+                                    "<p><input type='text' name='participant_prenom" + i + "' placeholder='Prénom*'/></p>" +
+                                    "<p><input type='text' name='participant_dateDeNaissance" + i + "' placeholder='Date de naissance*'/></p>" +
+                                "</div>" +
+                            "</div>")
+                    }
+                }
+            });
+            $(function() {
+                $( ".datepicker" ).datepicker();
+            });
+
 			jQueryuniformed = jQuery(".select_bg,.rowElem,.radio_option,.postal_radio_left,.payment_drop,.price_radio").find("select,input").not(".skipThese");
 			jQueryuniformed.uniform();
 		});
