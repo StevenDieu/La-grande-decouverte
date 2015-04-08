@@ -157,6 +157,13 @@
 
 <script src="<?php echo asset_url(''); ?>/librairie/js/bootstrap.min.js"></script>
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/responsiveslides.min.js" ></script>
-
+<script type="text/javascript" src = "<?php echo asset_url(''); ?>js/jquery-ui.min.js" ></script>   <!-- datepicker -->
+<script type="text/javascript">
+jQuery(function () {
+   $( ".datepicker" ).datepicker({
+    inline: true
+});
+});
+</script>
 </body> 
 </html>

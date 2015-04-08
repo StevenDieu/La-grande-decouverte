@@ -14,6 +14,8 @@
 
         <!-- CSS -->
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="<?php echo asset_url(''); ?>css/jquery-ui.min.css" type="text/css" rel="stylesheet"/><!-- datepicker -->
+        
 
         <link href="<?php echo asset_url(''); ?>css/site.css" type="text/css" rel="stylesheet"/>
         <?php

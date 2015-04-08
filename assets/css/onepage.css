@@ -921,6 +921,11 @@ div.radio {
 	margin-right:6px;
 }
 
+/* recoloration du texte des datepicker en noir */
+.ui-datepicker table {
+	color:#000;
+}
+
 
 @media screen and (max-width: 1023px) {
 	#command_left_column {

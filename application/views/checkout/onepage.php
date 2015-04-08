@@ -300,9 +300,6 @@
                     }
                 }
             });
-            $(function() {
-                $( ".datepicker" ).datepicker();
-            });
 
 			jQueryuniformed = jQuery(".select_bg,.rowElem,.radio_option,.postal_radio_left,.payment_drop,.price_radio").find("select,input").not(".skipThese");
 			jQueryuniformed.uniform();
