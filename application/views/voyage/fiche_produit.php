@@ -87,28 +87,33 @@ function initialize() {
             <div class="container_dates desktop" style="display:none">
                 <!-- choix d'un départ -->
                 <div class="choix" id="1">
-                    <ul>
-                        <li class="titre">Du 12 mai 2015 au 21 mai 2015</li>
-                        <li class="nb_places instock">Il reste 8 places pour ce voyages.</li>
-                        <li class="description"><span>Départ de :</span> Paris Roissy- Charles de Gaulle à 6h45</li>
-                        <li class="description"><span>Arrivée :</span> Santiago, Chili à 20h55</li>
-                        <li class="description"><span>Compagnie :</span> Air France</li>
-                        <li class="description last"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
-                    </ul>
-                    <button id="choisir_date" type="submit" value="J'embarque">> Choisir ce voyage</button>
+                    <span class="titre">Du 12 mai 2015 au 21 mai 2015</span>
+                    <div class="stock instock"><span class="cercle"></span><span>8 places disponibles<span></div>
+                    <table>
+                        <tr><th>Départ</th><th>Arrivée</th></tr>
+                        <tr>
+                            <td>Paris Roissy- Charles de Gaulle à 6h45</td>
+                            <td>Santiago, Chili à 20h55</td>
+                        </tr>
+                    </table>
+                    <button class="choisir_date" type="submit" value="J'embarque">> Choisir ce voyage</button>
+                    <div class="clear"></div>
                 </div>
                 <!-- fin choix d'un départ -->
-                <div class="separation_choix_date"></div>
+
                 <!-- choix d'un départ -->
                 <div class="choix" id="2">
-                    <ul>
-                        <li class="titre">Du 22 mai 2015 au 31 mai 2015</li>
-                        <li class="nb_places outstock">Il ne reste plus de place pour ce voyages.</li>
-                        <li class="description"><span>Départ de :</span> Paris Roissy- Charles de Gaulle à 8h55</li>
-                        <li class="description"><span>Arrivée :</span> Santiago, Chili à 23h05</li>
-                        <li class="description"><span>Compagnie :</span> Air France</li>
-                        <li class="description last"><span>Vol :</span> 1 escale à Mexico, Mexique</li>
-                    </ul>
+                    <span class="titre">Du 22 mai 2015 au 31 mai 2015</span>
+                    <div class="stock outstock"><span class="cercle"></span><span>indisponible<span></div>
+                    <table>
+                        <tr><th>Départ</th><th>Arrivée</th></tr>
+                        <tr>
+                            <td>Paris Roissy- Charles de Gaulle à 8h55</td>
+                            <td>Santiago, Chili à 23h05</td>
+                        </tr>
+                    </table>   
+                    <button class="choisir_date outstock" type="submit" value="J'embarque">> Choisir ce voyage</button>
+                    <div class="clear"></div>  
                 </div>
                 <!-- fin choix d'un départ -->
                 
@@ -123,21 +128,22 @@ function initialize() {
         $( document ).ready(function() {
             $('#deplier_date').click(function() {
                 $('.container_dates').slideToggle("slow" );
-                jQuery('#deplier_date span').toggleClass( "active" );
+                $('#deplier_date span').toggleClass( "active" );
             });    
 
-            $('#choisir_date').click(function() {
-                jQuery("#choix_date").val(jQuery(this).parent().attr('id'));
+            $('.choisir_date').click(function() {
+                var id = $(this).parent().attr('id');
+                $('#choix_date').val(id);
                 $('.container_dates').slideToggle("slow" );
-                jQuery('#deplier_date span').toggleClass( "active" );
-                jQuery(".result_date").html("Vous avez sélectionné le voyage "+jQuery("#"+jQuery(this).parent().attr('id')+" li.titre").html());
+                $('#deplier_date span').toggleClass( "active" );
+                $(".result_date").html("Vous avez sélectionné le voyage "+$(".container_dates #"+id+" span.titre").html());
             });   
 
             $('#embarque').click(function() {
-                if(jQuery("#choix_date").val() == 0){
+                if($("#choix_date").val() == 0){
                     alert("Vous devez séléctionner un voyage");
                     $('.container_dates').slideToggle("slow" );
-                    jQuery('#deplier_date span').toggleClass( "active" );
+                    $('#deplier_date span').toggleClass( "active" );
                     return false;
                 }
             });

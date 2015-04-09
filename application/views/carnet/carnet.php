@@ -21,13 +21,14 @@
     <div class="content_fiche_voyage">
 
         <div class="carnet_user">
-            <p>Carnet : public</p>
+            <p>Carnet : <img width="18" src="<?php echo asset_url(''); ?>images/ficheVoyage/visible/locked.png" class="icone-social" alt=""></p>
         </div>
         <div class="share_carnet">
             <p>Partager ce carnet de voyage :
                 <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" class="icone-social" alt=""></a>
                 <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" class="icone-social" alt=""></a>
                 <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" class="icone-social" alt=""></a>
+                <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-mail.png" class="icone-social" alt=""></a>
             </p>
         </div> 
     </div>
