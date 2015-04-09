@@ -5,7 +5,7 @@
         <div class="colonne_left first">
             <h3>VOUS AVEZ DÉJÀ UN COMPTE ?</h3>
                 <span class="mess_required"><?php echo validation_errors(); ?></span>
-                <?php echo form_open('user/verifIdentification/verifLogin'); ?>
+                <?php echo form_open('user/verification/login'); ?>
                 <div class="une_row">
                     <!--<label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>-->
                     <p>

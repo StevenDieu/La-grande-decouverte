@@ -22,6 +22,8 @@
         <a href="<?php echo base_url('/contact/index') ?>">Contact</a><br/>
         <a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mention Légales</a><br/>
 
+        <a href="<?php echo base_url('admin/index/connexion') ?>">Back office général</a><br/>
+
     </div>
 </div>
 <!---------- CONTENT ------- -->	

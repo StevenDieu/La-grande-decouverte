@@ -90,7 +90,7 @@
                         <span>Connexion</span>
                     </div>
                     <div class="connexion_form login">
-                        <?php echo form_open('user/verifIdentification/verifLogin'); ?>
+                        <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*">

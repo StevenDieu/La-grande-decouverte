@@ -3,7 +3,7 @@
         
         <span class="mess_required"><?php echo validation_errors(); ?></span>
         <?php
-        echo form_open('user/verifIdentification/verifInscription');
+        echo form_open('user/verification/inscription');
         ?>
         <div class="legend">Inscription</div>
         <h3>INFORMATION PERSONNELLE</h3>

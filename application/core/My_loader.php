@@ -52,10 +52,10 @@ class My_loader extends CI_Loader {
         }
     }
 
-    public function templateAdministrateur($template_name, $vars = array(), $return = FALSE) {
-        $content = $this->view('templates/header', $vars, $return);
-        $content .= $this->view('administrateur/' . $template_name, $vars, $return);
-        $content .= $this->view('templates/footer', $vars, $return);
+    public function templateAdmin($template_name, $vars = array(), $return = FALSE) {
+        $content = $this->view('admin/header', $vars, $return);
+        $content .= $this->view('admin/' . $template_name, $vars, $return);
+        $content .= $this->view('admin/footer', $vars, $return);
 
         if ($return) {
             return $content;

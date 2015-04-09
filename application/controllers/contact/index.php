@@ -17,9 +17,7 @@ class Index extends CI_Controller {
         $this->load->templatePages('contact', $data);
     }
 
-    function verifContact() {
-
-
+    function verification() {
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mail', 'mail', 'trim|required|xss_clean');

@@ -3,14 +3,14 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class VerifIdentification extends CI_Controller {
+class Verification extends CI_Controller {
 
     function __construct() {
         parent::__construct();
         $this->load->model('user', '', TRUE);
     }
 
-    function verifLogin() {
+    function login() {
         //This method will have the credentials validation
         $this->load->library('form_validation');
 
@@ -26,7 +26,7 @@ class VerifIdentification extends CI_Controller {
         }
     }
 
-    function verifInscription() {
+    function inscription() {
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');

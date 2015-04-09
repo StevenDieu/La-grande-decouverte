@@ -3,8 +3,7 @@
     <div class="content-contact">
         <span class="mess_required"><?php echo validation_errors(); ?></span>
         <?php
-        echo form_open('contact/index/verifContact');
-        // echo form_open('user/verifIdentification/verifInscription');
+        echo form_open('contact/index/verification');
         //message d'erreur/validation après envoie du formulaire de contact.
         if ($error == -1) {
             echo "Erreur lors de l'envoie du message.";
