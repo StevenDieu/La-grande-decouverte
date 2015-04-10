@@ -1,3 +1,13 @@
 <div class="content admin-connexion">
-	ds
+	<h1>login admin</h1>
+   <?php echo validation_errors(); ?>
+   <?php echo form_open('admin/index/login'); ?>
+     <label for="username">Username:</label>
+     <input type="text" size="20" id="username" name="username"/>
+     <br/>
+     <label for="password">Password:</label>
+     <input type="password" size="20" id="passowrd" name="password"/>
+     <br/>
+     <input type="submit" value="Login"/>
+   </form>
 </div>

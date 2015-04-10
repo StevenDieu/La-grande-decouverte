@@ -12,6 +12,7 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('carte'), mapOptions);
 }
 </script>
+<?php var_dump($voyage); ?>
 <div class="fiche_produit">		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">

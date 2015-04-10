@@ -141,7 +141,7 @@ class CI_Upload {
 	 *
 	 * @return	bool
 	 */
-	public function do_upload($field = 'userfile')
+	public function do_upload($field = 'userfile' , $newname = "")
 	{
 
 	// Is $_FILES[$field] set? If not, no reason to continue.
@@ -200,7 +200,16 @@ class CI_Upload {
 		$this->_file_mime_type($_FILES[$field]);
 		$this->file_type = preg_replace("/^(.+?);.*$/", "\\1", $this->file_type);
 		$this->file_type = strtolower(trim(stripslashes($this->file_type), '"'));
-		$this->file_name = $this->_prep_filename($_FILES[$field]['name']);
+
+
+		// check if a name has been specified, if so set it
+		if ($newname != '') {
+			$this->file_name = $this->_prep_filename($newname);
+		}
+		else {
+			$this->file_name = $this->_prep_filename($_FILES[$field]['name']);
+		}
+
 		$this->file_ext	 = $this->get_extension($this->file_name);
 		$this->client_name = $this->file_name;
 

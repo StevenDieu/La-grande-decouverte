@@ -37,4 +37,7 @@
 
     </head>
     <body>
+    <header>
+        <a href="<?php echo base_url('admin/index/dashboard'); ?>">acceuil</a>
+    </header>
         
