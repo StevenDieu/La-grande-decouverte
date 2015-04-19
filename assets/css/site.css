@@ -382,7 +382,9 @@ h2.titre{
         float: left;
         line-height: 76px;
         font-size: 15px;
-    }
+    
+        text-decoration: none !important;
+}
 
     .allTextMenu{
         width: 72%;

@@ -20,7 +20,7 @@
         <?php
         if (isset($allCss)) {
             foreach ($allCss as $css) {
-                ?> 
+                ?>
                 <link href="<?php echo asset_url(''); ?>css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
                 <?php
             }
