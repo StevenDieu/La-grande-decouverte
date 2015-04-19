@@ -3,7 +3,7 @@ session_start();
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Voyage extends CI_Controller {
+class Continent extends CI_Controller {
 
 	function __construct()
 	{
@@ -16,7 +16,7 @@ class Voyage extends CI_Controller {
     		$this->load->helper(array('form'));
     		$data["allCss"] = array("admin/main");
         	$data["alljs"] = array("admin/main");
-        	$this->load->templateAdmin('/voyage/add_voyage', $data); 
+        	$this->load->templateAdmin('/continent/add_continent', $data); 
         }
 	   	else
 	   	{
@@ -28,10 +28,15 @@ class Voyage extends CI_Controller {
     public function edit() {
     	if($this->session->userdata('logged_admin'))
 	   	{	
+            $this->load->model('voyage');
+            if(!$this->input->get('id')){
+                redirect('admin/continent/liste', 'refresh');
+            }
+            $data["continent"] = $this->voyage->getContinent($this->input->get('id'));
     		$this->load->helper(array('form'));
     		$data["allCss"] = array("admin/main");
         	$data["alljs"] = array("admin/main");
-        	$this->load->templateAdmin('/voyage/edit_voyage', $data); 
+        	$this->load->templateAdmin('/continent/edit_continent', $data); 
         }
 	   	else
 	   	{
@@ -44,9 +49,11 @@ class Voyage extends CI_Controller {
     	if($this->session->userdata('logged_admin'))
 	   	{	
     		$this->load->helper(array('form'));
+            $this->load->model('voyage');
+            $data["continents"] = $this->voyage->getContinents();
     		$data["allCss"] = array("admin/main");
         	$data["alljs"] = array("admin/main");
-        	$this->load->templateAdmin('/voyage/list_voyage', $data);  
+        	$this->load->templateAdmin('/continent/list_continent', $data);  
         }
 	   	else
 	   	{

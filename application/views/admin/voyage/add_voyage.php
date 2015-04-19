@@ -43,9 +43,17 @@
       <input type="text" id="capital" name="capital"/>
       <br/>
 
-      <label for="continent">continent:</label>
-      <input type="text" id="continent" name="continent"/>
-      <br/>
+      <?php if($continents){ ?>
+         <label for="continent">continent:</label>
+         <select name="continent">
+         <?php 
+            foreach ($continents as $continent) { ?>
+              <option value="<?php echo $continent->id; ?>"><?php echo $continent->name; ?></option> 
+            <?php }
+         ?>
+         </select>
+         <br/>
+      <?php } ?>
 
       <label for="meteo_temperature">meteo_temperature:</label>
       <input type="text" id="meteo_temperature" name="meteo_temperature"/>
@@ -74,6 +82,10 @@
       <label for="fete">fete:</label>
       <input type="text" id="fete" name="fete"/>
       <br/>
+
+      <label for="drapeau">drapeau:</label>
+      <input type='file' id="drapeau" name='drapeau'/>
+      </br/>
 
       <label for="langue_officielle">langue_officielle:</label>
       <input type="text" id="langue_officielle" name="langue_officielle"/>
@@ -182,24 +194,7 @@
       <label for="image_sous_sliderimage_sous_slider">image_sous_slider:</label>
       <input type='file' id="image_sous_slider" name='image_sous_slider'/>
       </br/>
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
      <input type="submit" value="enregistrer"/>
    </form>
 </div>

@@ -8,8 +8,11 @@
    <br>
 
 
+   <h3>Gestion des voyages</h3>
+   <a href="<?php echo base_url('admin/voyages/add'); ?>">ajouter voyage</a><br>
+   <a href="<?php echo base_url('admin/voyages/edit'); ?>">editer voyage</a><br>
+   <a href="<?php echo base_url('admin/voyages/liste'); ?>">liste des voyages</a><br><br>
 
-   <a href="<?php echo base_url('admin/voyage/add'); ?>">ajouter voyage</a><br>
-   <a href="<?php echo base_url('admin/voyage/edit'); ?>">editer voyage</a><br>
-   <a href="<?php echo base_url('admin/voyage/liste'); ?>">liste des voyages</a><br>
+   <a href="<?php echo base_url('admin/continent/add'); ?>">ajouter continent</a><br>
+   <a href="<?php echo base_url('admin/continent/liste'); ?>">liste des continent</a><br>
 </div>

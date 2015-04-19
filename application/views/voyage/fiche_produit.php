@@ -3,34 +3,37 @@
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 <script type="text/javascript">
+//<?php echo $voyage[0]->lattitude; ?>, lng: <?php echo $voyage[0]->longitude; ?>},
+
+var map;
 function initialize() {
-    var mapOptions = {
-        center: {lat: -33.46912, lng: -70.641997},
-        scrollwheel: false,
-        zoom: 8,
-    };
-    map = new google.maps.Map(document.getElementById('carte'), mapOptions);
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>)
+  };
+  map = new google.maps.Map(document.getElementById('carte'), mapOptions);
 }
+
+
 </script>
-<?php var_dump($voyage); ?>
 <div class="fiche_produit">		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
             <li>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/1.jpg" alt="image1">
+                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_1; ?>" alt="<?php echo $voyage[0]->image_slider_1; ?>">
             </li>
             <li>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/2.jpg" alt="image2">
+                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_2; ?>" alt="<?php echo $voyage[0]->image_slider_2; ?>">
             </li>
             <li>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/3.jpg" alt="image3">
+                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_3; ?>" alt="<?php echo $voyage[0]->image_slider_3; ?>">
             </li>
         </ul>
         <!-- caption desktop -->
         <div class="caption">
-            <h1>Au coeur du Chili</h1>
-            <h2>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</h2>
+            <h1><?php echo $voyage[0]->titre; ?></h1>
+            <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
         </div>
         <!-- fin caption desktop -->
     </div>
@@ -48,26 +51,26 @@ function initialize() {
     </div>
 
     <!-- caption mobile -->
-    <h1 class="caption_titre_mobile"><span>Au coeur du Chili</span></h1>
-    <h2 class="caption_mobile"><span>Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte.</span></h2>
+    <h1 class="caption_titre_mobile"><span><?php echo $voyage[0]->titre; ?></span></h1>
+    <h2 class="caption_mobile"><span><?php echo $voyage[0]->phrase_accroche; ?></span></h2>
     <!-- fin caption mobile -->
 
     <div class="contain_top_bloc">
         <div class="top_bloc">
             <!-- bloc achat -->
-            <div class="image_fond"><img src="<?php echo asset_url(''); ?>images/ficheproduit/paysage.jpg" alt="paysage"></div>
+            <div class="image_fond"><img src="<?php echo base_url(''); ?>media/produit/image_sous_slider/<?php echo $voyage[0]->image_sous_slider; ?>" alt="<?php echo $voyage[0]->image_sous_slider; ?>"></div>
             <div class="bloc_achat">
                 <form action="#">
-                    <div class="nom_pays">Au coeur du Chili</div>
+                    <div class="nom_pays"><?php echo $voyage[0]->titre; ?></div>
                     <div class="trait_sous_titre"></div>
                     <div class="info_prix">
                         <div class="info">
                             <span class="titre">Durée</span>
-                            <span class="valeur">9 jours</span>
+                            <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
                         </div>
                         <div class="prix">
                             <span class="titre">à partir de</span>
-                            <span class="valeur">4990 €</span>
+                            <span class="valeur"><?php echo $voyage[0]->prix; ?> €</span>
                         </div>
                     </div>
                     <div style="clear:both"></div>
@@ -168,7 +171,7 @@ function initialize() {
             <!-- contenu description -->
 
             <div class="text">
-                <p>Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.</p>
+                <p><?php echo $voyage[0]->description_first_bloc; ?> </p>
             </div>
 
             <div class="info_pratique">
@@ -177,7 +180,7 @@ function initialize() {
                         <!-- tableau d'info pays -->
                         <div class="table_info">
                             <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo asset_url(''); ?>images/ficheproduit/drapeau/chili.png" alt="car"></span></div>
+                                <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></div>
                                  <?php
                                     $date = new DateTime(null, new DateTimeZone('America/Santiago'));
                                 ?>
@@ -185,12 +188,15 @@ function initialize() {
                                 <div class="clear"></div>
                             </div>
                             <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Capital</span><span class="tdroit">SANTIAGO DU chili</span></div>
-                                <div class="droit"><span class="tgauche">Météo</span><span class="tdroit">Météo</span></div>
+                                <div class="gauche"><span class="tgauche">Capital</span><span class="tdroit"><?php echo $voyage[0]->capital; ?></span></div>
+                                <div class="droit"><span class="tgauche">Météo</span><span class="tdroit"><?php echo $voyage[0]->meteo_temperature; ?>°C</span></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Continent</span><span class="tdroit">AMÉRIQUE</span></div>
+                                <?php   $this->load->model('voyage'); 
+                                        $result = $this->voyage->getContinent($voyage[0]->continent);
+                                ?>
+                                <div class="gauche"><span class="tgauche">Continent</span><span class="tdroit"><?php echo $result[0]->name; ?></span></div>
                                 <div class="clear"></div>
                             </div>
                         </div>
@@ -200,12 +206,12 @@ function initialize() {
                         <div class="separation"></div>
                         <div class="picto">
                             <ul>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/car.png" alt="car"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/excursion.png" alt="excursion"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/google.png" alt="google"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/sunblock.png" alt="sunblock"></li>
-                                <li><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/swimming.png" alt="swimming"></li>
-                                <li class="last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/icons/t-shirt.png" alt="t-shirt"></li>
+                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_1; ?>" alt="<?php echo $voyage[0]->picto_1; ?>"></li>
+                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_2; ?>" alt="<?php echo $voyage[0]->picto_2; ?>"></li>
+                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_3; ?>" alt="<?php echo $voyage[0]->picto_3; ?>"></li>
+                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_4; ?>" alt="<?php echo $voyage[0]->picto_4; ?>"></li>
+                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_5; ?>" alt="<?php echo $voyage[0]->picto_5; ?>"></li>
+                                <li class="last"><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_6; ?>" alt="<?php echo $voyage[0]->picto_6; ?>"></li>
                             </ul>
                         </div>
                         <div class="information_medicale">
@@ -214,14 +220,14 @@ function initialize() {
                     </div>
                     <div class="sous_info">
                         <div class="sous_info_left">
-                            <p><span>Villes principales :</span> Concepción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas</li>
-                            <p><span>Religion :</span> Au <u>Chili</u>, la religion catholique est majoritaire.</p>
-                            <p><span>Nombre d'habitants :</span> Le Chili compte 16 600 000 habitants</p>
+                            <p><span>Villes principales :</span><?php echo $voyage[0]->villes_principales; ?></li>
+                            <p><span>Religion :</span><?php echo $voyage[0]->religion; ?></p>
+                            <p><span>Nombre d'habitants :</span><?php echo $voyage[0]->nombre_habitant; ?></p>
                         </div>
                         <div class="sous_info_right">
-                            <p><span>Monnaie :</span> Le Peso chilien (CLP) est utilisé au <u>Chili</u></p>
-                            <p><span>Fête :</span> Indépendance du Chili, 18 Septembre (1810)</p>
-                            <p><span>Langue officielle :</span> l'espagnol est la langue officielle du Chili</p>
+                            <p><span>Monnaie :</span> <?php echo $voyage[0]->monnaie; ?></p>
+                            <p><span>Fête :</span><?php echo $voyage[0]->fete; ?></p>
+                            <p><span>Langue officielle :</span> <?php echo $voyage[0]->langue_officielle; ?></p>
                         </div>
                     </div>                   
                     <div class="clear"></div>
@@ -229,44 +235,36 @@ function initialize() {
             </div>
 
             <div class="text">
-                <p>Nous débuterons ce voyage sous les tropiques, dans le désert d'Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d'appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l'occasion d'observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d'une soirée en compagnie d'un astronome.</p>
+                <?php echo $voyage[0]->description_second_bloc; ?>            
             </div>
 
-            <div class="text">
-                <p>La deuxième partie de votre voyage nous transporte à l'autre bout de la cordillère des Andes. Nous quitterons l'Altiplano et les paysages lunaires de l'Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.</p>
-            </div>
-
-            <div class="text">
-                <p>Après un court passage par le mythique port de Valparaiso, l'une des villes les plus singulières d'Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l'Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l'une des terres les plus isolées du globe!</p>
-            </div>
 
             <div class="ligne_image">
-                <div class="img img1"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/1.jpg" alt=""></div>
-                <div class="img img2"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/2.jpg" alt=""></div>
+                <div class="img img1"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_1; ?>" alt="<?php echo $voyage[0]->image_baniere_1; ?>"></div>
+                <div class="img img2"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_2; ?>" alt="<?php echo $voyage[0]->image_baniere_2; ?>"></div>
                 <div class="separation_image"></div>
-                <div class="img img3"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/3.jpg" alt=""></div>
-                <div class="img img4"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/4.jpg" alt=""></div>
+                <div class="img img3"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_3; ?>" alt="<?php echo $voyage[0]->image_baniere_3; ?>"></div>
+                <div class="img img4"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_4; ?>" alt="<?php echo $voyage[0]->image_baniere_4; ?>"></div>
                 <div class="clear"></div>
             </div>
 
             <div class="text">
-                <p>Après un court passage par le mythique port de Valparaiso, l'une des villes les plus singulières d'Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l'Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature
-                 et culture sur l'une des terres les plus isolées du globe! Bref, nous vous proposons ici un voyage d'exception pour une découverte des multiples facettes d'un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie...</p>
+            <p><?php echo $voyage[0]->description_third_bloc; ?></p>
             </div>
 
             <div id="jcl-demo">
                 <div class="custom-container widget">
                     <div class="mid">
-                        <img class="zoom" src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description1.jpg" alt="">
+                        <img class="zoom" src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>">
                     </div>
                     <div class="carousel">  
                         <ul>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description1.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description2.jpg" alt=""></li>
-                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description3.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description4.jpg" alt=""></li>
-                            <li class="miniature"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description5.jpg" alt=""></li>
-                            <li class="miniature last"><img src="<?php echo asset_url(''); ?>images/ficheproduit/imagedescription/description6.jpg" alt=""></li>
+                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
+                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
+                            <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_3; ?>" alt="<?php echo $voyage[0]->image_description_3; ?>"></li>
+                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_4; ?>" alt="<?php echo $voyage[0]->image_description_4; ?>"></li>
+                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
+                            <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
                         </ul> 
                     </div>                        
                     <div class="clear"></div>
