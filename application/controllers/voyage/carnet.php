@@ -16,7 +16,7 @@ class Carnet extends CI_Controller {
 //            redirect('pages/index/', 'refresh');
 //        }
         
-        $this->load->model('carnet_voyage');
+        $this->load->model('carnetVoyage');
         
         $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage($this->input->get('id'));
 

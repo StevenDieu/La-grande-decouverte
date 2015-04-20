@@ -14,21 +14,21 @@ Class Voyage extends CI_Model {
     }
 
     function ajouterVoyage(
-        $image_slider_1,//
-        $image_slider_2,//
-        $image_slider_3,//
+        $image_slider_1,
+        $image_slider_2,
+        $image_slider_3,
         $titre,
         $phrase_accroche,
         $duree,
         $prix,
-        $image_sous_slider,//
+        $image_sous_slider,
         $description_first_bloc,
         $description_second_bloc,
         $description_third_bloc,
-        $drapeau,//
+        $drapeau,
         $capital,
         $continent,
-        $meteo_image,//
+        $meteo_image,
         $meteo_temperature,
         $picto_1,//
         $picto_2,//
@@ -269,6 +269,20 @@ Class Voyage extends CI_Model {
             return false;
         }
     }
+    
+    
+    function getVoyagesCustomer() {
+        $this->db->select('id, titre, prix');
+        $this->db->from('voyage');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
 
     function getContinent($id) {
         $this->db->select('*');
@@ -328,10 +342,6 @@ Class Voyage extends CI_Model {
     }
 
     function deleteVoyage($id) {
-        $data = array(
-               'id' => $id,
-            );
-
         $this->db->where('id', $id);
         $this->db->delete('voyage'); 
 

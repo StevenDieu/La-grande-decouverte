@@ -1,19 +1,21 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Model_voyage extends CI_Controller {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
+        if (!$this->session->userdata('logged_admin')) {
+            redirect('admin/index/connexion', 'refresh');
+        }
         $this->load->model('voyage');
     }
 
-    public function save(){
+    public function save() {
         $this->load->library('form_validation');
 
-        //information générale
         $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean');
         $this->form_validation->set_rules('phrase_accroche', 'phrase_accroche', 'trim|xss_clean');
         $this->form_validation->set_rules('duree', 'duree', 'trim|xss_clean');
@@ -22,22 +24,19 @@ class Model_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateUser('page_inscription');
         } else {
-            //information générale
- 
+            
         }
-
     }
 
+    public function delete() {
+        $id = $this->input->get('id');
 
-    public function delete(){
-            $id = $this->input->get('id');
+        $result = $this->voyage->deleteVoyage($id);
 
-            $result = $this->voyage->deleteVoyage($id);
-
-            redirect('admin/voyages/liste', 'refresh');
+        redirect('admin/voyages/liste', 'refresh');
     }
 
-    public function edit(){
+    public function edit() {
         $this->load->library('form_validation');
 
         //information générale
@@ -77,7 +76,7 @@ class Model_voyage extends CI_Controller {
         $this->form_validation->set_rules('lattitude', 'lattitude', 'trim|xss_clean');
         $this->form_validation->set_rules('longitude', 'longitude', 'trim|xss_clean');
 
-         $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
+        $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateUser('page_inscription');
@@ -137,278 +136,277 @@ class Model_voyage extends CI_Controller {
 
             $meteo_image = $_FILES['meteo_image']["name"];
 
-            
 
-            if($image_slider_1 != "" || $image_slider_2 != "" || $image_slider_3 != ""){
+
+            if ($image_slider_1 != "" || $image_slider_2 != "" || $image_slider_3 != "") {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_slider/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '2048';
-                $config['max_height']  = '2048';
+                $config['max_width'] = '2048';
+                $config['max_height'] = '2048';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($image_slider_1 != ""){
-                    $image_slider_1 = $this->chaine_aleatoire(8).$image_slider_1;
-                    if(!$this->upload->do_upload('image_slider_1',$image_slider_1)){
-                        $error = array('error' => $this->upload->display_errors()." image_slider_1");
-                        $this->load->templateAdmin('voyage/add_voyage', $error);
-                        return false;
-                    }
-                }
-                
-                if($image_slider_2 != ""){
-                    $image_slider_2 = $this->chaine_aleatoire(8).$image_slider_2;
-                    if(!$this->upload->do_upload('image_slider_2',$image_slider_2)){
-                        $error = array('error' => $this->upload->display_errors()." image_slider_2");
+                if ($image_slider_1 != "") {
+                    $image_slider_1 = $this->chaine_aleatoire(8) . $image_slider_1;
+                    if (!$this->upload->do_upload('image_slider_1', $image_slider_1)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_slider_1");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_slider_3 != ""){ 
-                    $image_slider_3 = $this->chaine_aleatoire(8).$image_slider_3;
-                    if(!$this->upload->do_upload('image_slider_3',$image_slider_3)){
-                        $error = array('error' => $this->upload->display_errors()." image_slider_3");
+                if ($image_slider_2 != "") {
+                    $image_slider_2 = $this->chaine_aleatoire(8) . $image_slider_2;
+                    if (!$this->upload->do_upload('image_slider_2', $image_slider_2)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_slider_2");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
+                if ($image_slider_3 != "") {
+                    $image_slider_3 = $this->chaine_aleatoire(8) . $image_slider_3;
+                    if (!$this->upload->do_upload('image_slider_3', $image_slider_3)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_slider_3");
+                        $this->load->templateAdmin('voyage/add_voyage', $error);
+                        return false;
+                    }
+                }
             }
 
-            if($picto_1 != '' || $picto_2 != '' || $picto_3 != '' || $picto_4 != '' || $picto_5 != '' || $picto_6 = ''){
+            if ($picto_1 != '' || $picto_2 != '' || $picto_3 != '' || $picto_4 != '' || $picto_5 != '' || $picto_6 = '') {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/picto/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($picto_1 != ""){
-                    $picto_1 = $this->chaine_aleatoire(8).$picto_1;
-                    if(!$this->upload->do_upload('picto_1',$picto_1)){
-                        $error = array('error' => $this->upload->display_errors()." picto_1");
+                if ($picto_1 != "") {
+                    $picto_1 = $this->chaine_aleatoire(8) . $picto_1;
+                    if (!$this->upload->do_upload('picto_1', $picto_1)) {
+                        $error = array('error' => $this->upload->display_errors() . " picto_1");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($picto_2 != ""){
-                    $picto_2 = $this->chaine_aleatoire(8).$picto_2;
-                    if(!$this->upload->do_upload('picto_2',$picto_2)){
-                        $error = array('error' => $this->upload->display_errors()." picto_2");
+                if ($picto_2 != "") {
+                    $picto_2 = $this->chaine_aleatoire(8) . $picto_2;
+                    if (!$this->upload->do_upload('picto_2', $picto_2)) {
+                        $error = array('error' => $this->upload->display_errors() . " picto_2");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($picto_3 != ""){
-                    $picto_3 = $this->chaine_aleatoire(8).$picto_3;
-                    if(!$this->upload->do_upload('picto_3',$picto_3)){
-                        $error = array('error' => $this->upload->display_errors()." picto_3");
+                if ($picto_3 != "") {
+                    $picto_3 = $this->chaine_aleatoire(8) . $picto_3;
+                    if (!$this->upload->do_upload('picto_3', $picto_3)) {
+                        $error = array('error' => $this->upload->display_errors() . " picto_3");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($picto_4 != ""){
-                    $picto_4 = $this->chaine_aleatoire(8).$picto_4;
-                    if(!$this->upload->do_upload('picto_4',$picto_4)){
-                        $error = array('error' => $this->upload->display_errors()." picto_4");
+                if ($picto_4 != "") {
+                    $picto_4 = $this->chaine_aleatoire(8) . $picto_4;
+                    if (!$this->upload->do_upload('picto_4', $picto_4)) {
+                        $error = array('error' => $this->upload->display_errors() . " picto_4");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($picto_5 != ""){
-                    $picto_5 = $this->chaine_aleatoire(8).$picto_5;
-                    if(!$this->upload->do_upload('picto_5',$picto_5)){
-                        $error = array('error' => $this->upload->display_errors()." picto_5");
+                if ($picto_5 != "") {
+                    $picto_5 = $this->chaine_aleatoire(8) . $picto_5;
+                    if (!$this->upload->do_upload('picto_5', $picto_5)) {
+                        $error = array('error' => $this->upload->display_errors() . " picto_5");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($picto_6 != ""){
-                    $picto_6 = $this->chaine_aleatoire(8).$picto_6;
-                    if(!$this->upload->do_upload('picto_6',$picto_6)){
-                        $error = array('error' => $this->upload->display_errors()." picto_6");
+                if ($picto_6 != "") {
+                    $picto_6 = $this->chaine_aleatoire(8) . $picto_6;
+                    if (!$this->upload->do_upload('picto_6', $picto_6)) {
+                        $error = array('error' => $this->upload->display_errors() . " picto_6");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
             }
 
-            if($image_baniere_1 != '' || $image_baniere_2 != '' ||$image_baniere_3 != '' ||$image_baniere_4 != '' ){
+            if ($image_baniere_1 != '' || $image_baniere_2 != '' || $image_baniere_3 != '' || $image_baniere_4 != '') {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/banniere/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($image_baniere_1 != ""){
-                    $image_baniere_1 = $this->chaine_aleatoire(8).$image_baniere_1;
-                    if(!$this->upload->do_upload('image_baniere_1',$image_baniere_1)){
-                        $error = array('error' => $this->upload->display_errors()." image_baniere_1");
+                if ($image_baniere_1 != "") {
+                    $image_baniere_1 = $this->chaine_aleatoire(8) . $image_baniere_1;
+                    if (!$this->upload->do_upload('image_baniere_1', $image_baniere_1)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_baniere_1");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_baniere_2 != ""){
-                    $image_baniere_2 = $this->chaine_aleatoire(8).$image_baniere_2;
-                    if(!$this->upload->do_upload('image_baniere_2',$image_baniere_2)){
-                        $error = array('error' => $this->upload->display_errors()." image_baniere_2");
+                if ($image_baniere_2 != "") {
+                    $image_baniere_2 = $this->chaine_aleatoire(8) . $image_baniere_2;
+                    if (!$this->upload->do_upload('image_baniere_2', $image_baniere_2)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_baniere_2");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_baniere_3 != ""){
-                    $image_baniere_3 = $this->chaine_aleatoire(8).$image_baniere_3;
-                    if(!$this->upload->do_upload('image_baniere_3',$image_baniere_3)){
-                        $error = array('error' => $this->upload->display_errors()." image_baniere_3");
+                if ($image_baniere_3 != "") {
+                    $image_baniere_3 = $this->chaine_aleatoire(8) . $image_baniere_3;
+                    if (!$this->upload->do_upload('image_baniere_3', $image_baniere_3)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_baniere_3");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_baniere_4 != ""){
-                    $image_baniere_4 = $this->chaine_aleatoire(8).$image_baniere_4;
-                    if(!$this->upload->do_upload('image_baniere_4',$image_baniere_4)){
-                        $error = array('error' => $this->upload->display_errors()." image_baniere_4");
+                if ($image_baniere_4 != "") {
+                    $image_baniere_4 = $this->chaine_aleatoire(8) . $image_baniere_4;
+                    if (!$this->upload->do_upload('image_baniere_4', $image_baniere_4)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_baniere_4");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
             }
 
-            if($image_description_1 != '' || $image_description_2 != '' || $image_description_3 != '' || $image_description_4 != '' || $image_description_5 != '' || $image_description_6 = ''){
+            if ($image_description_1 != '' || $image_description_2 != '' || $image_description_3 != '' || $image_description_4 != '' || $image_description_5 != '' || $image_description_6 = '') {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_description/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($image_description_1 != ""){
-                    $image_description_1 = $this->chaine_aleatoire(8).$image_description_1;
-                    if(!$this->upload->do_upload('image_description_1',$image_description_1)){
-                        $error = array('error' => $this->upload->display_errors()." image_description_1");
+                if ($image_description_1 != "") {
+                    $image_description_1 = $this->chaine_aleatoire(8) . $image_description_1;
+                    if (!$this->upload->do_upload('image_description_1', $image_description_1)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_description_1");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_description_2 != ""){
-                    $image_description_2 = $this->chaine_aleatoire(8).$image_description_2;
-                    if(!$this->upload->do_upload('image_description_2',$image_description_2)){
-                        $error = array('error' => $this->upload->display_errors()." image_description_2");
+                if ($image_description_2 != "") {
+                    $image_description_2 = $this->chaine_aleatoire(8) . $image_description_2;
+                    if (!$this->upload->do_upload('image_description_2', $image_description_2)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_description_2");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_description_3 != ""){
-                    $image_description_3 = $this->chaine_aleatoire(8).$image_description_3;
-                    if(!$this->upload->do_upload('image_description_3',$image_description_3)){
-                        $error = array('error' => $this->upload->display_errors()." image_description_3");
+                if ($image_description_3 != "") {
+                    $image_description_3 = $this->chaine_aleatoire(8) . $image_description_3;
+                    if (!$this->upload->do_upload('image_description_3', $image_description_3)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_description_3");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_description_4 != ""){
-                    $image_description_4 = $this->chaine_aleatoire(8).$image_description_4;
-                    if(!$this->upload->do_upload('image_description_4',$image_description_4)){
-                        $error = array('error' => $this->upload->display_errors()." image_description_4");
+                if ($image_description_4 != "") {
+                    $image_description_4 = $this->chaine_aleatoire(8) . $image_description_4;
+                    if (!$this->upload->do_upload('image_description_4', $image_description_4)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_description_4");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_description_5 != ""){
-                    $image_description_5 = $this->chaine_aleatoire(8).$image_description_5;
-                    if(!$this->upload->do_upload('image_description_5',$image_description_5)){
-                        $error = array('error' => $this->upload->display_errors()." image_description_5");
+                if ($image_description_5 != "") {
+                    $image_description_5 = $this->chaine_aleatoire(8) . $image_description_5;
+                    if (!$this->upload->do_upload('image_description_5', $image_description_5)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_description_5");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
 
-                if($image_description_6 != ""){
-                    $image_description_6 = $this->chaine_aleatoire(8).$image_description_6;
-                    if(!$this->upload->do_upload('image_description_6',$image_description_6)){
-                        $error = array('error' => $this->upload->display_errors()." image_description_6");
+                if ($image_description_6 != "") {
+                    $image_description_6 = $this->chaine_aleatoire(8) . $image_description_6;
+                    if (!$this->upload->do_upload('image_description_6', $image_description_6)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_description_6");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
             }
 
-            if($image_sous_slider != ''){
+            if ($image_sous_slider != '') {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_sous_slider/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($image_sous_slider != ""){
-                    $image_sous_slider = $this->chaine_aleatoire(8).$image_sous_slider;
-                    if(!$this->upload->do_upload('image_sous_slider',$image_sous_slider)){
-                        $error = array('error' => $this->upload->display_errors()." image_sous_slider");
+                if ($image_sous_slider != "") {
+                    $image_sous_slider = $this->chaine_aleatoire(8) . $image_sous_slider;
+                    if (!$this->upload->do_upload('image_sous_slider', $image_sous_slider)) {
+                        $error = array('error' => $this->upload->display_errors() . " image_sous_slider");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
             }
 
-            if($meteo_image != ''){
+            if ($meteo_image != '') {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/meteo_image/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($meteo_image != ""){
-                    $meteo_image = $this->chaine_aleatoire(8).$meteo_image;
-                    if(!$this->upload->do_upload('meteo_image',$meteo_image)){
-                        $error = array('error' => $this->upload->display_errors()." meteo_image");
+                if ($meteo_image != "") {
+                    $meteo_image = $this->chaine_aleatoire(8) . $meteo_image;
+                    if (!$this->upload->do_upload('meteo_image', $meteo_image)) {
+                        $error = array('error' => $this->upload->display_errors() . " meteo_image");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
                 }
             }
 
-            if($drapeau != ''){
+            if ($drapeau != '') {
                 $config['upload_path'] = "/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/drapeau/";
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048000';
-                $config['max_width']  = '1024';
-                $config['max_height']  = '768';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
 
                 $this->load->library('upload');
                 $this->upload->initialize($config);
 
-                if($drapeau != ""){
-                    $drapeau = $this->chaine_aleatoire(8).$drapeau;
-                    if(!$this->upload->do_upload('drapeau',$drapeau)){
-                        $error = array('error' => $this->upload->display_errors()." drapeau");
+                if ($drapeau != "") {
+                    $drapeau = $this->chaine_aleatoire(8) . $drapeau;
+                    if (!$this->upload->do_upload('drapeau', $drapeau)) {
+                        $error = array('error' => $this->upload->display_errors() . " drapeau");
                         $this->load->templateAdmin('voyage/add_voyage', $error);
                         return false;
                     }
@@ -417,52 +415,28 @@ class Model_voyage extends CI_Controller {
 
 
             $result = $this->voyage->editerVoyage(
-            $id,
-            $image_slider_1,
-            $image_slider_2,
-            $image_slider_3,
-            $titre,
-            $phrase_accroche,
-            $duree,
-            $prix,
-            $image_sous_slider,//
-            $description_first_bloc,
-            $description_second_bloc,
-            $description_third_bloc,
-            $drapeau,
-            $capital,
-            $continent,
-            $meteo_image,//
-            $meteo_temperature,
-            $picto_1,//
-            $picto_2,//
-            $picto_3,//
-            $picto_4,//
-            $picto_5,//
-            $picto_6,//
-            $villes_principales,
-            $religion,
-            $nombre_habitant,
-            $monnaie,
-            $fete,
-            $langue_officielle,
-            $image_baniere_1,//
-            $image_baniere_2,//
-            $image_baniere_3,//
-            $image_baniere_4,//
-            $image_description_1,//
-            $image_description_2,//
-            $image_description_3,//
-            $image_description_4,//
-            $image_description_5,//
-            $image_description_6,//
-            $lattitude,
-            $longitude);
+                    $id, $image_slider_1, $image_slider_2, $image_slider_3, $titre, $phrase_accroche, $duree, $prix, $image_sous_slider, //
+                    $description_first_bloc, $description_second_bloc, $description_third_bloc, $drapeau, $capital, $continent, $meteo_image, //
+                    $meteo_temperature, $picto_1, //
+                    $picto_2, //
+                    $picto_3, //
+                    $picto_4, //
+                    $picto_5, //
+                    $picto_6, //
+                    $villes_principales, $religion, $nombre_habitant, $monnaie, $fete, $langue_officielle, $image_baniere_1, //
+                    $image_baniere_2, //
+                    $image_baniere_3, //
+                    $image_baniere_4, //
+                    $image_description_1, //
+                    $image_description_2, //
+                    $image_description_3, //
+                    $image_description_4, //
+                    $image_description_5, //
+                    $image_description_6, //
+                    $lattitude, $longitude);
 
             redirect('admin/voyages/liste', 'refresh');
         }
-
     }
-
 
 }

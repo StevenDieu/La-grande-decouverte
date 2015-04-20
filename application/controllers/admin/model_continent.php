@@ -1,16 +1,19 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Model_continent extends CI_Controller {
 
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
+        if (!$this->session->userdata('logged_admin')) {
+            redirect('admin/index/connexion', 'refresh');
+        }
         $this->load->model('voyage');
     }
 
-    public function save(){
+    public function save() {
         $this->load->library('form_validation');
 
         //information générale
@@ -26,10 +29,9 @@ class Model_continent extends CI_Controller {
 
             redirect('admin/continent/liste', 'refresh');
         }
-
     }
 
-    public function edit(){
+    public function edit() {
         $this->load->library('form_validation');
 
         //information générale
@@ -44,18 +46,18 @@ class Model_continent extends CI_Controller {
             $name = $this->input->post('name');
             $id = $this->input->post('id');
 
-            $result = $this->voyage->editContinent($id,$name);
+            $result = $this->voyage->editContinent($id, $name);
 
             redirect('admin/continent/liste', 'refresh');
         }
-
     }
 
-    public function delete(){
-            $id = $this->input->get('id');
+    public function delete() {
+        $id = $this->input->get('id');
 
-            $result = $this->voyage->deleteContinent($id);
+        $result = $this->voyage->deleteContinent($id);
 
-            redirect('admin/continent/liste', 'refresh');
+        redirect('admin/continent/liste', 'refresh');
     }
+
 }

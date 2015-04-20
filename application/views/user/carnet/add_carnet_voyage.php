@@ -10,8 +10,17 @@
         <input type="text" id="titre" name="titre"/>
         <br/>
 
-        <label for="phrase_accroche">Mes Voyages:</label>
-        <input type="text" id="phrase_accroche" name="phrase_accroche"/>
+        <label for="phrase_accroche">Choix du voyage:</label>
+        <select name="lesVoyages">
+            <option value="-1">Choix du voyage</option>
+
+            <?php foreach ($voyages as $voyage) { ?>
+
+                <option value="<?php echo $voyage[0]->id; ?>"><?php echo $voyage[0]->titre ?></option>
+
+            <?php } ?>
+
+        </select>
         <br/>
     </div>
     <input type="submit" value="enregistrer"/>
