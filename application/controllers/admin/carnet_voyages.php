@@ -12,7 +12,7 @@ class Voyages extends CI_Controller {
 
     public function add() {
         if ($this->session->userdata('logged_admin')) {
-            $this->load->model('voyage');
+            $this->load->model('carnet_voyage');
             $this->load->helper(array('form'));
             $data["allCss"] = "";
             $data["alljs"] = "";
@@ -25,16 +25,15 @@ class Voyages extends CI_Controller {
 
     public function edit() {
         if ($this->session->userdata('logged_admin')) {
-            $this->load->model('voyage');
+            $this->load->model('carnet_voyage');
             if (!$this->input->get('id')) {
-                redirect('admin/voyages/liste', 'refresh');
+                redirect('admin/carnet_voyages/liste', 'refresh');
             }
-            $data["voyage"] = $this->voyage->getVoyage($this->input->get('id'));
-            $data["continents"] = $this->voyage->getContinents();
+            $data["carnet_voyage"] = $this->carnet_voyage->getCarnetVoyage($this->input->get('id'));
             $this->load->helper(array('form'));
             $data["allCss"] = array("admin/main");
             $data["alljs"] = array("admin/main");
-            $this->load->templateAdmin('/voyage/edit_voyage', $data);
+            $this->load->templateAdmin('/carnet/edit_carnet_voyage', $data);
         } else {
             //If no session, redirect to login page
             redirect('admin/index/connexion', 'refresh');
@@ -44,11 +43,11 @@ class Voyages extends CI_Controller {
     public function liste() {
         if ($this->session->userdata('logged_admin')) {
             $this->load->helper(array('form'));
-            $this->load->model('voyage');
-            $data["voyages"] = $this->voyage->getVoyages();
+            $this->load->model('carnet_voyage');
+            $data["carnet_voyages"] = $this->carnet_voyage->getCarnetVoyages();
             $data["allCss"] = array("admin/main");
             $data["alljs"] = array("admin/main");
-            $this->load->templateAdmin('/voyage/list_voyage', $data);
+            $this->load->templateAdmin('/carnet/list_carnet_voyage', $data);
         } else {
             //If no session, redirect to login page
             redirect('admin/index/connexion', 'refresh');
