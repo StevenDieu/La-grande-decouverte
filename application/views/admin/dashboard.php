@@ -15,4 +15,7 @@
 
    <a href="<?php echo base_url('admin/continent/add'); ?>">ajouter continent</a><br>
    <a href="<?php echo base_url('admin/continent/liste'); ?>">liste des continent</a><br>
+
+   <h3>Gestion des newsletters</h3>
+   <a href="<?php echo base_url('admin/newsletters/liste'); ?>">liste des newsletters</a><br>
 </div>
