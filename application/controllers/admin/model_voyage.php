@@ -380,8 +380,8 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($drapeau != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/drapeau/",
-                    'gif|jpg|png','2048000','1024','768');
+                $this->upload->initialize($this->initailisationConfig('/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/drapeau/',
+                    'gif|jpg|png','2048000','1024','768'));
 
                 $drapeau = $this->uploadImage($drapeau,'drapeau');
             }
