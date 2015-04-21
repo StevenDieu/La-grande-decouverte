@@ -6,8 +6,8 @@ if (!defined('BASEPATH'))
 class Cart extends CI_Controller {
 
     public function onepage() {
-        $data["allCss"] = array("onepage");
-        $data["alljs"] = array("onepage");
+        $data["allCss"] = array("checkout/style","checkout/responsive","checkout/uniform.default");
+        $data["alljs"] = array("checkout/custom");
         $this->load->templateCheckout('/onepage', $data);
     }
     
