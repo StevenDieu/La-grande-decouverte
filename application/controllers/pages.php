@@ -29,4 +29,18 @@ class Pages extends CI_Controller {
         $this->load->templatePages('mentions_legales');
     }
 
+    public function messageSucces() {
+        if ($this->input->post('message')) {
+            $data["message"] = $this->input->post('message');
+            $this->load->view('templates/great.php',$data);
+        }
+    }
+
+    public function messageErreur() {
+        if ($this->input->post('message')) {
+            $data["message"] = $this->input->post('message');
+            $this->load->view('templates/error.php',$data);
+        }
+    }
+
 }

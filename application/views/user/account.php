@@ -6,4 +6,6 @@
     <a href="<?php echo base_url('user/carnet_voyages/add'); ?>">ajouter carnet voyage</a><br>
     <a href="<?php echo base_url('user/carnet_voyages/edit'); ?>">editer carnet voyage</a><br>
     <a href="<?php echo base_url('user/carnet_voyages/liste'); ?>">liste des carnet voyages</a><br><br>
+    
+        <a href="<?php echo base_url('user/articles/add'); ?>">ajouter article</a><br>
 </div>

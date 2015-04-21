@@ -4,6 +4,10 @@ function asset_url() {
     return base_url() . 'assets/';
 }
 
+function view() {
+    return base_url() . '/';
+}
+
 function asset_isset($tab, $tabTexte) {
     $flag = true;
     $texte_error = array();

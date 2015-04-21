@@ -788,5 +788,14 @@ ul.menu_popup li{
 ul.menu_popup li a{
     color: #000;
 }
+
+#editor{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.messageAlerte{
+    height: 25px;
+}
 /*******/
 

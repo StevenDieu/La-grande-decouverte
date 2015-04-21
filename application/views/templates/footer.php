@@ -67,10 +67,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <?php echo validation_errors(); ?>
-                            <?php if(isset($error)) echo $error;?>
+                            <?php if (isset($error)) echo $error; ?>
                             <?php echo form_open_multipart('admin/model_newsletter/add'); ?>
-                                <input name="mail" id="mail" type="text" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
-                                <input type="submit" class="buttonNewsletter" value="OK" />
+                            <input name="mail" id="mail" type="text" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
+                            <input type="submit" class="buttonNewsletter" value="OK" />
                             </form>
                         </div>
                     </div>
@@ -151,20 +151,17 @@
 
 </footer>
 
-
-
-
-
-<!---------- / FOOTER -------->	
-
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/responsiveslides.min.js" ></script>
-<script type="text/javascript" src = "<?php echo asset_url(''); ?>js/jquery-ui.min.js" ></script>   <!-- datepicker -->
-<script type="text/javascript">
-jQuery(function () {
-   $( ".datepicker" ).datepicker({
-    inline: true
-});
-});
-</script>
+<script type="text/javascript" src = "<?php echo asset_url(''); ?>js/jquery-ui.min.js" ></script>   
+<?php
+if (isset($librairieJs)) {
+    foreach ($librairieJs as $js) {
+        ?>
+        <script src="<?php echo asset_url(''); ?>librairie/js/<?php echo $js; ?>.js" type="text/javascript"></script>
+        <?php
+    }
+}
+?> 
+
 </body> 
 </html>

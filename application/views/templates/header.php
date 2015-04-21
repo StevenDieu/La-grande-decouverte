@@ -14,7 +14,7 @@
         <!-- CSS -->
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="<?php echo asset_url(''); ?>css/jquery-ui.min.css" type="text/css" rel="stylesheet"/><!-- datepicker -->
-        
+
 
         <link href="<?php echo asset_url(''); ?>css/site.css" type="text/css" rel="stylesheet"/>
         <?php
@@ -26,7 +26,17 @@
             }
         }
         ?> 
-                
+
+        <?php
+        if (isset($librairieCss)) {
+            foreach ($librairieCss as $css) {
+                ?>
+                <link href="<?php echo asset_url(''); ?>librairie/css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
+                <?php
+            }
+        }
+        ?> 
+
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>
@@ -84,12 +94,12 @@
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
-                    <?php  if(!$this->session->userdata('logged_in')){ ?>
-                    <div class="connexion_header">
-                        <span>Connexion</span>
-                    </div>
-                    <div class="connexion_form login">
-                        <?php echo form_open('user/verification/login'); ?>
+                    <?php if (!$this->session->userdata('logged_in')) { ?>
+                        <div class="connexion_header">
+                            <span>Connexion</span>
+                        </div>
+                        <div class="connexion_form login">
+                            <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*">
@@ -104,37 +114,39 @@
                             <div class="submit_all_text">
                                 <input type="submit" name="submit" class="" id="popup_input_connexion" value="Se connecter">
                             </div>
-                        </form>
-                    </div>
-                    <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
-                    <div class="connexion_form bottom">
-                        <?php echo form_open('user/account/inscription'); ?>
+                            </form>
+                        </div>
+                        <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
+                        <div class="connexion_form bottom">
+                            <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="mail" class="required" id="mail" placeholder="Votre mail">
                                 </p>
                             </div>
-                             <div class="submit_all_text">
+                            <div class="submit_all_text">
                                 <input type="submit" name="submit" class="" id="popup_login_inscription" value="S'inscrire">
                             </div>
-                        </form>
-                    </div>
-                    <div class="connexion_footer">
-                        <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
-                    </div>
-                    <?php }else{
+                            </form>
+                        </div>
+                        <div class="connexion_footer">
+                            <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
+                        </div>
+                        <?php
+                    } else {
                         $session_data = $this->session->userdata('logged_in');
-                        $user_name = $session_data['user']; ?>
-                            <div class="connexion_header">
-                                <span>Bienvenue <?php echo $user_name ?></span>
-                            </div>
-                            <ul class="menu_popup">
-                                <li><a href="<?php echo base_url('user/account') ?>">- Mon compte</a></li>
-                                <li><a href="<?php echo base_url('user/account/logout') ?>">- Se déconnecter</a></li>
+                        $user_name = $session_data['user'];
+                        ?>
+                        <div class="connexion_header">
+                            <span>Bienvenue <?php echo $user_name ?></span>
+                        </div>
+                        <ul class="menu_popup">
+                            <li><a href="<?php echo base_url('user/account') ?>">- Mon compte</a></li>
+                            <li><a href="<?php echo base_url('user/account/logout') ?>">- Se déconnecter</a></li>
                             <ul>
-                            <div class="connexion_footer">
+                                <div class="connexion_footer">
+                                </div>
+                            <?php } ?>
                             </div>
-                    <?php } ?>
-                </div>
-            </div>
-        </header>
+                            </div>
+                            </header>
