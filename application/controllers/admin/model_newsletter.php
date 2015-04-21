@@ -11,6 +11,7 @@ class Model_newsletter extends CI_Controller {
             redirect('admin/index/connexion', 'refresh');
         }
         $this->load->model('newsletter');
+        $this->load->library('form_validation');
     }
 
     public function delete() {
@@ -21,7 +22,6 @@ class Model_newsletter extends CI_Controller {
     }
 
     public function edit() {
-        $this->load->library('form_validation');
         $this->form_validation->set_rules('mail', 'mail', 'trim|xss_clean');
         $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
 
@@ -43,7 +43,9 @@ class Model_newsletter extends CI_Controller {
             $this->load->templateUser('page_inscription');
         } else {
             $mail = $this->input->post('mail');
-            $result = $this->newsletter->ajouterNewsletter($mail);
+            $data = $this->newsletter->ajouterNewsletter($mail);
+            $this->load->library('session');
+            $this->session->set_flashdata('result_newsletter',$data);
             redirect('pages/index', 'refresh');
         }
     }

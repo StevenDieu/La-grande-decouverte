@@ -67,7 +67,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <?php echo validation_errors(); ?>
-                            <?php if(isset($error)) echo $error;?>
                             <?php echo form_open_multipart('admin/model_newsletter/add'); ?>
                                 <input name="mail" id="mail" type="text" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
                                 <input type="submit" class="buttonNewsletter" value="OK" />
