@@ -137,7 +137,7 @@
 
       <label for="image_slider_3">image_slider_3:</label>
       <?php if($voyage[0]->image_slider_3){
-         echo '<img src="'.base_url('').'media/produit/image_slider/'.$voyage[0]->image_slider_1.'" alt="'.$voyage[0]->image_slider_1.'" height="50" width="50" />';
+         echo '<img src="'.base_url('').'media/produit/image_slider/'.$voyage[0]->image_slider_3.'" alt="'.$voyage[0]->image_slider_3.'" height="50" width="50" />';
       }else{
          echo "aucune image dispo";
       }  ?>

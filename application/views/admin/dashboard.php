@@ -23,4 +23,8 @@
    <h3>Gestion des newsletters</h3>
    <a href="<?php echo base_url('admin/newsletters/liste'); ?>">liste des newsletters</a><br>
 
+   <h3>Gestion des actualite</h3>
+    <a href="<?php echo base_url('admin/actualites/add'); ?>">ajouter une actualites</a><br>
+   <a href="<?php echo base_url('admin/actualites/liste'); ?>">liste des actualites</a><br>
+
 </div>
