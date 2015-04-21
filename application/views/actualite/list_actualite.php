@@ -1,27 +1,31 @@
-
-
 <div class="content">
-<script type="text/javascript">
-	confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
-</script>
-<a href="<?php echo base_url('admin/actualites/add'); ?>">ajouter acctu</a><br>
-<?php 
+	<?php
 
-if($actualites){
+	if($actualites){
 
-	foreach ($actualites as $actualite) {
-		echo '
-		'.$actualite->id.'
-		<td><a href="'.base_url('admin/actualites/edit').'?id='.$actualite->id.'">'.$actualite->titre.'</a>
-		';
+		foreach ($actualites as $actualite) {
+			echo $actualite->titre.'</br>';
+			echo $actualite->description.'</br>';
+			echo $actualite->date.'  ';
+			echo $actualite->time.'</br>';
+
+			if($actualite->image_1){
+		      	echo '<img src="'.base_url('').'media/actualite/'.$actualite->image_1.'" alt="'.$actualite->image_1.'" width="300"/>';
+		    }
+		    if($actualite->image_2){
+		      	echo '<img src="'.base_url('').'media/actualite/'.$actualite->image_2.'" alt="'.$actualite->image_2.'" width="300"/>';
+		    }
+		    if($actualite->image_3){
+		      	echo '<img src="'.base_url('').'media/actualite/'.$actualite->image_3.'" alt="'.$actualite->image_3.'" width="300"/>';
+		    }
+		}
+
+
+	}else{
+		
+		echo "pas d'actualité";
+
 	}
-
-
-}else{
-	
-	echo "pas d'actualité";
-
-}
-?>
+	?>
 </div>
 
