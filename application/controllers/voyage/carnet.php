@@ -10,15 +10,15 @@ class Carnet extends CI_Controller {
      */
     public function index() {
         $data["allCss"] = array("ficheVoyage");
-        $data["alljs"] = array("slide","ficheVoyage");
-        
+        $data["alljs"] = array("slide", "ficheVoyage");
+
 //        if($this->input->get('id') == null) {
 //            redirect('pages/index/', 'refresh');
 //        }
-        
+
         $this->load->model('carnetVoyage');
-        
-        $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage($this->input->get('id'));
+        $this->carnetVoyage->id = $this->input->post('id');
+        $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage();
 
 //        if($data['carnetVoyage'] == null) {
 //            redirect('pages/index/', 'refresh');
@@ -27,10 +27,10 @@ class Carnet extends CI_Controller {
         $this->load->templateCarnet('/carnet', $data);
     }
 
-    public function article(){
+    public function article() {
         $data["allCss"] = array("article");
-        $data["alljs"] = array("slide","ficheVoyage");
-        $this->load->templateCarnet('/article',$data);
+        $data["alljs"] = array("slide", "ficheVoyage");
+        $this->load->templateCarnet('/article', $data);
     }
 
 }

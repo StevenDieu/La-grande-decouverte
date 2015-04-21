@@ -30,15 +30,17 @@ class Carnet_voyages extends CI_Controller {
 
     public function edit() {
         if (!$this->input->get('id')) {
-            redirect('user/carnet_voyages/liste', 'refresh');
+            redirect('user/account', 'refresh');
         }
-        $data["carnet_voyage"] = $this->carnetVoyage->getCarnetVoyage($this->input->get('id'));
+        $this->carnetVoyage->id = $this->input->get('id');
+        $data["carnet_voyage"] = $this->carnetVoyage->getCarnetVoyage();
         $this->load->helper(array('form'));
         $this->load->templateUser('carnet/edit_carnet_voyage', $data);
     }
 
     public function liste() {
         $this->load->helper(array('form'));
+        $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
         $data["carnet_voyages"] = $this->carnetVoyage->getCarnetVoyages();
         $this->load->templateUser('carnet/list_carnet_voyage', $data);
     }

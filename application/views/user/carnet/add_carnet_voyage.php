@@ -2,7 +2,7 @@
     <h1>ajouter un carnet de voyage</h1>
     <?php echo validation_errors(); ?>
     <?php if (isset($error)) echo $error; ?>
-    <?php echo form_open_multipart('admin/model_carnet_voyage/save'); ?>
+    <?php echo form_open('user/model_carnet_voyage/add'); ?>
 
     <div class="info_generale">
         <h2>information générale</h2>
@@ -11,8 +11,8 @@
         <br/>
 
         <label for="phrase_accroche">Choix du voyage:</label>
-        <select name="lesVoyages">
-            <option value="-1">Choix du voyage</option>
+        <select name="id_voyage" id="id_voyage" name="id_voyage">
+            <option value="">Choix du voyage</option>
 
             <?php foreach ($voyages as $voyage) { ?>
 

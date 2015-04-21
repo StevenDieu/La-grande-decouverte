@@ -19,7 +19,8 @@ class Carnet_voyages extends CI_Controller {
         if (!$this->input->get('id')) {
             redirect('admin/carnet_voyages/liste', 'refresh');
         }
-        $data["carnet_voyage"] = $this->carnet_voyage->getCarnetVoyage($this->input->get('id'));
+        $this->carnetVoyage->id = $this->input->post('id');
+        $data["carnet_voyage"] = $this->carnet_voyage->getCarnetVoyage();
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/carnet/edit_carnet_voyage', $data);
     }

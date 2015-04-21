@@ -8,28 +8,30 @@
  */
 Class CarnetVoyage extends CI_Model {
 
-    
-    function _construct() {
-        parent::_construct();
+    public $id;
+    public $titre;
+    public $id_voyage;
+    public $id_utilisateur;
+
+    function __construct() {
+        parent::__construct();
     }
 
     function addCarnetVoyage() {
-
+        $this->db->insert('carnetvoyage',$this);
         return $this->db->insert_id();
     }
 
     function setCarnetVoyage() {
-
-
-        $this->db->update('carnetvoyage', $data);
-
+        $this->db->where('id', $this->id);
+        $this->db->update('carnetvoyage', $this);
         return true;
     }
 
-    function getCarnetVoyage($id) {
+    function getCarnetVoyage() {
         $this->db->select('*');
         $this->db->from('carnetvoyage');
-        $this->db->where('id', $id);
+        $this->db->where('id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -42,8 +44,9 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getCarnetVoyages() {
-        $this->db->select('id, titre, prix');
+        $this->db->select('id, titre');
         $this->db->from('carnetvoyage');
+        $this->db->where("id_utilisateur", $this->id_utilisateur);
 
         $query = $this->db->get();
 
@@ -54,10 +57,9 @@ Class CarnetVoyage extends CI_Model {
         }
     }
 
-    function deleteCarnetVoyage($id) {
-        $this->db->where('id', $id);
-        $this->db->delete('carnetvoyage'); 
-
+    function deleteCarnetVoyage() {
+        $this->db->where('id', $this->id);
+        $this->db->delete('carnetvoyage');
         return true;
     }
 
