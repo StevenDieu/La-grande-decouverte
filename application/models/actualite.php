@@ -16,7 +16,7 @@ Class Actualite extends CI_Model {
     function ajouterActualite($titre,$description,$date,$time,$image_1,$image_2,$image_3) {
         $this->db->set('titre', $titre);
         $this->db->set('description', $description);
-        $this->db->set('time', $time);
+        $this->db->set('date', $date);
         $this->db->set('time', $time);
         $this->db->set('image_1', $image_1);
         $this->db->set('image_2', $image_2);
@@ -45,6 +45,21 @@ Class Actualite extends CI_Model {
     function getActualites() {
         $this->db->select('*');
         $this->db->from('actualite');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getActualitesHome() {
+        $this->db->select('*');
+        $this->db->from('actualite');
+        $this->db->order_by("id", "desc"); 
+        $this->db->limit(3);
 
         $query = $this->db->get();
 

@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
 </script>
-<a href="<?php echo base_url('admin/actualites/add'); ?>">ajouter acctu</a><br>
+<a href="<?php echo base_url('admin/actualites/add'); ?>">ajouter une actualité</a><br>
 <?php 
 
 if($actualites){

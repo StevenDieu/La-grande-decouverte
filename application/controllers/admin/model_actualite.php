@@ -40,8 +40,8 @@ class Model_actualite extends CI_Controller {
                 $image_2 = $this->uploadImage($image_2,'image_2');
                 $image_3 = $this->uploadImage($image_3,'image_3');
             }
-
-            $result = $this->actualite->ajouterActualite($titre,$description,'','',$image_1,$image_2,$image_3);
+            $date = explode(' ',date("Y-m-d H:i:s"));
+            $result = $this->actualite->ajouterActualite($titre,$description,$date[0],$date[1],$image_1,$image_2,$image_3);
 
             redirect('admin/actualites/liste', 'refresh');
         }
@@ -91,7 +91,8 @@ class Model_actualite extends CI_Controller {
             }
             $id = $this->input->post('id');
 
-            $result = $this->actualite->editActualite($id, $titre,$description,'','',$image_1,$image_2,$image_3);
+            $date = explode(' ',date("Y-m-d H:i:s"));
+            $result = $this->actualite->editActualite($id,$titre,$description,$date[0],$date[1],$image_1,$image_2,$image_3);
 
             redirect('admin/actualites/liste', 'refresh');
         }

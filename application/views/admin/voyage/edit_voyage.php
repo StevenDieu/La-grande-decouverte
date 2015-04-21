@@ -1,5 +1,10 @@
+<script type="text/javascript">
+   confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
+</script>
 <div class="content admin-connexion">
 	<h1>ajouter un voyage</h1>
+        <?php echo '<a onclick="return confirm(confirmation);" href="'.base_url('admin/model_voyage/delete').'?id='.$voyage[0]->id.'">supprimer</a>
+'; ?>
    <?php echo validation_errors(); ?>
    <?php if(isset($error)) echo $error;?>
    <?php echo form_open_multipart('admin/model_voyage/edit'); ?>

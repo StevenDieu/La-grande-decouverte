@@ -1,0 +1,275 @@
+@media screen and (max-width: 1050px) {
+.modifier {
+	display:none;
+}
+.show_on_mobile {
+	display:block;
+}
+.network h3 {
+	font-size:13px;
+}
+.list_drop_collumn {
+	float:none;
+	width:100%;
+	margin:0;
+}
+
+.chart_drop {
+	float:none;
+	width:auto;
+}
+.off_mobile,.fiche_chart_column3 {
+	display:none;
+}
+.show_mb_chart {
+	display:block;
+}
+.ajouter,
+.fiche_total_rgt {
+	float:none;
+	width:100%;
+	text-align:left;
+}
+
+}
+@media screen and (max-width: 1023px) {
+.identification {
+	background:none;
+}
+.identification_left {
+	float:none;
+	width:100%;
+	padding-bottom:15px;
+}
+#command_right_column {
+	display:none;
+}
+#command_left_column {
+	float:none;
+	width:100%;
+}
+.rgt_command .list_item {
+	padding-bottom:20px;
+}
+.adress_form {
+	width:100%;
+}
+.address_fields_left {
+	width:100%;
+	float:none;
+}
+.panier_total_2column {
+	padding-right:0;
+}
+.panier_total_left,
+.panier_total_rgt {
+	float:none;
+	width:100%;
+}
+.panier_total_rgt ul {
+	border-top:1px solid #dddad9;
+}
+.panier_total_rgt ul li {
+	padding:0;
+}
+.meta_green_btn {
+	padding-top:18px;
+	border-top:1px solid #dddad9;
+}
+}
+@media screen and (max-width: 950px) {
+
+.reset_field input[type=reset],
+.reset_field input[type=submit]{
+	float:none;
+	width:100%;
+}
+}
+
+@media screen and (max-width: 830px) {
+
+.show_content a {
+	display:none;
+}
+.uni_overlay_content {
+	margin-top:-15px;
+}
+.uni_overlay_content strong {
+	font-size:20px;
+	line-height:24px;
+}
+.uni_overlay_content strong span {
+	font-size:18px;
+}
+}
+
+@media screen and (max-width: 730px) {
+.unitext_holder {
+	top:35%;
+}
+.unitext_holder p,
+.list_feature .unitext_holder p {
+	line-height:24px!important;
+}
+.unitext_holder p span {
+	font-size:16px;
+}
+.unitext_holder p strong {
+	font-size:20px;
+}
+.unitext_holder p small {
+	font-size:12px;
+}
+.four_o_four_search {
+	width:288px;
+}
+.four_o_four_search .four_o_ok {
+	width:100%;
+}
+.four_o_four_search p {
+	float:none!important;
+	height:56px;
+}
+.four_o_ok input {
+	width:100%;
+}
+.four_o_inp_txt {
+	width:288px;
+	background:url(../../images/checkout/mobile_inp.png) no-repeat;
+	margin-bottom:10px;
+}
+.four_o_inp_txt input {
+	width:266px;
+}
+.list_title {
+	height:auto;
+	border:none;
+}
+.list_title_rgt,
+.list_title h2 {
+	float:none;
+}
+.list_title_rgt {
+	position:relative;
+	padding-left:0;
+	background:#fff;
+	height:auto;
+}
+.show_list_panel {
+	top:48px;
+	border-top:1px solid #dcdcdc;
+}
+.list_title {
+	margin-bottom:0;
+}
+}
+@media screen and (max-width: 700px) {
+.pro_img {
+	width:119px;
+	margin-right:13px;
+	border:none;
+}
+.pro_img img {
+	max-width:100%;
+	height:auto;
+}
+
+.inside_overlay h3 {
+	font-size:24px;
+}
+.inside_overlay span {
+	font-size:14px;
+}
+
+}
+@media screen and (max-width: 650px) {
+#page_content {
+	padding:12px 10px 0 10px;
+}
+#main_content,
+#four_o_four,
+#univers_content {
+	margin:0;
+	padding:0;
+}
+#four_o_four {
+	padding:40px 10px 20px 10px;
+}
+.bg_none {
+	background:none;
+}
+
+#admin_content {
+	padding-top:25px;
+}
+.postal_code_area,.btn_postal_submit {
+	display:none;
+}
+#main_content,
+#univers_content {
+	min-height:inherit;
+}
+.btn_postal_submit {
+	width:100%;
+}
+.differ_bg  .btn_postal_submit {
+	display:block;
+}
+.differ_bg  .radio_holder {
+	padding:12px 5px 12px 17px;
+	background:#f4f4f4;
+	margin-bottom:12px;
+}
+.payment_rgt h6 {
+	padding-bottom:0;
+}
+.total_rgt,.title_table {
+	display:none;
+}
+.price_table {
+	background:none;
+}
+.price_leftcolumn strong,
+.subtotal .total_rgt,
+.total_price .total_rgt {
+	display:block;
+	width:auto;
+}
+.price_leftcolumn ul li:first-child {
+	font-weight:bold;
+}
+.require_field {
+	display:none;
+}
+.btn_check_box {
+	padding:5px 0 10px 0;
+}
+#thumb_images ul li a:hover,
+#thumb_images ul li.active > a {
+	border-width:2px;
+}
+.uni_overlay_content strong {
+	font-size:16px;
+	line-height:20px;
+}
+.uni_overlay_content strong span {
+	font-size:13px;
+}
+
+}
+@media screen and (max-width: 500px) {
+.radio_option {
+	padding-top:8px;
+}
+.differ_bg .radio_holder .radio_option {
+	padding-top:0;
+}
+.rating_left,
+.rating_info  {
+	float:none;
+}
+.rating_left {
+	padding-bottom:15px;
+}
+}
+
