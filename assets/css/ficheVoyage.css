@@ -161,6 +161,7 @@
         ;color: #c0ac79;
     max-height: 140px;
     text-align: justify;
+    word-wrap: break-word;
 }
 
 

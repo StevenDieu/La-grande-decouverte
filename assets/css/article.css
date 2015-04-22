@@ -10,7 +10,6 @@
 .content_article{
     max-width: 1200px;
     margin: 0px auto;
-    text-align: justify;
 }
 
 .callbacks_container {
@@ -161,8 +160,6 @@
 }
 
 .content_article > p {
-	font-family: "helvetica";
-	margin:60px auto;
 }
 
 .title {

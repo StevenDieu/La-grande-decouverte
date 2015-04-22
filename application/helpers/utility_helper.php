@@ -4,6 +4,17 @@ function asset_url() {
     return base_url() . 'assets/';
 }
 
+function tronque($str, $nb = 800) {
+    if (strlen($str) > $nb) {
+        $str = substr($str, 0, $nb);
+        $position_espace = strrpos($str, " ");
+        $texte = substr($str, 0, $position_espace);
+        $str = $str . "...";
+    }
+    $str = strip_tags($str);
+    return $str; //on retourne la variable modifiée
+}
+
 function view() {
     return base_url() . '/';
 }

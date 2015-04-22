@@ -19,7 +19,7 @@
 
         <a href="<?php echo base_url('/voyage/fiche/?id=64') ?>">Fiche Produit</a><br/>
 
-        <a href="<?php echo base_url('/voyage/carnet/') ?>">Carnet Voyage</a><br/>
+        <a href="<?php echo base_url('/voyage/carnet?id=4') ?>">Carnet Voyage</a><br/>
         <a href="<?php echo base_url('/voyage/carnet/article') ?>">fiche Carnet Voyage</a><br/>
         
         <a href="<?php echo base_url('/contact/index') ?>">Contact</a><br/>
