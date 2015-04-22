@@ -104,6 +104,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="drapeau" name='drapeau'/>
+      <br/><span>taille recommandé 60x40px</span>
       </br/>
 
     </div>
@@ -128,7 +129,8 @@
       }else{
          echo "aucune image dispo";
       }  ?>
-      <input type='file' id="image_slider_1" name='image_slider_1' value="<?php echo $voyage[0]->image_slider_1 ?>"/>
+      <input type='file' id="image_slider_1" name='image_slider_1'/>
+      <span>taille recommandé 2000x1000px</span>
       </br/>
 
       <label for="image_slider_2">image_slider_2:</label>
@@ -138,6 +140,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_slider_2" name='image_slider_2'/>
+      <span>taille recommandé 2000x1000px</span>
       </br/>
 
       <label for="image_slider_3">image_slider_3:</label>
@@ -147,6 +150,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_slider_3" name='image_slider_3'/>
+      <span>taille recommandé 2000x1000px</span>
       </br/>
       </br>
       </br>
@@ -158,6 +162,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="picto_1" name='picto_1'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_2">picto_2:</label>
@@ -167,6 +172,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="picto_2" name='picto_2'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_3">picto_3:</label>
@@ -176,6 +182,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="picto_3" name='picto_3'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_4">picto_4:</label>
@@ -185,6 +192,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="picto_4" name='picto_4'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_5">picto_5:</label>
@@ -194,6 +202,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="picto_5" name='picto_5'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_6">picto_6:</label>
@@ -203,6 +212,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="picto_6" name='picto_6'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
       </br>
       </br>
@@ -214,6 +224,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_baniere_1" name='image_baniere_1'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
 
       <label for="image_baniere_2">image_baniere_2:</label>
@@ -223,6 +234,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_baniere_2" name='image_baniere_2'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
 
       <label for="image_baniere_3">image_baniere_3:</label>
@@ -232,6 +244,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_baniere_3" name='image_baniere_3'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
 
       <label for="image_baniere_4">image_baniere_4:</label>
@@ -241,6 +254,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_baniere_4" name='image_baniere_4'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
       </br>
       </br>
@@ -252,6 +266,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_description_1" name='image_description_1' value="<?php echo $voyage[0]->image_description_1 ?>" />
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_2">image_description_2:</label>
@@ -261,6 +276,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_description_2" name='image_description_2' value="<?php echo $voyage[0]->image_description_2 ?>" />
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_3">image_description_3:</label>
@@ -270,6 +286,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_description_3" name='image_description_3' value="<?php echo $voyage[0]->image_description_3 ?>" />
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_4">image_description_4:</label>
@@ -279,6 +296,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_description_4" name='image_description_4' value="<?php echo $voyage[0]->image_description_4 ?>" />
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_5">image_description_5:</label>
@@ -288,6 +306,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_description_5" name='image_description_5' value="<?php echo $voyage[0]->image_description_5 ?>" />
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_6">image_description_6:</label>
@@ -297,6 +316,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_description_6" name='image_description_6' value="<?php echo $voyage[0]->image_description_6 ?>" />
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
       </br>
       </br>
@@ -308,6 +328,7 @@
          echo "aucune image dispo";
       }  ?>
       <input type='file' id="image_sous_slider" name='image_sous_slider' value="<?php echo $voyage[0]->image_sous_slider ?>"/>
+      <br/><span>taille recommandé 900x512px</span>
       </br/>
     </div>
     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">

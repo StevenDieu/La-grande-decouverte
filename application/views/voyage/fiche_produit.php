@@ -5,13 +5,21 @@
 <script type="text/javascript">
 //<?php echo $voyage[0]->lattitude; ?>, lng: <?php echo $voyage[0]->longitude; ?>},
 
-var map;
 function initialize() {
+var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>);
   var mapOptions = {
     zoom: 8,
-    center: new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>)
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    center: myLatlng,
   };
   map = new google.maps.Map(document.getElementById('carte'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
 }
 
 

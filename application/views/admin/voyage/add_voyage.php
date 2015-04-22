@@ -89,6 +89,7 @@
 
       <label for="langue_officielle">langue_officielle:</label>
       <input type="text" id="langue_officielle" name="langue_officielle"/>
+      <br/><span>taille recommandé 60x40px</span>
       <br/>
 
     </div>
@@ -108,91 +109,111 @@
     <div class="image">
     <h2>Image</h2>
       <label for="image_slider_1">image_slider_1:</label>
-      <input type='file' id="image_slider_1" name='image_slider_1'/>
+      <input type='file' id="image_slider_1" name='image_slider_1'/><br/>
+      <span>taille recommandé 2000x1000px</span>
       </br/>
 
       <label for="image_slider_2">image_slider_2:</label>
-      <input type='file' id="image_slider_2" name='image_slider_2'/>
+      <input type='file' id="image_slider_2" name='image_slider_2'/><br/>
+      <span>taille recommandé 2000x1000px</span>
       </br/>
 
       <label for="image_slider_3">image_slider_3:</label>
-      <input type='file' id="image_slider_3" name='image_slider_3'/>
+      <input type='file' id="image_slider_3" name='image_slider_3'/><br/>
+      <span>taille recommandé 2000x1000px</span>
       </br/>
       </br>
       </br>
 
       <label for="picto_1">picto_1:</label>
       <input type='file' id="picto_1" name='picto_1'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_2">picto_2:</label>
       <input type='file' id="picto_2" name='picto_2'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_3">picto_3:</label>
       <input type='file' id="picto_3" name='picto_3'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_4">picto_4:</label>
       <input type='file' id="picto_4" name='picto_4'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_5">picto_5:</label>
       <input type='file' id="picto_5" name='picto_5'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
 
       <label for="picto_6">picto_6:</label>
       <input type='file' id="picto_6" name='picto_6'/>
+      <br/><span>taille recommandé 64x64px</span>
       </br/>
       </br>
       </br>
 
       <label for="image_baniere_1">image_baniere_1:</label>
       <input type='file' id="image_baniere_1" name='image_baniere_1'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
 
       <label for="image_baniere_2">image_baniere_2:</label>
       <input type='file' id="image_baniere_2" name='image_baniere_2'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
 
       <label for="image_baniere_3">image_baniere_3:</label>
       <input type='file' id="image_baniere_3" name='image_baniere_3'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
 
       <label for="image_baniere_4">image_baniere_4:</label>
       <input type='file' id="image_baniere_4" name='image_baniere_4'/>
+      <br/><span>taille recommandé 400x300px</span>
       </br/>
       </br>
       </br>
 
       <label for="image_description_1">image_description_1:</label>
       <input type='file' id="image_description_1" name='image_description_1'/>
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_2">image_description_2:</label>
       <input type='file' id="image_description_2" name='image_description_2'/>
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_3">image_description_3:</label>
       <input type='file' id="image_description_3" name='image_description_3'/>
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_4">image_description_4:</label>
       <input type='file' id="image_description_4" name='image_description_4'/>
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_5">image_description_5:</label>
       <input type='file' id="image_description_5" name='image_description_5'/>
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
 
       <label for="image_description_6">image_description_6:</label>
       <input type='file' id="image_description_6" name='image_description_6'/>
+      <br/><span>taille recommandé 650x435px</span>
       </br/>
       </br>
       </br>
 
       <label for="image_sous_sliderimage_sous_slider">image_sous_slider:</label>
       <input type='file' id="image_sous_slider" name='image_sous_slider'/>
+      <br/><span>taille recommandé 900x512px</span>
       </br/>
     </div>
      <input type="submit" value="enregistrer"/>
