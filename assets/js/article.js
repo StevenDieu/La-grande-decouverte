@@ -44,7 +44,7 @@ function addArticle() {
 
 
 
-$(document).ready(function () {
+$(window).load(function () {
     $('#editArticle').click(function () {
         editArticle();
     });
@@ -56,13 +56,18 @@ $(document).ready(function () {
                 inlineMode: false,
                 language: 'fr',
                 imageUploadURL: urlUpload,
+                imageDeleteURL: urlDelete,
                 imageUploadParams: {
                     id: 'edit'
-                },
-                imageDeleteURL: urlDelete
+                }
+
             }
-    ).on('editable.imageDeleteSuccess', function () {
-        editArticle();
+    ).on('editable.afterRemoveImage', function (e, editor, $img) {
+        editor.options.imageDeleteParams = {src: $img.attr('src')};
+
+        editor.deleteImage($img);
+    }).on('editable.imageDeleteSuccess', function () {
+        editArticle()
     });
 });
 

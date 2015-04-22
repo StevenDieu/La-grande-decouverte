@@ -1,0 +1,116 @@
+.menuChamp{
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,color 0.15s ease-in-out;
+    border-bottom: 1px solid #5F5F5F;
+    background-color: #242424;
+}
+.menuTitre{
+    color: #fff;    
+    padding-top: 6px;
+    height: 70px;    
+    width: 100%;    
+    line-height: 50px;    
+    text-align: center;    
+    vertical-align: middle;    
+    font-weight: 700;    
+    font-size: 20px;
+    background-color: #242424;
+}
+.menuUtilisateur{
+    position: absolute;        
+    left: 0px;    
+    top: 76px;        
+    width: 204px;        
+    color: #aaa;
+    z-index: 0;
+    background-color: #1A171B;
+}
+
+.menuChamp a{
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 36px;
+    font-weight: 300;
+    font-family: "Open Sans",sans-serif;
+    position: relative;
+    padding: 5px 0 5px 40px;
+}
+.menuChamp:hover {
+    background-color: #111;
+}
+.menuChampPremier{
+    border-top: 1px solid #5F5F5F;
+}
+
+.icon{
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.actif{
+    background-color: #111 !important;
+}
+
+.contentUtilisateur{
+    display: none;
+}
+
+.content_account{
+    min-height: 295px;
+    width: inherit;
+    margin-left: 204px;
+    color: #000;
+}
+
+.active{
+    display: block;
+}
+
+.content_carnet_voyage{
+    max-width: 800px;
+    margin: 30px auto 0;
+}
+
+.inputTitreCarnetVoyage{
+    width: 77%;
+    float: left;
+}
+
+.glyphicon_input{
+    float: left;
+    margin: 4px 0px 0 16px;
+}
+
+.glyphicon-ok{
+    color: rgb(52, 132, 52);
+}
+
+.glyphicon-ok:hover{
+    color: rgb(4, 215, 4);
+
+}
+
+.glyphicon-repeat{
+    color: rgb(181, 31, 31);
+}
+
+.glyphicon-repeat:hover{
+    color: rgb(255, 0, 0);
+
+}
+
+.glyphiHide{
+    display: none;
+}
+
+.content_article{
+    max-width: 800px;
+    margin: 30px auto 0;
+}

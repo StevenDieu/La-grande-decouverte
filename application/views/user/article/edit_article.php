@@ -6,30 +6,31 @@
     var urlDelete = '<?php echo base_url('user/articles/delete'); ?>';
 </script>
 
-<div class="content admin-connexion">
-    <h1>editer un voyage</h1>
-    <div class="messageAlerte">
-        <div id="alertType"></div>
+<form action="#" class="form-horizontal" >
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Editer un article</h4>
     </div>
-    <div class="clear"></div>
-    <div class="info_generale">
-        <h2>Carnet de voyage</h2>
-        <label for="titre">titre:</label>
-        <input type="text" id="titre" name="titre" value="<?php echo $article[0]->titre; ?>"/>
-        <br/>
-        <br/>
-        <section id="editor" name="editor">
-            <div id='edit' name="edit" style="margin-top: 30px;">
-                <?php echo $article[0]->contenu; ?>
+    <div class="modal-body">
+        <div class="info_generale">
+            <div class="form-group form-titre">
+                <label for="titre" class="col-sm-2 control-label">Titre :</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" placeholder="Titre de l'article" value="<?php echo $article[0]->titre; ?>">
+                </div>
             </div>
-        </section>
+            <section id="editor" name="editor">
+                <div id='edit' name="edit" style="margin-top: 30px;">
+                    <?php echo $article[0]->contenu; ?>
+                </div>
+            </section>
+        </div>
     </div>
-    <input type="hidden" name="id_carnetvoyage" id="id_carnetvoyage" value="<?php echo $article[0]->id_carnetvoyage; ?>">
-    <input type="hidden" name="id" id="id" value="<?php echo $article[0]->id; ?>">
-    <input type="button" id='editArticle' value="modifier"/>
-</div>
-
-
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id='editArticle' class="validCarnetVoyage btn btn-primary">Enregistrer</button>
+    </div>
+</form>
 
 <!--[if lt IE 9]>
   <script src="<?php echo asset_url(''); ?>librairie/js/froala_editor_ie8.js" type="text/javascript"></script>

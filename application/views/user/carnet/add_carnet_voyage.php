@@ -1,28 +1,34 @@
-<div class="content admin-connexion">
-    <h1>ajouter un carnet de voyage</h1>
-    <?php echo validation_errors(); ?>
-    <?php if (isset($error)) echo $error; ?>
-    <?php echo form_open('user/model_carnet_voyage/add'); ?>
-
-    <div class="info_generale">
-        <h2>information générale</h2>
-        <label for="titre">titre:</label>
-        <input type="text" id="titre" name="titre"/>
-        <br/>
-
-        <label for="phrase_accroche">Choix du voyage:</label>
-        <select name="id_voyage" id="id_voyage" name="id_voyage">
-            <option value="">Choix du voyage</option>
-
-            <?php foreach ($voyages as $voyage) { ?>
-
-                <option value="<?php echo $voyage[0]->id; ?>"><?php echo $voyage[0]->titre ?></option>
-
-            <?php } ?>
-
-        </select>
-        <br/>
+<form action="#" class="form-horizontal" >
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ajouter un carnet de voyage</h4>
     </div>
-    <input type="submit" value="enregistrer"/>
+    <div class="modal-body">
+        <div class="info_generale">
+            <div class="form-group form-titre">
+                <label for="titre" class="col-sm-2 control-label">Titre :</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" placeholder="Titre du carnet">
+                </div>
+            </div>
+            <div class="form-group form-voyage">
+                <label for="SelectVoyage" class="col-sm-2 control-label">Voyage :</label>
+                <div class="col-sm-10">
+                    <select id="id_voyage" name="id_voyage" class="form-control">
+                        <option value="">Choix du voyage</option>
+
+                        <?php foreach ($voyages as $voyage) { ?>
+
+                            <option value="<?php echo $voyage[0]->id; ?>"><?php echo $voyage[0]->titre ?></option>
+
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="validCarnetVoyage btn btn-primary">Enregistrer</button>
+    </div>
 </form>
-</div>

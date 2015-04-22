@@ -11,7 +11,6 @@
         <br/>
 
     </div>
-    <input type="hidden" name="id_voyage" value="<?php echo $carnet_voyage[0]->id_voyage; ?>">
     <input type="hidden" name="id" value="<?php echo $carnet_voyage[0]->id; ?>">
     <input type="submit" value="modifier"/>
 </form>

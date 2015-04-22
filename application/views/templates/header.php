@@ -143,10 +143,10 @@
                         <ul class="menu_popup">
                             <li><a href="<?php echo base_url('user/account') ?>">- Mon compte</a></li>
                             <li><a href="<?php echo base_url('user/account/logout') ?>">- Se déconnecter</a></li>
-                            <ul>
-                                <div class="connexion_footer">
-                                </div>
-                            <?php } ?>
-                            </div>
-                            </div>
-                            </header>
+                        </ul>
+                        <div class="connexion_footer">
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </header>

@@ -65,18 +65,21 @@ class Articles extends CI_Controller {
     }
 
     public function liste() {
+        if (!$this->input->post('id')) {
+            echo "0";
+        }
         $this->load->helper(array('form'));
-        $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
-        $data["carnet_voyages"] = $this->carnetVoyage->getCarnetVoyages();
-        $this->load->templateUser('article/list_carnet_voyage', $data);
+        $this->article->id_carnetvoyage = $this->input->post('id');
+        $data["articles"] = $this->article->getArticles();
+        $this->load->view('user/article/list_article', $data);
     }
 
     public function upload() {
         $this->load->view('user/article/upload_image.php');
     }
-    
-    
+
     public function delete() {
         $this->load->view('user/article/delete_image.php');
     }
+
 }

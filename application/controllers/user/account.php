@@ -14,6 +14,8 @@ class Account extends CI_Controller {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['user'];
+            $data["allCss"] = array("account");
+            $data["alljs"] = array("account");
             $this->load->templateUser('account', $data);
         } else {
             redirect('user/account/connexion', 'refresh');
