@@ -26,4 +26,12 @@
     <a href="<?php echo base_url('admin/actualites/add'); ?>">ajouter une actualité</a><br>
    <a href="<?php echo base_url('admin/actualites/liste'); ?>">liste des actualites</a><br>
 
+   <h3>Gestion des administrateurs</h3>
+    <a href="<?php echo base_url('admin/administrateur/add'); ?>">ajouter un administrateur</a><br>
+   <a href="<?php echo base_url('admin/administrateur/liste'); ?>">liste des administrateurs</a><br>
+
+   <h3>Gestion des clients</h3>
+   <a href="<?php echo base_url('admin/customer/liste'); ?>">liste des clients</a><br>
+
+
 </div>

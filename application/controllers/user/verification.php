@@ -44,7 +44,7 @@ class Verification extends CI_Controller {
             $prenom = $this->input->post('prenom');
             $user = $this->input->post('user');
             $mdp = $this->input->post('mdp');
-            $mail = $this->input->post('mail');
+            $mail = $this->input->post('email');
             $result = $this->user->ajouterUser($nom, $prenom, $user, $mdp, $mail);
             if ($result != 0) {
                 $sess_array = array(
