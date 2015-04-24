@@ -81,9 +81,9 @@ body {
     padding-left: 20px;
 }
 
-a{
+form.form-horizontal{
     text-decoration: none;
-    color : #fff;
+    /* color : #fff; */
 }
 
 .content a{
@@ -792,7 +792,7 @@ ul.menu_popup li a{
 }
 
 #editor{
-    max-width: 1200px;
+    max-width: 1199px;
     margin: 0 auto;
 }
 
@@ -822,9 +822,31 @@ ul.menu_popup li a{
     text-decoration: none !important;
 }
 
+
+.buttonRetourBoUtilisateur{
+    padding: 13px 9px 13px 38px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+
+    background: rgb(250, 133, 0);
+
+    color: white !important;
+    -moz-transition: all 0.15s;
+    -webkit-transition: all 0.15s;
+    transition: all 0.15s;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-decoration: none !important;
+    float: left;
+    z-index: 1;
+}
 .placementGlyphicon{
     position: absolute;
-    
+
 
     margin-left: -28px;
     margin-top: -7px;
@@ -883,5 +905,16 @@ ul.menu_popup li a{
 .messageAlerteCarnet .alert{
     padding: 9px 15px;
 }
+
+.hideTable{
+    display: none;
+}
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+
 /*******/
 

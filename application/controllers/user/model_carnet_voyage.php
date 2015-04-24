@@ -25,7 +25,6 @@ class Model_carnet_voyage extends CI_Controller {
             $this->carnetVoyage->titre = $this->input->post('titre');
             $this->carnetVoyage->id_voyage = $this->input->post('id_voyage');
             $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
-            echo $this->carnetVoyage->id_voyage;
 
             echo $this->carnetVoyage->addCarnetVoyage();
         }

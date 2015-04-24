@@ -112,5 +112,9 @@
 
 .content_article{
     max-width: 800px;
-    margin: 30px auto 0;
+    margin: 18px auto 0;
+}
+
+.widht90{
+    width: 90%;
 }

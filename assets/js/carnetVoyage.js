@@ -7,11 +7,19 @@ function enregistrerCarnetVoyage() {
             url: urlAddCarnetModel,
             data: "titre=" + $("#titre").val() + "&id_voyage=" + $("#id_voyage").val(),
             success: function (result) {
-                $('#popUpAdd').modal('hide')
+                $('#popUpAdd').modal("hide");
                 if (result !== "0") {
                     message(urlSucces, "Carnet ajouté avec succés");
-                    var id = parseInt($('.table-carnet tbody>tr:last td:first').html()) + 1;
-                    $(".table-carnet > tbody:last").append("<tr><td>" + id + "</td><td> "
+                    var id;
+                    var resultTable = $(".divTable").find(".hideTable").size();
+                    if (resultTable !== 0) {
+                        $(".hideTable").removeClass("hideTable");
+                        $(".showText").addClass("hideTable");
+                        id = 1;
+                    } else {
+                        id = parseInt($('.table-carnet tbody>tr:last td:first').html()) + 1;
+                    }
+                    $(".table-carnet > tbody:last").append("<tr><td class='tdPetithauteur'>" + id + "</td><td> "
                             + '<input type="text" class="form-control inputTitreCarnetVoyage" id ="' + result + '" placeholder="Titre voyage"  value="' + $("#titre").val() + '" />'
                             + '<span class="glyphiHide ' + result + '">'
                             + '<a class="glyphicon_input editCarnetVoyage" data-id="' + result + '"><span class="glyphicon glyphicon-ok" ></span></a>'
@@ -19,8 +27,12 @@ function enregistrerCarnetVoyage() {
                             + '</span></td><td class="tdPetitGlaphi">'
                             + "<a data-id='" + result + "' class='editCarnetVoyage'><span class='glyphicon glyphicon-pencil'></span></a>"
                             + "</td><td class='tdPetitGlaphi'>"
-                            + "<a onclick='return confirm(confirmation);' class='deleteCarnetVoyage' data-id='" + result + "'><span class='glyphicon glyphicon-remove'></span></a>"
-                            + "</td></tr>");
+                            + "<a class='deleteCarnetVoyage' data-id='" + result + "'><span class='glyphicon glyphicon-trash'></span></a>"
+                            + "</td>"
+                            + '<td class="tdPetitGlaphi">'
+                            + '<a target="_BLANK" href="' + urlviewCarnet + '?id=' + result + '"><span class="glyphicon glyphicon-list-alt"></span></a>'
+                            + '</td>'
+                            + '</tr>');
                     clickButton();
                 } else {
                     message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
@@ -94,7 +106,6 @@ function verificationInputTitre(input) {
 }
 
 function editArticles(id) {
-
     $.ajax({
         type: "post",
         url: urlListeArticle,
@@ -106,7 +117,6 @@ function editArticles(id) {
                 message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
             }
         }});
-
 }
 function clickButton() {
     $(".editCarnetVoyage").on("click", function () {
@@ -143,7 +153,7 @@ function popUpAddCarnet() {
         success: function (result) {
             $(".modal-content").html(result);
             $(".validCarnetVoyage").on("click", function () {
-                enregistrerCarnetVoyage()
+                enregistrerCarnetVoyage();
             });
         }});
 }
@@ -152,5 +162,5 @@ $(document).ready(function () {
     $(".buttonAjouterBoUtilisateur").on("click", function () {
         popUpAddCarnet();
     });
-    clickButton()
+    clickButton();
 });

@@ -11,7 +11,21 @@ function message(url, message) {
         }});
 }
 
+function couleurAlerteClass(element, css) {
+    $(element).stop(true);
+    $(element).addClass(css);
+    setTimeout(function () {
+        $(element).removeClass(css);
+    }, 5000);
+}
 
+function couleurAlerteCss(element, css, cssOrigine) {
+    $(element).stop(true);
+    $(element).css(css);
+    setTimeout(function () {
+        $(element).css(cssOrigine);
+    }, 5000);
+}
 $(document).ready(function () {
     var mess_required = "<span class='mess_required'>Ce champ est obligatoire.</span>";
     var mdp_required = "<span class='mess_required'>Les mots de passe sont différents.</span>";

@@ -17,51 +17,49 @@ class Articles extends CI_Controller {
 
     public function add() {
         if (!$this->input->get('id_carnet_voyage')) {
-            redirect('user/account', 'refresh');
+            echo "0";
+        } else {
+            $this->load->helper(array('form'));
+            $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
+            $data["librairieJs"] = array(
+                "froala_editor.min",
+                "plugins/tables.min",
+                "plugins/lists.min",
+                "plugins/colors.min",
+                "plugins/media_manager.min",
+                "plugins/font_family.min",
+                "plugins/font_size.min",
+                "plugins/block_styles.min",
+                "plugins/video.min",
+                "langs/fr"
+            );
+            $data["id_carnet_voyage"] = $this->input->get('id_carnet_voyage');
+            $this->load->view('user/article/add_article', $data);
         }
-        $this->load->helper(array('form'));
-        $data["alljs"] = array("article");
-        $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
-        $data["librairieJs"] = array(
-            "libs/jquery-1.11.1.min.js",
-            "froala_editor.min",
-            "plugins/tables.min",
-            "plugins/lists.min",
-            "plugins/colors.min",
-            "plugins/media_manager.min",
-            "plugins/font_family.min",
-            "plugins/font_size.min",
-            "plugins/block_styles.min",
-            "plugins/video.min",
-            "langs/fr"
-        );
-        $data["id_carnet_voyage"] = $this->input->get('id_carnet_voyage');
-        $this->load->templateUser('article/add_article', $data);
     }
 
     public function edit() {
         if (!$this->input->get('id')) {
-            redirect('user/account', 'refresh');
+            echo "0";
+        } else {
+            $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
+            $data["librairieJs"] = array(
+                "froala_editor.min",
+                "plugins/tables.min",
+                "plugins/lists.min",
+                "plugins/colors.min",
+                "plugins/media_manager.min",
+                "plugins/font_family.min",
+                "plugins/font_size.min",
+                "plugins/block_styles.min",
+                "plugins/video.min",
+                "langs/fr"
+            );
+            $this->article->id = $this->input->get('id');
+            $data["article"] = $this->article->getArticle();
+            $this->load->helper(array('form'));
+            $this->load->view('user/article/edit_article', $data);
         }
-        $data["alljs"] = array("article");
-        $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
-        $data["librairieJs"] = array(
-            "libs/jquery-1.11.1.min",
-            "froala_editor.min",
-            "plugins/tables.min",
-            "plugins/lists.min",
-            "plugins/colors.min",
-            "plugins/media_manager.min",
-            "plugins/font_family.min",
-            "plugins/font_size.min",
-            "plugins/block_styles.min",
-            "plugins/video.min",
-            "langs/fr"
-        );
-        $this->article->id = $this->input->get('id');
-        $data["article"] = $this->article->getArticle();
-        $this->load->helper(array('form'));
-        $this->load->templateUser('article/edit_article', $data);
     }
 
     public function liste() {
@@ -71,6 +69,7 @@ class Articles extends CI_Controller {
         $this->load->helper(array('form'));
         $this->article->id_carnetvoyage = $this->input->post('id');
         $data["articles"] = $this->article->getArticles();
+        $data["id_carnet_voyage"] = $this->input->post('id');
         $this->load->view('user/article/list_article', $data);
     }
 

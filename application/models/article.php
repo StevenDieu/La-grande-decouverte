@@ -24,8 +24,12 @@ Class Article extends CI_Model {
     }
 
     function setArticle() {
+        $data = array(
+            'titre' => $this->titre,
+            'contenu' => $this->contenu
+        );
         $this->db->where('id', $this->id);
-        $this->db->update('fichevoyage', $this);
+        $this->db->update('fichevoyage', $data);
         return true;
     }
 

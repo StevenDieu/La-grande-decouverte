@@ -1,5 +1,22 @@
 <script type="text/javascript">
     var urlCarnet = '<?php echo base_url('user/carnet_voyages/liste'); ?>';
+    var urlAddCarnet = "<?php echo base_url('user/carnet_voyages/add'); ?>";
+    var urlAddCarnetModel = "<?php echo base_url('user/model_carnet_voyage/add'); ?>";
+    var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
+    var urlSucces = '<?php echo base_url('pages/messageSucces'); ?>';
+    var urlEditCarnet = '<?php echo base_url('user/model_carnet_voyage/edit'); ?>';
+    var urlDeleteCarnet = '<?php echo base_url('user/model_carnet_voyage/delete'); ?>';
+    var urlListeArticle = '<?php echo base_url('user/articles/liste'); ?>';
+    var urlviewCarnet = '<?php echo base_url('voyage/carnet'); ?>';
+    var urlUpload = '<?php echo base_url('user/articles/upload'); ?>';
+    var urlDelete = '<?php echo base_url('user/articles/delete'); ?>';
+    var urlAddArticle = '<?php echo base_url('user/model_article/add'); ?>';
+    var urlEditArticle = '<?php echo base_url('user/model_article/edit'); ?>';
+    var urlViewAddArticle = '<?php echo base_url('user/articles/add'); ?>';
+    var urlDeleteArticle = '<?php echo base_url('user/model_article/delete'); ?>'
+    var urlViewEditArticle = '<?php echo base_url('user/articles/edit'); ?>';
+</script>
+
 </script>
 
 
@@ -30,7 +47,7 @@
 
     </div>
     <div class="contentUtilisateur" id="carnets">
-        
+
     </div>
 
     <br><br><br><br>
