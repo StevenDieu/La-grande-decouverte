@@ -39,13 +39,15 @@ class Model_carnet_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             echo "0";
         } else {
-
             $this->carnetVoyage->titre = $this->input->post('titre');
             $this->carnetVoyage->id = $this->input->post('id');
-
-            $this->carnetVoyage->setCarnetVoyage();
-
-            echo "1";
+            $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            if ($this->carnetVoyage->verifCompte()) {
+                $this->carnetVoyage->setCarnetVoyage();
+                echo "1";
+            } else {
+                echo "0";
+            }
         }
     }
 
@@ -54,8 +56,17 @@ class Model_carnet_voyage extends CI_Controller {
             echo "0";
         }
         $this->carnetVoyage->id = $this->input->post('id');
-        $this->carnetVoyage->deleteCarnetVoyage();
-        echo "1";
+        $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+        if ($this->carnetVoyage->nbrArticle()) {
+            echo "-1";
+        } else {
+            if ($this->carnetVoyage->verifCompte()) {
+                $this->carnetVoyage->deleteCarnetVoyage();
+                echo "1";
+            } else {
+                echo "0";
+            }
+        }
     }
 
 }

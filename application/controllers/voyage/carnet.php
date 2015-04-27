@@ -32,8 +32,10 @@ class Carnet extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
         $this->article->id_carnetvoyage = $data['carnetVoyage'][0]->id;
+        $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+
         $data["articles"] = $this->article->getArticles();
-        
+
         $this->load->templateCarnet('/carnet', $data);
     }
 
@@ -50,7 +52,7 @@ class Carnet extends CI_Controller {
         $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
         $data["allCss"] = array("article");
         $data["alljs"] = array("slide", "ficheVoyage");
-        
+
         $this->load->templateCarnet('/article', $data);
     }
 

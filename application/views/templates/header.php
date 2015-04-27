@@ -55,7 +55,7 @@
         <header class="navbar navbar-static-top bs-docs-nav " id="top" role="banner">
             <div class="header">
                 <div class="navbar-header ">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".bs-navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -88,16 +88,14 @@
                     </div>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="last" href="#"><img src="<?php echo asset_url(''); ?>images/header/compte.png" class="imageCompte" /></a></li>
+                        <li><a href="#"><img id="popUpConnexion" src="<?php echo asset_url(''); ?>images/header/compte.png" class="imageCompte" /></a></li>
                     </ul>
                 </nav>
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
                     <?php if (!$this->session->userdata('logged_in')) { ?>
-                        <div class="connexion_header">
-                            <span>Connexion</span>
-                        </div>
+                        <img src="<?php echo asset_url() . "images/header/login-arrow-menu.png" ?>" class="login-arrow" alt="arrow image header"/>
                         <div class="connexion_form login">
                             <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
@@ -110,7 +108,9 @@
                                     <input type="password" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
                                 </p>
                             </div>
-
+                            <div class="connexion_footer">
+                                <a href="#"><span class="g">Mot de passe oubli&eacute; ?</span></a>
+                            </div>
                             <div class="submit_all_text">
                                 <input type="submit" name="submit" class="" id="popup_input_connexion" value="Se connecter">
                             </div>
@@ -129,9 +129,7 @@
                             </div>
                             </form>
                         </div>
-                        <div class="connexion_footer">
-                            <a href="#"><span class="d">Mot de passe oubli&eacute; ?</span></a>
-                        </div>
+
                         <?php
                     } else {
                         $session_data = $this->session->userdata('logged_in');

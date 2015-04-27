@@ -9,7 +9,8 @@ class Articles extends CI_Controller {
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_in')) {
-            redirect('user/account/connexion', 'refresh');
+            echo 'co';
+            die;
         }
         $this->load->helper(array('form'));
         $this->load->model('article');
@@ -68,6 +69,8 @@ class Articles extends CI_Controller {
         }
         $this->load->helper(array('form'));
         $this->article->id_carnetvoyage = $this->input->post('id');
+        $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+
         $data["articles"] = $this->article->getArticles();
         $data["id_carnet_voyage"] = $this->input->post('id');
         $this->load->view('user/article/list_article', $data);

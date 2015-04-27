@@ -59,40 +59,42 @@
             <div class="col-md-6"></div>
         </div>
         <?php
-        foreach ($articles as $article) {
-            ?>
-            <div class="row blocVoyage">
-                <div class="col-md-5">
-                    <div class="textJour">
-                        <?php echo $article->titre; ?>
+        if ($articles) {
+            foreach ($articles as $article) {
+                ?>
+                <div class="row blocVoyage">
+                    <div class="col-md-5">
+                        <div class="textJour">
+                            <?php echo $article->titre; ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-1">
-                    <div class="pointRouge"></div>
-                </div>
+                    <div class="col-md-1">
+                        <div class="pointRouge"></div>
+                    </div>
 
-                <div class="col-md-6">
-                    <div class="row blockRow">                        
-                        <div class="col-md-8">
-                            <div class="descriptionJour">
-                                <div class="textDescriptionJourHaut">
-                                    <?php echo tronque($article->contenu); ?>
+                    <div class="col-md-6">
+                        <div class="row blockRow">                        
+                            <div class="col-md-8">
+                                <div class="descriptionJour">
+                                    <div class="textDescriptionJourHaut">
+                                        <?php echo tronque($article->contenu); ?>
+                                    </div>
+                                    <div class="textDescriptionJourBas">
+                                        <a href="<?php echo base_url('voyage/carnet/article?id=' . $article->id) ?>">Lire la fiche</a>
+                                    </div>
                                 </div>
-                                <div class="textDescriptionJourBas">
-                                    <a href="<?php echo base_url('voyage/carnet/article?id=' . $article->id) ?>">Lire la fiche</a>
+                            </div>
+                            <div class="col-md-4">                                    
+                                <div class="imgJour">
+                                    <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">                                    
-                            <div class="imgJour">
-                                <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
-                            </div>
-                        </div>
                     </div>
-                </div>
 
-            </div>
-            <?php
+                </div>
+                <?php
+            }
         }
         ?>
         <!--        <div class="row blocVoyage">

@@ -32,9 +32,25 @@ $(document).ready(function () {
     var mail_required = "<span class='mess_required'>Les mails sont différents.</span>";
     var mdp_identique_required = "<span class='mess_required'>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</span>";
 
+    var iniPopUp = 0;
+    $('body').click(function (e) {
+        if (e.target.id === "popUpConnexion") {
+            if (iniPopUp === 0) {
+                $('.connexion_popin').show();
+                iniPopUp = 1;
+            } else {
+                $('.connexion_popin').hide();
+                iniPopUp = 0;
+            }
+        } else {
+            if ($(e.target).closest('.connexion_popin').length === 0) {
+                if (iniPopUp === 1) {
+                    $('.connexion_popin').hide();
+                    iniPopUp = 0;
+                }
+            }
+        }
 
-    $('li a.last').click(function () {
-        $('.connexion_popin').slideToggle("slow");
     });
 
     //popup login connexion

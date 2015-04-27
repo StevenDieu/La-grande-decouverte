@@ -12,9 +12,8 @@ class Account extends CI_Controller {
 
     function index() {
         if ($this->session->userdata('logged_in')) {
-            $session_data = $this->session->userdata('logged_in');
-            $data['username'] = $session_data['user'];
             $data["allCss"] = array("account");
+            $data['username'] = $this->session->userdata('logged_in')['user'];
             $data["alljs"] = array("account");
             $this->load->templateUser('account', $data);
         } else {
@@ -31,6 +30,13 @@ class Account extends CI_Controller {
     function connexion() {
         $this->load->helper(array('form'));
         $this->load->templateUser('page_connexion');
+    }
+
+    function myaccount() {
+        $data['username'] = $this->session->userdata('logged_in')['user'];
+
+        $this->load->helper(array('form'));
+        $this->load->view('user/myaccount', $data);
     }
 
     function inscription() {

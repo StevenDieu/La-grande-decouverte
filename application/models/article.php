@@ -12,6 +12,7 @@ Class Article extends CI_Model {
     public $titre;
     public $contenu;
     public $id_carnetvoyage;
+    public $id_utilisateur;
     public $visible;
 
     function __construct() {
@@ -19,8 +20,23 @@ Class Article extends CI_Model {
     }
 
     function addArticle() {
-        $this->db->insert('fichevoyage',$this);
+        $this->db->insert('fichevoyage', $this);
         return $this->db->insert_id();
+    }
+
+    function verifCompte() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id', $this->id);
+        $this->db->where('id_utilisateur', $this->id_utilisateur);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function setArticle() {
@@ -52,6 +68,7 @@ Class Article extends CI_Model {
         $this->db->select('id, titre, contenu');
         $this->db->from('fichevoyage');
         $this->db->where("id_carnetvoyage", $this->id_carnetvoyage);
+        $this->db->where("id_utilisateur", $this->id_utilisateur);
 
         $query = $this->db->get();
 

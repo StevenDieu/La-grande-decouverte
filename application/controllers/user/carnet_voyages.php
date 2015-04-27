@@ -9,7 +9,8 @@ class Carnet_voyages extends CI_Controller {
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_in')) {
-            redirect('user/account/connexion', 'refresh');
+            echo 'co';
+            die;
         }
         $this->load->helper(array('form'));
         $this->load->model('voyage');
@@ -28,16 +29,6 @@ class Carnet_voyages extends CI_Controller {
         $this->load->view('user/carnet/add_carnet_voyage', $data);
     }
 
-    public function edit() {
-        if (!$this->input->get('id')) {
-            redirect('user/account', 'refresh');
-        }
-        $this->carnetVoyage->id = $this->input->get('id');
-        $data["carnet_voyage"] = $this->carnetVoyage->getCarnetVoyage();
-        $this->load->helper(array('form'));
-        $this->load->templateUser('carnet/edit_carnet_voyage', $data);
-    }
-
     public function liste() {
         $data["alljs"] = array("carnetVoyage");
         $this->load->helper(array('form'));
@@ -45,5 +36,4 @@ class Carnet_voyages extends CI_Controller {
         $data["carnet_voyages"] = $this->carnetVoyage->getCarnetVoyages();
         $this->load->view('user/carnet/list_carnet_voyage', $data);
     }
-
 }

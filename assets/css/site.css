@@ -61,11 +61,14 @@ body {
     vertical-align:middle;
     max-width: 1200px;
     width: 100%;
-    margin: auto;
+    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 .nav>li>a {
-    padding: 10px 0px !important;
+    padding: 10px 23px 10px 0;
 }
 
 .logo {float:left;}
@@ -385,6 +388,7 @@ h2.titre{
         line-height: 76px;
         font-size: 15px;
 
+        color: white;
         text-decoration: none !important;
     }
 
@@ -460,7 +464,7 @@ h2.titre{
 
 .une_row input[type='text'],.une_row input[type='password'],
 .une_row input[type='email']{
-    width: 94%;
+    width: 100%;
     height: 17px;
     border: none;
     background: none;
@@ -538,7 +542,8 @@ h2.titre{
 }
 
 span.ou{
-    font-size: 16px;
+    background: white;    font-size: 14px;    color: #9A9997;    
+    padding: 0 7px;
 }
 
 .une_row .submit_all_text input,.une_row .submit_all_text button{
@@ -705,20 +710,23 @@ span.ou{
 
 /***popup login */
 .connexion_popin {
-    width:280px;
-    text-align: center;
-    border-radius:10px;
-    background: #fff;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    color: #000;
-    font-family: "helvetica";
+    background: white;    border: 1px solid #c0c0c0;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    -ms-border-radius: 3px;    -o-border-radius: 3px;    border-radius: 3px;    box-shadow: 3px 3px 3px rgba(0,0,0,0.17);    display: none;    font-family: Arial, "sans-serif";    font-size: 13px;    margin-top: 17px;    
+    position: absolute;    padding: 10px;    z-index: 100;    
+    width: 250px;  
+    right: 0;
+    top: 72px;
+}
+
+.login-arrow{
+    display: block;
+    height: 13px;
+    margin-top: -22px;
+    margin-bottom: 14px;
+    width: 25px;
+    margin-left: 185px;
 }
 
 .connexion_header {
-    background-color: #1a171b;
-    color:white;
     border-radius: 10px 10px 0px 0px;
     height: 40px; 
     line-height: 40px;
@@ -746,11 +754,11 @@ span.ou{
 
 .connexion_hr {
     display:inline;
-    margin:7px 10px 0px 10px;
-    width:90px;
+    margin: 7px 5px 0px 5px;
+    width: 86px;
     border:0px;
-    height:2px;
-    background-color:black;
+    height: 1px;
+    background-color: #9A9997;
 }
 
 .g {
@@ -758,20 +766,17 @@ span.ou{
 }
 
 .d {
-    float:right;    
+    float: right;    
 }
 
 .connexion_footer {
-    background-color: #1a171b;
-    color:white;
-    border-radius: 0px 0px 10px 10px;
-    height:40px;
-    line-height: 40px;
+    height: 30px;
     padding: 0 5px;
+    margin-top: -6px;
 }
 
 .connexion_footer a {
-    color:white;
+    color: #0ca9fa;
 }
 
 .connexion_footer a span.d:hover{

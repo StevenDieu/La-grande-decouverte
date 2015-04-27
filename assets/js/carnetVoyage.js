@@ -87,9 +87,11 @@ function deleteCarnetVoyage(bouton) {
         url: urlDeleteCarnet,
         data: "id=" + id_voyage,
         success: function (result) {
-            if (result !== "0") {
+            if (result === "1") {
                 message(urlSucces, "Carnet supprimé avec succés.");
                 bouton.parent().parent().remove();
+            } else if (result === "-1") {
+                message(urlError, "Il reste des articles dans votre carnet");
             } else {
                 message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
             }
@@ -110,6 +112,10 @@ function editArticles(id) {
         type: "post",
         url: urlListeArticle,
         data: "id=" + id,
+        beforeSend: function () {
+            $("#carnets").html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
+            $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
+        },
         success: function (result) {
             if (result !== "0") {
                 $("#carnets").html(result);

@@ -60,6 +60,10 @@ function popUpAddArticle() {
         type: "get",
         url: urlViewAddArticle,
         data: "id_carnet_voyage=" + id_carnet_voyage,
+        beforeSend: function () {
+            $("#carnets").html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
+            $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
+        },
         success: function (result) {
             if (result == "0") {
                 message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
@@ -73,6 +77,10 @@ function popUpEditArticle(id) {
         type: "get",
         url: urlViewEditArticle,
         data: "id=" + id,
+        beforeSend: function () {
+            $("#carnets").html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
+            $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
+        },
         success: function (result) {
             if (result === "0") {
                 message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");

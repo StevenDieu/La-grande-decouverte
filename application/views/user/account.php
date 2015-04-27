@@ -15,6 +15,8 @@
     var urlViewAddArticle = '<?php echo base_url('user/articles/add'); ?>';
     var urlDeleteArticle = '<?php echo base_url('user/model_article/delete'); ?>'
     var urlViewEditArticle = '<?php echo base_url('user/articles/edit'); ?>';
+    var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
+    var urlCompte = '<?php echo base_url('user/account/myaccount'); ?>';
 </script>
 
 </script>
@@ -40,8 +42,7 @@
     </ul>
 
     <div class="contentUtilisateur active" id="compte">
-        <h1>Home</h1>
-        <h2>Welcome <?php echo $username; ?>!</h2>
+
     </div>
     <div class="contentUtilisateur" id="voyages">
 

@@ -31,12 +31,38 @@ Class CarnetVoyage extends CI_Model {
         return true;
     }
 
+    function nbrArticle() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id_carnetvoyage', $this->id);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function verifCompte() {
+        $this->db->select('*');
+        $this->db->from('carnetvoyage');
+        $this->db->where('id', $this->id);
+        $this->db->where('id_utilisateur', $this->id_utilisateur);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function getCarnetVoyage() {
         $this->db->select('*');
         $this->db->from('carnetvoyage');
         $this->db->where('id', $this->id);
         $this->db->limit(1);
-
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {

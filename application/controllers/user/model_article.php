@@ -25,6 +25,7 @@ class Model_article extends CI_Controller {
             $this->article->titre = $this->input->post('titre');
             $this->article->contenu = $this->input->post('contenu');
             $this->article->visible = "0";
+            $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
             $this->article->id_carnetvoyage = $this->input->post('id_carnet_voyage');
             echo $this->article->addArticle();
         }
@@ -43,9 +44,13 @@ class Model_article extends CI_Controller {
             $this->article->titre = $this->input->post('titre');
             $this->article->contenu = str_replace("style/", "style", $this->input->post('contenu'));
             $this->article->visible = "0";
-            $this->article->setArticle();
-
-            echo "1";
+            $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            if ($this->article->verifCompte()) {
+                $this->article->setArticle();
+                echo "1";
+            } else {
+                echo "0";
+            }
         }
     }
 
@@ -54,8 +59,13 @@ class Model_article extends CI_Controller {
             echo "0";
         } else {
             $this->article->id = $this->input->post('id');
-            $this->article->deleteArticle();
-            echo "1";
+            $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            if ($this->article->verifCompte()) {
+                $this->article->deleteArticle();
+                echo "1";
+            } else {
+                echo "0";
+            }
         }
     }
 

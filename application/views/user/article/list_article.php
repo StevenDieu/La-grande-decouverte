@@ -33,6 +33,7 @@
                         <th>Titre</th>
                         <th class="tdMoyen">Editer</th>
                         <th class="tdPetit">Supprimer</th>
+                        <th class="tdPetit">Visuel</th>
                     </tr>
                     <?php
                     $i = 0;
@@ -53,7 +54,9 @@
                             <td class="tdPetit">
                                 <a class="deleteArticle" data-id="<?php echo $article->id; ?>"><span class="glyphicon glyphicon-trash"></span></a>
                             </td>
-
+                            <td class="tdPetit">
+                                <a target="_BLANK" href="<?php echo base_url('voyage/carnet/article') . "?id=" . $article->id; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                            </td>
                         </tr>
                         <?php
                     }
