@@ -17,10 +17,10 @@ if (isset($librairieCss)) {
 
 
 <div class="messageAlerteCarnet">
-    <div id="alertType"></div>
+    <div class="alertType"></div>
 </div>
 
-<a data-toggle="modal" data-target="#popUp" class="buttonRetourBoUtilisateur retourListArticle"> 
+<a data-toggle="modal" data-target="#popUp" class="borange retourListArticle"> 
     <span class="placementGlyphicon">
         <span class="glyphicon glyphicon-arrow-left"></span>
     </span>
@@ -33,7 +33,7 @@ if (isset($librairieCss)) {
         <div class="form-group form-titre">
             <label for="titre" class="col-sm-4 control-label">Titre :</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="titre" placeholder="Titre de l'article" value="<?php echo $article[0]->titre; ?>">
+                <input type="text" class="form-control titre" placeholder="Titre de l'article" value="<?php echo $article[0]->titre; ?>">
             </div>
         </div>
         <section id="editor" name="editor">
@@ -43,7 +43,7 @@ if (isset($librairieCss)) {
         </section>
         <br/>
         <div class="center">
-            <button type="button" id='editArticle' data-id="<?php echo $article[0]->id; ?>" class="editArticle btn btn-primary">Enregistrer</button>
+            <button type="button" data-id="<?php echo $article[0]->id; ?>" class="editArticle bblue">Enregistrer</button>
         </div>
 
     </div>
@@ -80,6 +80,6 @@ if (isset($librairieJs)) {
 
         editor.deleteImage($img);
     }).on('editable.imageDeleteSuccess', function () {
-        editArticle();
+        editArticle(<?php echo $article[0]->id; ?>);
     });
 </script>

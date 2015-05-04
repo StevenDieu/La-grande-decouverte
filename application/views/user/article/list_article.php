@@ -4,7 +4,7 @@
 
 <legend>Gestion articles du carnet : </legend>
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/article.js" ></script>
-<a data-toggle="modal" data-target="#popUp" class="buttonRetourBoUtilisateur retourListCarnet"> 
+<a data-toggle="modal" data-target="#popUp" class="borange retourListCarnet"> 
     <span class="placementGlyphicon">
         <span class="glyphicon glyphicon-arrow-left"></span>
     </span>
@@ -12,10 +12,10 @@
 </a>
 <div class="content_article">
     <div class="messageAlerteCarnet">
-        <div id="alertType"></div>
+        <div class="alertType"></div>
     </div>
 
-    <a class="buttonAjouterBoUtilisateur buttonAjouterArticle"> 
+    <a class="buttonAjouterArticle bgreen"> 
         <span class="placementGlyphicon">
             <span class="glyphicon glyphicon-plus"></span>
         </span>

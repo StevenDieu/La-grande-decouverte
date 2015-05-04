@@ -82,10 +82,10 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                         </div>
                     </div>
                     <div style="clear:both"></div>
-                    <a href="javascript:;" class="voir_date" id="deplier_date">Dates de départ <span></span></a>
+                    <a href="javascript:;" class="voir_date bblue" id="deplier_date">Dates de départ <span class="fleche"></span></a>
                     <a href="javascript:;" class="voir_date" id="deplier_date_mobile">Dates de départ <span></span></a>
                     <span class="result_date">Vous n'avez pas sélectionné de date.</span>
-                    <button id="embarque" type="submit" value="J'embarque">J'embarque</button>
+                    <button id="embarque" class="borange bbillet" type="submit" value="J'embarque">J'embarque</button>
                     <div style="clear:both"></div>
                     <input type="hidden" name="choix_date" id="choix_date" value="0">
                 </form>

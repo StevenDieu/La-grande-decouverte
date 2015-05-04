@@ -9,7 +9,7 @@
 
 }
 
-.fiche_produit a{
+span.fleche{
     color: black;
     text-decoration: underline;
 }
@@ -465,7 +465,7 @@
         position: relative;
         width: 100% !important;
         margin: 0px !important;
-       
+
     }
 
     .onglet4mobile .contenu .jour_container .day_counter .day{
@@ -474,8 +474,8 @@
 
     .onglet4mobile .contenu .jour_container{
         padding-left: 0px !important;
-          margin-left: 10px;
-            margin-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .ligne_image .separation_image{
@@ -817,11 +817,11 @@
 }
 
 .onglet4mobile .contenu .jour_container .day_container .description_container .image{
-width: 30%;
-float: left;
-display: block;
-margin-right: 20px;
-height: auto;
+    width: 30%;
+    float: left;
+    display: block;
+    margin-right: 20px;
+    height: auto;
 }
 
 .onglet4mobile .contenu .jour_container .day_container .description_container .texte{
@@ -912,7 +912,7 @@ height: auto;
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
     font-family: "helvetica";
-  
+
 }
 
 .ligne_image .img img{
@@ -1055,52 +1055,6 @@ height: auto;
 
 /*******************      ****/
 
-.top_bloc .bloc_achat button{
-    display: block;
-    position: absolute;
-    height: 40px;
-    width: 170px;
-    font-family: "helvetica";
-    text-align: left;
-    background: #F47A0C url("../images/ficheproduit/billet.png") right 7px center no-repeat;
-    border-radius: 5px;
-    border-color: transparent;
-    color: #fff;
-    font-size: 20px;
-    line-height: 32px;
-    right: 15px;
-    bottom: 15px;
-    padding-left: 20px;
-}
-
-.top_bloc a.voir_date{
-    text-decoration: none;
-    display: block;
-    margin: 0px auto;
-    text-transform: uppercase;
-    height: 40px;
-    width: 278px;
-    background-color: #006695;
-    color: #fff;
-    line-height: 42px;
-    border-radius: 5px;
-    font-family: "helvetica";
-    font-size: 20px;
-    padding-left: 20px;
-}
-
-.top_bloc a.voir_date span{
-    display: block;
-    height: 40px;
-    width: 50px;
-    float: right;
-    border-left: 1px solid #CDCDCD;
-    background: url("../images/ficheproduit/flechedates.png") center center no-repeat;
-}
-
-.top_bloc a.voir_date span.active{
-    background: url("../images/ficheproduit/flechedatesactive.png") center center no-repeat;
-}
 
 .top_bloc .container_dates{
     position: absolute;
@@ -1108,7 +1062,7 @@ height: auto;
     left: 346px;
     background:rgba(255,255,255, .8);
     padding: 10px;
-      border-radius: 3px;
+    border-radius: 3px;
 }
 
 @media (min-width: 900px){
@@ -1207,18 +1161,18 @@ height: auto;
 }
 
 @media (max-width: 400px){
-.entete_fiche_produit button, .entete_fiche_produit a.voir_date{
-    float: left;
-}
+    .entete_fiche_produit button, .entete_fiche_produit a.voir_date{
+        float: left;
+    }
 
-.entete_fiche_produit button{
-    width: 200px;
-    margin-top: 10px; 
-}
+    .entete_fiche_produit button{
+        width: 200px;
+        margin-top: 10px; 
+    }
 
-.entete_fiche_produit button{
-    margin-left: 10px;
-}
+    .entete_fiche_produit button{
+        margin-left: 10px;
+    }
 }
 
 
@@ -1311,7 +1265,7 @@ height: auto;
 .choix table{
     color:#000;
     margin: 10px auto;
-      width: 100%;
+    width: 100%;
 }
 .choix table td{
     padding-right: 25px;
@@ -1383,7 +1337,22 @@ height: auto;
     display: none;
 }
 
+#embarque{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 170px;
+}
 
+.top_bloc a.voir_date{
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0px auto;
+    width: 278px;
+    text-decoration: none;
+
+    display: block;
+}
 
 
 

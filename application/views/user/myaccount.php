@@ -1,7 +1,10 @@
 
 <legend>Mon compte</legend>
-
+<script type="text/javascript" src = "<?php echo asset_url(''); ?>js/myAccount.js" ></script>
 <h2>Welcome <?php echo $username; ?>!</h2>
+<div class="messageAlerteCarnet center">
+    <div class="alertType"></div>
+</div>
 <div class="content_carnet_voyage">
 
 
@@ -16,26 +19,26 @@
             </a>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                    <form action="#" class="form-horizontal" >
-                        <div class="form-group form-titre">
+                    <form action="#" class="form-horizontal center" >
+                        <div class="form-group form-mdp">
                             <label for="titre" class="col-sm-4 control-label">Mot de passe actuel :</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="titre" placeholder="Mot de passe actuel">
+                                <input type="password" class="form-control mdp" placeholder="Mot de passe actuel">
                             </div>
                         </div>
-                        <div class="form-group form-titre">
+                        <div class="form-group form-nmdp">
                             <label for="titre" class="col-sm-4 control-label">Nouveau mot de passe :</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="titre" placeholder="Nouveau mot de passe">
+                                <input type="password" class="form-control nmdp" placeholder="Nouveau mot de passe">
                             </div>
                         </div>
-                        <div class="form-group form-titre">
+                        <div class="form-group form-cnmdp">
                             <label for="titre" class="col-sm-4 control-label">Retapez mot de passe :</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="titre" placeholder="Retapez mot de passe">
+                                <input type="password" class="form-control cnmdp" placeholder="Retapez mot de passe">
                             </div>
                         </div>
-                        <input type="button" class="buttonAjouterBoUtilisateur" value="Modifier"/>
+                        <input type="button" class="bblue confirmationMdp" value="Modifier"/>
                     </form>
                 </div>
             </div>
@@ -51,26 +54,27 @@
             </a>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                    <form action="#" class="form-horizontal" >
+                    <form action="#" class="form-horizontal center" >
 
-                        <div class="form-group form-titre">
+                        <div class="form-group form-nemail">
                             <label for="titre" class="col-sm-4 control-label">Nouvel adresse mail :</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="titre" placeholder="Nouvel adresse mail">
+                                <input type="email" class="form-control nemail" placeholder="Nouvel adresse mail">
                             </div>
                         </div>
-                        <div class="form-group form-titre">
+                        <div class="form-group form-cnemail">
                             <label for="titre" class="col-sm-4 control-label">retapez adresse mail :</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="titre" placeholder="retapez adresse mail">
+                                <input type="email" class="form-control cnemail" placeholder="retapez adresse mail">
                             </div>
                         </div>
-                        <div class="form-group form-titre">
+                        <div class="form-group form-mdpMail">
                             <label for="titre" class="col-sm-4 control-label">Mot de passe :</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="titre" placeholder="Mot de passe">
+                                <input type="password" class="form-control mdpMail" placeholder="Mot de passe">
                             </div>
                         </div>
+                        <input type="button" class="bblue confirmationEmail" value="Modifier"/>
                     </form>
                 </div>
             </div>

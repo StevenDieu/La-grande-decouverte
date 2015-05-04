@@ -4,10 +4,10 @@ function message(url, message) {
         url: url,
         data: "message=" + message,
         success: function (t) {
-            $("#alertType").stop(true);
-            $("#alertType").show("0");
-            $("#alertType").html(t);
-            $("#alertType").delay("2000").hide("0");
+            $(".alertType").stop(true);
+            $(".alertType").show("0");
+            $(".alertType").html(t);
+            $(".alertType").delay("2000").hide("0");
         }});
 }
 

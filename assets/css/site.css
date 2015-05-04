@@ -49,7 +49,7 @@
 body {
     margin:auto;
     background-color: #1a171b;
-    /* color: #FFF; */
+    color: #FFF;
     font-size: 16px;
 }
 
@@ -86,7 +86,7 @@ body {
 
 form.form-horizontal{
     text-decoration: none;
-    /* color : #fff; */
+    margin-bottom: 0px;
 }
 
 .content a{
@@ -711,7 +711,8 @@ span.ou{
 /***popup login */
 .connexion_popin {
     background: white;    border: 1px solid #c0c0c0;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    -ms-border-radius: 3px;    -o-border-radius: 3px;    border-radius: 3px;    box-shadow: 3px 3px 3px rgba(0,0,0,0.17);    display: none;    font-family: Arial, "sans-serif";    font-size: 13px;    margin-top: 17px;    
-    position: absolute;    padding: 10px;    z-index: 100;    
+    position: absolute;    
+    padding: 10px 10px 0px 10px;    z-index: 100;    
     width: 250px;  
     right: 0;
     top: 72px;
@@ -802,31 +803,10 @@ ul.menu_popup li a{
 }
 
 .messageAlerteCarnet{
-    height: 13px;
+    height: 0px;
     max-width: 600px;
     margin-left: 200px;
 }
-
-.buttonAjouterBoUtilisateur{
-    padding: 12px 9px 12px 38px;
-    font-size: 12px;
-    line-height: 1;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: .2em;
-
-    background-color: #83CB6B;
-
-    color: white !important;
-    -moz-transition: all 0.15s;
-    -webkit-transition: all 0.15s;
-    transition: all 0.15s;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    text-decoration: none !important;
-}
-
 
 .buttonRetourBoUtilisateur{
     padding: 13px 9px 13px 38px;
@@ -850,11 +830,11 @@ ul.menu_popup li a{
     z-index: 1;
 }
 .placementGlyphicon{
-    position: absolute;
+    position: static;
 
 
-    margin-left: -28px;
-    margin-top: -7px;
+    margin-left: 0px;
+    padding-right: 4px;
 }
 
 .tdPetit{
@@ -903,23 +883,102 @@ ul.menu_popup li a{
 }
 
 #carnets{
-    margin: 0 auto;
-    padding: 35px 59px 0;
 }
 
 .messageAlerteCarnet .alert{
-    padding: 9px 15px;
+    padding: 10px 15px;
 }
 
 .hideTable{
     display: none;
 }
+
+a.bblue,a.borange,a.bgreen,a.bwhite{
+    line-height: 42px;
+    color: white;
+    text-decoration: none;
+}
+
+.bblue,.borange,.bgreen,.bwhite{
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    font-family: "helvetica";
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    border-color: transparent;
+}
+
+.bblue .fleche,.borange .fleche,.bgreen .fleche,.bwhite .fleche{
+    display: block;
+    height: 40px;
+    width: 54px;
+    float: right;
+    border-left: 1px solid #CDCDCD;
+    background: url("../images/ficheproduit/flechedates.png") center center no-repeat;
+    margin-right: -13px;
+}
+
+.bblue .fleche.active,.borange .fleche.active,.bgreen .fleche.active,.bwhite .fleche.active{
+    background: url("../images/ficheproduit/flechedatesactive.png") center center no-repeat;
+}
+
+.bbillet{
+    background-size: initial;    
+    background-repeat: no-repeat;     
+    background-position-x: right;    
+    background-position-y: 50%;
+    background-origin: content-box;
+    padding-right: 7px;
+}
+
+.bblue{
+    background-color: #006695;
+}
+
+.borange{
+    background-color: #F47A0C;
+}
+
+.bwhite{
+    background-color: #FFF;
+    color: #000;
+    border: 1px solid;
+}
+
+.bgreen{
+    background-color: #83CB6B;
+}
+
+.bbillet{
+    background-image: url(../images/ficheproduit/billet.png);            
+}
+
+.w100{
+    width: 100%;
+}
+
+.w80{
+    width: 80%;
+}
+
+.w60{
+    width: 60%;
+}
+.w40{
+    width: 40%;
+}
+.w20{
+    width: 20%;
+}
+
 .center {
     text-align: center;
     margin: 0 auto;
 }
-
-
-
-/*******/
-

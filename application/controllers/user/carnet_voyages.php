@@ -8,10 +8,6 @@ class Carnet_voyages extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!$this->session->userdata('logged_in')) {
-            echo 'co';
-            die;
-        }
         $this->load->helper(array('form'));
         $this->load->model('voyage');
         $this->load->model('carnetVoyage');
@@ -19,6 +15,10 @@ class Carnet_voyages extends CI_Controller {
     }
 
     public function add() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
         $this->load->helper(array('form'));
         $data["id_voyages"] = $this->voyageUtilisateur->getVoyageUtilisateurs($this->session->userdata('logged_in')['id']);
         $data["voyages"] = array();
@@ -36,4 +36,5 @@ class Carnet_voyages extends CI_Controller {
         $data["carnet_voyages"] = $this->carnetVoyage->getCarnetVoyages();
         $this->load->view('user/carnet/list_carnet_voyage', $data);
     }
+
 }

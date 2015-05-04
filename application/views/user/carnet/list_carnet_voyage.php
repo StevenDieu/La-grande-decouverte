@@ -4,10 +4,10 @@
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/carnetVoyage.js" ></script>
 <div class="content_carnet_voyage">
     <div class="messageAlerteCarnet">
-        <div id="alertType"></div>
+        <div class="alertType"></div>
     </div>
 
-    <a data-toggle="modal" data-target="#popUpAdd" class="buttonAjouterBoUtilisateur"> <span class="placementGlyphicon"><span class="glyphicon glyphicon-plus"></span></span>Ajouter Carnet</a><br><br/>
+    <a data-toggle="modal" data-target="#popUpAdd" class="buttonAjouterBoUtilisateur bgreen"> <span class="placementGlyphicon"><span class="glyphicon glyphicon-plus"></span></span>Ajouter Carnet</a><br><br/>
     <div class="divTable">
         <?php
         if ($carnet_voyages) {

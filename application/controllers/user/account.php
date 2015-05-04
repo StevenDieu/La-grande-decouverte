@@ -34,7 +34,6 @@ class Account extends CI_Controller {
 
     function myaccount() {
         $data['username'] = $this->session->userdata('logged_in')['user'];
-
         $this->load->helper(array('form'));
         $this->load->view('user/myaccount', $data);
     }

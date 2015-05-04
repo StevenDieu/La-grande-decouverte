@@ -8,9 +8,13 @@
  */
 Class User extends CI_Model {
 
-    function _construct() {
-        // Call the Model constructor
-        parent::_construct();
+    public $id;
+    public $password;
+    public $login;
+    public $mail;
+
+    function __construct() {
+        parent::__construct();
     }
 
     function login($username, $password) {
@@ -46,11 +50,25 @@ Class User extends CI_Model {
         }
     }
 
-    function verifPassAdmin($id, $password) {
+    function verifPassUser() {
+        $this->db->select('id');
+        $this->db->from('utilisateur');
+        $this->db->where('id', $this->id);
+        $this->db->where('password', MD5($this->password));
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function verifPassAdmin() {
         $this->db->select('id, login, password');
         $this->db->from('user_admin');
-        $this->db->where('id', $id);
-        $this->db->where('password', MD5($password));
+        $this->db->where('id', $this->id);
+        $this->db->where('password', MD5($this->password));
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -119,7 +137,7 @@ Class User extends CI_Model {
         $this->db->set('security', "2");
         $this->db->set('token', "");
         $this->db->insert('utilisateur');
-        
+
         return $this->db->insert_id();
     }
 
@@ -129,7 +147,7 @@ Class User extends CI_Model {
         $this->db->set('privilege', $privilege);
         $this->db->set('ip', $_SERVER["REMOTE_ADDR"]);
         $this->db->insert('user_admin');
-        
+
         return $this->db->insert_id();
     }
 
@@ -175,7 +193,7 @@ Class User extends CI_Model {
         }
     }
 
-        function getUser($id) {
+    function getUser($id) {
         $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->where('id', $id);
@@ -191,19 +209,19 @@ Class User extends CI_Model {
 
     function deleteAdministrateur($id) {
         $data = array(
-               'id' => $id,
-            );
+            'id' => $id,
+        );
 
         $this->db->where('id', $id);
-        $this->db->delete('user_admin'); 
+        $this->db->delete('user_admin');
 
         return true;
     }
 
-    function editAdminUser($id,$login) {
+    function editAdminUser($id, $login) {
         $data = array(
-               'login' => $login,
-            );
+            'login' => $login,
+        );
 
         $this->db->where('id', $id);
         $this->db->update('user_admin', $data);
@@ -211,21 +229,41 @@ Class User extends CI_Model {
         return true;
     }
 
-    function editAdminPassword($id,$password) {
+    function editAdminPassword($id, $password) {
         $data = array(
-               'password' => MD5($password),
-            );
+            'password' => MD5($password),
+        );
 
         $this->db->where('id', $id);
         $this->db->update('user_admin', $data);
+
+        return true;
+    }
+
+    function setMdp() {
+        $data = array(
+            'password' => MD5($this->password),
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('utilisateur', $data);
+
+        return true;
+    }
+
+    function setMail() {
+        $data = array(
+            'mail' => $this->mail,
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('utilisateur', $data);
 
         return true;
     }
 
     function bannir($id) {
         $data = array(
-               'banni' => '1',
-            );
+            'banni' => '1',
+        );
 
         $this->db->where('id', $id);
         $this->db->update('utilisateur', $data);

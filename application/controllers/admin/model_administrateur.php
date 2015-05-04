@@ -126,7 +126,9 @@ class Model_administrateur extends CI_Controller {
     }
 
     function check_actually_password_admin($id,$password) {
-        if ($this->user->verifPassAdmin($id,$password)) {
+        $this->user->login = $id;
+        $this->user->password = $password;
+        if ($this->user->verifPassAdmin()) {
             return true;
         }
         $this->load->library('session');

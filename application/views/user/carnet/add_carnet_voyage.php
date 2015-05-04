@@ -8,7 +8,7 @@
             <div class="form-group form-titre">
                 <label for="titre" class="col-sm-2 control-label">Titre :</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="titre" placeholder="Titre du carnet">
+                    <input type="text" class="form-control titre" placeholder="Titre du carnet">
                 </div>
             </div>
             <div class="form-group form-voyage">
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="validCarnetVoyage btn btn-primary">Enregistrer</button>
+        <button type="button" class="bwhite" data-dismiss="modal">Close</button>
+        <button type="button" class="validCarnetVoyage bblue">Enregistrer</button>
     </div>
 </form>

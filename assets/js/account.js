@@ -13,7 +13,7 @@ function chargementAjaxOnglet(block) {
     var url = "";
     if (block === "carnets") {
         url = urlCarnet;
-    }else if(block === "compte"){
+    } else if (block === "compte") {
         url = urlCompte;
     }
     if (url !== "") {
@@ -21,7 +21,7 @@ function chargementAjaxOnglet(block) {
             url: url,
             beforeSend: function () {
                 $("#" + block).html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
-                $("#spinneur").css({"margin-top": ($(".content").height()/2 - $("#spinneur").height()/2 - 35) +  'px'});
+                $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
             },
             success: function (result) {
                 $("#" + block).html(result);
@@ -29,8 +29,6 @@ function chargementAjaxOnglet(block) {
             }});
     }
 }
-
-
 
 $(window).load(function () {
     $(".menuUtilisateur").height($(".content").height());

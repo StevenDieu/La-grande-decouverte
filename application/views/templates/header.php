@@ -96,7 +96,7 @@
                 <div class="connexion_popin" style="display:none">
                     <?php if (!$this->session->userdata('logged_in')) { ?>
                         <img src="<?php echo asset_url() . "images/header/login-arrow-menu.png" ?>" class="login-arrow" alt="arrow image header"/>
-                        <div class="connexion_form login">
+                        <div class="login">
                             <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
                                 <p>
@@ -112,12 +112,12 @@
                                 <a href="#"><span class="g">Mot de passe oubli&eacute; ?</span></a>
                             </div>
                             <div class="submit_all_text">
-                                <input type="submit" name="submit" class="" id="popup_input_connexion" value="Se connecter">
+                                <input type="submit" name="submit" class="bblue w100 center" id="popup_input_connexion" value="Se connecter">
                             </div>
                             </form>
                         </div>
                         <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
-                        <div class="connexion_form bottom">
+                        <div class="bottom">
                             <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
                                 <p>
@@ -125,7 +125,7 @@
                                 </p>
                             </div>
                             <div class="submit_all_text">
-                                <input type="submit" name="submit" class="" id="popup_login_inscription" value="S'inscrire">
+                                <input type="submit" name="submit" class="bblue w100 center" id="popup_login_inscription" value="S'inscrire">
                             </div>
                             </form>
                         </div>

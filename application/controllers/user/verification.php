@@ -7,27 +7,51 @@ class Verification extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('user', '', TRUE);
+        $this->load->model('user');
+        $this->load->library('form_validation');
+    }
+
+    function changeEmail() {
+        if (!$this->session->userdata('logged_in')) {
+            echo "co";
+            die;
+        }
+        $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean|callback_change_email');
+        if ($this->form_validation->run() == FALSE) {
+            echo "0";
+        } else {
+            echo "1";
+        }
+    }
+
+    function changeMdp() {
+        if (!$this->session->userdata('logged_in')) {
+            echo "co";
+            die;
+        }
+        $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('nmdp', 'nmdp', 'trim|required|xss_clean|callback_change_mdp');
+        if ($this->form_validation->run() == FALSE) {
+            echo "0";
+        } else {
+            echo "1";
+        }
     }
 
     function login() {
-        //This method will have the credentials validation
-        $this->load->library('form_validation');
 
         $this->form_validation->set_rules('user', 'user', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_database_login');
 
         if ($this->form_validation->run() == FALSE) {
-            //Field validation failed.  User redirected to login page
             $this->load->templateUser('page_connexion');
         } else {
-            //Go to private area
             redirect('user/account', 'refresh');
         }
     }
 
     function inscription() {
-        $this->load->library('form_validation');
 
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');
         $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean|callback_check_size_50');
@@ -109,10 +133,10 @@ class Verification extends CI_Controller {
     }
 
     function check_database_login($mdp) {
-        //Field validation succeeded.  Validate against database
+//Field validation succeeded.  Validate against database
         $user = $this->input->post('user');
 
-        //query the database
+//query the database
         $result = $this->user->login($user, $mdp);
 
         if ($result) {
@@ -139,6 +163,31 @@ class Verification extends CI_Controller {
         } else {
             return true;
         }
+    }
+
+    function change_email($email) {
+        $this->user->id = $this->session->userdata('logged_in')["id"];
+        $this->user->password = $this->input->post('mdp');
+        $this->user->mail = $email;
+
+        if ($this->user->verifPassUser()) {
+            if ($this->user->setMail()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function change_mdp($nmdp) {
+        $this->user->password = $this->input->post('mdp');
+        $this->user->id = $this->session->userdata('logged_in')["id"];
+        if ($this->user->verifPassUser()) {
+            $this->user->password = $nmdp;
+            if ($this->user->setMdp()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

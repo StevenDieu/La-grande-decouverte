@@ -1,12 +1,12 @@
 function editArticle(id) {
-    if ($('#edit').editable('getHTML', false, false) !== "" && $('#titre').val() !== "" && $('#id').val() !== "" && $('#id_carnetvoyage').val() !== "") {
+    if ($('#edit').editable('getHTML', false, false) !== "" && $('.titre').val() !== "" && $('#id').val() !== "" && $('#id_carnetvoyage').val() !== "") {
         var contenu = $('#edit').editable('getHTML', false, false);
         var reg = new RegExp('style', "g");
         contenu = contenu.replace(reg, "style/");
         $.ajax({
             type: "post",
             url: urlEditArticle,
-            data: "contenu=" + contenu + "&titre=" + $('#titre').val() + "&id=" + id,
+            data: "contenu=" + contenu + "&titre=" + $('.titre').val() + "&id=" + id,
             success: function (result) {
                 if (result === "1") {
                     couleurAlerteClass(".form-titre", "has-success");
@@ -16,10 +16,10 @@ function editArticle(id) {
                 }
             }});
     } else {
-        if ($("#titre").val() === "" && $('#edit').editable('getHTML', false, false) === "") {
+        if ($(".titre").val() === "" && $('#edit').editable('getHTML', false, false) === "") {
             couleurAlerteClass(".form-titre", "has-error");
             couleurAlerteCss(".froala-view.froala-element.not-msie.f-basic", {"border": " 5px #a94442 solid", padding: "5px"}, {"border": " 0px #3c763d solid", padding: "10px"});
-        } else if ($("#titre").val() === "") {
+        } else if ($(".titre").val() === "") {
             couleurAlerteClass(".form-titre", "has-error");
         } else {
             couleurAlerteCss(".froala-view.froala-element.not-msie.f-basic", {"border": " 5px #a94442 solid", padding: "5px"}, {"border": " 0px #3c763d solid", padding: "10px"});
@@ -27,14 +27,14 @@ function editArticle(id) {
     }
 }
 function addArticle() {
-    if ($('#edit').editable('getHTML', false, false) !== "" && $('#titre').val() !== "") {
+    if ($('#edit').editable('getHTML', false, false) !== "" && $('.titre').val() !== "") {
         var contenu = $('#edit').editable('getHTML', false, false);
         var reg = new RegExp('style', "g");
         contenu = contenu.replace(reg, "style/");
         $.ajax({
             type: "post",
             url: urlAddArticle,
-            data: "contenu=" + contenu + "&titre=" + $('#titre').val() + "&id_carnet_voyage=" + id_carnet_voyage,
+            data: "contenu=" + contenu + "&titre=" + $('.titre').val() + "&id_carnet_voyage=" + id_carnet_voyage,
             success: function (result) {
                 if (result !== "0") {
                     returnListArticle("Article ajouté avec succés");
@@ -43,10 +43,10 @@ function addArticle() {
                 }
             }});
     } else {
-        if ($("#titre").val() === "" && $('#edit').editable('getHTML', false, false) === "") {
+        if ($(".titre").val() === "" && $('#edit').editable('getHTML', false, false) === "") {
             couleurAlerteClass(".form-titre", "has-error");
             couleurAlerteCss(".froala-view.froala-element.not-msie.f-basic", {"border": " 5px #a94442 solid", padding: "5px"}, {"border": " 0px #3c763d solid", padding: "10px"});
-        } else if ($("#titre").val() === "") {
+        } else if ($(".titre").val() === "") {
             couleurAlerteClass(".form-titre", "has-error");
         } else {
             couleurAlerteCss(".froala-view.froala-element.not-msie.f-basic", {"border": " 5px #a94442 solid", padding: "5px"}, {"border": " 0px #3c763d solid", padding: "10px"});
@@ -125,9 +125,6 @@ function returnListArticle(messageText) {
         }});
 }
 $(document).ready(function () {
-    $('#editArticle').click(function () {
-        editArticle();
-    });
     $(".buttonAjouterArticle").on("click", function () {
         popUpAddArticle();
     });

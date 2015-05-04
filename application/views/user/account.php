@@ -17,6 +17,8 @@
     var urlViewEditArticle = '<?php echo base_url('user/articles/edit'); ?>';
     var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
     var urlCompte = '<?php echo base_url('user/account/myaccount'); ?>';
+    var urlChangeEmail = '<?php echo base_url('user/verification/changeEmail'); ?>';
+    var urlChangeMdp = '<?php echo base_url('user/verification/changeMdp'); ?>';
 </script>
 
 </script>

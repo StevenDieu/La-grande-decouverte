@@ -1,11 +1,11 @@
 var inputTitre = new Array();
 
 function enregistrerCarnetVoyage() {
-    if ($("#titre").val() !== "" && $("#id_voyage").val() !== "") {
+    if ($(".titre").val() !== "" && $("#id_voyage").val() !== "") {
         $.ajax({
             type: "post",
             url: urlAddCarnetModel,
-            data: "titre=" + $("#titre").val() + "&id_voyage=" + $("#id_voyage").val(),
+            data: "titre=" + $(".titre").val() + "&id_voyage=" + $("#id_voyage").val(),
             success: function (result) {
                 $('#popUpAdd').modal("hide");
                 if (result !== "0") {
@@ -20,7 +20,7 @@ function enregistrerCarnetVoyage() {
                         id = parseInt($('.table-carnet tbody>tr:last td:first').html()) + 1;
                     }
                     $(".table-carnet > tbody:last").append("<tr><td class='tdPetithauteur'>" + id + "</td><td> "
-                            + '<input type="text" class="form-control inputTitreCarnetVoyage" id ="' + result + '" placeholder="Titre voyage"  value="' + $("#titre").val() + '" />'
+                            + '<input type="text" class="form-control inputTitreCarnetVoyage" id ="' + result + '" placeholder="Titre voyage"  value="' + $(".titre").val() + '" />'
                             + '<span class="glyphiHide ' + result + '">'
                             + '<a class="glyphicon_input editCarnetVoyage" data-id="' + result + '"><span class="glyphicon glyphicon-ok" ></span></a>'
                             + '<a class="glyphicon_input redoTitreCarnetVoyage" data-id="' + result + '"><span class="glyphicon glyphicon-repeat"></span></a>'
@@ -39,14 +39,14 @@ function enregistrerCarnetVoyage() {
                 }
             }});
     } else {
-        if ($("#titre").val() === "" && $("#id_voyage").val() === "") {
+        if ($(".titre").val() === "" && $("#id_voyage").val() === "") {
             $(".form-titre").addClass("has-error");
             $(".form-voyage").addClass("has-error");
             setTimeout(function () {
                 $(".form-titre").removeClass("has-error");
                 $(".form-voyage").removeClass("has-error");
             }, 5000);
-        } else if ($("#titre").val() === "") {
+        } else if ($(".titre").val() === "") {
             $(".form-titre").addClass("has-error");
             setTimeout(function () {
                 $(".form-titre").removeClass("has-error");

@@ -8,15 +8,15 @@ class Articles extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!$this->session->userdata('logged_in')) {
-            echo 'co';
-            die;
-        }
         $this->load->helper(array('form'));
         $this->load->model('article');
     }
 
     public function add() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
         if (!$this->input->get('id_carnet_voyage')) {
             echo "0";
         } else {
@@ -40,6 +40,10 @@ class Articles extends CI_Controller {
     }
 
     public function edit() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
         if (!$this->input->get('id')) {
             echo "0";
         } else {
@@ -77,10 +81,18 @@ class Articles extends CI_Controller {
     }
 
     public function upload() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
         $this->load->view('user/article/upload_image.php');
     }
 
     public function delete() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
         $this->load->view('user/article/delete_image.php');
     }
 

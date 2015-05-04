@@ -8,7 +8,8 @@ class Model_article extends CI_Controller {
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_in')) {
-            redirect('user/account/connexion', 'refresh');
+            echo "co";
+            die;
         }
         $this->load->model('article');
     }
@@ -45,7 +46,7 @@ class Model_article extends CI_Controller {
             $this->article->contenu = str_replace("style/", "style", $this->input->post('contenu'));
             $this->article->visible = "0";
             $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
-            if ($this->article->verifCompte()) {
+            if ($this->article->verifCompteArticle()) {
                 $this->article->setArticle();
                 echo "1";
             } else {
@@ -60,7 +61,7 @@ class Model_article extends CI_Controller {
         } else {
             $this->article->id = $this->input->post('id');
             $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
-            if ($this->article->verifCompte()) {
+            if ($this->article->verifCompteArticle()) {
                 $this->article->deleteArticle();
                 echo "1";
             } else {
