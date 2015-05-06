@@ -66,7 +66,7 @@ Class Article extends CI_Model {
     }
 
     function getArticles() {
-        $this->db->select('id, titre, contenu');
+        $this->db->select('id, titre, contenu, visible');
         $this->db->from('fichevoyage');
         $this->db->where("id_carnetvoyage", $this->id_carnetvoyage);
         $this->db->where("id_utilisateur", $this->id_utilisateur);

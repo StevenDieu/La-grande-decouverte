@@ -982,3 +982,13 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     text-align: center;
     margin: 0 auto;
 }
+
+.attentionIcon{
+    width: 25px;
+    background-image: url("http://localhost/TVAFS-1.0/assets/images/attention.png");
+    background-size: 25px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    content: ' ';
+    height: 22px;
+}

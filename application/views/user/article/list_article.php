@@ -45,7 +45,10 @@
                                 <?php echo $i; ?>
                             </td>
                             <td>
-                                <span id="<?php echo $article->id; ?>"><?php echo $article->titre; ?></span>
+                                <span id="<?php echo $article->id; ?>">
+                                    <?php echo $article->titre; ?>
+
+                                </span>
                             </td>
 
                             <td class="tdPetit">
@@ -55,7 +58,17 @@
                                 <a class="deleteArticle" data-id="<?php echo $article->id; ?>"><span class="glyphicon glyphicon-trash"></span></a>
                             </td>
                             <td class="tdPetit">
-                                <a target="_BLANK" href="<?php echo base_url('voyage/carnet/article') . "?id=" . $article->id; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                                <?php
+                                if ($article->visible == 0) {
+                                    ?>
+                                    <button type="button" class="attentionIcon" data-toggle="tooltip" data-placement="bottom" title="En attente de validation..."></button>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a target="_BLANK" href="<?php echo base_url('voyage/carnet/article') . "?id=" . $article->id; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                                    <?php
+                                }
+                                ?>
                             </td>
                         </tr>
                         <?php
@@ -75,3 +88,8 @@
         ?>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
