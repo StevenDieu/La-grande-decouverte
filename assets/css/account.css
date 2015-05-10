@@ -43,16 +43,7 @@
     border-top: 1px solid #5F5F5F;
 }
 
-.icon{
-    display: block;
-    position: absolute;
-    top: 2px;
-    left: 7px;
-    width: 28px;
-    height: 28px;
-    line-height: 28px;
-    text-align: center;
-}
+
 
 .actif{
     background-color: #111 !important;

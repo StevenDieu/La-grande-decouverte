@@ -68,8 +68,11 @@ body {
 }
 
 .nav>li>a {
-    padding: 10px 23px 10px 0;
+    padding: 0;
+    margin: 27px 22px 0 0;
 }
+
+a#popUpConnexion {}
 
 .logo {float:left;}
 .profil {

@@ -27,7 +27,10 @@ class Carnet_voyages extends CI_Controller {
         $data["id_voyages"] = $this->voyageUtilisateur->getVoyageUtilisateurs($this->session->userdata('logged_in')['id']);
         $data["voyages"] = array();
         foreach ($data["id_voyages"] as $id_voyages) {
-            array_push($data["voyages"], $this->voyage->getVoyage($id_voyages->voyage_id));
+            $this->carnetVoyage->id_voyage = $id_voyages->voyage_id;
+            if ($this->carnetVoyage->getVoyage() == false) {
+                array_push($data["voyages"], $this->voyage->getVoyage($id_voyages->voyage_id));
+            }
         }
 
         $this->load->view('user/carnet/add_carnet_voyage', $data);
