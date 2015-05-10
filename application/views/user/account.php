@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    var urlReconnect = '<?php echo base_url('user/verification/login'); ?>';
     var urlCarnet = '<?php echo base_url('user/carnet_voyages/liste'); ?>';
     var urlAddCarnet = "<?php echo base_url('user/carnet_voyages/add'); ?>";
     var urlAddCarnetModel = "<?php echo base_url('user/model_carnet_voyage/add'); ?>";
@@ -29,13 +30,13 @@
         <li name="titre Menu" class="menuTitre">
             <?php echo $username; ?>
         </li>
-        <li class="menuChamp menuChampPremier actif" data-onglet="compte">
+        <li class="menuChamp menuChampPremier comptes" data-onglet="comptes">
             <a href="#" ><span class="icon"><span class="glyphicon glyphicon-user"></span></span>Mon compte</a>
         </li>
-        <li class="menuChamp" data-onglet="voyages">
+        <li class="menuChamp voyages" data-onglet="voyages">
             <a href="#" ><span class="icon"><span class="glyphicon glyphicon-road"></span></span>Mes voyages</a>
         </li>
-        <li class="menuChamp" data-onglet="carnets">
+        <li class="menuChamp carnets" data-onglet="carnets">
             <a href="#" data-onglet="carnets"><span class="icon"><span class="glyphicon glyphicon-book"></span></span>Mes carnets</a>
         </li>
         <li class="menuChamp">
@@ -43,13 +44,7 @@
         </li>
     </ul>
 
-    <div class="contentUtilisateur active" id="compte">
-
-    </div>
-    <div class="contentUtilisateur" id="voyages">
-
-    </div>
-    <div class="contentUtilisateur" id="carnets">
+    <div class="contentUtilisateur" id="compte">
 
     </div>
 

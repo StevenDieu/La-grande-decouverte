@@ -94,8 +94,8 @@
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
+                    <img src="<?php echo asset_url() . "images/header/login-arrow-menu.png" ?>" class="login-arrow" alt="arrow image header"/>
                     <?php if (!$this->session->userdata('logged_in')) { ?>
-                        <img src="<?php echo asset_url() . "images/header/login-arrow-menu.png" ?>" class="login-arrow" alt="arrow image header"/>
                         <div class="login">
                             <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
@@ -111,7 +111,7 @@
                             <div class="connexion_footer">
                                 <a href="#"><span class="g">Mot de passe oubli&eacute; ?</span></a>
                             </div>
-                            <div class="submit_all_text">
+                            <div>
                                 <input type="submit" name="submit" class="bblue w100 center" id="popup_input_connexion" value="Se connecter">
                             </div>
                             </form>
@@ -124,7 +124,7 @@
                                     <input type="text" name="mail" class="required" id="mail" placeholder="Votre mail">
                                 </p>
                             </div>
-                            <div class="submit_all_text">
+                            <div>
                                 <input type="submit" name="submit" class="bblue w100 center" id="popup_login_inscription" value="S'inscrire">
                             </div>
                             </form>
@@ -139,11 +139,11 @@
                             <span>Bienvenue <?php echo $user_name ?></span>
                         </div>
                         <ul class="menu_popup">
-                            <li><a href="<?php echo base_url('user/account') ?>">- Mon compte</a></li>
-                            <li><a href="<?php echo base_url('user/account/logout') ?>">- Se déconnecter</a></li>
+                            <a href="<?php echo base_url('user/account') ?>" class="menuChamp" data-onglet="comptes"><li><span class="icon"><span class="glyphicon glyphicon-user"></span></span>Mon compte</li></a>
+                            <a href="<?php echo base_url('user/account') ?>" class="menuChamp" data-onglet="voyages"><li><span class="icon"><span class="glyphicon glyphicon-road"></span></span>Mes Voyages</li></a>
+                            <a href="<?php echo base_url('user/account') ?>" class="menuChamp" data-onglet="carnets"><li><span class="icon"><span class="glyphicon glyphicon-book"></span></span>Mes Carnets</li></a>
+                            <a href="<?php echo base_url('user/account/logout') ?>"><li><span class="icon"><span class="glyphicon glyphicon-off"></span></span>Se déconnecter</li></a>
                         </ul>
-                        <div class="connexion_footer">
-                        </div>
                     <?php } ?>
                 </div>
             </div>

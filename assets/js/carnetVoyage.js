@@ -25,7 +25,7 @@ function enregistrerCarnetVoyage() {
                             + '<a class="glyphicon_input editCarnetVoyage" data-id="' + result + '"><span class="glyphicon glyphicon-ok" ></span></a>'
                             + '<a class="glyphicon_input redoTitreCarnetVoyage" data-id="' + result + '"><span class="glyphicon glyphicon-repeat"></span></a>'
                             + '</span></td><td class="tdPetitGlaphi">'
-                            + "<a data-id='" + result + "' class='editCarnetVoyage'><span class='glyphicon glyphicon-pencil'></span></a>"
+                            + "<a data-id='" + result + "' class='editArticle'><span class='glyphicon glyphicon-pencil'></span></a>"
                             + "</td><td class='tdPetitGlaphi'>"
                             + "<a class='deleteCarnetVoyage' data-id='" + result + "'><span class='glyphicon glyphicon-trash'></span></a>"
                             + "</td>"
@@ -108,22 +108,9 @@ function verificationInputTitre(input) {
 }
 
 function editArticles(id) {
-    $.ajax({
-        type: "post",
-        url: urlListeArticle,
-        data: "id=" + id,
-        beforeSend: function () {
-            $("#carnets").html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
-            $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
-        },
-        success: function (result) {
-            if (result !== "0") {
-                $("#carnets").html(result);
-            } else {
-                message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
-            }
-        }});
+    chargementAjaxOnglet("listArticle", "idCarnet=" + id);
 }
+
 function clickButton() {
     $(".editCarnetVoyage").on("click", function () {
         editCarnetVoyage($(this));
@@ -148,7 +135,6 @@ function clickButton() {
 
     $(".editArticle").on("click", function () {
         editArticles($(this).data("id"));
-
     });
 
 }

@@ -14,14 +14,11 @@ class Articles extends CI_Controller {
         }
         $this->load->helper(array('form'));
         $this->load->model('article');
+        $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
     }
 
     public function add() {
-        if (!$this->session->userdata('logged_in')) {
-            echo 'co';
-            die;
-        }
-        if (!$this->input->get('id_carnet_voyage')) {
+        if (!$this->input->post('idCarnet')) {
             echo "0";
         } else {
             $this->load->helper(array('form'));
@@ -38,17 +35,16 @@ class Articles extends CI_Controller {
                 "plugins/video.min",
                 "langs/fr"
             );
-            $data["id_carnet_voyage"] = $this->input->get('id_carnet_voyage');
-            $this->load->view('user/article/add_article', $data);
+            $data["id_carnet_voyage"] = $this->input->post('idCarnet');
+            if ($data["id_carnet_voyage"] != false) {
+                $this->load->view('user/article/add_article', $data);
+            }
         }
     }
 
     public function edit() {
-        if (!$this->session->userdata('logged_in')) {
-            echo 'co';
-            die;
-        }
-        if (!$this->input->get('id')) {
+
+        if (!$this->input->post('idArticle')) {
             echo "0";
         } else {
             $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
@@ -64,20 +60,20 @@ class Articles extends CI_Controller {
                 "plugins/video.min",
                 "langs/fr"
             );
-            $this->article->id = $this->input->get('id');
+            $this->article->id = $this->input->post('idArticle');
             $data["article"] = $this->article->getArticle();
-            $this->load->helper(array('form'));
-            $this->load->view('user/article/edit_article', $data);
+            if ($data["article"] != false) {
+                $this->load->view('user/article/edit_article', $data);
+            }
         }
     }
 
     public function liste() {
-        if (!$this->input->post('id')) {
+        if (!$this->input->post('idCarnet')) {
             echo "0";
         }
         $this->load->helper(array('form'));
-        $this->article->id_carnetvoyage = $this->input->post('id');
-        $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+        $this->article->id_carnetvoyage = $this->input->post('idCarnet');
 
         $data["articles"] = $this->article->getArticles();
         $data["id_carnet_voyage"] = $this->input->post('id');

@@ -34,7 +34,7 @@ class Carnet extends CI_Controller {
         $this->article->id_carnetvoyage = $data['carnetVoyage'][0]->id;
         $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
 
-        $data["articles"] = $this->article->getArticles();
+        $data["articles"] = $this->article->getArticleVisible();
 
         $this->load->templateCarnet('/carnet', $data);
     }

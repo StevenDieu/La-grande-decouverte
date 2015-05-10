@@ -485,7 +485,7 @@ h2.titre{
     min-height: 35px;
     border-left: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
-    background: url(../images/img/bgr_text_field.png) repeat-x;
+    background: url(../images/checkout/bgr_text_field.png) repeat-x;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -539,6 +539,7 @@ h2.titre{
 
 .connexion_header span{
     font-size: 16px;
+    color: rgb(94, 94, 94);
 }
 
 span.ou{
@@ -715,6 +716,7 @@ span.ou{
     padding: 10px 10px 0px 10px;    z-index: 100;    
     width: 250px;  
     right: 0;
+    color: black;
     top: 72px;
 }
 
@@ -732,6 +734,7 @@ span.ou{
     height: 40px; 
     line-height: 40px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .content_popup{
@@ -791,10 +794,16 @@ ul.menu_popup{
 
 ul.menu_popup li{
     text-align: left;
+    padding: 7px;
+    padding-left: 43px;
+    border: 1px solid rgb(171, 156, 156);
+    margin-bottom: 4px;
+    border-radius: 4px;
+    position: relative;
 }
 
-ul.menu_popup li a{
-    color: #000;
+ul.menu_popup a{
+    color: rgb(94, 94, 94);
 }
 
 #editor{
@@ -882,9 +891,6 @@ ul.menu_popup li a{
 
 }
 
-#carnets{
-}
-
 .messageAlerteCarnet .alert{
     padding: 10px 15px;
 }
@@ -914,6 +920,10 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     text-align: left;
     border-color: transparent;
 }
+.bblue:focus,.borange:focus,.bgreen:focus,.bwhite:focus{
+  outline: none;
+}
+
 
 .bblue .fleche,.borange .fleche,.bgreen .fleche,.bwhite .fleche{
     display: block;
@@ -948,7 +958,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
 
 .bwhite{
     background-color: #FFF;
-    color: #000;
+    color: #565656;
     border: 1px solid;
 }
 
@@ -991,4 +1001,27 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     background-color: rgba(240, 248, 255, 0);
     content: ' ';
     height: 22px;
+}
+
+.bottom {
+    margin-top: 8px;
+}
+
+ul.menu_popup a:hover {
+    text-decoration: none;
+}
+
+ul.menu_popup li:hover {
+    background-color: rgb(232, 232, 232);
+}
+
+.icon{
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
 }

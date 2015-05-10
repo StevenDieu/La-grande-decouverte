@@ -30,7 +30,7 @@ Class Article extends CI_Model {
         $this->db->where('id', $this->id);
         $this->db->where('id_utilisateur', $this->id_utilisateur);
         $this->db->limit(1);
-        
+
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
@@ -43,7 +43,8 @@ Class Article extends CI_Model {
     function setArticle() {
         $data = array(
             'titre' => $this->titre,
-            'contenu' => $this->contenu
+            'contenu' => $this->contenu,
+            'visible' => 0
         );
         $this->db->where('id', $this->id);
         $this->db->update('fichevoyage', $data);
@@ -54,6 +55,23 @@ Class Article extends CI_Model {
         $this->db->select('*');
         $this->db->from('fichevoyage');
         $this->db->where('id', $this->id);
+        $this->db->where("id_utilisateur", $this->id_utilisateur);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getArticleVisible() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id', $this->id);
+        $this->db->where('visible', 1);
         $this->db->limit(1);
 
         $query = $this->db->get();

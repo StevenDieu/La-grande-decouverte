@@ -56,39 +56,13 @@ function addArticle() {
 
 
 function popUpAddArticle() {
-    $.ajax({
-        type: "get",
-        url: urlViewAddArticle,
-        data: "id_carnet_voyage=" + id_carnet_voyage,
-        beforeSend: function () {
-            $("#carnets").html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
-            $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
-        },
-        success: function (result) {
-            if (result == "0") {
-                message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
-            } else {
-                $("#carnets").html(result);
-            }
-        }});
+    var idCarnet = getParamUrl("idCarnet");
+    chargementAjaxOnglet("addArticle", "idCarnet=" + idCarnet);
 }
+
 function popUpEditArticle(id) {
-    $.ajax({
-        type: "get",
-        url: urlViewEditArticle,
-        data: "id=" + id,
-        beforeSend: function () {
-            $("#carnets").html('<div class="center" id="spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
-            $("#spinneur").css({"margin-top": ($(".content").height() / 2 - $("#spinneur").height() / 2 - 35) + 'px'});
-        },
-        success: function (result) {
-            if (result === "0") {
-                message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
-            } else {
-                $("#carnets").html(result);
-            }
-        }
-    });
+    var idCarnet = getParamUrl("idCarnet");
+    chargementAjaxOnglet("editArticle", "idCarnet=" + idCarnet + "&idArticle=" + id);
 }
 
 
@@ -109,21 +83,9 @@ function deleteArticle(bouton) {
 }
 
 function returnListArticle(messageText) {
-    $.ajax({
-        type: "post",
-        url: urlListeArticle,
-        data: "id=" + id_carnet_voyage,
-        success: function (result) {
-            if (result !== "0") {
-                $("#carnets").html(result);
-                if (message !== "") {
-                    message(urlSucces, messageText);
-                }
-            } else {
-                message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
-            }
-        }});
+    chargementAjaxOnglet("listArticle", "idCarnet=" + id_carnet_voyage);
 }
+
 $(document).ready(function () {
     $(".buttonAjouterArticle").on("click", function () {
         popUpAddArticle();
