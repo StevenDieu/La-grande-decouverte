@@ -17,7 +17,7 @@
                     <tr>
                         <th  class="tdPetit">#</th>
                         <th>Titre</th>
-                        <th class="tdMoyen">Editer article</th>
+                        <th class="tdMoyen">Liste article</th>
                         <th class="tdPetit">Supprimer</th>
                         <th class="tdPetit">Visuel</th>
                     </tr>

@@ -70,6 +70,7 @@ if (isset($librairieJs)) {
                 language: 'fr',
                 imageUploadURL: urlUpload,
                 imageDeleteURL: urlDelete,
+                idArticle: <?php echo $article[0]->id; ?>,
                 imageUploadParams: {
                     id: 'edit'
                 }
