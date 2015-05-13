@@ -1,21 +1,12 @@
-<div class="content admin-connexion">
-  <?php echo validation_errors(); ?>
-   <?php echo form_open('admin/index/login'); ?>
-     <label for="username">Username:</label>
-     <input type="text" size="20" id="username" name="username"/>
-     <br/>
-     <label for="password">Password:</label>
-     <input type="password" size="20" id="passowrd" name="password"/>
-     <br/>
-     <input type="submit" value="Login"/>
-   </form>
-</div>
-
 <div class="container">
    <div class="text-center"><img src="<?php echo asset_url(''); ?>images/header/finalogo_blanc.png" /></div>
-     <form class="form-signin">
-    <input type="text" class="form-control" placeholder="Email" autofocus>
-        <input type="password" class="form-control" placeholder="Mot de passe">
+   <?php echo validation_errors(); ?>
+   <?php 
+       $attributes = array('class' => 'form-signin');
+       echo form_open('admin/index/login',$attributes); 
+  ?>
+    <input type="text" class="form-control" placeholder="Identifant" id="username" name="username"autofocus>
+        <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password">
      <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
         <label class="checkbox pull-left">
           <input type="checkbox" value="remember-me"> 
