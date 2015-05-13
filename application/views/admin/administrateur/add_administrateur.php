@@ -1,5 +1,5 @@
 <div class="content admin-connexion">
-	<h1>ajouter un continent</h1>
+	<h1>ajouter un administrateur</h1>
 
     <?php if($this->session->flashdata('mdp_administrateur') != ''){ ?>
         <span class="success"><?php echo $this->session->flashdata('mdp_administrateur'); ?></span>
