@@ -8,7 +8,7 @@
 
    <?php echo '<a onclick="return confirm(confirmation);" href="'.base_url('admin/model_customer/bannir').'?id='.$customer[0]->id.'">Bannir</a>
 ' ?>
-   <?php echo form_open_multipart('admin/model_actualite/edit'); ?>
+   <?php echo form_open_multipart('admin/model_customer/edit'); ?>
     <div class="info_generale">
 
       <label for="login">login:</label>
