@@ -17,15 +17,15 @@ function initialiseResponsiveSilide(id) {
     });
 }
 function resizeSlide() {
-        if ($(".callbacks_container ul li img").height() >= (window.innerHeight - $(".header").height())) {
-            $('.slider_principal').css('height', window.innerHeight);
-            $('#slider_top').css('height', window.innerHeight);
-            $('#slider_top li').css('height', window.innerHeight);
-        } else {
-            $('.slider_principal').css('height', '');
-            $('#slider_top').css('height', '');
-            $('#slider_top li').css('height', '');
-        }
+    if ($(".callbacks_container ul li img").height() >= (window.innerHeight - $(".header").height())) {
+        $('.slider_principal').css('height', window.innerHeight - 76);
+        $('#slider_top').css('height', window.innerHeight - 76);
+        $('#slider_top li').css('height', window.innerHeight - 76);
+    } else {
+        $('.slider_principal').css('height', '');
+        $('#slider_top').css('height', '');
+        $('#slider_top li').css('height', '');
+    }
 }
 
 $(window).load(function () {
@@ -34,7 +34,6 @@ $(window).load(function () {
 
     resizeSlide();
     $(window).resize(function () {
-        resizeSlide(); 
-     
+        resizeSlide();
     });
 });

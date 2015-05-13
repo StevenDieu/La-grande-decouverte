@@ -163,6 +163,18 @@ if (isset($librairieJs)) {
         <?php
     }
 }
+if (isset($map)) {
+    ?>
+    <script type="text/javascript">
+        $(function ($) {
+            $('#map-continents').cssMap({
+                'size': sizeForMap,
+            });
+
+        });
+    </script>
+    <?php
+}
 ?> 
 
 </body> 

@@ -1,0 +1,135 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 mai 2015, 11:38:30
+    Author     : steven
+*/
+
+.content-home{
+    padding: 0;
+    overflow: hidden;
+    overflow: hidden;
+}
+
+.map{
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 2;
+}
+.blurpmenu{
+
+    position: absolute;
+    margin: -50px auto 0 auto;
+    text-align: center;
+
+
+    width: 99%;
+    z-index: 25;
+
+
+    bottom: -11px;
+}
+
+.blurpMenuRetour{
+    position: absolute;
+    margin: 66px auto 0 auto;
+    top: 0px;
+    text-align: center;
+    width: 99%;
+    z-index: 10;
+    transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -webkit-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -moz-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -o-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -ms-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+}
+
+.btn__arrow {
+    display: block;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    border-left: 2px solid rgb(68, 64, 64);
+    border-top: 2px solid rgb(68, 64, 64);
+    -moz-transform: translateX(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) rotate(45deg);
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
+    position: relative;
+    z-index: 30;
+    margin-top: -5px;
+}
+
+.btn--top_textRetour {
+    color: white;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    cursor: pointer;
+    height: 50px;
+    top: 48px;
+    margin: 0 auto;
+    padding-left: 1%;
+    z-index: 67;
+    width: 20px;
+    transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    
+    -webkit-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    -moz-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    -o-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    -ms-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+}
+.divLeTireurBottom{
+    height: 55px;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+
+.btn--top_text {
+    color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    padding-right: 1%;
+    cursor: pointer;
+}
+
+.divLeTireurTop{
+    position: relative;
+    top: -76px;}
+
+.rotate180{
+    transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -webkit-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -moz-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -o-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -ms-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    bottom: -55px;
+    z-index: 60;
+}
+
+@media (min-width: 767px){
+    .content-home{
+        padding-top: 76px;
+    }
+}
+
+
+.btn--top_textRetour:hover {
+    top: 52px;
+    transition-duration: 0.25s;
+}
+
+.btn--top_text:hover {
+    top: 31px !important;
+    transition-duration: 0.25s;
+}
+
+.map{
+    display: none;
+}
