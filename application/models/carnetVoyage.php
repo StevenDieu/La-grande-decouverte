@@ -100,6 +100,19 @@ Class CarnetVoyage extends CI_Model {
         }
     }
 
+    function getAllCarnetVoyages() {
+        $this->db->select('*');
+        $this->db->from('carnetvoyage');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function deleteCarnetVoyage() {
         $this->db->where('id', $this->id);
         $this->db->delete('carnetvoyage');

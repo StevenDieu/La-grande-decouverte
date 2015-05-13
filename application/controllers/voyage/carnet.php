@@ -7,9 +7,6 @@ class Carnet extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        if (!$this->session->userdata('logged_in')) {
-            redirect('user/account/connexion', 'refresh');
-        }
         $this->load->model('carnetVoyage');
         $this->load->model('article');
     }
@@ -54,6 +51,17 @@ class Carnet extends CI_Controller {
         $data["alljs"] = array("slide", "ficheVoyage");
 
         $this->load->templateCarnet('/article', $data);
+    }
+
+    public function liste_carnet() {
+        // creation fonction getAllCarnVoyages dans le model carnetVoyage
+        $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages();
+
+        // génération des css et js
+        $data["allCss"] = array("liste_carnet");
+        $data["alljs"] = array("liste_carnet");
+
+        $this->load->templateCarnet('/liste_carnet', $data);
     }
 
 }
