@@ -25,6 +25,7 @@ class Voyages extends CI_Controller {
             redirect('admin/voyages/liste', 'refresh');
         }
         $data["voyage"] = $this->voyage->getVoyage($this->input->get('id'));
+        $data["voyageVente"] = $this->voyage->getInfoVoyage($this->input->get('id'));
         $data["continents"] = $this->voyage->getContinents();
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/voyage/edit_voyage', $data);

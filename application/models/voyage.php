@@ -20,7 +20,6 @@ Class Voyage extends CI_Model {
         $titre,
         $phrase_accroche,
         $duree,
-        $prix,
         $image_sous_slider,
         $description_first_bloc,
         $description_second_bloc,
@@ -61,7 +60,6 @@ Class Voyage extends CI_Model {
         $this->db->set('titre', $titre);
         $this->db->set('phrase_accroche', $phrase_accroche);
         $this->db->set('duree', $duree);
-        $this->db->set('prix', $prix);
         $this->db->set('image_sous_slider', $image_sous_slider);
         $this->db->set('description_first_bloc', $description_first_bloc);
         $this->db->set('description_second_bloc', $description_second_bloc);
@@ -109,7 +107,6 @@ Class Voyage extends CI_Model {
         $titre,
         $phrase_accroche,
         $duree,
-        $prix,
         $image_sous_slider,//
         $description_first_bloc,
         $description_second_bloc,
@@ -150,7 +147,6 @@ Class Voyage extends CI_Model {
             'titre' => $titre,
             'phrase_accroche' => $phrase_accroche,
             'duree' => $duree,
-            'prix' => $prix,
             'description_first_bloc' => $description_first_bloc,
             'description_second_bloc' => $description_second_bloc,
             'description_third_bloc' => $description_third_bloc,
@@ -239,6 +235,9 @@ Class Voyage extends CI_Model {
         $this->db->where('id', $id);
         $this->db->update('voyage', $data);
 
+        $this->db->where('idVoyage', $id);
+        $this->db->delete('info_voyage'); 
+
         return true;
     }
 
@@ -258,7 +257,7 @@ Class Voyage extends CI_Model {
     }
 
     function getVoyages() {
-        $this->db->select('id, titre, prix');
+        $this->db->select('id, titre');
         $this->db->from('voyage');
 
         $query = $this->db->get();
@@ -345,7 +344,131 @@ Class Voyage extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('voyage'); 
 
+        $this->db->where('idVoyage', $id);
+        $this->db->delete('info_voyage'); 
+
         return true;
+    }
+
+    //info voyage
+
+    function addInfoVoyage(
+        $date_depart,
+        $date_arrivee,
+        $depart,
+        $arrivee,
+        $formalite,
+        $asavoir,
+        $comprenant,
+        $place_dispo,
+        $prix,
+        $special_price,
+        $tva,
+        $idVoyage
+        ) {
+        $this->db->set('date_depart', $date_depart);
+        $this->db->set('date_arrivee', $date_arrivee);
+        $this->db->set('depart', $depart);
+        $this->db->set('arrivee', $arrivee);
+        $this->db->set('formalite', $formalite);
+        $this->db->set('asavoir', $asavoir);
+        $this->db->set('comprenant', $comprenant);
+        $this->db->set('place_dispo', $place_dispo);
+        $this->db->set('prix', $prix);
+        $this->db->set('special_price', $special_price);
+        $this->db->set('tva', $tva);
+        $this->db->set('idVoyage', $idVoyage);
+
+        $this->db->insert('info_voyage');
+        
+        return $this->db->insert_id();
+    }
+
+    function editInfoVoyage(
+        $id,
+        $date_depart,
+        $date_arrivee,
+        $depart,
+        $arrivee,
+        $formalite,
+        $asavoir,
+        $comprenant,
+        $place_dispo,
+        $prix,
+        $special_price,
+        $tva,
+        $idVoyage
+        ) {
+        $data = array(
+            'date_depart' => $date_depart,
+            'date_arrivee' => $date_arrivee,
+            'depart' => $depart,
+            'arrivee' => $arrivee,
+            'formalite' => $formalite,
+            'asavoir' => $asavoir,
+            'comprenant' => $comprenant,
+            'place_dispo' => $place_dispo,
+            'prix' => $prix,
+            'special_price' => $special_price,
+            'tva' => $tva,
+            'idVoyage' => $idVoyage
+        );
+
+        $this->db->where('id', $id);
+        $this->db->where('idVoyage', $idVoyage);
+        $this->db->update('info_voyage', $data);
+
+        return true;
+    }
+
+    function deleteInfoVoyage($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('info_voyage'); 
+
+        return true;
+    }
+
+    function getInfoVoyage($id) {
+        $this->db->select('*');
+        $this->db->from('info_voyage');
+        $this->db->where('idVoyage', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getInfoVoyageById($id) {
+        $this->db->select('*');
+        $this->db->from('info_voyage');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getInfoVoyageMin($id){
+        $this->db->select('*');
+        $this->db->from('info_voyage');
+        $this->db->where('idVoyage', $id);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
     }
 
 }

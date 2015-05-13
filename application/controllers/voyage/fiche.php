@@ -14,7 +14,19 @@ class Fiche extends CI_Controller {
         }
         $this->load->model('voyage');
         $data['voyage'] = $this->voyage->getVoyage($this->input->get('id'));
-
+        if($data['voyage'] == null) {
+            redirect('pages/index/', 'refresh');
+        }
+        if($this->input->get('idInfo')){
+            $data['voyageInfo'] = $this->voyage->getInfoVoyageById($this->input->get('idInfo'));
+            $data['voyageInfo'][0]->date_depart = $this->DateFr($data['voyageInfo'][0]->date_depart);
+            $data['voyageInfo'][0]->date_arrivee = $this->DateFr($data['voyageInfo'][0]->date_arrivee);
+        }else{
+            $data['voyageInfo'] = $this->voyage->getInfoVoyageMin($this->input->get('id'));
+            $data['voyageInfo'][0]->date_depart = $this->DateFr($data['voyageInfo'][0]->date_depart);
+            $data['voyageInfo'][0]->date_arrivee = $this->DateFr($data['voyageInfo'][0]->date_arrivee);
+        }
+        
         if($data['voyage'] == null) {
             redirect('pages/index/', 'refresh');
         }
@@ -22,6 +34,11 @@ class Fiche extends CI_Controller {
         $data["allCss"] = array("ficheProduit");
         $data["alljs"] = array("slide","ficheProduit");
         $this->load->templateVoyage('/fiche_produit', $data);
+    }
+
+    function DateFr($date) {
+        setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
+        return (strftime("%A %d %B %Y",strtotime($date)));
     }
 
 }

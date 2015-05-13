@@ -17,13 +17,12 @@ class Model_voyage extends CI_Controller {
 
     public function save() {
         //information générale
-        $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean');
-        $this->form_validation->set_rules('phrase_accroche', 'phrase_accroche', 'trim|xss_clean');
-        $this->form_validation->set_rules('duree', 'duree', 'trim|xss_clean');
-        $this->form_validation->set_rules('prix', 'prix', 'trim|xss_clean');
-        $this->form_validation->set_rules('description_first_bloc', 'description_first_bloc', 'trim|xss_clean');
-        $this->form_validation->set_rules('description_second_bloc', 'description_second_bloc', 'trim|xss_clean');
-        $this->form_validation->set_rules('description_third_bloc', 'description_third_bloc', 'trim|xss_clean');
+        $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('phrase_accroche', 'phrase_accroche', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('duree', 'duree', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('description_first_bloc', 'description_first_bloc', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('description_second_bloc', 'description_second_bloc', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('description_third_bloc', 'description_third_bloc', 'trim|xss_clean|required');
 
         //information pays
         $this->form_validation->set_rules('capital', 'capital', 'trim|xss_clean');
@@ -50,19 +49,30 @@ class Model_voyage extends CI_Controller {
 
         $this->form_validation->set_rules('drapeau', 'drapeau', 'trim|xss_clean');
 
+        //info vente
+        $this->form_validation->set_rules('date_depart', 'date_depart', 'xss_clean');
+        $this->form_validation->set_rules('date_arrivee', 'date_arrivee', 'xss_clean');
+        $this->form_validation->set_rules('depart', 'depart', 'xss_clean');
+        $this->form_validation->set_rules('arrivee', 'arrivee', 'xss_clean');
+        $this->form_validation->set_rules('formalite', 'formalite', 'xss_clean');
+        $this->form_validation->set_rules('asavoir', 'asavoir', 'xss_clean');
+        $this->form_validation->set_rules('comprenant', 'comprenant', 'xss_clean');
+        $this->form_validation->set_rules('place_dispo', 'place_dispo', 'xss_clean');
+        $this->form_validation->set_rules('prix', 'prix', 'xss_clean');
+        $this->form_validation->set_rules('special_price', 'special_price', 'xss_clean');
+        $this->form_validation->set_rules('tva', 'tva', 'xss_clean');
 
         //information carte
         $this->form_validation->set_rules('lattitude', 'lattitude', 'trim|xss_clean');
         $this->form_validation->set_rules('longitude', 'longitude', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->templateUser('page_inscription');
+            $this->load->templateAdmin('voyage/add_voyage');
         } else {
             //information générale
             $titre = $this->input->post('titre');
             $phrase_accroche = $this->input->post('phrase_accroche');
             $duree = $this->input->post('duree');
-            $prix = $this->input->post('prix');
             $description_first_bloc = $this->input->post('description_first_bloc');
             $description_second_bloc = $this->input->post('description_second_bloc');
             $description_third_bloc = $this->input->post('description_third_bloc');
@@ -94,6 +104,19 @@ class Model_voyage extends CI_Controller {
             $picto_5 = $_FILES['picto_5']["name"];
             $picto_6 = $_FILES['picto_6']["name"];
 
+            //info vente
+            $date_depart = $this->input->post('date_depart');
+            $date_arrivee = $this->input->post('date_arrivee');
+            $depart = $this->input->post('depart');
+            $arrivee = $this->input->post('arrivee');
+            $formalite = $this->input->post('formalite');
+            $asavoir = $this->input->post('asavoir');
+            $comprenant = $this->input->post('comprenant');
+            $place_dispo = $this->input->post('place_dispo');
+            $prix = $this->input->post('prix');
+            $special_price = $this->input->post('special_price');
+            $tva = $this->input->post('tva');
+
             $image_description_1 = $_FILES['image_description_1']["name"];
             $image_description_2 = $_FILES['image_description_2']["name"];
             $image_description_3 = $_FILES['image_description_3']["name"];
@@ -111,8 +134,6 @@ class Model_voyage extends CI_Controller {
             $image_sous_slider = $_FILES['image_sous_slider']["name"];
 
             $meteo_image = $_FILES['meteo_image']["name"];
-
-
 
             if ($image_slider_1 != "" || $image_slider_2 != "" || $image_slider_3 != "") {
                 $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_slider/",
@@ -180,8 +201,8 @@ class Model_voyage extends CI_Controller {
             }
 
 
-            $result = $this->voyage->ajouterVoyage(
-                    $image_slider_1, $image_slider_2, $image_slider_3, $titre, $phrase_accroche, $duree, $prix, $image_sous_slider, //
+            $resultid = $this->voyage->ajouterVoyage(
+                    $image_slider_1, $image_slider_2, $image_slider_3, $titre, $phrase_accroche, $duree, $image_sous_slider, //
                     $description_first_bloc, $description_second_bloc, $description_third_bloc, $drapeau, $capital, $continent, $meteo_image, //
                     $meteo_temperature, $picto_1, //
                     $picto_2, //
@@ -200,6 +221,25 @@ class Model_voyage extends CI_Controller {
                     $image_description_5, //
                     $image_description_6, //
                     $lattitude, $longitude);
+
+            for ($i=0; $i < count($date_depart); $i++) { 
+                $this->voyage->addInfoVoyage(
+                $date_depart[$i],
+                $date_arrivee[$i],
+                $depart[$i],
+                $arrivee[$i],
+                $formalite[$i],
+                $asavoir[$i],
+                $comprenant[$i], 
+                $place_dispo[$i],
+                $prix[$i],
+                $special_price[$i],
+                $tva[$i],
+                $resultid
+                );
+            }
+
+            
 
             redirect('admin/voyages/liste', 'refresh');
         }
@@ -226,13 +266,12 @@ class Model_voyage extends CI_Controller {
 
     public function edit() {
         //information générale
-        $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean');
-        $this->form_validation->set_rules('phrase_accroche', 'phrase_accroche', 'trim|xss_clean');
-        $this->form_validation->set_rules('duree', 'duree', 'trim|xss_clean');
-        $this->form_validation->set_rules('prix', 'prix', 'trim|xss_clean');
-        $this->form_validation->set_rules('description_first_bloc', 'description_first_bloc', 'trim|xss_clean');
-        $this->form_validation->set_rules('description_second_bloc', 'description_second_bloc', 'trim|xss_clean');
-        $this->form_validation->set_rules('description_third_bloc', 'description_third_bloc', 'trim|xss_clean');
+        $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('phrase_accroche', 'phrase_accroche', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('duree', 'duree', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('description_first_bloc', 'description_first_bloc', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('description_second_bloc', 'description_second_bloc', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('description_third_bloc', 'description_third_bloc', 'trim|xss_clean|required');
 
         //information pays
         $this->form_validation->set_rules('capital', 'capital', 'trim|xss_clean');
@@ -257,6 +296,18 @@ class Model_voyage extends CI_Controller {
         $this->form_validation->set_rules('picto_5', 'picto_5', 'trim|xss_clean');
         $this->form_validation->set_rules('picto_6', 'picto_6', 'trim|xss_clean');
 
+        $this->form_validation->set_rules('date_depart', 'date_depart', 'xss_clean');
+        $this->form_validation->set_rules('date_arrivee', 'date_arrivee', 'xss_clean');
+        $this->form_validation->set_rules('depart', 'depart', 'xss_clean');
+        $this->form_validation->set_rules('arrivee', 'arrivee', 'xss_clean');
+        $this->form_validation->set_rules('formalite', 'formalite', 'xss_clean');
+        $this->form_validation->set_rules('asavoir', 'asavoir', 'xss_clean');
+        $this->form_validation->set_rules('comprenant', 'comprenant', 'xss_clean');
+        $this->form_validation->set_rules('place_dispo', 'place_dispo', 'xss_clean');
+        $this->form_validation->set_rules('prix', 'prix', 'xss_clean');
+        $this->form_validation->set_rules('special_price', 'special_price', 'xss_clean');
+        $this->form_validation->set_rules('tva', 'tva', 'xss_clean');
+        $this->form_validation->set_rules('id_voyage_vente', 'id_voyage_vente', 'xss_clean');
 
         //information carte
         $this->form_validation->set_rules('lattitude', 'lattitude', 'trim|xss_clean');
@@ -265,13 +316,15 @@ class Model_voyage extends CI_Controller {
         $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->templateUser('page_inscription');
+            $data["voyage"] = $this->voyage->getVoyage($this->input->post('id'));
+            $data["voyageVente"] = $this->voyage->getInfoVoyage($this->input->post('id'));
+            $data["continents"] = $this->voyage->getContinents();
+            $this->load->templateAdmin('voyage/edit_voyage',$data);
         } else {
             //information générale
             $titre = $this->input->post('titre');
             $phrase_accroche = $this->input->post('phrase_accroche');
             $duree = $this->input->post('duree');
-            $prix = $this->input->post('prix');
             $description_first_bloc = $this->input->post('description_first_bloc');
             $description_second_bloc = $this->input->post('description_second_bloc');
             $description_third_bloc = $this->input->post('description_third_bloc');
@@ -291,6 +344,20 @@ class Model_voyage extends CI_Controller {
             //information carte
             $lattitude = $this->input->post('lattitude');
             $longitude = $this->input->post('longitude');
+
+            //info vente
+            $date_depart = $this->input->post('date_depart');
+            $date_arrivee = $this->input->post('date_arrivee');
+            $depart = $this->input->post('depart');
+            $arrivee = $this->input->post('arrivee');
+            $formalite = $this->input->post('formalite');
+            $asavoir = $this->input->post('asavoir');
+            $comprenant = $this->input->post('comprenant');
+            $place_dispo = $this->input->post('place_dispo');
+            $prix = $this->input->post('prix');
+            $special_price = $this->input->post('special_price');
+            $tva = $this->input->post('tva');
+            $id_voyage_vente = $this->input->post('id_voyage_vente');
 
             //images
             $image_slider_1 = $_FILES['image_slider_1']["name"];
@@ -388,7 +455,7 @@ class Model_voyage extends CI_Controller {
 
 
             $result = $this->voyage->editerVoyage(
-                    $id, $image_slider_1, $image_slider_2, $image_slider_3, $titre, $phrase_accroche, $duree, $prix, $image_sous_slider, //
+                    $id, $image_slider_1, $image_slider_2, $image_slider_3, $titre, $phrase_accroche, $duree, $image_sous_slider, //
                     $description_first_bloc, $description_second_bloc, $description_third_bloc, $drapeau, $capital, $continent, $meteo_image, //
                     $meteo_temperature, $picto_1, //
                     $picto_2, //
@@ -407,6 +474,24 @@ class Model_voyage extends CI_Controller {
                     $image_description_5, //
                     $image_description_6, //
                     $lattitude, $longitude);
+
+            for ($i=0; $i < count($date_depart); $i++) { 
+                $this->voyage->addInfoVoyage(
+                $date_depart[$i],
+                $date_arrivee[$i],
+                $depart[$i],
+                $arrivee[$i],
+                $formalite[$i],
+                $asavoir[$i],
+                $comprenant[$i],     
+                $place_dispo[$i],
+                $prix[$i],
+                $special_price[$i],
+                $tva[$i],
+                $id
+                );
+            }
+
 
             redirect('admin/voyages/liste', 'refresh');
         }

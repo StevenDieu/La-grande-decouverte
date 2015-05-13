@@ -78,89 +78,36 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                         </div>
                         <div class="prix">
                             <span class="titre">à partir de</span>
-                            <span class="valeur"><?php echo $voyage[0]->prix; ?> €</span>
+                            <span class="valeur"><?php echo $voyageInfo[0]->prix; ?> €</span>
+                        </div>
+                    </div>
+                    <div class="info_prix">
+                        <div class="place_dispo">
+                            <span class="titre">Place disponible</span>
+                            <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
                         </div>
                     </div>
                     <div style="clear:both"></div>
-                    <a href="javascript:;" class="voir_date bblue" id="deplier_date">Dates de départ <span class="fleche"></span></a>
-                    <a href="javascript:;" class="voir_date" id="deplier_date_mobile">Dates de départ <span></span></a>
-                    <span class="result_date">Vous n'avez pas sélectionné de date.</span>
-                    <button id="embarque" class="borange bbillet" type="submit" value="J'embarque">J'embarque</button>
+                    Vous avez choisi les dates suivantes : <br/>
+                    Départ le <?php echo $voyageInfo[0]->date_depart; ?> à <?php echo $voyageInfo[0]->depart; ?>.<br/>
+                    Retour le <?php echo $voyageInfo[0]->date_arrivee; ?> à <?php echo $voyageInfo[0]->arrivee; ?>
+                    
+
+                    <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
+                    <input type="hidden" name="id" value="<?php echo $voyageInfo[0]->id; ?>">
+
+                    <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
+                    <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
                     <div style="clear:both"></div>
-                    <input type="hidden" name="choix_date" id="choix_date" value="0">
+
                 </form>
                 <div style="clear:both"></div>
             </div>
             <!-- fin bloc achat -->
-            <div class="ombreright"></div>
-            <div class="ombreleft"></div>
             <div class="clear"></div>
-            <!-- bloc choix date -->
-            <div class="container_dates desktop" style="display:none">
-                <!-- choix d'un départ -->
-                <div class="choix" id="1">
-                    <span class="titre">Du 12 mai 2015 au 21 mai 2015</span>
-                    <div class="stock instock"><span class="cercle"></span><span>8 places disponibles<span></div>
-                    <table>
-                        <tr><th>Départ</th><th>Arrivée</th></tr>
-                        <tr>
-                            <td>Paris Roissy- Charles de Gaulle à 6h45</td>
-                            <td>Santiago, Chili à 20h55</td>
-                        </tr>
-                    </table>
-                    <button class="choisir_date" type="submit" value="J'embarque">> Choisir ce voyage</button>
-                    <div class="clear"></div>
-                </div>
-                <!-- fin choix d'un départ -->
-
-                <!-- choix d'un départ -->
-                <div class="choix" id="2">
-                    <span class="titre">Du 22 mai 2015 au 31 mai 2015</span>
-                    <div class="stock outstock"><span class="cercle"></span><span>indisponible<span></div>
-                    <table>
-                        <tr><th>Départ</th><th>Arrivée</th></tr>
-                        <tr>
-                            <td>Paris Roissy- Charles de Gaulle à 8h55</td>
-                            <td>Santiago, Chili à 23h05</td>
-                        </tr>
-                    </table>   
-                    <button class="choisir_date outstock" type="submit" value="J'embarque">> Choisir ce voyage</button>
-                    <div class="clear"></div>  
-                </div>
-                <!-- fin choix d'un départ -->
-                
-                
-            </div>
-            <!-- fin bloc choix date -->
         </div>
         <div class="clear"></div>
     </div>
-
-    <script type="text/javascript">
-        $( document ).ready(function() {
-            $('#deplier_date').click(function() {
-                $('.container_dates').slideToggle("slow" );
-                $('#deplier_date span').toggleClass( "active" );
-            });    
-
-            $('.choisir_date').click(function() {
-                var id = $(this).parent().attr('id');
-                $('#choix_date').val(id);
-                $('.container_dates').slideToggle("slow" );
-                $('#deplier_date span').toggleClass( "active" );
-                $(".result_date").html("Vous avez sélectionné le voyage "+$(".container_dates #"+id+" span.titre").html());
-            });   
-
-            $('#embarque').click(function() {
-                if($("#choix_date").val() == 0){
-                    alert("Vous devez séléctionner un voyage");
-                    $('.container_dates').slideToggle("slow" );
-                    $('#deplier_date span').toggleClass( "active" );
-                    return false;
-                }
-            });
-        });
-    </script>
 
     <div class="onglet_fiche">
         <div class="onglet_fiche_inner">

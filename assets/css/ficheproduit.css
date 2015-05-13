@@ -805,7 +805,7 @@ span.fleche{
 
 .onglet4mobile .contenu .jour_container .day_container{
     box-shadow: #CDCDCD 0px 0px 3px 0px;
-    background: #e6ded6;
+    background: #F2F2F2;
     border-radius: 5px;
     position: relative;
     padding: 10px;
@@ -852,11 +852,6 @@ span.fleche{
 .onglet4mobile .contenu .jour_container .day_container .description_container .image img{
     width: 100%;
 }
-
-
-
-
-
 
 .slide_bottom .any-class{
     width: 650px !important;
@@ -1136,6 +1131,15 @@ span.fleche{
     float: left;
 }
 
+.top_bloc .info_prix .place_dispo span{
+    display: block;
+}
+.top_bloc .info_prix .place_dispo{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
 .top_bloc .info_prix .prix{
     float: right;
 }
@@ -1211,39 +1215,7 @@ span.fleche{
     z-index: 100;
 }
 
-.top_bloc .ombreright{
-    transform: rotate(8deg);
-    left: 113px;
-    content: "";
-    position: absolute;
-    bottom: 38px;
-    width: 168px;
-    height: 36px;
-    border-radius: 12px;
-    box-shadow: 0 0 16px 12px rgba(0,0,0,0.4);
-    z-index: 1;
-    -webkit-transform: rotate(8deg);
-    -moz-transform: rotate(8deg);
-    -o-transform: rotate(8deg);
-    -ms-transform: rotate(8deg);
-}
 
-.top_bloc .ombreleft{
-    transform: rotate(-8deg);
-    left: 70px;
-    content: "";
-    position: absolute;
-    bottom: 38px;
-    width: 168px;
-    height: 36px;
-    border-radius: 12px;
-    box-shadow: 0 0 16px 12px rgba(0,0,0,0.4);
-    z-index: 1;
-    -webkit-transform: rotate(-8deg);
-    -moz-transform: rotate(-8deg);
-    -o-transform: rotate(-8deg);
-    -ms-transform: rotate(-8deg);
-}
 
 
 .top_bloc .image_fond{
@@ -1346,7 +1318,9 @@ span.fleche{
     position: absolute;
     right: 15px;
     bottom: 15px;
-    width: 170px;
+    width: 153px;
+    font-size: 18px;
+    line-height: 40px;
 }
 
 .top_bloc a.voir_date{
