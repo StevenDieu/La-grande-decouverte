@@ -13,12 +13,11 @@
 </div>
 
 <div class="container">
-   <div class="text-center"><img src="http://wsnippets.com/wp-content/uploads/2013/10/logo_180.png?8885a5" /></div>
-   <h1 class="heading text-center">One account. All of WSnippets.com.</h1>
-   <p class="heading-desc text-center">Sign in to continue to WSnippets</p>
      <form class="form-signin">
-    <img data-src="holder.js/140x140" src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash2/v/t1.0-9/227195_1822656659212_2785457_n.jpg?oh=967e9871062e8a01f5582877271955a3&oe=55C2E856&__gda__=1440067899_690db98a7b0d8757cd68a1311a2ce13f" class="img-circle">
+    <img data-src="holder.js/140x140" src="/images/header/finalogo_blanc.png" class="img-circle">
 
+  <?php echo validation_errors(); ?>
+   <?php echo form_open('admin/index/login'); ?>
     <input type="text" class="form-control" placeholder="Email" autofocus>
         <input type="password" class="form-control" placeholder="Password">
      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
