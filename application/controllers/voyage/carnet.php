@@ -59,8 +59,9 @@ class Carnet extends CI_Controller {
 
         // génération des css et js
         $data["allCss"] = array("liste_carnet");
-        $data["alljs"] = array("liste_carnet");
+        $data["alljs"] = array("slide", "liste_carnet");
 
+        //appel du template
         $this->load->templateCarnet('/liste_carnet', $data);
     }
 
