@@ -337,10 +337,11 @@
 }
 
 .description_profile{
-    width: 70%;
+    width: 68%;
     
     float: right;
     padding-left: 34px;
+    padding-right: 16px;
     color: white;
 }
 

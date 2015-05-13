@@ -18,7 +18,7 @@ html {
        box-sizing: border-box;
 }
 
-.bloc_image_profile{
+*,*:before,*:after{
     box-sizing: inherit;
 }
 

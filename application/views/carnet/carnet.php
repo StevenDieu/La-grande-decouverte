@@ -1,4 +1,4 @@
-<div class="fiche_voyage">
+<div class="content fiche_voyage">
     <!-- Slideshow 4 -->
     <div class="callbacks_container">
         <ul class="rslides" id="slider_top">

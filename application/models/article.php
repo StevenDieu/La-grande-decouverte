@@ -67,16 +67,31 @@ Class Article extends CI_Model {
         }
     }
 
-    function getArticleVisible() {
+    
+    function getArticlePublic() {
         $this->db->select('*');
         $this->db->from('fichevoyage');
         $this->db->where('id', $this->id);
-        $this->db->where('visible', 1);
         $this->db->limit(1);
 
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getArticleVisible() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id_carnetvoyage', $this->id_carnetvoyage);
+        $this->db->where('visible', 1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
             return $query->result();
         } else {
             return false;
