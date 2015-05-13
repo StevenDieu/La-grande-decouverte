@@ -12,7 +12,7 @@
 </div>
 
 <div class="container">
-   <div class="text-center"><img src="http://localhost:8888/TVAFS-1.0/assets/images/header/finalogo_blanc.png" /></div>
+   <div class="text-center"><img src="<?php echo asset_url(''); ?>images/header/finalogo_blanc.png" /></div>
      <form class="form-signin">
     <input type="text" class="form-control" placeholder="Email" autofocus>
         <input type="password" class="form-control" placeholder="Mot de passe">
