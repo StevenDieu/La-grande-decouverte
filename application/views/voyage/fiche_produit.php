@@ -70,23 +70,30 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
             <div class="bloc_achat">
                 <form action="#">
                     <div class="nom_pays"><?php echo $voyage[0]->titre; ?></div>
-                    <div class="trait_sous_titre"></div>
+                    
                     <div class="info_prix">
+
                         <div class="info">
                             <span class="titre">Durée</span>
                             <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
                         </div>
+
                         <div class="prix">
                             <span class="titre">à partir de</span>
                             <span class="valeur"><?php echo $voyageInfo[0]->prix; ?> €</span>
                         </div>
+
                     </div>
+
                     <div class="info_prix">
                         <div class="place_dispo">
-                            <span class="titre">Place disponible</span>
+                            <span class="titre">Places disponibles</span>
                             <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
                         </div>
                     </div>
+
+
+
                     <div style="clear:both"></div>
                     Vous avez choisi les dates suivantes : <br/>
                     Départ le <?php echo $voyageInfo[0]->date_depart; ?> à <?php echo $voyageInfo[0]->depart; ?>.<br/>
@@ -96,7 +103,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
                     <input type="hidden" name="id" value="<?php echo $voyageInfo[0]->id; ?>">
 
-                    <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
+                    <button id="dates" class="bblue choix_dates" type="submit">Changer les dates</button>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
                     <div style="clear:both"></div>
 
@@ -207,33 +214,21 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
             <p><?php echo $voyage[0]->description_third_bloc; ?></p>
             </div>
 
-            <div id="jcl-demo">
-                <div class="custom-container widget">
-                    <div class="mid">
-                        <img class="zoom" src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>">
-                    </div>
-                    <div class="carousel">  
-                        <ul>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
-                            <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_3; ?>" alt="<?php echo $voyage[0]->image_description_3; ?>"></li>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_4; ?>" alt="<?php echo $voyage[0]->image_description_4; ?>"></li>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
-                            <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
-                        </ul> 
-                    </div>                        
-                    <div class="clear"></div>
-                </div>
+            <div class="slider_bot">
 
+                <ul class="" id="sliderbot">
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
+                    <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_3; ?>" alt="<?php echo $voyage[0]->image_description_3; ?>"></li>
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_4; ?>" alt="<?php echo $voyage[0]->image_description_4; ?>"></li>
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
+                    <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
+                </ul>
 
-                <script type="text/javascript">
-                    $(function() {
-                        $(".widget img").click(function() {
-                            $(".widget .mid img").attr("src", $(this).attr("src"));
-                        })
-                    });
-                </script>
             </div>
+
+            <script type="text/javascript">initialiseResponsiveSilide('#sliderbot');</script>
+
             <!-- fin contenu description -->
             <div class="clear"></div>
         </div>

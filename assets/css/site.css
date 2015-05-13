@@ -1,6 +1,6 @@
 @font-face { 
     font-family: 'helvetica'; 
-    src: url('../fonts/avenir/HelveticaNeueLTStd-Cn.otf'); 
+    src: url('../fonts/avenir/HelveticaLTStd-Light.otf'); 
 }
 
 @font-face { 
@@ -704,18 +704,21 @@ span.ou{
 
 .fil_arianne_conteneur .fil_arianne ul li a{
     text-decoration: none;
+    color: #989898
 }
 
 .fil_arianne_conteneur .fil_arianne ul li a:hover{
-    text-decoration: underline;
+    text-decoration: none;
+    color: #000;
 }
 
 .fil_arianne_conteneur .fil_arianne ul li::before{
-    content: ">";
+    content: " / ";
     margin-right: 5px;
 }
 .fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
-    content: "";
+    content: url(../images/home.png) center;
+    margin-right: 8px;
 }
 
 /********/

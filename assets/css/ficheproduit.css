@@ -475,6 +475,11 @@ span.fleche{
 
     .onglet4mobile .contenu .jour_container .day_counter .day{
         text-align: left;
+        text-transform: uppercase;
+        font-size: 2.375rem;
+        font-family: "NewCicleGordita";
+        color: #006695;
+        margin-bottom: 10px;
     }
 
     .onglet4mobile .contenu .jour_container{
@@ -787,7 +792,7 @@ span.fleche{
 
 .onglet4mobile .contenu .jour_container{
     padding-left: 122px;
-    padding-bottom: 12px;
+    padding-bottom: 35px;
     position: relative;
 }
 
@@ -804,8 +809,8 @@ span.fleche{
 }
 
 .onglet4mobile .contenu .jour_container .day_container{
-    box-shadow: #CDCDCD 0px 0px 3px 0px;
-    background: #F2F2F2;
+    box-shadow: -1px 2px 5px 1px #D3D3D3;
+    background: #fff;
     border-radius: 5px;
     position: relative;
     padding: 10px;
@@ -1095,56 +1100,17 @@ span.fleche{
     }
 }
 
-.top_bloc .info_prix{
-    width: 89%;
-    height: 80px;
-    float: right;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-}
-
-.container_dates .choix{
-    position: relative;
-}
-
-
-
-
-
-
 .top_bloc .nom_pays{
-    font-family: "helvetica";
-    font-size: 22px;
+    text-transform: uppercase;
+    font-size: 2.375rem;
+    font-family: "NewCicleGordita";
     text-align: center;
     width: 100%;
     padding: 15px 0;
     color: #006695;
 }
 
-.top_bloc .info_prix .info,.top_bloc .info_prix .prix {
-    width: auto;
-    height: 100%;
-    font-family: "helvetica";
-}
-
-.top_bloc .info_prix .info{
-    float: left;
-}
-
 .top_bloc .info_prix .place_dispo span{
-    display: block;
-}
-.top_bloc .info_prix .place_dispo{
-    margin: auto;
-    width: 100%;
-    text-align: center;
-}
-
-.top_bloc .info_prix .prix{
-    float: right;
-}
-
-.top_bloc .info_prix .info span,.top_bloc .info_prix .prix span{
     display: block;
 }
 
@@ -1155,18 +1121,6 @@ span.fleche{
     font-family: "helvetica";
     margin-top: 10px;
     color: #989898;
-}
-
-.top_bloc .info_prix span.valeur{
-    font-size: 33px;
-    margin-top: 10px;
-}
-
-.top_bloc .trait_sous_titre{
-    width: 20%;
-    height: 1px;
-    border-bottom: 1px solid black;
-    margin: auto;
 }
 
 @media (max-width: 400px){
@@ -1316,22 +1270,32 @@ span.fleche{
 
 #embarque{
     position: absolute;
-    right: 15px;
-    bottom: 15px;
-    width: 153px;
-    font-size: 18px;
+    right: 12px;
+    bottom: 12px;
+    width: 143px;
+    font-size: 14px;
     line-height: 40px;
+    padding-left: 20;
 }
 
-.top_bloc a.voir_date{
-    color: #fff;
-    text-transform: uppercase;
-    margin: 0px auto;
-    width: 278px;
-    text-decoration: none;
-
-    display: block;
+#dates{
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    width: 143px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
 }
+
+.slider_bot{
+    width: 100%;
+    margin: auto;
+    position: relative;
+    max-width: 768px;
+    margin-bottom: 20px;
+}
+
 
 
 
