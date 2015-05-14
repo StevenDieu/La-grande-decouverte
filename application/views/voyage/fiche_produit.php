@@ -320,7 +320,7 @@
                     height: 2px;
                     border-bottom: 1px solid #fff;
                     margin: auto;
-                    margin-bottom: 15px;
+                    margin-bottom: 20px;
                 }
 
                 .info_pratique .picto{
@@ -334,7 +334,7 @@
                     width: 10%;
                     margin-left: 5%;
                     max-width: 50px;
-                    padding-bottom: 10px;
+                    padding-bottom: 20px;
                 }
 
                 .info_pratique .picto li img{
