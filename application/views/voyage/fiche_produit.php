@@ -140,7 +140,7 @@
             <!-- contenu info pratique -->
             <div class="info_pratique">
                 <div class="filtre_image"></div>
-                <div class="fond_image"><img src="<?php echo base_url(''); ?>media/produit/aaa.png" alt="alt"></div>
+                <div class="fond_image"><img src="<?php echo base_url(''); ?>media/produit/image_sous_slider/<?php echo $voyage[0]->image_sous_slider; ?>" alt="<?php echo $voyage[0]->image_sous_slider; ?>"></div>
                 <div class="inner">
 
                     <div class="top">
