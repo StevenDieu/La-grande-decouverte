@@ -70,7 +70,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
             <div class="bloc_achat">
                 <form action="#">
                     <div class="nom_pays"><?php echo $voyage[0]->titre; ?></div>
-                    
+
                     <div class="info_prix">
 
                         <div class="info">
@@ -110,6 +110,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                 </form>
                 <div style="clear:both"></div>
             </div>
+
             <!-- fin bloc achat -->
             <div class="clear"></div>
         </div>

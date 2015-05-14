@@ -347,6 +347,9 @@ Class Voyage extends CI_Model {
         $this->db->where('idVoyage', $id);
         $this->db->delete('info_voyage'); 
 
+        $this->db->where('idVoyage', $id);
+        $this->db->delete('deroulement_voyage'); 
+
         return true;
     }
 
@@ -471,6 +474,77 @@ Class Voyage extends CI_Model {
         }
     }
 
+    //gestion déroulement voyage
+
+    function addDeroulement(
+        $titre,
+        $texte,
+        $photo,
+        $jour,
+        $idVoyage
+        ) {
+        $this->db->set('titre', $titre);
+        $this->db->set('texte', $texte);
+        $this->db->set('photo', $photo);
+        $this->db->set('jour', $jour);
+        $this->db->set('idVoyage', $idVoyage);
+
+        $this->db->insert('deroulement_voyage');
+        
+        return $this->db->insert_id();
+    }
+
+    function editDeroulement(
+        $id,
+        $titre,
+        $texte,
+        $photo,
+        $jour,
+        $idVoyage
+        ) {
+        $data = array(
+            'titre' => $titre,
+            'texte' => $texte,
+            'photo' => $photo,
+            'jour' => $jour,
+            'idVoyage' => $idVoyage
+        );
+
+        $this->db->where('id', $id);
+        $this->db->where('idVoyage', $idVoyage);
+        $this->db->update('deroulement_voyage', $data);
+
+        return true;
+    }
+
+    function deleteDeroulement($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('deroulement_voyage'); 
+
+        return true;
+    }
+
+    function deleteDeroulementByidvoyage($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('deroulement_voyage'); 
+
+        return true;
+    }
+
+    function getAllDeroulementByVoyage($id) {
+        $this->db->select('*');
+        $this->db->from('info_voyage');
+        $this->db->where('idVoyage', $id);
+        $this->db->order_by("jour","asc");
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

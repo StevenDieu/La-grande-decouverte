@@ -15,6 +15,13 @@ class Model_voyage extends CI_Controller {
         $this->load->library('upload');
     }
 
+
+
+
+
+
+
+
     public function save() {
         //information générale
         $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean|required');
@@ -62,12 +69,18 @@ class Model_voyage extends CI_Controller {
         $this->form_validation->set_rules('special_price', 'special_price', 'xss_clean');
         $this->form_validation->set_rules('tva', 'tva', 'xss_clean');
 
+        //info déroulement
+        $this->form_validation->set_rules('titrederoulement', 'titrederoulement', 'xss_clean');
+        $this->form_validation->set_rules('texte', 'texte', 'xss_clean');
+        $this->form_validation->set_rules('jour', 'jour', 'xss_clean');
+
         //information carte
         $this->form_validation->set_rules('lattitude', 'lattitude', 'trim|xss_clean');
         $this->form_validation->set_rules('longitude', 'longitude', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->templateAdmin('voyage/add_voyage');
+            $data["continents"] = $this->voyage->getContinents();
+            $this->load->templateAdmin('voyage/add_voyage',$data);
         } else {
             //information générale
             $titre = $this->input->post('titre');
@@ -116,6 +129,11 @@ class Model_voyage extends CI_Controller {
             $prix = $this->input->post('prix');
             $special_price = $this->input->post('special_price');
             $tva = $this->input->post('tva');
+
+            //info déroulement
+            $titrederoulement = $this->input->post('titrederoulement');
+            $texte = $this->input->post('texte');
+            $jour = $this->input->post('jour');
 
             $image_description_1 = $_FILES['image_description_1']["name"];
             $image_description_2 = $_FILES['image_description_2']["name"];
@@ -222,6 +240,8 @@ class Model_voyage extends CI_Controller {
                     $image_description_6, //
                     $lattitude, $longitude);
 
+            
+
             for ($i=0; $i < count($date_depart); $i++) { 
                 $this->voyage->addInfoVoyage(
                 $date_depart[$i],
@@ -239,11 +259,27 @@ class Model_voyage extends CI_Controller {
                 );
             }
 
-            
+            $photo = array("aze","e");
+
+            for ($i=0; $i < count($titrederoulement); $i++) { 
+                $this->voyage->addDeroulement(
+                $titrederoulement[$i],
+                $texte[$i],
+                $photo[$i],
+                $jour[$i],
+                $resultid
+                );
+            }
 
             redirect('admin/voyages/liste', 'refresh');
         }
     }
+
+
+
+
+
+
 
     function chaine_aleatoire($nb_car, $chaine = 'azertyuiopqsdfghjklmwxcvbn123456789') {
         $nb_lettres = strlen($chaine) - 1;
@@ -256,6 +292,13 @@ class Model_voyage extends CI_Controller {
         return $generation;
     }
 
+
+
+
+
+
+
+
     public function delete() {
         $id = $this->input->get('id');
 
@@ -263,6 +306,11 @@ class Model_voyage extends CI_Controller {
 
         redirect('admin/voyages/liste', 'refresh');
     }
+
+
+
+
+
 
     public function edit() {
         //information générale
@@ -497,6 +545,11 @@ class Model_voyage extends CI_Controller {
         }
     }
 
+
+
+
+
+
     function uploadImage($image,$name){
         if ($image != "") {
             $image = $this->chaine_aleatoire(8) . $image;
@@ -510,6 +563,12 @@ class Model_voyage extends CI_Controller {
             return '';
         }
     }
+
+
+
+
+
+
 
     function initailisationConfig($upload_path,$allowed_types,$max_size,$max_width,$max_height){
         $config['upload_path'] = $upload_path;

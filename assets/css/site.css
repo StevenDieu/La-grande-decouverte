@@ -704,7 +704,9 @@ span.ou{
 
 .fil_arianne_conteneur .fil_arianne ul li a{
     text-decoration: none;
-    color: #989898
+    color: #989898;
+    font-family: "helvetica";
+    text-transform: lowercase;
 }
 
 .fil_arianne_conteneur .fil_arianne ul li a:hover{
@@ -715,6 +717,7 @@ span.ou{
 .fil_arianne_conteneur .fil_arianne ul li::before{
     content: " / ";
     margin-right: 5px;
+    color: #3C3C3C;
 }
 .fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
     content: url(../images/home.png) center;
