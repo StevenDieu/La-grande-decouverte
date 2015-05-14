@@ -5,22 +5,22 @@
 <script type="text/javascript">
 //<?php echo $voyage[0]->lattitude; ?>, lng: <?php echo $voyage[0]->longitude; ?>},
 
-function initialize() {
-var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>);
-  var mapOptions = {
-    zoom: 8,
-    scrollwheel: false,
-    disableDoubleClickZoom: true,
-    center: myLatlng,
-  };
-  map = new google.maps.Map(document.getElementById('carte'), mapOptions);
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>);
+        var mapOptions = {
+            zoom: 8,
+            scrollwheel: false,
+            disableDoubleClickZoom: true,
+            center: myLatlng,
+        };
+        map = new google.maps.Map(document.getElementById('carte'), mapOptions);
 
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Hello World!'
-  });
-}
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
 
 
 </script>
@@ -98,7 +98,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                     Vous avez choisi les dates suivantes : <br/>
                     Départ le <?php echo $voyageInfo[0]->date_depart; ?> à <?php echo $voyageInfo[0]->depart; ?>.<br/>
                     Retour le <?php echo $voyageInfo[0]->date_arrivee; ?> à <?php echo $voyageInfo[0]->arrivee; ?>
-                    
+
 
                     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
                     <input type="hidden" name="id" value="<?php echo $voyageInfo[0]->id; ?>">
@@ -144,10 +144,10 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                         <div class="table_info">
                             <div class="une_ligne">
                                 <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></div>
-                                 <?php
-                                    $date = new DateTime(null, new DateTimeZone('America/Santiago'));
+                                <?php
+                                $date = new DateTime(null, new DateTimeZone('America/Santiago'));
                                 ?>
-                                <div class="droit"><span class="tgauche">Heure locale</span><span class="tdroit"><?php echo str_replace(':','h',$date->format('H:i')); ?></span></div>
+                                <div class="droit"><span class="tgauche">Heure locale</span><span class="tdroit"><?php echo str_replace(':', 'h', $date->format('H:i')); ?></span></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="une_ligne">
@@ -156,8 +156,9 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                                 <div class="clear"></div>
                             </div>
                             <div class="une_ligne">
-                                <?php   $this->load->model('voyage'); 
-                                        $result = $this->voyage->getContinent($voyage[0]->continent);
+                                <?php
+                                $this->load->model('voyage');
+                                $result = $this->voyage->getContinent($voyage[0]->continent);
                                 ?>
                                 <div class="gauche"><span class="tgauche">Continent</span><span class="tdroit"><?php echo $result[0]->name; ?></span></div>
                                 <div class="clear"></div>
@@ -212,7 +213,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
             </div>
 
             <div class="text">
-            <p><?php echo $voyage[0]->description_third_bloc; ?></p>
+                <p><?php echo $voyage[0]->description_third_bloc; ?></p>
             </div>
 
             <div class="slider_bot">
@@ -226,6 +227,16 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                     <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
                 </ul>
 
+<<<<<<< HEAD
+=======
+                <script type="text/javascript">
+                    $(function () {
+                        $(".widget img").click(function () {
+                            $(".widget .mid img").attr("src", $(this).attr("src"));
+                        })
+                    });
+                </script>
+>>>>>>> origin/master
             </div>
 
             <script type="text/javascript">initialiseResponsiveSilide('#sliderbot');</script>
@@ -237,7 +248,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
         <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
         <div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
         <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
-        <!-- contenu carnet de voyage -->
+            <!-- contenu carnet de voyage -->
             <div class="article_first">
                 <div class="image">
                     <div class="callbacks_container carnet">
@@ -361,7 +372,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
 
                 <div style="clear:both"></div>
             </div>
-        <!-- fin contenu carnet de voyage -->	
+            <!-- fin contenu carnet de voyage -->	
         </div>
         <div id="onglet4mobile" class="onglet_mobile"><a href="#">Déroulement</a></div>
         <div id="onglet4" class="contenu_fiche_onglet onglet4mobile">
@@ -382,7 +393,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                             <div class="texte">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !</div>
+                                    Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
                         <div style="clear:both"></div>
@@ -401,7 +412,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                             <div class="texte no-image">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !</div>
+                                    Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
                         <div style="clear:both"></div>
@@ -423,7 +434,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                             <div class="texte">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !</div>
+                                    Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
                         <div style="clear:both"></div>

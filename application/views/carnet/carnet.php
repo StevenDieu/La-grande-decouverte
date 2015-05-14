@@ -1,4 +1,4 @@
-<div class="fiche_voyage">
+<div class="content fiche_voyage">
     <!-- Slideshow 4 -->
     <div class="callbacks_container">
         <ul class="rslides" id="slider_top">
@@ -34,22 +34,23 @@
     </div>
     <div style="clear:both"></div>
     <div class="baniere_description">
-        <div class="content_fiche_voyage">
-
-            <div class="row">
-                <div class="col-md-3">
+        <div class="image_transparente">
+            <div class="content_fiche_voyage">
+                <div class="description_profile">
+                    <h1>JOHN DOE</h1>
+                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ...</P>
+                </div>
+                <div class="clear"></div>
+                <div class="image_profile">
                     <div class="bloc_image_profile">
                         <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <h1>JOHN DOE</h1>
-                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ...</P>
-                </div>
             </div>
         </div>
     </div>
-
+    <div class="clear"></div>
+    <br/><br/><br/>
     <div class="content_fiche_voyage">
 
         <?php
@@ -65,41 +66,41 @@
 
             <?php
             foreach ($articles as $article) {
-                    ?>
-                    <div class="row blocVoyage">
-                        <div class="col-md-5">
-                            <div class="textJour">
-                                <?php echo $article->titre; ?>
-                            </div>
+                ?>
+                <div class="row blocVoyage">
+                    <div class="col-md-5">
+                        <div class="textJour">
+                            <?php echo $article->titre; ?>
                         </div>
-                        <div class="col-md-1">
-                            <div class="pointRouge"></div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="row blockRow">                        
-                                <div class="col-md-8">
-                                    <div class="descriptionJour">
-                                        <div class="textDescriptionJourHaut">
-                                            <?php echo tronque($article->contenu); ?>
-                                        </div>
-                                        <div class="textDescriptionJourBas">
-                                            <a href="<?php echo base_url('voyage/carnet/article?id=' . $article->id) ?>">Lire la fiche</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">                                    
-                                    <div class="imgJour">
-                                        <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                    <?php
+                    <div class="col-md-1">
+                        <div class="pointRouge"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row blockRow">                        
+                            <div class="col-md-8">
+                                <div class="descriptionJour">
+                                    <div class="textDescriptionJourHaut">
+                                        <?php echo tronque($article->contenu); ?>
+                                    </div>
+                                    <div class="textDescriptionJourBas">
+                                        <a href="<?php echo base_url('voyage/carnet/article?id=' . $article->id) ?>">Lire la fiche</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">                                    
+                                <div class="imgJour">
+                                    <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <?php
             }
-        }else{
+        } else {
             ?>
             Il n'y a pas encore d'article
             <?php

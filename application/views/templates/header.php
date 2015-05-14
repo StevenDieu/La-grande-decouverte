@@ -139,10 +139,38 @@
                             <span>Bienvenue <?php echo $user_name ?></span>
                         </div>
                         <ul class="menu_popup">
-                            <a href="<?php echo base_url('user/account') ?>" class="menuChamp" data-onglet="comptes"><li><span class="icon"><span class="glyphicon glyphicon-user"></span></span>Mon compte</li></a>
-                            <a href="<?php echo base_url('user/account') ?>" class="menuChamp" data-onglet="voyages"><li><span class="icon"><span class="glyphicon glyphicon-road"></span></span>Mes Voyages</li></a>
-                            <a href="<?php echo base_url('user/account') ?>" class="menuChamp" data-onglet="carnets"><li><span class="icon"><span class="glyphicon glyphicon-book"></span></span>Mes Carnets</li></a>
-                            <a href="<?php echo base_url('user/account/logout') ?>"><li><span class="icon"><span class="glyphicon glyphicon-off"></span></span>Se déconnecter</li></a>
+                            <a href="<?php echo base_url('user/account') ?>#comptes" class="menuChamp" data-onglet="comptes">
+                                <li>
+                                    <span class="icon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    Mon compte
+                                </li>
+                            </a>
+                            <a href="<?php echo base_url('user/account') ?>#voyages" class="menuChamp" data-onglet="voyages">
+                                <li>
+                                    <span class="icon">
+                                        <span class="glyphicon glyphicon-road"></span>
+                                    </span>
+                                    Mes Voyages
+                                </li>
+                            </a>
+                            <a href="<?php echo base_url('user/account') ?>#carnets" class="menuChamp" data-onglet="carnets">
+                                <li>
+                                    <span class="icon">
+                                        <span class="glyphicon glyphicon-book"></span>
+                                    </span>
+                                    Mes Carnets
+                                </li>
+                            </a>
+                            <a href="<?php echo base_url('user/account/logout') ?>">
+                                <li>
+                                    <span class="icon">
+                                        <span class="glyphicon glyphicon-off"></span>
+                                    </span>
+                                    Se déconnecter
+                                </li>
+                            </a>
                         </ul>
                     <?php } ?>
                 </div>

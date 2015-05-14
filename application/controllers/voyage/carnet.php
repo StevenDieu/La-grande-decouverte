@@ -11,9 +11,6 @@ class Carnet extends CI_Controller {
         $this->load->model('article');
     }
 
-    /**
-     * 
-     */
     public function index() {
         $data["allCss"] = array("ficheVoyage");
         $data["alljs"] = array("slide", "ficheVoyage");
@@ -41,7 +38,7 @@ class Carnet extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
         $this->article->id = $this->input->get('id');
-        $data["articles"] = $this->article->getArticle();
+        $data["articles"] = $this->article->getArticlePublic();
 
         if ($data['articles'] == null) {
             redirect('pages/index/', 'refresh');
@@ -59,8 +56,9 @@ class Carnet extends CI_Controller {
 
         // génération des css et js
         $data["allCss"] = array("liste_carnet");
-        $data["alljs"] = array("liste_carnet");
+        $data["alljs"] = array("slide", "liste_carnet");
 
+        //appel du template
         $this->load->templateCarnet('/liste_carnet', $data);
     }
 
