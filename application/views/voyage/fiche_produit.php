@@ -137,66 +137,210 @@
                 <p><?php echo $voyage[0]->description_first_bloc; ?> </p>
             </div>
 
+            <!-- contenu info pratique -->
             <div class="info_pratique">
+                <div class="filtre_image"></div>
+                <div class="fond_image"><img src="<?php echo base_url(''); ?>media/produit/aaa.png" alt="alt"></div>
                 <div class="inner">
-                    <div class="left">
-                        <!-- tableau d'info pays -->
-                        <div class="table_info">
-                            <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></div>
-                                <?php
-                                $date = new DateTime(null, new DateTimeZone('America/Santiago'));
-                                ?>
-                                <div class="droit"><span class="tgauche">Heure locale</span><span class="tdroit"><?php echo str_replace(':', 'h', $date->format('H:i')); ?></span></div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Capital</span><span class="tdroit"><?php echo $voyage[0]->capital; ?></span></div>
-                                <div class="droit"><span class="tgauche">Météo</span><span class="tdroit"><?php echo $voyage[0]->meteo_temperature; ?>°C</span></div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="une_ligne">
-                                <?php
-                                $this->load->model('voyage');
-                                $result = $this->voyage->getContinent($voyage[0]->continent);
-                                ?>
-                                <div class="gauche"><span class="tgauche">Continent</span><span class="tdroit"><?php echo $result[0]->name; ?></span></div>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <!-- fin tableau d'info pays -->
-                    </div>
-                    <div class="right">
-                        <div class="separation"></div>
-                        <div class="picto">
-                            <ul>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_1; ?>" alt="<?php echo $voyage[0]->picto_1; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_2; ?>" alt="<?php echo $voyage[0]->picto_2; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_3; ?>" alt="<?php echo $voyage[0]->picto_3; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_4; ?>" alt="<?php echo $voyage[0]->picto_4; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_5; ?>" alt="<?php echo $voyage[0]->picto_5; ?>"></li>
-                                <li class="last"><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_6; ?>" alt="<?php echo $voyage[0]->picto_6; ?>"></li>
-                            </ul>
-                        </div>
-                        <div class="information_medicale">
 
-                        </div>
+                    <div class="top">
+                        <div class="trait_info"></div>
+                        <span>Info pratique</span>
+                        <div class="trait_info"></div>
                     </div>
-                    <div class="sous_info">
-                        <div class="sous_info_left">
-                            <p><span>Villes principales :</span><?php echo $voyage[0]->villes_principales; ?></li>
-                            <p><span>Religion :</span><?php echo $voyage[0]->religion; ?></p>
-                            <p><span>Nombre d'habitants :</span><?php echo $voyage[0]->nombre_habitant; ?></p>
-                        </div>
-                        <div class="sous_info_right">
-                            <p><span>Monnaie :</span> <?php echo $voyage[0]->monnaie; ?></p>
-                            <p><span>Fête :</span><?php echo $voyage[0]->fete; ?></p>
-                            <p><span>Langue officielle :</span> <?php echo $voyage[0]->langue_officielle; ?></p>
-                        </div>
-                    </div>                   
+
+                    <?php
+                    $this->load->model('voyage');
+                    $result = $this->voyage->getContinent($voyage[0]->continent);
+                    $date = new DateTime(null, new DateTimeZone('America/Santiago'));
+                    ?>
+
+                    <div class="leftBloc">
+                        <div class="titre">Information général du pays</div>
+                        <ul>
+                            <li><strong>Drapeau</strong><span><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></li>
+                            <li><strong>Heure locale</strong><span><?php echo str_replace(':', 'h', $date->format('H:i')); ?></span></li>
+                            <li><strong>Capital</strong><span><?php echo $voyage[0]->capital; ?></span></li>
+                            <li><strong>Météo</strong><span><?php echo $voyage[0]->meteo_temperature; ?>°C </span></li>
+                            <li><strong>Continent</strong><span><?php echo $result[0]->name; ?></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="rightBloc">
+                        <div class="titre">à savoir avant de partir</div>
+                        <ul>
+                            <li><strong>Villes principales</strong><span><?php echo $voyage[0]->villes_principales; ?></span><div class="clear"></div></li>
+                            <li><strong>Religion</strong><span><?php echo $voyage[0]->religion; ?></span><div class="clear"></div></li>
+                            <li><strong>Nombre d'habitants</strong><span><?php echo $voyage[0]->nombre_habitant; ?></span><div class="clear"></div></li>
+                            <li><strong>Monnaie</strong><span><?php echo $voyage[0]->monnaie; ?></span><div class="clear"></div></li>
+                            <li><strong>Fête</strong><span><?php echo $voyage[0]->fete; ?></span><div class="clear"></div></li>
+                            <li><strong>Langue officielle</strong><span><?php echo $voyage[0]->langue_officielle; ?></span><div class="clear"></div></li>
+                        </ul>
+                    </div>
+
                     <div class="clear"></div>
+
+                    <div class="traitTopPicto"></div>
+
+                    <div class="picto">
+                        <ul>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_1; ?>" alt="<?php echo $voyage[0]->picto_1; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_2; ?>" alt="<?php echo $voyage[0]->picto_2; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_3; ?>" alt="<?php echo $voyage[0]->picto_3; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_4; ?>" alt="<?php echo $voyage[0]->picto_4; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_5; ?>" alt="<?php echo $voyage[0]->picto_5; ?>"></li>
+                            <li class="last"><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_6; ?>" alt="<?php echo $voyage[0]->picto_6; ?>"></li>
+                        </ul>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <!-- <div class="picto">
+                        
+                    </div> -->
                 </div>
             </div>
+            <!-- fin contenu info pratique -->
+
+
+            <style>
+                .info_pratique .top{
+                    width: 100%;
+                    height: 50px;
+                    padding: 0 10px;
+                }
+
+                .info_pratique .top span{
+                    display: block;
+                    width: 28%;
+                    float: left;
+                    height: 100%;
+                    line-height: 50px;
+                    text-align: center;
+                    font-family: 'NewCicleGordita', sans-serif;
+                    font-size: 23px;
+                    font-weight: 100;
+                    text-transform: uppercase;
+                }
+
+                .info_pratique .top .trait_info{
+                    width: 36%;
+                    float: left;
+                    height: 25px;
+                    border-bottom: 1px solid #fff;
+                }
+
+                @media (max-width: 700px){
+                    .info_pratique .top span{
+                        width: 44% !important;
+                    }
+
+                    .info_pratique .top .trait_info{
+                        width: 28% !important;
+                    }
+
+                    .info_pratique .leftBloc, .info_pratique .rightBloc{
+                        width: 100% !important;
+                        margin-left: 0% !important;
+                    }
+                }
+
+                .info_pratique .leftBloc, .info_pratique .rightBloc{
+                    width: 48%;
+                    float: left;
+                    min-height: 100px;
+                    padding: 10px;
+                }
+
+                .info_pratique .rightBloc{
+                    margin-left: 4%;
+                }
+
+                .info_pratique .leftBloc ul li{
+                    list-style-type: none; 
+                    width: 100%;
+                    line-height: 45px;
+                    font-size: 14px;
+                }
+
+                .info_pratique .rightBloc ul li{
+                    list-style-type: none; 
+                    width: 100%;
+                    font-size: 14px;
+                    margin-bottom: 15px;
+                }
+
+                .info_pratique .leftBloc ul li img{
+                    height: 30px;
+                }
+
+                .info_pratique .leftBloc ul li strong{
+                    text-transform: uppercase;
+                }
+
+                .info_pratique .rightBloc ul li strong{
+                    text-transform: uppercase;
+                    display: inline-block;
+                    width: 30%;
+                    float: left;
+                }
+
+                .info_pratique .rightBloc ul li span{
+                    display: inline-block;
+                    width: 70%;
+                    text-align: right;
+                    font-family: "helvetica";
+                }
+
+                .info_pratique .leftBloc ul li span{
+                    float: right;
+                    font-family: "helvetica";
+
+                }
+
+                .info_pratique .leftBloc ul, .info_pratique .rightBloc ul{
+                    width: 100%;
+                    margin-bottom: 0px;
+                }
+
+                .info_pratique .leftBloc .titre, .info_pratique .rightBloc .titre{
+                    text-align: center;
+                    height: 40px;
+                    text-transform: uppercase;
+                    font-family: 'NewCicleGordita', sans-serif;
+                    line-height: 23px;
+                    font-weight: 500;
+                    font-style: normal;
+                    font-size: 17px;
+                    letter-spacing: 3px;
+                }
+
+                .info_pratique .traitTopPicto{
+                    width: 33%;
+                    height: 2px;
+                    border-bottom: 1px solid #fff;
+                    margin: auto;
+                    margin-bottom: 15px;
+                }
+
+                .info_pratique .picto{
+                    width: 100%;
+                    margin: auto;
+                    text-align: center;
+                }
+
+                .info_pratique .picto li{
+                    display: inline-block;
+                    width: 10%;
+                    margin-left: 5%;
+                    max-width: 50px;
+                    padding-bottom: 10px;
+                }
+
+                .info_pratique .picto li img{
+                    width: 100%;
+                }
+            </style>
 
             <div class="text">
                 <?php echo $voyage[0]->description_second_bloc; ?>            
@@ -217,7 +361,6 @@
             </div>
 
             <div class="slider_bot">
-
                 <ul class="" id="sliderbot">
                     <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
                     <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
@@ -226,17 +369,6 @@
                     <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
                     <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
                 </ul>
-
-<<<<<<< HEAD
-=======
-                <script type="text/javascript">
-                    $(function () {
-                        $(".widget img").click(function () {
-                            $(".widget .mid img").attr("src", $(this).attr("src"));
-                        })
-                    });
-                </script>
->>>>>>> origin/master
             </div>
 
             <script type="text/javascript">initialiseResponsiveSilide('#sliderbot');</script>
