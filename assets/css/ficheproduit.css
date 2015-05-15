@@ -68,83 +68,6 @@ span.fleche{
     border: 0;
 }
 
-.callbacks_container .caption {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    text-shadow: none;
-    color: #fff;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0; 
-    background: rgba(0,0,0, .8);
-}
-
-.callbacks_container .caption:hover{
-    background: rgba(0,0,0, .8);
-}
-
-.callbacks_container h1{
-    text-shadow: none;
-    color: #fff;
-    text-align: left;
-    font-size: 50px;
-    letter-spacing: 2px;
-    margin-bottom: 0px;
-    padding-left: 10px;
-    max-width: 1200px;
-    margin: auto;
-    margin-top: 10px;
-    font-family: 'NewCicleGordita';
-}
-
-.callbacks_container h2{
-    z-index: 2;
-    text-shadow: none;
-    color: #fff;
-    text-align: left;
-    font-family: "helvetica";
-    font-size: 20px;
-    padding-left: 10px;
-    max-width: 1200px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.fiche_produit .caption_mobile {
-    display: block;
-    font-size: 20px;
-    color: #000;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.fiche_produit .caption_titre_mobile {
-    display: block;
-    font-size: 20px;
-    color: #000;
-    max-width: none;
-    text-align: left;
-    font-size: 50px;
-    letter-spacing: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.fiche_produit .caption_titre_mobile span{
-    font-family: "NewCicleGordita";
-    font-weight: bold;
-}
-
-.fiche_produit .caption_mobile span{
-    font-family: "helvetica";
-    font-size: 20px;
-}
-
 .callbacks_nav {
     position: absolute;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -396,12 +319,6 @@ span.fleche{
 
 @media (max-width: 978px){
     .callbacks_container .caption,.callbacks_container .caption_titre {
-        display: none;
-    }
-}
-
-@media (min-width: 978px){
-    .fiche_produit .caption_mobile,.fiche_produit .caption_titre_mobile {
         display: none;
     }
 }
@@ -1034,23 +951,11 @@ span.fleche{
     }
 }
 
-
-
 .top_bloc{
     width: 100%;
-    max-width: 900px;
     margin: auto;
-    height: 440px;
-    padding-bottom: 1px;
-    box-shadow: 0px -7px 1px -3px #F8F8F8 inset;
-    overflow: visible;
-    border: 1px solid #E3E3E3;
-    background-color: #FFF;
-    border-bottom: 1px solid #bbb;
-    clear: both;
-    position: relative;
+    max-width: 900px;
 }
-
 
 .top_bloc .bloc_achat{
     width: 320px;
@@ -1063,14 +968,6 @@ span.fleche{
     z-index: 100;
 }
 
-
-
-
-.top_bloc .image_fond{
-    height: 440px;
-    overflow: hidden;
-}
-
 .contain_top_bloc{
     padding-bottom: 15px;
 }
@@ -1079,7 +976,7 @@ span.fleche{
     margin-bottom: 0px;
 }
 
-.contain_top_bloc, .fiche_produit .fil_arianne_conteneur{
+.fiche_produit .fil_arianne_conteneur{
     background-color: #F2F2F2;
 }
 
@@ -1143,8 +1040,203 @@ span.fleche{
     margin-bottom: 20px;
 }
 
+/*bloc info pratiuque */
+.info_pratique .top{
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+}
 
+.info_pratique .top span{
+    display: block;
+    width: 28%;
+    float: left;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 23px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
 
+.info_pratique .top .trait_info{
+    width: 36%;
+    float: left;
+    height: 25px;
+    border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 700px){
+    .info_pratique .top span{
+        width: 44% !important;
+    }
+
+    .info_pratique .top .trait_info{
+        width: 28% !important;
+    }
+
+    .info_pratique .leftBloc, .info_pratique .rightBloc{
+        width: 100% !important;
+        margin-left: 0% !important;
+    }
+}
+
+.info_pratique .leftBloc, .info_pratique .rightBloc{
+    width: 46%;
+    float: left;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.info_pratique .rightBloc{
+    margin-left: 8%;
+}
+
+.info_pratique .leftBloc ul li{
+    list-style-type: none; 
+    width: 100%;
+    line-height: 45px;
+    font-size: 14px;
+}
+
+.info_pratique .rightBloc ul li{
+    list-style-type: none; 
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.info_pratique .leftBloc ul li img{
+    height: 30px;
+}
+
+.info_pratique .leftBloc ul li strong{
+    text-transform: uppercase;
+}
+
+.info_pratique .rightBloc ul li strong{
+    text-transform: uppercase;
+    display: inline-block;
+    width: 30%;
+    float: left;
+}
+
+.info_pratique .rightBloc ul li span{
+    display: inline-block;
+    width: 70%;
+    text-align: right;
+    font-family: "helvetica";
+}
+
+.info_pratique .leftBloc ul li span{
+    float: right;
+    font-family: "helvetica";
+
+}
+
+.info_pratique .leftBloc ul, .info_pratique .rightBloc ul{
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.info_pratique .leftBloc .titre, .info_pratique .rightBloc .titre{
+    text-align: center;
+    height: 50px;
+    text-transform: uppercase;
+    font-family: 'NewCicleGordita', sans-serif;
+    line-height: 23px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.info_pratique .traitTopPicto{
+    width: 33%;
+    height: 2px;
+    border-bottom: 1px solid #fff;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.info_pratique .picto{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.info_pratique .picto li{
+    display: inline-block;
+    width: 10%;
+    margin-left: 5%;
+    max-width: 50px;
+    padding-bottom: 20px;
+}
+
+.info_pratique .picto li img{
+    width: 100%;
+}
+
+/* pop commander */
+.top_bloc .topLeft{
+    width: 70%;
+    float: left;
+    text-align: justify;
+    max-width: 550px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.top_bloc .topLeft h2{
+    font-family: "helvetica";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media (max-width: 900px){
+    .top_bloc .topLeft{
+        width: 100% !important;
+        padding-right: 10px;
+        padding-left: 10px;
+        max-width: none !important;
+    }
+}
+
+@media (max-width: 900px){
+    .content_popup_commande, .content_popup_commande .ppComande{
+        display: none !important;
+    }
+}
+
+.content_popup_commande{
+    width: 900px;
+    margin: auto;
+    position: absolute;
+    z-index: 50;
+    margin-top:80px;
+}
+
+.content_popup_commande .ppComande{
+    width: 300px;
+    height: 350px;
+    position:absolute; 
+    right:10px; 
+    border: 1px solid black;
+    top: 126px;
+    background: rgba(0,0,0, .8);
+}
+
+@media (max-width: 960px){
+    .content_popup_commande .ppComande{
+        right: 40px !important;
+    }
+
+    .content_popup_commande{
+        padding-top: 0px;
+        margin-top:0px !important;
+    }
+}
 
 
 

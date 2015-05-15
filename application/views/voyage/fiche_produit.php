@@ -24,7 +24,11 @@
 
 
 </script>
-<div class="fiche_produit">		
+
+<div class="fiche_produit">
+    <div class="content_popup_commande">
+        <div class="ppComande"></div>
+    </div>		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
@@ -38,12 +42,6 @@
                 <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_3; ?>" alt="<?php echo $voyage[0]->image_slider_3; ?>">
             </li>
         </ul>
-        <!-- caption desktop -->
-        <div class="caption">
-            <h1><?php echo $voyage[0]->titre; ?></h1>
-            <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
-        </div>
-        <!-- fin caption desktop -->
     </div>
 
     <div style="clear:both"></div>
@@ -58,15 +56,13 @@
         </div>
     </div>
 
-    <!-- caption mobile -->
-    <h1 class="caption_titre_mobile"><span><?php echo $voyage[0]->titre; ?></span></h1>
-    <h2 class="caption_mobile"><span><?php echo $voyage[0]->phrase_accroche; ?></span></h2>
-    <!-- fin caption mobile -->
-
     <div class="contain_top_bloc">
         <div class="top_bloc">
-            <!-- bloc achat -->
-            <div class="image_fond"><img src="<?php echo base_url(''); ?>media/produit/image_sous_slider/<?php echo $voyage[0]->image_sous_slider; ?>" alt="<?php echo $voyage[0]->image_sous_slider; ?>"></div>
+            <div class="topLeft">
+                <h1><?php echo $voyage[0]->titre; ?></h1>
+                <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
+            </div>            
+            <!-- bloc achat 
             <div class="bloc_achat">
                 <form action="#">
                     <div class="nom_pays"><?php echo $voyage[0]->titre; ?></div>
@@ -109,7 +105,7 @@
 
                 </form>
                 <div style="clear:both"></div>
-            </div>
+            </div>-->
 
             <!-- fin bloc achat -->
             <div class="clear"></div>
@@ -201,146 +197,6 @@
                 </div>
             </div>
             <!-- fin contenu info pratique -->
-
-
-            <style>
-                .info_pratique .top{
-                    width: 100%;
-                    height: 50px;
-                    padding: 0 10px;
-                }
-
-                .info_pratique .top span{
-                    display: block;
-                    width: 28%;
-                    float: left;
-                    height: 100%;
-                    line-height: 50px;
-                    text-align: center;
-                    font-family: 'NewCicleGordita', sans-serif;
-                    font-size: 23px;
-                    font-weight: 100;
-                    text-transform: uppercase;
-                }
-
-                .info_pratique .top .trait_info{
-                    width: 36%;
-                    float: left;
-                    height: 25px;
-                    border-bottom: 1px solid #fff;
-                }
-
-                @media (max-width: 700px){
-                    .info_pratique .top span{
-                        width: 44% !important;
-                    }
-
-                    .info_pratique .top .trait_info{
-                        width: 28% !important;
-                    }
-
-                    .info_pratique .leftBloc, .info_pratique .rightBloc{
-                        width: 100% !important;
-                        margin-left: 0% !important;
-                    }
-                }
-
-                .info_pratique .leftBloc, .info_pratique .rightBloc{
-                    width: 48%;
-                    float: left;
-                    min-height: 100px;
-                    padding: 10px;
-                }
-
-                .info_pratique .rightBloc{
-                    margin-left: 4%;
-                }
-
-                .info_pratique .leftBloc ul li{
-                    list-style-type: none; 
-                    width: 100%;
-                    line-height: 45px;
-                    font-size: 14px;
-                }
-
-                .info_pratique .rightBloc ul li{
-                    list-style-type: none; 
-                    width: 100%;
-                    font-size: 14px;
-                    margin-bottom: 15px;
-                }
-
-                .info_pratique .leftBloc ul li img{
-                    height: 30px;
-                }
-
-                .info_pratique .leftBloc ul li strong{
-                    text-transform: uppercase;
-                }
-
-                .info_pratique .rightBloc ul li strong{
-                    text-transform: uppercase;
-                    display: inline-block;
-                    width: 30%;
-                    float: left;
-                }
-
-                .info_pratique .rightBloc ul li span{
-                    display: inline-block;
-                    width: 70%;
-                    text-align: right;
-                    font-family: "helvetica";
-                }
-
-                .info_pratique .leftBloc ul li span{
-                    float: right;
-                    font-family: "helvetica";
-
-                }
-
-                .info_pratique .leftBloc ul, .info_pratique .rightBloc ul{
-                    width: 100%;
-                    margin-bottom: 0px;
-                }
-
-                .info_pratique .leftBloc .titre, .info_pratique .rightBloc .titre{
-                    text-align: center;
-                    height: 40px;
-                    text-transform: uppercase;
-                    font-family: 'NewCicleGordita', sans-serif;
-                    line-height: 23px;
-                    font-weight: 500;
-                    font-style: normal;
-                    font-size: 17px;
-                    letter-spacing: 3px;
-                }
-
-                .info_pratique .traitTopPicto{
-                    width: 33%;
-                    height: 2px;
-                    border-bottom: 1px solid #fff;
-                    margin: auto;
-                    margin-bottom: 20px;
-                }
-
-                .info_pratique .picto{
-                    width: 100%;
-                    margin: auto;
-                    text-align: center;
-                }
-
-                .info_pratique .picto li{
-                    display: inline-block;
-                    width: 10%;
-                    margin-left: 5%;
-                    max-width: 50px;
-                    padding-bottom: 20px;
-                }
-
-                .info_pratique .picto li img{
-                    width: 100%;
-                }
-            </style>
 
             <div class="text">
                 <?php echo $voyage[0]->description_second_bloc; ?>            
@@ -578,4 +434,36 @@
     </div>	
     <br>
 </div>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        centrageContentPopup();
+        calculHauteurContentPopup();
+    });
+    $(window).resize(function () {
+        centrageContentPopup();
+        calculHauteurContentPopup();
+    });
+
+    function centrageContentPopup(){
+        if(window.innerWidth >= 900){
+            var left = (window.innerWidth - 900) / 2;
+            $('.content_popup_commande').css('left',left);
+        }
+    }
+
+    function calculHauteurContentPopup(){
+        if(window.innerWidth >= 900){
+            var hauteur = window.innerHeight + 50 + 340 - 76 - 80;
+            if(window.innerWidth < 1080){
+                hauteur = hauteur - 100;
+            }
+
+            $('.content_popup_commande').css('height',hauteur);
+
+        }
+    }
+    $('.ppComande').stickyfloat({ duration: 0 });
+
+</script>
 
