@@ -26,9 +26,6 @@
 </script>
 
 <div class="fiche_produit">
-    <div class="content_popup_commande">
-        <div class="ppComande"></div>
-    </div>		
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
@@ -42,6 +39,11 @@
                 <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_3; ?>" alt="<?php echo $voyage[0]->image_slider_3; ?>">
             </li>
         </ul>
+        <div class="texte_slide">
+            <div class="titre"><?php echo $voyage[0]->titre; ?></div>
+            <div class="trait"></div>
+            <div class="date"><?php echo $voyageInfo[0]->date_depart; ?> - <?php echo $voyageInfo[0]->date_arrivee; ?> </div>
+        </div>
     </div>
 
     <div style="clear:both"></div>
@@ -51,7 +53,7 @@
             <ul class="breadcrumbs">
                 <li class="acceuil"><a href="/">Acceuil</a></li>
                 <li><a href="/">Voyages</a></li>
-                <li class="last">Au coeur du Chili</li>
+                <li class="last"><?php echo $voyage[0]->titre; ?></li>
             </ul>
         </div>
     </div>
@@ -61,7 +63,8 @@
             <div class="topLeft">
                 <h1><?php echo $voyage[0]->titre; ?></h1>
                 <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
-            </div>            
+            </div>   
+            <div class="topRight"></div>         
             <!-- bloc achat 
             <div class="bloc_achat">
                 <form action="#">
@@ -435,35 +438,4 @@
     <br>
 </div>
 
-<script type="text/javascript">
-    $( document ).ready(function() {
-        centrageContentPopup();
-        calculHauteurContentPopup();
-    });
-    $(window).resize(function () {
-        centrageContentPopup();
-        calculHauteurContentPopup();
-    });
-
-    function centrageContentPopup(){
-        if(window.innerWidth >= 900){
-            var left = (window.innerWidth - 900) / 2;
-            $('.content_popup_commande').css('left',left);
-        }
-    }
-
-    function calculHauteurContentPopup(){
-        if(window.innerWidth >= 900){
-            var hauteur = window.innerHeight + 50 + 340 - 76 - 80;
-            if(window.innerWidth < 1080){
-                hauteur = hauteur - 100;
-            }
-
-            $('.content_popup_commande').css('height',hauteur);
-
-        }
-    }
-    $('.ppComande').stickyfloat({ duration: 0 });
-
-</script>
 

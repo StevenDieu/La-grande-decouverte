@@ -1197,7 +1197,7 @@ span.fleche{
 }
 
 .info_pratique .traitTopPicto{
-    width: 33%;
+    width: 10%;
     height: 2px;
     border-bottom: 1px solid #fff;
     margin: auto;
@@ -1208,14 +1208,19 @@ span.fleche{
     width: 100%;
     margin: auto;
     text-align: center;
+    margin-top: 20px;
 }
 
 .info_pratique .picto li{
     display: inline-block;
-    width: 10%;
-    margin-left: 5%;
-    max-width: 50px;
+    width: 12%;
+    margin-left: 3%;
+    max-width: 35px;
     padding-bottom: 20px;
+}
+
+.info_pratique .picto li:first-child{
+    margin-left: 0;
 }
 
 .info_pratique .picto li img{
@@ -1227,8 +1232,7 @@ span.fleche{
     width: 70%;
     float: left;
     text-align: justify;
-    max-width: 550px;
-    height: 350px;
+    max-width: 580px;
     overflow: hidden;
 }
 
@@ -1238,6 +1242,10 @@ span.fleche{
     font-weight: bold;
 }
 
+.top_bloc{
+    padding-top: 20px;
+}
+
 @media (max-width: 900px){
     .top_bloc .topLeft{
         width: 100% !important;
@@ -1245,42 +1253,53 @@ span.fleche{
         padding-left: 10px;
         max-width: none !important;
     }
-}
 
-@media (max-width: 900px){
-    .content_popup_commande, .content_popup_commande .ppComande{
-        display: none !important;
+    .top_bloc .topRight{
+        float: none !important;
+        margin: auto;
     }
 }
 
-.content_popup_commande{
-    width: 900px;
+.fiche_produit .texte_slide{
+    border-top:2px solid #fff;
+    border-bottom:2px solid #fff;
+    position: relative;
+    z-index: 100;
     margin: auto;
-    position: absolute;
-    z-index: 50;
-    margin-top:80px;
+    top:-60%;
+    padding: 20px;
+    width: auto;
+    max-width: 350px;
 }
 
-.content_popup_commande .ppComande{
+.fiche_produit .texte_slide .titre{
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 27px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #fff;
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.fiche_produit .texte_slide .trait{
+    margin: auto;
+    width: 7%;
+
+}
+
+.fiche_produit .texte_slide .date{
+    text-align: center;
+    color: #fff;
+    padding-top: 15px;
+    font-family: "helvetica";
+}
+
+.top_bloc .topRight{
     width: 300px;
+    float: right;
     height: 350px;
-    position:absolute; 
-    right:10px; 
-    border: 1px solid black;
-    top: 126px;
-    background: rgba(0,0,0, .8);
+    border:1px solid black;
 }
-
-@media (max-width: 940px){
-    .content_popup_commande .ppComande{
-        right: 40px !important;
-    }
-
-    .content_popup_commande{
-        padding-top: 0px;
-        margin-top:0px !important;
-    }
-}
-
-
 
