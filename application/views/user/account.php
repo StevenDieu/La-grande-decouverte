@@ -20,6 +20,7 @@
     var urlCompte = '<?php echo base_url('user/account/myaccount'); ?>';
     var urlChangeEmail = '<?php echo base_url('user/verification/changeEmail'); ?>';
     var urlChangeMdp = '<?php echo base_url('user/verification/changeMdp'); ?>';
+    var urlChangeDecription = '<?php echo base_url('user/verification/changeDescription'); ?>';
 </script>
 
 </script>

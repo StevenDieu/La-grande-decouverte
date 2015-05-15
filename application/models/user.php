@@ -11,6 +11,9 @@ Class User extends CI_Model {
     public $id;
     public $password;
     public $login;
+    public $nom;
+    public $prenom;
+    public $description;
     public $mail;
 
     function __construct() {
@@ -18,7 +21,7 @@ Class User extends CI_Model {
     }
 
     function login($username, $password) {
-        $this->db->select('id, login, password');
+        $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->where('login', $username);
         $this->db->where('banni', '0');
@@ -258,6 +261,22 @@ Class User extends CI_Model {
         $this->db->update('utilisateur', $data);
 
         return true;
+    }
+
+    function setDescription() {
+        $data = array(
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'description' => $this->description
+        );
+        $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1){
+            return true;
+        }else{
+            return false;
+        }
+
+        
     }
 
     function bannir($id) {

@@ -74,6 +74,52 @@ function changeEmail() {
 
 }
 
+function changeDescription() {
+    if ($(".nom").val() !== "" && $(".prenom").val() !== "") {
+        $.ajax({
+            type: "post",
+            url: urlChangeDecription,
+            data: "nom=" + $(".nom").val() + "&prenom=" + $(".prenom").val() + "&description=" + $(".description").val(),
+            success: function (result) {
+                if (result !== "0") {
+                    couleurAlerteClass(".form-nom", "has-success");
+                    couleurAlerteClass(".form-prenom", "has-success");
+                    couleurAlerteClass(".form-description", "has-success");
+                    message(urlSucces, "Desciption modifié avec succés");
+                } else {
+                    message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
+                }
+            }});
+    } else {
+
+        if ($(".nom").val() === "") {
+            couleurAlerteClass(".form-nom", "has-error");
+        }
+        if ($(".prenom").val() === "") {
+            couleurAlerteClass(".form-prenom", "has-error");
+        }
+    }
+
+}
+
+
+getSelectionStart = function ()
+{
+    textarea = document.getElementById("zone");
+
+    if (typeof textarea.selectionStart != 'undefined')
+        return textarea.selectionStart;
+
+    // IE Support
+    textarea.focus();
+    var range = textarea.createTextRange();
+    range.moveToBookmark(document.selection.createRange().getBookmark());
+    range.moveEnd('character', textarea.value.length);
+
+    return textarea.value.length - range.text.length;
+}
+
+
 
 $(document).ready(function () {
     $(".confirmationMdp").on("click", function () {
@@ -81,6 +127,9 @@ $(document).ready(function () {
     });
     $(".confirmationEmail").on("click", function () {
         changeEmail();
+    });
+    $(".confirmationDescription").on("click", function () {
+        changeDescription();
     });
 
 });

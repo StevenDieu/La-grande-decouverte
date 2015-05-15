@@ -36,16 +36,17 @@
     <div class="baniere_description">
         <div class="image_transparente">
             <div class="content_fiche_voyage">
-                <div class="description_profile">
-                    <h1>JOHN DOE</h1>
-                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ...</P>
-                </div>
-                <div class="clear"></div>
                 <div class="image_profile">
                     <div class="bloc_image_profile">
                         <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
                     </div>
                 </div>
+                <div class="description_profile">
+                    <h1>JOHN DOE</h1>
+                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ...</P>
+                </div>
+                <div class="clear"></div>
+
             </div>
         </div>
     </div>
