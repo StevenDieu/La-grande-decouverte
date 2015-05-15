@@ -108,7 +108,7 @@
                 $obj.stop(); // stop any jQuery animation on the sticky element
 
                 if( settings.lockBottom )
-                    maxTopPos = $obj[0].parentNode.clientHeight - this.stickyHeight - settings.offsetBottom -76; // get the maximum top position of the floated element inside it's parent
+                    maxTopPos = $obj[0].parentNode.clientHeight - this.stickyHeight - settings.offsetBottom -100; // get the maximum top position of the floated element inside it's parent
 
                 if( maxTopPos < 0 )
                     maxTopPos = 0;
@@ -137,7 +137,7 @@
 
                     // if duration is set too low OR user wants to use css transitions, then do not use jQuery animate
                     if( duration < 5 || (settings.cssTransition && supportsTransitions) )
-                        $obj[0].style.top = this.newpos+76 + 'px';
+                        $obj[0].style.top = this.newpos+100 + 'px';
                     else
                         $obj.stop().delay(settings.delay).animate({ top: this.newpos }, duration, settings.easing );
 
