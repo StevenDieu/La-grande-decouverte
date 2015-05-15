@@ -21,6 +21,50 @@ span.fleche{
     margin: 0 auto 40px;
 }
 
+.callbacks_container .caption {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    text-shadow: none;
+    color: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0; 
+}
+
+.callbacks_container .caption:hover{
+    background: rgba(0,0,0, .8);
+}
+
+.callbacks_container h1{
+    text-shadow: none;
+    color: #fff;
+    text-align: left;
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10px;
+    font-family: 'NewCicleGordita';
+}
+
+.callbacks_container h2{
+    z-index: 2;
+    text-shadow: none;
+    color: #fff;
+    text-align: left;
+    font-family: "helvetica";
+    font-size: 20px;
+    padding-left: 10px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .rslides_tabs {
     list-style: none;
     padding: 0;
@@ -1227,7 +1271,7 @@ span.fleche{
     background: rgba(0,0,0, .8);
 }
 
-@media (max-width: 960px){
+@media (max-width: 940px){
     .content_popup_commande .ppComande{
         right: 40px !important;
     }
