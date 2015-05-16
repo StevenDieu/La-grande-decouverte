@@ -194,9 +194,6 @@
 
                     <div class="clear"></div>
 
-                    <!-- <div class="picto">
-                        
-                    </div> -->
                 </div>
             </div>
             <!-- fin contenu info pratique -->
@@ -204,7 +201,6 @@
             <div class="text">
                 <?php echo $voyage[0]->description_second_bloc; ?>            
             </div>
-
 
             <div class="ligne_image">
                 <div class="img img1"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_1; ?>" alt="<?php echo $voyage[0]->image_baniere_1; ?>"></div>
@@ -229,14 +225,31 @@
                     <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
                 </ul>
             </div>
-
             <script type="text/javascript">initialiseResponsiveSilide('#sliderbot');</script>
+
+            <div class="infoPersoVoyage">
+                <div class="content">
+                    <div class="bloc first formalite">
+                        <div class="titre">Formalité</div>
+                        <div class="texte"><?php echo $voyageInfo[0]->formalite; ?></div>
+                    </div>
+                    <div class="bloc asavoir">
+                        <div class="titre">À savoir</div>
+                        <div class="texte"><?php echo $voyageInfo[0]->asavoir; ?></div>
+                    </div>
+                    <div class="bloc comprenant">
+                        <div class="titre">Comprenant</div>
+                        <div class="texte"><?php echo $voyageInfo[0]->comprenant; ?></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
 
             <!-- fin contenu description -->
             <div class="clear"></div>
         </div>
         <div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
-        <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
+        <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div><br /></div>
         <div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
         <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
             <!-- contenu carnet de voyage -->
@@ -433,9 +446,10 @@
                 </div>
                 <!-- fin 1 jour -->
             </div>
+            <br />
         </div>
     </div>	
-    <br>
+    <div style="clear:both"></div>
 </div>
 
 

@@ -507,6 +507,7 @@ span.fleche{
 #carte{
     width: 100%;
     height: 50%;
+    padding-bottom: 20px;
 }
 
 .onglet a,.onglet_mobile a{
@@ -1021,7 +1022,7 @@ span.fleche{
 }
 
 .fiche_produit .fil_arianne_conteneur{
-    background-color: #F2F2F2;
+    background-color: #f5f5f5;
 }
 
 .choix .titre{
@@ -1246,7 +1247,7 @@ span.fleche{
     padding-top: 20px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 800px){
     .top_bloc .topLeft{
         width: 100% !important;
         padding-right: 10px;
@@ -1294,6 +1295,7 @@ span.fleche{
     color: #fff;
     padding-top: 15px;
     font-family: "helvetica";
+    font-style: italic;
 }
 
 .top_bloc .topRight{
@@ -1303,3 +1305,65 @@ span.fleche{
     border:1px solid black;
 }
 
+@media (max-width: 768px){
+    .fiche_produit .texte_slide{
+        display: none;
+    }
+}
+
+.fiche_produit .infoPersoVoyage{
+    width: 100%;
+    min-height: 200px;
+    background-color: #f5f5f5;
+}
+
+.fiche_produit .infoPersoVoyage .content{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background-color: #f5f5f5;
+    padding: 0px;
+}
+
+.fiche_produit .infoPersoVoyage .content div.bloc{
+    width: 100%;
+    min-height: 50px;
+    background-color: #edefed;
+    border: 1px solid #dce0e0;
+    margin-bottom: 30px;
+    float: left;
+}
+
+.fiche_produit .infoPersoVoyage .content div.first{
+    margin-top: 30px;
+}
+
+.fiche_produit .infoPersoVoyage .content .titre{
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    line-height: 50px;
+    font-family: 'NewCicleGordita', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    color: #565a5c;
+}
+
+.fiche_produit .infoPersoVoyage .content .texte{
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    color: #565a5c;
+    font-family: "helvetica";
+    font-size: 16px;
+}
+
+@media (max-width: 900px){
+    .fiche_produit .infoPersoVoyage .content{
+        padding: 10px !important;
+    }
+}

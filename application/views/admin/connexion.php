@@ -89,9 +89,8 @@
         z-index: 2;
       }
       .form-signin input[type="text"] {
-        margin-bottom: -1px;
+        margin-bottom: 10px;
         border-radius: 0;
-
       }
       .form-signin input[type="password"] {
         margin-bottom: 10px;

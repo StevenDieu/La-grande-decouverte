@@ -22,7 +22,7 @@ function resizeSlide() {
         $('#slider_top').css('height', window.innerHeight - 76);
         $('#slider_top li').css('height', window.innerHeight - 76);
     } else {
-        $('.slider_principal').css('height', '');
+        $('.slider_principal').css('height', $(".callbacks_container ul li img").height());
         $('#slider_top').css('height', '');
         $('#slider_top li').css('height', '');
     }
