@@ -22,7 +22,6 @@
 							<div class="titre"><span><?php echo $actualite->titre; ?><span></div>
 						</div>
 						<div class="image">
-							
 							<ul id="slider<?php echo $i ?>">
 								<li><?php echo '<img src="'.base_url('').'media/actualite/'.$actualite->image_1.'" alt="'.$actualite->image_1.'"'; ?></li>
 								<li><?php echo '<img src="'.base_url('').'media/actualite/'.$actualite->image_2.'" alt="'.$actualite->image_2.'"'; ?></li>

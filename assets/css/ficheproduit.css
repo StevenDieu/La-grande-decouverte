@@ -575,10 +575,13 @@ span.fleche{
 
 .onglet3mobile .article_first,.onglet3mobile .contenu_article_suivant{
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
     margin: auto;
     min-height: 385px;
     margin-bottom: 15px;
+}
+
+.onglet3mobile .article_first{
     padding: 12px;
 }
 .onglet3mobile .article_first:hover{

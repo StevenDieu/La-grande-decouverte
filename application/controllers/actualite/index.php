@@ -14,11 +14,10 @@ class Index extends CI_Controller {
     }
 
     public function index() {
-        $data ["error"] = 0;
         $data["alljs"] = array("slide");
         $data["allCss"] = array("listeActu");
         $data["actualites"] = $this->actualite->getActualites();
-        $data['nbActu'] = 0;
+        $data['nbActu'] = $this->actualite->getCount();
         foreach ($data["actualites"] as $actu) {
             $actu->date = $this->DateFr($actu->date);
         }

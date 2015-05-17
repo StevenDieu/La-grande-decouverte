@@ -55,6 +55,13 @@ Class Actualite extends CI_Model {
         }
     }
 
+    function getCount(){
+        $this->db->select('*');
+        $this->db->from('actualite');
+        $query = $this->db->get(); 
+        return $query->num_rows();
+    }
+
     function getActualitesHome() {
         $this->db->select('*');
         $this->db->from('actualite');
