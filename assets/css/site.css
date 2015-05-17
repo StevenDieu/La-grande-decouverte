@@ -15,7 +15,7 @@
 
 
 html {
-       box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,*:before,*:after{
@@ -937,7 +937,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     border-color: transparent;
 }
 .bblue:focus,.borange:focus,.bgreen:focus,.bwhite:focus{
-  outline: none;
+    outline: none;
 }
 
 

@@ -131,5 +131,8 @@ $(document).ready(function () {
     $(".confirmationDescription").on("click", function () {
         changeDescription();
     });
-
+    setRows($(".description"));
+    $(".description").on("keyup", function () {
+        setRows($(".description"));
+    });
 });

@@ -60,6 +60,7 @@ class Verification extends CI_Controller {
                     'nom' => $this->user->nom,
                     'prenom' => $this->user->prenom,
                     'description' => $this->user->description,
+                    'image_profil' => $this->session->userdata('logged_in')["image_profil"],
                     'user' => $this->session->userdata('logged_in')["user"]
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
@@ -176,6 +177,7 @@ class Verification extends CI_Controller {
                     'nom' => $row->nom,
                     'prenom' => $row->prenom,
                     'description' => $row->description,
+                    'image_profil' => $row->image_profil,
                     'user' => $row->login
                 );
                 $this->session->set_userdata('logged_in', $sess_array);

@@ -18,7 +18,17 @@
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
                     <form action="#" class="form-horizontal center" >
-
+                        <div class="form-group form-Nom">
+                            <label for="Nom" class="col-sm-4 control-label"></label>
+                            <div class="col-sm-5">
+                                <?php if ($username["image_profil"] == "") { ?>
+                                    <div class="tailleImageProfilMinature">
+                                        <div class="modifImageProf"></div>
+                                    </div>
+                                <?php } else { ?>
+                                <?php } ?>
+                            </div>
+                        </div>
                         <div class="form-group form-Nom">
                             <label for="Nom" class="col-sm-4 control-label">Nom :</label>
                             <div class="col-sm-5">
@@ -34,7 +44,7 @@
                         <div class="form-group form-description">
                             <label for="description" class="col-sm-4 control-label">Parlez nous de vous :</label>
                             <div class="col-sm-5">
-                                <textarea type="password" class="form-control description" id="zone" style="overflow-y: visible;" placeholder="Parlez nous de vous"><?php echo $username["description"]; ?></textarea>
+                                <textarea type="password" class="form-control description" style="overflow-y: visible;" placeholder="Parlez nous de vous"><?php echo $username["description"]; ?></textarea>
                             </div>
                         </div>
                         <input type="button" class="bblue confirmationDescription" value="Modifier"/>
