@@ -4,7 +4,6 @@
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 <script type="text/javascript">
 //<?php echo $voyage[0]->lattitude; ?>, lng: <?php echo $voyage[0]->longitude; ?>},
-
     function initialize() {
         var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>);
         var mapOptions = {
@@ -21,8 +20,6 @@
             title: 'Hello World!'
         });
     }
-
-
 </script>
 
 <div class="fiche_produit">
