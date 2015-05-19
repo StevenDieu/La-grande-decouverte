@@ -118,7 +118,7 @@ span.fleche{
     top: 52%;
     left: 0;
     opacity: 0.7;
-    z-index: 3;
+    z-index: 120;
     text-indent: -9999px;
     overflow: hidden;
     text-decoration: none;
@@ -357,8 +357,8 @@ span.fleche{
     .ligne_image .img{
         width: 25%;
         float: left;
+        border: 1px solid #fff;
     }
-
 }
 
 @media (max-width: 978px){
@@ -466,6 +466,7 @@ span.fleche{
     .ligne_image .img{
         width: 50%;
         float: left;
+        border: 1px solid #fff;
     }
 
     .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
@@ -939,6 +940,16 @@ span.fleche{
     #deplier_date_mobile{
         display: none;
     }
+
+    .fiche_produit .texte_slide .titre{
+        font-size: 35px !important;
+        padding-bottom: 25px !important;
+        padding-top: 15px !important;
+    }
+
+    .fiche_produit .texte_slide{
+        max-width: 450px !important;
+    }
 }
 
 @media (min-width: 800px) and (max-width: 900px){
@@ -1063,21 +1074,12 @@ span.fleche{
     position: absolute;
     right: 8px;
     bottom: 8px;
-    width: 147px;
-    font-size: 13px;
+    width: 225px;
+    font-size: 23px;
     line-height: 40px;
-    padding: 0 2px 0 20;
-}
-
-#dates{
-    position: absolute;
-    left: 8px;
-    bottom: 8px;
-    width: 147px;
-    font-size: 13px;
-    line-height: 40px;
+    font-family: 'NewCicleGordita';
+    text-transform: uppercase;
     text-align: center;
-    padding: 0 2px;
 }
 
 .slider_bot{
@@ -1236,7 +1238,7 @@ span.fleche{
     width: 70%;
     float: left;
     text-align: justify;
-    max-width: 580px;
+    max-width: 400px;
     overflow: hidden;
 }
 
@@ -1250,7 +1252,7 @@ span.fleche{
     padding-top: 20px;
 }
 
-@media (max-width: 800px){
+@media (max-width: 900px){
     .top_bloc .topLeft{
         width: 100% !important;
         padding-right: 10px;
@@ -1261,6 +1263,7 @@ span.fleche{
     .top_bloc .topRight{
         float: none !important;
         margin: auto;
+        clear: both;
     }
 }
 
@@ -1270,7 +1273,7 @@ span.fleche{
     position: relative;
     z-index: 100;
     margin: auto;
-    top:-60%;
+    top:-65%;
     padding: 20px;
     width: auto;
     max-width: 350px;
@@ -1302,15 +1305,50 @@ span.fleche{
 }
 
 .top_bloc .topRight{
-    width: 300px;
+    width: 450px;
     float: right;
-    height: 350px;
-    border:1px solid black;
+    height: 200px;
+    position: relative;
+    background: #fff;
 }
 
-@media (max-width: 768px){
+.topRight
+{
+    position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.topRight:before, .topRight:after
+{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+
+@media (max-width: 900px){
     .fiche_produit .texte_slide{
-        display: none;
+        top: -70%;
+    }
+
+    .top_bloc{
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px){
+    .fiche_produit .texte_slide{
+        top: -80%;
+        border: none;
     }
 }
 
@@ -1353,6 +1391,26 @@ span.fleche{
     font-style: normal;
     font-size: 17px;
     color: #565a5c;
+    padding-top: 8px;
+}
+
+.fiche_produit .infoPersoVoyage .content .titre .picto{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px
+}
+
+.fiche_produit .infoPersoVoyage .content .bloc.formalite .titre .picto{
+    background: url(../images/ficheproduit/formalites.png) center center no-repeat;
+}
+
+.fiche_produit .infoPersoVoyage .content .bloc.asavoir .titre .picto{
+    background: url(../images/ficheproduit/a_savoir_2.png) center center no-repeat;
+}
+
+.fiche_produit .infoPersoVoyage .content .bloc.comprenant .titre .picto{
+    background: url(../images/ficheproduit/package_2.png) center center no-repeat;
 }
 
 .fiche_produit .infoPersoVoyage .content .texte{
@@ -1363,6 +1421,7 @@ span.fleche{
     color: #565a5c;
     font-family: "helvetica";
     font-size: 16px;
+    padding-left: 75px;
 }
 
 @media (max-width: 900px){
@@ -1370,3 +1429,91 @@ span.fleche{
         padding: 10px !important;
     }
 }
+
+
+.topRight .bloc{
+    float: left;
+    height: 150px;
+}
+
+.topRight .bloc .titre{
+    display: block;
+    height: 65px;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'NewCicleGordita', sans-serif;
+    line-height: 23px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    font-weight: bold;
+    line-height: 75px;
+    color: #000;
+}
+
+
+.topRight .bloc.bloc1{
+    width: 26%;
+}
+
+.topRight .bloc.bloc2{
+    width: 26%;
+}
+
+.topRight .bloc.bloc3{
+    width: 48%;
+}
+
+.topRight .bloc .valeur{
+    padding-left: 9px;
+    font-family: "helvetica";
+    font-size: 16px;
+    color: #989898;
+}
+
+@media (max-width: 480px){
+    .topRight .bloc.bloc1{
+        width: 50%;
+        height: 90px !important;
+    }
+
+    .topRight .bloc.bloc2{
+        width: 50%;
+        height: 90px !important;
+    }
+
+    .topRight .bloc.bloc3{
+        width: 100%;
+        height: 90px !important;
+    }
+
+    .top_bloc .topRight{
+        width: 100% !important;
+        height: 250px !important;
+    }
+}
+
+.topRight a.voir_date{
+    display: block;
+    position: absolute;
+    bottom: 14px;
+    left: 10px;
+    font-family: "helvetica";
+}
+
+@media (max-width: 400px){
+    #embarque{
+          width: 160px !important;
+          text-align: left !important;
+          font-size: 21px !important;
+    }
+}
+
+.topLeft h1{
+      font-family: 'NewCicleGordita';
+}
+
+
+

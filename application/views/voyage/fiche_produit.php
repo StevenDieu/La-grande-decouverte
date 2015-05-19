@@ -61,53 +61,50 @@
                 <h1><?php echo $voyage[0]->titre; ?></h1>
                 <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
             </div>   
-            <div class="topRight"></div>         
-            <!-- bloc achat 
-            <div class="bloc_achat">
-                <form action="#">
-                    <div class="nom_pays"><?php echo $voyage[0]->titre; ?></div>
+            <div class="topRight">
+                <?php echo form_open_multipart('checkout/cart/onepage'); ?>
 
-                    <div class="info_prix">
-
-                        <div class="info">
-                            <span class="titre">Durée</span>
-                            <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
-                        </div>
-
-                        <div class="prix">
-                            <span class="titre">à partir de</span>
-                            <span class="valeur"><?php echo $voyageInfo[0]->prix; ?> €</span>
-                        </div>
-
+                    <div class="bloc bloc1">
+                        <span class="titre">Durée</span>
+                        <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
                     </div>
 
-                    <div class="info_prix">
-                        <div class="place_dispo">
-                            <span class="titre">Places disponibles</span>
-                            <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
-                        </div>
+                    <div class="bloc bloc2">
+                        <span class="titre">à partir</span>
+                        <span class="valeur">de <?php echo $voyageInfo[0]->prix; ?> €</span>
                     </div>
 
-
-
-                    <div style="clear:both"></div>
-                    Vous avez choisi les dates suivantes : <br/>
-                    Départ le <?php echo $voyageInfo[0]->date_depart; ?> à <?php echo $voyageInfo[0]->depart; ?>.<br/>
-                    Retour le <?php echo $voyageInfo[0]->date_arrivee; ?> à <?php echo $voyageInfo[0]->arrivee; ?>
-
+                    <div class="bloc bloc3">
+                        <span class="titre">Places disponibles</span>
+                        <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
+                    </div>
 
                     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
-                    <input type="hidden" name="id" value="<?php echo $voyageInfo[0]->id; ?>">
+                    <input type="hidden" name="idInfo" value="<?php echo $voyageInfo[0]->id; ?>">
+                    <a href="#data" class="voir_date">> Voir les dates</a>
 
-                    <button id="dates" class="bblue choix_dates" type="submit">Changer les dates</button>
+                    <!-- popup -->
+                    <div style="display:none">
+                        <div id="data">
+                        <?php 
+                            foreach ($allInfoVoyage as $info) {
+                                echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>
+                                Du ".$info->date_depart." au ".$info->date_arrivee."
+                                </a><br>";
+                            }
+
+                        ?>
+
+                        </div>
+                    </div>
+                    <!-- popup -->
+                    <script type="text/javascript">
+                    $("a.voir_date").fancybox();
+                    </script>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
-                    <div style="clear:both"></div>
-
                 </form>
-                <div style="clear:both"></div>
-            </div>-->
+            </div>         
 
-            <!-- fin bloc achat -->
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -227,15 +224,15 @@
             <div class="infoPersoVoyage">
                 <div class="content">
                     <div class="bloc first formalite">
-                        <div class="titre">Formalité</div>
+                        <div class="titre"><div class="picto"></div>Formalité</div>
                         <div class="texte"><?php echo $voyageInfo[0]->formalite; ?></div>
                     </div>
                     <div class="bloc asavoir">
-                        <div class="titre">À savoir</div>
+                        <div class="titre"><div class="picto"></div>À savoir</div>
                         <div class="texte"><?php echo $voyageInfo[0]->asavoir; ?></div>
                     </div>
                     <div class="bloc comprenant">
-                        <div class="titre">Comprenant</div>
+                        <div class="titre"><div class="picto"></div>Comprenant</div>
                         <div class="texte"><?php echo $voyageInfo[0]->comprenant; ?></div>
                     </div>
                     <div class="clear"></div>
