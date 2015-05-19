@@ -26,7 +26,14 @@ class Fiche extends CI_Controller {
             $data['voyageInfo'][0]->date_depart = $this->DateFr($data['voyageInfo'][0]->date_depart);
             $data['voyageInfo'][0]->date_arrivee = $this->DateFr($data['voyageInfo'][0]->date_arrivee);
         }
-        
+
+        $data['allInfoVoyage'] = $this->voyage->getInfoVoyage($this->input->get('id'));
+
+        foreach ($data['allInfoVoyage'] as $info) {
+            $info->date_depart = $this->DateFr($info->date_depart);
+            $info->date_arrivee = $this->DateFr($info->date_arrivee);
+        }
+
         if($data['voyage'] == null) {
             redirect('pages/index/', 'refresh');
         }

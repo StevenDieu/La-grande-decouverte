@@ -81,7 +81,26 @@
 
                     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
                     <input type="hidden" name="idInfo" value="<?php echo $voyageInfo[0]->id; ?>">
-                    <a href="#" class="voir_date">> Voir les dates</a>
+                    <a href="#data" class="voir_date">> Voir les dates</a>
+
+                    <!-- popup -->
+                    <div style="display:none">
+                        <div id="data">
+                        <?php 
+                            foreach ($allInfoVoyage as $info) {
+                                echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>
+                                Du ".$info->date_depart." au ".$info->date_arrivee."
+                                </a><br>";
+                            }
+
+                        ?>
+
+                        </div>
+                    </div>
+                    <!-- popup -->
+                    <script type="text/javascript">
+                    $("a.voir_date").fancybox();
+                    </script>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
                 </form>
             </div>         
