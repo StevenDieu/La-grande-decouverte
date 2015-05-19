@@ -8,6 +8,7 @@ class Verification extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('user');
+        $this->load->model('images');
         $this->load->library('form_validation');
     }
 
@@ -60,7 +61,9 @@ class Verification extends CI_Controller {
                     'nom' => $this->user->nom,
                     'prenom' => $this->user->prenom,
                     'description' => $this->user->description,
-                    'image_profil' => $this->session->userdata('logged_in')["image_profil"],
+                    'id_image' => $this->session->userdata('logged_in')["id_image"],
+                    'lien_image' => $this->session->userdata('logged_in')["lien_image"],
+                    'nom_image' => $this->session->userdata('logged_in')["nom_image"],
                     'user' => $this->session->userdata('logged_in')["user"]
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
@@ -69,6 +72,14 @@ class Verification extends CI_Controller {
                 echo "0";
             }
         }
+    }
+
+    function uploadProfile() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
+        $this->load->view('user/myaccount/uploadImageProfile.php');
     }
 
     function login() {
@@ -165,19 +176,35 @@ class Verification extends CI_Controller {
     }
 
     function check_database_login($mdp) {
+
         $user = $this->input->post('user');
 
         $result = $this->user->login($user, $mdp);
 
         if ($result) {
             $sess_array = array();
+
             foreach ($result as $row) {
+                $this->images->setId($row->id_image);
+                $resultImage = $this->images->getImage();
+                $imageLien = "";
+                $imageNom = "";
+                $id_image= "";
+                if ($resultImage) {
+                    foreach ($resultImage as $image) {
+                        $imageLien = $image->lien;
+                        $imageNom = $image->nom;
+                        $id_image = $image->id;
+                    }
+                }
                 $sess_array = array(
                     'id' => $row->id,
                     'nom' => $row->nom,
                     'prenom' => $row->prenom,
                     'description' => $row->description,
-                    'image_profil' => $row->image_profil,
+                    'id_image' => $id_image,
+                    'lien_image' => $imageLien,
+                    'nom_image' => $imageNom,
                     'user' => $row->login
                 );
                 $this->session->set_userdata('logged_in', $sess_array);

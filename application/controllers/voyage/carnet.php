@@ -9,6 +9,8 @@ class Carnet extends CI_Controller {
         parent::__construct();
         $this->load->model('carnetVoyage');
         $this->load->model('article');
+        $this->load->model('user');
+        $this->load->model('images');
     }
 
     public function index() {
@@ -26,7 +28,11 @@ class Carnet extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
         $this->article->id_carnetvoyage = $data['carnetVoyage'][0]->id;
-        $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+        $data["user"] = $this->user->getUser($data['carnetVoyage'][0]->id_utilisateur);
+        if ($data["user"][0]->id_image != 0) {
+            $this->images->setId($data["user"][0]->id_image);
+            $data["image"] = $this->images->getImage();
+        }
 
         $data["articles"] = $this->article->getArticleVisible();
 

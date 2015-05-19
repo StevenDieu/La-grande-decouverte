@@ -15,6 +15,9 @@ class Account extends CI_Controller {
             $data["allCss"] = array("account");
             $data['username'] = $this->session->userdata('logged_in')['user'];
             $data["alljs"] = array("account");
+            $data["librairieJs"] = array("jquery.Jcrop.min");
+            $data["librairieCss"] = array("jquery.Jcrop.min");
+
             $this->load->templateUser('account', $data);
         } else {
             redirect('user/account/connexion', 'refresh');

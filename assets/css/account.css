@@ -122,7 +122,15 @@
 .tailleImageProfilMinature{
     width: 100px;
     height: 100px;
-    background-image: url("../images/utilisateur/profile-photo.jpg");
+    background-image: url("../images/utilisateur/photoProfil/profile-photo.jpg");
+    background-size: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.tailleImageProfil{
+    width: 100px;
+    height: 100px;
     background-size: 100px;
     border-radius: 50%;
     margin: 0 auto;
@@ -132,24 +140,43 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
+    max-width: 100px;
     transition-duration: 0.25s;
 
     cursor: pointer;
-    font-size: 88px;
+    /* font-size: 88px; */
 }
 .modifImageProf:hover:before{
     transition-duration: 0.25s;
     color: rgba(255, 255, 255, 1);
 
+    margin: 0 0 0 24px;
 }
 
 .modifImageProf:before{
     content: "\2b";    
     color: rgba(255, 255, 255, 0);
     transition-duration: 0.25s;
+    font-size: 88px;;
 }
 
 .modifImageProf:hover{
     background-color: rgba(45, 45, 45, 0.5);
     transition-duration: 0.25s;
+}
+
+
+img#imageProfile {
+    width: 100%;
+}
+
+.tailleImageProfilMinature {}
+
+input[type="button"] {}
+
+input[type="file"] {
+}
+
+input.jcrop-keymgr {
+    display: none !important;
 }

@@ -21,6 +21,8 @@
     var urlChangeEmail = '<?php echo base_url('user/verification/changeEmail'); ?>';
     var urlChangeMdp = '<?php echo base_url('user/verification/changeMdp'); ?>';
     var urlChangeDecription = '<?php echo base_url('user/verification/changeDescription'); ?>';
+    var urlUploadProfile = '<?php echo base_url('user/verification/uploadProfile'); ?>';
+    var urlImageProfil = '<?php echo asset_url("images/utilisateur/photoProfil/") ?>'
 </script>
 
 </script>

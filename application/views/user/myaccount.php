@@ -17,15 +17,22 @@
             </a>
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                 <div class="panel-body">
-                    <form action="#" class="form-horizontal center" >
+                    <div action="#" class="form-horizontal center" >
                         <div class="form-group form-Nom">
                             <label for="Nom" class="col-sm-4 control-label"></label>
                             <div class="col-sm-5">
-                                <?php if ($username["image_profil"] == "") { ?>
-                                    <div class="tailleImageProfilMinature">
-                                        <div class="modifImageProf"></div>
-                                    </div>
+                                <?php if ($username["id_image"] == "") { ?>
+                                    <form action="#comptes" class="upload-form">
+                                        <div class="tailleImageProfilMinature">
+                                            <input type="file" class="modifImageProf uploadedfile" />
+                                        </div>
+                                    </form>
                                 <?php } else { ?>
+                                    <form action="#comptes" class="upload-form">
+                                        <div class="tailleImageProfil" style="background-image: url('<?php echo asset_url("images/utilisateur/photoProfil/".$username["nom_image"]) ?>')">
+                                            <input type="file" class="modifImageProf uploadedfile" />
+                                        </div>
+                                    </form>
                                 <?php } ?>
                             </div>
                         </div>
@@ -48,7 +55,7 @@
                             </div>
                         </div>
                         <input type="button" class="bblue confirmationDescription" value="Modifier"/>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,5 +130,31 @@
             </div>
         </div>
 
+    </div>
+</div>
+<div class="modal fade" id="popUpAddImageProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div action="#" class="form-horizontal" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Recadrage Image</h4>
+                </div>
+                <div class="modal-body">
+
+                    <img id="imageProfile"/>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="hidden" id="x" name="x" />
+                    <input type="hidden" id="y" name="y" />
+                    <input type="hidden" id="w" name="w" />
+                    <input type="hidden" id="h" name="h" />
+                    <button type="button" class="bwhite" data-dismiss="modal">Close</button>
+                    <button type="button" class="validCarnetVoyage bblue uploadImageProfil">Recadrer</button>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

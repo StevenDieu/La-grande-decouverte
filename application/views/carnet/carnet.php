@@ -38,12 +38,20 @@
             <div class="content_fiche_voyage">
                 <div class="image_profile">
                     <div class="bloc_image_profile">
-                        <img src="<?php echo asset_url(''); ?>images/utilisateur/01/fabrice-instinct-voyageur.jpg" class="image_profile" alt="Image carnet de voyage"/>
+                        <?php if ($user[0]->id_image == 0) { ?>
+                            <img src="<?php echo asset_url('images/utilisateur/photoProfil/profil-photo.jpg'); ?>" class="image_profile" alt="Image carnet de voyage"/>
+                        <?php } else { ?>
+                            <img src="<?php echo asset_url('images/utilisateur/photoProfil/') . $image[0]->nom; ?>" class="image_profile" alt="Image carnet de voyage"/>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="description_profile">
-                    <h1>JOHN DOE</h1>
-                    <p>Je m'appelle John Doe, je suis étudiant sur Lille. Les sujets qui m'intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ...</P>
+                    <h1><?php echo $user[0]->prenom . ' ' . $user[0]->nom ?></h1>
+                    <?php if ($user[0]->description == "") { ?>
+                        <p>Pas encore de description</P>
+                    <?php } else { ?>
+                        <p><?php echo tronque($user[0]->description, 350); ?></P>
+                    <?php } ?>
                 </div>
                 <div class="clear"></div>
 

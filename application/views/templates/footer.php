@@ -153,7 +153,6 @@
 
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/responsiveslides.min.js" ></script>
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/jquery-ui.min.js" ></script>   
-<script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/bootstrap.min.js" ></script>   
 
 <?php
 if (isset($librairieJs)) {
@@ -163,6 +162,7 @@ if (isset($librairieJs)) {
         <?php
     }
 }
+
 if (isset($map)) {
     ?>
     <script type="text/javascript">
@@ -176,6 +176,7 @@ if (isset($map)) {
     <?php
 }
 ?> 
+<script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/bootstrap.min.js" ></script>   
 
 </body> 
 </html>

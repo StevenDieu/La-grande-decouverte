@@ -15,6 +15,7 @@ Class User extends CI_Model {
     public $prenom;
     public $description;
     public $mail;
+    public $id_image;
 
     function __construct() {
         parent::__construct();
@@ -243,6 +244,20 @@ Class User extends CI_Model {
         return true;
     }
 
+    function setDescription() {
+        $data = array(
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'description' => $this->description
+        );
+        $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function setMdp() {
         $data = array(
             'password' => MD5($this->password),
@@ -263,20 +278,16 @@ Class User extends CI_Model {
         return true;
     }
 
-    function setDescription() {
+    function setImageProfil() {
         $data = array(
-            'nom' => $this->nom,
-            'prenom' => $this->prenom,
-            'description' => $this->description
+            'id_image' => $this->id_image,
         );
         $this->db->where('id', $this->id);
-        if ($this->db->update('utilisateur', $data) == 1){
+        if ($this->db->update('utilisateur', $data) == 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
-
-        
     }
 
     function bannir($id) {
