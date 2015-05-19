@@ -118,7 +118,7 @@ span.fleche{
     top: 52%;
     left: 0;
     opacity: 0.7;
-    z-index: 3;
+    z-index: 120;
     text-indent: -9999px;
     overflow: hidden;
     text-decoration: none;
@@ -1074,7 +1074,7 @@ span.fleche{
     position: absolute;
     right: 8px;
     bottom: 8px;
-    width: 280px;
+    width: 225px;
     font-size: 23px;
     line-height: 40px;
     font-family: 'NewCicleGordita';
@@ -1238,7 +1238,7 @@ span.fleche{
     width: 70%;
     float: left;
     text-align: justify;
-    max-width: 500px;
+    max-width: 400px;
     overflow: hidden;
 }
 
@@ -1252,7 +1252,7 @@ span.fleche{
     padding-top: 20px;
 }
 
-@media (max-width: 800px){
+@media (max-width: 900px){
     .top_bloc .topLeft{
         width: 100% !important;
         padding-right: 10px;
@@ -1305,9 +1305,9 @@ span.fleche{
 }
 
 .top_bloc .topRight{
-    width: 300px;
+    width: 450px;
     float: right;
-    height: 350px;
+    height: 200px;
     position: relative;
     background: #fff;
 }
@@ -1338,6 +1338,10 @@ span.fleche{
 @media (max-width: 900px){
     .fiche_produit .texte_slide{
         top: -70%;
+    }
+
+    .top_bloc{
+        padding: 10px;
     }
 }
 
@@ -1425,3 +1429,91 @@ span.fleche{
         padding: 10px !important;
     }
 }
+
+
+.topRight .bloc{
+    float: left;
+    height: 150px;
+}
+
+.topRight .bloc .titre{
+    display: block;
+    height: 65px;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'NewCicleGordita', sans-serif;
+    line-height: 23px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    font-weight: bold;
+    line-height: 75px;
+    color: #000;
+}
+
+
+.topRight .bloc.bloc1{
+    width: 26%;
+}
+
+.topRight .bloc.bloc2{
+    width: 26%;
+}
+
+.topRight .bloc.bloc3{
+    width: 48%;
+}
+
+.topRight .bloc .valeur{
+    padding-left: 9px;
+    font-family: "helvetica";
+    font-size: 16px;
+    color: #989898;
+}
+
+@media (max-width: 480px){
+    .topRight .bloc.bloc1{
+        width: 50%;
+        height: 90px !important;
+    }
+
+    .topRight .bloc.bloc2{
+        width: 50%;
+        height: 90px !important;
+    }
+
+    .topRight .bloc.bloc3{
+        width: 100%;
+        height: 90px !important;
+    }
+
+    .top_bloc .topRight{
+        width: 100% !important;
+        height: 250px !important;
+    }
+}
+
+.topRight a.voir_date{
+    display: block;
+    position: absolute;
+    bottom: 14px;
+    left: 10px;
+    font-family: "helvetica";
+}
+
+@media (max-width: 400px){
+    #embarque{
+          width: 160px !important;
+          text-align: left !important;
+          font-size: 21px !important;
+    }
+}
+
+.topLeft h1{
+      font-family: 'NewCicleGordita';
+}
+
+
+
