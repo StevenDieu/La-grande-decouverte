@@ -78,11 +78,11 @@ function chargementPagePremier() {
     }
 }
 
-
 $(window).load(function () {
     chargementPagePremier();
     $(".menuUtilisateur").height($(".content").height());
     $(".menuChamp").on("click", function () {
         changementOnglet($(this));
     });
+
 });

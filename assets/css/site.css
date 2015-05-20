@@ -1,6 +1,6 @@
 @font-face { 
     font-family: 'helvetica'; 
-    src: url('../fonts/avenir/HelveticaNeueLTStd-Cn.otf'); 
+    src: url('../fonts/avenir/HelveticaLTStd-Light.otf'); 
 }
 
 @font-face { 
@@ -15,7 +15,7 @@
 
 
 html {
-       box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,*:before,*:after{
@@ -70,7 +70,6 @@ body {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    position: fixed;
     left: 0;
     right: 0;
 }
@@ -156,6 +155,9 @@ form.form-horizontal{
 
 
 @media (min-width: 768px){
+    .header{
+        position: fixed;
+    }
     .navbar-right{
         display: block;
         margin-top: -20px;
@@ -313,9 +315,6 @@ h3.titre{
     line-height: 23px;
     margin: 0 0 30px 0;
     font-family: 'NewCicleGordita', sans-serif;
-}
-.blockFooter_1{
-    margin: 54px 0 0px 0;
 }
 .blockFooter_3{
     margin: 0 0px 27px 0;
@@ -704,18 +703,24 @@ span.ou{
 
 .fil_arianne_conteneur .fil_arianne ul li a{
     text-decoration: none;
+    color: #989898;
+    font-family: "helvetica";
+    text-transform: lowercase;
 }
 
 .fil_arianne_conteneur .fil_arianne ul li a:hover{
-    text-decoration: underline;
+    text-decoration: none;
+    color: #000;
 }
 
 .fil_arianne_conteneur .fil_arianne ul li::before{
-    content: ">";
+    content: " / ";
     margin-right: 5px;
+    color: #3C3C3C;
 }
 .fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
-    content: "";
+    content: url(../images/home.png) center;
+    margin-right: 8px;
 }
 
 /********/
@@ -932,7 +937,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     border-color: transparent;
 }
 .bblue:focus,.borange:focus,.bgreen:focus,.bwhite:focus{
-  outline: none;
+    outline: none;
 }
 
 

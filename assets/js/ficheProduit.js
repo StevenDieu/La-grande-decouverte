@@ -45,7 +45,6 @@ function centrage() {
     }      
 }
 
-
 $( document ).ready(function() {
     $('#onglet2').click(function() {
       if(typeof map == "undefined"){
@@ -75,6 +74,5 @@ $( document ).ready(function() {
         event.preventDefault();
     });
 
-    initialiseResponsiveSilide('#slidercarnet1');
-    
+    initialiseResponsiveSilide('#slidercarnet1');    
 });

@@ -21,6 +21,50 @@ span.fleche{
     margin: 0 auto 40px;
 }
 
+.callbacks_container .caption {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    text-shadow: none;
+    color: #fff;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0; 
+}
+
+.callbacks_container .caption:hover{
+    background: rgba(0,0,0, .8);
+}
+
+.callbacks_container h1{
+    text-shadow: none;
+    color: #fff;
+    text-align: left;
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10px;
+    font-family: 'NewCicleGordita';
+}
+
+.callbacks_container h2{
+    z-index: 2;
+    text-shadow: none;
+    color: #fff;
+    text-align: left;
+    font-family: "helvetica";
+    font-size: 20px;
+    padding-left: 10px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .rslides_tabs {
     list-style: none;
     padding: 0;
@@ -68,90 +112,13 @@ span.fleche{
     border: 0;
 }
 
-.callbacks_container .caption {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    text-shadow: none;
-    color: #fff;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0; 
-    background: rgba(0,0,0, .8);
-}
-
-.callbacks_container .caption:hover{
-    background: rgba(0,0,0, .8);
-}
-
-.callbacks_container h1{
-    text-shadow: none;
-    color: #fff;
-    text-align: left;
-    font-size: 50px;
-    letter-spacing: 2px;
-    margin-bottom: 0px;
-    padding-left: 10px;
-    max-width: 1200px;
-    margin: auto;
-    margin-top: 10px;
-    font-family: 'NewCicleGordita';
-}
-
-.callbacks_container h2{
-    z-index: 2;
-    text-shadow: none;
-    color: #fff;
-    text-align: left;
-    font-family: "helvetica";
-    font-size: 20px;
-    padding-left: 10px;
-    max-width: 1200px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.fiche_produit .caption_mobile {
-    display: block;
-    font-size: 20px;
-    color: #000;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.fiche_produit .caption_titre_mobile {
-    display: block;
-    font-size: 20px;
-    color: #000;
-    max-width: none;
-    text-align: left;
-    font-size: 50px;
-    letter-spacing: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.fiche_produit .caption_titre_mobile span{
-    font-family: "NewCicleGordita";
-    font-weight: bold;
-}
-
-.fiche_produit .caption_mobile span{
-    font-family: "helvetica";
-    font-size: 20px;
-}
-
 .callbacks_nav {
     position: absolute;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     top: 52%;
     left: 0;
     opacity: 0.7;
-    z-index: 3;
+    z-index: 120;
     text-indent: -9999px;
     overflow: hidden;
     text-decoration: none;
@@ -267,12 +234,35 @@ span.fleche{
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
     background-color: #F2F2F2;
     margin-bottom: 20px;
+    position: relative;
+}
+
+.fiche_produit .info_pratique .fond_image{
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+}
+
+.fiche_produit .info_pratique .filtre_image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 7;
+    background: rgba(0,0,0, .7);
+}
+
+.fiche_produit .info_pratique .fond_image img{
+    height: 100%;
+    width: 100%;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner{
     width: 100%;
     max-width: 1200px;
     margin: auto;
+    z-index: 8;
+    position: relative;
+    color: #fff;
 }
 
 
@@ -367,31 +357,12 @@ span.fleche{
     .ligne_image .img{
         width: 25%;
         float: left;
-    }
-
-    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left,
-    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .right{
-        width: 50%;
-        float: left;
-    }
-    .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
-        border-right: 1px solid #cdcdcd;
-
-    }
-
-    .right .separation{
-        display: none;
+        border: 1px solid #fff;
     }
 }
 
 @media (max-width: 978px){
     .callbacks_container .caption,.callbacks_container .caption_titre {
-        display: none;
-    }
-}
-
-@media (min-width: 978px){
-    .fiche_produit .caption_mobile,.fiche_produit .caption_titre_mobile {
         display: none;
     }
 }
@@ -475,6 +446,11 @@ span.fleche{
 
     .onglet4mobile .contenu .jour_container .day_counter .day{
         text-align: left;
+        text-transform: uppercase;
+        font-size: 2.375rem;
+        font-family: "NewCicleGordita";
+        color: #006695;
+        margin-bottom: 10px;
     }
 
     .onglet4mobile .contenu .jour_container{
@@ -490,6 +466,7 @@ span.fleche{
     .ligne_image .img{
         width: 50%;
         float: left;
+        border: 1px solid #fff;
     }
 
     .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
@@ -531,6 +508,7 @@ span.fleche{
 #carte{
     width: 100%;
     height: 50%;
+    padding-bottom: 20px;
 }
 
 .onglet a,.onglet_mobile a{
@@ -598,10 +576,13 @@ span.fleche{
 
 .onglet3mobile .article_first,.onglet3mobile .contenu_article_suivant{
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
     margin: auto;
     min-height: 385px;
     margin-bottom: 15px;
+}
+
+.onglet3mobile .article_first{
     padding: 12px;
 }
 .onglet3mobile .article_first:hover{
@@ -787,7 +768,7 @@ span.fleche{
 
 .onglet4mobile .contenu .jour_container{
     padding-left: 122px;
-    padding-bottom: 12px;
+    padding-bottom: 35px;
     position: relative;
 }
 
@@ -804,8 +785,8 @@ span.fleche{
 }
 
 .onglet4mobile .contenu .jour_container .day_container{
-    box-shadow: #CDCDCD 0px 0px 3px 0px;
-    background: #F2F2F2;
+    box-shadow: -1px 2px 5px 1px #D3D3D3;
+    background: #fff;
     border-radius: 5px;
     position: relative;
     padding: 10px;
@@ -910,64 +891,13 @@ span.fleche{
     top: 6px;
 }
 
-.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left{
-    font-family: "helvetica";
 
-}
 
 .ligne_image .img img{
     width: 100%;
 }
 
-.inner .sous_info .sous_info_left,.inner .sous_info .sous_info_right{
-    display: inline-block;
-    width: 50%;
-    float: left;
-    text-align: justify;
-    font-family: "helvetica";
-    padding: 10px;
-}
 
-.inner .sous_info span{
-    font-weight: bold;
-    font-family: arial;
-    font-size: 15px;
-}
-
-.inner .sous_info{
-    margin-top: 15px;
-}
-
-.inner .sous_info p{
-    margin-bottom: 0px;
-}
-
-.info_pratique {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.info_pratique .right .picto {
-    text-align: center;
-}
-
-.info_pratique .right .picto ul li{
-    list-style-type: none;
-    display: inline-block;
-    margin-right: 5%;
-    width:10%;
-    max-width: 40px;
-}
-
-.fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner .left span{
-    font-family: arial;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.info_pratique .right .picto ul li img{
-    width: 100%;
-}
 
 .contenu_onglet .onglet1mobile .text{
     width: 100%;
@@ -984,73 +914,10 @@ span.fleche{
     padding-left: 10px;
 }
 
-.right .separation{
-    width: 60%;
-    margin: auto;
-    height: 2px;
-    border-bottom: 1px solid #cdcdcd;
-    margin-bottom: 30px;
-}
-
 /* Other common styles */
 
 .clear {
     clear: both;
-}
-
-
-.table_info{
-    width: 96%;
-    margin: auto;
-    min-height: 30px;
-    margin-top: 20px;
-}
-
-.table_info .gauche,.table_info .droit{
-    width: 48%;
-    float: left;
-    height: 40px;
-    line-height: 38px;
-    margin-bottom: 12px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #cdcdcd;
-}
-
-.table_info .gauche span,.table_info .droit span{
-    display: inline-block;
-    width: 50%;
-    height: 100%;
-    text-align: left;
-}
-
-.table_info .gauche{
-    margin-right: 4%;
-}
-
-.table_info .gauche span.tdroit,.table_info .droit span.tdroit{
-    text-align: right;
-    overflow: hidden;
-    text-transform: uppercase;
-}
-
-.table_info .gauche span.tdroit, .table_info .droit span.tdroit{
-    font-weight: normal !important;
-    font-size: 16px !important;
-    font-family: "helvetica" !important;
-}
-
-.table_info .gauche span.tdroit img{
-    height: 30px;
-}
-
-.table_info .gauche span.tgauche,.table_info .droit span.tgauche{
-    text-transform: uppercase;
-    overflow: hidden;
-}
-
-.inner .sous_info{
-    float: left;
-    width: 100%;
 }
 
 /*******************      ****/
@@ -1072,6 +939,16 @@ span.fleche{
 
     #deplier_date_mobile{
         display: none;
+    }
+
+    .fiche_produit .texte_slide .titre{
+        font-size: 35px !important;
+        padding-bottom: 25px !important;
+        padding-top: 15px !important;
+    }
+
+    .fiche_produit .texte_slide{
+        max-width: 450px !important;
     }
 }
 
@@ -1095,56 +972,17 @@ span.fleche{
     }
 }
 
-.top_bloc .info_prix{
-    width: 89%;
-    height: 80px;
-    float: right;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-}
-
-.container_dates .choix{
-    position: relative;
-}
-
-
-
-
-
-
 .top_bloc .nom_pays{
-    font-family: "helvetica";
-    font-size: 22px;
+    text-transform: uppercase;
+    font-size: 2.375rem;
+    font-family: "NewCicleGordita";
     text-align: center;
     width: 100%;
     padding: 15px 0;
     color: #006695;
 }
 
-.top_bloc .info_prix .info,.top_bloc .info_prix .prix {
-    width: auto;
-    height: 100%;
-    font-family: "helvetica";
-}
-
-.top_bloc .info_prix .info{
-    float: left;
-}
-
 .top_bloc .info_prix .place_dispo span{
-    display: block;
-}
-.top_bloc .info_prix .place_dispo{
-    margin: auto;
-    width: 100%;
-    text-align: center;
-}
-
-.top_bloc .info_prix .prix{
-    float: right;
-}
-
-.top_bloc .info_prix .info span,.top_bloc .info_prix .prix span{
     display: block;
 }
 
@@ -1155,18 +993,6 @@ span.fleche{
     font-family: "helvetica";
     margin-top: 10px;
     color: #989898;
-}
-
-.top_bloc .info_prix span.valeur{
-    font-size: 33px;
-    margin-top: 10px;
-}
-
-.top_bloc .trait_sous_titre{
-    width: 20%;
-    height: 1px;
-    border-bottom: 1px solid black;
-    margin: auto;
 }
 
 @media (max-width: 400px){
@@ -1184,23 +1010,11 @@ span.fleche{
     }
 }
 
-
-
 .top_bloc{
     width: 100%;
-    max-width: 900px;
     margin: auto;
-    height: 440px;
-    padding-bottom: 1px;
-    box-shadow: 0px -7px 1px -3px #F8F8F8 inset;
-    overflow: visible;
-    border: 1px solid #E3E3E3;
-    background-color: #FFF;
-    border-bottom: 1px solid #bbb;
-    clear: both;
-    position: relative;
+    max-width: 900px;
 }
-
 
 .top_bloc .bloc_achat{
     width: 320px;
@@ -1208,19 +1022,9 @@ span.fleche{
     position: absolute;
     top:15px;
     left: 15px;
-    background-color:#fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    border: 1px solid #e6e6e6;
+    background-color: rgba(0,0,0,0.7);
     border-radius: 3px;
     z-index: 100;
-}
-
-
-
-
-.top_bloc .image_fond{
-    height: 440px;
-    overflow: hidden;
 }
 
 .contain_top_bloc{
@@ -1231,56 +1035,8 @@ span.fleche{
     margin-bottom: 0px;
 }
 
-.contain_top_bloc, .fiche_produit .fil_arianne_conteneur{
-    background-color: #F2F2F2;
-}
-
-.choix{
-    margin-bottom: 35px;
-}
-
-.choix table{
-    color:#000;
-    margin: 10px auto;
-    width: 100%;
-}
-.choix table td{
-    padding-right: 25px;
-    width: 50%;
-    vertical-align: top;  
-    font-family: "helvetica";
-}
-
-.choix .cercle{
-    height: 10px;
-    width: 10px;
-    display: block;
-    float: right;
-    border-radius: 50%;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
-.choix .instock .cercle{
-    background-color: #52a926;   
-}
-
-.choix .instock{
-    color: #52a926;
-    font-size: 12px;
-}
-
-.choix .outstock .cercle{
-    background-color: #ff0000;   
-}
-
-.choix .outstock{
-    color: #ff0000;
-    font-size: 12px;
-}
-
-.choix .stock{
-    float: right;
+.fiche_produit .fil_arianne_conteneur{
+    background-color: #f5f5f5;
 }
 
 .choix .titre{
@@ -1316,21 +1072,447 @@ span.fleche{
 
 #embarque{
     position: absolute;
-    right: 15px;
-    bottom: 15px;
-    width: 153px;
-    font-size: 18px;
+    right: 8px;
+    bottom: 8px;
+    width: 225px;
+    font-size: 23px;
     line-height: 40px;
+    font-family: 'NewCicleGordita';
+    text-transform: uppercase;
+    text-align: center;
 }
 
-.top_bloc a.voir_date{
-    color: #fff;
-    text-transform: uppercase;
-    margin: 0px auto;
-    width: 278px;
-    text-decoration: none;
+.slider_bot{
+    width: 100%;
+    margin: auto;
+    position: relative;
+    max-width: 900px;
+    margin-bottom: 20px;
+}
 
+/*bloc info pratiuque */
+.info_pratique .top{
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+}
+
+.info_pratique .top span{
     display: block;
+    width: 28%;
+    float: left;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 23px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.info_pratique .top .trait_info{
+    width: 36%;
+    float: left;
+    height: 25px;
+    border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 700px){
+    .info_pratique .top span{
+        width: 44% !important;
+    }
+
+    .info_pratique .top .trait_info{
+        width: 28% !important;
+    }
+
+    .info_pratique .leftBloc, .info_pratique .rightBloc{
+        width: 100% !important;
+        margin-left: 0% !important;
+    }
+}
+
+.info_pratique .leftBloc, .info_pratique .rightBloc{
+    width: 46%;
+    float: left;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.info_pratique .rightBloc{
+    margin-left: 8%;
+}
+
+.info_pratique .leftBloc ul li{
+    list-style-type: none; 
+    width: 100%;
+    line-height: 45px;
+    font-size: 14px;
+}
+
+.info_pratique .rightBloc ul li{
+    list-style-type: none; 
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.info_pratique .leftBloc ul li img{
+    height: 30px;
+}
+
+.info_pratique .leftBloc ul li strong{
+    text-transform: uppercase;
+}
+
+.info_pratique .rightBloc ul li strong{
+    text-transform: uppercase;
+    display: inline-block;
+    width: 30%;
+    float: left;
+}
+
+.info_pratique .rightBloc ul li span{
+    display: inline-block;
+    width: 70%;
+    text-align: right;
+    font-family: "helvetica";
+}
+
+.info_pratique .leftBloc ul li span{
+    float: right;
+    font-family: "helvetica";
+
+}
+
+.info_pratique .leftBloc ul, .info_pratique .rightBloc ul{
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.info_pratique .leftBloc .titre, .info_pratique .rightBloc .titre{
+    text-align: center;
+    height: 50px;
+    text-transform: uppercase;
+    font-family: 'NewCicleGordita', sans-serif;
+    line-height: 23px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.info_pratique .traitTopPicto{
+    width: 10%;
+    height: 2px;
+    border-bottom: 1px solid #fff;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.info_pratique .picto{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info_pratique .picto li{
+    display: inline-block;
+    width: 12%;
+    margin-left: 3%;
+    max-width: 35px;
+    padding-bottom: 20px;
+}
+
+.info_pratique .picto li:first-child{
+    margin-left: 0;
+}
+
+.info_pratique .picto li img{
+    width: 100%;
+}
+
+/* pop commander */
+.top_bloc .topLeft{
+    width: 70%;
+    float: left;
+    text-align: justify;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.top_bloc .topLeft h2{
+    font-family: "helvetica";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.top_bloc{
+    padding-top: 20px;
+}
+
+@media (max-width: 900px){
+    .top_bloc .topLeft{
+        width: 100% !important;
+        padding-right: 10px;
+        padding-left: 10px;
+        max-width: none !important;
+    }
+
+    .top_bloc .topRight{
+        float: none !important;
+        margin: auto;
+        clear: both;
+    }
+}
+
+.fiche_produit .texte_slide{
+    border-top:2px solid #fff;
+    border-bottom:2px solid #fff;
+    position: relative;
+    z-index: 100;
+    margin: auto;
+    top:-65%;
+    padding: 20px;
+    width: auto;
+    max-width: 350px;
+}
+
+.fiche_produit .texte_slide .titre{
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 27px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #fff;
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.fiche_produit .texte_slide .trait{
+    margin: auto;
+    width: 7%;
+
+}
+
+.fiche_produit .texte_slide .date{
+    text-align: center;
+    color: #fff;
+    padding-top: 15px;
+    font-family: "helvetica";
+    font-style: italic;
+}
+
+.top_bloc .topRight{
+    width: 450px;
+    float: right;
+    height: 200px;
+    position: relative;
+    background: #fff;
+}
+
+.topRight
+{
+    position:relative;       
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.topRight:before, .topRight:after
+{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+
+@media (max-width: 900px){
+    .fiche_produit .texte_slide{
+        top: -70%;
+    }
+
+    .top_bloc{
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px){
+    .fiche_produit .texte_slide{
+        top: -80%;
+        border: none;
+    }
+}
+
+.fiche_produit .infoPersoVoyage{
+    width: 100%;
+    min-height: 200px;
+    background-color: #f5f5f5;
+}
+
+.fiche_produit .infoPersoVoyage .content{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background-color: #f5f5f5;
+    padding: 0px;
+}
+
+.fiche_produit .infoPersoVoyage .content div.bloc{
+    width: 100%;
+    min-height: 50px;
+    background-color: #edefed;
+    border: 1px solid #dce0e0;
+    margin-bottom: 30px;
+    float: left;
+}
+
+.fiche_produit .infoPersoVoyage .content div.first{
+    margin-top: 30px;
+}
+
+.fiche_produit .infoPersoVoyage .content .titre{
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    line-height: 50px;
+    font-family: 'NewCicleGordita', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    color: #565a5c;
+    padding-top: 8px;
+}
+
+.fiche_produit .infoPersoVoyage .content .titre .picto{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px
+}
+
+.fiche_produit .infoPersoVoyage .content .bloc.formalite .titre .picto{
+    background: url(../images/ficheproduit/formalites.png) center center no-repeat;
+}
+
+.fiche_produit .infoPersoVoyage .content .bloc.asavoir .titre .picto{
+    background: url(../images/ficheproduit/a_savoir_2.png) center center no-repeat;
+}
+
+.fiche_produit .infoPersoVoyage .content .bloc.comprenant .titre .picto{
+    background: url(../images/ficheproduit/package_2.png) center center no-repeat;
+}
+
+.fiche_produit .infoPersoVoyage .content .texte{
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    color: #565a5c;
+    font-family: "helvetica";
+    font-size: 16px;
+    padding-left: 75px;
+}
+
+@media (max-width: 900px){
+    .fiche_produit .infoPersoVoyage .content{
+        padding: 10px !important;
+    }
+}
+
+
+.topRight .bloc{
+    float: left;
+    height: 150px;
+}
+
+.topRight .bloc .titre{
+    display: block;
+    height: 65px;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'NewCicleGordita', sans-serif;
+    line-height: 23px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    font-weight: bold;
+    line-height: 75px;
+    color: #000;
+}
+
+
+.topRight .bloc.bloc1{
+    width: 26%;
+}
+
+.topRight .bloc.bloc2{
+    width: 26%;
+}
+
+.topRight .bloc.bloc3{
+    width: 48%;
+}
+
+.topRight .bloc .valeur{
+    padding-left: 9px;
+    font-family: "helvetica";
+    font-size: 16px;
+    color: #989898;
+}
+
+@media (max-width: 480px){
+    .topRight .bloc.bloc1{
+        width: 50%;
+        height: 90px !important;
+    }
+
+    .topRight .bloc.bloc2{
+        width: 50%;
+        height: 90px !important;
+    }
+
+    .topRight .bloc.bloc3{
+        width: 100%;
+        height: 90px !important;
+    }
+
+    .top_bloc .topRight{
+        width: 100% !important;
+        height: 250px !important;
+    }
+}
+
+.topRight a.voir_date{
+    display: block;
+    position: absolute;
+    bottom: 14px;
+    left: 10px;
+    font-family: "helvetica";
+}
+
+@media (max-width: 400px){
+    #embarque{
+          width: 160px !important;
+          text-align: left !important;
+          font-size: 21px !important;
+    }
+}
+
+.topLeft h1{
+      font-family: 'NewCicleGordita';
 }
 
 

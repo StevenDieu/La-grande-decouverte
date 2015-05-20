@@ -4,27 +4,25 @@
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 <script type="text/javascript">
 //<?php echo $voyage[0]->lattitude; ?>, lng: <?php echo $voyage[0]->longitude; ?>},
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>);
+        var mapOptions = {
+            zoom: 8,
+            scrollwheel: false,
+            disableDoubleClickZoom: true,
+            center: myLatlng,
+        };
+        map = new google.maps.Map(document.getElementById('carte'), mapOptions);
 
-function initialize() {
-var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?php echo $voyage[0]->longitude; ?>);
-  var mapOptions = {
-    zoom: 8,
-    scrollwheel: false,
-    disableDoubleClickZoom: true,
-    center: myLatlng,
-  };
-  map = new google.maps.Map(document.getElementById('carte'), mapOptions);
-
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Hello World!'
-  });
-}
-
-
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
 </script>
-<div class="fiche_produit">		
+
+<div class="fiche_produit">
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
@@ -38,12 +36,11 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                 <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_3; ?>" alt="<?php echo $voyage[0]->image_slider_3; ?>">
             </li>
         </ul>
-        <!-- caption desktop -->
-        <div class="caption">
-            <h1><?php echo $voyage[0]->titre; ?></h1>
-            <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
+        <div class="texte_slide">
+            <div class="titre"><?php echo $voyage[0]->titre; ?></div>
+            <div class="trait"></div>
+            <div class="date"><?php echo $voyageInfo[0]->date_depart; ?> - <?php echo $voyageInfo[0]->date_arrivee; ?> </div>
         </div>
-        <!-- fin caption desktop -->
     </div>
 
     <div style="clear:both"></div>
@@ -53,57 +50,60 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
             <ul class="breadcrumbs">
                 <li class="acceuil"><a href="/">Acceuil</a></li>
                 <li><a href="/">Voyages</a></li>
-                <li class="last">Au coeur du Chili</li>
+                <li class="last"><?php echo $voyage[0]->titre; ?></li>
             </ul>
         </div>
     </div>
 
-    <!-- caption mobile -->
-    <h1 class="caption_titre_mobile"><span><?php echo $voyage[0]->titre; ?></span></h1>
-    <h2 class="caption_mobile"><span><?php echo $voyage[0]->phrase_accroche; ?></span></h2>
-    <!-- fin caption mobile -->
-
     <div class="contain_top_bloc">
         <div class="top_bloc">
-            <!-- bloc achat -->
-            <div class="image_fond"><img src="<?php echo base_url(''); ?>media/produit/image_sous_slider/<?php echo $voyage[0]->image_sous_slider; ?>" alt="<?php echo $voyage[0]->image_sous_slider; ?>"></div>
-            <div class="bloc_achat">
-                <form action="#">
-                    <div class="nom_pays"><?php echo $voyage[0]->titre; ?></div>
-                    <div class="trait_sous_titre"></div>
-                    <div class="info_prix">
-                        <div class="info">
-                            <span class="titre">Durée</span>
-                            <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
-                        </div>
-                        <div class="prix">
-                            <span class="titre">à partir de</span>
-                            <span class="valeur"><?php echo $voyageInfo[0]->prix; ?> €</span>
-                        </div>
+            <div class="topLeft">
+                <h1><?php echo $voyage[0]->titre; ?></h1>
+                <h2><?php echo $voyage[0]->phrase_accroche; ?></h2>
+            </div>   
+            <div class="topRight">
+                <?php echo form_open_multipart('checkout/cart/onepage'); ?>
+
+                    <div class="bloc bloc1">
+                        <span class="titre">Durée</span>
+                        <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
                     </div>
-                    <div class="info_prix">
-                        <div class="place_dispo">
-                            <span class="titre">Place disponible</span>
-                            <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
-                        </div>
+
+                    <div class="bloc bloc2">
+                        <span class="titre">à partir</span>
+                        <span class="valeur">de <?php echo $voyageInfo[0]->prix; ?> €</span>
                     </div>
-                    <div style="clear:both"></div>
-                    Vous avez choisi les dates suivantes : <br/>
-                    Départ le <?php echo $voyageInfo[0]->date_depart; ?> à <?php echo $voyageInfo[0]->depart; ?>.<br/>
-                    Retour le <?php echo $voyageInfo[0]->date_arrivee; ?> à <?php echo $voyageInfo[0]->arrivee; ?>
-                    
+
+                    <div class="bloc bloc3">
+                        <span class="titre">Places disponibles</span>
+                        <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
+                    </div>
 
                     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
-                    <input type="hidden" name="id" value="<?php echo $voyageInfo[0]->id; ?>">
-
+                    <input type="hidden" name="idInfo" value="<?php echo $voyageInfo[0]->id; ?>">
+                    <?php if(count($allInfoVoyage) > 1): ?>
+                        <a href="#data" class="voir_date">> Voir les dates</a>
+                        <!-- popup -->
+                        <div style="display:none">
+                            <div id="data">
+                            <?php 
+                                foreach ($allInfoVoyage as $info) {
+                                    echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>
+                                    Du ".$info->date_depart." au ".$info->date_arrivee."
+                                    </a><br>";
+                                }
+                            ?>
+                            </div>
+                        </div>
+                        <!-- popup -->
+                        <script type="text/javascript">
+                            $("a.voir_date").fancybox();
+                        </script>
+                    <?php endif; ?>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
-                    <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
-                    <div style="clear:both"></div>
-
                 </form>
-                <div style="clear:both"></div>
-            </div>
-            <!-- fin bloc achat -->
+            </div>         
+
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -129,70 +129,71 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                 <p><?php echo $voyage[0]->description_first_bloc; ?> </p>
             </div>
 
+            <!-- contenu info pratique -->
             <div class="info_pratique">
+                <div class="filtre_image"></div>
+                <div class="fond_image"><img src="<?php echo base_url(''); ?>media/produit/image_sous_slider/<?php echo $voyage[0]->image_sous_slider; ?>" alt="<?php echo $voyage[0]->image_sous_slider; ?>"></div>
                 <div class="inner">
-                    <div class="left">
-                        <!-- tableau d'info pays -->
-                        <div class="table_info">
-                            <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Drapeau</span><span class="tdroit"><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></div>
-                                 <?php
-                                    $date = new DateTime(null, new DateTimeZone('America/Santiago'));
-                                ?>
-                                <div class="droit"><span class="tgauche">Heure locale</span><span class="tdroit"><?php echo str_replace(':','h',$date->format('H:i')); ?></span></div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="une_ligne">
-                                <div class="gauche"><span class="tgauche">Capital</span><span class="tdroit"><?php echo $voyage[0]->capital; ?></span></div>
-                                <div class="droit"><span class="tgauche">Météo</span><span class="tdroit"><?php echo $voyage[0]->meteo_temperature; ?>°C</span></div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="une_ligne">
-                                <?php   $this->load->model('voyage'); 
-                                        $result = $this->voyage->getContinent($voyage[0]->continent);
-                                ?>
-                                <div class="gauche"><span class="tgauche">Continent</span><span class="tdroit"><?php echo $result[0]->name; ?></span></div>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                        <!-- fin tableau d'info pays -->
-                    </div>
-                    <div class="right">
-                        <div class="separation"></div>
-                        <div class="picto">
-                            <ul>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_1; ?>" alt="<?php echo $voyage[0]->picto_1; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_2; ?>" alt="<?php echo $voyage[0]->picto_2; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_3; ?>" alt="<?php echo $voyage[0]->picto_3; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_4; ?>" alt="<?php echo $voyage[0]->picto_4; ?>"></li>
-                                <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_5; ?>" alt="<?php echo $voyage[0]->picto_5; ?>"></li>
-                                <li class="last"><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_6; ?>" alt="<?php echo $voyage[0]->picto_6; ?>"></li>
-                            </ul>
-                        </div>
-                        <div class="information_medicale">
 
-                        </div>
+                    <div class="top">
+                        <div class="trait_info"></div>
+                        <span>Info pratique</span>
+                        <div class="trait_info"></div>
                     </div>
-                    <div class="sous_info">
-                        <div class="sous_info_left">
-                            <p><span>Villes principales :</span><?php echo $voyage[0]->villes_principales; ?></li>
-                            <p><span>Religion :</span><?php echo $voyage[0]->religion; ?></p>
-                            <p><span>Nombre d'habitants :</span><?php echo $voyage[0]->nombre_habitant; ?></p>
-                        </div>
-                        <div class="sous_info_right">
-                            <p><span>Monnaie :</span> <?php echo $voyage[0]->monnaie; ?></p>
-                            <p><span>Fête :</span><?php echo $voyage[0]->fete; ?></p>
-                            <p><span>Langue officielle :</span> <?php echo $voyage[0]->langue_officielle; ?></p>
-                        </div>
-                    </div>                   
+
+                    <?php
+                    $this->load->model('voyage');
+                    $result = $this->voyage->getContinent($voyage[0]->continent);
+                    $date = new DateTime(null, new DateTimeZone('America/Santiago'));
+                    ?>
+
+                    <div class="leftBloc">
+                        <div class="titre">Information général du pays</div>
+                        <ul>
+                            <li><strong>Drapeau</strong><span><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></li>
+                            <li><strong>Heure locale</strong><span><?php echo str_replace(':', 'h', $date->format('H:i')); ?></span></li>
+                            <li><strong>Capital</strong><span><?php echo $voyage[0]->capital; ?></span></li>
+                            <li><strong>Météo</strong><span><?php echo $voyage[0]->meteo_temperature; ?>°C </span></li>
+                            <li><strong>Continent</strong><span><?php echo $result[0]->name; ?></span></li>
+                        </ul>
+                    </div>
+
+                    <div class="rightBloc">
+                        <div class="titre">à savoir avant de partir</div>
+                        <ul>
+                            <li><strong>Villes principales</strong><span><?php echo $voyage[0]->villes_principales; ?></span><div class="clear"></div></li>
+                            <li><strong>Religion</strong><span><?php echo $voyage[0]->religion; ?></span><div class="clear"></div></li>
+                            <li><strong>Nombre d'habitants</strong><span><?php echo $voyage[0]->nombre_habitant; ?></span><div class="clear"></div></li>
+                            <li><strong>Monnaie</strong><span><?php echo $voyage[0]->monnaie; ?></span><div class="clear"></div></li>
+                            <li><strong>Fête</strong><span><?php echo $voyage[0]->fete; ?></span><div class="clear"></div></li>
+                            <li><strong>Langue officielle</strong><span><?php echo $voyage[0]->langue_officielle; ?></span><div class="clear"></div></li>
+                        </ul>
+                    </div>
+
                     <div class="clear"></div>
+
+                    <div class="traitTopPicto"></div>
+
+                    <div class="picto">
+                        <ul>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_1; ?>" alt="<?php echo $voyage[0]->picto_1; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_2; ?>" alt="<?php echo $voyage[0]->picto_2; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_3; ?>" alt="<?php echo $voyage[0]->picto_3; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_4; ?>" alt="<?php echo $voyage[0]->picto_4; ?>"></li>
+                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_5; ?>" alt="<?php echo $voyage[0]->picto_5; ?>"></li>
+                            <li class="last"><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_6; ?>" alt="<?php echo $voyage[0]->picto_6; ?>"></li>
+                        </ul>
+                    </div>
+
+                    <div class="clear"></div>
+
                 </div>
             </div>
+            <!-- fin contenu info pratique -->
 
             <div class="text">
                 <?php echo $voyage[0]->description_second_bloc; ?>            
             </div>
-
 
             <div class="ligne_image">
                 <div class="img img1"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_1; ?>" alt="<?php echo $voyage[0]->image_baniere_1; ?>"></div>
@@ -204,44 +205,47 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
             </div>
 
             <div class="text">
-            <p><?php echo $voyage[0]->description_third_bloc; ?></p>
+                <p><?php echo $voyage[0]->description_third_bloc; ?></p>
             </div>
 
-            <div id="jcl-demo">
-                <div class="custom-container widget">
-                    <div class="mid">
-                        <img class="zoom" src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>">
+            <div class="slider_bot">
+                <ul class="" id="sliderbot">
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
+                    <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_3; ?>" alt="<?php echo $voyage[0]->image_description_3; ?>"></li>
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_4; ?>" alt="<?php echo $voyage[0]->image_description_4; ?>"></li>
+                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
+                    <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
+                </ul>
+            </div>
+            <script type="text/javascript">initialiseResponsiveSilide('#sliderbot');</script>
+
+            <div class="infoPersoVoyage">
+                <div class="content">
+                    <div class="bloc first formalite">
+                        <div class="titre"><div class="picto"></div>Formalité</div>
+                        <div class="texte"><?php echo $voyageInfo[0]->formalite; ?></div>
                     </div>
-                    <div class="carousel">  
-                        <ul>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
-                            <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_3; ?>" alt="<?php echo $voyage[0]->image_description_3; ?>"></li>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_4; ?>" alt="<?php echo $voyage[0]->image_description_4; ?>"></li>
-                            <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
-                            <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
-                        </ul> 
-                    </div>                        
+                    <div class="bloc asavoir">
+                        <div class="titre"><div class="picto"></div>À savoir</div>
+                        <div class="texte"><?php echo $voyageInfo[0]->asavoir; ?></div>
+                    </div>
+                    <div class="bloc comprenant">
+                        <div class="titre"><div class="picto"></div>Comprenant</div>
+                        <div class="texte"><?php echo $voyageInfo[0]->comprenant; ?></div>
+                    </div>
                     <div class="clear"></div>
                 </div>
-
-
-                <script type="text/javascript">
-                    $(function() {
-                        $(".widget img").click(function() {
-                            $(".widget .mid img").attr("src", $(this).attr("src"));
-                        })
-                    });
-                </script>
             </div>
+
             <!-- fin contenu description -->
             <div class="clear"></div>
         </div>
         <div id="onglet2mobile" class="onglet_mobile"><a href="#">Carte</a></div>
-        <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div></div>
+        <div id="onglet2" class="contenu_fiche_onglet onglet2mobile"><div id="carte"></div><br /></div>
         <div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
         <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
-        <!-- contenu carnet de voyage -->
+            <!-- contenu carnet de voyage -->
             <div class="article_first">
                 <div class="image">
                     <div class="callbacks_container carnet">
@@ -365,7 +369,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
 
                 <div style="clear:both"></div>
             </div>
-        <!-- fin contenu carnet de voyage -->	
+            <!-- fin contenu carnet de voyage -->	
         </div>
         <div id="onglet4mobile" class="onglet_mobile"><a href="#">Déroulement</a></div>
         <div id="onglet4" class="contenu_fiche_onglet onglet4mobile">
@@ -386,7 +390,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                             <div class="texte">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !</div>
+                                    Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
                         <div style="clear:both"></div>
@@ -405,7 +409,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                             <div class="texte no-image">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !</div>
+                                    Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
                         <div style="clear:both"></div>
@@ -427,7 +431,7 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                             <div class="texte">
                                 <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
                                 <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                    Le soir, l'observation des étoiles y est incroyable !</div>
+                                    Le soir, l'observation des étoiles y est incroyable !</div>
                             </div>
                         </div>
                         <div style="clear:both"></div>
@@ -435,8 +439,10 @@ var myLatlng = new google.maps.LatLng(<?php echo $voyage[0]->lattitude; ?>, <?ph
                 </div>
                 <!-- fin 1 jour -->
             </div>
+            <br />
         </div>
     </div>	
-    <br>
+    <div style="clear:both"></div>
 </div>
+
 

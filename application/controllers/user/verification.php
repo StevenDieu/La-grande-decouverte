@@ -8,6 +8,7 @@ class Verification extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('user');
+        $this->load->model('images');
         $this->load->library('form_validation');
     }
 
@@ -37,6 +38,48 @@ class Verification extends CI_Controller {
         } else {
             echo "1";
         }
+    }
+
+    function changeDescription() {
+        if (!$this->session->userdata('logged_in')) {
+            echo "co";
+            die;
+        }
+        $this->form_validation->set_rules('nom', 'mdp', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('prenom', 'nmdp', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('description', 'description', 'trim|xss_clean');
+        if ($this->form_validation->run() == FALSE) {
+            echo "0";
+        } else {
+            $this->user->nom = $this->input->post('nom');
+            $this->user->prenom = $this->input->post('prenom');
+            $this->user->description = $this->input->post('description');
+            $this->user->id = $this->session->userdata('logged_in')["id"];
+            if ($this->user->setDescription()) {
+                $sess_array = array(
+                    'id' => $this->user->id,
+                    'nom' => $this->user->nom,
+                    'prenom' => $this->user->prenom,
+                    'description' => $this->user->description,
+                    'id_image' => $this->session->userdata('logged_in')["id_image"],
+                    'lien_image' => $this->session->userdata('logged_in')["lien_image"],
+                    'nom_image' => $this->session->userdata('logged_in')["nom_image"],
+                    'user' => $this->session->userdata('logged_in')["user"]
+                );
+                $this->session->set_userdata('logged_in', $sess_array);
+                echo "1";
+            } else {
+                echo "0";
+            }
+        }
+    }
+
+    function uploadProfile() {
+        if (!$this->session->userdata('logged_in')) {
+            echo 'co';
+            die;
+        }
+        $this->load->view('user/myaccount/uploadImageProfile.php');
     }
 
     function login() {
@@ -133,17 +176,35 @@ class Verification extends CI_Controller {
     }
 
     function check_database_login($mdp) {
-//Field validation succeeded.  Validate against database
+
         $user = $this->input->post('user');
 
-//query the database
         $result = $this->user->login($user, $mdp);
 
         if ($result) {
             $sess_array = array();
+
             foreach ($result as $row) {
+                $this->images->setId($row->id_image);
+                $resultImage = $this->images->getImage();
+                $imageLien = "";
+                $imageNom = "";
+                $id_image= "";
+                if ($resultImage) {
+                    foreach ($resultImage as $image) {
+                        $imageLien = $image->lien;
+                        $imageNom = $image->nom;
+                        $id_image = $image->id;
+                    }
+                }
                 $sess_array = array(
                     'id' => $row->id,
+                    'nom' => $row->nom,
+                    'prenom' => $row->prenom,
+                    'description' => $row->description,
+                    'id_image' => $id_image,
+                    'lien_image' => $imageLien,
+                    'nom_image' => $imageNom,
                     'user' => $row->login
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
@@ -179,6 +240,18 @@ class Verification extends CI_Controller {
     }
 
     function change_mdp($nmdp) {
+        $this->user->password = $this->input->post('mdp');
+        $this->user->id = $this->session->userdata('logged_in')["id"];
+        if ($this->user->verifPassUser()) {
+            $this->user->password = $nmdp;
+            if ($this->user->setMdp()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function changeDecrition() {
         $this->user->password = $this->input->post('mdp');
         $this->user->id = $this->session->userdata('logged_in')["id"];
         if ($this->user->verifPassUser()) {

@@ -129,20 +129,27 @@
 }
 
 .content_fiche_voyage .image_profile{
-    max-width: 240px;
+    max-width: 300px;
 }
 
 .content_fiche_voyage .bloc_image_profile{
-    max-height: 225px;
+    max-height: 300;
     overflow: hidden; 
     margin: 0 auto;
     text-align: center;
+    border-radius: 50%;
+    border: 2px solid rgb(99, 99, 99);
 }
 
 .baniere_description{
+    background-image: url("../images/ficheVoyage/mallorca_84830866.jpg");
+    background-position-x: 50%;
+    background-size: cover;
     background-color: #e6ded6;
+    background-repeat: no-repeat;
     padding: 25px 0;
     margin-bottom: 30px;
+    height: 217px;
 }
 
 .descriptionJour{
@@ -242,9 +249,9 @@
     .textJour{
         text-align: right;
         padding-right: 20px;
-    
+
         word-wrap: break-word;
-}
+    }
 
 
     .blockJour{
@@ -319,5 +326,58 @@
 
     .share_carnet{
         padding-right: 10px;
+    }
+}
+
+.image_profile{
+    float: left;
+
+}
+
+.description_profile{
+    width: 68%;
+
+    float: right;
+    padding-left: 16px;
+    padding-right: 25px;
+    color: white;
+}
+
+.image_transparente{
+    height: 217px;
+
+    margin-top: -25px;
+    padding-top: 33px;
+    background-color: rgba(51, 51, 51, 0.59);
+}
+
+@media (max-width: 1000px){
+    .description_profile{
+        width: 100%;
+        float: none;
+
+        text-align: center;
+        padding: 28px 0 0 0;
+    }
+    .image_profile{
+        float: none;
+        margin: 0 auto;
+    }
+    .bloc_image_profile{
+        width: 130px;
+        height: 130px;
+    }
+    .image_profile {
+        width: 130px;
+    }
+    .baniere_description{
+        height: 420px;
+    
+}
+    .image_transparente{
+        height: 420px;
+    }
+    .content_fiche_voyage{
+        max-width: 592px;
     }
 }

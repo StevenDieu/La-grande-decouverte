@@ -1,6 +1,9 @@
 <?php
 
-function asset_url() {
+function asset_url($url = "") {
+    if ($url !== "") {
+        return base_url() . 'assets/' . $url;
+    }
     return base_url() . 'assets/';
 }
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 13 Mai 2015 à 10:29
+-- Généré le :  Mar 19 Mai 2015 à 23:15
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.4.24
 
@@ -59,14 +59,15 @@ CREATE TABLE IF NOT EXISTS `carnetvoyage` (
   PRIMARY KEY (`id`,`id_utilisateur`,`id_voyage`),
   KEY `fk_carnetvoyage_utilisateur1_idx` (`id_utilisateur`),
   KEY `fk_carnetvoyage_voyage1_idx` (`id_voyage`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `carnetvoyage`
 --
 
 INSERT INTO `carnetvoyage` (`id`, `id_utilisateur`, `id_voyage`, `titre`) VALUES
-(4, 1, 64, 'aze');
+(4, 1, 64, 'aze'),
+(14, 1, 65, 'test');
 
 -- --------------------------------------------------------
 
@@ -127,26 +128,36 @@ CREATE TABLE IF NOT EXISTS `fichevoyage` (
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`,`id_carnetvoyage`),
   KEY `fk_fichevoyage_carnetvoyage1_idx` (`id_carnetvoyage`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `fichevoyage`
 --
 
 INSERT INTO `fichevoyage` (`id`, `visible`, `id_carnetvoyage`, `titre`, `contenu`, `id_utilisateur`) VALUES
-(1, 0, 4, 'Jour 1 : Arrivée à Santiago', '<p><br></p><p><br><br><img alt="" class="fr-image-dropped fr-fil fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/fe90d0ea2ff3f74763b2319345329d49df1fdd27.jpg" width="370">                                Arrivée à Santiago après 14 heures de vol. Accueil à l''aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, <br>                                temps libre pour découverte individuelle...<br><br><br><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br>                                La capitale chilienne est une immense mégalopole regroupant à elle seule près d''un tiers de la population du pays. <br>                                Pourtant, à s''y balader, on ne croirait pas que tant de gens se pressent dans cet espace verdoyant aux innombrables parcs, <br>                                aux trottoirs fleuris et aux rues longées d''arbres. Ici, tout est vert. <br></p><p><br></p><p><br></p><p><br></p><p><br><br><img alt="" class="fr-fir fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/b603605e0fd609e802e0598a50c34bc042f20133.jpg" width="321">                                Chaque matin, des employés de la ville arrosent consciencieusement les nombreuses parcelles d''herbes que l''on trouve un peu partout. <br>                                Il semble vraiment faire bon vivre à Santiago, à 100km de la mer et moitié moins des stations de ski. Nous avons vraiment beaucoup aimé cette ville, <br>                                notre seul regret sera de ne pas nous y être un peu plus promenées à pied ; sa taille et la proximité du métro nous ont découragées, mais elle mérite d''être parcourue plus longuement. <br>                                Nous avons particulièrement aimé les quartiers de Providencia, où nous logions, et de Bellavista avec ses petites maisons de toutes les couleurs.<br><br><br><br>                                        Suggestion de visites : La Chascona, l''une des trois maisons du célèbre poète et écrivain chilien Pablo Neruda ; <br>                                        l''un des cerros (collines) de la ville, par exemple Santa Lucia pour son charme ; le marché central ; la Place d''Armes et la Cathédrale ; <br>                                        le Palais de la Moneda.</p><p><br></p>', 1);
+(1, 1, 4, 'Jour 1 : Arrivée à Santiago', '<p><br></p><p><br><br><img alt="" class="fr-image-dropped fr-fil fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/fe90d0ea2ff3f74763b2319345329d49df1fdd27.jpg" width="370">                                Arrivée à Santiago après 14 heures de vol. Accueil à l''aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, <br>                                temps libre pour découverte individuelle...<br><br><br><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br>                                La capitale chilienne est une immense mégalopole regroupant à elle seule près d''un tiers de la population du pays. <br>                                Pourtant, à s''y balader, on ne croirait pas que tant de gens se pressent dans cet espace verdoyant aux innombrables parcs, <br>                                aux trottoirs fleuris et aux rues longées d''arbres. Ici, tout est vert. <br></p><p><br></p><p><br></p><p><br></p><p><br><br><img alt="" class="fr-fir fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/b603605e0fd609e802e0598a50c34bc042f20133.jpg" width="321">                                Chaque matin, des employés de la ville arrosent consciencieusement les nombreuses parcelles d''herbes que l''on trouve un peu partout. <br>                                Il semble vraiment faire bon vivre à Santiago, à 100km de la mer et moitié moins des stations de ski. Nous avons vraiment beaucoup aimé cette ville, <br>                                notre seul regret sera de ne pas nous y être un peu plus promenées à pied ; sa taille et la proximité du métro nous ont découragées, mais elle mérite d''être parcourue plus longuement. <br>                                Nous avons particulièrement aimé les quartiers de Providencia, où nous logions, et de Bellavista avec ses petites maisons de toutes les couleurs.<br><br><br><br>                                        Suggestion de visites : La Chascona, l''une des trois maisons du célèbre poète et écrivain chilien Pablo Neruda ; <br>                                        l''un des cerros (collines) de la ville, par exemple Santa Lucia pour son charme ; le marché central ; la Place d''Armes et la Cathédrale ; <br>                                        le Palais de la Moneda.</p><p><br></p>', 1),
+(3, 1, 4, 'Jour 1 : Arrivée à Santiago', '<p><br></p><p><br><br><img alt="" class="fr-image-dropped fr-fil fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/fe90d0ea2ff3f74763b2319345329d49df1fdd27.jpg" width="370">                                Arrivée à Santiago après 14 heures de vol. Accueil à l''aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, <br>                                temps libre pour découverte individuelle...<br><br><br><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br>                                La capitale chilienne est une immense mégalopole regroupant à elle seule près d''un tiers de la population du pays. <br>                                Pourtant, à s''y balader, on ne croirait pas que tant de gens se pressent dans cet espace verdoyant aux innombrables parcs, <br>                                aux trottoirs fleuris et aux rues longées d''arbres. Ici, tout est vert. <br></p><p><br></p><p><br></p><p><br></p><p><br><br><img alt="" class="fr-fir fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/b603605e0fd609e802e0598a50c34bc042f20133.jpg" width="321">                                Chaque matin, des employés de la ville arrosent consciencieusement les nombreuses parcelles d''herbes que l''on trouve un peu partout. <br>                                Il semble vraiment faire bon vivre à Santiago, à 100km de la mer et moitié moins des stations de ski. Nous avons vraiment beaucoup aimé cette ville, <br>                                notre seul regret sera de ne pas nous y être un peu plus promenées à pied ; sa taille et la proximité du métro nous ont découragées, mais elle mérite d''être parcourue plus longuement. <br>                                Nous avons particulièrement aimé les quartiers de Providencia, où nous logions, et de Bellavista avec ses petites maisons de toutes les couleurs.<br><br><br><br>                                        Suggestion de visites : La Chascona, l''une des trois maisons du célèbre poète et écrivain chilien Pablo Neruda ; <br>                                        l''un des cerros (collines) de la ville, par exemple Santa Lucia pour son charme ; le marché central ; la Place d''Armes et la Cathédrale ; <br>                                        le Palais de la Moneda.</p><p><br></p>', 1),
+(4, 1, 4, 'Jour 1 : Arrivée à Santiago', '<p><br></p><p><br><br><img alt="" class="fr-image-dropped fr-fil fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/fe90d0ea2ff3f74763b2319345329d49df1fdd27.jpg" width="370">                                Arrivée à Santiago après 14 heures de vol. Accueil à l''aéroport par votre accompagnateur et transfert à votre hôtel dans le centre de Santiago. Après un premier briefing du guide, <br>                                temps libre pour découverte individuelle...<br><br><br><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br>                                La capitale chilienne est une immense mégalopole regroupant à elle seule près d''un tiers de la population du pays. <br>                                Pourtant, à s''y balader, on ne croirait pas que tant de gens se pressent dans cet espace verdoyant aux innombrables parcs, <br>                                aux trottoirs fleuris et aux rues longées d''arbres. Ici, tout est vert. <br></p><p><br></p><p><br></p><p><br></p><p><br><br><img alt="" class="fr-fir fr-dii" src="http://localhost/TVAFS-1.0/media/carnet/article/b603605e0fd609e802e0598a50c34bc042f20133.jpg" width="321">                                Chaque matin, des employés de la ville arrosent consciencieusement les nombreuses parcelles d''herbes que l''on trouve un peu partout. <br>                                Il semble vraiment faire bon vivre à Santiago, à 100km de la mer et moitié moins des stations de ski. Nous avons vraiment beaucoup aimé cette ville, <br>                                notre seul regret sera de ne pas nous y être un peu plus promenées à pied ; sa taille et la proximité du métro nous ont découragées, mais elle mérite d''être parcourue plus longuement. <br>                                Nous avons particulièrement aimé les quartiers de Providencia, où nous logions, et de Bellavista avec ses petites maisons de toutes les couleurs.<br><br><br><br>                                        Suggestion de visites : La Chascona, l''une des trois maisons du célèbre poète et écrivain chilien Pablo Neruda ; <br>                                        l''un des cerros (collines) de la ville, par exemple Santa Lucia pour son charme ; le marché central ; la Place d''Armes et la Cathédrale ; <br>                                        le Palais de la Moneda.</p><p><br></p>', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `image`
+-- Structure de la table `images`
 --
 
-CREATE TABLE IF NOT EXISTS `image` (
+CREATE TABLE IF NOT EXISTS `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lien` mediumtext,
+  `lien` text,
+  `nom` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+--
+-- Contenu de la table `images`
+--
+
+INSERT INTO `images` (`id`, `lien`, `nom`) VALUES
+(13, 'C:/Users/steven/Dropbox/EasyPHP-DevServer-14.1VC9/data/localweb/TVAFS-1.0/assets/images/utilisateur/photoProfil/302a55c26290b73c1ddc64c3ef36d9ed.jpg', '302a55c26290b73c1ddc64c3ef36d9ed.jpg');
 
 -- --------------------------------------------------------
 
@@ -348,6 +359,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `login` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `mail` varchar(1024) NOT NULL,
+  `description` text NOT NULL,
+  `id_image` int(11) NOT NULL,
   `ip` int(11) NOT NULL,
   `banni` tinyint(1) NOT NULL,
   `security` int(1) NOT NULL,
@@ -359,16 +372,16 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `password`, `mail`, `ip`, `banni`, `security`, `token`) VALUES
-(1, 'aze', 'aze', 'aze', '757d4a9b28c16197f457ae6844074831', 'aze', 0, 0, 0, ''),
-(2, 'boussemart', 'alexandre', 'alexandre', 'Aze123aze', '0', 0, 0, 2, ''),
-(3, 'azeaze', 'azeaze', 'azeaze', 'Azerty1az', '0', 0, 0, 2, ''),
-(4, 'boussemart', 'alexandre', 'alexandre123', 'Azerty123', '0', 0, 1, 2, ''),
-(5, 'boussemart', 'alexandre', 'alexandre1233', 'Azerty123', '0', 0, 0, 2, ''),
-(6, 'boussemart', 'alexandre', 'alexandrempmp', 'e719bb7909ccbf63ec2103c92dfffc0c', '0', 0, 0, 2, ''),
-(7, 'boussemart', 'alexandre', 'alexandrejknj', '4c3b6c7517e9f780744f6582f2d36fb6', '0', 0, 1, 2, ''),
-(8, 'boussemart', 'alexandre', 'alexandrefgfg', '6584a0cdbc0a409009c798fca3d94688', 'alexandre.boussemart94@gmail.com', 0, 1, 2, ''),
-(9, 'boussemart', 'alexandre', 'alexandre2', '757d4a9b28c16197f457ae6844074831', 'alexandre.boussemart94@gmail.com', 0, 0, 2, '');
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `password`, `mail`, `description`, `id_image`, `ip`, `banni`, `security`, `token`) VALUES
+(1, 'Dieu', 'Steven', 'aze', '0a5b3913cbc9a9092311630e869b4442', 'aze', 'Je m''appelle John Doe, je suis étudiant sur Lille. Les sujets qui m''intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ...Je m''appelle John Doe, je suis étudiant sur Lille. Les sujets qui m''intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ... $user[0]->descriptionJe m''appelle John Doe, je suis étudiant sur Lille. Les sujets qui m''intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ... $user[0]->descriptionJe m''appelle John Doe, je suis étudiant sur Lille. Les sujets qui m''intéressent sont des plus divers, de la société sud américaine et ses transformations contemporaines aux débats politiques nationaux (France) ou internationaux, en passant par la ... $user[0]->description', 13, 0, 0, 0, ''),
+(2, 'boussemart', 'alexandre', 'alexandre', 'Aze123aze', '0', '', 0, 0, 0, 2, ''),
+(3, 'azeaze', 'azeaze', 'azeaze', 'Azerty1az', '0', '', 0, 0, 0, 2, ''),
+(4, 'boussemart', 'alexandre', 'alexandre123', 'Azerty123', '0', '', 0, 0, 1, 2, ''),
+(5, 'boussemart', 'alexandre', 'alexandre1233', 'Azerty123', '0', '', 0, 0, 0, 2, ''),
+(6, 'boussemart', 'alexandre', 'alexandrempmp', 'e719bb7909ccbf63ec2103c92dfffc0c', '0', '', 0, 0, 0, 2, ''),
+(7, 'boussemart', 'alexandre', 'alexandrejknj', '4c3b6c7517e9f780744f6582f2d36fb6', '0', '', 0, 0, 1, 2, ''),
+(8, 'boussemart', 'alexandre', 'alexandrefgfg', '6584a0cdbc0a409009c798fca3d94688', 'alexandre.boussemart94@gmail.com', '', 0, 0, 1, 2, ''),
+(9, 'boussemart', 'alexandre', 'alexandre2', '757d4a9b28c16197f457ae6844074831', 'alexandre.boussemart94@gmail.com', '', 0, 0, 0, 2, '');
 
 -- --------------------------------------------------------
 
@@ -418,14 +431,15 @@ CREATE TABLE IF NOT EXISTS `voyage` (
   `lattitude` float NOT NULL,
   `longitude` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
 
 --
 -- Contenu de la table `voyage`
 --
 
 INSERT INTO `voyage` (`id`, `image_slider_1`, `image_slider_2`, `image_slider_3`, `titre`, `phrase_accroche`, `duree`, `image_sous_slider`, `description_first_bloc`, `description_second_bloc`, `description_third_bloc`, `drapeau`, `capital`, `continent`, `meteo_image`, `meteo_temperature`, `picto_1`, `picto_2`, `picto_3`, `picto_4`, `picto_5`, `picto_6`, `villes_principales`, `religion`, `nombre_habitant`, `monnaie`, `fete`, `langue_officielle`, `image_baniere_1`, `image_baniere_2`, `image_baniere_3`, `image_baniere_4`, `image_description_1`, `image_description_2`, `image_description_3`, `image_description_4`, `image_description_5`, `image_description_6`, `lattitude`, `longitude`) VALUES
-(64, '8merof6u1.jpg', 'o8u46nfq2.jpg', '8h93mj8l3.jpg', 'Au coeur du Chili', 'Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l''île de Pâques promettent au voyageur une merveilleuse découverte.', 10, 'qfuzeyv5paysage.jpg', 'Nous débuterons ce voyage sous les tropiques, dans le désert d''Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d''appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l''occasion d''observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d''une soirée en compagnie d''un astronome.', '<p>Nous débuterons ce voyage sous les tropiques, dans le désert d''Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d''appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l''occasion d''observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d''une soirée en compagnie d''un astronome.</p>\n<p>La deuxième partie de votre voyage nous transporte à l''autre bout de la cordillère des Andes. Nous quitterons l''Altiplano et les paysages lunaires de l''Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.</p>\n<p>Après un court passage par le mythique port de Valparaiso, l''une des villes les plus singulières d''Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l''Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l''une des terres les plus isolées du globe!</p>', 'Après un court passage par le mythique port de Valparaiso, l''une des villes les plus singulières d''Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l''Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l''une des terres les plus isolées du globe! Bref, nous vous proposons ici un voyage d''exception pour une découverte des multiples facettes d''un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie... 12', 'q9zz35828sqmep5hchili.png', 'SANTIAGO DU CHILI', '13', '', 16, 'c934uq9ocar.png', 'c5rxkvphexcursion.png', '3solz6kvgoogle.png', '2owetp3qsunblock.png', 'rzgwonuwswimming.png', 'n8srisxqt-shirt.png', 'Concep ción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas', 'Au Chili, la religion catholique est majoritaire.', 'Le Chili compte 16 60 000 habitants', 'Le Peso chi lien (CLP) est utilisé au Chili', 'Indépendance d u Chili, 18 Septembre (1810)', '''e spagnol est la langue officielle du Chili', '2btjwet31.jpg', 'f51r4ddm2.jpg', 'j5ynpvzj3.jpg', '6hfj56k44.jpg', '4d4a2sgodescription1.jpg', 'uv33d9otdescription2.jpg', 'zqmy98x6description3.jpg', 'h31s4zdndescription4.jpg', '5ukfjwgjdescription5.jpg', 'zijcvr6bdescription6.jpg', -33.4691, -70.642);
+(64, '8merof6u1.jpg', 'o8u46nfq2.jpg', '8h93mj8l3.jpg', 'Au coeur du Chili', 'Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l''île de Pâques promettent au voyageur une merveilleuse découverte.', 10, 'qfuzeyv5paysage.jpg', 'Nous débuterons ce voyage sous les tropiques, dans le désert d''Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d''appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l''occasion d''observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d''une soirée en compagnie d''un astronome.', '<p>Nous débuterons ce voyage sous les tropiques, dans le désert d''Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d''appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l''occasion d''observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d''une soirée en compagnie d''un astronome.</p>\n<p>La deuxième partie de votre voyage nous transporte à l''autre bout de la cordillère des Andes. Nous quitterons l''Altiplano et les paysages lunaires de l''Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.</p>\n<p>Après un court passage par le mythique port de Valparaiso, l''une des villes les plus singulières d''Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l''Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l''une des terres les plus isolées du globe!</p>', 'Après un court passage par le mythique port de Valparaiso, l''une des villes les plus singulières d''Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l''Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l''une des terres les plus isolées du globe! Bref, nous vous proposons ici un voyage d''exception pour une découverte des multiples facettes d''un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie... 12', 'q9zz35828sqmep5hchili.png', 'SANTIAGO DU CHILI', '13', '', 16, 'c934uq9ocar.png', 'c5rxkvphexcursion.png', '3solz6kvgoogle.png', '2owetp3qsunblock.png', 'rzgwonuwswimming.png', 'n8srisxqt-shirt.png', 'Concep ción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas', 'Au Chili, la religion catholique est majoritaire.', 'Le Chili compte 16 60 000 habitants', 'Le Peso chi lien (CLP) est utilisé au Chili', 'Indépendance d u Chili, 18 Septembre (1810)', '''e spagnol est la langue officielle du Chili', '2btjwet31.jpg', 'f51r4ddm2.jpg', 'j5ynpvzj3.jpg', '6hfj56k44.jpg', '4d4a2sgodescription1.jpg', 'uv33d9otdescription2.jpg', 'zqmy98x6description3.jpg', 'h31s4zdndescription4.jpg', '5ukfjwgjdescription5.jpg', 'zijcvr6bdescription6.jpg', -33.4691, -70.642),
+(65, '8merof6u1.jpg', 'o8u46nfq2.jpg', '8h93mj8l3.jpg', 'Au coeur du Chili', 'Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l''île de Pâques promettent au voyageur une merveilleuse découverte.', 10, 'qfuzeyv5paysage.jpg', 'Nous débuterons ce voyage sous les tropiques, dans le désert d''Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d''appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l''occasion d''observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d''une soirée en compagnie d''un astronome.', '<p>Nous débuterons ce voyage sous les tropiques, dans le désert d''Atacama, dans un paysage couronné de volcans, ponctué de lagunes multicolores, de salars, et de surprenants geysers. Une petite incursion en territoire bolivien vers la laguna Verde nous permettra d''appréhender les merveilles du Sud Lipez. Cette première partie du voyage sera l''occasion d''observer les constellations australes et de profiter de la limpidité exceptionnelle du ciel lors d''une soirée en compagnie d''un astronome.</p>\r\n<p>La deuxième partie de votre voyage nous transporte à l''autre bout de la cordillère des Andes. Nous quitterons l''Altiplano et les paysages lunaires de l''Atacama pour rejoindre la Patagonie et ses terres polaires, parsemées de lacs, de glaciers et entrecoupées de sommets déchiquetés. Ici tout est vert, bleu et blanc.</p>\r\n<p>Après un court passage par le mythique port de Valparaiso, l''une des villes les plus singulières d''Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l''Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l''une des terres les plus isolées du globe!</p>', 'Après un court passage par le mythique port de Valparaiso, l''une des villes les plus singulières d''Amérique du Sud avec ses collines, son funiculaire et son air de bohème, nous rechausserons nos bottes de sept lieues pour terminer notre périple près de 4000 km plus à l''Ouest en plein Océan Pacifique. La mystérieuse et prodigieuse île de Pâques nous enchantera par une combinaison unique entre nature et culture sur l''une des terres les plus isolées du globe! Bref, nous vous proposons ici un voyage d''exception pour une découverte des multiples facettes d''un pays atypique avec la tête sous les tropiques, les pieds en Antarctique et les mains tendues vers la Polynésie... 12', 'q9zz35828sqmep5hchili.png', 'SANTIAGO DU CHILI', '13', '', 16, 'c934uq9ocar.png', 'c5rxkvphexcursion.png', '3solz6kvgoogle.png', '2owetp3qsunblock.png', 'rzgwonuwswimming.png', 'n8srisxqt-shirt.png', 'Concep ción, Valparaíso, Viña del Mar, Talcahuano, Antofagasta, Temuco, Punta Arenas', 'Au Chili, la religion catholique est majoritaire.', 'Le Chili compte 16 60 000 habitants', 'Le Peso chi lien (CLP) est utilisé au Chili', 'Indépendance d u Chili, 18 Septembre (1810)', '''e spagnol est la langue officielle du Chili', '2btjwet31.jpg', 'f51r4ddm2.jpg', 'j5ynpvzj3.jpg', '6hfj56k44.jpg', '4d4a2sgodescription1.jpg', 'uv33d9otdescription2.jpg', 'zqmy98x6description3.jpg', 'h31s4zdndescription4.jpg', '5ukfjwgjdescription5.jpg', 'zijcvr6bdescription6.jpg', -33.4691, -70.642);
 
 -- --------------------------------------------------------
 
@@ -443,14 +457,15 @@ CREATE TABLE IF NOT EXISTS `voyageutilisateur` (
   PRIMARY KEY (`id`,`utilisateur_id`,`voyage_id`),
   KEY `fk_voyageutilisateur_utilisateur_idx` (`utilisateur_id`),
   KEY `fk_voyageutilisateur_voyage1_idx` (`voyage_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `voyageutilisateur`
 --
 
 INSERT INTO `voyageutilisateur` (`id`, `nbPersonnes`, `utilisateur_id`, `voyage_id`, `prix_total`, `assurance`) VALUES
-(1, 1, 1, 64, 4800, 0);
+(1, 1, 1, 64, 4800, 0),
+(3, 1, 1, 65, 4800, 0);
 
 --
 -- Contraintes pour les tables exportées
@@ -480,14 +495,14 @@ ALTER TABLE `fichevoyage`
 --
 ALTER TABLE `image_fiche`
   ADD CONSTRAINT `fk_image_fiche_fichevoyage1` FOREIGN KEY (`fichevoyage_id`) REFERENCES `fichevoyage` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_image_fiche_image1` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_image_fiche_image1` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `image_voyage`
 --
 ALTER TABLE `image_voyage`
   ADD CONSTRAINT `fk_image_voyage1` FOREIGN KEY (`voyage_id`) REFERENCES `voyage` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_image_voyage_image1` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_image_voyage_image1` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `jours`

@@ -1,0 +1,222 @@
+.content .actu{
+    width: 100%;
+    max-width: 900px;
+    margin:auto;
+    padding-bottom: 20px;
+    background-color: #f5f5f5;
+    padding-top: 40px;
+}
+
+.content.actualites{
+    background-color: #f5f5f5;
+}
+
+
+@media (max-width: 900px){
+    .content .actu{
+        padding: 10px;
+    }
+}
+
+.content .actu .entete{
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    position: relative;
+    margin-bottom: 10px;
+}
+
+    .content .actu .entete .iconeDoc{
+        width: 60px;
+        height: 60px;
+        margin: auto;
+    }
+
+    .cercleGauche, .cercleDroit{
+        position: absolute;
+        background: #BFBFBF;
+        border-radius: 10px;
+        display: block;
+        width: 7px;
+        height: 7px;
+        bottom: -4px;
+        z-index: 3;
+    }
+
+    .cercleGauche{
+        left:0px;
+    }
+
+    .cercleDroit{
+        right:0px;
+    }
+
+    .content .actu .entete .titre{
+        text-align: center;
+        width: 100%;
+        padding-top: 30px;
+        font-size: 40px;
+        white-space: nowrap;
+        font-family: 'NewCicleGordita', sans-serif;
+        text-transform: uppercase;
+        color: #090A1F;
+
+    }
+
+        .content .actu .entete .titre sup{
+            font-size: 25px;
+            color: #337ab7;
+        }
+
+    .content .actu .entete .description{
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-family: "helvetica";
+        font-size: 16px;
+        color: #565a5c;
+    }
+
+.content .actu .uneActu{
+    width: 100%;
+}
+
+    .content .actu .uneActu .image, .content .actu .uneActu .image img{
+        width: 100%;
+        position: relative;
+    }
+
+    .content .actu .uneActu .descriptionActu{
+        width: 100%;
+        background: #fff;
+        padding: 40px 40px 0 40px;
+        text-align: justify;
+        font-family: "helvetica";
+        font-size: 16px;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        color: #525465;
+    }
+
+    .content .actu .uneActu .image{
+        position: relative;
+    }
+
+        .content .actu .uneActu .image ul li{
+            list-style: none;
+        }
+
+    .content .actu .uneActu .reseau{
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+        .content .actu .uneActu .reseau ul li{
+            display: inline-block;
+            list-style: none;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;  
+            border-radius: 50%; 
+        }
+
+        .content .actu .uneActu .reseau ul li:hover{
+            border:1px solid #BFBFBF;
+            transition: all 400ms cubic-bezier(0.7, 0.5, 0.3, 1.5);
+        }
+
+            .content .actu .uneActu .reseau ul li a{
+                display: block;
+                width:100%;
+                height: 100%;
+            }
+
+            .content .actu .uneActu .reseau ul li.gplus a{
+                background: url(../images/listeActu/google116.png) center center no-repeat;
+            }
+
+            .content .actu .uneActu .reseau ul li.facebook a{
+                background: url(../images/listeActu/facebook55.png) center center no-repeat;
+            }
+
+            .content .actu .uneActu .reseau ul li.twitter a{
+                background: url(../images/listeActu/twitter1.png) center center no-repeat;
+            }
+
+            .content .actu .uneActu .reseau ul li.link a{
+                background: url(../images/listeActu/linkedin12.png) center center no-repeat;
+            }
+
+            .content .actu .uneActu .reseau ul li.pinte a{
+                background: url(../images/listeActu/pinterest11.png) center center no-repeat;
+            }
+
+    .content .actu .uneActu .titreActu .meta{
+        color: #525465;
+        text-align: center;
+        line-height: 50px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: "helvetica";
+        padding-top: 30px;
+    }
+
+    .content .actu .uneActu .titreActu .meta::before{
+        content: url(../images/listeActu/clock.png);
+        margin-right: 8px;
+        vertical-align: -1px;
+    }
+
+    .content .actu .uneActu .titreActu .titre{
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 30px;
+        font-size: 30px;
+        font-family: "helvetica";
+        color: #090A1F;
+        
+    }
+
+    .content .actu .uneActu .titreActu .titre span:hover{
+        color: #337ab7;
+        transition: all 300ms linear;
+    }
+      
+
+
+.callbacks_nav {
+    position: absolute;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    top: 52%;
+    left: 0;
+    opacity: 0.7;
+    z-index: 3;
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    height: 61px;
+    width: 38px;
+    background: transparent url("../images/themes.gif") no-repeat left top;
+    margin-top: -45px;
+}
+
+.callbacks_nav:active {
+    opacity: 1.0;
+}
+
+.callbacks_nav.next {
+    left: auto;
+    background-position: right top;
+    right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

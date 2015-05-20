@@ -1,3 +1,28 @@
+function setRows(champ) {
+    var arg = champ.val();
+    var nbr_line = 1;
+    var nbr_char_line = 0;
+    var nbr_char_on_line = 68;
+    for (var i = 0; i < arg.length; i++) {
+        if (arg.charCodeAt(i) == 10) {
+            nbr_line++;
+            nbr_char_line = 0;
+        } else {
+            nbr_char_line++;
+            if (nbr_char_line > nbr_char_on_line) {
+                nbr_line++;
+                nbr_char_line = 1;
+            }
+        }
+    }
+    nbr_line++;
+    nbr_line++;
+    nbr_line++;
+    nbr_line++;
+    champ.attr("rows", nbr_line++);
+
+}
+
 function message(url, message) {
     $.ajax({
         type: "post",
@@ -159,7 +184,4 @@ $(document).ready(function () {
 
         return submit;
     });
-
-
-
 });
