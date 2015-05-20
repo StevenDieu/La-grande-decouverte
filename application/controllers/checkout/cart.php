@@ -16,7 +16,7 @@ class Cart extends CI_Controller {
 	    $this->form_validation->set_rules('idInfo', 'idInfo', 'trim|xss_clean');
 
 	    if ($this->form_validation->run() == FALSE) {
-            $this->load->templateVoyage('fiche_produit');
+            redirect('pages', 'refresh');
         } else {
         	$id = $this->input->post('id');
             $idInfo = $this->input->post('idInfo');
