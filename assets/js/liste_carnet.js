@@ -49,6 +49,4 @@ $( document ).ready(function() {
     $('.onglet_mobile a').click(function (event) {
         event.preventDefault();
     });
-
-    initialiseResponsiveSilide('#slidercarnet1');
 });

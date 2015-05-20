@@ -100,14 +100,36 @@ Class CarnetVoyage extends CI_Model {
         }
     }
 
-    function getAllCarnetVoyages() {
-        $this->db->select('*');
-        $this->db->from('carnetvoyage');
+    function getAllCarnetVoyages($limit, $start) {
+        $this->db->select('cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->from('carnetvoyage AS cv');
+        $this->db->join('voyage AS v',                    
+                        'v.id = cv.id_voyage');
+
+        if ( isset($limit) && isset($start) ) {
+            $this->db->limit($limit, $start);
+        }
 
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
             return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    //renvoie le nombre de carnets de voyages (pour la pagination)
+    function getRowAllCarnetVoyages() {
+       $this->db->select('cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->from('carnetvoyage AS cv');
+        $this->db->join('voyage AS v',                    
+                        'v.id = cv.id_voyage');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
         } else {
             return false;
         }

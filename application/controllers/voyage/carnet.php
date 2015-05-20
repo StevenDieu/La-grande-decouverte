@@ -9,6 +9,7 @@ class Carnet extends CI_Controller {
         parent::__construct();
         $this->load->model('carnetVoyage');
         $this->load->model('article');
+        $this->load->library('pagination');
     }
 
     /**
@@ -54,12 +55,23 @@ class Carnet extends CI_Controller {
     }
 
     public function liste_carnet() {
+        $perPage = 6;   //nombres d'articles par page
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
+
         // creation fonction getAllCarnVoyages dans le model carnetVoyage
-        $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages();
+        $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage,$page);
+
+        $config['base_url'] = base_url() . "voyage/carnet/liste_carnet";
+        $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
+        $config['per_page'] = $perPage; 
+        $config["uri_segment"] = 4;
 
         // génération des css et js
         $data["allCss"] = array("liste_carnet");
         $data["alljs"] = array("slide", "liste_carnet");
+
+        $this->pagination->initialize($config); 
+
 
         //appel du template
         $this->load->templateCarnet('/liste_carnet', $data);
