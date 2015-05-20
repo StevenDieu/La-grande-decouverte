@@ -75,12 +75,12 @@
                                 CARNETS DE VOYAGES
                             </div>
                         </a>
-                        <a href="#" class="textMenu">
+                        <a href="<?php echo base_url('/actualite/index') ?>" class="textMenu">
                             <div>
                                 ACTUALIT&Eacute;S
                             </div>
                         </a>
-                        <a href="#" class="textMenu cacher">
+                        <a href="<?php echo base_url('/user/verification/login') ?>" class="textMenu cacher">
                             <div>
                                 CONNEXION / INSCRIPTION
                             </div>

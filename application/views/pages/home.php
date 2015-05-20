@@ -63,19 +63,11 @@
         <br/><br/>
         Cette page vas juste référencer tous les liens pour ce balader sur le site <br/><br/>
 
-        <a href="<?php echo base_url('user/account/inscription') ?>">Inscription</a><br/>
-
         <a href="<?php echo base_url('/voyage/fiche/?id=64') ?>">Fiche Produit</a><br/>
 
-        <a href="<?php echo base_url('/voyage/carnet?id=4') ?>">Carnet Voyage</a><br/>
-        <a href="<?php echo base_url('/voyage/carnet/article') ?>">fiche Carnet Voyage</a><br/>
-
-        <a href="<?php echo base_url('/contact/index') ?>">Contact</a><br/>
-        <a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mention Légales</a><br/>
 
         <a href="<?php echo base_url('admin/index/connexion') ?>">Back office général</a><br/>
 
-        <a href="<?php echo base_url('/actualite/index') ?>">Liste des actualités</a><br/>
         <a href="<?php echo base_url('/checkout/cart/onepage') ?>">Tunnel de commande</a><br/>
 
 

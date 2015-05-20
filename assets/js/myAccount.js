@@ -207,7 +207,7 @@ function updateCoords(c)
     w = c.w;
     h = c.h;
 }
-var control = $(".uploadedfile");
+
 $(document).ready(function (e) {
     $(".confirmationMdp").on("click", function () {
         changeMdp();
@@ -222,8 +222,12 @@ $(document).ready(function (e) {
     $(".description").on("keyup", function () {
         setRows($(".description"));
     });
+
+    $(".uploadedfile").click(function () {
+        $(".uploadedfile").val('');
+    });
+
     $(".uploadedfile").change(function () {
-        control.replaceWith(control = control.clone(true));
         chargementFile(this);
     });
 
