@@ -86,11 +86,12 @@
                         <!-- popup -->
                         <div style="display:none">
                             <div id="data">
+                            <span>Il existe plusieurs dates pour ce voyage : </span>
                             <?php 
                                 foreach ($allInfoVoyage as $info) {
-                                    echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>
-                                    Du ".$info->date_depart." au ".$info->date_arrivee."
-                                    </a><br>";
+                                    echo "> Du ".$info->date_depart." au ".$info->date_arrivee.' : ';
+                                    
+                                    echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>Choisir ces dates</a><br>";
                                 }
                             ?>
                             </div>

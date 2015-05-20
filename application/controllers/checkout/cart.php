@@ -26,5 +26,9 @@ class Cart extends CI_Controller {
         $data["alljs"] = array("checkout/custom");
         $this->load->templateCheckout('/onepage', $data);
     }
+
+    public function billing(){
+        $this->load->view('checkout/step/billing');
+    }
     
 }

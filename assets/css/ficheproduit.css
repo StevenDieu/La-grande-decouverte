@@ -1515,5 +1515,21 @@ span.fleche{
       font-family: 'NewCicleGordita';
 }
 
+#data span{
+    font-family: "helvetica";
+    padding-bottom: 20px;
+    display: block;
+    color: #000;
+}
+
+#data{
+    color: #565a5c;
+    font-family: "helvetica";
+}
+
+#data a{
+    color: #000;
+    font-family: "helvetica";
+}
 
 
