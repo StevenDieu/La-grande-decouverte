@@ -58,21 +58,23 @@
         </div>
     </div>
     <div class="require_field">* Champs obligatoires</div>
-    <div class="btn_check_box">
-        <div class="check_widget">
-            <div class="rowElem">
-               <label><input name="radio"  type="radio" /> Livrer à cette adresse</label>
-            </div>
-        </div>
-        <div class="check_widget">
-            <div class="rowElem">
-               <label><input name="radio"  type="radio" /> Livrer à une autre adresse</label>
-            </div>
-        </div>
-    </div>
     <div class="all_text_field">
         <div class="address_fields_left">
             <div class="submit_all_text"><input type="submit" value="continuer" /></div>
         </div>
     </div>
 </form>
+<script type="text/javascript" src="<?php echo asset_url(''); ?>js/checkout/jquery.uniform.js" ></script>
+<script type="text/javascript">
+    jQuery(function () {
+        var jQuerymin, jQueryremove, jQueryapply, jQueryuniformed;
+        // Debugging code to check for multiple click events
+        jQueryselects = jQuery("select").click(function () {
+            if (typeof console !== 'undefined' && typeof console.log !== 'undefined') {
+                console.log(jQuery(this).attr('id') + " clicked");
+            }
+        });
+        jQueryuniformed = jQuery(".select_bg,.rowElem,.radio_option,.postal_radio_left,.payment_drop,.price_radio").find("select,input").not(".skipThese");
+        jQueryuniformed.uniform();
+    });
+</script>

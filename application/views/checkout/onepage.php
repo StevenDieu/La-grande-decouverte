@@ -1,5 +1,8 @@
-<div class="content">
+<script type="text/javascript">
+    var urlBilling = '<?php echo base_url('checkout/cart/billing'); ?>';
+</script>
 
+<div class="content">
 	<div id="wrapper"><!--start wrapper-->        
   		<div id="main_content"><!--start main_content-->
         	<div id="page_content"><!--start page_content-->
@@ -32,9 +35,9 @@
                                     </div>
                                 </div>
                             </div><!--//end .command_panel-->
-                            <div class="command_panel"><!--start command_panel-->
+                            <div class="command_panel openBilling"><!--start command_panel-->
                             	<h2 class="open_command">Adresse de facturation </h2>
-                                <div class="inside_command_panel">
+                                <div class="inside_command_panel billing">
                                 	<!-- contenu adresse de facturation -->
                                 </div>
                             </div><!--//end .command_panel-->
@@ -167,21 +170,33 @@
         </div><!--//end #main_content-->
     </div><!--//end #wrapper-->
 
-    <script type="text/javascript" src="<?php echo asset_url(''); ?>js/checkout/jquery.uniform.js" ></script>
 
 </div>
 
 <script type="text/javascript">
-    jQuery(function () {
-        var jQuerymin, jQueryremove, jQueryapply, jQueryuniformed;
-        // Debugging code to check for multiple click events
-        jQueryselects = jQuery("select").click(function () {
-            if (typeof console !== 'undefined' && typeof console.log !== 'undefined') {
-                console.log(jQuery(this).attr('id') + " clicked");
+    var chargement ="<p><img src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'></p>";
+
+    function getBilling(){
+        $.ajax({
+            url: urlBilling , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: "" ,
+            beforeSend : function (){
+                $(".inside_command_panel.billing").html(chargement)
+            },
+            success: function (result) {
+                // Le result qui est déclaré est le code html que le controlleur va te renvoyer donc tu fais :
+                $(".inside_command_panel.billing").html(result) // Pour afficher le contenu de la view
             }
         });
-        jQueryuniformed = jQuery(".select_bg,.rowElem,.radio_option,.postal_radio_left,.payment_drop,.price_radio").find("select,input").not(".skipThese");
-        jQueryuniformed.uniform();
+    }
+
+    
+    $( document ).ready(function() {
+        $( ".openBilling h2" ).click(function() {
+          getBilling();
+        });
     });
 
 </script>
+

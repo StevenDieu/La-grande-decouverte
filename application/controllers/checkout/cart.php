@@ -31,4 +31,7 @@ class Cart extends CI_Controller {
         $this->load->view('checkout/step/billing');
     }
     
+    public function billing(){
+        $this->load->view('checkout/step/billing');
+    }
 }

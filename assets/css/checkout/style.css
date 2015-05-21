@@ -645,6 +645,7 @@ html,body {
 	color:#006695;
 }
 .inside_command_panel {
+	min-height: 30px;
 }
 .identification {
 	border-top:1px solid #dddad9;
