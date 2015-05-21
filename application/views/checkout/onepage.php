@@ -106,7 +106,7 @@
 
     function getRecap(){
         $.ajax({
-            url: urlPayment , // ici l'url du controleur de la vue que tu veux faire appeller
+            url: urlRecap , // ici l'url du controleur de la vue que tu veux faire appeller
             type: "post",
             data: "" ,
             beforeSend : function (){
