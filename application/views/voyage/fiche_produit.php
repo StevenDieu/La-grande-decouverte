@@ -98,7 +98,15 @@
                         </div>
                         <!-- popup -->
                         <script type="text/javascript">
-                            $("a.voir_date").fancybox();
+                        $("a.voir_date").fancybox({
+                                helpers : {
+                                    overlay : {
+                                        css : {
+                                            'background' : 'rgba(0, 0, 0, 0.65)'
+                                        }
+                                    }
+                                }
+                            });
                         </script>
                     <?php endif; ?>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>

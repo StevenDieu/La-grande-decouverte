@@ -895,10 +895,15 @@ html,body {
 }
 .radio_option {
 	width:36px;
-	height:16px;
+	height:21px;
 	overflow:hidden;
 	float:left;
 }
+
+.radio_option input{
+	margin: 5px 3px 0;
+}
+
 .radio_holder p {
 	line-height:16px;
 	margin-left:36px;

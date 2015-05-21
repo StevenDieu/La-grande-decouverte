@@ -26,10 +26,12 @@ jQuery(document).ready(function(){
 	
 	
 	jQuery(".inside_command_panel").hide(); 
-		jQuery(".open_command").click(function(){
+	jQuery(".open_command").click(function(){
 		jQuery(this).toggleClass("active").next().slideToggle("slow");
 		return false; 
 	});
+
+	jQuery(".open_command.first").toggleClass("active").next().slideToggle("slow");
 });
 
 

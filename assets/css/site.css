@@ -1046,3 +1046,25 @@ ul.menu_popup li:hover {
 button.attentionIcon:focus {
     outline: none;
 }
+
+.connexion_popin #popup_input_connexion, 
+.connexion_popin #popup_login_inscription, 
+.confirmationDescription,
+.confirmationMdp,
+.confirmationEmail,
+.buttonAjouterBoUtilisateur,
+.retourListCarnet,
+.buttonAjouterArticle,
+.retourListArticle,
+.editArticle{
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    letter-spacing: 4px;
+}
+
+.glyphicon-arrow-left:before,
+.glyphicon-plus:before {
+    vertical-align: middle;
+}
