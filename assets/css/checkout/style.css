@@ -1470,4 +1470,22 @@ html,body {
 	color: #000;
 }
 
+.unParticipant{
+	margin-bottom: 50px;
+}
 
+.unParticipant img{
+	margin-right: 5px;
+}
+
+.unParticipant a:hover{
+	text-decoration: underline;
+}
+
+.address_fields_left input[type="date"]{
+	width: 100%;
+	background: transparent;
+	line-height: 36px;
+	border-radius: 4px;
+	border: none;
+}
