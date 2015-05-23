@@ -32,6 +32,15 @@ class Model_article extends CI_Controller {
         }
     }
 
+    function addImageFiche() {
+        $this->load->model('article');
+        if (!($this->input->post('nom') || $this->input->post('id_fichevoyage'))) {
+            echo "0";
+        } else {
+            
+        }
+    }
+
     public function edit() {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('id', 'id', 'trim|required|xss_clean');

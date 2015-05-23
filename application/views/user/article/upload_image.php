@@ -15,7 +15,7 @@ if ((($mime == "image/gif") || ($mime == "image/jpeg") || ($mime == "image/pjpeg
 
     // Save file in the uploads folder.
     move_uploaded_file($_FILES["file"]["tmp_name"], getcwd() . "/media/carnet/article/" . $name);
-
+    
     // Generate response.
     $response = new StdClass;
     $response->link = base_url('/media/carnet/article') . "/" .$name;

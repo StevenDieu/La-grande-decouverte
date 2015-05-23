@@ -23,6 +23,7 @@
     var urlChangeDecription = '<?php echo base_url('user/verification/changeDescription'); ?>';
     var urlUploadProfile = '<?php echo base_url('user/verification/uploadProfile'); ?>';
     var urlImageProfil = '<?php echo asset_url("images/utilisateur/photoProfil/") ?>'
+    var urlAddImageFiche = '<?php  echo asset_url("user/articles/addImageFiche/")  ?>'
 </script>
 
 </script>

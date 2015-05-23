@@ -26,6 +26,18 @@ function editArticle(id) {
         }
     }
 }
+
+function addImage(nom, id_fichevoyage) {
+    if (nom !== "" && id_fichevoyage !== "") {
+        $.ajax({
+            type: "post",
+            url: urlAddImageFiche,
+            data: "nom=" + nom + "&id_fichevoyage=" + id_fichevoyage,
+            success: function (result) {
+                
+            }});
+    }
+}
 function addArticle() {
     if ($('#edit').editable('getHTML', false, false) !== "" && $('.titre').val() !== "") {
         var contenu = $('#edit').editable('getHTML', false, false);
