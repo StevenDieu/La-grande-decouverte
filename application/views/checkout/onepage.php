@@ -3,7 +3,15 @@
     var urlPayment = '<?php echo base_url('checkout/cart/payment'); ?>';
     var urlRecap = '<?php echo base_url('checkout/cart/recap'); ?>';
     var urlLogin = '<?php echo base_url('checkout/cart/login'); ?>';
+    var urlParticipant = '<?php echo base_url('checkout/cart/participants'); ?>';
+    var urlInscription = '<?php echo base_url('checkout/cart/inscription'); ?>';
+    var urlCreate = '<?php echo base_url('checkout/cart/create'); ?>';
 </script>
+
+<?php 
+if ($this->session->userdata('logged_in')) { ?>
+    <script type="text/javascript">$( document ).ready(function() {isConnecter();});</script>
+<?php } ?>
 
 <div class="content">
 	<div id="wrapper"><!--start wrapper-->        
@@ -33,16 +41,30 @@
                                             	<li>Commander plus vite et plus facilement</li>
                                                 <li>Consultez et suivez vos commandes</li>
                                             </ul>
-                                            <a href="#" class="command_btn">créer un compte</a>
+                                            <a id="createAccount" href="#" class="command_btn">créer un compte</a>
                                         </div>
                                     </div>
                                 </div>
                             </div><!--//end .command_panel-->
 
+                            <div class="command_panel openInscription" style="display:none;"><!--start command_panel-->
+                                <h2 class="open_command containInscription">Inscription</h2>
+                                <div class="inside_command_panel inscription">
+                                    <!-- contenu inscrition -->
+                                </div>
+                            </div><!--//end .command_panel-->
+
                             <div class="command_panel openBilling"><!--start command_panel-->
-                            	<h2 class="open_command">Adresse de facturation </h2>
+                            	<h2 class="open_command containBilling">Adresse de facturation </h2>
                                 <div class="inside_command_panel billing">
                                 	<!-- contenu adresse de facturation -->
+                                </div>
+                            </div><!--//end .command_panel-->
+
+                            <div class="command_panel openParticipants"><!--start command_panel-->
+                                <h2 class="open_command containParticipants">Liste des participants </h2>
+                                <div class="inside_command_panel participants">
+                                    <!-- contenu voyageur -->
                                 </div>
                             </div><!--//end .command_panel-->
 
@@ -59,125 +81,41 @@
                                 	<!-- contenu recap -->
                                 </div>
                             </div><!--//end .command_panel-->
-
                         </div><!--//end #command_left_column-->
                     </div><!--//end #commande_two_column-->
                 </div><!--//end #admin_content-->
             </div><!--//end #page_content-->
         </div><!--//end #main_content-->
     </div><!--//end #wrapper-->
-
-
 </div>
 
 <script type="text/javascript">
-    var chargement ="<p><img src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'></p>";
+    var chargement ="<p><img class='chargement' src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'></p>";
     var chargmeentLogin = "<img class='chargement' src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'>";
-
-    function getBilling(){
-        $.ajax({
-            url: urlBilling , // ici l'url du controleur de la vue que tu veux faire appeller
-            type: "get",
-            data: "" ,
-            async: true,
-            beforeSend : function (){
-                $(".inside_command_panel.billing").html(chargement)
-            },
-            success: function (result) {
-                // Le result qui est déclaré est le code html que le controlleur va te renvoyer donc tu fais :
-                $(".inside_command_panel.billing").html(result) // Pour afficher le contenu de la view
-                $(".inside_command_panel.billing").parent().addClass('charger');
-            }
-        });
-    }
-
-    function getPayment(){
-        $.ajax({
-            url: urlPayment , // ici l'url du controleur de la vue que tu veux faire appeller
-            type: "post",
-            data: "" ,
-            beforeSend : function (){
-                $(".inside_command_panel.payment").html(chargement)
-            },
-            success: function (result) {
-                // Le result qui est déclaré est le code html que le controlleur va te renvoyer donc tu fais :
-                $(".inside_command_panel.payment").html(result) // Pour afficher le contenu de la view
-                $(".inside_command_panel.payment").parent().addClass('charger');
-            }
-        });
-    }
-
-    function getRecap(){
-        $.ajax({
-            url: urlRecap , // ici l'url du controleur de la vue que tu veux faire appeller
-            type: "post",
-            data: "" ,
-            beforeSend : function (){
-                $(".inside_command_panel.recap").html(chargement);
-            },
-            success: function (result) {
-                // Le result qui est déclaré est le code html que le controlleur va te renvoyer donc tu fais :
-                $(".inside_command_panel.recap").html(result) // Pour afficher le contenu de la view
-                $(".inside_command_panel.recap").parent().addClass('charger');
-            }
-        });
-    }
-
-    function getLogin(){
-        $.ajax({
-            url: urlRecap , // ici l'url du controleur de la vue que tu veux faire appeller
-            async: true,
-            type: "post",
-            data: "" ,
-            beforeSend : function (){
-                $(".inside_command_panel.recap").html(chargement);
-            },
-            success: function (result) {
-                // Le result qui est déclaré est le code html que le controlleur va te renvoyer donc tu fais :
-                $(".inside_command_panel.recap").html(result) // Pour afficher le contenu de la view
-                $(".inside_command_panel.recap").parent().addClass('charger');
-            }
-        });
-    }
     
     $( document ).ready(function() {
-        $( ".openBilling h2" ).click(function() {
-            if(!$(this).parent().hasClass( "charger" )) getBilling();
-        });
         $( ".openPayment h2" ).click(function() {
-          if(!$(this).parent().hasClass( "charger" )) getPayment();
+            if(!$(this).parent().hasClass( "charger" )) getPayment();
         });
         $( ".openRecap h2" ).click(function() {
-          if(!$(this).parent().hasClass( "charger" )) getRecap();
+            if(!$(this).parent().hasClass( "charger" )) getRecap();
+        });
+        $( ".openParticipants h2" ).click(function() {
+            if(!$(this).parent().hasClass( "charger" )) getParticipants();
+        });
+        $( "#createAccount" ).click(function() {
+            createAccountClic();
         });
 
         $( "#connexion" ).click(function() {
-          $.ajax({
-            url: urlLogin , // ici l'url du controleur de la vue que tu veux faire appeller
-            type: "post",
-            data: {login: $('#login').val(), mdp: $('#password').val()},
-            beforeSend : function (){
-                $(".identification_left form").append(chargmeentLogin);
-            },
-            success: function (result) {
-                data = jQuery.parseJSON(result);
-                if(data.retour == 'connexion'){
-                    $('.identification_left .chargement').remove();
-                    $(".inside_command_panel.ajaxLogin").html('');
-                    $(".inside_command_panel.ajaxLogin").css('display','none');
-                    $(".open_command.first").removeClass('active');
-                    getBilling();
-                }else{
-                    $('.identification_left .chargement').remove();
-                    alert('pas co');
-                }
-                
-            }
+            connexionOnepage();
+            return false;
         });
 
-          return false;
+        $('#wrapper').on('click', '#inscription_bouton', function () {
+            createAccount();
+            return false;
         });
     });
-
 </script>
 

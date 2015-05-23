@@ -1466,4 +1466,8 @@ html,body {
 	margin-top: 20px;
 }
 
+.open_command.check{
+	color: #000;
+}
+
 
