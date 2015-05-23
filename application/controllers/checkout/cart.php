@@ -110,7 +110,13 @@ class Cart extends CI_Controller {
             if ($result != 0) {
                 $sess_array = array(
                     'id' => $result,
-                    'user' => $login
+                    'user' => $login,
+                    'nom' => $nom,
+                    'prenom' => $prenom,
+                    'description' => "",
+                    'id_image' => "",
+                    'lien_image' => "",
+                    'nom_image' => ""
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
                 $res = array(

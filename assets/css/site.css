@@ -33,7 +33,7 @@ html {
 }
 
 
-.une_row p.failed{
+.une_row p.failed, p.failed, .selector.failed {
     border: 1px dashed #eb340a!important;
     background: #faebe7!important;
     margin-bottom: 2px !important;

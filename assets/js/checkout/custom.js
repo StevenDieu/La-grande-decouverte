@@ -34,10 +34,14 @@ jQuery(document).ready(function(){
 				jQuery(this).toggleClass("active").next().slideToggle("slow");
 			}
 			
-			return false; 
+			
 		}
+        if($(this).hasClass('containBilling') && $(this).hasClass('check')){
+            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
+            jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
+        }
 
-		
+		return false; 
 	});
 
 	jQuery(".open_command.first").toggleClass("active").next().slideToggle("slow");
@@ -227,6 +231,55 @@ jQuery(document).ready(function(){
         });
         return false;
     }
+
+    function verifChampBilling(){
+        var submit = true;
+        $('#form_billing span.mess_required').remove();
+        $('#form_billing p.failed').removeClass("failed");
+        $('.selector.failed').removeClass("failed");
+        $('#form_billing input.required').each(function () {
+            if ($(this).val() == '') {
+                $($(this).parent().parent()).append(spanObligatoire);
+                $($(this).parent()).toggleClass('failed');
+                submit = false;
+            }
+        });
+
+        if($('#billing_pays').val() == null){
+            $('#billing_pays').parent().toggleClass('failed');
+            $('#billing_pays').parent().parent().parent().append(spanObligatoire);
+            submit = false;
+        }
+
+        if($('#billing_region').val() == null){
+            $('#billing_region').parent().toggleClass('failed');
+            $('#billing_region').parent().parent().parent().append(spanObligatoire);
+            submit = false;
+        }
+        return submit;
+        
+    }
+
+    var spanObligatoire = "<span class='mess_required'>Ce champ est obligatoire.</span>";
+
+    function createJsonBilling(){
+        billing = 
+            {
+                nom: $('#billing_nom').val(),
+                prenom: $('#billing_prenom').val(),
+                societe: $('#billing_societe').val(),
+                email: $('#billing_email').val(),
+                adresss: $('#billing_adresss').val(),
+                complement_adresse: $('#billing_complement_adresse').val(),
+                codePostal: $('#billing_code_postal').val(),
+                ville: $('#billing_ville').val(),
+                region: $('#billing_region').val(),
+                pays: $('#billing_pays').val(),
+                telephone: $('#billing_telephone').val(),
+                fax: $('#billing_fax').val()
+            };
+    }
+
 
 
 

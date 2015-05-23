@@ -1,37 +1,38 @@
-<form action="#" class="adress_form">
-
+<form action="#" class="adress_form" id="form_billing">
     <div class="all_text_field">
         <div class="address_fields_left">
-            <p><input name="billing_nom" id="billing_nom" type="text" value="Votre Nom*" onClick="if(this.value=='Votre Nom*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Nom*')" /></p>
+            <p><input class="required" name="billing_nom" id="billing_nom" type="text" placeholder="Votre Nom*" /></p>
         </div>
         <div class="address_fields_left address_fields_rgt">
-            <p><input name="billing_prenom" id="billing_prenom" type="text" value="Votre Prénom*" onClick="if(this.value=='Votre Prénom*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Prénom*')" /></p>
+            <p><input class="required" name="billing_prenom" id="billing_prenom" type="text" placeholder="Votre Prénom*" /></p>
         </div>
+        <div class="clear"></div>
         <div class="address_fields_left">
             <p><input name="billing_societe" id="billing_societe" type="text" value="Votre Société" onClick="if(this.value=='Votre Société')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Société')" /></p>
         </div>
         <div class="address_fields_left address_fields_rgt">
-            <p><input name="billing_email" id="billing_email" type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
+            <p><input class="required" name="billing_email" id="billing_email" type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
         </div>
     </div>
 
     <div class="full_text">
-        <p><input name="billing_adresse" id="billing_adress" type="text" value="Votre Adresse*" onClick="if(this.value=='Votre Adresse*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Adresse*')" /></p>
+        <p><input class="required" name="billing_adresse" id="billing_adresss" type="text" placeholder="Votre Adresse*" /></p>
     </div>
     <div class="full_text">
         <p><input name="billing_complement_adresse" id="billing_complement_adresse" type="text" value="Complément de votre Adresse" onClick="if(this.value=='Complément de votre Adresse')(this.value='')"  onBlur="if(this.value=='')(this.value='Complément de votre Adresse')" /></p>
     </div>
     <div class="all_text_field">
         <div class="address_fields_left">
-            <p><input name="billing_code_postal" id="billing_code_postal" type="text" value="Votre Code postal*" onClick="if(this.value=='Votre Code postal*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Code postal*')" /></p>
+            <p><input class="required" name="billing_code_postal" id="billing_code_postal" type="text" placeholder="Votre Code postal*" /></p>
         </div>
         <div class="address_fields_left address_fields_rgt">
-            <p><input name="billing_ville" id="billing_ville" type="text" value="Votre Ville*" onClick="if(this.value=='Votre Ville*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Ville*')" /></p>
+            <p><input class="required" name="billing_ville" id="billing_ville" type="text" placeholder="Votre Ville*" /></p>
         </div>
         <div class="address_fields_left">
             <div class="select_bg">
                 <select name="billing_region" id="billing_region" >
                     <option value="" disabled selected>L’État / La Région*</option>
+                    <option value="62">Pas de Calais</option>
                 </select>
             </div>
         </div>
@@ -43,10 +44,11 @@
                 </select>
             </div>
         </div>
+        <div class="clear"></div>
     </div>
     <div class="all_text_field">
         <div class="address_fields_left">
-            <p><input name="billing_telephone" id="billing_telephone" type="text" value="Votre numéro de téléphone*" onClick="if(this.value=='Votre numéro de téléphone*')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de téléphone*')" /></p>
+            <p><input class="required" name="billing_telephone" id="billing_telephone" type="text" placeholder="Votre numéro de téléphone*" /></p>
         </div>
         <div class="address_fields_left address_fields_rgt">
             <p><input name="billing_fax" id="billing_fax" type="text" value="Votre numéro de fax" onClick="if(this.value=='Votre numéro de fax')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de fax')" /></p>
@@ -55,7 +57,7 @@
     <div class="require_field">* Champs obligatoires</div>
     <div class="all_text_field">
         <div class="address_fields_left">
-            <div class="submit_all_text"><input type="submit" value="continuer" /></div>
+            <div class="submit_all_text"><input type="submit" id="billing_confirmation" value="continuer" /></div>
         </div>
     </div>
 </form>
@@ -72,4 +74,19 @@
         jQueryuniformed = jQuery(".select_bg,.rowElem,.radio_option,.postal_radio_left,.payment_drop,.price_radio").find("select,input").not(".skipThese");
         jQueryuniformed.uniform();
     });
+
+    $('#billing_confirmation').click(function () {
+        if(verifChampBilling()){
+            createJsonBilling();
+            //console.log(billing);
+            $(".open_command.containBilling").removeClass('active');
+            $(".inside_command_panel.billing").css('display','none');
+            $(".open_command.containBilling").addClass('check');
+            getParticipants();
+            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
+        }
+        return false;
+    });
+
+    
 </script>
