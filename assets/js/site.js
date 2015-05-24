@@ -185,3 +185,10 @@ $(document).ready(function () {
         return submit;
     });
 });
+
+$(window).load(function () {
+    $(".chargement").hide();
+    $(".content").hide();
+    $(".content").css({"visibility": "visible"});
+    $(".content").fadeIn("slow");
+});

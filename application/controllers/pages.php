@@ -9,7 +9,12 @@ class Pages extends CI_Controller {
      * 
      */
     public function index() {
+        $this->load->model('voyage');
+        $this->load->model('carnetVoyage');
         $this->load->model('actualite');
+        
+        $data["voyages"] = $this->voyage->getVoyagesHome();
+        $data["carnetVoyages"] = $this->carnetVoyage->getCarnetVoyagesHome();
         $data["actualites"] = $this->actualite->getActualitesHome();
         $data["allCss"] = array("home/home","home/cssmap-continents","ficheProduit");
         $data["alljs"] = array("slide","ficheProduit","home/home","home/jquery.cssmap");

@@ -34,7 +34,7 @@ function addImage(nom, id_fichevoyage) {
             url: urlAddImageFiche,
             data: "nom=" + nom + "&id_fichevoyage=" + id_fichevoyage,
             success: function (result) {
-                
+                alert(result)
             }});
     }
 }

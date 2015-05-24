@@ -180,3 +180,9 @@ input[type="file"] {
 input.jcrop-keymgr {
     display: none !important;
 }
+
+.locked{
+    width: 19px;
+    height: 22px;
+    margin-top: 1px;
+}

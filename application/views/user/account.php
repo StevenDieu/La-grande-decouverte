@@ -16,18 +16,19 @@
     var urlViewAddArticle = '<?php echo base_url('user/articles/add'); ?>';
     var urlDeleteArticle = '<?php echo base_url('user/model_article/delete'); ?>'
     var urlViewEditArticle = '<?php echo base_url('user/articles/edit'); ?>';
-    var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
     var urlCompte = '<?php echo base_url('user/account/myaccount'); ?>';
     var urlChangeEmail = '<?php echo base_url('user/verification/changeEmail'); ?>';
     var urlChangeMdp = '<?php echo base_url('user/verification/changeMdp'); ?>';
     var urlChangeDecription = '<?php echo base_url('user/verification/changeDescription'); ?>';
     var urlUploadProfile = '<?php echo base_url('user/verification/uploadProfile'); ?>';
-    var urlImageProfil = '<?php echo asset_url("images/utilisateur/photoProfil/") ?>'
-    var urlAddImageFiche = '<?php  echo asset_url("user/articles/addImageFiche/")  ?>'
-</script>
+    var urlAddImageFiche = '<?php echo base_url("user/articles/addImageFiche/") ?>';
+    var urlSetPrive = '<?php echo base_url("user/model_carnet_voyage/setPrive") ?>';
 
+    var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
+    var urlImageProfil = '<?php echo asset_url("images/utilisateur/photoProfil/") ?>';
+    var ImageLock = '<?php echo asset_url('') . "images/ficheVoyage/visible/locked.png"; ?>';
+    var ImageUnlock = '<?php echo asset_url('') . "images/ficheVoyage/visible/unlocked.png"; ?>';
 </script>
-
 
 <div class="content content_account">
     <ul name="menuUtilisateur" class="menuUtilisateur">

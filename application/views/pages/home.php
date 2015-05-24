@@ -14,20 +14,16 @@
     </div>
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/8h93mj8l3.jpg" alt="">
-            </li>
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/8merof6u1.jpg" alt="">
-            </li>
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/o8u46nfq2.jpg" alt="">
-            </li>
+            <?php foreach ($voyages as $voyage) { ?>
+                <li>
+                    <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="">
+                </li>
+            <?php } ?>
         </ul>
-        <div class="caption">
-            <h1>test</h1>
-            <h2>test test test test test test test test</h2>
-        </div>
+        <!--        <div class="caption">
+                    <h1>test</h1>
+                    <h2>test test test test test test test test</h2>
+                </div>-->
     </div>
     <div class="displayMapSize">
         <div class="map">
@@ -53,27 +49,51 @@
             </div>
         </div>
     </div>
+    <div class="clear"></div>
+    <div class="contenu_home">
+        <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
+            <span class="success">Vous êtes bien inscrit à la newsletter.</span>
+        <?php } ?>
+
+        <h2>Nos voyages en cours</h2>
+        <div class="liste_voyages">
+            <?php
+            $i = 0;
+            foreach ($voyages as $voyage) {
+                $i++;
+                if ($i % 2) {
+                    ?>
+                    <div class="voyage gauche">
+
+                        <?php
+                    } else {
+                        echo '<div class="voyage droite">';
+                    }
+                    ?>
+
+                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $voyage->id; ?>">
+                        <div class="bloc_image">
+                            <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="<?php echo $voyage->image; ?>" title="<?php echo $voyage->image; ?>" />
+                        </div>
+                        <div class="rotate_description">
+                            <div class="bloc_description">
+                                <div class="titre"><?php echo $voyage->titre; ?></div>
+                                <div class="description"><?php echo tronque($voyage->description_first_bloc, 300); ?></div>
+                                <div class="voir_plus">Plus d'info ></div>
+                            </div>
+                        </div>
 
 
-    <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
-        <span class="success">Vous êtes bien inscrit à la newsletter.</span>
-    <?php } ?>
-    <div>
+                    </a>
+                </div>
+            <?php } ?>
+            <div class="clear"></div>
+        </div>
 
-        <br/><br/>
-        Cette page vas juste référencer tous les liens pour ce balader sur le site <br/><br/>
-
-        <a href="<?php echo base_url('/voyage/fiche/?id=64') ?>">Fiche Produit</a><br/>
-
-
-        <a href="<?php echo base_url('admin/index/connexion') ?>">Back office général</a><br/>
-
-        <a href="<?php echo base_url('/checkout/cart/onepage') ?>">Tunnel de commande</a><br/>
-
-
-
-        <br/><br/><br/><br/><br/><br/>
-        <h2>Bloc des actualités</h2>
+        <h2>Nos récents carnets</h2>
+        <div class="liste_carnet"></div>
+        <h2>Nos dernières actualités</h2>
+        <div class="liste_actu"></div>
         <?php
         if ($actualites) {
 
@@ -95,12 +115,8 @@
 
                 echo "<div class='clear:both'></div>";
             }
-        } else {
-
-            echo "pas d'actualité";
         }
         ?>
-
     </div>
 </div>
 <!---------- CONTENT ------- -->	

@@ -32,6 +32,9 @@ function enregistrerCarnetVoyage() {
                             + '<td class="tdPetitGlaphi">'
                             + '<a target="_BLANK" href="' + urlviewCarnet + '?id=' + result + '"><span class="glyphicon glyphicon-list-alt"></span></a>'
                             + '</td>'
+                            + '<td class="tdPetitGlaphi">'
+                            + '<span class="curserPointer"><img class="locked" data-id="' + result + '" data-lock="0" src="' + ImageUnlock + '" alt="unlock"/></span>'
+                            + '</td>'
                             + '</tr>');
                     clickButton();
                 } else {
@@ -111,6 +114,33 @@ function editArticles(id) {
     chargementAjaxOnglet("listArticle", "idCarnet=" + id);
 }
 
+function setPrive(button) {
+    var parent = button.parent();
+    $.ajax({
+        type: "post",
+        url: urlSetPrive,
+        data: "id=" + button.data("id") + "&prive=" + button.data("lock"),
+        beforeSend: function () {
+            parent.html('<img class="locked" src="' + urlSpiner + '"/>');
+        },
+        success: function (result) {
+            if (result === "1") {
+                if (button.data("lock") === 1) {
+                    parent.html('<img class="locked" data-id="' + button.data("id") + '" data-lock="0" src="' + ImageUnlock + '"/>');
+                    message(urlSucces, "Carnet privé.");
+                } else {
+                    parent.html('<img class="locked" data-id="' + button.data("id") + '" data-lock="1" src="' + ImageLock + '"/>');
+                    message(urlSucces, "Carnet non privé.");
+                }
+                $(".locked").on("click", function () {
+                    setPrive($(this));
+                });
+            } else {
+                message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
+            }
+        }});
+}
+
 function clickButton() {
     $(".editCarnetVoyage").on("click", function () {
         editCarnetVoyage($(this));
@@ -135,6 +165,10 @@ function clickButton() {
 
     $(".editArticle").on("click", function () {
         editArticles($(this).data("id"));
+    });
+
+    $(".locked").on("click", function () {
+        setPrive($(this));
     });
 
 }

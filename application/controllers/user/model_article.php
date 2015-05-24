@@ -37,7 +37,10 @@ class Model_article extends CI_Controller {
         if (!($this->input->post('nom') || $this->input->post('id_fichevoyage'))) {
             echo "0";
         } else {
-            
+            $this->load->model('imageFiche');
+            $this->imageFiche->setNom($this->input->post('nom'));
+            $this->imageFiche->id_fichevoyage($this->input->post('id_fichevoyage'));
+            $this->imageFiche->addImageFiche();
         }
     }
 

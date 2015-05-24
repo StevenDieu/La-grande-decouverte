@@ -85,6 +85,7 @@ span.fleche{
     position: relative;
     float: left;
     width: 100%;
+    overflow: hidden;
 }
 
 .callbacks {
@@ -107,7 +108,6 @@ span.fleche{
     display: block;
     position: relative;
     z-index: 1;
-    height: auto;
     width: 100%;
     border: 0;
 }
@@ -241,6 +241,8 @@ span.fleche{
     z-index: 2;
     position: absolute;
     height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 .fiche_produit .info_pratique .filtre_image{
@@ -252,8 +254,8 @@ span.fleche{
 }
 
 .fiche_produit .info_pratique .fond_image img{
-    height: 100%;
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique .inner{

@@ -12,6 +12,7 @@ Class CarnetVoyage extends CI_Model {
     public $titre;
     public $id_voyage;
     public $id_utilisateur;
+    private $prive;
 
     function __construct() {
         parent::__construct();
@@ -25,6 +26,20 @@ Class CarnetVoyage extends CI_Model {
     function setCarnetVoyage() {
         $data = array(
             'titre' => $this->titre,
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('carnetvoyage', $data);
+        return true;
+    }
+
+    function setCarnetVoyagePrive() {
+        if ($this->prive == 1) {
+            $this->prive = 0;
+        } else {
+            $this->prive = 1;
+        }
+        $data = array(
+            'prive' => $this->prive,
         );
         $this->db->where('id', $this->id);
         $this->db->update('carnetvoyage', $data);
@@ -72,6 +87,19 @@ Class CarnetVoyage extends CI_Model {
         }
     }
 
+    function getCarnetVoyagesHome() {
+        $this->db->select('*');
+        $this->db->from('carnetvoyage');
+        $this->db->limit(4);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getVoyage() {
         $this->db->select('*');
         $this->db->from('carnetvoyage');
@@ -87,7 +115,7 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getCarnetVoyages() {
-        $this->db->select('id, titre');
+        $this->db->select('id, titre,prive');
         $this->db->from('carnetvoyage');
         $this->db->where("id_utilisateur", $this->id_utilisateur);
 
@@ -101,12 +129,11 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getAllCarnetVoyages($limit, $start) {
-        $this->db->select('cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->select('cv.prive AS cvPrive, cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
-        $this->db->join('voyage AS v',                    
-                        'v.id = cv.id_voyage');
+        $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
 
-        if ( isset($limit) && isset($start) ) {
+        if (isset($limit) && isset($start)) {
             $this->db->limit($limit, $start);
         }
 
@@ -121,10 +148,9 @@ Class CarnetVoyage extends CI_Model {
 
     //renvoie le nombre de carnets de voyages (pour la pagination)
     function getRowAllCarnetVoyages() {
-       $this->db->select('cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->select('cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
-        $this->db->join('voyage AS v',                    
-                        'v.id = cv.id_voyage');
+        $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
 
         $query = $this->db->get();
 
@@ -139,6 +165,26 @@ Class CarnetVoyage extends CI_Model {
         $this->db->where('id', $this->id);
         $this->db->delete('carnetvoyage');
         return true;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setTitre($titre) {
+        $this->titre = $titre;
+    }
+
+    function setId_voyage($id_voyage) {
+        $this->id_voyage = $id_voyage;
+    }
+
+    function setId_utilisateur($id_utilisateur) {
+        $this->id_utilisateur = $id_utilisateur;
+    }
+
+    function setPrive($prive) {
+        $this->prive = $prive;
     }
 
 }

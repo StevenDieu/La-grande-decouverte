@@ -20,6 +20,7 @@
                         <th class="tdMoyen">Liste article</th>
                         <th class="tdPetit">Supprimer</th>
                         <th class="tdPetit">Visuel</th>
+                        <th class="tdPetit">Prive</th>
                     </tr>
                     <?php
                     $i = 0;
@@ -46,6 +47,13 @@
                             </td>
                             <td class="tdPetitGlaphi">
                                 <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnet_voyage->id; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                            </td>
+                            <td class="tdPetitGlaphi">
+                                <?php if ($carnet_voyage->prive == 0) { ?>
+                                    <span class="curserPointer"><img class="locked" data-id="<?php echo $carnet_voyage->id; ?>" data-lock="0" src="<?php echo asset_url("images/ficheVoyage/visible/unlocked.png") ?>" alt="unlock"/></span>
+                                <?php } else { ?>
+                                    <span class="curserPointer"><img class="locked" data-id="<?php echo $carnet_voyage->id; ?>" data-lock="1" src="<?php echo asset_url("images/ficheVoyage/visible/locked.png") ?>" alt="unlock"/></span>
+                                <?php } ?>
                             </td>
                         </tr>
                         <?php

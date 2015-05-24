@@ -154,7 +154,7 @@ class Model_voyage extends CI_Controller {
             $meteo_image = $_FILES['meteo_image']["name"];
 
             if ($image_slider_1 != "" || $image_slider_2 != "" || $image_slider_3 != "") {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_slider/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/image_slider/",
                     'gif|jpg|png','2048000','2048','2048'));
 
                 $image_slider_1 = $this->uploadImage($image_slider_1,'image_slider_1');
@@ -163,7 +163,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($picto_1 != '' || $picto_2 != '' || $picto_3 != '' || $picto_4 != '' || $picto_5 != '' || $picto_6 = '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/picto/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/picto/",
                     'gif|jpg|png','2048000','100','100'));
 
                 $picto_1 = $this->uploadImage($picto_1,'picto_1');
@@ -175,7 +175,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($image_baniere_1 != '' || $image_baniere_2 != '' || $image_baniere_3 != '' || $image_baniere_4 != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/banniere/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/banniere/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $image_baniere_1 = $this->uploadImage($image_baniere_1,'image_baniere_1');
@@ -185,7 +185,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($image_description_1 != '' || $image_description_2 != '' || $image_description_3 != '' || $image_description_4 != '' || $image_description_5 != '' || $image_description_6 = '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_description/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/image_description/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $image_description_1 = $this->uploadImage($image_description_1,'image_description_1');
@@ -197,7 +197,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($image_sous_slider != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_sous_slider/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/image_sous_slider/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $image_sous_slider = $this->uploadImage($image_sous_slider,'image_sous_slider');
@@ -205,14 +205,14 @@ class Model_voyage extends CI_Controller {
 
             if ($meteo_image != '') {
                 $this->load->library('upload');
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/meteo_image/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/meteo_image/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $meteo_image = $this->uploadImage($meteo_image,'meteo_image');
             }
 
             if ($drapeau != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/drapeau/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/drapeau/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $drapeau = $this->uploadImage($drapeau,'drapeau');
@@ -271,7 +271,7 @@ class Model_voyage extends CI_Controller {
                 );
             }
 
-            redirect('admin/voyages/liste', 'refresh');
+            //redirect('admin/voyages/liste', 'refresh');
         }
     }
 
@@ -438,7 +438,7 @@ class Model_voyage extends CI_Controller {
             $meteo_image = $_FILES['meteo_image']["name"];
 
             if ($image_slider_1 != "" || $image_slider_2 != "" || $image_slider_3 != "") {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_slider/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/image_slider/",
                     'gif|jpg|png','2048000','2048','2048'));
 
                 $image_slider_1 = $this->uploadImage($image_slider_1,'image_slider_1');
@@ -447,7 +447,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($picto_1 != '' || $picto_2 != '' || $picto_3 != '' || $picto_4 != '' || $picto_5 != '' || $picto_6 = '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/picto/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/picto/",
                     'gif|jpg|png','2048000','100','100'));
 
                 $picto_1 = $this->uploadImage($picto_1,'picto_1');
@@ -459,7 +459,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($image_baniere_1 != '' || $image_baniere_2 != '' || $image_baniere_3 != '' || $image_baniere_4 != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/banniere/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/banniere/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $image_baniere_1 = $this->uploadImage($image_baniere_1,'image_baniere_1');
@@ -469,7 +469,7 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($image_description_1 != '' || $image_description_2 != '' || $image_description_3 != '' || $image_description_4 != '' || $image_description_5 != '' || $image_description_6 = '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_description/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/image_description/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $image_description_1 = $this->uploadImage($image_description_1,'image_description_1');
@@ -481,14 +481,14 @@ class Model_voyage extends CI_Controller {
             }
 
             if ($image_sous_slider != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/image_sous_slider/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/image_sous_slider/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $image_sous_slider = $this->uploadImage($image_sous_slider,'image_sous_slider');
             }
 
             if ($meteo_image != '') {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/produit/meteo_image/",
+                $this->upload->initialize($this->initailisationConfig( getcwd()."/media/produit/meteo_image/",
                     'gif|jpg|png','2048000','1024','768'));
 
                 $meteo_image = $this->uploadImage($meteo_image,'meteo_image');
