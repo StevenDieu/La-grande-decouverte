@@ -37,8 +37,17 @@ jQuery(document).ready(function(){
 			
 		}
         if($(this).hasClass('containBilling') && $(this).hasClass('check')){
-            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
+            jQuery(".open_command.containParticipants").removeClass("active");
+            jQuery(".open_command.containParticipants").next().hide();
+            jQuery(".open_command.containPayment").removeClass("active");
+            jQuery(".open_command.containPayment").next().hide();
             jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
+        }
+
+        if($(this).hasClass('containParticipants') && $(this).hasClass('check')){
+            jQuery(".open_command.containPayment").removeClass("active");
+            jQuery(".open_command.containPayment").next().hide();
+            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");  
         }
 
 		return false; 
@@ -54,6 +63,7 @@ jQuery(document).ready(function(){
     
 
     function getBilling(){
+        if($('.command_panel.openBilling').hasClass('charger')) return false;
         $.ajax({
             url: urlBilling , // ici l'url du controleur de la vue que tu veux faire appeller
             type: "get",
@@ -103,6 +113,7 @@ jQuery(document).ready(function(){
     }
 
     function getParticipants(){
+        if($('.command_panel.openParticipants').hasClass('charger')) return false;
         $.ajax({
             url: urlParticipant , // ici l'url du controleur de la vue que tu veux faire appeller
             type: "post",
@@ -278,6 +289,35 @@ jQuery(document).ready(function(){
                 telephone: $('#billing_telephone').val(),
                 fax: $('#billing_fax').val()
             };
+    }
+
+    function vérifFormulaireParticipant(){
+        var submit = true;
+        $('#form_participant span.mess_required').remove();
+        $('#form_participant p.failed').removeClass("failed");
+        $('#form_participant input.required').each(function () {
+            if ($(this).val() == '') {
+                $($(this).parent().parent()).append(spanObligatoire);
+                $($(this).parent()).toggleClass('failed');
+                submit = false;
+            }
+        });
+
+        return submit;
+    }
+
+    function createJsonParticipant(){
+        listeParticipant = new Array();
+        $('#form_participant div.unParticipant').each(function () {
+            participant = {
+                nom : $("#participant_nom", this).val(),
+                prenom : $("#participant_prenom", this).val(),
+                dob : $("#participant_dob", this).val(),
+                info : $("#participant_info", this).val()
+            }
+            listeParticipant.push(participant);
+        });
+        console.log(listeParticipant[0]);
     }
 
 

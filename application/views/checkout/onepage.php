@@ -69,7 +69,7 @@ if ($this->session->userdata('logged_in')) { ?>
                             </div><!--//end .command_panel-->
 
                             <div class="command_panel openPayment"><!--start command_panel-->
-                            	<h2 class="open_command">Mode de paiement</h2>
+                            	<h2 class="open_command containPayment">Mode de paiement</h2>
                                 <div class="inside_command_panel payment">
                                 <!-- contenu payment -->
                                 </div>
