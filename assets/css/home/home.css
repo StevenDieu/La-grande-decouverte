@@ -262,3 +262,11 @@ and open the template in the editor.
         width: 580px;
     }
 }
+
+.onglet3mobile .contenu_article_suivant .un_article:hover {
+  background-color: #2C292D;
+}
+
+.onglet3mobile .article_first:hover {
+    background-color: #2C292D;
+}
