@@ -76,7 +76,7 @@ if ($this->session->userdata('logged_in')) { ?>
                             </div><!--//end .command_panel-->
 
                             <div class="command_panel openRecap"><!--start command_panel-->
-                            	<h2 class="open_command">Vérification de ma commande</h2>
+                            	<h2 class="open_command containRecap">Vérification de ma commande</h2>
                                 <div class="inside_command_panel recap">
                                 	<!-- contenu recap -->
                                 </div>
@@ -92,7 +92,7 @@ if ($this->session->userdata('logged_in')) { ?>
 <script type="text/javascript">
     var chargement ="<p><img class='chargement' src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'></p>";
     var chargmeentLogin = "<img class='chargement' src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'>";
-    
+
     $( document ).ready(function() {
         $( ".openPayment h2" ).click(function() {
             if(!$(this).parent().hasClass( "charger" )) getPayment();
@@ -114,6 +114,21 @@ if ($this->session->userdata('logged_in')) { ?>
 
         $('#wrapper').on('click', '#inscription_bouton', function () {
             createAccount();
+            return false;
+        });
+
+        $('#wrapper').on('click', '#confirmation_payment', function () {
+            if(!$('input.radio_payment:checked').val()){
+                alert('Vous devez sélectionner au moins un mode de paiment');
+            }else{
+                createJsonOrder();
+                $(".open_command.containPayment").removeClass('active');
+                $(".inside_command_panel.payment").css('display','none');
+                $(".open_command.containPayment").addClass('check');
+                getRecap(<?php echo $id; ?>,<?php echo $idInfo; ?>,order.nb_participant);
+                jQuery(".open_command.containRecap").toggleClass("active").next().slideToggle("slow");
+            }
+            
             return false;
         });
     });

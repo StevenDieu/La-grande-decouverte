@@ -1514,7 +1514,12 @@ span.fleche{
 }
 
 .topLeft h1{
-      font-family: 'NewCicleGordita';
+    font-family: 'NewCicleGordita';
+    text-align: left;
+    text-shadow:none;
+    font-size: 18px;
+    font-size: 27px;
+    text-transform: none;
 }
 
 #data span{

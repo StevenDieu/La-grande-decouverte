@@ -32,22 +32,33 @@ jQuery(document).ready(function(){
 				jQuery(".open_command.containInscription").toggleClass("active").next().slideToggle("slow");
 				$('.openInscription').hide();
 				jQuery(this).toggleClass("active").next().slideToggle("slow");
-			}
-			
-			
+			}	
 		}
         if($(this).hasClass('containBilling') && $(this).hasClass('check')){
+            if($('.open_command.containBilling').hasClass('active')) return false;
             jQuery(".open_command.containParticipants").removeClass("active");
             jQuery(".open_command.containParticipants").next().hide();
             jQuery(".open_command.containPayment").removeClass("active");
             jQuery(".open_command.containPayment").next().hide();
+            jQuery(".open_command.containRecap").removeClass("active");
+            jQuery(".open_command.containRecap").next().hide();
             jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
         }
 
         if($(this).hasClass('containParticipants') && $(this).hasClass('check')){
+            if($('.open_command.containBilling').hasClass('active')) return false;
+            if($('.open_command.containParticipants').hasClass('active')) return false;
             jQuery(".open_command.containPayment").removeClass("active");
             jQuery(".open_command.containPayment").next().hide();
+            jQuery(".open_command.containRecap").removeClass("active");
+            jQuery(".open_command.containRecap").next().hide();
             jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");  
+        }
+
+        if($(this).hasClass('containPayment') && $(this).hasClass('check')){
+            jQuery(".open_command.containRecap").removeClass("active");
+            jQuery(".open_command.containRecap").next().hide();
+            jQuery(".open_command.containPayment").toggleClass("active").next().slideToggle("slow");  
         }
 
 		return false; 
@@ -81,6 +92,7 @@ jQuery(document).ready(function(){
     }
 
     function getPayment(){
+        if($('.command_panel.openPayment').hasClass('charger')) return false;
         $.ajax({
             url: urlPayment , // ici l'url du controleur de la vue que tu veux faire appeller
             type: "post",
@@ -96,11 +108,11 @@ jQuery(document).ready(function(){
         });
     }
 
-    function getRecap(){
+    function getRecap(id,idInfo,nb){
         $.ajax({
             url: urlRecap , // ici l'url du controleur de la vue que tu veux faire appeller
             type: "post",
-            data: "" ,
+            data: {id: id, idInfo: idInfo, nbParticipant :nb} ,
             beforeSend : function (){
                 $(".inside_command_panel.recap").html(chargement);
             },
@@ -317,8 +329,9 @@ jQuery(document).ready(function(){
             }
             listeParticipant.push(participant);
         });
-        console.log(listeParticipant[0]);
     }
+
+
 
 
 
