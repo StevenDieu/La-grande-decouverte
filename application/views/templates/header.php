@@ -70,7 +70,7 @@
                                 VOYAGES
                             </div>
                         </a>
-                        <a href="<?php echo base_url('voyage/carnet/liste_carnet') ?>" class="textMenu">
+                        <a href="<?php echo base_url('voyage/carnet/liste') ?>" class="textMenu">
                             <div>
                                 CARNETS DE VOYAGES
                             </div>

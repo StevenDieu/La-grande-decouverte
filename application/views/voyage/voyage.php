@@ -12,6 +12,8 @@
 					<div class="cercleGauche"></div>
 					<div class="cercleDroit"></div>
 				</div>
+				<?php if (isset($erreur)) echo "<div class='erreur'>".$erreur."</div>"; ?>
+				<?php if (isset($nomContinent)) echo "<div class='continent'>Voyages en ".$nomContinent[0]->name."</div>"; ?>
 	            <?php
 	            $i = 0;
 	            foreach ($voyage as $v) {

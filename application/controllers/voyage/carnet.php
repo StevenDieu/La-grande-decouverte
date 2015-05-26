@@ -65,13 +65,13 @@ class Carnet extends CI_Controller {
         $this->load->templateCarnet('/article', $data);
     }
 
-    public function liste_carnet() {
+    public function liste() {
         $perPage = 6;   //nombres d'articles par page
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
         // creation fonction getAllCarnVoyages dans le model carnetVoyage
         $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
 
-        $config['base_url'] = base_url() . "voyage/carnet/liste_carnet";
+        $config['base_url'] = base_url() . "voyage/carnet/liste";
         $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
         $config['per_page'] = $perPage;
         $config["uri_segment"] = 4;
@@ -96,12 +96,15 @@ class Carnet extends CI_Controller {
         if ($continent) {
             //si un continent a été passé en paramètre, j'affiche tous les voyages du continent choisi
             $data['voyage'] = $this->Voyage->getVoyagesByContinent($continent);
+                
+            if ($data['voyage'] != false) {
+                //si il y a bien des voyages pour ce continent, je récupère le nom du continent.
+                $data['nomContinent'] = $this->Voyage->getNomContinent($continent);
+            } else {
+                //sinon, j'affiche tous les voyages
+                $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
 
-            if ($data['voyage'] == false) {
-                //si je ne recupère aucun voyage du continent sélectionné, j'affiche tous les voyages
-                $data['voyage'] = $this->Voyage->getAllVoyages($perPage, $page);
-
-                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
+                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné.<br/><br/> Voici la liste des voyages :";
             }
         } else {
             //sinon j'affiche tous les voyages du continent sélectionné, avec une pagination
