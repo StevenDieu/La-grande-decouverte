@@ -1559,9 +1559,11 @@ html,body {
 }
 
 
-
-
-
+#popCGV h1{
+	color: #000;
+	text-shadow:none;
+	font-size: 20px;
+}
 
 
 

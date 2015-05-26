@@ -1,3 +1,5 @@
+
+<h1>Conditions générales de ventes</h1>
 <p>Presse</p>
 <p><br></p>
 <p>Pour accéder aux conférences de presse, avoir une interview vous devez en faire la demande à lagrandecouverte.contact@gmail.com</p>

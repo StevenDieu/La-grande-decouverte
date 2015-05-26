@@ -8,6 +8,7 @@
     var urlCreate = '<?php echo base_url('checkout/cart/create'); ?>';
     var urlSave = '<?php echo base_url('checkout/cart/save'); ?>';
     var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
+    var urlcgv = '<?php echo base_url('checkout/cart/getCgv'); ?>';
 </script>
 
 <?php 
@@ -138,6 +139,7 @@ if ($this->session->userdata('logged_in')) { ?>
                 $(".open_command.containPayment").addClass('check');
                 getRecap(<?php echo $id; ?>,<?php echo $idInfo; ?>,order.nb_participant);
                 jQuery(".open_command.containRecap").toggleClass("active").next().slideToggle("slow");
+                getCgv();
             }
             
             return false;

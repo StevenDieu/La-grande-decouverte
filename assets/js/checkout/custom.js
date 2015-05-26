@@ -357,6 +357,17 @@ jQuery(document).ready(function(){
         });
     }
 
+    function getCgv(){
+        $.ajax({
+            url: urlcgv , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: "" ,
+            success: function (result) {
+                $("#popCGV").html(result) // Pour afficher le contenu de la view
+            }
+        });
+    }
+
 
 
 
