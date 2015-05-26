@@ -86,7 +86,7 @@ class Carnet extends CI_Controller {
 
 
     public function voyage() {
-        $perPage = 2;   //nombres d'articles par page
+        $perPage = 6;   //nombres d'articles par page
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
 
         $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
