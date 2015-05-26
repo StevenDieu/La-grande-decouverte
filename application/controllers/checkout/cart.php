@@ -29,6 +29,10 @@ class Cart extends CI_Controller {
         $data["id"] = $id;
         $data["idInfo"] = $idInfo;
 
+        $info = $this->voyage->getInfoVoyageById($idInfo);
+        $data["prix"] = number_format($info[0]->prix, 2, '.', '');
+
+
         $this->load->templateCheckout('/onepage', $data);
     }
 

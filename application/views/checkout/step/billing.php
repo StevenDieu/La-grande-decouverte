@@ -8,10 +8,10 @@
         </div>
         <div class="clear"></div>
         <div class="address_fields_left">
-            <p><input name="billing_societe" id="billing_societe" type="text" value="Votre Société" onClick="if(this.value=='Votre Société')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Société')" /></p>
+            <p><input name="billing_societe" id="billing_societe" type="text" placeholder="Votre Société"/></p>
         </div>
         <div class="address_fields_left address_fields_rgt">
-            <p><input class="required" name="billing_email" id="billing_email" type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
+            <p><input class="required" name="billing_email" id="billing_email" type="text" placeholder="Votre Email*" /></p>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         <p><input class="required" name="billing_adresse" id="billing_adresss" type="text" placeholder="Votre Adresse*" /></p>
     </div>
     <div class="full_text">
-        <p><input name="billing_complement_adresse" id="billing_complement_adresse" type="text" value="Complément de votre Adresse" onClick="if(this.value=='Complément de votre Adresse')(this.value='')"  onBlur="if(this.value=='')(this.value='Complément de votre Adresse')" /></p>
+        <p><input name="billing_complement_adresse" id="billing_complement_adresse" type="text" placeholder="Complément de votre Adresse" /></p>
     </div>
     <div class="all_text_field">
         <div class="address_fields_left">
@@ -51,7 +51,7 @@
             <p><input class="required" name="billing_telephone" id="billing_telephone" type="text" placeholder="Votre numéro de téléphone*" /></p>
         </div>
         <div class="address_fields_left address_fields_rgt">
-            <p><input name="billing_fax" id="billing_fax" type="text" value="Votre numéro de fax" onClick="if(this.value=='Votre numéro de fax')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre numéro de fax')" /></p>
+            <p><input name="billing_fax" id="billing_fax" type="text" placeholder="Votre numéro de fax" /></p>
         </div>
     </div>
     <div class="require_field">* Champs obligatoires</div>
@@ -74,19 +74,5 @@
         jQueryuniformed = jQuery(".select_bg,.rowElem,.radio_option,.postal_radio_left,.payment_drop,.price_radio").find("select,input").not(".skipThese");
         jQueryuniformed.uniform();
     });
-
-    $('#billing_confirmation').click(function () {
-        if(verifChampBilling()){
-            createJsonBilling();
-            //console.log(billing);
-            $(".open_command.containBilling").removeClass('active');
-            $(".inside_command_panel.billing").css('display','none');
-            $(".open_command.containBilling").addClass('check');
-            getParticipants();
-            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
-        }
-        return false;
-    });
-
     
 </script>

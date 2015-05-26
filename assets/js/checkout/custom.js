@@ -31,6 +31,9 @@ jQuery(document).ready(function(){
             jQuery(".open_command.containRecap").removeClass("active");
             jQuery(".open_command.containRecap").next().hide();
             jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
+
+            $('#command_right_column li').removeClass('active');
+            $('#command_right_column li.billing').addClass('active');
         }
 
         if($(this).hasClass('containParticipants') && $(this).hasClass('check')){
@@ -40,13 +43,19 @@ jQuery(document).ready(function(){
             jQuery(".open_command.containPayment").next().hide();
             jQuery(".open_command.containRecap").removeClass("active");
             jQuery(".open_command.containRecap").next().hide();
-            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");  
+            jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
+
+            $('#command_right_column li').removeClass('active'); 
+            $('#command_right_column li.participants').addClass('active'); 
         }
 
         if($(this).hasClass('containPayment') && $(this).hasClass('check')){
             jQuery(".open_command.containRecap").removeClass("active");
             jQuery(".open_command.containRecap").next().hide();
             jQuery(".open_command.containPayment").toggleClass("active").next().slideToggle("slow");  
+
+            $('#command_right_column li').removeClass('active');
+            $('#command_right_column li.payment').addClass('active');
         }
 
 		return false; 
@@ -166,8 +175,11 @@ jQuery(document).ready(function(){
         $(".inside_command_panel.ajaxLogin").html('');
         $(".inside_command_panel.ajaxLogin").css('display','none');
         $(".open_command.first").removeClass('active');
+        $("#command_right_column li.iden").removeClass('active');
+        $("#command_right_column li.iden").addClass('check');
         $(".open_command.first").addClass('check');
         getBilling();
+        $("#command_right_column li.billing").addClass('active');
         jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
 
     }
@@ -221,7 +233,6 @@ jQuery(document).ready(function(){
                 },
             beforeSend : function (){
                 $(".submit_all_text.ins").append(chargmeentLogin);
-                console.log(chargmeentLogin);
             },
             success: function (result) {
                 data = jQuery.parseJSON(result);

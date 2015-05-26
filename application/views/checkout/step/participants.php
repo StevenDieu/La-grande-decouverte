@@ -48,19 +48,5 @@ $( document ).ready(function() {
 		$('.ensembleParticipants').append("<div class='unParticipant'><div class='all_text_field'><div class='address_fields_left'><p><input class='required' name='participant_nom' id='participant_nom' type='text' placeholder='Nom*' /></p></div><div class='address_fields_left address_fields_rgt'><p><input class='required' name='participant_prenom' id='participant_prenom' type='text' placeholder='Prénom*' /></p></div><div class='clear'></div><div class='address_fields_left'><p><input class='required' name='participant_dob' id='participant_dob' type='text' onfocus='(this.type=\"date\")' onblur='(this.type=\"text\")' placeholder='Date de naissance*' /></p></div></div><div class='full_text'><p><input name='participant_info' id='participant_info' type='text' placeholder='Information complèmentaire' /></p></div><a href='javascript:;' id='delete_participant'><img src='<?php echo base_url(''); ?>assets/images/checkout/icon_cancel.png' alt='cancel'>Supprime ce participant</a></div>");
 	});
 
-	$('#participant_confirmation').click(function () {
-		if(vérifFormulaireParticipant()){
-			createJsonParticipant();
-			$(".open_command.containParticipants").removeClass('active');
-            $(".inside_command_panel.participants").css('display','none');
-            $(".open_command.containParticipants").addClass('check');
-            getPayment();
-            jQuery(".open_command.containPayment").toggleClass("active").next().slideToggle("slow");
-		}else{
-			alert('Tous les champs de chaque participant doivent être remplis !')
-		}
-		return false;
-	});
-
 });
 </script>
