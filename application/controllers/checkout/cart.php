@@ -338,4 +338,8 @@ class Cart extends CI_Controller {
     function getCgv(){
         $this->load->view('checkout/step/cgv');
     }  
+
+    function cb(){
+        $this->load->view('checkout/step/payment/cb');
+    }  
 }
