@@ -1,11 +1,6 @@
 
 <h1>Conditions générales de ventes</h1>
-<p>Presse</p>
-<p><br></p>
-<p>Pour accéder aux conférences de presse, avoir une interview vous devez en faire la demande à lagrandecouverte.contact@gmail.com</p>
-<p>Nous prendrons contact avec vous pour valider une date d’interview ou l’accord pour votre participation aux conférences de presse. </p>
-<p><br></p>
-<p>Préambule—</p>
+<h2>Préambule—<h2>
 <p>Les prestations figurant sur le site internet http://www.lagrandecouverte.com, sont proposées par la société LGD, qui édite ce site sous la direction de publication de Georges Doe en sa qualité de président de la société LGD. Vous pouvez entrer en contact avec une personne physique au numéro d’appel suivant (0892 426 425) Le nom, la raison sociale, l’adresse et le numéro de téléphone de l’hébergeur du site sont indiqués sur le site.</p>
 <p><br></p>
 <p>Sur l’ensemble du site susvisé qu’elle édite, la société LGD propose à la vente les prestations suivantes :</p>
@@ -20,7 +15,7 @@
 <p><br></p>
 <p>Afin de sécuriser nos relations sur le plan juridique, nous vous invitons à prendre connaissance des présentes conditions générales de vente en les lisant attentivement et les dispositions légales visées à la loi n° 92-645 du 13 juillet 1992 fixant les conditions d'exercice des activités relatives à l'organisation et à la vente de voyages ou de séjours et au décret n° 94-490 du 15 juin 1994 pris en application de l'article 31 de cette loi, notamment codifiés sous les articles L 211-1 et suivants du code du tourisme et les articles R 211-1 et suivants du même code.</p>
 <p><br></p>
-<p>ARTICLE 1 - DEFINITIONS—</p>
+<h2>ARTICLE 1 - DEFINITIONS—</h2>
 <p>« SITE » désigne le site internet http://wwwlagrandecouverte.com, édité par la société LGD.</p>
 <p><br></p>
 <p>« PRESTATION » désigne une prestation de fourniture de service telle que la fourniture de billets d’avions, d’hébergement, de forfaits touristiques ou d’assurance etc.…</p>
@@ -50,7 +45,7 @@
 <p>« PRODUIT LOCATIF / LOCATION SAISONNIERE » désigne tout produit de location de logement meublé saisonnier (par exemple villas, maisons, chalets, appartements…), hors résidence de tourisme, conclue pour une durée maximale et non renouvelable de quatre-vingt-dix jours consécutifs.</p>
 <p><br></p>
 <p>  " HOTEL MYSTERE" désigne un hôtel sélectionné par notre équipe dont le nom ne vous sera dévoilé qu'à réception de vos documents de voyage.</p>
-<p>ARTICLE 2 – CHAMP D’APPLICATION—</p>
+<h2>ARTICLE 2 – CHAMP D’APPLICATION—</h2>
 <p>Les conditions générales de vente LGD sont valables à compter du 2 juillet 2014. Cette édition annule et remplace les versions précédentes.</p>
 <p><br></p>
 <p>Les présentes conditions générales de vente s’appliquent à toute utilisation du site, notamment à la commercialisation par internet et par téléphone de toutes les prestations proposées sur le site par la société LGD.</p>
@@ -58,7 +53,7 @@
 <p>Il est donc impératif que l'Utilisateur lise attentivement les Conditions Générales de vente qui sont référencées par lien hypertexte sur chaque page du site. Il lui est notamment conseillé de les télécharger et/ou de les imprimer afin d’en conserver une copie au jour de sa commande dès lors de surcroît que celles-ci sont susceptibles d’être modifiées, sachant que de telles modifications seront inapplicables aux commandes de Prestations effectuées antérieurement.</p>
 <p><br></p>
 <p>Les Conditions Générales de vente de LGD peuvent être complétées par des conditions de vente particulières figurant sur le descriptif de la prestation et par les conditions de vente des prestataires, accessibles soit sur leur site internet, soit sur place.</p>
-<p>ARTICLE 3 - DECLARATIONS DE L’UTILISATEUR—</p>
+<h2>ARTICLE 3 - DECLARATIONS DE L’UTILISATEUR—</h2>
 <p>Tout utilisateur déclare avoir la capacité juridique de contracter avec la société LGD, c'est à dire être âgé d'au moins 18 ans, être capable juridiquement de contracter et ne pas être sous tutelle ou curatelle.</p>
 <p><br></p>
 <p>Tout utilisateur déclare également utiliser le site conformément aux présentes conditions générales de vente, en son nom et au nom et pour le compte de tous les bénéficiaires des prestations commandées par ses soins sur le site dont il reconnaît être le mandataire (ci-après les Bénéficiaires) et auxquels les présentes conditions générales de vente seront opposables.</p>
@@ -71,7 +66,7 @@
 <p><br></p>
 <p>La société entend ici rappeler les termes de l'article 313-1 du Code Pénal français :</p>
 <p>" L'escroquerie est le fait, soit par l'usage d'un faux nom ou d'une fausse qualité, soit par l'abus d'une qualité vraie, soit par l'emploi de manœuvres frauduleuses de tromper une personne physique ou morale et de la déterminer ainsi, à son préjudice ou au préjudice d'un tiers, à remettre des fonds, des valeurs ou un bien quelconque, à fournir un service ou à consentir un acte opérant obligation ou décharge. L'escroquerie est punie de cinq ans d'emprisonnement et de 375000 € d'amende ".</p>
-<p>ARTICLE 4 - FORMATION DU CONTRAT : PASSATION D’UNE COMMANDE—</p>
+<h2>ARTICLE 4 - FORMATION DU CONTRAT : PASSATION D’UNE COMMANDE—</h2>
 <p>L’utilisateur peut commander les prestations proposées sur le site directement en ligne ou par téléphone au 0892 426 425 (0,34€/mn) après avoir validé les présentes conditions générales de vente.</p>
 <p><br></p>
 <p>L’utilisateur effectue une recherche qui donnera lieu à la communication d’une ou plusieurs offres de prestations correspondant à sa requête et/ou l’utilisateur consulte les offres proposées dans le cadre des ventes flash qui peuvent être proposées sur le site</p>
@@ -82,7 +77,7 @@
 <p>LGD transmet par courrier électronique une confirmation de commande reprenant les éléments essentiels du contrat tel que l’identification de la prestation, le nom et les coordonnées de l’utilisateur, le nom des bénéficiaires de la ou des prestations achetées, la quantité et le prix. Toutes les informations figurant dans ce courrier électronique de confirmation seront réputées constituer l’accord entre l’utilisateur et la société LGD.</p>
 <p>LGD adresse dans les meilleurs délais une facture à l’Utilisateur.</p>
 <p><br></p>
-<p>ARTICLE 5 - TRANSPORT AERIEN—</p>
+<h2>ARTICLE 5 - TRANSPORT AERIEN—</h2>
 <p>LGD propose des prestations de transport aérien, dites "réguliers", "spéciaux" ou "low cost" au nom des compagnies aériennes.</p>
 <p><br></p>
 <p>Les conditions d’exécution des transports aériens sont régies par les conditions de vente des compagnies aériennes.</p>
@@ -91,9 +86,9 @@
 <p><br></p>
 <p>LGD souhaite toutefois, dans un souci d’information de l’utilisateur, attirer son attention sur les points suivants :</p>
 <p><br></p>
-<p>5.1 - CONDITIONS DE VOYAGE</p>
+<h3>5.1 - CONDITIONS DE VOYAGE</h3>
 <p><br></p>
-<p>5.1.1 Identité du transporteur</p>
+<h4>5.1.1 Identité du transporteur</h4>
 <p><br></p>
 <p>Conformément aux articles R-211-15 et suivants du Code du tourisme français, l’utilisateur est informé de l'identité du ou des transporteurs contractuels ou de fait, susceptibles de réaliser le vol acheté. LGD informera l’utilisateur de l'identité de la compagnie aérienne effective qui assurera le ou les vol(s). En cas de changement de transporteur, l’utilisateur en sera informé par le transporteur contractuel ou par LGD par tout moyen approprié, dès lors qu'il en aura connaissance et au plus tard lors de l'enregistrement ou de l'embarquement pour les vols en correspondance. La liste noire des compagnies aériennes interdites d’exploitation dans la communauté européenne peut être consultée en cliquant sur le lien suivant : http://ec.europa.eu/transport/air-ban/list_fr.htm</p>
 <p><br></p>
@@ -119,11 +114,11 @@
 <p><br></p>
 <p>La société LGD ne saurait être tenue pour responsable d'un défaut de confirmation par vos soins.</p>
 <p><br></p>
-<p>5.1.4 Correspondances</p>
+<h3>5.1.4 Correspondances</h3>
 <p><br></p>
 <p>Conformément aux conventions internationales, les correspondances ne sont pas garanties. Il est donc conseillé de ne prévoir aucun engagement, le jour ou le lendemain de l'aller ou du retour du voyage.</p>
 <p><br></p>
-<p>5.1.5 Non présentation au départ</p>
+<h3>5.1.5 Non présentation au départ</h3>
 <p><br></p>
 <p>L'absence de présentation à l'embarquement sur le vol aller (spécial ou régulier) entraîne automatiquement l'annulation du vol retour par la compagnie aérienne.</p>
 <p><br></p>
@@ -133,11 +128,11 @@
 <p><br></p>
 <p>S’agissant de l’interruption de séjour, si vous avez souscrit le contrat d’assurance 340.022 (option Assistance) ou 340.033 (option Multirisque) tel visé à l’article 16 des présentes, vous devrez vous conformer aux modalités d'annulation figurant dans les conditions de votre contrat d’assurance Mondial Assistance.</p>
 <p><br></p>
-<p>5.1.6 Pré et post acheminement</p>
+<h3>5.1.6 Pré et post acheminement</H3>
 <p><br></p>
 <p>Si le vol spécial prévu pour effectuer le pré-acheminement ou post-acheminement venait à être annulé ou retardé, les compagnies se réservent la possibilité d'assurer en ce cas le transport, par tout autre mode (autocar, train, etc.).</p>
 <p><br></p>
-<p>5.1.7 Vols spéciaux – charters</p>
+<h3>5.1.7 Vols spéciaux – charters</h3>
 <p><br></p>
 <p>Les titres de transport sur vols spéciaux sont remis à l'aéroport sur présentation de la convocation.</p>
 <p><br></p>
@@ -145,11 +140,11 @@
 <p><br></p>
 <p>Enfin, dans le cadre d'un vol spécial, vos horaires de vols sont susceptibles d'être modifiés. Aussi, nous vous recommandons de consulter régulièrement votre boîte de messagerie électronique et votre messagerie téléphonique jusqu'au moment de votre départ, et ce même si vous avez déjà réceptionné vos documents de voyage.</p>
 <p><br></p>
-<p>5.1.8 Vols low cost</p>
+<h3>5.1.8 Vols low cost</h3>
 <p><br></p>
 <p>Les vols low cost obéissent aux conditions décrites ci-après. La convocation fait office de carte d’embarquement. Toute perte ou oubli de celle-ci le jour de votre départ pourra entraîner des frais à régler directement auprès de certaines compagnies. Vos bagages seront à selectionner en option sur notre site le jour de votre réservation. Les services à bord sont payants (collation/boisson).Les titres de transport sont le plus souvent non modifiables et non remboursables. Toute place sur vol low cost non utilisée de votre fait à l'aller et/ou au retour ne pourra pas faire l'objet d'un remboursement, même dans le cas d'un report de date. L'abandon d'un vol low cost au bénéfice d'un vol régulier, par choix délibéré de votre part, entraîne le paiement intégral du prix du voyage au tarif en vigueur.</p>
 <p><br></p>
-<p>5.1.9 Consignes et sécurité</p>
+<h3>5.1.9 Consignes et sécurité</h3>
 <p><br></p>
 <p>Il est de votre responsabilité de respecter les consignes de sécurité édictées par les compagnies aériennes ou encore les autorités compétentes, dont notamment :</p>
 <p><br></p>
@@ -161,17 +156,17 @@
 <p><br></p>
 <p>Nous vous invitons également à visiter à cette fin le site http://www.developpement-durable.gouv.fr/Mesures-de-restriction-sur-les.html.LGD ne saurait être tenue responsable de tous refus d'embarquement ou confiscation d'objet jugé dangereux par la compagnie ou les autorités aéroportuaires. Il est de la responsabilité du passager de se renseigner des objets interdits en soute ou en cabine.</p>
 <p><br></p>
-<p>5.1.10 Bébés, Enfants</p>
+<h3>5.1.10 Bébés, Enfants</h3>
 <p><br></p>
 <p>Les bébés (- de 2 ans) ne disposent pas de siège dans l'avion, par conséquent un seul bébé est accepté par passager adulte. Le prix de leurs billets est généralement de 10 % du tarif adulte. Les enfants (de 2 à 11 ans) sur certains vols peuvent bénéficier de réduction allant jusqu'à 50 % mais les stocks peuvent être limités.</p>
 <p>Les UM (enfants non accompagnés) ne sont pas toujours autorisés à bénéficier de ces bases tarifaires. Les enfants de moins de 15 ans non accompagnés par un majeur ne voyageant pas en UM sont refusés.</p>
 <p>Les bébés et enfants sont considérés comme tel si ils n'ont pas atteint respectivement l'âge de 2 ans et 12 ans avant l'utilisation de leur billet retour.</p>
 <p><br></p>
-<p>5.1.11 Femmes enceintes</p>
+<h3>5.1.11 Femmes enceintes</h3>
 <p><br></p>
 <p>Les compagnies aériennes peuvent parfois refuser l'embarquement à une femme enceinte lorsqu'elles estiment, en raison du terme de la grossesse, qu'un risque d'accouchement prématuré pendant le transport est possible. Il appartient donc à l’utilisateur de prendre conseil auprès de son médecin avant de commander un billet d’avion sur le site.</p>
 <p><br></p>
-<p>5.1.12 Bagages</p>
+<h3>5.1.12 Bagages</h3>
 <p><br></p>
 <p>LGD entend également attirer votre attention sur le fait que certaines compagnies aériennes imposent un nombre et/ou un poids maximum de bagages. En cas de dépassement, s’il est autorisé, il appartiendra donc à l’utilisateur de s’acquitter directement du supplément de prix auprès de la compagnie à l'aéroport. LGD ne saurait supporter le prix supplémentaire inhérent à un tel dépassement.</p>
 <p><br></p>
@@ -186,7 +181,7 @@
 <p><br></p>
 <p>si vous avez souscrit le contrat d'assurance Mondial Assistance n°340.022 (option Assistance) ou n° 340.033 (option Multirisque)- tel visé à l’article 16 des présentes, LGD vous rappelle que vous devez faire votre déclaration exclusivement auprès de la compagnie d'assurances Mondial Assistance dans les conditions prévues au contrat. Il n'incombe pas à la société LGD de faire quelque démarche que ce soit concernant ce point.</p>
 <p><br></p>
-<p>5.1.13 Perte ou vol de billets d'avion</p>
+<h3>5.1.13 Perte ou vol de billets d'avion</3>
 <p><br></p>
 <p>En cas de perte de votre billet d'avion ou de vol de celui-ci, vous devez effectuer une déclaration spécifique auprès de la police et de la compagnie aérienne et assurer à vos frais votre retour en achetant un autre billet auprès de la compagnie émettrice. Toutes les conséquences découlant de la perte ou du vol d'un billet restent à votre charge. Toutefois, un remboursement, restant à la discrétion de la compagnie pourra éventuellement être demandé, accompagné de tous les originaux (souche de billet racheté, carte d'embarquement …).</p>
 <p><br></p>
@@ -212,42 +207,42 @@
 <p><br></p>
 <p>Les modalités de modification ou d’annulation de prestations de vols secs et les frais inhérents sont régies par les dispositions des articles 14.1, 14.2.1, 14.3.1 et 15.1 des présentes.</p>
 <p><br></p>
-<p>ARTICLE 6 - CONDITIONS APPLICABLES AUX PRESTATIONS HOTELIERES SEULES ET RESIDENCES DE TOURISME—</p>
+<h2>ARTICLE 6 - CONDITIONS APPLICABLES AUX PRESTATIONS HOTELIERES SEULES ET RESIDENCES DE TOURISME—</h3>
 <p>Lesdites prestations d’hébergement sont proposées par LGD au nom de ses prestataires.</p>
 <p><br></p>
-<p>6.1 - CLASSIFICATION</p>
+<h3>6.1 - CLASSIFICATION</h3>
 <p><br></p>
 <p>Le nombre d'étoiles attribuées à l'établissement hôtelier figurant dans le descriptif correspond à une classification établie en référence à des normes locales dans la majorité des pays d'accueil. Il se peut toutefois que dans certains pays il n’existe aucun organisme officiel de tourisme pour établir et valider cette classification. Dans cette dernière hypothèse, les informations figurant dans notre descriptif sont fonction de l’appréciation du fournisseur. En tout état de cause, elles peuvent donc différer des normes françaises et européennes. LGD s’efforce de vous informer le plus précisément possible sur les conditions de votre hébergement. Les appréciations que nous portons sur nos descriptifs découlent notamment de notre connaissance des établissements et des appréciations qui nous sont adressées par nos clients. Nous nous réservons la faculté pour des raisons techniques, de sécurité, dans des cas de force majeure ou du fait d'un tiers, de substituer à l'hôtel prévu un établissement de même catégorie proposant des prestations équivalentes. Il ne peut s'agir que d'un événement exceptionnel et dans un tel cas nous nous efforçons de vous en informer pour vous proposer l’échange dès que nous en avons connaissance.</p>
 <p><br></p>
-<p>6.2 - TYPE DE CHAMBRE</p>
+<h3>6.2 - TYPE DE CHAMBRE</h3>
 <p><br></p>
-<p>6.2.1 Chambres individuelles </p>
+<h4>6.2.1 Chambres individuelles </h4>
 <p><br></p>
 <p>Elles disposent d'un lit d'une personne. Elles font l'objet d'un supplément, sont proposées en quantité limitée et sont souvent moins spacieuses, moins confortables, et moins bien situées que les autres chambres.</p>
 <p><br></p>
-<p>6.2.2 Chambres doubles </p>
+<h4>6.2.2 Chambres doubles </p>
 <p><br></p>
 <p>Elles disposent de deux lits simples ou plus rarement d'un lit double.</p>
 <p><br></p>
-<p>6.2.3 Chambres triples </p>
+<h4>6.2.3 Chambres triples </h4>
 <p><br></p>
 <p>Elles se présentent, dans la plupart des cas, comme une chambre double à laquelle est ajouté un lit d'appoint (attention : ce lit peut être inférieur à la taille standard).</p>
 <p><br></p>
-<p>6.2.4 Chambres quadruples :</p>
+<h4>6.2.4 Chambres quadruples :</h4>
 <p><br></p>
 <p>Elles se présentent, dans la plupart des cas, comme une chambre double à laquelle sont ajoutés deux lits d'appoints (attention : ces lits peuvent être inférieurs à la taille standard). Dans le cas de 2 adultes et de 2 enfants, si la superficie des chambres ne permet pas de loger plus de trois personnes dans la même chambre, il sera alors demandé 2 chambres doubles côte à côte ou communicantes (dans la mesure du possible) et le tarif adulte sera alors appliqué (sauf mention spéciale).</p>
 <p><br></p>
-<p>6.2.5 Chambres familiales :</p>
+<h4>6.2.5 Chambres familiales :</h4>
 <p><br></p>
 <p>Certaines chambres triples ou quadruples comportent 3 ou 4 vrais lits de taille standard et ne donnent donc pas lieu à réduction</p>
 <p><br></p>
-<p>6.2.5 Chambres communicantes :</p>
+<h4>6.2.5 Chambres communicantes :</h4>
 <p><br></p>
 <p>Les demandes de chambres communicantes seront prises en compte et satisfaites sous réserves de disponibilité de l’hôtelier, ce dont LGD vous informera.</p>
 <p><br></p>
-<p>6.3 - POSSESSION ET LIBERATION DES CHAMBRES</p>
+<h3>6.3 - POSSESSION ET LIBERATION DES CHAMBRES</h3>
 <p><br></p>
-<p>6.3.1 Nous vous informons que les règles applicables en matière d'hôtellerie internationale imposent généralement que les clients prennent possession des chambres à partir de 14 heures quelle que soit l'heure d'arrivée du vol et les libèrent avant 10 heures au plus tôt quel que soit l'horaire du vol de retour. Il ne vous sera malheureusement pas possible de déroger à cette règle.</p>
+<>6.3.1 Nous vous informons que les règles applicables en matière d'hôtellerie internationale imposent généralement que les clients prennent possession des chambres à partir de 14 heures quelle que soit l'heure d'arrivée du vol et les libèrent avant 10 heures au plus tôt quel que soit l'horaire du vol de retour. Il ne vous sera malheureusement pas possible de déroger à cette règle.</p>
 <p><br></p>
 <p>6.3.2 Pour toute réservation d’un hôtel en FRANCE sans transport, votre arrivée sur place est prévue en début d'après-midi (à partir de 14h30) sauf mention contraire présente sur vos futurs documents de voyage. La chambre devra être libérée avant 10h00 au plus tôt, le jour de votre départ.</p>
 <p><br></p>
@@ -255,11 +250,11 @@
 <p><br></p>
 <p>De ce fait, si vous décidiez d’entrer en possession de votre chambre ou la rendre en dehors des horaires stipulés ci-dessus, une nuitée supplémentaire pourra vous être facturée, sans qu'aucun remboursement ne puisse avoir lieu.</p>
 <p><br></p>
-<p>6.4 - BEBE</p>
+<h3>6.4 - BEBE</h3>
 <p><br></p>
 <p>LGD conseille aux parents de bébés d’emporter avec eux la nourriture adaptée à leur enfant qu'ils ne trouveront pas toujours sur place. Une participation à régler sur place peut vous être demandée, par exemple pour chauffer les plats ou biberons et/ou l'installation d'un lit bébé qui doit être demandé lors de la réservation, sous réserve toutefois des disponibilités de l’hôtel ou de la résidence.</p>
 <p><br></p>
-<p>6.5 - REPAS</p>
+<h3>6.5 - REPAS</h3>
 <p><br></p>
 <p>Ils dépendent de la formule choisie.</p>
 <p><br></p>
@@ -279,7 +274,7 @@
 <p><br></p>
 <p>Les horaires et ouvertures des bars, restaurants, et discothèques, etc., peuvent être irréguliers et dépendent en tout état de cause de la direction de l'établissement.</p>
 <p><br></p>
-<p>6.6 - FEMMES ENCEINTES – SANTE</p>
+<h3>6.6 - FEMMES ENCEINTES – SANTE</h3>
 <p><br></p>
 <p>Pour toute réservation de thalassothérapie, balnéothérapie ou spa, LGD conseille aux femmes enceintes de consulter leur médecin avant d'effectuer toute réservation, pour confirmer leur aptitude à effectuer une cure de thalassothérapie, ou autres soins proposés dans le cadre du forfait.</p>
 <p><br></p>
@@ -287,23 +282,23 @@
 <p><br></p>
 <p>D’une manière générale, LGD ne saurait en aucun cas être tenue pour responsables en cas de mauvaise exécution de votre cure ou impossibilité d'effectuer cette dernière du fait de votre état de santé, et aucun remboursement ne pourra avoir lieu de ce fait.</p>
 <p><br></p>
-<p>6.7 - PRIX</p>
+<h3>6.7 - PRIX</h3>
 <p><br></p>
 <p>Le prix de la prestation de l’hébergement seule est régi par les stipulations de l’article 9.1.1, 9.2 et 9.3 des présentes.</p>
 <p><br></p>
-<p>6.8 - MODIFICATION OU D’ANNULATION</p>
+<h4>6.8 - MODIFICATION OU D’ANNULATION</h4>
 <p><br></p>
 <p>Les modalités de modification ou d’annulation de prestations d’hébergement seules et les frais inhérents sont régis par les dispositions des articles 14.1, 14.2.2, 14.3.2 des présentes.</p>
-<p>ARTICLE 7 - FORFAITS TOURISTIQUES—</p>
+<h2>ARTICLE 7 - FORFAITS TOURISTIQUES—</h2>
 <p>Constitue un forfait touristique la prestation :</p>
 <p><br></p>
 <p>- résultant de la combinaison préalable d’au moins deux opérations portant respectivement sur le transport, le logement ou d’autres services touristiques non accessoires au transport ou au logement représentant une part significative dans le forfait ; dépassant vingt quatre heures ou incluant une nuitée ; vendue ou offerte à la vente à un prix tout compris.</p>
 <p><br></p>
-<p>7.1 - TRANSPORT</p>
+<h3>7.1 - TRANSPORT</h3>
 <p><br></p>
 <p>Les prestations de transport comprises dans le forfait touristiques sont régies par les stipulations des articles 5.1.1 à 5.4 des présentes.</p>
 <p><br></p>
-<p>7.2 - HEBERGEMENT</p>
+<h3>7.2 - HEBERGEMENT</h3>
 <p><br></p>
 <p>Les prestations d’hébergement et de séjour comprises dans un Forfait touristique sont régies par les stipulations des articles 6.1 à 6.8 des présentes.</p>
 <p><br></p>
@@ -312,11 +307,11 @@
 <p>Le jour du voyage retour jusqu'à l'heure d'arrivée à l'aéroport.</p>
 <p>La première et la dernière journée sont généralement consacrées au transport. De ce fait, s'il advenait qu'en raison des horaires imposés par les compagnies aériennes, la première et/ou la dernière journée et/ou nuit se trouvent écourtées, par une arrivée tardive ou un départ matinal, aucun remboursement ne pourrait avoir lieu. Il en est de même si la durée du séjour se trouvait allongée. Il convient lorsqu'il s'agit de transport sur vols charters d'envisager cette éventualité et de prendre les dispositions nécessaires à votre organisation tant personnelle que professionnelle.</p>
 <p><br></p>
-<p>7.3 - PRIX</p>
+<h3>7.3 - PRIX</h3>
 <p><br></p>
 <p>Le prix des forfaits touristiques est régi par les stipulations de l’article 9 des présentes.</p>
 <p><br></p>
-<p>7.4 – CESSION DE LA PRESTATION</p>
+<h3>7.4 – CESSION DE LA PRESTATION</h3>
 <p><br></p>
 <p>Conformément au code du tourisme, le client pourra céder son contrat (hors les contrats d'assurance) à un tiers, à condition d'en informer la société LGD par lettre recommandée avec demande d’avis de réception au plus tard 7 jours avant le début du séjour, en indiquant précisément les noms et adresse du ou des cessionnaires et du ou des participants au voyage et en justifiant que ceux-ci remplissent les mêmes conditions que lui pour effectuer le voyage ou le séjour (en particulier pour les enfants qui doivent se situer dans les mêmes tranches d'âge).</p>
 <p><br></p>
@@ -326,17 +321,17 @@
 <p><br></p>
 <p>Dans tous les cas, si les frais étaient supérieurs aux montants susmentionnés (vol à réservation non modifiable ou autre), il serait dû à LGD le montant exact, qui sera facturé au client sur présentation de justificatifs. Les assurances complémentaires ne sont en aucun cas remboursables ou transférables.</p>
 <p><br></p>
-<p>7.5 - ANNULATION ET MODIFICATION</p>
+<h3>7.5 - ANNULATION ET MODIFICATION</h3>
 <p><br></p>
 <p>Les modalités d’annulation, de modification et des frais qui leur sont inhérents sont régies par les dispositions des articles 14.1, 14.2.4, 14.3.3 et 15.2 des présentes.</p>
 <p><br></p>
-<p>7.6 - CURES - LOISIRS SPORTIFS</p>
+<h3>7.6 - CURES - LOISIRS SPORTIFS</h3>
 <p><br></p>
 <p>S’agissant des cures et soins dispensés dans les centres de spa, balnéothérapie ou thalassothérapie ou encore des prestations de loisirs sportifs, LGD attire l’attention de l’utilisateur sur la nécessité de s’enquérir avant la commande et au jour de la consommation de la prestation de l’aptitude de tous les bénéficiaires à en bénéficier en prenant toutes les précautions que leur état de santé impose, de sorte que la responsabilité de la société LGD ne saurait être engagée en cas d'incident ou d'accident imputable à un manquement de vigilance de votre part.</p>
 <p><br></p>
 <p>Dans certains cas, une visite médicale sera imposée par les prestataires de LGD aux Bénéficiaires pour s’assurer de ce que leur état de santé est compatible avec les prestations commandées. La société LGD ne pourra pas en être tenue responsable d’une décision de refus de les voir y participer en cas de refus à l’issue de la visite médicale.</p>
 <p><br></p>
-<p>7.7 - ACTIVITES PROPOSEES</p>
+<h3>7.7 - ACTIVITES PROPOSEES</h3>
 <p><br></p>
 <p>Il est expressément convenu que certaines activités ou installations indiquées ne sont pas nécessairement disponibles hors saison touristiques.</p>
 <p><br></p>
@@ -349,8 +344,8 @@
 <p>Par ailleurs, des activités sportives proposées avec participation sont souvent organisées par des prestataires extérieurs à l'hôtel. Ces activités qui ne figurent pas au descriptif de la prestation et ne sont pas contractuelles. Par conséquent, tout déplacement qui s’avérerait alors nécessaire resterait à la charge du client. De même toute suppression de ces activités au bon vouloir de l'organisateur faute de demandes suffisantes, ne saurait entraîner un quelconque dédommagement.</p>
 <p><br></p>
 <p>LGD entend enfin attirer l’attention de l’Utilisateur sur le fait que certaines activités proposées peuvent présenter des risques notamment pour les jeunes enfants. La responsabilité de la société LGD ne saurait être engagée en cas d'incident ou d'accident imputable à un manquement de vigilance de votre part.</p>
-<p>ARTICLE 8 - CONDITIONS SPECIFIQUES A LA LOCATION SAISONNIERE DE LOGEMENTS MEUBLES—</p>
-<p>8.1 PREAMBULE</p>
+<h2>ARTICLE 8 - CONDITIONS SPECIFIQUES A LA LOCATION SAISONNIERE DE LOGEMENTS MEUBLES—</h2>
+<h3>8.1 PREAMBULE</h3>
 <p><br></p>
 <p>LGD tient à attirer l’attention de l’utilisateur sur le fait qu’elle ne se présente pas comme fournisseur de logements de vacances, mais publie sur ses sites internet des offres locatives saisonnières meublées mises à sa disposition au nom et pour le compte des prestataires. Par conséquent, la responsabilité de LGD ne saurait être engagée qu’en cas de faute prouvée de sa part au moment de la réservation.</p>
 <p><br></p>

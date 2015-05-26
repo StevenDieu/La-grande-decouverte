@@ -330,33 +330,6 @@ jQuery(document).ready(function(){
         });
     }
 
-    function save(order,billing,participant){
-        $.ajax({
-            url: urlSave , // ici l'url du controleur de la vue que tu veux faire appeller
-            type: "post",
-            data: {
-                order: order, 
-                billing: billing, 
-                participant: participant
-            } ,
-            async: true,
-            beforeSend : function (){
-                $(".reset_field.save").append(chargement)
-            },
-            success: function (result) {
-                data = jQuery.parseJSON(result);
-                if(data.retour == 'PAYPAL'){
-                    alert('paypal');
-                }else if(data.retour == 'CB'){
-                    alert('cb');
-                }else{
-                    getSucces(data.message);
-                }
-                return false;
-            }
-        });
-    }
-
     function getSucces(id){
         $.ajax({
             url: urlSucces , // ici l'url du controleur de la vue que tu veux faire appeller

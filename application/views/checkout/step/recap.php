@@ -82,6 +82,7 @@
 </div>
 <script type="text/javascript">
     $("a.popCGV").fancybox({
+        maxWidth : 900,
         helpers : {
             overlay : {
                 css : {
@@ -100,6 +101,33 @@
 
 <script type="text/javascript">
 $( document ).ready(function() {
+    function save(order,billing,participant){
+        $.ajax({
+            url: urlSave , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: {
+                order: order, 
+                billing: billing, 
+                participant: participant
+            } ,
+            async: true,
+            beforeSend : function (){
+                $(".reset_field.save").append(chargement)
+            },
+            success: function (result) {
+                data = jQuery.parseJSON(result);
+                if(data.retour == 'PAYPAL'){
+                    document.location.href="<?php echo base_url(''); ?>checkout/cart/paypal";
+                }else if(data.retour == 'CB'){
+                    document.location.href="<?php echo base_url(''); ?>checkout/cart/cb";
+                }else{
+                    getSucces(data.message);
+                }
+                return false;
+            }
+        });
+    }
+
     $('#validation_commade').click(function () {
         if(!$('input.radiocgv:checked').val()){
             alert('Vous devez accepter les conditions générales de ventes !');
@@ -112,10 +140,6 @@ $( document ).ready(function() {
             order.resteAPayer = "<?php echo $resteAPayer; ?>";
             order.id_voyage = "<?php echo $voyage[0]->id; ?>";
             order.id_info_voyage = "<?php echo $voyageInfo[0]->id; ?>";
-
-            //console.log(order);
-            //console.log(billing);
-            //console.log(listeParticipant);
 
             save(order,billing,listeParticipant);
         }

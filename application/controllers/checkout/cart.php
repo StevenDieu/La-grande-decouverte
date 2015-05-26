@@ -39,7 +39,9 @@ class Cart extends CI_Controller {
 
 
     public function billing(){
-        $this->load->view('checkout/step/billing');
+        $this->load->model('departement');
+        $data['departements'] = $this->departement->getAllDepartements();
+        $this->load->view('checkout/step/billing',$data);
     }
     
     public function payment(){
@@ -335,5 +337,13 @@ class Cart extends CI_Controller {
 
     function getCgv(){
         $this->load->view('checkout/step/cgv');
+    }  
+
+    function cb(){
+        $this->load->view('checkout/step/payment/cb');
+    }  
+
+    function paypal(){
+        $this->load->view('checkout/step/payment/paypal');
     }  
 }

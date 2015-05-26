@@ -86,15 +86,30 @@ class Carnet extends CI_Controller {
 
 
     public function voyage() {
+        $continent = $this->input->get('continent');
+
         $perPage = 6;   //nombres d'articles par page
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
 
-        $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+        if($continent) {
+            //si un continent a été passé en paramètre, j'affiche tous les voyages du continent choisi
+            $data['voyage'] = $this->Voyage->getVoyagesByContinent($continent);
+
+            if ($data['voyage'] == false) {
+                //si je ne recupère aucun voyage du continent sélectionné, j'affiche tous les voyages
+                $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+
+                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
+            }
+        } else {
+            //sinon j'affiche tous les voyages du continent sélectionné, avec une pagination
+            $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+        }
 
         $config['base_url'] = base_url() . "voyage/carnet/voyage";
         $config['total_rows'] = $this->Voyage->getRowAllVoyages();
-        $config['per_page'] = $perPage; 
-        $config["uri_segment"] = 4;
+        $config['per_page'] = $perPage;
+        $config["uri_segment"] = 4;       
 
         // génération des css et js
         $data["allCss"] = array("voyage");

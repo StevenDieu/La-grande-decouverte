@@ -67,7 +67,7 @@
                         <div class="col-md-12">
                             <?php echo validation_errors(); ?>
                             <?php if (isset($error)) echo $error; ?>
-                            <?php echo form_open_multipart('admin/model_newsletter/add'); ?>
+                            <?php echo form_open('admin/model_newsletter/add'); ?>
                             <input name="mail" id="mail" type="text" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
                             <input type="submit" class="buttonNewsletter" value="OK" />
                             </form>
@@ -85,11 +85,11 @@
                     <div class="row">
                         <div class="col-md-12 textFooter blocPicReseau">
                             <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
-                            <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" alt=""></a>
+                            <a href="https://plus.google.com/u/1/112230737464101123366/about" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" alt=""></a>
                             <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
-                            <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-tumblr.png" alt=""></a>
-                            <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
-                            <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-youtube.png" alt=""></a>
+                            <a href="https://www.tumblr.com/blog/lagrandedecouverte" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-tumblr.png" alt=""></a>
+                            <a href="https://twitter.com/LGD_officiel" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
+                            <a href="https://www.youtube.com/channel/UCiVobuSJjj6Rc0YtdWwMcyw" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-youtube.png" alt=""></a>
                         </div>
                     </div>
                     <div class="row">
@@ -108,12 +108,12 @@
                     </div>
                     <div class="row textFooter">
                         <ul>
-                            <li><a href="#" target="_blank">Qui sommes-nous ?</a></li>
-                            <li><a href="#" target="_blank">Espace presse</a></li>
+                            <li><a href="http://www.voyage-prive.com/aide/QuiSommesNous_" target="_blank">Qui sommes-nous ?</a></li>
+                            <li><a href="https://docs.google.com/document/d/1Qu9vQce9OJs3CT1s6mhrbnK_bHuvE3-FssXUv67oiXk/edit" target="_blank">Espace presse</a></li>
                             <li><a href="<?php echo base_url('/contact/index') ?>">Nous contacter</a></li>
-                            <li><a href="#" target="_blank">Nous rejoindre</a></li>
+                            <li><a href="http://www.people-voyage-prive.com/offres" target="_blank">Nous rejoindre</a></li>
                             <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>" target="_blank">Mensions legales</a></li>
-                            <li><a href="#" target="_blank">CGV</a></li>
+                            <li><a href="https://docs.google.com/document/d/1Qu9vQce9OJs3CT1s6mhrbnK_bHuvE3-FssXUv67oiXk/edit" target="_blank">CGV</a></li>
                         </ul>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                 &nbsp; . &nbsp;
                 <span><a href="#">FAQ</a></span>
                 &nbsp; . &nbsp;
-                <span><a href="#">Conditions générales de vente</a></span>
+                <span><a href="https://docs.google.com/document/d/1Qu9vQce9OJs3CT1s6mhrbnK_bHuvE3-FssXUv67oiXk/edit">Conditions générales de vente</a></span>
                 &nbsp; . &nbsp;
                 <span><a href="#">Conditions générales d'utilisation du site </a></span>
             </div>
