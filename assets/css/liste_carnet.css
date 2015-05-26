@@ -595,7 +595,7 @@ span.fleche{
 
 .onglet3mobile .article_first,.onglet3mobile .contenu_article_suivant{
     width: 100%;
-    max-width: 850px;
+    max-width: 1200px;
     margin: auto;
     min-height: 385px;
     margin-bottom: 15px;
@@ -1339,12 +1339,10 @@ span.fleche{
 #onglet3 .callbacks img {
     top: -70px;
     min-height: 482px;
-    left: -20%;
-    width: auto;
 }
 
 #onglet3 .callbacks {
-    height: 355px;
+    height: 240px;
 }
 
 .content{padding-top:40px;}
@@ -1400,3 +1398,7 @@ span.fleche{
         font-size: 16px;
         color: #565a5c;
     }
+
+div#onglet3 {
+    display: block !important;
+}

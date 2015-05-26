@@ -16,35 +16,11 @@
                     </div>
                     <?php
                     //foreach ($carnetVoyage as $cv) { 
-                    for ($i = 0; $i < count($carnetVoyage); $i++) {
-                        if ($carnetVoyage[$i]) {
-                                ?>
-                                <div class="un_article <?php if ($i % 2 == 0) echo "left" ?>">
-                                    <div class="callbacks_container carnet">
-                                        <a href="#">
-                                            <ul class="rslides" id="slidercarnet<?php echo $i ?>">
-                                                <li>
-                                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
-                                                </li>
-                                                <li>
-                                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                                </li>
-                                            </ul>
-                                        </a>
-                                    </div>
-                                    <div style="clear:both"></div>
-                                    <a class="titre"><?php echo $carnetVoyage[$i]->cvTitre; ?></a>
-                                    <div class="date_auteur"><span><?php echo $carnetVoyage[$i]->vTitre; ?></span></div>
-                                    <div class="texte"><?php echo substr(strip_tags($carnetVoyage[$i]->vAccroche), 0, 550) . '...'; ?></div>
-                                    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyage[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
-                                    <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
-                                </div>
-                                <?php
-                                if ($i % 2 == 1) {
-                                    echo "<div style='clear:both'></div>";
-                                }
-                            }
+                    if ($carnetVoyage) {
+                        for ($i = 0; $i < count($carnetVoyage); $i++) {
+                            carnet_court_liste($carnetVoyage, $i);
                         }
+                    }
                     ?>
 
                 </div>

@@ -74,7 +74,7 @@ class Carnet extends CI_Controller {
         $config["uri_segment"] = 4;
 
         // génération des css et js
-        $data["allCss"] = array("liste_carnet");
+        $data["allCss"] = array("liste_carnet","ficheproduit");
         $data["alljs"] = array("slide", "liste_carnet");
 
         $this->pagination->initialize($config); 

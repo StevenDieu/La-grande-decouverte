@@ -19,6 +19,7 @@ and open the template in the editor.
     position: absolute;
     left: 0;
     right: 0;
+    top: 76px;
     background-color: rgba(0,0,0, 0.8);
     z-index: 2;
 }
@@ -138,10 +139,11 @@ and open the template in the editor.
 
 .content-home .contenu_home  h2{
     color: rgb(51, 51, 51);
-    padding-bottom: 58px;
+    padding-bottom: 72px;
+    padding-top: 18px;
     text-align: center;    
     font-family: 'NewCicleGordita', sans-serif;    
-    font-size: 30px;    font-weight: 100;    
+    font-size: 45px;    font-weight: 100;    
     text-transform: uppercase;            
     letter-spacing: 3px;  
 }
@@ -149,8 +151,8 @@ and open the template in the editor.
 .content-home .contenu_home  h2:after{
     content: " ";
     border-bottom: 1px solid rgb(101, 101, 101);
-    height: 71px;
-    width: 29px;
+    height: 93px;
+    width: 109px;
     position: absolute;
     left: 0;
     right: 0;
@@ -290,3 +292,9 @@ a.lire_suite {}
 
 .onglet3mobile .article_first .partie_droite a.lire_suite:hover {
 }
+
+path {
+    fill: #F5F5F5;
+}
+
+img {}
