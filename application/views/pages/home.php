@@ -94,79 +94,82 @@
             <h2>Nos récents carnets</h2>
             <div class="liste_carnet">
                 <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
-                    <div class="article_first">
-                        <div class="image">
-                            <div class="callbacks_container carnet">
-                                <a href="#">
-                                    <ul class="rslides" id="slidercarnet">
-                                        <li>
-                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut.jpg" alt="">
-                                        </li>
-                                        <li>
-                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                        </li>
-                                    </ul>
-                                </a>
+                    <?php
+                    for ($i = 0; $i < count($carnetVoyages); $i++) {
+                        if ($carnetVoyages[$i]) {
+                            ?>
+                            <div class="article_first">
+                                <div class="image">
+                                    <div class="callbacks_container carnet">
+                                        <a href="#">
+                                            <ul class="rslides" id="slidercarnet<?php echo $i ?>">
+                                                <li>
+                                                    <div class="image_slide_carnet">
+                                                        <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="image_slide_carnet">
+                                                        <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+                                                    </div>                                                
+                                                </li>
+                                            </ul>
+                                            <a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a>
+                                            <a href="#" class="callbacks_nav callbacks1_nav next">Next</a>
+                                        </a>
+                                    </div>
+                                    <a class="slide_carnet1" href="http://localhost/TVAFS-1.0/assets/../fancybox/popup_carnet.php"></a>
+                                    <div style="clear:both"></div>
+                                </div>
+                                <div class="partie_droite">
+                                    <a  href="#" class="titre">aze</a>
+                                    <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
+                                    <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 550) . '...'; ?></div>
+                                    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
+                                </div>
+                                <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
                             </div>
-                            <a class="slide_carnet1" href="http://localhost/TVAFS-1.0/assets/../fancybox/popup_carnet.php"></a>
-                            <div style="clear:both"></div>
-                        </div>
-                        <div class="partie_droite">
-                            <a  href="#" class="titre">aze</a>
-                            <div class="date_auteur">Au coeur du Chili</div>
-                            <div class="texte">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte....</div>
-                            <a href="#" class="lire_suite">Voir le carnet ></a>
-                        </div>
-                    </div>
+                            <?php
+                            if ($i % 2 == 1) {
+                                echo "<div style='clear:both'></div>";
+                            }
+                        }
+                    }
+                    ?>
 
                     <div class="separateur_article"></div>
-
-                    <div class="contenu_article_suivant">
-                        <div class="un_article left">
-                            <div class="callbacks_container carnet">
-                                <a href="#">
-                                    <ul class="rslides callbacks callbacks1" id="slidercarnet0">
-                                        <li id="callbacks1_s0" class="callbacks1_on" style="display: list-item; float: left; position: relative; opacity: 1; z-index: 2; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;">
-                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut.jpg" alt="">
-                                        </li>
-                                        <li id="callbacks1_s1" style="display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;" class="">
-                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                        </li>
-                                    </ul><a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks1_nav next">Next</a>
-                                </a>
+                    
+                    <?php
+                    for ($i; $i < count($carnetVoyages); $i++) {
+                        if ($carnetVoyages[$i]) {
+                            ?>
+                            <div class="un_article <?php if ($i % 2 == 0) echo "left" ?>">
+                                <div class="callbacks_container carnet">
+                                    <a href="#">
+                                        <ul class="rslides" id="slidercarnet<?php echo $i ?>">
+                                            <li>
+                                                <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
+                                            </li>
+                                            <li>
+                                                <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </div>
+                                <div style="clear:both"></div>
+                                <a class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                                <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
+                                <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 550) . '...'; ?></div>
+                                <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
+                                <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
                             </div>
-                            <div style="clear:both"></div>
-                            <a class="titre">aze</a>
-                            <div class="date_auteur"><span>Au coeur du Chili</span></div>
-                            <div class="texte">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte....</div>
-                            <a href="http://localhost/TVAFS-1.0/voyage/carnet?id=4" class="lire_suite">Voir le carnet &gt;</a>
-                            <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet0');</script>
-                        </div>
-                        <div class="un_article ">
-                            <div class="callbacks_container carnet">
-                                <a href="#">
-                                    <ul class="rslides callbacks callbacks2" id="slidercarnet1">
-                                        <li id="callbacks2_s0" class="callbacks2_on" style="display: list-item; float: left; position: relative; opacity: 1; z-index: 2; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;">
-                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut.jpg" alt="">
-                                        </li>
-                                        <li id="callbacks2_s1" style="display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;" class="">
-                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                        </li>
-                                    </ul><a href="#" class="callbacks_nav callbacks2_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks2_nav next">Next</a>
-                                </a>
-                            </div>
-                            <div style="clear:both"></div>
-                            <a class="titre">test</a>
-                            <div class="date_auteur"><span>Au coeur du Chili</span></div>
-                            <div class="texte">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte....</div>
-                            <a href="http://localhost/TVAFS-1.0/voyage/carnet?id=22" class="lire_suite">Voir le carnet &gt;</a>
-                            <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet1');</script>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
-                    <!-- fin contenu carnet de voyage -->
-                    <div class="pagination">
-                    </div>
+                            <?php
+                            if ($i % 2 == 1) {
+                                echo "<div style='clear:both'></div>";
+                            }
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
