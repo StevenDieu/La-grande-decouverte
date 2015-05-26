@@ -1,10 +1,5 @@
 
 <h1>Conditions générales de ventes</h1>
-<p>Presse</p>
-<p><br></p>
-<p>Pour accéder aux conférences de presse, avoir une interview vous devez en faire la demande à lagrandecouverte.contact@gmail.com</p>
-<p>Nous prendrons contact avec vous pour valider une date d’interview ou l’accord pour votre participation aux conférences de presse. </p>
-<p><br></p>
 <p>Préambule—</p>
 <p>Les prestations figurant sur le site internet http://www.lagrandecouverte.com, sont proposées par la société LGD, qui édite ce site sous la direction de publication de Georges Doe en sa qualité de président de la société LGD. Vous pouvez entrer en contact avec une personne physique au numéro d’appel suivant (0892 426 425) Le nom, la raison sociale, l’adresse et le numéro de téléphone de l’hébergeur du site sont indiqués sur le site.</p>
 <p><br></p>

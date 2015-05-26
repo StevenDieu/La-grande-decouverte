@@ -39,7 +39,9 @@ class Cart extends CI_Controller {
 
 
     public function billing(){
-        $this->load->view('checkout/step/billing');
+        $this->load->model('departement');
+        $data['departements'] = $this->departement->getAllDepartements();
+        $this->load->view('checkout/step/billing',$data);
     }
     
     public function payment(){

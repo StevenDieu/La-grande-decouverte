@@ -32,7 +32,9 @@
             <div class="select_bg">
                 <select name="billing_region" id="billing_region" >
                     <option value="" disabled selected>L’État / La Région*</option>
-                    <option value="62">Pas de Calais</option>
+                    <?php foreach ($departements as $departement) { ?>
+                        <option value="<?php echo $departement->label ?>"><?php echo $departement->code ?> <?php echo $departement->label ?></option>
+                    <?php } ?>
                 </select>
             </div>
         </div>
@@ -40,7 +42,7 @@
             <div class="select_bg">
                 <select name="billing_pays" id="billing_pays" >
                     <option value="" disabled selected>Pays*</option>
-                    <option value="FR">France</option>
+                    <option value="France">France</option>
                 </select>
             </div>
         </div>
