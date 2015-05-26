@@ -82,7 +82,7 @@
 </div>
 <script type="text/javascript">
     $("a.popCGV").fancybox({
-        'maxWidth' : 900,
+        maxWidth : 900,
         helpers : {
             overlay : {
                 css : {
