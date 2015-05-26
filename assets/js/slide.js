@@ -17,14 +17,14 @@ function initialiseResponsiveSilide(id) {
     });
 }
 function resizeSlide() {
-    if ($(".callbacks_container ul li img").height() >= (window.innerHeight - $(".header").height())) {
+    if ( window.innerHeight <= window.innerWidth) {
         $('.slider_principal').css('height', window.innerHeight - 76);
         $('#slider_top').css('height', window.innerHeight - 76);
         $('#slider_top li').css('height', window.innerHeight - 76);
     } else {
-        $('.slider_principal').css('height', $(".callbacks_container ul li img").height());
-        $('#slider_top').css('height', '');
-        $('#slider_top li').css('height', '');
+        $('.slider_principal').css('height', window.innerWidth - 76);
+        $('#slider_top').css('height', window.innerWidth - 76);
+        $('#slider_top li').css('height', window.innerWidth - 76);
     }
 }
 
