@@ -13,6 +13,7 @@ class Fiche extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
         $this->load->model('voyage');
+        $this->load->model('carnetVoyage');
         $data['voyage'] = $this->voyage->getVoyage($this->input->get('id'));
         if($data['voyage'] == null) {
             redirect('pages/index/', 'refresh');
@@ -37,7 +38,8 @@ class Fiche extends CI_Controller {
         if($data['voyage'] == null) {
             redirect('pages/index/', 'refresh');
         }
-        
+        $this->carnetVoyage->id_voyage = $this->input->get('id');
+        $data["carnetVoyages"] = $this->carnetVoyage->getVoyageProduit();
         $data["allCss"] = array("ficheProduit");
         $data["alljs"] = array("slide","ficheProduit");
         $this->load->templateVoyage('/fiche_produit', $data);

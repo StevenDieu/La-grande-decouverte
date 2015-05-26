@@ -83,7 +83,6 @@ span.fleche{
 
 .callbacks_container {
     position: relative;
-    float: left;
     width: 100%;
     overflow: hidden;
 }
@@ -100,9 +99,8 @@ span.fleche{
 .callbacks li {
     position: absolute;
     width: 100%;
-    left: 0;
     top: 0;
-    height: 355px;
+    height: 240px;
 }
 
 .callbacks img {
@@ -308,18 +306,22 @@ span.fleche{
 
     .onglet3mobile .contenu_article_suivant .un_article.left{
         margin-right: 15px;
-    }
+    
+}
 
     .onglet3mobile .contenu_article_suivant .un_article .callbacks_container.carnet{
-        height: 355px;
-    }
+        height: 242px;
+    
+        /* max-width: 420px; */
+        margin: 0 auto;
+}
 
     .onglet3mobile .contenu_article_suivant .un_article{
         height: 600px;
     }
 
     .onglet3mobile .article_first .image{
-        height: 363px;
+        height: 300px;
     }
 
     .callbacks_container.carnet{
@@ -579,9 +581,9 @@ span.fleche{
 
 .onglet3mobile .article_first,.onglet3mobile .contenu_article_suivant{
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
-    min-height: 385px;
+    min-height: 264px;
     margin-bottom: 15px;
 }
 
@@ -595,6 +597,8 @@ span.fleche{
     width: 420px;
     position: relative;
     float: left;
+    margin-right: 19px;
+    padding-bottom: 20px;
 }
 
 .onglet3mobile .article_first .image img{
@@ -611,15 +615,16 @@ span.fleche{
     width: 40px;
     height: 40px;
     position: absolute;
-    bottom:10px;
+    bottom: 70px;
     right: 10px;
     z-index: 1000;
     background: url("../images/ficheproduit/zoom.png") no-repeat scroll left center rgba(0, 0, 0, 0);
 }
 
 .onglet3mobile .article_first .partie_droite{
-    float: left;
-    width: 406px;
+    /* float: left; */
+    /* max-width: 625px; */
+    padding-right: 15px;
 }
 
 .onglet3mobile .article_first .partie_droite a.titre{
@@ -668,9 +673,12 @@ span.fleche{
 .onglet3mobile .contenu_article_suivant .un_article{
     width: 49%;
     float: left;
-    max-height: 600px;
+    max-height: 509px;
     margin-bottom: 25px;
+    min-height: 471px;
     padding: 12px;
+    /* padding-left: 25px; */    
+    /* padding-right: 25px; */
 }
 
 .onglet3mobile .contenu_article_suivant .un_article:hover{
@@ -1584,12 +1592,13 @@ span.fleche{
 
 
 #onglet3 .callbacks img {
-    min-height: 491px;
+    min-height: 484px;
     margin-top: -15%;
-    left: -20%;
     width: auto;
 }
 
 .image_slide_carnet {
-    width: 100%;    height: 355px;    overflow: hidden;
+    width: 100%;    
+    height: 272px;    
+    overflow: hidden;
 }

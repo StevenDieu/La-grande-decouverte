@@ -64,57 +64,57 @@
             <div class="topRight">
                 <?php echo form_open_multipart('checkout/cart/onepage'); ?>
 
-                    <div class="bloc bloc2">
-                        <span class="titre">à partir</span>
-                        <span class="valeur">de <?php echo $voyageInfo[0]->prix; ?> €</span>
-                    </div>
+                <div class="bloc bloc2">
+                    <span class="titre">à partir</span>
+                    <span class="valeur">de <?php echo $voyageInfo[0]->prix; ?> €</span>
+                </div>
 
-                    <div class="bloc bloc1">
-                        <span class="titre">Durée</span>
-                        <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
-                    </div>
+                <div class="bloc bloc1">
+                    <span class="titre">Durée</span>
+                    <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
+                </div>
 
-                    <div class="bloc bloc3">
-                        <span class="titre">Places disponibles</span>
-                        <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
-                    </div>
+                <div class="bloc bloc3">
+                    <span class="titre">Places disponibles</span>
+                    <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
+                </div>
 
-                    <div class="bloc_date">
-                        <p>DU <span><?php echo $voyageInfo[0]->date_depart; ?></span></p>
-                        <p>AU <span><?php echo $voyageInfo[0]->date_arrivee; ?></span></p>
-                    </div>
+                <div class="bloc_date">
+                    <p>DU <span><?php echo $voyageInfo[0]->date_depart; ?></span></p>
+                    <p>AU <span><?php echo $voyageInfo[0]->date_arrivee; ?></span></p>
+                </div>
 
-                    <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
-                    <input type="hidden" name="idInfo" value="<?php echo $voyageInfo[0]->id; ?>">
-                    <?php if(count($allInfoVoyage) > 1): ?>
-                        <a href="#data" class="voir_date">> Voir les autres dates</a>
-                        <!-- popup -->
-                        <div style="display:none">
-                            <div id="data">
+                <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
+                <input type="hidden" name="idInfo" value="<?php echo $voyageInfo[0]->id; ?>">
+                <?php if (count($allInfoVoyage) > 1): ?>
+                    <a href="#data" class="voir_date">> Voir les autres dates</a>
+                    <!-- popup -->
+                    <div style="display:none">
+                        <div id="data">
                             <span>Il existe plusieurs dates pour ce voyage : </span>
-                            <?php 
-                                foreach ($allInfoVoyage as $info) {
-                                    echo "> Du ".$info->date_depart." au ".$info->date_arrivee.' : ';
-                                    
-                                    echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>Choisir ces dates</a><br>";
-                                }
+                            <?php
+                            foreach ($allInfoVoyage as $info) {
+                                echo "> Du " . $info->date_depart . " au " . $info->date_arrivee . ' : ';
+
+                                echo "<a href='" . base_url('voyage/fiche') . "?id=" . $voyage[0]->id . "&idInfo=" . $info->id . "'>Choisir ces dates</a><br>";
+                            }
                             ?>
-                            </div>
                         </div>
-                        <!-- popup -->
-                        <script type="text/javascript">
+                    </div>
+                    <!-- popup -->
+                    <script type="text/javascript">
                         $("a.voir_date").fancybox({
-                                helpers : {
-                                    overlay : {
-                                        css : {
-                                            'background' : 'rgba(0, 0, 0, 0.65)'
-                                        }
+                            helpers: {
+                                overlay: {
+                                    css: {
+                                        'background': 'rgba(0, 0, 0, 0.65)'
                                     }
                                 }
-                            });
-                        </script>
-                    <?php endif; ?>
-                    <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
+                            }
+                        });
+                    </script>
+                <?php endif; ?>
+                <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
                 </form>
             </div>         
 
@@ -260,129 +260,30 @@
         <div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
         <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
             <!-- contenu carnet de voyage -->
-            <div class="article_first">
-                <div class="image">
-                    <div class="callbacks_container carnet">
-                        <a href="#">
-                            <ul class="rslides" id="slidercarnet1">
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                </li>
-                            </ul>
-                        </a>
-                    </div>
-                    <a class="slide_carnet1 fancybox.ajax zoom" href="<?php echo asset_url(''); ?>../fancybox/popup_carnet.php"></a>
-                    <div style="clear:both"></div>
-                    <script type="text/javascript">
-                        $(".slide_carnet1").fancybox({
-                            maxWidth: 1000,
-                            maxHeight: 600,
-                            fitToView: false,
-                            width: '80%',
-                            height: '80%',
-                            autoSize: false,
-                            closeClick: false,
-                            openEffect: 'none',
-                            closeEffect: 'none',
-                            ajax: {
-                                type: "POST",
-                                cache: false,
-                                data: "var=1|<?php echo asset_url(''); ?>",
-                                success: function (data) {
-                                    $.fancybox(data);
-                                }
-                            }
-                        });
-                    </script>
-                </div>
-                <div class="partie_droite">
-                    <a  href="#" class="titre">Deux semaines au Chili</a>
-                    <div class="date_auteur">Thomas l'aventurier - 22 / 03 / 2015</div>
-                    <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
-                    <a href="#" class="lire_suite">Voir le carnet ></a>
-                </div>
-            </div>
+            <?php
+            if ($carnetVoyages) {
+                for ($i = 0; $i < count($carnetVoyages); $i++) {
+                    if ($i == 0) {
+                        carnet_long($carnetVoyages, $i);
+                    }
+                    if ($i == 1) {
+                        ?> <div class="separateur_article"></div><?php
+                    }
+                    if ($i == 1 && (count($carnetVoyages) - 1) == 1) {
+                        carnet_long($carnetVoyages, $i);
+                    }
 
-            <div class="separateur_article"></div>
+                    if ($i > 0 && (count($carnetVoyages) - 1) >= 2) {
+                        carnet_court($carnetVoyages, $i);
+                    }
+                }
+            } else {
+                ?>
+                        <p class="center" style="padding: 10px;">Aucun carnet de voyage pour ce produit.</p>
+                <?php
+            }
+            ?>
 
-            <div class="contenu_article_suivant">
-
-                <!-- un article -->
-                <div class="un_article left">
-                    <div class="callbacks_container carnet">
-                        <a href="#">
-                            <ul class="rslides" id="slidercarnet2">
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                </li>
-                            </ul>
-                        </a>
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
-                    <a class="titre">Deux semaines au Chili</a>
-                    <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
-                    <a href="#" class="lire_suite">Voir le carnet ></a>
-                    <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet2');</script>
-                </div>
-                <!-- fin un article -->
-
-                <!-- un article -->
-                <div class="un_article">
-                    <div class="callbacks_container carnet">
-                        <a href="#">
-                            <ul class="rslides" id="slidercarnet3">
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                </li>
-                            </ul>
-                        </a>
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
-                    <a  href="#" class="titre">Deux semaines au Chili</a>
-                    <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
-                    <a href="#" class="lire_suite">Voir le carnet ></a>
-                    <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet3');</script>
-                </div>
-                <!-- fin un article -->
-
-                <div style="clear:both"></div>
-
-                <!-- un article -->
-                <div class="un_article left">
-                    <div class="callbacks_container carnet">
-                        <a href="#">
-                            <ul class="rslides" id="slidercarnet4">
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="<?php echo asset_url(''); ?>images/ficheproduit/carnet/tribut2.jpg" alt="">
-                                </li>
-                            </ul>
-                        </a>
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class="date_auteur"><span>Thomas l'aventurier - 22 / 03 / 2015</span></div>
-                    <a href="#" class="titre">Deux semaines au Chili</a>
-                    <div class="texte">Le mois de Mai dernier, je m’envollais pour deux semaines au Chili, venez dècouvrir ce que le Chili vous reserves et envolez vous avec lagrandecouverte.com au coeur de se pays ...</div>
-                    <a href="#" class="lire_suite">Voir le carnet ></a>
-                    <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet4');</script>
-                </div>
-                <!-- fin un article -->
-
-                <div style="clear:both"></div>
-            </div>
             <!-- fin contenu carnet de voyage -->	
         </div>
         <div id="onglet4mobile" class="onglet_mobile"><a href="#">Déroulement</a></div>

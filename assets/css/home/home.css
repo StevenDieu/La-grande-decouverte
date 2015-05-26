@@ -12,7 +12,7 @@ and open the template in the editor.
     padding: 0;
     overflow: hidden;
     overflow: hidden;
-    background-color: rgba(26, 23, 27, 0.38);
+    background-color: #f5f5f5;
 }
 
 .map{
@@ -137,7 +137,7 @@ and open the template in the editor.
 }
 
 .content-home .contenu_home  h2{
-    color: rgb(249, 241, 224);
+    color: rgb(0, 0, 0);
     padding-bottom: 58px;
     text-align: center;    
     font-family: 'NewCicleGordita', sans-serif;    
@@ -148,7 +148,7 @@ and open the template in the editor.
 
 .content-home .contenu_home  h2:after{
     content: " ";
-    border-bottom: 1px solid rgb(249, 241, 224);
+    border-bottom: 1px solid rgb(101, 101, 101);
     height: 71px;
     width: 29px;
     position: absolute;
@@ -159,14 +159,14 @@ and open the template in the editor.
 
 .contenu_home{
     padding-top: 40px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     /* max-width: 1200px; */
     margin: 0 auto;
 }
 
 .contenu_home a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 
@@ -213,6 +213,7 @@ and open the template in the editor.
 }
 
 .contenu_home .voyage .description{
+    color: white;
 
 }
 
@@ -227,6 +228,7 @@ and open the template in the editor.
 
 
     text-align: center;
+    color: white;
 }
 
 
@@ -265,11 +267,11 @@ and open the template in the editor.
 }
 
 .onglet3mobile .contenu_article_suivant .un_article:hover {
-    background-color: #2C292D;
+    background-color: #EBEBEB;
 }
 
 .onglet3mobile .article_first:hover {
-    background-color: #2C292D;
+    background-color: #EBEBEB;
 }
 
 .liste_voyages {
@@ -280,9 +282,11 @@ and open the template in the editor.
 a.lire_suite {}
 
 .onglet3mobile .contenu_article_suivant .un_article a.lire_suite:hover {
-    color: #FFF !important;
+    color: #000 !important;
 }
 
 .onglet3mobile .separateur_article{
-    border-top: 1px solid #CACACA !important;
+}
+
+.onglet3mobile .article_first .partie_droite a.lire_suite:hover {
 }

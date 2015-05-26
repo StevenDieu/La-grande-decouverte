@@ -99,7 +99,7 @@
 
                     <?php
                     for ($i = 0; $i < count($carnetVoyages); $i++) {
-                        if ($i == 0 && (count($carnetVoyages) - 1) == 1) {
+                        if ($i == 0) {
                             carnet_long($carnetVoyages, $i);
                         }
                         if ($i == 1) {
@@ -109,8 +109,8 @@
                             carnet_long($carnetVoyages, $i);
                         }
 
-                        if ($i > 0 && (count($carnetVoyages) - 1) > 2) {
-                            carnet_($carnetVoyages, $i);
+                        if ($i > 0 && (count($carnetVoyages) - 1) >= 2) {
+                            carnet_court($carnetVoyages, $i);
                         }
                     }
                     ?>
