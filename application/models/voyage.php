@@ -494,7 +494,7 @@ Class Voyage extends CI_Model {
         }
     }
 
-<<<<<<< HEAD
+
     function getAllVoyages() {
         $this->db->select('*');
         $this->db->from('voyage');
@@ -523,8 +523,7 @@ Class Voyage extends CI_Model {
             return false;
         }
     }
-=======
->>>>>>> origin/master
+
 }
 
 ?>
