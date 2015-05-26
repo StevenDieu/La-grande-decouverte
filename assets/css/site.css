@@ -266,8 +266,8 @@ h1 {
     font-family: "Helvetica";
     text-align: center;
     text-transform: uppercase;
-    color: #888;
-    font-size: 19px;
+    color: #E3E3E3;
+    font-size: 20px;
     padding-top: 10px;
     text-shadow: 1px 1px 0px #111;
 }
@@ -1334,4 +1334,8 @@ button.attentionIcon:focus {
 
 .curserPointer{
     cursor: pointer;
+}
+
+ul.menu_popup .glyphicon {
+    top: 1px;
 }

@@ -2,21 +2,15 @@
     <!-- Slideshow 4 -->
     <div class="callbacks_container">
         <ul class="rslides" id="slider_top">
-            <li>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/1.jpg" alt="">
-                <p class="caption">This is a caption</p>
-            </li>
-            <li>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/2.jpg" alt="">
-                <p class="caption">This is another caption</p>
-            </li>
-            <li>
-                <img src="<?php echo asset_url(''); ?>images/ficheproduit/slidertop/3.jpg" alt="">
-                <p class="caption">The third caption</p>
-            </li>
+            <?php foreach ($imagesCarnetVoyage[0] as $images) { ?>
+                <li>
+                    <img src="<?php echo base_url(); ?>media/produit/image_slider/<?php echo $images; ?>" alt="">
+                </li>
+                <?php
+            }
+            ?>
         </ul>
     </div>
-
     <div style="clear:both"></div>
     <div class="content_fiche_voyage">
 

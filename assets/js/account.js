@@ -22,6 +22,8 @@ function chargementAjaxOnglet(block, tableauVariable) {
     } else if (block === "addArticle") {
         $(".carnets").addClass("actif");
         url = urlViewAddArticle;
+    } else if (block === "voyages") {
+        url = urlVoyages;
     }
     if (url !== "") {
         $.ajax({

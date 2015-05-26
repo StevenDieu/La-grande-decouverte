@@ -27,6 +27,8 @@ class Carnet extends CI_Controller {
 
         $this->carnetVoyage->id = $this->input->get('id');
         $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage();
+        $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
+
 
         if ($data['carnetVoyage'] == null) {
             redirect('pages/index/', 'refresh');
@@ -54,6 +56,8 @@ class Carnet extends CI_Controller {
         if ($data['articles'] == null) {
             redirect('pages/index/', 'refresh');
         }
+        $this->carnetVoyage->id = $data["articles"][0]->id_carnetvoyage;
+        $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
         $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
         $data["allCss"] = array("article");
         $data["alljs"] = array("slide", "ficheVoyage");
@@ -64,26 +68,24 @@ class Carnet extends CI_Controller {
     public function liste_carnet() {
         $perPage = 6;   //nombres d'articles par page
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
-
         // creation fonction getAllCarnVoyages dans le model carnetVoyage
-        $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage,$page);
+        $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
 
         $config['base_url'] = base_url() . "voyage/carnet/liste_carnet";
         $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
-        $config['per_page'] = $perPage; 
+        $config['per_page'] = $perPage;
         $config["uri_segment"] = 4;
 
         // génération des css et js
-        $data["allCss"] = array("liste_carnet","ficheproduit");
+        $data["allCss"] = array("liste_carnet", "ficheproduit");
         $data["alljs"] = array("slide", "liste_carnet");
 
-        $this->pagination->initialize($config); 
+        $this->pagination->initialize($config);
 
 
         //appel du template
         $this->load->templateCarnet('/liste_carnet', $data);
     }
-
 
     public function voyage() {
         $continent = $this->input->get('continent');
@@ -91,33 +93,34 @@ class Carnet extends CI_Controller {
         $perPage = 6;   //nombres d'articles par page
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
 
-        if($continent) {
+        if ($continent) {
             //si un continent a été passé en paramètre, j'affiche tous les voyages du continent choisi
             $data['voyage'] = $this->Voyage->getVoyagesByContinent($continent);
 
             if ($data['voyage'] == false) {
                 //si je ne recupère aucun voyage du continent sélectionné, j'affiche tous les voyages
-                $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+                $data['voyage'] = $this->Voyage->getAllVoyages($perPage, $page);
 
                 $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
             }
         } else {
             //sinon j'affiche tous les voyages du continent sélectionné, avec une pagination
-            $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+            $data['voyage'] = $this->Voyage->getAllVoyages($perPage, $page);
         }
 
         $config['base_url'] = base_url() . "voyage/carnet/voyage";
         $config['total_rows'] = $this->Voyage->getRowAllVoyages();
         $config['per_page'] = $perPage;
-        $config["uri_segment"] = 4;       
+        $config["uri_segment"] = 4;
 
         // génération des css et js
         $data["allCss"] = array("voyage");
-        $data["alljs"] = array("voyage","slide");
+        $data["alljs"] = array("voyage", "slide");
 
         $this->pagination->initialize($config);
 
         //appel du template
         $this->load->templateVoyage('/voyage', $data);
     }
+
 }

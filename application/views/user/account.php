@@ -23,7 +23,8 @@
     var urlUploadProfile = '<?php echo base_url('user/verification/uploadProfile'); ?>';
     var urlAddImageFiche = '<?php echo base_url("user/articles/addImageFiche/") ?>';
     var urlSetPrive = '<?php echo base_url("user/model_carnet_voyage/setPrive") ?>';
-
+    var urlVoyages = '<?php echo base_url('user/voyages/mesvoyages'); ?>';
+    
     var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
     var urlImageProfil = '<?php echo asset_url("images/utilisateur/photoProfil/") ?>';
     var ImageLock = '<?php echo asset_url('') . "images/ficheVoyage/visible/locked.png"; ?>';

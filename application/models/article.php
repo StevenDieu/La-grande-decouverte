@@ -67,7 +67,21 @@ Class Article extends CI_Model {
         }
     }
 
-    
+    function getIdCarnetVoyage() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id', $this->id);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getArticlePublic() {
         $this->db->select('*');
         $this->db->from('fichevoyage');

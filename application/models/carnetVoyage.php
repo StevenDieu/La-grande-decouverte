@@ -73,6 +73,20 @@ Class CarnetVoyage extends CI_Model {
         }
     }
 
+    function getImagesCarnetVoyage() {
+        $this->db->select('image_slider_1,image_slider_2,image_slider_3');
+        $this->db->from('carnetvoyage AS cv');
+        $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
+        $this->db->where('cv.id', $this->id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getCarnetVoyage() {
         $this->db->select('*');
         $this->db->from('carnetvoyage');
@@ -88,7 +102,7 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getCarnetVoyagesHome() {
-        $this->db->select('cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->select('image_slider_1,image_slider_2,image_slider_3,cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
         $this->db->order_by("v.id", "desc");
