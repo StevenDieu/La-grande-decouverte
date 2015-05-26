@@ -9,7 +9,6 @@
 Class Departements extends CI_Model {
 
     function _construct() {
-        // Call the Model constructor
         parent::_construct();
     }
 
@@ -17,7 +16,7 @@ Class Departements extends CI_Model {
     function getAllDepartements() {
         $this->db->select('*');
         $this->db->from('departements');
-        $this->db->order_by('label','asc')
+        $this->db->order_by('label','asc');
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
@@ -27,5 +26,3 @@ Class Departements extends CI_Model {
         }
     }
 }
-
-?>
