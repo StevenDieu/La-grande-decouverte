@@ -8,6 +8,7 @@
     var urlCreate = '<?php echo base_url('checkout/cart/create'); ?>';
     var urlSave = '<?php echo base_url('checkout/cart/save'); ?>';
     var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
+    var urlcgv = '<?php echo base_url('checkout/cart/getCgv'); ?>';
 </script>
 
 <?php 
@@ -84,6 +85,15 @@ if ($this->session->userdata('logged_in')) { ?>
                                 </div>
                             </div><!--//end .command_panel-->
                         </div><!--//end #command_left_column-->
+                        <div id="command_right_column"><!--start command_right_column-->
+                            <ul>
+                                <li class="iden active"><a href="#">Identification</a></li>
+                                <li class="billing"><a href="#">Adresse de facturation</a></li>
+                                <li class="participants"><a href="#">Liste des participants</a></li>
+                                <li class="payment"><a href="#">Mode de paiement</a></li>
+                                <li class="recap"><a href="#">Vérification de ma commande</a></li>
+                            </ul>
+                        </div><!--//end #command_right_column-->
                     </div><!--//end #commande_two_column-->
                 </div><!--//end #admin_content-->
             </div><!--//end #page_content-->
@@ -129,6 +139,7 @@ if ($this->session->userdata('logged_in')) { ?>
                 $(".open_command.containPayment").addClass('check');
                 getRecap(<?php echo $id; ?>,<?php echo $idInfo; ?>,order.nb_participant);
                 jQuery(".open_command.containRecap").toggleClass("active").next().slideToggle("slow");
+                getCgv();
             }
             
             return false;

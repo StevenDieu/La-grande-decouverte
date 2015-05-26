@@ -328,4 +328,8 @@ class Cart extends CI_Controller {
         $data['increment_id'] = $this->input->post('increment_id');
         $this->load->view('checkout/success',$data);
     }  
+
+    function getCgv(){
+        $this->load->view('checkout/step/cgv');
+    }  
 }

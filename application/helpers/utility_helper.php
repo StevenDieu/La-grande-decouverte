@@ -1,5 +1,19 @@
 <?php
 
+function carnet_long($i) {
+    if ($url !== "") {
+        return base_url() . 'assets/' . $url;
+    }
+    return base_url() . 'assets/';
+}
+
+function carnet_court($i) {
+    if ($url !== "") {
+        return base_url() . 'assets/' . $url;
+    }
+    return base_url() . 'assets/';
+}
+
 function asset_url($url = "") {
     if ($url !== "") {
         return base_url() . 'assets/' . $url;
@@ -15,7 +29,7 @@ function tronque($str, $nb = 800) {
         $str = $str . "...";
     }
     $str = strip_tags($str);
-    return $str; //on retourne la variable modifiée
+    return $str;
 }
 
 function view() {

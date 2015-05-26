@@ -1,18 +1,6 @@
 jQuery(document).ready(function(){
 	//mode de commande panels	
-	jQuery('#command_right_column ul li').click(function(){
-		jQuery(this).toggleClass("active");
-		var index = jQuery(this).index();
-		if( index == 0 ) {
-		jQuery('#command_left_column .command_panel:first-child .open_command').toggleClass("active").next().slideToggle("slow");
-		return false;
-		}
-		else {
-		var num = index+1;
-		jQuery('#command_left_column .command_panel:nth-child('+num+') .open_command').toggleClass("active").next().slideToggle("slow");
-		return false;
-		}
-	});
+
 	 jQuery('h2.open_command').click(function(){
 		var parent = jQuery(this).parent().index();
 		if( parent == 0 ) {
@@ -205,6 +193,7 @@ jQuery(document).ready(function(){
                     $('.identification_left .chargement').remove();
                     $(".inside_command_panel.ajaxLogin").html('');
                     $(".inside_command_panel.ajaxLogin").css('display','none');
+                    $(".open_command.first").addClass('check');
                     $(".open_command.first").removeClass('active');
                     getBilling();
                     jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
@@ -364,6 +353,17 @@ jQuery(document).ready(function(){
             data: {increment_id: id} ,
             success: function (result) {
                 $(".content").html(result) // Pour afficher le contenu de la view
+            }
+        });
+    }
+
+    function getCgv(){
+        $.ajax({
+            url: urlcgv , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: "" ,
+            success: function (result) {
+                $("#popCGV").html(result) // Pour afficher le contenu de la view
             }
         });
     }

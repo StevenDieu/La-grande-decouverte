@@ -78,7 +78,6 @@
 <!-- popup -->
 <div style="display:none">
     <div id="popCGV">
-        CGVVVVVVVVVVV
     </div>
 </div>
 <script type="text/javascript">

@@ -247,6 +247,7 @@ and open the template in the editor.
 @media (max-width: 1200px){
     .liste_voyages {
         width: 580px;
+        width: 100%;
         margin: 0 auto
 
     }
@@ -258,8 +259,8 @@ and open the template in the editor.
         float: none;
     }
     .contenu_home .voyage{
-        margin: 10px;
-        width: 580px;
+        margin: 10px auto;
+        max-width: 580px;
     }
 }
 
@@ -274,4 +275,10 @@ and open the template in the editor.
 .liste_voyages {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+a.lire_suite {}
+
+.onglet3mobile .contenu_article_suivant .un_article a.lire_suite:hover {
+    color: #FFF !important;
 }

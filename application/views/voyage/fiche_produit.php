@@ -64,14 +64,14 @@
             <div class="topRight">
                 <?php echo form_open_multipart('checkout/cart/onepage'); ?>
 
-                    <div class="bloc bloc1">
-                        <span class="titre">Durée</span>
-                        <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
-                    </div>
-
                     <div class="bloc bloc2">
                         <span class="titre">à partir</span>
                         <span class="valeur">de <?php echo $voyageInfo[0]->prix; ?> €</span>
+                    </div>
+
+                    <div class="bloc bloc1">
+                        <span class="titre">Durée</span>
+                        <span class="valeur"><?php echo $voyage[0]->duree; ?> jours</span>
                     </div>
 
                     <div class="bloc bloc3">
@@ -79,10 +79,15 @@
                         <span class="valeur"><?php echo $voyageInfo[0]->place_dispo; ?></span>
                     </div>
 
+                    <div class="bloc_date">
+                        <p>DU <span><?php echo $voyageInfo[0]->date_depart; ?></span></p>
+                        <p>AU <span><?php echo $voyageInfo[0]->date_arrivee; ?></span></p>
+                    </div>
+
                     <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
                     <input type="hidden" name="idInfo" value="<?php echo $voyageInfo[0]->id; ?>">
                     <?php if(count($allInfoVoyage) > 1): ?>
-                        <a href="#data" class="voir_date">> Voir les dates</a>
+                        <a href="#data" class="voir_date">> Voir les autres dates</a>
                         <!-- popup -->
                         <div style="display:none">
                             <div id="data">

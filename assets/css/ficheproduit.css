@@ -102,6 +102,7 @@ span.fleche{
     width: 100%;
     left: 0;
     top: 0;
+    height: 355px;
 }
 
 .callbacks img {
@@ -597,8 +598,8 @@ span.fleche{
 }
 
 .onglet3mobile .article_first .image img{
-    max-width: 100%;
-    max-height: 100%;
+    /* max-width: 100%; */
+    min-height: 100%;
 }
 
 .callbacks_container.carnet{
@@ -1309,7 +1310,7 @@ span.fleche{
 .top_bloc .topRight{
     width: 450px;
     float: right;
-    height: 200px;
+    min-height: 200px;
     position: relative;
     background: #fff;
 }
@@ -1435,7 +1436,7 @@ span.fleche{
 
 .topRight .bloc{
     float: left;
-    height: 150px;
+    height: 100px;
 }
 
 .topRight .bloc .titre{
@@ -1472,7 +1473,15 @@ span.fleche{
     padding-left: 9px;
     font-family: "helvetica";
     font-size: 16px;
-    color: #989898;
+    color: #337ab7;
+    margin-top: 5px;
+}
+
+.topRight .bloc2 .valeur{
+    font-weight: bold;
+    color: #F47A0C;
+    font-size: 20px;
+    margin-top: 0px;
 }
 
 @media (max-width: 480px){
@@ -1487,13 +1496,18 @@ span.fleche{
     }
 
     .topRight .bloc.bloc3{
-        width: 100%;
+        width: 50%;
         height: 90px !important;
+        float: left;
     }
 
     .top_bloc .topRight{
         width: 100% !important;
         height: 250px !important;
+    }
+
+    .topRight .bloc_date{
+        padding-top: 25px;
     }
 }
 
@@ -1503,7 +1517,16 @@ span.fleche{
     bottom: 14px;
     left: 10px;
     font-family: "helvetica";
+    width: 50%;
 }
+@media (max-width: 450px){
+    .topRight a.voir_date{
+        text-align: left;
+        bottom: 4px !important;
+        width: 37% !important;
+    }
+}
+
 
 @media (max-width: 400px){
     #embarque{
@@ -1511,15 +1534,18 @@ span.fleche{
           text-align: left !important;
           font-size: 21px !important;
     }
+
+    .bloc3 span.titre{
+        font-size: 12px !important;
+    }
 }
 
 .topLeft h1{
     font-family: 'NewCicleGordita';
+    text-shadow: none;
+    color: #000;
     text-align: left;
-    text-shadow:none;
-    font-size: 18px;
-    font-size: 27px;
-    text-transform: none;
+    font-size: 28px;
 }
 
 #data span{
@@ -1539,4 +1565,31 @@ span.fleche{
     font-family: "helvetica";
 }
 
+.topRight .bloc_date{
+    width: 50%;
+    min-height: 30px;
+    padding-left: 10px;
+    float: left;
+}
 
+.topRight .bloc_date p{
+    margin: 0;
+}
+
+.topRight .bloc_date p span{
+    color: #565a5c;
+}
+
+
+
+
+#onglet3 .callbacks img {
+    min-height: 491px;
+    margin-top: -15%;
+    left: -20%;
+    width: auto;
+}
+
+.image_slide_carnet {
+    width: 100%;    height: 355px;    overflow: hidden;
+}
