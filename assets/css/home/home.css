@@ -159,7 +159,7 @@ and open the template in the editor.
 
 .contenu_home{
     padding-top: 40px;
-    color: white;
+    color: rgb(255, 255, 255);
     /* max-width: 1200px; */
     margin: 0 auto;
 }
@@ -265,7 +265,7 @@ and open the template in the editor.
 }
 
 .onglet3mobile .contenu_article_suivant .un_article:hover {
-  background-color: #2C292D;
+    background-color: #2C292D;
 }
 
 .onglet3mobile .article_first:hover {
@@ -281,4 +281,8 @@ a.lire_suite {}
 
 .onglet3mobile .contenu_article_suivant .un_article a.lire_suite:hover {
     color: #FFF !important;
+}
+
+.onglet3mobile .separateur_article{
+    border-top: 1px solid #CACACA !important;
 }
