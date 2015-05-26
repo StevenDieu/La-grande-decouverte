@@ -1346,3 +1346,57 @@ span.fleche{
 #onglet3 .callbacks {
     height: 355px;
 }
+
+.content{padding-top:40px;}
+
+.content .entete{
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+    .cercleGauche, .cercleDroit{
+        position: absolute;
+        background: #BFBFBF;
+        border-radius: 10px;
+        display: block;
+        width: 7px;
+        height: 7px;
+        bottom: -4px;
+        z-index: 3;
+    }
+
+    .cercleGauche{
+        left:0px;
+    }
+
+    .cercleDroit{
+        right:0px;
+    }
+
+    .content .entete .titre{
+        text-align: center;
+        width: 100%;
+        padding-top: 30px;
+        font-size: 40px;
+        white-space: nowrap;
+        font-family: 'NewCicleGordita', sans-serif;
+        text-transform: uppercase;
+        color: #090A1F;
+
+    }
+
+        .content .entete .titre sup{
+            font-size: 25px;
+            color: #337ab7;
+        }
+
+    .content .entete .description{
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-family: "helvetica";
+        font-size: 16px;
+        color: #565a5c;
+    }

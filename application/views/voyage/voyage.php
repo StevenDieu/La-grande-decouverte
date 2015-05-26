@@ -5,8 +5,13 @@
 <div class="content">
 	<div class="bloc-voyage">
 		<div class="voyages">
-	        <h2>Nos voyages en cours</h2>
 	        <div class="liste_voyages">
+	        	<div class="entete">
+					<div class="titre">Voyages</div>
+					<div class="description">Découvrez les nouveaux voyages, et visitez des pays du monde entier !</div>
+					<div class="cercleGauche"></div>
+					<div class="cercleDroit"></div>
+				</div>
 	            <?php
 	            $i = 0;
 	            foreach ($voyage as $v) {
