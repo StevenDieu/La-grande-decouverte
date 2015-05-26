@@ -494,6 +494,36 @@ Class Voyage extends CI_Model {
         }
     }
 
+
+    function getAllVoyages() {
+        $this->db->select('*');
+        $this->db->from('voyage');
+        $this->db->order_by("titre","asc");
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getVoyagesByContinent($continent) {
+        $this->db->select('*');
+        $this->db->from('voyage');
+        $this->db->where('continent', $continent);
+        $this->db->order_by("titre","asc");
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }
 
 ?>

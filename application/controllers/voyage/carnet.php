@@ -8,6 +8,7 @@ class Carnet extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('carnetVoyage');
+        $this->load->model('Voyage');
         $this->load->model('article');
 
         $this->load->library('pagination');
@@ -83,4 +84,15 @@ class Carnet extends CI_Controller {
         $this->load->templateCarnet('/liste_carnet', $data);
     }
 
+
+    public function voyage() {
+        // génération des css et js
+        $data["allCss"] = array("voyage");
+        $data["alljs"] = array("voyage");
+
+        $data['voyage'] = $this->Voyage->getAllVoyages();
+
+        //appel du template
+        $this->load->templateVoyage('/voyage', $data);
+    }
 }

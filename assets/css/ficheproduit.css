@@ -1310,7 +1310,7 @@ span.fleche{
 .top_bloc .topRight{
     width: 450px;
     float: right;
-    height: 200px;
+    min-height: 200px;
     position: relative;
     background: #fff;
 }
@@ -1436,7 +1436,7 @@ span.fleche{
 
 .topRight .bloc{
     float: left;
-    height: 150px;
+    height: 100px;
 }
 
 .topRight .bloc .titre{
@@ -1473,7 +1473,15 @@ span.fleche{
     padding-left: 9px;
     font-family: "helvetica";
     font-size: 16px;
-    color: #989898;
+    color: #337ab7;
+    margin-top: 5px;
+}
+
+.topRight .bloc2 .valeur{
+    font-weight: bold;
+    color: #F47A0C;
+    font-size: 20px;
+    margin-top: 0px;
 }
 
 @media (max-width: 480px){
@@ -1488,13 +1496,18 @@ span.fleche{
     }
 
     .topRight .bloc.bloc3{
-        width: 100%;
+        width: 50%;
         height: 90px !important;
+        float: left;
     }
 
     .top_bloc .topRight{
         width: 100% !important;
         height: 250px !important;
+    }
+
+    .topRight .bloc_date{
+        padding-top: 25px;
     }
 }
 
@@ -1504,13 +1517,26 @@ span.fleche{
     bottom: 14px;
     left: 10px;
     font-family: "helvetica";
+    width: 50%;
 }
+@media (max-width: 450px){
+    .topRight a.voir_date{
+        text-align: left;
+        bottom: 4px !important;
+        width: 37% !important;
+    }
+}
+
 
 @media (max-width: 400px){
     #embarque{
           width: 160px !important;
           text-align: left !important;
           font-size: 21px !important;
+    }
+
+    .bloc3 span.titre{
+        font-size: 12px !important;
     }
 }
 
@@ -1533,6 +1559,21 @@ span.fleche{
 #data a{
     color: #000;
     font-family: "helvetica";
+}
+
+.topRight .bloc_date{
+    width: 50%;
+    min-height: 30px;
+    padding-left: 10px;
+    float: left;
+}
+
+.topRight .bloc_date p{
+    margin: 0;
+}
+
+.topRight .bloc_date p span{
+    color: #565a5c;
 }
 
 

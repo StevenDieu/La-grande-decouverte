@@ -4,11 +4,11 @@
         <div class="payment_rgt">
         	<h6>carte bancaire</h6>
             <div class="payment_drop" style="display:none;">
-                <select>
+                <!--<select>
                     <option>MasterCard</option>
                     <option>MasterCard</option>
                     <option>MasterCard</option>
-                </select>
+                </select>-->
                 <p>Vous serez redirigé vers le site de votre banque après avoir confirmé votre achat.</p>
             </div>
         </div>
