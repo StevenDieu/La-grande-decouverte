@@ -160,7 +160,7 @@ and open the template in the editor.
 .contenu_home{
     padding-top: 40px;
     color: white;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
@@ -269,4 +269,9 @@ and open the template in the editor.
 
 .onglet3mobile .article_first:hover {
     background-color: #2C292D;
+}
+
+.liste_voyages {
+    max-width: 1200px;
+    margin: 0 auto;
 }

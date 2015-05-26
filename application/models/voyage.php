@@ -7,14 +7,14 @@
  * Time: 18:47
  */
 Class Voyage extends CI_Model {
-    
+
     private $id;
-    
+
     function setId($id) {
         $this->id = $id;
     }
 
-        function _construct() {
+    function _construct() {
         // Call the Model constructor
         parent::_construct();
     }
@@ -226,7 +226,6 @@ Class Voyage extends CI_Model {
     function getVoyages() {
         $this->db->select('id, titre');
         $this->db->from('voyage');
-
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -239,6 +238,7 @@ Class Voyage extends CI_Model {
     function getVoyagesHome() {
         $this->db->select('id,titre,description_first_bloc,image_slider_1 as image');
         $this->db->from('voyage');
+        $this->db->order_by("id", "desc");
         $this->db->limit(4);
 
         $query = $this->db->get();

@@ -64,7 +64,6 @@
                     //foreach ($carnetVoyage as $cv) { 
                     for ($i = 0; $i < count($carnetVoyage); $i++) {
                         if ($carnetVoyage[$i]) {
-                            if ($carnetVoyage[$i]->cvPrive == 0) {
                                 ?>
                                 <div class="un_article <?php if ($i % 2 == 0) echo "left" ?>">
                                     <div class="callbacks_container carnet">
@@ -92,7 +91,6 @@
                                 }
                             }
                         }
-                    }
                     ?>
 
                 </div>
