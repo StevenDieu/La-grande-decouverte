@@ -95,7 +95,7 @@
 <!-- fin popup -->
 <span>Un conseiller vous joindra par téléphone pour régler le reste de votre voyage.</span>
 <span>Somme restante à payer : <?php echo $resteAPayer; ?> €</span>
-<div class="reset_field">
+<div class="reset_field save">
     <input id="validation_commade" type="submit" value="valider ma commande" />
 </div>
 
@@ -111,10 +111,14 @@ $( document ).ready(function() {
             order.taxe = "<?php echo $taxe; ?>";
             order.acompte = "<?php echo $acompte; ?>";
             order.resteAPayer = "<?php echo $resteAPayer; ?>";
+            order.id_voyage = "<?php echo $voyage[0]->id; ?>";
+            order.id_info_voyage = "<?php echo $voyageInfo[0]->id; ?>";
 
-            console.log(order);
-            console.log(billing);
-            console.log(listeParticipant);
+            //console.log(order);
+            //console.log(billing);
+            //console.log(listeParticipant);
+
+            save(order,billing,listeParticipant);
         }
         return false;
     });

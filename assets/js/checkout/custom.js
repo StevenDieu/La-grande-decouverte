@@ -236,7 +236,6 @@ jQuery(document).ready(function(){
             },
             success: function (result) {
                 data = jQuery.parseJSON(result);
-                console.log(data);
                 if(data.retour == 'creation'){
                     $(".inside_command_panel.inscription").html('');
                     $(".inside_command_panel.inscription").css('display','none');
@@ -328,6 +327,44 @@ jQuery(document).ready(function(){
                 info : $("#participant_info", this).val()
             }
             listeParticipant.push(participant);
+        });
+    }
+
+    function save(order,billing,participant){
+        $.ajax({
+            url: urlSave , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: {
+                order: order, 
+                billing: billing, 
+                participant: participant
+            } ,
+            async: true,
+            beforeSend : function (){
+                $(".reset_field.save").append(chargement)
+            },
+            success: function (result) {
+                data = jQuery.parseJSON(result);
+                if(data.retour == 'PAYPAL'){
+                    alert('paypal');
+                }else if(data.retour == 'CB'){
+                    alert('cb');
+                }else{
+                    getSucces(data.message);
+                }
+                return false;
+            }
+        });
+    }
+
+    function getSucces(id){
+        $.ajax({
+            url: urlSucces , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: {increment_id: id} ,
+            success: function (result) {
+                $(".content").html(result) // Pour afficher le contenu de la view
+            }
         });
     }
 

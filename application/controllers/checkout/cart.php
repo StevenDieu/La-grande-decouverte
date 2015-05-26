@@ -32,6 +32,8 @@ class Cart extends CI_Controller {
         $this->load->templateCheckout('/onepage', $data);
     }
 
+
+
     public function billing(){
         $this->load->view('checkout/step/billing');
     }
@@ -232,4 +234,98 @@ class Cart extends CI_Controller {
 
         return $month_arr[(int)$month];
     }
+
+    function save(){
+        $this->load->model('order');
+        $this->load->model('billing');
+        $this->load->model('participant');
+
+        $this->form_validation->set_rules('order', 'order', 'required|xss_clean');
+        $this->form_validation->set_rules('billing', 'billing', 'required|xss_clean');
+        $this->form_validation->set_rules('participant', 'participant', 'required|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+
+        } else {
+            $order = $this->input->post('order');
+            $billing = $this->input->post('billing');
+            $participants = $this->input->post('participant');
+        }
+
+        //save donnée billing
+        $session_data = $this->session->userdata('logged_in');
+        $user_id = $session_data['id'];
+        $id_billing = $this->billing->add(
+        $billing["nom"],
+        $billing["prenom"],
+        $billing["societe"],
+        $billing["email"],
+        $billing["adresss"],
+        $billing["complement_adresse"],
+        $billing["codePostal"],
+        $billing["ville"],
+        $billing["region"],
+        $billing["pays"],
+        $billing["telephone"],
+        $billing["fax"],
+        $user_id,
+        ''
+        );
+
+        //save donnée order
+        $id_order = $this->order->add(
+        $order["date"],
+        $user_id,
+        $id_billing,
+        $order["nb_participant"],
+        $order["payment"],
+        $order["acompte"],
+        $order["ip"],
+        $order["prixTotal"],
+        $order["resteAPayer"],
+        $order["sousTotal"],
+        $order["taxe"],
+        $order["id_voyage"],
+        $order["id_info_voyage"]
+        );
+
+        //save increment id dans billing
+        $this->billing->edit($id_billing,$id_order);
+
+        //save participants
+        foreach ($participants as $participant) {
+            $this->participant->add(
+            $participant["nom"],
+            $participant["prenom"],
+            $participant["info"],
+            $participant["dob"],
+            $id_order
+            );
+        }
+
+        if($order["payment"] == "PAYPAL"){
+            $res = array(
+                'retour' => 'PAYPAL',
+                'message' => ""
+            );
+            echo json_encode($res);
+        }elseif($order["payment"] == "CB"){
+            $res = array(
+                'retour' => 'CB',
+                'message' => ""
+            );
+            echo json_encode($res);
+        }else{
+            $res = array(
+                'retour' => 'CHECKMO',
+                'message' => $id_order
+            );
+            echo json_encode($res);
+        }      
+    }
+
+    function getSucces(){
+        $data['increment_id'] = $this->input->post('increment_id');
+        $this->load->view('checkout/success',$data);
+    }  
 }

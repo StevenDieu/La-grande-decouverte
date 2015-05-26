@@ -50,7 +50,7 @@ function createJsonOrder(){
     order = 
     {
         date: '',
-        id_user: <?php echo $user_id; ?>,
+        id_user: '<?php echo $user_id; ?>',
         id_billing: '',
         nb_participant: listeParticipant.length,
         payment: $('input.radio_payment:checked').val(),
@@ -58,7 +58,11 @@ function createJsonOrder(){
         sousTotal: '',
         taxe: '',
         acompte: '',
-        resteAPayer: ''
+        resteAPayer: '',
+        ip: '<?php echo $_SERVER['REMOTE_ADDR']; ?>',
+        id_voyage: '',
+        id_info_voyage : ''
+
     };
 }
 

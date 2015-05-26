@@ -683,7 +683,7 @@ html,body {
 	border-radius: 4px;
     behavior:url(PIE.htc);
 }
-.identification_left form p input[type=text] {
+.identification_left form p input {
 	width:94%;
 	height:17px;
 	border:none;
@@ -1505,6 +1505,74 @@ html,body {
 	border: none;
 }
 
-.price_radio .cgv{
+.price_radio .radiocgv{
 	margin-right: 15px;
 }
+
+.success a{
+	display: block;
+	border: none;
+	height: 38px;
+	font-size: 14px;
+	color: #fff !important;
+	text-align: center;
+	font-family: 'NewCicleGordita', sans-serif;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	line-height: 38px;
+	background-color: #006695;
+	border-radius: 5px;
+	width: 300px;
+	margin: auto;
+	margin-top: 30px;
+}
+
+#wrapper.success{
+	min-height: 230px;
+	text-align: center;
+}
+
+#wrapper.success p.first{
+  text-align: center;
+  font-family: 'NewCicleGordita', sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #006695;
+  padding-top: 30px;
+}
+
+#wrapper.success p{
+	font-family: "helvetica";
+}
+
+#wrapper.success p span{
+	font-weight: bold;
+	color: #006695;
+}
+
+#wrapper.success p.second{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@ Class Billing extends CI_Model {
         parent::_construct();
     }
 
-    function ajouterBilling(
+    function add(
         $nom,
         $prenom,
         $societe,
@@ -27,7 +27,7 @@ Class Billing extends CI_Model {
         $telephone,
         $fax,
         $id_user,
-        $complement_adresse
+        $increment_id
         ) {
             $this->db->set('nom', $nom);
             $this->db->set('prenom', $prenom);
@@ -47,6 +47,17 @@ Class Billing extends CI_Model {
             $this->db->insert('billing');
             
             return $this->db->insert_id();
+    }
+
+    function edit($id,$increment_id) {
+        $data = array(
+               'increment_id' => $increment_id,
+            );
+
+        $this->db->where('id', $id);
+        $this->db->update('billing', $data);
+
+        return true;
     }
 }
 

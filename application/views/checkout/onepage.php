@@ -6,6 +6,8 @@
     var urlParticipant = '<?php echo base_url('checkout/cart/participants'); ?>';
     var urlInscription = '<?php echo base_url('checkout/cart/inscription'); ?>';
     var urlCreate = '<?php echo base_url('checkout/cart/create'); ?>';
+    var urlSave = '<?php echo base_url('checkout/cart/save'); ?>';
+    var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
 </script>
 
 <?php 
@@ -28,7 +30,7 @@ if ($this->session->userdata('logged_in')) { ?>
                                         	<h3>vous avez déjà un compte ?</h3>
                                             <form action="#">
                                             	<p><input id="login" name="login" type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
-                                                <p><input id="password" name="password" type="text" value="Votre Mot de passe" onClick="if(this.value=='Votre Mot de passe')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Mot de passe')" /></p>
+                                                <p><input id="password" name="password" type="password" value="Votre Mot de passe" onClick="if(this.value=='Votre Mot de passe')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Mot de passe')" /></p>
                                                 <span><a href="#">J’ai perdu mon mot de passe ?</a></span>
                                                 <div class="submit_command login"><input id="connexion" type="submit" value="connexion" /></div>
                                             </form>
