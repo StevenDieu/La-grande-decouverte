@@ -1,1 +1,143 @@
-.voyage{width:0 auto;}
+.content{
+    padding: 0;
+    overflow: hidden;
+    overflow: hidden;
+    background-color: rgba(26, 23, 27, 0.38);
+}
+
+.content {
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  color: #000;
+}
+
+
+.bloc-voyage  h2{
+    padding-bottom: 58px;
+    text-align: center;    
+    font-family: 'NewCicleGordita', sans-serif;    
+    font-size: 30px;    font-weight: 100;    
+    text-transform: uppercase;            
+    letter-spacing: 3px;  
+}
+
+.bloc-voyage  h2:after{
+    content: " ";
+    border-bottom: 1px solid rgb(249, 241, 224);
+    height: 71px;
+    width: 29px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.bloc-voyage{
+    padding-top: 75px;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+}
+
+.bloc-voyage a{
+    text-decoration: none;
+}
+
+.bloc-voyage .voyage .bloc_image{
+    overflow: hidden;    
+    margin: 0 auto;
+    /*height: 245px;*/
+    z-index: -1;
+}
+
+.bloc-voyage .voyage .bloc_image img{
+    max-width: 576px;
+    min-height: 245px;
+    z-index: -1;
+}
+
+.bloc-voyage .voyage{
+    max-width: 580px;
+    position: relative;    
+    overflow: hidden;    
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 2px solid rgb(228, 197, 141);
+}
+
+.bloc-voyage .voyage .titre{
+    padding-bottom: 15px;    text-align: center;    
+    margin-top: -8px;
+    font-family: 'NewCicleGordita', sans-serif;    
+    font-size: 25px;    font-weight: 100;    text-transform: uppercase;    letter-spacing: 3px;
+    color:white;
+
+}
+
+.bloc-voyage .voyage .description{
+	color:white;
+}
+
+.bloc_description {
+    position: absolute;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.57);
+    top: 0;    
+    height: 245px;
+    display: none;            
+    -webkit-transform: rotate(180deg);      -moz-transform: rotate(180deg);      -o-transform: rotate(180deg);
+}
+
+.voyage.gauche {
+    float: left;
+}
+
+.voyage.droite {
+    float: right;
+}
+
+@media (max-width: 1200px){
+    .liste_voyages {
+       /* width: 580px;*/
+        margin: 0 auto
+
+    }
+    .voyage.gauche {
+        float: none;
+    }
+
+    .voyage.droite {
+        float: none;
+    }
+    .bloc-voyage .voyage{
+        margin: 10px;
+        /*width: 580px;*/
+    }
+}
+
+.liste_voyages {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rotate_description{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+
+
+.voir_plus{
+    margin: 25px auto;
+    text-align: center;
+}
+
+.voir_plus:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+}

@@ -494,8 +494,24 @@ Class Voyage extends CI_Model {
         }
     }
 
-<<<<<<< HEAD
-    function getAllVoyages() {
+    function getAllVoyages($limit,$start) {
+        $this->db->select('*');
+        $this->db->from('voyage');
+        $this->db->order_by("titre","asc");
+        if (isset($limit) && isset($start)) {
+            $this->db->limit($limit, $start);
+        }
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getRowAllVoyages() {
         $this->db->select('*');
         $this->db->from('voyage');
         $this->db->order_by("titre","asc");
@@ -503,7 +519,7 @@ Class Voyage extends CI_Model {
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
-            return $query->result();
+            return $query->num_rows();
         } else {
             return false;
         }
@@ -523,8 +539,6 @@ Class Voyage extends CI_Model {
             return false;
         }
     }
-=======
->>>>>>> origin/master
 }
 
 ?>

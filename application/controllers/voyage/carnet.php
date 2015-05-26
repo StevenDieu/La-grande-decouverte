@@ -86,11 +86,21 @@ class Carnet extends CI_Controller {
 
 
     public function voyage() {
+        $perPage = 2;   //nombres d'articles par page
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
+
+        $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+
+        $config['base_url'] = base_url() . "voyage/carnet/voyage";
+        $config['total_rows'] = $this->Voyage->getRowAllVoyages();
+        $config['per_page'] = $perPage; 
+        $config["uri_segment"] = 4;
+
         // génération des css et js
         $data["allCss"] = array("voyage");
-        $data["alljs"] = array("voyage");
+        $data["alljs"] = array("voyage","slide");
 
-        $data['voyage'] = $this->Voyage->getAllVoyages();
+        $this->pagination->initialize($config);
 
         //appel du template
         $this->load->templateVoyage('/voyage', $data);
