@@ -14,20 +14,16 @@
     </div>
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/8h93mj8l3.jpg" alt="">
-            </li>
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/8merof6u1.jpg" alt="">
-            </li>
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/o8u46nfq2.jpg" alt="">
-            </li>
+            <?php foreach ($voyages as $voyage) { ?>
+                <li>
+                    <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="">
+                </li>
+            <?php } ?>
         </ul>
-        <div class="caption">
-            <h1>test</h1>
-            <h2>test test test test test test test test</h2>
-        </div>
+        <!--        <div class="caption">
+                    <h1>test</h1>
+                    <h2>test test test test test test test test</h2>
+                </div>-->
     </div>
     <div class="displayMapSize">
         <div class="map">
@@ -53,62 +49,155 @@
             </div>
         </div>
     </div>
+    <div class="clear"></div>
+    <div class="contenu_home">
+        <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
+            <span class="success">Vous êtes bien inscrit à la newsletter.</span>
+        <?php } ?>
+        <div class="voyages">
+            <h2>Nos voyages en cours</h2>
+            <div class="liste_voyages">
+                <?php
+                $i = 0;
+                foreach ($voyages as $voyage) {
+                    $i++;
+                    if ($i % 2) {
+                        ?>
+                        <div class="voyage gauche">
+
+                            <?php
+                        } else {
+                            echo '<div class="voyage droite">';
+                        }
+                        ?>
+
+                        <a href="<?php echo base_url('/voyage/fiche/?id=') . $voyage->id; ?>">
+                            <div class="bloc_image">
+                                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="<?php echo $voyage->image; ?>" title="<?php echo $voyage->image; ?>" />
+                            </div>
+                            <div class="rotate_description">
+                                <div class="bloc_description">
+                                    <div class="titre"><?php echo $voyage->titre; ?></div>
+                                    <div class="description"><?php echo tronque($voyage->description_first_bloc, 300); ?></div>
+                                    <div class="voir_plus">Plus d'info ></div>
+                                </div>
+                            </div>
 
 
-    <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
-        <span class="success">Vous êtes bien inscrit à la newsletter.</span>
-    <?php } ?>
-    <div>
+                        </a>
+                    </div>
+                <?php } ?>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="carnet_voyages">
+            <h2>Nos récents carnets</h2>
+            <div class="liste_carnet">
+                <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
+                    <div class="article_first">
+                        <div class="image">
+                            <div class="callbacks_container carnet">
+                                <a href="#">
+                                    <ul class="rslides" id="slidercarnet">
+                                        <li>
+                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut.jpg" alt="">
+                                        </li>
+                                        <li>
+                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut2.jpg" alt="">
+                                        </li>
+                                    </ul>
+                                </a>
+                            </div>
+                            <a class="slide_carnet1" href="http://localhost/TVAFS-1.0/assets/../fancybox/popup_carnet.php"></a>
+                            <div style="clear:both"></div>
+                        </div>
+                        <div class="partie_droite">
+                            <a  href="#" class="titre">aze</a>
+                            <div class="date_auteur">Au coeur du Chili</div>
+                            <div class="texte">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte....</div>
+                            <a href="#" class="lire_suite">Voir le carnet ></a>
+                        </div>
+                    </div>
 
-        <br/><br/>
-        Cette page vas juste référencer tous les liens pour ce balader sur le site <br/><br/>
+                    <div class="separateur_article"></div>
 
-        <a href="<?php echo base_url('user/account/inscription') ?>">Inscription</a><br/>
+                    <div class="contenu_article_suivant">
+                        <div class="un_article left">
+                            <div class="callbacks_container carnet">
+                                <a href="#">
+                                    <ul class="rslides callbacks callbacks1" id="slidercarnet0">
+                                        <li id="callbacks1_s0" class="callbacks1_on" style="display: list-item; float: left; position: relative; opacity: 1; z-index: 2; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;">
+                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut.jpg" alt="">
+                                        </li>
+                                        <li id="callbacks1_s1" style="display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;" class="">
+                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut2.jpg" alt="">
+                                        </li>
+                                    </ul><a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks1_nav next">Next</a>
+                                </a>
+                            </div>
+                            <div style="clear:both"></div>
+                            <a class="titre">aze</a>
+                            <div class="date_auteur"><span>Au coeur du Chili</span></div>
+                            <div class="texte">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte....</div>
+                            <a href="http://localhost/TVAFS-1.0/voyage/carnet?id=4" class="lire_suite">Voir le carnet &gt;</a>
+                            <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet0');</script>
+                        </div>
+                        <div class="un_article ">
+                            <div class="callbacks_container carnet">
+                                <a href="#">
+                                    <ul class="rslides callbacks callbacks2" id="slidercarnet1">
+                                        <li id="callbacks2_s0" class="callbacks2_on" style="display: list-item; float: left; position: relative; opacity: 1; z-index: 2; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;">
+                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut.jpg" alt="">
+                                        </li>
+                                        <li id="callbacks2_s1" style="display: list-item; float: none; position: absolute; opacity: 0; z-index: 1; -webkit-transition: opacity 500ms ease-in-out; transition: opacity 500ms ease-in-out;" class="">
+                                            <img src="http://localhost/TVAFS-1.0/assets/images/ficheproduit/carnet/tribut2.jpg" alt="">
+                                        </li>
+                                    </ul><a href="#" class="callbacks_nav callbacks2_nav prev">Previous</a><a href="#" class="callbacks_nav callbacks2_nav next">Next</a>
+                                </a>
+                            </div>
+                            <div style="clear:both"></div>
+                            <a class="titre">test</a>
+                            <div class="date_auteur"><span>Au coeur du Chili</span></div>
+                            <div class="texte">Le CHILI séduit par la richesse de son environnement. La variété des paysages du Chili, le patrimoine architectural, les Andes, la densité de la faune du Chili et les mystérieuses statues de l'île de Pâques promettent au voyageur une merveilleuse découverte....</div>
+                            <a href="http://localhost/TVAFS-1.0/voyage/carnet?id=22" class="lire_suite">Voir le carnet &gt;</a>
+                            <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet1');</script>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                    <!-- fin contenu carnet de voyage -->
+                    <div class="pagination">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <a href="<?php echo base_url('/voyage/fiche/?id=64') ?>">Fiche Produit</a><br/>
+        <div class="actualites">
+            <h2>Nos dernières actualités</h2>
+            <div class="liste_actu"></div>
+            <?php
+            if ($actualites) {
 
-        <a href="<?php echo base_url('/voyage/carnet?id=4') ?>">Carnet Voyage</a><br/>
-        <a href="<?php echo base_url('/voyage/carnet/article') ?>">fiche Carnet Voyage</a><br/>
+                foreach ($actualites as $actualite) {
+                    echo $actualite->titre . '</br>';
+                    echo $actualite->description . '</br>';
+                    echo $actualite->date . '  ';
+                    echo $actualite->time . '</br>';
 
-        <a href="<?php echo base_url('/contact/index') ?>">Contact</a><br/>
-        <a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mention Légales</a><br/>
+                    if ($actualite->image_1) {
+                        echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->image_1 . '" alt="' . $actualite->image_1 . '" width="300"/>';
+                    }
+                    if ($actualite->image_2) {
+                        echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->image_2 . '" alt="' . $actualite->image_2 . '" width="300"/>';
+                    }
+                    if ($actualite->image_3) {
+                        echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->image_3 . '" alt="' . $actualite->image_3 . '" width="300"/>';
+                    }
 
-        <a href="<?php echo base_url('admin/index/connexion') ?>">Back office général</a><br/>
-
-        <a href="<?php echo base_url('/actualite/index') ?>">Liste des actualités</a><br/>
-        <a href="<?php echo base_url('/checkout/cart/onepage') ?>">Tunnel de commande</a><br/>
-
-
-
-        <br/><br/><br/><br/><br/><br/>
-        <h2>Bloc des actualités</h2>
-        <?php
-        if ($actualites) {
-
-            foreach ($actualites as $actualite) {
-                echo $actualite->titre . '</br>';
-                echo $actualite->description . '</br>';
-                echo $actualite->date . '  ';
-                echo $actualite->time . '</br>';
-
-                if ($actualite->image_1) {
-                    echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->image_1 . '" alt="' . $actualite->image_1 . '" width="300"/>';
+                    echo "<div class='clear:both'></div>";
                 }
-                if ($actualite->image_2) {
-                    echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->image_2 . '" alt="' . $actualite->image_2 . '" width="300"/>';
-                }
-                if ($actualite->image_3) {
-                    echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->image_3 . '" alt="' . $actualite->image_3 . '" width="300"/>';
-                }
-
-                echo "<div class='clear:both'></div>";
             }
-        } else {
-
-            echo "pas d'actualité";
-        }
-        ?>
-
+            ?>
+        </div>
     </div>
 </div>
 <!---------- CONTENT ------- -->	

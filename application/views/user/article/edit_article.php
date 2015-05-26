@@ -78,7 +78,6 @@ if (isset($librairieJs)) {
             }
     ).on('editable.afterRemoveImage', function (e, editor, $img) {
         editor.options.imageDeleteParams = {src: $img.attr('src')};
-
         editor.deleteImage($img);
     }).on('editable.imageDeleteSuccess', function () {
         editArticle(<?php echo $article[0]->id; ?>);

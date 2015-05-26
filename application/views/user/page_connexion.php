@@ -4,39 +4,40 @@
 
         <div class="colonne_left first">
             <h3>VOUS AVEZ DÉJÀ UN COMPTE ?</h3>
-                <span class="mess_required"><?php echo validation_errors(); ?></span>
-                <?php echo form_open('user/verification/login'); ?>
-                <div class="une_row">
-                    <!--<label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>-->
-                    <p>
-                        <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*">
-                    </p>
-                </div>
-                <div class="une_row">
-                    <!--<label for="mdp" class="col-sm-5 control-label">Mot de passe</label>-->
-                    <p>
-                        <input type="text" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
-                    </p>
-                </div>
-                <div class="une_row">
-                    <a href="#" class="">
-                        Mot de passe oublié?
-                        <span class="floatright">* Champs obligatoires</span>
-                    </a>
-                </div>
-                <div class="une_row">
-                    <div class="submit_all_text">
-                        <input type="submit" name="submit" class="" id="input_page_connexion" value="Valider"/>
-                    </div>
-                </div>
+            <span class="mess_required"><?php echo validation_errors(); ?></span>
+            <?php echo form_open('user/verification/login'); ?>
+            <div class="une_row">
+                <!--<label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>-->
+                <p>
+                    <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*" />
+                </p>
+            </div>
+            <div class="une_row">
+                <!--<label for="mdp" class="col-sm-5 control-label">Mot de passe</label>-->
+                <p>
+                    <input type="text" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
+                </p>
+            </div>
+            <div class="une_row">
+                <a href="#" class="">
+                    Mot de passe oublié?
+                </a>
+                <span class="floatright">* Champs obligatoires</span>
 
-                <?php
-                echo form_close();
-                ?>
+            </div>
+            <div class="une_row">
+                <div class="submit_all_text">
+                    <input type="submit" name="submit" class="" id="input_page_connexion" value="Valider"/>
+                </div>
+            </div>
+
+            <?php
+            echo form_close();
+            ?>
         </div>
 
         <div class="colonne_left second">
-        <h3>Nouveaux Utilisateurs</h3>
+            <h3>Nouveaux Utilisateurs</h3>
             <div class="">
                 <p>
                     En créant un compte, vous serez capable de procéder aux achats plus rapidement, 

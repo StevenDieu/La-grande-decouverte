@@ -21,7 +21,13 @@
     <div class="content_fiche_voyage">
 
         <div class="carnet_user">
-            <p>Carnet : <img width="18" src="<?php echo asset_url(''); ?>images/ficheVoyage/visible/locked.png" class="icone-social" alt=""></p>
+            <p>Carnet : <img width="18" src="<?php
+                if ($carnetVoyage[0]->prive == 0) {
+                    echo asset_url('') . "images/ficheVoyage/visible/unlocked.png";
+                } else {
+                    echo asset_url('') . "images/ficheVoyage/visible/locked.png";
+                }
+                ?>" class="icone-social" alt=""></p>
         </div>
         <div class="share_carnet">
             <p>Partager ce carnet de voyage :

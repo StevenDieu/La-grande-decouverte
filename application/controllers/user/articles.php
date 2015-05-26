@@ -41,6 +41,14 @@ class Articles extends CI_Controller {
             }
         }
     }
+    
+    function addImageFiche(){
+          if (!($this->input->post('nom') || $this->input->post('id_fichevoyage'))) {
+            echo "0";
+        } else {
+            
+        }
+    }
 
     public function edit() {
 
@@ -81,6 +89,7 @@ class Articles extends CI_Controller {
     }
 
     public function upload() {
+        $this->load->model('imageFiche');
         if (!$this->session->userdata('logged_in')) {
             echo 'co';
             die;

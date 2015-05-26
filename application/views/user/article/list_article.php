@@ -34,7 +34,6 @@
                         <th class="tdMoyen">Editer</th>
                         <th class="tdPetit">Supprimer</th>
                         <th class="tdPetit">Visuel</th>
-                        <th class="tdPetit">Priver</th>
                     </tr>
                     <?php
                     $i = 0;
@@ -71,8 +70,6 @@
                                 }
                                 ?>
                             </td>
-                            <td class="tdPetit">
-                                </td>
                         </tr>
                         <?php
                     }

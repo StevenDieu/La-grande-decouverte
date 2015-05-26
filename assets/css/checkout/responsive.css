@@ -182,7 +182,15 @@
 }
 
 }
+
+@media screen and (min-width: 650px) {
+	.price_leftcolumn ul li.last{
+		display: none;
+	}
+}
+
 @media screen and (max-width: 650px) {
+
 #page_content {
 	padding:12px 10px 0 10px;
 }
@@ -215,15 +223,11 @@
 .differ_bg  .btn_postal_submit {
 	display:block;
 }
-.differ_bg  .radio_holder {
-	padding:12px 5px 12px 17px;
-	background:#f4f4f4;
-	margin-bottom:12px;
-}
+
 .payment_rgt h6 {
 	padding-bottom:0;
 }
-.total_rgt,.title_table {
+.total_rgt,.title_table,.price_leftcolumn_nb_participant {
 	display:none;
 }
 .price_table {
@@ -271,5 +275,11 @@
 .rating_left {
 	padding-bottom:15px;
 }
+}
+
+.differ_bg  .radio_holder {
+	padding:12px 5px 12px 17px;
+	background:#f4f4f4;
+	margin-bottom:12px;
 }
 

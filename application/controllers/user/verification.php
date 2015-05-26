@@ -116,6 +116,12 @@ class Verification extends CI_Controller {
             if ($result != 0) {
                 $sess_array = array(
                     'id' => $result,
+                    'nom' => $nom,
+                    'prenom' => $prenom,
+                    'description' => "",
+                    'id_image' => "",
+                    'lien_image' => "",
+                    'nom_image' => "",
                     'user' => $user
                 );
                 $this->session->set_userdata('logged_in', $sess_array);

@@ -75,6 +75,7 @@ function afficherCacherMap(afficher) {
 
 }
 $(window).load(function () {
+
     $('.btn--top_text').click(function () {
         afficherCacherMap(0)
     });
@@ -86,4 +87,17 @@ $(window).load(function () {
         rezizeMap();
     });
     rezizeMap();
+
+    $(".voyage").mouseenter(function () {
+        $(this).find('.bloc_description').stop(true,true).slideUp();
+        $(this).find('.bloc_description').slideDown("fast");
+    });
+
+    $('.voyage').mouseleave(function () {
+        $(this).find('.bloc_description').stop(true,true).slideDown();
+        $(this).find('.bloc_description').slideUp("fast");
+    });
+
+
+
 });

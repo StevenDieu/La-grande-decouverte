@@ -86,18 +86,27 @@
                         <!-- popup -->
                         <div style="display:none">
                             <div id="data">
+                            <span>Il existe plusieurs dates pour ce voyage : </span>
                             <?php 
                                 foreach ($allInfoVoyage as $info) {
-                                    echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>
-                                    Du ".$info->date_depart." au ".$info->date_arrivee."
-                                    </a><br>";
+                                    echo "> Du ".$info->date_depart." au ".$info->date_arrivee.' : ';
+                                    
+                                    echo "<a href='".base_url('voyage/fiche')."?id=".$voyage[0]->id."&idInfo=".$info->id."'>Choisir ces dates</a><br>";
                                 }
                             ?>
                             </div>
                         </div>
                         <!-- popup -->
                         <script type="text/javascript">
-                            $("a.voir_date").fancybox();
+                        $("a.voir_date").fancybox({
+                                helpers : {
+                                    overlay : {
+                                        css : {
+                                            'background' : 'rgba(0, 0, 0, 0.65)'
+                                        }
+                                    }
+                                }
+                            });
                         </script>
                     <?php endif; ?>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>

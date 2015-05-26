@@ -110,9 +110,9 @@
                         <ul>
                             <li><a href="#" target="_blank">Qui sommes-nous ?</a></li>
                             <li><a href="#" target="_blank">Espace presse</a></li>
-                            <li><a href="<?php echo base_url('/pages/contact') ?>">Nous contacter</a></li>
+                            <li><a href="<?php echo base_url('/contact/index') ?>">Nous contacter</a></li>
                             <li><a href="#" target="_blank">Nous rejoindre</a></li>
-                            <li><a href="#" target="_blank">Mensions legales</a></li>
+                            <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>" target="_blank">Mensions legales</a></li>
                             <li><a href="#" target="_blank">CGV</a></li>
                         </ul>
                     </div>
@@ -176,6 +176,5 @@ if (isset($map)) {
 }
 ?> 
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/bootstrap.min.js" ></script>   
-
 </body> 
 </html>

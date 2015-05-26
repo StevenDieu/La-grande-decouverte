@@ -8,52 +8,36 @@
  */
 Class Voyage extends CI_Model {
 
+    private $id;
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
     function _construct() {
         // Call the Model constructor
         parent::_construct();
     }
 
     function ajouterVoyage(
-        $image_slider_1,
-        $image_slider_2,
-        $image_slider_3,
-        $titre,
-        $phrase_accroche,
-        $duree,
-        $image_sous_slider,
-        $description_first_bloc,
-        $description_second_bloc,
-        $description_third_bloc,
-        $drapeau,
-        $capital,
-        $continent,
-        $meteo_image,
-        $meteo_temperature,
-        $picto_1,//
-        $picto_2,//
-        $picto_3,//
-        $picto_4,//
-        $picto_5,//
-        $picto_6,//
-        $villes_principales,
-        $religion,
-        $nombre_habitant,
-        $monnaie,
-        $fete,
-        $langue_officielle,
-        $image_baniere_1,//
-        $image_baniere_2,//
-        $image_baniere_3,//
-        $image_baniere_4,//
-        $image_description_1,//
-        $image_description_2,//
-        $image_description_3,//
-        $image_description_4,//
-        $image_description_5,//
-        $image_description_6,//
-        $lattitude,
-        $longitude
-        ) {
+    $image_slider_1, $image_slider_2, $image_slider_3, $titre, $phrase_accroche, $duree, $image_sous_slider, $description_first_bloc, $description_second_bloc, $description_third_bloc, $drapeau, $capital, $continent, $meteo_image, $meteo_temperature, $picto_1, //
+            $picto_2, //
+            $picto_3, //
+            $picto_4, //
+            $picto_5, //
+            $picto_6, //
+            $villes_principales, $religion, $nombre_habitant, $monnaie, $fete, $langue_officielle, $image_baniere_1, //
+            $image_baniere_2, //
+            $image_baniere_3, //
+            $image_baniere_4, //
+            $image_description_1, //
+            $image_description_2, //
+            $image_description_3, //
+            $image_description_4, //
+            $image_description_5, //
+            $image_description_6, //
+            $lattitude, $longitude
+    ) {
         $this->db->set('image_slider_1', $image_slider_1);
         $this->db->set('image_slider_2', $image_slider_2);
         $this->db->set('image_slider_3', $image_slider_3);
@@ -95,52 +79,35 @@ Class Voyage extends CI_Model {
         $this->db->set('longitude', $longitude);
 
         $this->db->insert('voyage');
-        
+
         return $this->db->insert_id();
     }
 
     function editerVoyage(
-        $id,
-        $image_slider_1,//
-        $image_slider_2,//
-        $image_slider_3,//
-        $titre,
-        $phrase_accroche,
-        $duree,
-        $image_sous_slider,//
-        $description_first_bloc,
-        $description_second_bloc,
-        $description_third_bloc,
-        $drapeau,//
-        $capital,   
-        $continent,
-        $meteo_image,//
-        $meteo_temperature,
-        $picto_1,//
-        $picto_2,//
-        $picto_3,//
-        $picto_4,//
-        $picto_5,//
-        $picto_6,//
-        $villes_principales,
-        $religion,
-        $nombre_habitant,
-        $monnaie,
-        $fete,
-        $langue_officielle,
-        $image_baniere_1,//
-        $image_baniere_2,//
-        $image_baniere_3,//
-        $image_baniere_4,//
-        $image_description_1,//
-        $image_description_2,//
-        $image_description_3,//
-        $image_description_4,//
-        $image_description_5,//
-        $image_description_6,//
-        $lattitude,
-        $longitude
-        ) {
+    $id, $image_slider_1, //
+            $image_slider_2, //
+            $image_slider_3, //
+            $titre, $phrase_accroche, $duree, $image_sous_slider, //
+            $description_first_bloc, $description_second_bloc, $description_third_bloc, $drapeau, //
+            $capital, $continent, $meteo_image, //
+            $meteo_temperature, $picto_1, //
+            $picto_2, //
+            $picto_3, //
+            $picto_4, //
+            $picto_5, //
+            $picto_6, //
+            $villes_principales, $religion, $nombre_habitant, $monnaie, $fete, $langue_officielle, $image_baniere_1, //
+            $image_baniere_2, //
+            $image_baniere_3, //
+            $image_baniere_4, //
+            $image_description_1, //
+            $image_description_2, //
+            $image_description_3, //
+            $image_description_4, //
+            $image_description_5, //
+            $image_description_6, //
+            $lattitude, $longitude
+    ) {
 
 
         $data = array(
@@ -161,72 +128,72 @@ Class Voyage extends CI_Model {
             'langue_officielle' => $langue_officielle,
             'lattitude' => $lattitude,
             'longitude' => $longitude,
-            );
+        );
 
-        if($image_slider_1 != ''){
+        if ($image_slider_1 != '') {
             $data['image_slider_1'] = $image_slider_1;
         }
-        if($image_slider_2 != ''){
+        if ($image_slider_2 != '') {
             $data['image_slider_2'] = $image_slider_2;
         }
-        if($image_slider_3 != ''){
+        if ($image_slider_3 != '') {
             $data['image_slider_3'] = $image_slider_3;
         }
-        if($picto_1 != ''){
+        if ($picto_1 != '') {
             $data['picto_1'] = $picto_1;
         }
-        if($picto_2 != ''){
+        if ($picto_2 != '') {
             $data['picto_2'] = $picto_2;
         }
-        if($picto_3 != ''){
+        if ($picto_3 != '') {
             $data['picto_3'] = $picto_3;
         }
-        if($picto_4 != ''){
+        if ($picto_4 != '') {
             $data['picto_4'] = $picto_4;
         }
-        if($picto_5 != ''){
+        if ($picto_5 != '') {
             $data['picto_5'] = $picto_5;
         }
-        if($picto_6 != ''){
+        if ($picto_6 != '') {
             $data['picto_6'] = $picto_6;
         }
-        if($meteo_image != ''){
+        if ($meteo_image != '') {
             $data['meteo_image'] = $meteo_image;
         }
-        if($image_baniere_1 != ''){
+        if ($image_baniere_1 != '') {
             $data['image_baniere_1'] = $image_baniere_1;
         }
-        if($image_baniere_2 != ''){
+        if ($image_baniere_2 != '') {
             $data['image_baniere_2'] = $image_baniere_2;
         }
-        if($image_baniere_3 != ''){
+        if ($image_baniere_3 != '') {
             $data['image_baniere_3'] = $image_baniere_3;
         }
-        if($image_baniere_4 != ''){
+        if ($image_baniere_4 != '') {
             $data['image_baniere_4'] = $image_baniere_4;
         }
-        if($image_description_1 != ''){
+        if ($image_description_1 != '') {
             $data['image_description_1'] = $image_description_1;
         }
-        if($image_description_2 != ''){
+        if ($image_description_2 != '') {
             $data['image_description_2'] = $image_description_2;
         }
-        if($image_description_3 != ''){
+        if ($image_description_3 != '') {
             $data['image_description_3'] = $image_description_3;
         }
-        if($image_description_4 != ''){
+        if ($image_description_4 != '') {
             $data['image_description_4'] = $image_description_4;
         }
-        if($image_description_5 != ''){
+        if ($image_description_5 != '') {
             $data['image_description_5'] = $image_description_5;
         }
-        if($image_description_6 != ''){
+        if ($image_description_6 != '') {
             $data['image_description_6'] = $image_description_6;
         }
-        if($image_sous_slider != ''){
+        if ($image_sous_slider != '') {
             $data['image_sous_slider'] = $image_sous_slider;
         }
-        if($drapeau != ''){
+        if ($drapeau != '') {
             $data['drapeau'] = $drapeau;
         }
 
@@ -236,7 +203,7 @@ Class Voyage extends CI_Model {
         $this->db->update('voyage', $data);
 
         $this->db->where('idVoyage', $id);
-        $this->db->delete('info_voyage'); 
+        $this->db->delete('info_voyage');
 
         return true;
     }
@@ -259,6 +226,20 @@ Class Voyage extends CI_Model {
     function getVoyages() {
         $this->db->select('id, titre');
         $this->db->from('voyage');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getVoyagesHome() {
+        $this->db->select('id,titre,description_first_bloc,image_slider_1 as image');
+        $this->db->from('voyage');
+        $this->db->order_by("id", "desc");
+        $this->db->limit(4);
 
         $query = $this->db->get();
 
@@ -268,8 +249,7 @@ Class Voyage extends CI_Model {
             return false;
         }
     }
-    
-    
+
     function getVoyagesCustomer() {
         $this->db->select('id, titre, prix');
         $this->db->from('voyage');
@@ -314,14 +294,14 @@ Class Voyage extends CI_Model {
     function addContinent($name) {
         $this->db->set('name', $name);
         $this->db->insert('continent');
-        
+
         return $this->db->insert_id();
     }
 
-    function editContinent($id,$name) {
+    function editContinent($id, $name) {
         $data = array(
-               'name' => $name,
-            );
+            'name' => $name,
+        );
 
         $this->db->where('id', $id);
         $this->db->update('continent', $data);
@@ -331,24 +311,24 @@ Class Voyage extends CI_Model {
 
     function deleteContinent($id) {
         $data = array(
-               'id' => $id,
-            );
+            'id' => $id,
+        );
 
         $this->db->where('id', $id);
-        $this->db->delete('continent'); 
+        $this->db->delete('continent');
 
         return true;
     }
 
     function deleteVoyage($id) {
         $this->db->where('id', $id);
-        $this->db->delete('voyage'); 
+        $this->db->delete('voyage');
 
         $this->db->where('idVoyage', $id);
-        $this->db->delete('info_voyage'); 
+        $this->db->delete('info_voyage');
 
         $this->db->where('idVoyage', $id);
-        $this->db->delete('deroulement_voyage'); 
+        $this->db->delete('deroulement_voyage');
 
         return true;
     }
@@ -356,19 +336,8 @@ Class Voyage extends CI_Model {
     //info voyage
 
     function addInfoVoyage(
-        $date_depart,
-        $date_arrivee,
-        $depart,
-        $arrivee,
-        $formalite,
-        $asavoir,
-        $comprenant,
-        $place_dispo,
-        $prix,
-        $special_price,
-        $tva,
-        $idVoyage
-        ) {
+    $date_depart, $date_arrivee, $depart, $arrivee, $formalite, $asavoir, $comprenant, $place_dispo, $prix, $special_price, $tva, $idVoyage
+    ) {
         $this->db->set('date_depart', $date_depart);
         $this->db->set('date_arrivee', $date_arrivee);
         $this->db->set('depart', $depart);
@@ -383,25 +352,13 @@ Class Voyage extends CI_Model {
         $this->db->set('idVoyage', $idVoyage);
 
         $this->db->insert('info_voyage');
-        
+
         return $this->db->insert_id();
     }
 
     function editInfoVoyage(
-        $id,
-        $date_depart,
-        $date_arrivee,
-        $depart,
-        $arrivee,
-        $formalite,
-        $asavoir,
-        $comprenant,
-        $place_dispo,
-        $prix,
-        $special_price,
-        $tva,
-        $idVoyage
-        ) {
+    $id, $date_depart, $date_arrivee, $depart, $arrivee, $formalite, $asavoir, $comprenant, $place_dispo, $prix, $special_price, $tva, $idVoyage
+    ) {
         $data = array(
             'date_depart' => $date_depart,
             'date_arrivee' => $date_arrivee,
@@ -426,7 +383,7 @@ Class Voyage extends CI_Model {
 
     function deleteInfoVoyage($id) {
         $this->db->where('id', $id);
-        $this->db->delete('info_voyage'); 
+        $this->db->delete('info_voyage');
 
         return true;
     }
@@ -459,7 +416,7 @@ Class Voyage extends CI_Model {
         }
     }
 
-    function getInfoVoyageMin($id){
+    function getInfoVoyageMin($id) {
         $this->db->select('*');
         $this->db->from('info_voyage');
         $this->db->where('idVoyage', $id);
@@ -477,12 +434,8 @@ Class Voyage extends CI_Model {
     //gestion déroulement voyage
 
     function addDeroulement(
-        $titre,
-        $texte,
-        $photo,
-        $jour,
-        $idVoyage
-        ) {
+    $titre, $texte, $photo, $jour, $idVoyage
+    ) {
         $this->db->set('titre', $titre);
         $this->db->set('texte', $texte);
         $this->db->set('photo', $photo);
@@ -490,18 +443,13 @@ Class Voyage extends CI_Model {
         $this->db->set('idVoyage', $idVoyage);
 
         $this->db->insert('deroulement_voyage');
-        
+
         return $this->db->insert_id();
     }
 
     function editDeroulement(
-        $id,
-        $titre,
-        $texte,
-        $photo,
-        $jour,
-        $idVoyage
-        ) {
+    $id, $titre, $texte, $photo, $jour, $idVoyage
+    ) {
         $data = array(
             'titre' => $titre,
             'texte' => $texte,
@@ -519,14 +467,14 @@ Class Voyage extends CI_Model {
 
     function deleteDeroulement($id) {
         $this->db->where('id', $id);
-        $this->db->delete('deroulement_voyage'); 
+        $this->db->delete('deroulement_voyage');
 
         return true;
     }
 
     function deleteDeroulementByidvoyage($id) {
         $this->db->where('id', $id);
-        $this->db->delete('deroulement_voyage'); 
+        $this->db->delete('deroulement_voyage');
 
         return true;
     }
@@ -535,7 +483,7 @@ Class Voyage extends CI_Model {
         $this->db->select('*');
         $this->db->from('info_voyage');
         $this->db->where('idVoyage', $id);
-        $this->db->order_by("jour","asc");
+        $this->db->order_by("jour", "asc");
 
         $query = $this->db->get();
 
@@ -546,6 +494,7 @@ Class Voyage extends CI_Model {
         }
     }
 
+<<<<<<< HEAD
     function getAllVoyages() {
         $this->db->select('*');
         $this->db->from('voyage');
@@ -574,6 +523,8 @@ Class Voyage extends CI_Model {
             return false;
         }
     }
+=======
+>>>>>>> origin/master
 }
 
 ?>

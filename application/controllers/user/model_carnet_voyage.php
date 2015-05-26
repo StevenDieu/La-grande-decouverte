@@ -52,6 +52,27 @@ class Model_carnet_voyage extends CI_Controller {
         }
     }
 
+    public function setPrive() {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('id', 'titre', 'trim|xss_clean');
+        $this->form_validation->set_rules('prive', 'id', 'trim|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+            echo "0";
+        } else {
+            $this->carnetVoyage->setPrive($this->input->post('prive'));
+            $this->carnetVoyage->id = $this->input->post('id');
+            $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            if ($this->carnetVoyage->verifCompte()) {
+                $this->carnetVoyage->setCarnetVoyagePrive();
+                echo "1";
+            } else {
+                echo "0";
+            }
+        }
+    }
+
     public function delete() {
         if (!$this->input->post('id')) {
             echo "0";

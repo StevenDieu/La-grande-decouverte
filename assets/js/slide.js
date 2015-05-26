@@ -28,9 +28,10 @@ function resizeSlide() {
     }
 }
 
+
 $(window).load(function () {
     initialiseResponsiveSilide('#slider_top');
-    $('html,body').animate({scrollTop: 0}, 'slow');
+    ///$('html,body').animate({scrollTop: 0}, 'slow');
 
     resizeSlide();
     $(window).resize(function () {
