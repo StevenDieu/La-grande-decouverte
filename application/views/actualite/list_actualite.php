@@ -1,8 +1,7 @@
 <div class="content actualites">
 	<div class="actu">
 		<div class="entete">
-			<div class="iconeDoc"><img src="<?php echo base_url('')?>assets/images/listeActu/dossier.png" alt="dossier"/></div>
-			<div class="titre">Actualités <sup>(<?php echo $nbActu; ?>)</sup></div>
+			<div class="titre">Actualités</div>
 			<div class="description">Suivez les nouveautés de La grande découvert à travers ses acutalités</div>
 			<div class="cercleGauche"></div>
 			<div class="cercleDroit"></div>
