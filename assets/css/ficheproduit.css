@@ -1541,7 +1541,11 @@ span.fleche{
 }
 
 .topLeft h1{
-      font-family: 'NewCicleGordita';
+    font-family: 'NewCicleGordita';
+    text-shadow: none;
+    color: #000;
+    text-align: left;
+    font-size: 28px;
 }
 
 #data span{
