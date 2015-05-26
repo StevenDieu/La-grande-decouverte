@@ -539,6 +539,20 @@ Class Voyage extends CI_Model {
             return false;
         }
     }
+
+    function getNomContinent($id) {
+        $this->db->select('name');
+        $this->db->from('continent');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

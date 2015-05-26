@@ -94,12 +94,15 @@ class Carnet extends CI_Controller {
         if($continent) {
             //si un continent a été passé en paramètre, j'affiche tous les voyages du continent choisi
             $data['voyage'] = $this->Voyage->getVoyagesByContinent($continent);
-
-            if ($data['voyage'] == false) {
-                //si je ne recupère aucun voyage du continent sélectionné, j'affiche tous les voyages
+            
+            if ($data['voyage'] != false) {
+                //si il y a bien des voyages pour ce continent, je récupère le nom du continent.
+                $data['nomContinent'] = $this->Voyage->getNomContinent($continent);
+            } else {
+                //sinon, j'affiche tous les voyages
                 $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
 
-                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
+                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné.<br/><br/> Voici la liste des voyages :";
             }
         } else {
             //sinon j'affiche tous les voyages du continent sélectionné, avec une pagination
