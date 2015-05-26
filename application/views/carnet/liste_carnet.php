@@ -8,6 +8,12 @@
         <div class="content liste_carnet">
             <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
                 <div class="contenu_article_suivant">
+                    <div class="entete">
+                        <div class="titre">Carnets de voyage</div>
+                        <div class="description">Visitez et voyagez avec d'autres personnes.</div>
+                        <div class="cercleGauche"></div>
+                        <div class="cercleDroit"></div>
+                    </div>
                     <?php
                     //foreach ($carnetVoyage as $cv) { 
                     for ($i = 0; $i < count($carnetVoyage); $i++) {

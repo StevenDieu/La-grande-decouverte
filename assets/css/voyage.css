@@ -40,13 +40,14 @@
 }
 
 .bloc-voyage a{
+    color:white;
     text-decoration: none;
 }
 
 .bloc-voyage .voyage .bloc_image{
     overflow: hidden;    
     margin: 0 auto;
-    /*height: 245px;*/
+    height: 288px;
     z-index: -1;
 }
 
@@ -83,7 +84,7 @@
     padding: 30px;
     background-color: rgba(0, 0, 0, 0.57);
     top: 0;    
-    height: 245px;
+    height: 288px;
     display: none;            
     -webkit-transform: rotate(180deg);      -moz-transform: rotate(180deg);      -o-transform: rotate(180deg);
 }
@@ -98,7 +99,8 @@
 
 @media (max-width: 1200px){
     .liste_voyages {
-       /* width: 580px;*/
+        width: 580px;
+        width: 100%;
         margin: 0 auto
 
     }
@@ -109,9 +111,9 @@
     .voyage.droite {
         float: none;
     }
-    .bloc-voyage .voyage{
-        margin: 10px;
-        /*width: 580px;*/
+    .contenu_home .voyage{
+        margin: 10px auto;
+        max-width: 580px;
     }
 }
 
@@ -141,3 +143,57 @@
     width: 100%;
     text-align: center;
 }
+
+
+.content .voyages .entete{
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    position: relative;
+    margin-bottom: 10px;
+    margin-top:40px;
+}
+
+    .cercleGauche, .cercleDroit{
+        position: absolute;
+        background: #BFBFBF;
+        border-radius: 10px;
+        display: block;
+        width: 7px;
+        height: 7px;
+        bottom: -4px;
+        z-index: 3;
+    }
+
+    .cercleGauche{
+        left:0px;
+    }
+
+    .cercleDroit{
+        right:0px;
+    }
+
+    .content .voyages .entete .titre{
+        text-align: center;
+        width: 100%;
+        padding-top: 30px;
+        font-size: 40px;
+        white-space: nowrap;
+        font-family: 'NewCicleGordita', sans-serif;
+        text-transform: uppercase;
+        color: #090A1F;
+
+    }
+
+        .content .voyages .entete .titre sup{
+            font-size: 25px;
+            color: #337ab7;
+        }
+
+    .content .voyages .entete .description{
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-family: "helvetica";
+        font-size: 16px;
+        color: #565a5c;
+    }
