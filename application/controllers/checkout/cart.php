@@ -342,4 +342,8 @@ class Cart extends CI_Controller {
     function cb(){
         $this->load->view('checkout/step/payment/cb');
     }  
+
+    function paypal(){
+        $this->load->view('checkout/step/payment/paypal');
+    }  
 }
