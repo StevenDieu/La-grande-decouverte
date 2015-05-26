@@ -793,7 +793,6 @@ h2.titre{
 
 
 .une_row .submit_all_text, .connexion_form .submit_all_text {
-    border: 2px solid #006695;
     margin-top: 15px;
 }
 
@@ -822,10 +821,10 @@ span.ou{
 
 .une_row .submit_all_text input,.une_row .submit_all_text button{
     height: 38px;
-    background: #fff;
+    background: #006695;
     width: 100%;
     font-size: 14px;
-    color: #006695;
+    color: #fff;
     text-transform: uppercase;
     text-align: center;
     line-height: normal;
@@ -833,7 +832,7 @@ span.ou{
     cursor: pointer;
     border: none;
     -webkit-appearance: none;
-    -webkit-border-radius: 0;
+    -webkit-border-radius: 5px;
     outline: none;
 }
 
@@ -887,15 +886,15 @@ span.ou{
 
 .btn_inscription{
     display: block;
-    border: 2px solid #006695;
-    height: 42px;
-    background: #fff;
+    height: 38px;
+    background: #006695;
     font-size: 14px;
-    color: #006695 !important;
+    color: #fff !important;
     text-align: center;
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 42px;
+    -webkit-border-radius: 5px;
     font-family: sans-serif;
 }
 
@@ -925,7 +924,7 @@ span.ou{
     }
 
     .btn_inscription{
-        margin-top: 72px;
+        margin-top: 70px;
     }
 }
 
@@ -1128,11 +1127,13 @@ ul.menu_popup a{
 .tdPetit{
     text-align: center;
     width: 10px!important;
+    font-family: "helvetica";
 }
 
 .tdMoyen{
     text-align: center;
     width: 115px !important;
+    font-family: "helvetica";
 }
 
 .tdPetithauteur{
@@ -1145,6 +1146,10 @@ ul.menu_popup a{
     text-align: center;
     width: 10px!important;
     padding-top: 13px !important;
+}
+
+.table-carnet th{
+    font-family: "helvetica";
 }
 
 .table-carnet{
@@ -1335,3 +1340,30 @@ button.attentionIcon:focus {
 .curserPointer{
     cursor: pointer;
 }
+
+.menuBas a{
+  color: #BBBBBB !important;
+}
+
+.menuBas a:hover{
+      color: #fff !important;
+}
+
+.panel-title, .form-horizontal .control-label{
+    font-family: "helvetica";
+}
+
+.contentUtilisateur h2, legend{
+    font-family: 'NewCicleGordita';
+}
+
+
+
+
+
+
+
+
+
+
+

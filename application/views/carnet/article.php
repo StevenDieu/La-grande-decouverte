@@ -26,7 +26,7 @@
                         <p>Créer par John Doe, le 28.01.2014</p>
                     </div>
                     <div class="share_carnet">
-                        <p>Partager ce carnet de voyage :
+                        <p><!--Partager ce carnet de voyage :-->
                             <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" class="icone-social" alt=""></a>
                             <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" class="icone-social" alt=""></a>
                             <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" class="icone-social" alt=""></a>

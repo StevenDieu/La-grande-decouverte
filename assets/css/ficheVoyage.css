@@ -10,6 +10,7 @@
     max-width: 1200px;
     margin: 0px auto;
     text-align: justify;
+    font-family: "helvetica";
 }
 .rslides {
     margin: 0 auto 40px;
@@ -333,7 +334,7 @@
 
 .description_profile{
     width: 68%;
-
+    font-family: "helvetica";
     float: right;
     padding-left: 16px;
     padding-right: 25px;
