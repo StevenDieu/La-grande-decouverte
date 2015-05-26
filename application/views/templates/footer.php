@@ -1,4 +1,3 @@
-</body>
 <footer id="footer" >
     <div class="row blockFooter_1">
         <div class="col-md-1"></div>
