@@ -275,3 +275,9 @@ and open the template in the editor.
     max-width: 1200px;
     margin: 0 auto;
 }
+
+a.lire_suite {}
+
+.onglet3mobile .contenu_article_suivant .un_article a.lire_suite:hover {
+    color: #FFF !important;
+}

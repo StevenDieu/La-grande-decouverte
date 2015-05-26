@@ -102,6 +102,7 @@ span.fleche{
     width: 100%;
     left: 0;
     top: 0;
+    height: 355px;
 }
 
 .callbacks img {
@@ -597,8 +598,8 @@ span.fleche{
 }
 
 .onglet3mobile .article_first .image img{
-    max-width: 100%;
-    max-height: 100%;
+    /* max-width: 100%; */
+    min-height: 100%;
 }
 
 .callbacks_container.carnet{
@@ -1514,12 +1515,7 @@ span.fleche{
 }
 
 .topLeft h1{
-    font-family: 'NewCicleGordita';
-    text-align: left;
-    text-shadow:none;
-    font-size: 18px;
-    font-size: 27px;
-    text-transform: none;
+      font-family: 'NewCicleGordita';
 }
 
 #data span{
@@ -1540,3 +1536,15 @@ span.fleche{
 }
 
 
+
+
+#onglet3 .callbacks img {
+    min-height: 491px;
+    margin-top: -15%;
+    left: -20%;
+    width: auto;
+}
+
+.image_slide_carnet {
+    width: 100%;    height: 355px;    overflow: hidden;
+}
