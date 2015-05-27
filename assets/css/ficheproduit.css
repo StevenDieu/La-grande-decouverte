@@ -1283,8 +1283,8 @@ span.fleche{
 }
 
 .fiche_produit .texte_slide{
-    border-top:2px solid #fff;
-    border-bottom:2px solid #fff;
+    /* border-top:2px solid #fff; */
+    /* border-bottom:2px solid #fff; */
     position: relative;
     z-index: 100;
     margin: auto;
@@ -1599,7 +1599,7 @@ span.fleche{
 #onglet3 .callbacks img {
     min-height: 484px;
     height: auto;
-    margin-top: -15%;
+    margin-top: 0%;
     width: auto;
 }
 

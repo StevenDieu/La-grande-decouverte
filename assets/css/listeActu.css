@@ -229,13 +229,29 @@
 .actu ul {
     position: relative;    list-style: none;    overflow: hidden;    width: 100%;    padding: 0;    margin: 0;    
     height: auto;
-    max-height: 300px;
+    max-height: 386px;
 }
 
 .actu img {
-    margin-top: -25%;
+    margin-top: -15%;
 }
 
 .content {
     padding: 110px;
+}
+
+.un_article .callbacks img {
+    width: 100% !important;
+}
+
+.article_first .callbacks img {}
+
+.article_first .callbacks img {}
+
+.article_first .callbacks img {
+    width: 100%;
+}
+
+.article_first img {
+    width: 100% !important;
 }
