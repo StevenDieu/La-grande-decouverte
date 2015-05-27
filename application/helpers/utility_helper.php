@@ -74,9 +74,7 @@ function carnet_court($carnetVoyages, $i) {
             <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
             <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
         </div>
-        <?php if (!($i % 2)) { ?>
-        </div>
-    <?php } ?>
+    </div>
     <?php
     if ($i % 2 == 0) {
         echo "<div style='clear:both'></div>";
