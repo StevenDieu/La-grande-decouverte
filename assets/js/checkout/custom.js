@@ -20,6 +20,8 @@ jQuery(document).ready(function(){
 				jQuery(".open_command.containInscription").toggleClass("active").next().slideToggle("slow");
 				$('.openInscription').hide();
 				jQuery(this).toggleClass("active").next().slideToggle("slow");
+                $('#command_right_column li').removeClass('active');
+                $('#command_right_column li.iden').addClass('active');
 			}	
 		}
         if($(this).hasClass('containBilling') && $(this).hasClass('check')){

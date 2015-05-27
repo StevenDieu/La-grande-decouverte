@@ -784,7 +784,7 @@ html,body {
 	border-bottom:1px solid #dddad9;
 	line-height:18px;
 	font-size:14px;
-	padding:15px 0;
+	padding: 15px 0 4px 0;
 }
 #command_right_column li a {
 	display:block;
@@ -821,7 +821,7 @@ html,body {
     behavior:url(PIE.htc);
 	margin-bottom:10px;
 }
-.adress_form p input[type=text] {
+.adress_form p input {
 	width: 100%;
 	height:17px;
 	border:none;

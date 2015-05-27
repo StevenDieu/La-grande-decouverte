@@ -139,11 +139,17 @@ if ($this->session->userdata('logged_in')) { ?>
 
         $( "#connexion" ).click(function() {
             connexionOnepage();
+            $("#command_right_column li.iden").removeClass('active');
+            $("#command_right_column li.iden").addClass('check');
+            $("#command_right_column li.billing").addClass('active');
             return false;
         });
 
         $('#wrapper').on('click', '#inscription_bouton', function () {
             createAccount();
+            $("#command_right_column li.iden").removeClass('active');
+            $("#command_right_column li.iden").addClass('check');
+            $("#command_right_column li.billing").addClass('active');
             return false;
         });
 
