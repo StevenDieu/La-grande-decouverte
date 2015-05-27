@@ -84,9 +84,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 textFooter blocPicReseau">
-                            <a href="#" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
+                            <a href="https://www.facebook.com/pages/La-grande-decouverte/1611626992384420?skip_nax_wizard=true&ref_type=bookmark" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" alt=""></a>
                             <a href="https://plus.google.com/u/1/112230737464101123366/about" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" alt=""></a>
-                            <a href="#" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
+                            <a href="https://www.linkedin.com/profile/view?id=425624292&authType=NAME_SEARCH&authToken=hr5H&locale=fr_FR&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1432713582902%2Ctas%3Ala%20grande%20decouverte" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" alt=""></a>
                             <a href="https://www.tumblr.com/blog/lagrandedecouverte" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-tumblr.png" alt=""></a>
                             <a href="https://twitter.com/LGD_officiel" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" alt=""></a>
                             <a href="https://www.youtube.com/channel/UCiVobuSJjj6Rc0YtdWwMcyw" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-youtube.png" alt=""></a>
