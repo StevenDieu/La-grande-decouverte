@@ -1,7 +1,7 @@
 
 /**** fiche produit voyage ***/
 .fiche_produit{
-    background: #fff;
+    background: #FFFFFF;
     text-align: left;        
     color: #000;
     font-size: 16px;
@@ -94,7 +94,7 @@ span.fleche{
     width: 100%;
     padding: 0;
     margin: 0;
-    height: 100%;
+    height: auto;
 }
 
 .callbacks li {
@@ -685,7 +685,7 @@ span.fleche{
 }
 
 .onglet3mobile .contenu_article_suivant .un_article:hover{
-    background-color: #f5f5f5;
+    background-color: #EBEBEB;
 }
 
 .onglet3mobile .contenu_article_suivant .un_article .date_auteur{

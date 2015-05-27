@@ -2,7 +2,6 @@
 
 function carnet_long($carnetVoyages, $i) {
     ?>
-
     <div class="article_first">
         <div class="image">
             <div class="callbacks_container carnet">

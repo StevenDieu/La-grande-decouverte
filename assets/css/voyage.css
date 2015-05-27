@@ -203,3 +203,15 @@
         font-size:24px;
         margin:15px auto;
     }
+
+.floarLeft a {
+    color: #000;
+}
+
+.floarLeft {
+    float: left;
+}
+
+.floarRight {
+    float: right;
+}

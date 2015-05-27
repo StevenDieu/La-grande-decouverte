@@ -1402,3 +1402,7 @@ span.fleche{
 div#onglet3 {
     display: block !important;
 }
+
+.contenu_onglet {
+    background-color: #000000;
+}
