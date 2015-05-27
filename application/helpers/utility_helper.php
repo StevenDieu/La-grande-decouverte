@@ -29,9 +29,9 @@ function carnet_long($carnetVoyages, $i) {
             <div style="clear:both"></div>
         </div>
         <div class="partie_droite">
-            <a  href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="titre">aze</a>
+            <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
             <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
-            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 550) . '...'; ?></div>
+            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 270) . '...'; ?></div>
             <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
         </div>
         <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
@@ -71,7 +71,7 @@ function carnet_court($carnetVoyages, $i) {
             <div style="clear:both"></div>
             <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
             <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
-            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 550) . '...'; ?></div>
+            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 270) . '...'; ?></div>
             <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
             <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
         </div>
@@ -110,7 +110,7 @@ function carnet_court_liste($carnetVoyages, $i) {
             <div style="clear:both"></div>
             <a class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
             <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
-            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 550) . '...'; ?></div>
+            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 270) . '...'; ?></div>
             <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
             <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
         </div>

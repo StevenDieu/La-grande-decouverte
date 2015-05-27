@@ -822,7 +822,7 @@ html,body {
 	margin-bottom:10px;
 }
 .adress_form p input[type=text] {
-	width:94%;
+	width: 100%;
 	height:17px;
 	border:none;
 	background:none;
@@ -830,7 +830,8 @@ html,body {
 	color:#818181;
 	font-style:italic;
 	font-family:Arial, Helvetica, sans-serif;
-	padding:17px 3%;
+	padding: 17px 3%;
+	margin-top: 1px;
 }
 .address_fields_rgt {
 	float:right;
@@ -843,7 +844,7 @@ html,body {
 }
 .adress_form .full_text p input[type=text] {
  padding:17px 1.5%;
- width:97%;
+ width: 100%;
 }
 .require_field {
 	padding-bottom:14px;
@@ -1166,6 +1167,7 @@ html,body {
 	overflow:hidden;
 	line-height:38px;
 	padding-bottom:5px;
+	margin-top: 21px;
 }
 .reset_field input[type=reset] {
 	width:257px;

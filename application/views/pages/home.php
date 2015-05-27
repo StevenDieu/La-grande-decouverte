@@ -29,12 +29,12 @@
         <div class="map">
             <div id="map-continents">
                 <ul class="continents">
-                    <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=14')?>">Afrique</a></li>
-                    <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=15')?>">Asie</a></li>
-                    <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=')?>">Océanie</a></li>
-                    <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=13')?>">Europe</a></li>
-                    <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=')?>">Amerique du nord</a></li>
-                    <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=')?>">Amerique du sud</a></li>
+                    <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=14') ?>">Afrique</a></li>
+                    <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=15') ?>">Asie</a></li>
+                    <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') ?>">Océanie</a></li>
+                    <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=13') ?>">Europe</a></li>
+                    <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') ?>">Amerique du nord</a></li>
+                    <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') ?>">Amerique du sud</a></li>
                 </ul>
             </div>
             <div class="divLeTireurBottom">
@@ -52,7 +52,11 @@
     <div class="clear"></div>
     <div class="contenu_home">
         <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
-            <span class="success">Vous êtes bien inscrit à la newsletter.</span>
+            <div class="messageAlerteCarnet center">
+                <div class="alertType"><div class="alert alert-success fade in limiteMessage">
+                        <strong>Succés !</strong> Vous êtes bien inscrit à la newsletter.</div></div>
+            </div>
+            <br/><br/>
         <?php } ?>
         <div class="voyages">
             <h2>Nos voyages en cours</h2>

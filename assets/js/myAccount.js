@@ -1,5 +1,6 @@
 function changeMdp() {
-    if ($(".mdp").val() !== "" && $(".nmdp").val() !== "" && $(".cnmdp").val() !== "" && $(".nmdp").val() === $(".cnmdp").val()) {
+    var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    if ($(".mdp").val() !== "" && $(".nmdp").val() !== "" && $(".cnmdp").val() !== "" && $(".nmdp").val() === $(".cnmdp").val() && regex.test($(".nmdp").val())) {
         $.ajax({
             type: "post",
             url: urlChangeMdp,
@@ -14,7 +15,7 @@ function changeMdp() {
                     couleurAlerteClass(".form-cnmdp", "has-success");
                     message(urlSucces, "Mot de passe modifié avec succés");
                 } else {
-                    message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
+                    message(urlError, "Le mot de passe est incorrect.");
                 }
             }});
     } else {
@@ -29,6 +30,9 @@ function changeMdp() {
         }
         if ($(".nmdp").val() !== $(".cnmdp").val()) {
             message(urlError, "Les mots de passe ne sont pas identiques");
+        }
+        if (!(regex.test($(".nmdp").val()))) {
+            message(urlError, "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.");
         }
     }
 
@@ -51,7 +55,7 @@ function changeEmail() {
                     couleurAlerteClass(".form-nemail", "has-success");
                     message(urlSucces, "Email modifié avec succés");
                 } else {
-                    message(urlError, "Une erreure c'est produite veuillez contacter un adminitrasteur.");
+                    message(urlError, "Le mot de passe est incorrect.");
                 }
             }});
     } else {

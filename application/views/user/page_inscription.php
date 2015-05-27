@@ -1,6 +1,6 @@
 <div class="content">
     <div class="content-inscription">
-        
+
         <span class="mess_required"><?php echo validation_errors(); ?></span>
         <?php
         echo form_open('user/verification/inscription');
@@ -21,7 +21,7 @@
             </p>
         </div>
 
-        <div class="une_row">
+        <div class="une_row user">
             <!--<label for="user" class="">Nom d'utilisateur *</label>-->
             <p>
                 <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Votre nom d'utilisateur*">
@@ -31,7 +31,9 @@
         <div class="une_row mail">
             <!--<label for="email" class="">E-mail *</label>-->
             <p>
-                <input type="email" name="email" class="required mail" id="email" placeholder="Votre e-mail*" <?php if(isset($mail)){ echo "value='".$mail."'"; } ?>>
+                <input type="email" name="email" class="required mail" id="email" placeholder="Votre e-mail*" <?php if (isset($mail)) {
+            echo "value='" . $mail . "'";
+        } ?>>
             </p>
         </div>
 
@@ -57,9 +59,10 @@
         </div>
         <div class="une_row">
             <a href="<?php echo base_url('user/account/connexion') ?>" class="">
-                <small>«</small>Retour
-                <span class="floatright">* Champs obligatoires</span>
+                <small>«</small>Connexion
             </a>
+            <span class="floatright">* Champs obligatoires</span>
+
         </div>
         <div class="une_row">
             <div class="submit_all_text">

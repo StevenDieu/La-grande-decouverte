@@ -29,7 +29,7 @@
                                     </form>
                                 <?php } else { ?>
                                     <form action="#comptes" class="upload-form">
-                                        <div class="tailleImageProfil" style="background-image: url('<?php echo asset_url("images/utilisateur/photoProfil/".$username["nom_image"]) ?>')">
+                                        <div class="tailleImageProfil" style="background-image: url('<?php echo asset_url("images/utilisateur/photoProfil/" . $username["nom_image"]) ?>')">
                                             <input type="file" class="modifImageProf uploadedfile" />
                                         </div>
                                     </form>
@@ -73,19 +73,25 @@
                         <div class="form-group form-mdp">
                             <label for="titre" class="col-sm-4 control-label">Mot de passe actuel :</label>
                             <div class="col-sm-5">
-                                <input type="password" class="form-control mdp" placeholder="Mot de passe actuel">
+                                <p>
+                                    <input type="password" class="form-control mdp" placeholder="Mot de passe actuel">
+                                </p>
                             </div>
                         </div>
                         <div class="form-group form-nmdp">
                             <label for="titre" class="col-sm-4 control-label">Nouveau mot de passe :</label>
                             <div class="col-sm-5">
-                                <input type="password" class="form-control nmdp" placeholder="Nouveau mot de passe">
+                                <p>
+                                    <input type="password" class="form-control nmdp" placeholder="Nouveau mot de passe">
+                                </p>
                             </div>
                         </div>
                         <div class="form-group form-cnmdp">
                             <label for="titre" class="col-sm-4 control-label">Retapez mot de passe :</label>
                             <div class="col-sm-5">
-                                <input type="password" class="form-control cnmdp" placeholder="Retapez mot de passe">
+                                <p>
+                                    <input type="password" class="form-control cnmdp" placeholder="Retapez mot de passe">
+                                </p>
                             </div>
                         </div>
                         <input type="button" class="bblue confirmationMdp" value="Modifier"/>

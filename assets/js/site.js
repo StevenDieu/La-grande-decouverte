@@ -56,7 +56,8 @@ $(document).ready(function () {
     var mdp_required = "<span class='mess_required'>Les mots de passe sont différents.</span>";
     var mail_required = "<span class='mess_required'>Les mails sont différents.</span>";
     var mdp_identique_required = "<span class='mess_required'>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</span>";
-
+    var login_insuffisant = "<span class='mess_required'>Le nom d'utilisateur doit être compris entre 6 et 50 caratères</span>";
+    
     var iniPopUp = 0;
     $('body').click(function (e) {
         if (e.target.id === "popUpConnexion") {
@@ -130,6 +131,12 @@ $(document).ready(function () {
         }
 
         if (submit) {
+            if ($(".content-inscription #user").val().length < 6 || $(".content-inscription #user").val().length > 60) {
+                $(".content-inscription .une_row.user").append(login_insuffisant);
+                $(".content-inscription .une_row.user p").toggleClass('failed');
+                submit = false;
+            }
+            
             if ($(".content-inscription input.mdp").val() != $(".content-inscription input.cmdp").val()) {
                 $(".content-inscription .une_row.cmdp").append(mdp_required);
                 $(".content-inscription .une_row.mdp p").toggleClass('failed');

@@ -77,6 +77,8 @@
 
 .content .actu .uneActu{
     width: 100%;
+    margin-top: 34px;
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);  -moz-box-shadow:    3px 3px 16px 0px rgba(50, 50, 50, 0.8);  box-shadow:         3px 3px 16px 0px rgba(50, 50, 50, 0.8);
 }
 
     .content .actu .uneActu .image, .content .actu .uneActu .image img{
@@ -159,7 +161,7 @@
         text-transform: uppercase;
         font-size: 14px;
         font-family: "helvetica";
-        padding-top: 30px;
+        padding-top: 13px;
     }
 
     .content .actu .uneActu .titreActu .meta::before{
@@ -232,4 +234,8 @@
 
 .actu img {
     margin-top: -25%;
+}
+
+.content {
+    padding: 110px;
 }

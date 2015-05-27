@@ -593,6 +593,7 @@ span.fleche{
 
 .onglet3mobile .article_first{
     padding: 12px;
+    -webkit-box-shadow: 3px 0px 16px 0px rgba(0, 0, 0, 0.2);    -moz-box-shadow: 3px 0px 16px 0px rgba(0, 0, 0, 0.2);    box-shadow: 3px 0px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .onglet3mobile .article_first:hover{
     background-color: #f5f5f5;
@@ -679,9 +680,8 @@ span.fleche{
     max-height: 554px;
     margin-bottom: 25px;
     height: auto;
-    padding: 12px;
-    /* padding-left: 25px; */    
-    /* padding-right: 25px; */
+    padding: 12px;    
+    -webkit-box-shadow: 3px 0px 16px 0px rgba(0, 0, 0, 0.2);    -moz-box-shadow: 3px 0px 16px 0px rgba(0, 0, 0, 0.2);    box-shadow: 3px 0px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .onglet3mobile .contenu_article_suivant .un_article:hover{
@@ -1608,7 +1608,7 @@ span.fleche{
 }
 
 
-#onglet3 .callbacks {}
+#onglet3?.callbacks {}
 
 div#onglet3 .callbacks {
     height: 240px;

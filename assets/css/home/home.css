@@ -143,7 +143,7 @@ and open the template in the editor.
     padding-top: 18px;
     text-align: center;    
     font-family: 'NewCicleGordita', sans-serif;    
-    font-size: 45px;    font-weight: 100;    
+    font-size: 47px;    font-weight: 100;    
     text-transform: uppercase;            
     letter-spacing: 3px;  
 }
@@ -203,6 +203,7 @@ and open the template in the editor.
     margin: 20px auto;
     border-radius: 5px;
     border: 2px solid rgb(228, 197, 141);
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);    -moz-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);    box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);
 }
 
 .contenu_home .voyage .titre{

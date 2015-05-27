@@ -618,6 +618,7 @@ h2.titre{
     margin: 0 auto;
     max-width: 1400px;
     z-index: 30;
+    padding-top: 14px;
     color: #fff;
 }
 .trait{
@@ -1371,3 +1372,11 @@ ul.menu_popup .glyphicon {
 
 
 
+
+
+a#add_participant {
+    margin-top: -13px;
+    margin-bottom: 35px;
+}
+
+a#add_participant {}

@@ -68,7 +68,7 @@
 
 .content_carnet_voyage{
     max-width: 800px;
-    margin: 50px auto 0;
+    margin: 75px auto 0;
 }
 
 .inputTitreCarnetVoyage{
@@ -151,7 +151,6 @@
     transition-duration: 0.25s;
     color: rgba(255, 255, 255, 1);
 
-    margin: 0 0 0 24px;
 }
 
 .modifImageProf:before{
@@ -159,6 +158,8 @@
     color: rgba(255, 255, 255, 0);
     transition-duration: 0.25s;
     font-size: 88px;;
+    position: relative;    top: -13px;
+    margin: 0px 0 0px 22px;
 }
 
 .modifImageProf:hover{
