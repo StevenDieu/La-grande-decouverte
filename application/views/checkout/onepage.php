@@ -156,7 +156,6 @@ if ($this->session->userdata('logged_in')) { ?>
                 $(".open_command.containBilling").addClass('check');
                 getParticipants();
                 jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
-                console.log(billing);
                 //affiche donnée dans bloc à droite
                 $('#command_right_column li.billing p.nom').html(billing.nom+' '+billing.prenom);
                 $('#command_right_column li.billing p.societe').html(billing.societe);
@@ -210,7 +209,6 @@ if ($this->session->userdata('logged_in')) { ?>
                 getCgv();
                 $('#command_right_column li').removeClass('active');
                 $('#command_right_column li.payment').addClass('check');
-                console.log(order.payment);
                 if(order.payment == 'PAYPAL'){
                     var methode_paiement = 'Paypal';
                 }else if(order.payment == 'CB'){
