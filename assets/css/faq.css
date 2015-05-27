@@ -430,7 +430,7 @@
 .content{
 	width: 100%;
 	margin: auto;
-	background-color: #fff;
+	background-color: #fff !important;
 	color: #000;
 	max-width: 1200px;
 	padding-bottom: 30px;
