@@ -138,7 +138,7 @@
             <div class="menuBas">
                 <span><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></span>
                 &nbsp; . &nbsp;
-                <span><a href="#">FAQ</a></span>
+                <span><a href="<?php echo base_url('/faq/index') ?>">FAQ</a></span>
                 &nbsp; . &nbsp;
                 <span><a href="<?php echo base_url('/pages/cgv') ?>">Conditions générales de vente</a></span>
                 &nbsp; . &nbsp;

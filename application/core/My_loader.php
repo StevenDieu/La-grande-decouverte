@@ -32,6 +32,16 @@ class My_loader extends CI_Loader {
         }
     }
 
+    public function templateFaq($template_name, $vars = array(), $return = FALSE) {
+        $content = $this->view('templates/header', $vars, $return);
+        $content .= $this->view('faq/' . $template_name, $vars, $return);
+        $content .= $this->view('templates/footer', $vars, $return);
+
+        if ($return) {
+            return $content;
+        }
+    }
+
     public function templateUser($template_name, $vars = array(), $return = FALSE) {
         $content = $this->view('templates/header', $vars, $return);
         $content .= $this->view('user/' . $template_name, $vars, $return);
