@@ -108,12 +108,12 @@
                     </div>
                     <div class="row textFooter">
                         <ul>
-                            <li><a href="http://www.voyage-prive.com/aide/QuiSommesNous_" target="_blank">Qui sommes-nous ?</a></li>
-                            <li><a href="https://docs.google.com/document/d/1Qu9vQce9OJs3CT1s6mhrbnK_bHuvE3-FssXUv67oiXk/edit" target="_blank">Espace presse</a></li>
+                            <li><a href="<?php echo base_url('/pages/qui_sommes_nous') ?>" target="_blank">Qui sommes-nous ?</a></li>
+                            <li><a href="<?php echo base_url('/pages/presse') ?>" target="_blank">Espace presse</a></li>
                             <li><a href="<?php echo base_url('/contact/index') ?>">Nous contacter</a></li>
-                            <li><a href="http://www.people-voyage-prive.com/offres" target="_blank">Nous rejoindre</a></li>
+                            <li><a href="<?php echo base_url('/pages/nous_rejoindre') ?>" target="_blank">Nous rejoindre</a></li>
                             <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>" target="_blank">Mensions legales</a></li>
-                            <li><a href="https://docs.google.com/document/d/1Qu9vQce9OJs3CT1s6mhrbnK_bHuvE3-FssXUv67oiXk/edit" target="_blank">CGV</a></li>
+                            <li><a href="<?php echo base_url('/pages/cgv') ?>" target="_blank">CGV</a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,11 +136,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="menuBas">
-                <span><a href="#">Infos légales</a></span>
+                <span><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></span>
                 &nbsp; . &nbsp;
                 <span><a href="#">FAQ</a></span>
                 &nbsp; . &nbsp;
-                <span><a href="https://docs.google.com/document/d/1Qu9vQce9OJs3CT1s6mhrbnK_bHuvE3-FssXUv67oiXk/edit">Conditions générales de vente</a></span>
+                <span><a href="<?php echo base_url('/pages/cgv') ?>">Conditions générales de vente</a></span>
                 &nbsp; . &nbsp;
                 <span><a href="#">Conditions générales d'utilisation du site </a></span>
             </div>

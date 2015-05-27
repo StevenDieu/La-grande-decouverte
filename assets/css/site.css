@@ -642,7 +642,9 @@ h2.titre{
     max-width: 1000px;
 }
 .contentPageSansSlide{
-    margin: 0 auto;
+    margin: 49px auto;
+    max-width: 1000px;
+    padding-bottom: 49px;
 }
 /******* end footer *********/
 @media (min-width: 768px){
@@ -1380,3 +1382,10 @@ a#add_participant {
 }
 
 a#add_participant {}
+
+.contentPageSansSlide h1 {
+    color: #000000;
+    text-shadow: none;
+    font-size: 42px;
+    margin-bottom: 72px;
+}

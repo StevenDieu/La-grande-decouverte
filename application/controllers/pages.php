@@ -31,6 +31,22 @@ class Pages extends CI_Controller {
         $this->load->templatePages('mentions_legales');
     }
 
+    public function cgv() {
+        $this->load->templatePages('cgv');
+    }
+
+    public function qui_sommes_nous() {
+        $this->load->templatePages('qui_sommes_nous');
+    }
+
+    public function presse() {
+        $this->load->templatePages('presse');
+    }
+    
+    public function nous_rejoindre() {
+        $this->load->templatePages('nous_rejoindre');
+    }
+
     public function messageSucces() {
         if ($this->input->post('message')) {
             $data["message"] = $this->input->post('message');
@@ -47,7 +63,7 @@ class Pages extends CI_Controller {
 
     public function addNewletter() {
         $this->load->model('newsletter');
-        
+
         $this->load->library('form_validation');
         $this->form_validation->set_rules('mail', 'mail', 'trim|xss_clean');
 
