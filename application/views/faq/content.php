@@ -11,22 +11,23 @@
         <div id="main_content"><!--start main_content-->
         	<div id="page_content"><!--start page_content-->
                 <div id="admin_content"><!--start admin_content-->
-                    <div class="entry">
-                        <div class="toggle_widget"><!--start toggle_widget-->
-                        	<div class="show_content">
-                            	<h2>Comment contacter Lagrandecouverte <span>?</span></h2>
-                                <a href="#"><span>répondre</span><small>fermer</small></a>
+                    <?php if($faqs): ?>
+                        <?php foreach ($faqs as $faq): ?>
+                            <div class="entry">
+                                <div class="toggle_widget"><!--start toggle_widget-->
+                                	<div class="show_content">
+                                    	<h2><?php echo $faq->question; ?></span></h2>
+                                        <a href="#"><span>répondre</span><small>fermer</small></a>
+                                    </div>
+                                    <div class="display_content">
+                                    	<?php echo $faq->reponse; ?>
+                                    </div>
+                                </div><!--//end .toggle_widget-->
                             </div>
-                            <div class="display_content">
-                            	<p class="padding_null">Pour toute information, question ou conseil, notre service clients est à votre disposition :</p>
-                                <ul class="list_item">
-                                    <li>Soit par téléphone : 03 20 00 00 00 (<em>communication non surtaxée – Coût variable suivant opérateur</em>)</li>
-                                    <li>Soit fax : 03 20 00 00 00(<em>communication non surtaxée – Coût variable suivant opérateur</em>)</li>
-                                    <li>Soit par email : <a href="mailto:lagrandecouverte@gmail.com">lagrandecouverte@gmail.com</a></li>
-                                </ul>
-                            </div>
-                        </div><!--//end .toggle_widget-->
-                    </div>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        Il n'y a aucune question faq.
+                    <?php endif ?>
                 </div><!--//end #admin_content-->
             </div><!--//end #page_content-->
         </div><!--//end #main_content-->

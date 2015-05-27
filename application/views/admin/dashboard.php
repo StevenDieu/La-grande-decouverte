@@ -7,7 +7,6 @@
     <br>
     <br>
 
-
     <h3>Gestion des voyages</h3>
     <a href="<?php echo base_url('admin/voyages/add'); ?>">ajouter voyage</a><br>
     <a href="<?php echo base_url('admin/voyages/liste'); ?>">liste des voyages</a><br><br>
@@ -32,6 +31,10 @@
 
    <h3>Gestion des clients</h3>
    <a href="<?php echo base_url('admin/customer/liste'); ?>">liste des clients</a><br>
+
+   <h3>Gestion des administrateurs</h3>
+    <a href="<?php echo base_url('admin/faqs/add'); ?>">ajouter une question faq</a><br>
+   <a href="<?php echo base_url('admin/faqs/liste'); ?>">liste des questions faqs</a><br>
 
 
 </div>
