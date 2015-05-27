@@ -16,7 +16,7 @@
                 <?php if (isset($nomContinent)) { ?>
                     <div class="floarLeft">
                         <a href="<?php echo base_url('voyage/carnet/voyage') ?>">
-                            Retour à tout les voyages
+                            Retour à tous les voyages
                         </a>
                     </div>
                     <div class="floarRight">
