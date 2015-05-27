@@ -13,7 +13,13 @@
 					<div class="cercleDroit"></div>
 				</div>
 				<?php if (isset($erreur)) echo "<div class='erreur'>".$erreur."</div>"; ?>
-				<?php if (isset($nomContinent)) echo "<div class='continent'>Voyages en ".$nomContinent[0]->name."</div>"; ?>
+				<?php if (isset($nomContinent)) {	?>
+					<div id='continent'>
+						Voyages en <?php echo $nomContinent[0]->name ?>
+
+					</div> 
+					<div class="liste_contient">
+				<?php } ?>
 	            <?php
 	            $i = 0;
 	            foreach ($voyage as $v) {
@@ -43,7 +49,7 @@
 
 	                    </a>
 	                </div>
-
+	  			</div>
 	    		<div class="separateur_article"></div>
 	            <?php } ?>
 	            <div class="clear"></div>
