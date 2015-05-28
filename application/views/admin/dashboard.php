@@ -36,5 +36,9 @@
     <a href="<?php echo base_url('admin/faqs/add'); ?>">ajouter une question faq</a><br>
    <a href="<?php echo base_url('admin/faqs/liste'); ?>">liste des questions faqs</a><br>
 
+   <h3>Gestion des contenus CMS</h3>
+    <a href="<?php echo base_url('admin/cmss/add'); ?>">ajouter une question faq</a><br>
+   <a href="<?php echo base_url('admin/cmss/liste'); ?>">liste des questions faqs</a><br>
+
 
 </div>

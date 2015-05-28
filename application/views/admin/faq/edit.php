@@ -2,7 +2,7 @@
    confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
 </script>
 <div class="content admin-connexion">
-   <h1>ajouter une faq</h1>
+   <h1>éditer faq</h1>
    <?php echo validation_errors(); ?>
    <?php if(isset($error)) echo $error;?>
    <?php echo form_open_multipart('admin/model_faq/edit'); ?>
