@@ -97,7 +97,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/faqs/add'); ?>"> 
+                            <a href="<?php echo base_url('admin/faqs/liste'); ?>"> 
                                 <i class="icon-question-sign"></i>
                                 <span>FAQ</span> 
                                 <b class="caret"></b>

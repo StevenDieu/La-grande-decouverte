@@ -41,7 +41,7 @@
                                       <div class="control-group">                      
                                           <label class="control-label" for="titre">Code : </label>
                                           <div class="controls">
-                                              <input type="text" name="code" class="span6 disabled" id="code" placeholder="Code" value="<?php echo $cms[0]->code; ?>" disabled>
+                                              <input type="text" name="code" class="span6 disabled" id="code" placeholder="Code" value="<?php echo $cms[0]->code; ?>" readOnly="true">
                                           </div>      
                                       </div>
 

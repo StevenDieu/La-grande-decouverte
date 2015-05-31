@@ -46,7 +46,7 @@
                                       </div>
 
                                       <div class="control-group">                     
-                                          <label class="control-label" for="description_first_bloc">Valeur : </label>
+                                          <label class="control-label" for="value">Valeur : </label>
                                           <div class="controls">
                                               <textarea name="value" id="value" rows="4" cols="50" placeholder="Valeur"> </textarea>
                                           </div>      
