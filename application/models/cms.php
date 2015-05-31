@@ -39,8 +39,14 @@ Class Cms extends CI_Model {
         $this->active = $active;
     }
 
-    function add(){
-        $this->db->insert('cms', $this);
+    function add() {
+        $data = array(
+            'code' => $this->code,
+            'label' => $this->label,
+            'value' => $this->value,
+            'active' => $this->active
+        );
+        $this->db->insert('cms', $data);
         $this->id = $this->db->insert_id();
     }
 
@@ -71,7 +77,7 @@ Class Cms extends CI_Model {
         }
     }
 
-    function get($id){
+    function get($id) {
         $this->db->select('*');
         $this->db->from('cms');
         $this->db->where('id', $id);
@@ -85,7 +91,7 @@ Class Cms extends CI_Model {
         }
     }
 
-    function getByCode($code){
+    function getByCode($code) {
         $this->db->select('*');
         $this->db->from('cms');
         $this->db->where('code', $code);
@@ -112,6 +118,7 @@ Class Cms extends CI_Model {
 
         return true;
     }
+
 }
 
 ?>
