@@ -67,7 +67,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/voyages'); ?>">Voyages</a></li>
+                                <li><a href="<?php echo base_url('admin/voyages/liste'); ?>">Voyages</a></li>
                                 <li><a href="<?php echo base_url('admin/carnet_voyages/edit'); ?>">Carnets voyages</a></li>
                                 <li><a href="<?php echo base_url('admin/continent/add'); ?>">Continents</a></li>
                             </ul>

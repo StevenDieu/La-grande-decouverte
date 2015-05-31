@@ -1,36 +1,52 @@
-<div class="content admin-connexion">
-    <fieldset>
-        <?php echo validation_errors(); ?>
-        <?php if (isset($error)) echo $error; ?>
-        <?php echo form_open_multipart('admin/model_voyage/save'); ?>
 
-        <div class="info_generale">
-            <legend>Information générale</legend>
-            <div class="control-group">											
-                <label class="control-label" for="titre">Titre : </label>
-                <div class="controls">
-                    <input type="text" name="titre" class="span6" id="titre"  placeholder="Titre">
-                </div>			
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-road"></i>
+                    <h3>Voyages</h3>
+                    <a href="<?php echo base_url('admin/voyages/liste'); ?>" id="bouton_header" role="button" class="btn" data-toggle="">Retour à la liste</a>
+                </div>
+                <div class="widget-content">
+                    <div class="content admin-connexion">
+                        <fieldset>
+                            <?php
+                            echo validation_errors();
+                            if (isset($error)) {
+                                echo $error;
+                            }
+                            $attributes = array('class' => 'form-horizontal','id' => 'add-travel');
+                            echo form_open_multipart('admin/model_voyage/save',$attributes);
+                            ?>
 
-            <div class="control-group">											
-                <label class="control-label" for="phrase_accroche">Phrase d'accroche : </label>
-                <div class="controls">
-                    <input type="text" name="phrase_accroche" class="span6" id="phrase_accroche"  placeholder="Phrase d'accroche">
-                </div>			
-            </div>
+                            <div class="info_generale">
+                                <legend>Information générale</legend>
+                                <div class="control-group">											
+                                    <label class="control-label" for="titre">Titre : </label>
+                                    <div class="controls">
+                                        <input type="text" name="titre" class="span6" id="titre"  placeholder="Titre">
+                                    </div>			
+                                </div>
 
-            <div class="control-group">											
-                <label class="control-label" for="duree">Duree : </label>
-                <div class="controls">
-                    <input type="text" name="duree" class="span6" id="duree"  placeholder="Duree">
-                </div>			
-            </div>
+                                <div class="control-group">											
+                                    <label class="control-label" for="phrase_accroche">Phrase d'accroche : </label>
+                                    <div class="controls">
+                                        <input type="text" name="phrase_accroche" class="span6" id="phrase_accroche"  placeholder="Phrase d'accroche">
+                                    </div>			
+                                </div>
 
-            <div class="control-group">											
-                <label class="control-label" for="description_first_bloc">Description premier bloc : </label>
-                <div class="controls">
-                    <TEXTAREA name="description_first_bloc" id="description_first_bloc" rows="4" cols="50"  placeholder="Description premier bloc"></TEXTAREA>
+                                <div class="control-group">											
+                                    <label class="control-label" for="duree">Duree : </label>
+                                    <div class="controls">
+                                        <input type="text" name="duree" class="span6" id="duree"  placeholder="Duree">
+                                    </div>			
+                                </div>
+
+                                <div class="control-group">											
+                                    <label class="control-label" for="description_first_bloc">Description premier bloc : </label>
+                                    <div class="controls">
+                                        <TEXTAREA name="description_first_bloc" id="description_first_bloc" rows="4" cols="50"  placeholder="Description premier bloc"></TEXTAREA>
                 </div>			
             </div>
             
@@ -62,17 +78,17 @@
          <div class="control-group">											
              <label class="control-label" for="continent">Continent : </label>
              <div class="controls">
-                    <?php if ($continents) { ?>
-                                                                 <select name="continent">
-                            <?php foreach ($continents as $continent) { ?>
-                                                                                                                     <option value="<?php echo $continent->id; ?>"><?php echo $continent->name; ?></option> 
-                            <?php } ?>    
-                                                                 </select>
-                    <?php } else { ?>
-                                                                 <a href="<?php echo asset_url('/admin/continent/'); ?>">
-                                                                     Gestion des continents
-                                                                 </a>
-                    <?php } ?>  
+                                        <?php if ($continents) { ?>
+                                                                             <select name="continent">
+                                                <?php foreach ($continents as $continent) { ?>
+                                                                                                                                             <option value="<?php echo $continent->id; ?>"><?php echo $continent->name; ?></option> 
+                                                <?php } ?>    
+                                                                             </select>
+                                        <?php } else { ?>
+                                                                             <a href="<?php echo asset_url('/admin/continent/'); ?>">
+                                                                                 Gestion des continents
+                                                                             </a>
+                                        <?php } ?>  
              </div>			
          </div>
          
@@ -342,17 +358,11 @@
       <br/><br/>
       <input type="submit" value="enregistrer"/>
 
-        <?php echo form_close(); ?> 
+                            <?php echo form_close(); ?> 
     </fieldset>
 </div>
-
-
-<?php
-if (isset($adminJs)) {
-    foreach ($adminJs as $js) {
-        ?>
-                                                                                                                                                                                                                                                                                                <script src="<?php echo asset_url(''); ?>js/admin/onglet/<?php echo $js; ?>.js" type="text/javascript"></script>
-        <?php
-    }
-}
-?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
