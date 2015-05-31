@@ -28,8 +28,9 @@
     </div>
     <div class="require_field">* Champs obligatoires</div>
     <div class="all_text_field">
-        <div class="address_fields_left">
+        <div class="address_fields_left bouton">
             <div class="submit_all_text ins"><input id="inscription_bouton" type="submit" value="continuer" /></div>
         </div>
+        <a href="javascript:;" id="retourLogin">< Retour</a>
     </div>
 </form>

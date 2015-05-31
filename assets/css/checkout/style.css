@@ -677,7 +677,7 @@ html,body {
 	border-left:1px solid #dcdcdc;
 	border-right:1px solid #dcdcdc;
 	background:url(../../images/checkout/bgr_text_field.png) repeat-x;
-	margin-bottom:19px;
+	margin-bottom:19px !important;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -699,8 +699,8 @@ html,body {
 	font-size:12px;
 	color:#a7a7a7;
 	font-style:italic;
-	padding-bottom:20px;
-	margin-top:-7px;
+	padding-bottom:13px;
+	margin-top:0px;
 }
 .identification_left form span a {
 	text-decoration:underline;
@@ -810,6 +810,13 @@ html,body {
 	width:49.01%;
 	float:left;
 }
+
+.address_fields_left.bouton {
+	width:49.01%;
+	float:right;
+	margin-right: 10px;
+}
+
 .adress_form p {
 	height:35px;
 	border-left:1px solid #dcdcdc;
@@ -838,7 +845,16 @@ html,body {
 }
 .all_text_field {
 	overflow:hidden;
+	position: relative;
 }
+
+#retourLogin{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
 .full_text {
 	width:100%;
 }
@@ -1587,11 +1603,32 @@ html,body {
 	display: none;
 }
 
+.open_command.containInscription{
+	display: none;
+}
 
+.command_panel.showInscription{
+	border: none;
+}
 
+.container_info{
+	margin-bottom: 30px;
+}
 
+.mess_obli{
+  color: #eb340a !important;
+  font-size: 12px !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  font-weight: bold !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
-
+.identification_left form p.failed{
+	margin-bottom: 6px !important;
+}
 
 
 

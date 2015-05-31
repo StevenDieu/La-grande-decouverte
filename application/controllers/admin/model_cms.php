@@ -67,7 +67,7 @@ class Model_cms extends CI_Controller {
 
         //information générale
         $this->form_validation->set_rules('id', 'id', 'trim|xss_clean|required');
-        $this->form_validation->set_rules('code', 'code', 'trim|xss_clean|required|callback_check_code|callback_check_code_exist');
+        $this->form_validation->set_rules('code', 'code', 'trim|xss_clean|required|callback_check_code');
         $this->form_validation->set_rules('label', 'label', 'trim|xss_clean|required');
         $this->form_validation->set_rules('value', 'value', 'trim|xss_clean|required');
         $this->form_validation->set_rules('active', 'active', 'trim|xss_clean|required');

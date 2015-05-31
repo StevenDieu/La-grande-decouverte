@@ -29,7 +29,16 @@ class Cart extends CI_Controller {
         $data["id"] = $id;
         $data["idInfo"] = $idInfo;
 
+        $this->load->model('cms');
+        $data["info_tunnel"] = $this->cms->getByCode('info_tunnel');
+
+
         $info = $this->voyage->getInfoVoyageById($idInfo);
+        $data["voyage"] =$this->voyage->getVoyage($id);
+        $data["voyageInfo"] = $info;
+        $data["voyageInfo"][0]->date_depart = $this->DateFr($data["voyageInfo"][0]->date_depart);
+        $data["voyageInfo"][0]->date_arrivee = $this->DateFr($data["voyageInfo"][0]->date_arrivee);
+
         $data["prix"] = number_format($info[0]->prix, 2, '.', '');
 
 
@@ -94,7 +103,8 @@ class Cart extends CI_Controller {
 
         $this->form_validation->set_rules('login', 'login', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_database_login');
-
+        $this->load->model('images');
+        
         if ($this->form_validation->run() == FALSE) {
             $res = array(
                 'retour' => 'error',
@@ -105,16 +115,41 @@ class Cart extends CI_Controller {
             $mdp = $this->input->post('mdp');
 
             $result = $this->user->login($login, $mdp);
-            if ($result != 0) {
-                $sess_array = array(
-                    'id' => $result[0]->id,
-                    'user' => $login
-                );
+
+            if ($result) {
+                $sess_array = array();
+
+                foreach ($result as $row) {
+                    $this->images->setId($row->id_image);
+                    $resultImage = $this->images->getImage();
+                    $imageLien = "";
+                    $imageNom = "";
+                    $id_image= "";
+                    if ($resultImage) {
+                        foreach ($resultImage as $image) {
+                            $imageLien = $image->lien;
+                            $imageNom = $image->nom;
+                            $id_image = $image->id;
+                        }
+                    }
+                    $sess_array = array(
+                        'id' => $row->id,
+                        'nom' => $row->nom,
+                        'prenom' => $row->prenom,
+                        'description' => $row->description,
+                        'id_image' => $id_image,
+                        'lien_image' => $imageLien,
+                        'nom_image' => $imageNom,
+                        'user' => $row->login
+                    );
+                    $this->session->set_userdata('logged_in', $sess_array);
+                }
                 $this->session->set_userdata('logged_in', $sess_array);
                 $res = array(
                     'retour' => 'connexion',
                     'message' => "L'utilisateur est connecte"
                 );
+                
             }else{
                 $res = array(
                     'retour' => 'error',
@@ -346,4 +381,17 @@ class Cart extends CI_Controller {
     function paypal(){
         $this->load->view('checkout/step/payment/paypal');
     }  
+
+    function verifConnexion(){
+        if($this->session->userdata('logged_in')){
+            $res = array(
+                'retour' => true
+            );
+        }else{
+            $res = array(
+                'retour' => false
+            );
+        }
+        echo json_encode($res);
+    }
 }
