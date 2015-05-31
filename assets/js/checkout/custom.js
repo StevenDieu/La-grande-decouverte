@@ -1,17 +1,5 @@
 jQuery(document).ready(function(){
 	//mode de commande panels	
-
-	 jQuery('h2.open_command').click(function(){
-		var parent = jQuery(this).parent().index();
-		if( parent == 0 ) {
-		jQuery('#command_right_column ul li:first-child').toggleClass("active");
-		}
-		else {
-		var num = parent+1;
-		jQuery('#command_right_column ul li:nth-child('+num+')').toggleClass("active");
-		}
-	});	
-	
 	
 	jQuery(".inside_command_panel").hide(); 
 	jQuery(".open_command").click(function(){
@@ -24,6 +12,25 @@ jQuery(document).ready(function(){
                 $('#command_right_column li.iden').addClass('active');
 			}	
 		}
+
+        if($(this).hasClass('containInfo') && $(this).hasClass('check')){
+            if($('.open_command.containInfo').hasClass('active')) return false;
+            jQuery(".open_command.first").removeClass("active");
+            jQuery(".open_command.first").next().hide();
+            jQuery(".open_command.containBilling").removeClass("active");
+            jQuery(".open_command.containBilling").next().hide();
+            jQuery(".open_command.containParticipants").removeClass("active");
+            jQuery(".open_command.containParticipants").next().hide();
+            jQuery(".open_command.containPayment").removeClass("active");
+            jQuery(".open_command.containPayment").next().hide();
+            jQuery(".open_command.containRecap").removeClass("active");
+            jQuery(".open_command.containRecap").next().hide();
+            jQuery(".open_command.containInfo").toggleClass("active").next().slideToggle("slow");
+
+            $('#command_right_column li').removeClass('active');
+            $('#command_right_column li.info').addClass('active');
+        }
+
         if($(this).hasClass('containBilling') && $(this).hasClass('check')){
             if($('.open_command.containBilling').hasClass('active')) return false;
             jQuery(".open_command.containParticipants").removeClass("active");
@@ -63,7 +70,7 @@ jQuery(document).ready(function(){
 		return false; 
 	});
 
-	jQuery(".open_command.first").toggleClass("active").next().slideToggle("slow");
+	jQuery(".open_command.containInfo").toggleClass("active").next().slideToggle("slow");
 });
 
 
@@ -173,21 +180,34 @@ jQuery(document).ready(function(){
         });
     }
 
+    function verifConnexion(){
+        $.ajax({
+            url: urlVerif , // ici l'url du controleur de la vue que tu veux faire appeller
+            async: false,
+            type: "post",
+            data: "" ,
+            success: function (result) {
+                data = jQuery.parseJSON(result);
+                if(data.retour == true){
+                    $('#isLogin').val('1');
+                }else{
+                    $('#isLogin').val('0');
+                }
+            }
+        });
+    }
+
     function isConnecter(){
         $(".inside_command_panel.ajaxLogin").html('');
         $(".inside_command_panel.ajaxLogin").css('display','none');
-        $(".open_command.first").removeClass('active');
-        $("#command_right_column li.iden").removeClass('active');
-        $("#command_right_column li.iden").addClass('check');
-        $(".open_command.first").addClass('check');
-        getBilling();
-        $("#command_right_column li.billing").addClass('active');
-        jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
-
+        $(".open_command.info").removeClass('active');
+        $("#command_right_column li.info").removeClass('active');
+        $("#command_right_column li.info").addClass('active');
+        //jQuery(".open_command.containInfo").toggleClass("active").next().slideToggle("slow");
     }
 
     function createAccountClic(){
-        jQuery(".open_command.first").toggleClass("active").next().slideToggle("slow");
+        jQuery(".open_command.first").next().slideToggle("slow");
         $('.openInscription').show();
         getInscription();
         jQuery(".open_command.containInscription").toggleClass("active").next().slideToggle("slow");

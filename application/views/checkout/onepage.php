@@ -9,6 +9,7 @@
     var urlSave = '<?php echo base_url('checkout/cart/save'); ?>';
     var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
     var urlcgv = '<?php echo base_url('checkout/cart/getCgv'); ?>';
+    var urlVerif = '<?php echo base_url('checkout/cart/verifConnexion'); ?>';
 </script>
 
 <?php 
@@ -17,21 +18,40 @@ if ($this->session->userdata('logged_in')) { ?>
 <?php } ?>
 
 <div class="content">
+    <input type="hidden" id="isLogin" name="isLogin" value="">
 	<div id="wrapper"><!--start wrapper-->        
   		<div id="main_content"><!--start main_content-->
         	<div id="page_content"><!--start page_content-->
                 <div id="admin_content"><!--start admin_content-->
                     <div id="commande_two_column"><!--start commande_two_column-->
                     	<div id="command_left_column"><!--start command_left_column-->
-                        	<div class="command_panel"><!--start command_panel-->
+
+                            <div class="command_panel openInfo"><!--start command_panel-->
+                                <h2 class="open_command containInfo">Informations d'achat</h2>
+                                <div class="inside_command_panel info">
+                                    <div class="container_info">
+                                        <p>Vous avez choisi le voyage "<?php echo $voyage[0]->titre; ?>" du <?php echo $voyageInfo[0]->date_depart; ?> au <?php echo $voyageInfo[0]->date_arrivee; ?>.</p>
+                                        <?php if($info_tunnel[0]) echo $info_tunnel[0]->value; ?>
+                                    </div>
+                                    <form action="#" class="adress_form" id="">
+                                        <div class="all_text_field">
+                                            <div class="address_fields_left bouton">
+                                                <div class="submit_all_text"><input type="submit" id="info_confirmation" value="continuer" /></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!--//end .command_panel-->
+
+                        	<div class="command_panel login"><!--start command_panel-->
                             	<h2 class="open_command first">Identification</h2>
                                 <div class="inside_command_panel ajaxLogin">
                                 	<div class="identification">
                                     	<div class="identification_left">
                                         	<h3>vous avez déjà un compte ?</h3>
                                             <form action="#">
-                                            	<p><input id="login" name="login" type="text" value="Votre Email" onClick="if(this.value=='Votre Email')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Email')" /></p>
-                                                <p><input id="password" name="password" type="password" value="Votre Mot de passe" onClick="if(this.value=='Votre Mot de passe')(this.value='')"  onBlur="if(this.value=='')(this.value='Votre Mot de passe')" /></p>
+                                            	<div><p><input class="required" id="login" name="login" type="mail" placeholder="Votre Email*" /></p></div>
+                                                <div><p><input class="required" id="password" name="password" type="password" placeholder="Votre Mot de passe*" /></p></div>
                                                 <span><a href="#">J’ai perdu mon mot de passe ?</a></span>
                                                 <div class="submit_command login"><input id="connexion" type="submit" value="connexion" /></div>
                                             </form>
@@ -51,7 +71,7 @@ if ($this->session->userdata('logged_in')) { ?>
                             </div><!--//end .command_panel-->
 
                             <div class="command_panel openInscription" style="display:none;"><!--start command_panel-->
-                                <h2 class="open_command containInscription">Inscription</h2>
+                                <h2 class="open_command containInscription"></h2>
                                 <div class="inside_command_panel inscription">
                                     <!-- contenu inscrition -->
                                 </div>
@@ -87,7 +107,8 @@ if ($this->session->userdata('logged_in')) { ?>
                         </div><!--//end #command_left_column-->
                         <div id="command_right_column"><!--start command_right_column-->
                             <ul>
-                                <li class="iden active"><a href="#">Identification</a></li>
+                                <li class="info active"><a href="#">Informations d'achat</a></li>
+                                <li class="iden"><a href="#">Identification</a></li>
                                 <li class="billing">
                                     <a href="#">Adresse de facturation</a>
                                     <div class="container_adr">
@@ -124,20 +145,28 @@ if ($this->session->userdata('logged_in')) { ?>
     var chargmeentLogin = "<img class='chargement' src='<?php echo base_url(''); ?>assets/images/checkout/ajax-loader.gif' alt='loader'>";
 
     $( document ).ready(function() {
-        $( ".openPayment h2" ).click(function() {
-            if(!$(this).parent().hasClass( "charger" )) getPayment();
-        });
-        $( ".openRecap h2" ).click(function() {
-            if(!$(this).parent().hasClass( "charger" )) getRecap();
-        });
-        $( ".openParticipants h2" ).click(function() {
-            if(!$(this).parent().hasClass( "charger" )) getParticipants();
-        });
         $( "#createAccount" ).click(function() {
+            $(".command_panel.login").addClass('showInscription');
             createAccountClic();
         });
 
         $( "#connexion" ).click(function() {
+            var mess_obli = "<span class='mess_obli'>Ce champ est obligatoire.</span>";
+            var submit = true;
+            $('.identification .identification_left span.mess_obli').remove();
+            $('.identification .identification_left p.failed').removeClass("failed");
+            $('.identification .identification_left input.required').each(function () {
+                if ($(this).val() == '') {
+                    $($(this).parent().parent()).append(mess_obli);
+                    $($(this).parent()).toggleClass('failed');
+                    submit = false;
+                }
+            });
+
+            if(!submit){
+                return false;
+            }
+
             connexionOnepage();
             $("#command_right_column li.iden").removeClass('active');
             $("#command_right_column li.iden").addClass('check');
@@ -229,6 +258,33 @@ if ($this->session->userdata('logged_in')) { ?>
             return false;
         });
 
+        $('#wrapper').on('click', '#info_confirmation', function () {
+            $(".open_command.containInfo").removeClass("active");
+            $(".open_command.containInfo").addClass('check');
+            $(".open_command.containInfo").next().hide();
+            $(".open_command.first").toggleClass("active").next().slideToggle("slow");
+            $('#command_right_column li.info').removeClass('active');
+            $('#command_right_column li.info').addClass('check');
+            $("#command_right_column li.iden").addClass('active');
+            verifConnexion();
+            if($('#isLogin').val() == '1'){
+                $(".inside_command_panel.ajaxLogin").hide();
+                $(".open_command.first").removeClass("active");
+                $(".open_command.first").addClass("check");
+                $("#command_right_column li.iden").removeClass('active');
+                $("#command_right_column li.iden").addClass('check');
+                getBilling();
+                $('#command_right_column li.billing').addClass('active');
+                jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
+            }
+            return false;
+        });
+
+        $('#wrapper').on('click', '#retourLogin', function () {
+            $('.inside_command_panel.inscription').hide();
+            $(".open_command.first").next().slideToggle("slow");
+            return false;
+        });
 
     });
 </script>
