@@ -35,7 +35,7 @@ class Model_cms extends CI_Controller {
 
             $this->cms->add($code,$label,$value,$active);
 
-            redirect('admin/cmss/liste', 'refresh');
+            redirect('admin/cmss/index', 'refresh');
         }
     }
 
@@ -85,7 +85,7 @@ class Model_cms extends CI_Controller {
 
             $this->cms->edit($id,$code,$label,$value,$active);
 
-            redirect('admin/cmss/liste', 'refresh');
+            redirect('admin/cmss/index', 'refresh');
         }
     }
 
@@ -94,7 +94,7 @@ class Model_cms extends CI_Controller {
 
         $result = $this->cms->delete($id);
 
-        redirect('admin/cmss/liste', 'refresh');
+        redirect('admin/cmss/index', 'refresh');
     }
 
 

@@ -14,6 +14,11 @@ class Cmss extends CI_Controller {
         $this->load->model('cms');
     }
 
+    public function index() {
+        $data["adminJs"] = array("cms");
+        $this->load->templateAdmin('/cms/cms');
+    }
+
     public function add() {
         $this->load->helper(array('form'));
         $this->load->templateAdmin('cms/add');
@@ -30,7 +35,7 @@ class Cmss extends CI_Controller {
 
     public function liste() {
         $data["cms"] = $this->cms->getAll();
-        $this->load->templateAdmin('cms/list', $data);
+        $this->load->view('admin/cms/list', $data);
     }
 
 }

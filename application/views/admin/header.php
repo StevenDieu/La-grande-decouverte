@@ -103,12 +103,16 @@
                                 <b class="caret"></b>
                             </a> 
                         </li>
-                        <li>
-                            <a href="<?php echo base_url('admin/cmss/add'); ?>"> 
-                                <i class="icon-file"></i>
-                                <span>CMS</span> 
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> 
+                                <i class="icon-user"></i>
+                                <span>Cms</span> 
                                 <b class="caret"></b>
-                            </a> 
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url('admin/cmss/index'); ?>">Gestion des textes CMS</a></li>
+                                <li><a href="<?php echo base_url('admin/index/dashboard'); ?>">Gestion des pages CMS</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?php echo base_url('admin/index/logout') ?>"> 
