@@ -13,20 +13,35 @@ Class Cms extends CI_Model {
         parent::_construct();
     }
 
-    function add(
-        $code,
-        $label,
-        $value,
-        $active
-        ) {
-        
-        $this->db->set('code', $code);
-        $this->db->set('label', $label);
-        $this->db->set('value', $value);
-        $this->db->set('active', $active);
-        $this->db->insert('cms');
+    private $id;
+    private $code;
+    private $label;
+    private $value;
+    private $active;
 
-        return $this->db->insert_id();
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setCode($code) {
+        $this->code = $code;
+    }
+
+    function setLabel($label) {
+        $this->label = $label;
+    }
+
+    function setValue($value) {
+        $this->value = $value;
+    }
+
+    function setActive($active) {
+        $this->active = $active;
+    }
+
+    function add(){
+        $this->db->insert('cms', $this);
+        $this->id = $this->db->insert_id();
     }
 
     function getAll() {
@@ -84,30 +99,16 @@ Class Cms extends CI_Model {
         }
     }
 
-    function delete($id) {
-        $this->db->where('id', $id);
-        $this->db->delete('cms'); 
-
+    function delete() {
+        $this->db->where('id', $this->id);
+        $this->db->delete('cms');
         return true;
     }
 
-    function edit(
-        $id,
-        $code,
-        $label,
-        $value,
-        $active
-        ) {
-        $data = array(
-               'id' => $id,
-               'code' => $code,
-               'label' => $label,
-               'value' => $value,
-               'active' => $active,
-            );
+    function editerVoyage() {
 
-        $this->db->where('id', $id);
-        $this->db->update('cms', $data);
+        $this->db->where('id', $this->id);
+        $this->db->update('cms', $this);
 
         return true;
     }

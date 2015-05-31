@@ -27,13 +27,11 @@ class Model_cms extends CI_Controller {
             $this->load->templateAdmin('cms/add');
         } else {
             //information générale
-            $code = $this->input->post('code');
-            $label = $this->input->post('label');
-            $value = $this->input->post('value');
-            $active = $this->input->post('active');
-
-
-            $this->cms->add($code,$label,$value,$active);
+            $this->cms->setCode($this->input->post('code'));
+            $this->cms->setLabel($this->input->post('label'));
+            $this->cms->setValue($this->input->post('value'));
+            $this->cms->setActive($this->input->post('active'));
+            $this->cms->add();
 
             redirect('admin/cmss/index', 'refresh');
         }
