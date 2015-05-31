@@ -1284,3 +1284,18 @@ color: #333;
 	
 }
 
+
+
+
+
+
+
+#bouton_header{
+	  float: right;
+	  margin-top: 6px;
+	  margin-right: 6px;
+}
+
+.controls.error{
+	color: #FF0000;
+}
