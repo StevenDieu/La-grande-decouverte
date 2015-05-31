@@ -8,7 +8,7 @@ class Index extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('user', '', TRUE);
+        $this->load->model('userAdmin', '', TRUE);
     }
 
     public function connexion() {
@@ -16,7 +16,7 @@ class Index extends CI_Controller {
             $this->load->helper(array('form'));
             $data["allCss"] = array("admin/main");
             $data["alljs"] = array("admin/main");
-            $this->load->templateAdmin('/connexion', $data);
+            $this->load->view('admin/connexion', $data);
         } else {
             redirect('admin/index/dashboard', 'refresh');
         }
@@ -24,7 +24,7 @@ class Index extends CI_Controller {
 
     function login() {
         $this->load->library('form_validation');
-        
+
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 
@@ -36,9 +36,10 @@ class Index extends CI_Controller {
     }
 
     function check_database($password) {
-        $username = $this->input->post('username');
-
-        $result = $this->user->loginAdmin($username, $password);
+        $login = $this->input->post('username');
+        $this->userAdmin->setLogin($login);
+        $this->userAdmin->setPassword($password);
+        $result = $this->userAdmin->loginAdmin();
 
         if ($result) {
             $sess_array = array();

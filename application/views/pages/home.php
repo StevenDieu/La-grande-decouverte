@@ -12,19 +12,19 @@
             </div> 
         </div>
     </div>
+
     <div class="callbacks_container slider_principal">
-        <ul class="rslides" id="slider_top">
-            <?php foreach ($voyages as $voyage) { ?>
-                <li>
-                    <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="">
-                </li>
-            <?php } ?>
-        </ul>
-        <!--        <div class="caption">
-                    <h1>test</h1>
-                    <h2>test test test test test test test test</h2>
-                </div>-->
+        <?php if ($voyages) { ?>
+            <ul class="rslides" id="slider_top">
+                <?php foreach ($voyages as $voyage) { ?>
+                    <li>
+                        <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="">
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } ?>
     </div>
+
     <div class="displayMapSize">
         <div class="map">
             <div id="map-continents">

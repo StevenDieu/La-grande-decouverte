@@ -8,12 +8,12 @@
  */
 Class Article extends CI_Model {
 
-    public $id;
-    public $titre;
-    public $contenu;
-    public $id_carnetvoyage;
-    public $id_utilisateur;
-    public $visible;
+    private $id;
+    private $titre;
+    private $contenu;
+    private $id_carnetvoyage;
+    private $id_utilisateur;
+    private $visible;
 
     function __construct() {
         parent::__construct();
@@ -21,7 +21,7 @@ Class Article extends CI_Model {
 
     function addArticle() {
         $this->db->insert('fichevoyage', $this);
-        return $this->db->insert_id();
+        $this->id = $this->db->insert_id();
     }
 
     function verifCompteArticle() {
@@ -132,6 +132,35 @@ Class Article extends CI_Model {
         $this->db->delete('fichevoyage');
         return true;
     }
+
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function getTitre() {
+        return $this->titre;
+    }
+
+    function getContenu() {
+        return $this->contenu;
+    }
+
+    function getId_carnetvoyage() {
+        return $this->id_carnetvoyage;
+    }
+
+    function getId_utilisateur() {
+        return $this->id_utilisateur;
+    }
+
+    function getVisible() {
+        return $this->visible;
+    }
+
 
 }
 

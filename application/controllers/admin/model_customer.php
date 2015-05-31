@@ -10,7 +10,7 @@ class Model_customer extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('user');
+        $this->load->model('userAdmin');
         $this->load->library('form_validation');
     }
 
@@ -35,25 +35,24 @@ class Model_customer extends CI_Controller {
             $image_3 = $_FILES['image_3']["name"];
 
             if ($image_1 != "" || $image_2 != "" || $image_3 != "") {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/actualite/",
-                    'gif|jpg|png','2048000','3000','2048'));
+                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/actualite/", 'gif|jpg|png', '2048000', '3000', '2048'));
 
-                $image_1 = $this->uploadImage($image_1,'image_1');
-                $image_2 = $this->uploadImage($image_2,'image_2');
-                $image_3 = $this->uploadImage($image_3,'image_3');
+                $image_1 = $this->uploadImage($image_1, 'image_1');
+                $image_2 = $this->uploadImage($image_2, 'image_2');
+                $image_3 = $this->uploadImage($image_3, 'image_3');
             }
             $id = $this->input->post('id');
 
-            $date = explode(' ',date("Y-m-d H:i:s"));
-            $result = $this->actualite->editActualite($id,$titre,$description,$date[0],$date[1],$image_1,$image_2,$image_3);
+            $date = explode(' ', date("Y-m-d H:i:s"));
+            $this->actualite->editActualite($id, $titre, $description, $date[0], $date[1], $image_1, $image_2, $image_3);
 
             redirect('admin/actualites/liste', 'refresh');
         }
     }
 
     public function bannir() {
-        $id = $this->input->get('id');
-        $result = $this->user->bannir($id);
+        $this->userAdmin->setId($this->input->get('id'));
+        $this->userAdmin->bannir();
 
         redirect('admin/customer/liste', 'refresh');
     }

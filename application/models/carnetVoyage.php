@@ -8,10 +8,10 @@
  */
 Class CarnetVoyage extends CI_Model {
 
-    public $id;
-    public $titre;
-    public $id_voyage;
-    public $id_utilisateur;
+    private $id;
+    private $titre;
+    private $id_voyage;
+    private $id_utilisateur;
     private $prive;
 
     function __construct() {
@@ -102,10 +102,11 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getCarnetVoyagesHome() {
-        $this->db->select('image_slider_1,image_slider_2,image_slider_3,cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->select('i_s.lien as isLien, i_s.nom as isNom, cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
-        $this->db->order_by("v.id", "desc");
+        $this->db->join('image_slider AS i_s', 'i_s.id_voyage = v.id');
+        $this->db->order_by("cv.id", "desc");
         $this->db->where('prive', '0');
         $this->db->limit(3);
         $query = $this->db->get();
@@ -118,7 +119,7 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getVoyageProduit() {
-        $this->db->select('image_slider_1,image_slider_2,image_slider_3,cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->select('cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
         $this->db->order_by("v.id", "desc");

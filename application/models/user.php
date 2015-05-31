@@ -21,28 +21,27 @@ Class User extends CI_Model {
         parent::__construct();
     }
 
-    function login($username, $password) {
-        $this->db->select('*');
-        $this->db->from('utilisateur');
-        $this->db->where('login', $username);
-        $this->db->where('banni', '0');
-        $this->db->where('password', MD5($password));
-        $this->db->limit(1);
+    function ajouterUser() {
+        $this->db->set('nom', $this->nom);
+        $this->db->set('prenom', $this->prenom);
+        $this->db->set('login', $this->login);
+        $this->db->set('password', MD5($this->password));
+        $this->db->set('mail', $this->mail);
+        $this->db->set('ip', $_SERVER["REMOTE_ADDR"]);
+        $this->db->set('banni', "0");
+        $this->db->set('security', "2");
+        $this->db->set('token', "");
+        $this->db->insert('utilisateur');
 
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-            return $query->result();
-        } else {
-            return false;
-        }
+        return $this->db->insert_id();
     }
 
-    function loginAdmin($login, $password) {
-        $this->db->select('id, login, password');
-        $this->db->from('user_admin');
-        $this->db->where('login', $login);
-        $this->db->where('password', MD5($password));
+    function login() {
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->where('login', $this->login);
+        $this->db->where('banni', '0');
+        $this->db->where('password', MD5($this->password));
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -68,102 +67,16 @@ Class User extends CI_Model {
         }
     }
 
-    function verifPassAdmin() {
-        $this->db->select('id, login, password');
-        $this->db->from('user_admin');
-        $this->db->where('id', $this->id);
-        $this->db->where('password', MD5($this->password));
-        $this->db->limit(1);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-    function verifPassSuperAdmin($password) {
-        $this->db->select('id, login, password');
-        $this->db->from('user_admin');
-        $this->db->where('privilege', '0');
-        $this->db->where('password', MD5($password));
-        $this->db->limit(1);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-    function check_user($username) {
+    function check_user() {
         $this->db->select('id');
         $this->db->from('utilisateur');
-        $this->db->where('login', $username);
+        $this->db->where('login', $this->login);
         $this->db->limit(1);
 
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
             return true;
-        } else {
-            return false;
-        }
-    }
-
-    function check_user_admin($username) {
-        $this->db->select('id');
-        $this->db->from('user_admin');
-        $this->db->where('login', $username);
-        $this->db->limit(1);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function ajouterUser($nom, $prenom, $user, $mdp, $mail) {
-        $this->db->set('nom', $nom);
-        $this->db->set('prenom', $prenom);
-        $this->db->set('login', $user);
-        $this->db->set('password', MD5($mdp));
-        $this->db->set('mail', $mail);
-        $this->db->set('ip', $_SERVER["REMOTE_ADDR"]);
-        $this->db->set('banni', "0");
-        $this->db->set('security', "2");
-        $this->db->set('token', "");
-        $this->db->insert('utilisateur');
-
-        return $this->db->insert_id();
-    }
-
-    function ajouterUserAdmin($login, $password, $privilege) {
-        $this->db->set('login', $login);
-        $this->db->set('password', MD5($password));
-        $this->db->set('privilege', $privilege);
-        $this->db->set('ip', $_SERVER["REMOTE_ADDR"]);
-        $this->db->insert('user_admin');
-
-        return $this->db->insert_id();
-    }
-
-    function getUserAdmins() {
-        $this->db->select('*');
-        $this->db->from('user_admin');
-        $this->db->where('privilege', '1');
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->result();
         } else {
             return false;
         }
@@ -182,25 +95,10 @@ Class User extends CI_Model {
         }
     }
 
-    function getUserAdmin($id) {
-        $this->db->select('*');
-        $this->db->from('user_admin');
-        $this->db->where('privilege', '1');
-        $this->db->where('id', $id);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-    function getUser($id) {
+    function getUser() {
         $this->db->select('*');
         $this->db->from('utilisateur');
-        $this->db->where('id', $id);
+        $this->db->where('id', $this->id);
 
         $query = $this->db->get();
 
@@ -209,39 +107,6 @@ Class User extends CI_Model {
         } else {
             return false;
         }
-    }
-
-    function deleteAdministrateur($id) {
-        $data = array(
-            'id' => $id,
-        );
-
-        $this->db->where('id', $id);
-        $this->db->delete('user_admin');
-
-        return true;
-    }
-
-    function editAdminUser($id, $login) {
-        $data = array(
-            'login' => $login,
-        );
-
-        $this->db->where('id', $id);
-        $this->db->update('user_admin', $data);
-
-        return true;
-    }
-
-    function editAdminPassword($id, $password) {
-        $data = array(
-            'password' => MD5($password),
-        );
-
-        $this->db->where('id', $id);
-        $this->db->update('user_admin', $data);
-
-        return true;
     }
 
     function setDescription() {
@@ -263,9 +128,11 @@ Class User extends CI_Model {
             'password' => MD5($this->password),
         );
         $this->db->where('id', $this->id);
-        $this->db->update('utilisateur', $data);
-
-        return true;
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function setMail() {
@@ -273,9 +140,11 @@ Class User extends CI_Model {
             'mail' => $this->mail,
         );
         $this->db->where('id', $this->id);
-        $this->db->update('utilisateur', $data);
-
-        return true;
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function setImageProfil() {
@@ -290,15 +159,45 @@ Class User extends CI_Model {
         }
     }
 
-    function bannir($id) {
+    function bannir() {
         $data = array(
-            'banni' => '1',
+            'banni' => $this->banni,
         );
 
-        $this->db->where('id', $id);
-        $this->db->update('utilisateur', $data);
+        $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        return true;
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setLogin($login) {
+        $this->login = $login;
+    }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+
+    function setId_image($id_image) {
+        $this->id_image = $id_image;
     }
 
 }

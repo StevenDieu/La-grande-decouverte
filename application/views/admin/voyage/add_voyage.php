@@ -1,123 +1,169 @@
 <div class="content admin-connexion">
-   <h1>ajouter un voyage</h1>
-   <?php echo validation_errors(); ?>
-   <?php if(isset($error)) echo $error;?>
-   <?php echo form_open_multipart('admin/model_voyage/save'); ?>
+    <fieldset>
+        <?php echo validation_errors(); ?>
+        <?php if (isset($error)) echo $error; ?>
+        <?php echo form_open_multipart('admin/model_voyage/save'); ?>
 
-      <div class="info_generale">
-         <h2>information générale</h2>
-         <label for="titre">titre:</label>
-         <input type="text" id="titre" name="titre"/>
-         <br/>
+        <div class="info_generale">
+            <legend>Information générale</legend>
+            <div class="control-group">											
+                <label class="control-label" for="titre">Titre : </label>
+                <div class="controls">
+                    <input type="text" name="titre" class="span6" id="titre"  placeholder="Titre">
+                </div>			
+            </div>
 
-         <label for="phrase_accroche">phrase_accroche:</label>
-         <input type="text" id="phrase_accroche" name="phrase_accroche"/>
-         <br/>
+            <div class="control-group">											
+                <label class="control-label" for="phrase_accroche">Phrase d'accroche : </label>
+                <div class="controls">
+                    <input type="text" name="phrase_accroche" class="span6" id="phrase_accroche"  placeholder="Phrase d'accroche">
+                </div>			
+            </div>
 
-         <label for="duree">duree:</label>
-         <input type="text" id="duree" name="duree"/>
-         <br/>
+            <div class="control-group">											
+                <label class="control-label" for="duree">Duree : </label>
+                <div class="controls">
+                    <input type="text" name="duree" class="span6" id="duree"  placeholder="Duree">
+                </div>			
+            </div>
 
-         <label for="description_first_bloc">description_first_bloc:</label>
-         <TEXTAREA NAME="description_first_bloc" id="description_first_bloc"> </TEXTAREA>
-         <br/>
-
-         <label for="description_second_bloc">description_second_bloc:</label>
-         <TEXTAREA NAME="description_second_bloc" id="description_second_bloc"> </TEXTAREA>
-         <br/>
-
-         <label for="description_third_bloc">description_third_bloc:</label>
-         <TEXTAREA NAME="description_third_bloc" id="description_third_bloc"> </TEXTAREA>
-         <br/>
+            <div class="control-group">											
+                <label class="control-label" for="description_first_bloc">Description premier bloc : </label>
+                <div class="controls">
+                    <TEXTAREA name="description_first_bloc" id="description_first_bloc" rows="4" cols="50"  placeholder="Description premier bloc"> </TEXTAREA>
+                </div>			
+            </div>
+            
+            <div class="control-group">											
+                <label class="control-label" for="description_second_bloc">Description deuxième bloc : </label>
+                <div class="controls">
+                    <TEXTAREA name="description_second_bloc" id="description_second_bloc" rows="4" cols="50"  placeholder="Description deuxième bloc"> </TEXTAREA>
+                </div>			
+            </div>
+            
+            <div class="control-group">											
+                <label class="control-label" for="description_third_bloc">Description troisième bloc : </label>
+                <div class="controls">
+                    <TEXTAREA name="description_third_bloc" id="description_third_bloc" rows="4" cols="50"  placeholder="Description troisième bloc"> </TEXTAREA>
+                </div>			
+            </div>
       </div>
 
 
       <div class="info_pays">
-         <h2>information pays</h2>
+         <legend>Information pays</legend>
+         <div class="control-group">											
+             <label class="control-label" for="capital">Capital : </label>
+             <div class="controls">
+                 <input type="text" name="capital" class="span6" id="capital"  placeholder="Capital">
+             </div>			
+         </div>
 
-         <label for="capital">capital:</label>
-         <input type="text" id="capital" name="capital"/>
-         <br/>
+         <div class="control-group">											
+             <label class="control-label" for="continent">Continent : </label>
+             <div class="controls">
+                    <?php if ($continents) { ?>
+                                                                 <select name="continent">
+                            <?php foreach ($continents as $continent) { ?>
+                                                                                                                     <option value="<?php echo $continent->id; ?>"><?php echo $continent->name; ?></option> 
+                            <?php } ?>    
+                                                                 </select>
+                    <?php } else { ?>
+                                                                 <a href="<?php echo asset_url('/admin/continent/'); ?>">
+                                                                     Gestion des continents
+                                                                 </a>
+                    <?php } ?>  
+             </div>			
+         </div>
+         
+         <div class="control-group">											
+             <label class="control-label" for="meteo_temperature">Temperature moyenne : </label>
+             <div class="controls">
+                 <input type="text" name="meteo_temperature" class="span6" id="meteo_temperature"  placeholder="Temperature moyenne">
+             </div>			
+         </div>
+         
+         <div class="control-group">											
+             <label class="control-label" for="meteo_image">Image meteo : </label>
+             <div class="controls">
+                 <input type='file' id="meteo_image" name='meteo_image'/>
+             </div>			
+         </div>
+         
+         <div class="control-group">											
+             <label class="control-label" for="villes_principales">Villes principales : </label>
+             <div class="controls">
+                 <input type="text" name="villes_principales" class="span6" id="villes_principales"  placeholder="Villes principales">
+             </div>			
+         </div>
 
-         <?php if($continents){ ?>
-         <label for="continent">continent:</label>
-         <select name="continent">
-            <?php 
-            foreach ($continents as $continent) { ?>
-               <option value="<?php echo $continent->id; ?>"><?php echo $continent->name; ?></option> 
-            <?php }
-            ?>
-         </select>
-         <br/>
-         <?php } ?>
+         <div class="control-group">											
+             <label class="control-label" for="religion">Religion : </label>
+             <div class="controls">
+                 <input type="text" name="religion" class="span6" id="religion"  placeholder="Religion">
+             </div>			
+         </div>
+         
+         <div class="control-group">											
+             <label class="control-label" for="nombre_habitant">Nombre d'habitants : </label>
+             <div class="controls">
+                 <input type="text" name="nombre_habitant" class="span6" id="nombre_habitant"  placeholder="Nombre d'habitants">
+             </div>			
+         </div>
+         
+         <div class="control-group">											
+             <label class="control-label" for="monnaie">Monnaie : </label>
+             <div class="controls">
+                 <input type="text" name="monnaie" class="span6" id="Monnaie"  placeholder="Monnaie">
+             </div>			
+         </div>
+         
+         <div class="control-group">											
+             <label class="control-label" for="fete">Fête natiannal : </label>
+             <div class="controls">
+                 <input type="text" name="fete" class="span6" id="fete"  placeholder="Fête natiannal">
+             </div>			
+         </div>
 
-         <label for="meteo_temperature">meteo_temperature:</label>
-         <input type="text" id="meteo_temperature" name="meteo_temperature"/>
-         <br/>
-
-         <label for="meteo_image">meteo_image:</label>
-         <input type='file' id="meteo_image" name='meteo_image'/>
-         <br/>
-
-         <label for="villes_principales">villes_principales:</label>
-         <input type="text" id="villes_principales" name="villes_principales"/>
-         <br/>
-
-         <label for="religion">religion:</label>
-         <input type="text" id="religion" name="religion"/>
-         <br/>
-
-         <label for="nombre_habitant">nombre_habitant:</label>
-         <input type="text" id="nombre_habitant" name="nombre_habitant"/>
-         <br/>
-
-         <label for="monnaie">monnaie:</label>
-         <input type="text" id="monnaie" name="monnaie"/>
-         <br/>
-
-         <label for="fete">fete:</label>
-         <input type="text" id="fete" name="fete"/>
-         <br/>
-
-         <label for="drapeau">drapeau:</label>
+         <div class="control-group">											
+             <label class="control-label" for="drapeau">Image drapeau : </label>
+             <div class="controls">
          <input type='file' id="drapeau" name='drapeau'/>
-         <br/>
+                 <p class="help-block">Taille recommandé pour l'image : <b>60</b> x <b>40</b> px</p>
+             </div>			
+         </div>
 
-         <label for="langue_officielle">langue_officielle:</label>
-         <input type="text" id="langue_officielle" name="langue_officielle"/>
-         <br/><span>taille recommandé 60x40px</span>
-         <br/>
+         <div class="control-group">											
+             <label class="control-label" for="langue_officielle">Langue officielle : </label>
+             <div class="controls">
+                 <input type="text" name="langue_officielle" class="span6" id="langue_officielle"  placeholder="Langue officielle">
+             </div>			
+         </div>
+         
       </div>
 
 
-      <div class="carte">
-         <h2>information carte</h2>
-         <label for="lattitude">lattitude:</label>
-         <input type="text" id="lattitude" name="lattitude"/>
-         <br/>
-
-         <label for="longitude">longitude:</label>
-         <input type="text" id="longitude" name="longitude"/>
-         <br/>
-      </div>
+        <div class="carte">
+            <legend>Information carte</legend>
+            <div class="control-group">											
+                <label class="control-label" for="lattitude">Lattitude : </label>
+                <div class="controls">
+                    <input type="text" name="lattitude" class="span6" id="lattitude"  placeholder="Lattitude">
+                </div>			
+            </div>
+            <div class="control-group">											
+                <label class="control-label" for="longitude">Longitude : </label>
+                <div class="controls">
+                    <input type="text" name="longitude" class="span6" id="longitude"  placeholder="Longitude">
+                </div>			
+            </div>
+        </div>
 
       <div class="image">
-         <h2>Image</h2>
-         <label for="image_slider_1">image_slider_1:</label>
-         <input type='file' id="image_slider_1" name='image_slider_1'/><br/>
+         <legend>Image</legend>
+         <label for="image_slider">Image slider:</label>
+         <input type='file' id="image_slider_1" name='image_slider_1' multiple=""/><br/>
          <span>taille recommandé 2000x1000px</span>
-         <br/>
-
-         <label for="image_slider_2">image_slider_2:</label>
-         <input type='file' id="image_slider_2" name='image_slider_2'/><br/>
-         <span>taille recommandé 2000x1000px</span>
-         <br/>
-
-         <label for="image_slider_3">image_slider_3:</label>
-         <input type='file' id="image_slider_3" name='image_slider_3'/><br/>
-         <span>taille recommandé 2000x1000px</span>
-         <br/>
-         <br/>
          <br/>
 
          <label for="picto_1">picto_1:</label>
@@ -213,7 +259,7 @@
       </div>
 
       <div class="info_de_vente">
-         <h2>information vente</h2>
+         <legend>information vente</legend>
 
          <div class="ligne">
             <h3>Une déclinaison</h3> 
@@ -266,7 +312,7 @@
       <a class='add_ligne' href="javascript:;" onclick="addLigne()">ajouter</a>
 
       <div class="info_deroulement">
-         <h2>information déroulement voyage</h2>
+         <legend>information déroulement voyage</legend>
 
          <div class="ligne">
             <h3>Une déclinaison</h3> 
@@ -296,40 +342,17 @@
       <br/><br/>
       <input type="submit" value="enregistrer"/>
 
-   </form>
+        <?php echo form_close(); ?> 
+    </fieldset>
 </div>
 
 
-<script type="text/javascript">
-   var confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
-
-   function addLigne(){
-      $('.info_de_vente').append("<div class='ligne'><h3>Une déclinaison</h3><a href='javascript:;' class='delete_ligne'>X</a><label for='date_depart'>date_depart:</label><input type='date' id='date_depart' name='date_depart[]'/><br/><label for='date_arrivee'>date_arrivee:</label><input type='date' id='date_arrivee' name='date_arrivee[]'/><br/><label for='depart'>depart:</label><input type='text' id='depart' name='depart[]'/><br/><label for='arrivee'>arrivee:</label><input type='text' id='arrivee' name='arrivee[]'/><br/><label for='formalite'>formalite:</label><TEXTAREA NAME='formalite[]' id='formalite'> </TEXTAREA><br/><label for='asavoir'>asavoir:</label><TEXTAREA NAME='asavoir[]' id='asavoir'> </TEXTAREA><br/><label for='asavoir'>asavoir:</label><TEXTAREA NAME='asavoir[]' id='asavoir'> </TEXTAREA><br/><label for='place_dispo'>place_dispo:</label><input type='text' id='place_dispo' name='place_dispo[]'/><br/><label for='prix'>prix:</label><input type='text' id='prix' name='prix[]'/><br/><label for='special_price'>special_price:</label><input type='text' id='special_price' name='special_price[]'/><br/><label for='tva'>tva:</label><input type='text' id='tva' name='tva[]'/><br/></div>");
-   }
-
-   function addLigneDeroulement(){
-      $('.info_deroulement').append("<div class='ligne'><h3>Une déclinaison</h3><a href='javascript:;' class='delete_ligne_deroulement'>X</a><label for='titre'>titre:</label><input type='text' id='titre' name='titrederoulement[]'/><br/><label for='texte'>texte:</label><TEXTAREA NAME='texte[]' id='texte'> </TEXTAREA><br/><label for='jour'>jour:</label><input type='text' id='jour' name='jour[]'/><br/></div>");
-   }
-
-   $( document ).ready(function() {
-      $('.info_de_vente').on('click', '.delete_ligne', function () {
-         if($('div.ligne').length == 1){
-            alert("vous devez garder au moins une ligne");
-            return false;
-         }
-         if(confirm(confirmation)){
-            $(this).parent().remove();
-         }
-      });
-
-      $('.info_deroulement').on('click', '.delete_ligne_deroulement', function () {
-         if($('.info_deroulement div.ligne').length == 1){
-            alert("vous devez garder au moins une ligne");
-            return false;
-         }
-         if(confirm(confirmation)){
-            $(this).parent().remove();
-         }
-      });
-   });
-</script>
+<?php
+if (isset($adminJs)) {
+    foreach ($adminJs as $js) {
+        ?>
+                                                                                                                                                                                                                                                                                                <script src="<?php echo asset_url(''); ?>js/admin/onglet/<?php echo $js; ?>.js" type="text/javascript"></script>
+        <?php
+    }
+}
+?>

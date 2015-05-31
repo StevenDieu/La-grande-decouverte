@@ -8,29 +8,26 @@
  */
 Class Actualite extends CI_Model {
 
+    private $id;
+    private $titre;
+    private $desciption;
+    private $date;
+
     function _construct() {
         // Call the Model constructor
         parent::_construct();
     }
 
-    function ajouterActualite($titre,$description,$date,$time,$image_1,$image_2,$image_3) {
-        $this->db->set('titre', $titre);
-        $this->db->set('description', $description);
-        $this->db->set('date', $date);
-        $this->db->set('time', $time);
-        $this->db->set('image_1', $image_1);
-        $this->db->set('image_2', $image_2);
-        $this->db->set('image_3', $image_3);
+    function ajouterActualite() {
+        $this->db->insert('actualite',$this);
 
-        $this->db->insert('actualite');
-        
         return $this->db->insert_id();
     }
 
-    function getActualite($id) {
+    function getActualite() {
         $this->db->select('*');
         $this->db->from('actualite');
-        $this->db->where('id', $id);
+        $this->db->where('id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -55,17 +52,17 @@ Class Actualite extends CI_Model {
         }
     }
 
-    function getCount(){
+    function getCount() {
         $this->db->select('*');
         $this->db->from('actualite');
-        $query = $this->db->get(); 
+        $query = $this->db->get();
         return $query->num_rows();
     }
 
     function getActualitesHome() {
         $this->db->select('*');
         $this->db->from('actualite');
-        $this->db->order_by("id", "desc"); 
+        $this->db->order_by("id", "desc");
         $this->db->limit(3);
 
         $query = $this->db->get();
@@ -77,36 +74,19 @@ Class Actualite extends CI_Model {
         }
     }
 
-    function editActualite($id,$titre,$description,$date,$time,$image_1,$image_2,$image_3) {
-        $data = array(
-               'titre' => $titre,
-               'description' => $description,
-               'date' => $date,
-               'time' => $time,
-            );
-
-        if($image_1 != ''){
-            $data['image_1'] = $image_1;
-        }
-        if($image_2 != ''){
-            $data['image_2'] = $image_2;
-        }
-        if($image_3 != ''){
-            $data['image_3'] = $image_3;
-        }
-
-        $this->db->where('id', $id);
-        $this->db->update('actualite', $data);
+    function editActualite() {
+        $this->db->where('id', $this->id);
+        $this->db->update('actualite', $this);
 
         return true;
     }
 
-    function deleteActualite($id) {
-        $this->db->where('id', $id);
-        $this->db->delete('actualite'); 
-
+    function deleteActualite() {
+        $this->db->where('id', $this->id);
+        $this->db->delete('actualite');
         return true;
     }
+
 }
 
 ?>

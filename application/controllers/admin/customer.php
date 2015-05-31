@@ -23,7 +23,8 @@ class Customer extends CI_Controller {
         if (!$this->input->get('id')) {
             redirect('admin/customer/liste', 'refresh');
         }
-        $data["customer"] = $this->user->getUser($this->input->get('id'));
+        $this->user->setId($this->input->get('id'));
+        $data["customer"] = $this->user->getUser();
         $this->load->helper(array('form'));
         $this->load->templateAdmin('customer/edit_customer', $data);
     }

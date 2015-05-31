@@ -10,13 +10,12 @@ class Model_administrateur extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('user');
+        $this->load->model('userAdmin');
     }
 
     public function save() {
         $this->load->library('form_validation');
 
-        //information générale
         $this->form_validation->set_rules('login', 'login', 'trim|xss_clean|required');
         $this->form_validation->set_rules('password', 'password', 'trim|xss_clean|required');
         $this->form_validation->set_rules('cpassword', 'cpassword', 'trim|xss_clean|required');
@@ -30,10 +29,13 @@ class Model_administrateur extends CI_Controller {
             $password = $this->input->post('password');
             $cpassword = $this->input->post('cpassword');
 
-            $this->check_mdp($password,$cpassword);
+            $this->check_mdp($password, $cpassword);
             $this->check_unique_login_admin($login);
 
-            $result = $this->user->ajouterUserAdmin($login, $password, '1');
+            $this->userAdmin->setLogin($login);
+            $this->userAdmin->setPassword($password);
+            $this->userAdmin->setPrivilege('1');
+            $this->userAdmin->ajouterUserAdmin();
 
             redirect('admin/administrateur/liste', 'refresh');
         }
@@ -50,8 +52,8 @@ class Model_administrateur extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->library('session');
-            $this->session->set_flashdata('login_administrateur','Le champ login ne peux pas être vide.');
-            redirect('admin/administrateur/edit?id='.$this->input->post('id'), 'refresh');
+            $this->session->set_flashdata('login_administrateur', 'Le champ login ne peux pas être vide.');
+            redirect('admin/administrateur/edit?id=' . $this->input->post('id'), 'refresh');
         } else {
             //information générale
             $id = $this->input->post('id');
@@ -60,14 +62,18 @@ class Model_administrateur extends CI_Controller {
             $cpassword = $this->input->post('cpassword');
             $actually_password = $this->input->post('actually_password');
 
-            $this->check_actually_password_admin($id,$actually_password);
+            $this->check_actually_password_admin($id, $actually_password);
 
-            if($password != ''){
-                $this->check_mdp($password,$cpassword);
-                $result = $this->user->editAdminPassword($id, $password);
+            $this->userAdmin->setId($id);
+            $this->userAdmin->setLogin($login);
+            $this->userAdmin->setPassword($password);
 
+            if ($password != '') {
+                $this->check_mdp($password, $cpassword);
+                $this->userAdmin->editAdminPassword();
             }
-            $result = $this->user->editAdminUser($id, $login);
+
+            $this->userAdmin->editAdminUser();
             redirect('admin/administrateur/liste', 'refresh');
         }
     }
@@ -81,59 +87,61 @@ class Model_administrateur extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->library('session');
-            $this->session->set_flashdata('login_administrateur','Le mot de passe du super admin ne peut pas être vide.');
+            $this->session->set_flashdata('login_administrateur', 'Le mot de passe du super admin ne peut pas être vide.');
             redirect('admin/administrateur/liste', 'refresh');
         } else {
-            $id = $this->input->post('id');
-            $password = $this->input->post('password');
 
-            if($this->user->verifPassSuperAdmin($password)){
-                $result = $this->user->getUserAdmin($id);
-                $this->session->set_flashdata('login_administrateur','L\'utilisateur '.$result[0]->login.' a été supprimé.');
-                $this->user->deleteAdministrateur($id); 
-            }else{
-                $this->session->set_flashdata('login_administrateur','Le mot de passe du super admin n\'est pas correct.');
+            $this->userAdmin->setId($this->input->post('id'));
+            $this->userAdmin->setPassword($this->input->post('password'));
+
+            if ($this->userAdmin->verifPassSuperAdmin()) {
+                $result = $this->userAdmin->getUserAdmin();
+                $this->session->set_flashdata('login_administrateur', 'L\'utilisateur ' . $result[0]->login . ' a été supprimé.');
+                $this->userAdmin->deleteAdministrateur();
+            } else {
+                $this->session->set_flashdata('login_administrateur', 'Le mot de passe du super admin n\'est pas correct.');
             }
             redirect('admin/administrateur/liste', 'refresh');
         }
 
 
-        $result = $this->user->deleteAdministrateur($id);
+        $result = $this->userAdmin->deleteAdministrateur();
 
         redirect('admin/administrateur/liste', 'refresh');
     }
 
-    function check_mdp($password,$cpassword) {
+    function check_mdp($password, $cpassword) {
         if ($password == $cpassword) {
             return true;
         }
         $this->load->library('session');
-        $this->session->set_flashdata('mdp_administrateur','Les mots de passe ne sont pas identiques.');
+        $this->session->set_flashdata('mdp_administrateur', 'Les mots de passe ne sont pas identiques.');
         redirect('admin/administrateur/add', 'refresh');
 
         return false;
     }
 
     function check_unique_login_admin($login) {
-        if (!$this->user->check_user_admin($login)) {
+        $this->userAdmin->setLogin($login);
+        if (!$this->userAdmin->check_user_admin()) {
             return true;
         }
         $this->load->library('session');
-        $this->session->set_flashdata('login_administrateur','Le login est déjà utilisé.');
+        $this->session->set_flashdata('login_administrateur', 'Le login est déjà utilisé.');
         redirect('admin/administrateur/add', 'refresh');
 
         return false;
     }
 
-    function check_actually_password_admin($id,$password) {
-        $this->user->login = $id;
-        $this->user->password = $password;
-        if ($this->user->verifPassAdmin()) {
+    function check_actually_password_admin($id, $password) {
+        $this->userAdmin->login = $id;
+        $this->userAdmin->password = $password;
+        if ($this->userAdmin->verifPassAdmin()) {
             return true;
         }
         $this->load->library('session');
-        $this->session->set_flashdata('actually_password_administrateur','Le mot de passe actuel n\'est pas correct.');
-        redirect('admin/administrateur/edit?id='.$id, 'refresh');
+        $this->session->set_flashdata('actually_password_administrateur', 'Le mot de passe actuel n\'est pas correct.');
+        redirect('admin/administrateur/edit?id=' . $id, 'refresh');
 
         return false;
     }

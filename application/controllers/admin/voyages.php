@@ -12,12 +12,19 @@ class Voyages extends CI_Controller {
             redirect('admin/index/connexion', 'refresh');
         }
         $this->load->model('voyage');
+        $this->load->model('continents');
+    }
+
+    public function index() {
+        $data["adminJs"] = array("voyage/voyage");
+        $this->load->templateAdmin('/voyage/voyage',$data);
     }
 
     public function add() {
-        $data["continents"] = $this->voyage->getContinents();
+        $data["continents"] = $this->continents->getContinents();
+        $data["adminJs"] = array("voyage/add_voyage");
         $this->load->helper(array('form'));
-        $this->load->templateAdmin('/voyage/add_voyage', $data);
+        $this->load->view('/admin/voyage/add_voyage', $data);
     }
 
     public function edit() {
@@ -28,13 +35,13 @@ class Voyages extends CI_Controller {
         $data["voyageVente"] = $this->voyage->getInfoVoyage($this->input->get('id'));
         $data["continents"] = $this->voyage->getContinents();
         $this->load->helper(array('form'));
-        $this->load->templateAdmin('/voyage/edit_voyage', $data);
+        $this->load->view('/admin/voyage/edit_voyage', $data);
     }
 
     public function liste() {
         $this->load->helper(array('form'));
         $data["voyages"] = $this->voyage->getVoyages();
-        $this->load->templateAdmin('/voyage/list_voyage', $data);
+        $this->load->view('/admin/voyage/list_voyage', $data);
     }
 
 }
