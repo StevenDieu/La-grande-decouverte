@@ -32,8 +32,4 @@
    <h3>Gestion des clients</h3>
    <a href="<?php echo base_url('admin/customer/liste'); ?>">liste des clients</a><br>
 
-   <h3>Gestion des questions faq</h3>
-    <a href="<?php echo base_url('admin/faqs/add'); ?>">ajouter une question faq</a><br>
-   <a href="<?php echo base_url('admin/faqs/liste'); ?>">liste des questions faqs</a><br>
-
 </div>
