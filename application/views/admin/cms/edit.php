@@ -9,6 +9,7 @@
                 <div class="widget-header">
                     <i class="icon-road"></i>
                     <h3>Editer texte CMS</h3>
+                    <a href="<?php echo base_url('admin/cmss/index') ?>" id="bouton_header" role="button" class="btn" data-toggle="">Retour à la liste</a>
                     <a onclick="return confirm(confirmation);" href="<?php echo base_url('admin/model_cms/delete') ?>?id=<?php echo $cms[0]->id ?>" id="bouton_header" role="button" class="btn" data-toggle="">Supprimer ce contenu</a>
                 </div>
                 <div class="widget-content">
