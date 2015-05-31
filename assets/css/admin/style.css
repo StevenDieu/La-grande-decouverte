@@ -1284,3 +1284,16 @@ color: #333;
 	
 }
 
+
+
+textarea {
+    width: 100%;
+}
+
+div#add-travel form {
+    max-width: 760px;    margin: 0 auto;
+}
+
+div#add-travel legend {
+    text-align: center;
+}

@@ -30,21 +30,21 @@
             <div class="control-group">											
                 <label class="control-label" for="description_first_bloc">Description premier bloc : </label>
                 <div class="controls">
-                    <TEXTAREA name="description_first_bloc" id="description_first_bloc" rows="4" cols="50"  placeholder="Description premier bloc"> </TEXTAREA>
+                    <TEXTAREA name="description_first_bloc" id="description_first_bloc" rows="4" cols="50"  placeholder="Description premier bloc"></TEXTAREA>
                 </div>			
             </div>
             
             <div class="control-group">											
                 <label class="control-label" for="description_second_bloc">Description deuxième bloc : </label>
                 <div class="controls">
-                    <TEXTAREA name="description_second_bloc" id="description_second_bloc" rows="4" cols="50"  placeholder="Description deuxième bloc"> </TEXTAREA>
+                    <TEXTAREA name="description_second_bloc" id="description_second_bloc" rows="4" cols="50"  placeholder="Description deuxième bloc"></TEXTAREA>
                 </div>			
             </div>
             
             <div class="control-group">											
                 <label class="control-label" for="description_third_bloc">Description troisième bloc : </label>
                 <div class="controls">
-                    <TEXTAREA name="description_third_bloc" id="description_third_bloc" rows="4" cols="50"  placeholder="Description troisième bloc"> </TEXTAREA>
+                    <TEXTAREA name="description_third_bloc" id="description_third_bloc" rows="4" cols="50"  placeholder="Description troisième bloc"></TEXTAREA>
                 </div>			
             </div>
       </div>
