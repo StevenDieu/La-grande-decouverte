@@ -39,4 +39,12 @@ class Voyages extends CI_Controller {
         $this->load->templateAdmin('/voyage/list_voyage', $data);
     }
 
+    public function uploadImage() {
+        $this->load->view('admin/voyage/upload/upload_image_voyage.php');
+    }
+
+    public function deleteImage() {
+        $this->load->view('admin/voyage/upload/delete_image_voyage.php');
+    }
+
 }

@@ -1,5 +1,48 @@
 <?php
 
+function modal($idHtml, $titre, $idContent, $idButton, $valueButton) {
+    ?>
+    <div id="<?php echo $idHtml ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel"><?php echo $titre ?></h3>
+        </div>
+        <div class="modal-body">
+            <?php
+            if ($idContent = "add_image") {
+                add_image($idHtml);
+            } else {
+                
+            }
+            ?>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <input type="button" class="btn btn-primary <?php echo $idButton; ?>" data-idhtml="<?php echo $idHtml; ?>" value="<?php echo $valueButton ?>"/>
+        </div>
+    </div>
+    <?php
+}
+
+function add_image($idHtml) {
+    ?>
+    <div class="new_image_<?php echo $idHtml; ?>">
+        <div class="control-group">											
+            <label class="control-label" for="titre_<?php echo $idHtml; ?>">Titre : </label>
+            <div class="controls">
+                <input type="text" name="titre_<?php echo $idHtml; ?>" class="span6 titre_<?php echo $idHtml; ?>" placeholder="Titre">
+            </div>			
+        </div>
+        <div class="control-group">											
+            <label class="control-label" for="Image">Image : </label>
+            <div class="controls">
+                <input type="file" class="image_<?php echo $idHtml; ?>" name="image_<?php echo $idHtml; ?>">
+            </div>			
+        </div>
+    </div>
+    <?php
+}
+
 function carnet_long($carnetVoyages, $i) {
     ?>
     <div class="article_first">
@@ -132,6 +175,13 @@ function asset_url($url = "") {
         return base_url() . 'assets/' . $url;
     }
     return base_url() . 'assets/';
+}
+
+function asset_media($url = "") {
+    if ($url !== "") {
+        return base_url() . 'media/' . $url;
+    }
+    return base_url() . 'media/';
 }
 
 function tronque($str, $nb = 800) {

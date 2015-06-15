@@ -11,7 +11,7 @@ class Continent extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('voyage');
+        $this->load->model('continents');
     }
 
     public function add() {
@@ -23,14 +23,16 @@ class Continent extends CI_Controller {
         if (!$this->input->get('id')) {
             redirect('admin/continent/liste', 'refresh');
         }
-        $data["continent"] = $this->voyage->getContinent($this->input->get('id'));
+        
+        $this->continents->setId($this->input->get('id'));
+        $data["continent"] = $this->continents->getContinent();
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/continent/edit_continent', $data);
     }
 
     public function liste() {
         $this->load->helper(array('form'));
-        $data["continents"] = $this->voyage->getContinents();
+        $data["continents"] = $this->continents->getContinents();
         $this->load->templateAdmin('/continent/list_continent', $data);
     }
 

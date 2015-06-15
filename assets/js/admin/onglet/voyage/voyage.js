@@ -1,3 +1,5 @@
+var tabImageSlider = {}
+
 function chargementAjouterVoyage() {
     $.ajax({
         type: "post",

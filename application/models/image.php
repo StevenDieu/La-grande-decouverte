@@ -11,6 +11,7 @@ Class Image extends CI_Model {
     private $id;
     private $lien;
     private $oldLien;
+    private $bd;
     private $nom;
 
     function __construct() {
@@ -20,7 +21,7 @@ Class Image extends CI_Model {
     function addImage() {
         $this->db->set('lien', $this->lien);
         $this->db->set('nom', $this->nom);
-        $this->db->insert('images');
+        $this->db->insert($this->bd);
 
         return $this->db->insert_id();
     }
@@ -32,7 +33,7 @@ Class Image extends CI_Model {
         );
         unlink($this->oldLien);
         $this->db->where('id', $this->id);
-        if ($this->db->update('images', $data) == 1) {
+        if ($this->db->update($this->bd, $data) == 1) {
             return true;
         } else {
             return false;
@@ -44,7 +45,7 @@ Class Image extends CI_Model {
             'lien' => $this->lien,
         );
         $this->db->where('id', $this->id);
-        if ($this->db->update('images', $data) == 1) {
+        if ($this->db->update($this->bd, $data) == 1) {
             return true;
         } else {
             return false;
@@ -56,7 +57,7 @@ Class Image extends CI_Model {
             'nom' => $this->nom,
         );
         $this->db->where('id', $this->id);
-        if ($this->db->update('images', $data) == 1) {
+        if ($this->db->update($this->bd, $data) == 1) {
             return true;
         } else {
             return false;
@@ -65,7 +66,7 @@ Class Image extends CI_Model {
 
     function getImage() {
         $this->db->select('*');
-        $this->db->from('images');
+        $this->db->from($this->bd);
         $this->db->where('id', $this->id);
         $this->db->limit(1);
 
@@ -78,9 +79,21 @@ Class Image extends CI_Model {
         }
     }
 
+    function getImages() {
+        $this->db->select('*');
+        $this->db->from($this->bd);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function deleteImage() {
         $this->db->where('id', $this->id);
-        $this->db->delete('images');
+        $this->db->delete($this->bd);
     }
 
     function getId() {
@@ -109,6 +122,14 @@ Class Image extends CI_Model {
 
     function setOldLien($oldLien) {
         $this->oldLien = $oldLien;
+    }
+
+    function getBd() {
+        return $this->bd;
+    }
+
+    function setBd($bd) {
+        $this->bd = $bd;
     }
 
 }

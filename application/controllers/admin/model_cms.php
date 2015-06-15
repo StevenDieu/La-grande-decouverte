@@ -26,7 +26,6 @@ class Model_cms extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateAdmin('cms/add');
         } else {
-            //information générale
             $this->cms->setCode($this->input->post('code'));
             $this->cms->setLabel($this->input->post('label'));
             $this->cms->setValue($this->input->post('value'));

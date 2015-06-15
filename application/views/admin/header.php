@@ -47,6 +47,10 @@
             }
         }
         ?> 
+        <script type="text/javascript">
+            var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
+            var urlLittleSpinneur = '<?php echo asset_url() . "images/ajax-loader.gif"; ?>';
+        </script>
 
     </head>
     <body>
@@ -67,9 +71,10 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/voyages/liste'); ?>">Voyages</a></li>
                                 <li><a href="<?php echo base_url('admin/carnet_voyages/edit'); ?>">Carnets voyages</a></li>
-                                <li><a href="<?php echo base_url('admin/continent/add'); ?>">Continents</a></li>
+                                <li><a href="<?php echo base_url('admin/continent/liste'); ?>">Continents</a></li>
+                                <li><a href="<?php echo base_url('admin/pictos/liste'); ?>">Pictos</a></li>
+                                <li><a href="<?php echo base_url('admin/voyages/liste'); ?>">Voyages</a></li>
                             </ul>
                         </li>
                         <li>
