@@ -26,12 +26,12 @@ class Model_faq extends CI_Controller {
             $this->load->templateAdmin('faq/add');
         } else {
             //information générale
-            $question = $this->input->post('question');
-            $reponse = $this->input->post('reponse');
-            $active = $this->input->post('active');
+            $this->faq->setQuestion($this->input->post('question'));
+            $this->faq->setReponse($this->input->post('reponse'));
+            $this->faq->setActive($this->input->post('active'));
 
 
-            $this->faq->add($question,$reponse,$active);
+            $this->faq->add();
 
             redirect('admin/faqs/liste', 'refresh');
         }
@@ -55,21 +55,20 @@ class Model_faq extends CI_Controller {
         } else {
 
 
-            $id = $this->input->post('id');
-            $question = $this->input->post('question');
-            $reponse = $this->input->post('reponse');
-            $active = $this->input->post('active');
+            $this->faq->setid($this->input->post('id'));
+            $this->faq->setQuestion($this->input->post('question'));
+            $this->faq->setReponse($this->input->post('reponse'));
+            $this->faq->setActive($this->input->post('active'));
 
-            $this->faq->edit($id,$question,$reponse,$active);
+            $this->faq->edit();
 
             redirect('admin/faqs/liste', 'refresh');
         }
     }
 
     public function delete() {
-        $id = $this->input->get('id');
-
-        $result = $this->faq->delete($id);
+        $this->faq->setid($this->input->get('id'));
+        $result = $this->faq->delete();
 
         redirect('admin/faqs/liste', 'refresh');
     }

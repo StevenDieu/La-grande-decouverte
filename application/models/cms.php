@@ -9,7 +9,6 @@
 Class Cms extends CI_Model {
 
     function _construct() {
-        // Call the Model constructor
         parent::_construct();
     }
 
@@ -111,10 +110,15 @@ Class Cms extends CI_Model {
         return true;
     }
 
-    function editerVoyage() {
-
+    function edit() {
+        $data = array(
+            'code' => $this->code,
+            'label' => $this->label,
+            'value' => $this->value,
+            'active' => $this->active
+        );
         $this->db->where('id', $this->id);
-        $this->db->update('cms', $this);
+        $this->db->update('cms', $data);
 
         return true;
     }

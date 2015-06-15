@@ -9,22 +9,38 @@
 Class Faq extends CI_Model {
 
     function _construct() {
-        // Call the Model constructor
         parent::_construct();
     }
 
-    function add(
-        $question,
-        $reponse,
-        $active
-        ) {
-        
-        $this->db->set('question', $question);
-        $this->db->set('reponse', $reponse);
-        $this->db->set('active', $active);
-        $this->db->insert('faq');
+    private $id;
+    private $question;
+    private $reponse;
+    private $active;
 
-        return $this->db->insert_id();
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setQuestion($question) {
+        $this->question = $question;
+    }
+
+    function setReponse($reponse) {
+        $this->reponse = $reponse;
+    }
+
+    function setActive($active) {
+        $this->active = $active;
+    }
+
+    function add() {
+        $data = array(
+            'question' => $this->question,
+            'reponse' => $this->reponse,
+            'active' => $this->active
+        );
+        $this->db->insert('faq', $data);
+        $this->id = $this->db->insert_id();
     }
 
     function getAll() {
@@ -68,27 +84,20 @@ Class Faq extends CI_Model {
         }
     }
 
-    function delete($id) {
-        $this->db->where('id', $id);
+    function delete() {
+        $this->db->where('id', $this->id);
         $this->db->delete('faq'); 
 
         return true;
     }
 
-    function edit(
-        $id,
-        $question,
-        $reponse,
-        $active
-        ) {
+    function edit() {
         $data = array(
-               'id' => $id,
-               'question' => $question,
-               'reponse' => $reponse,
-               'active' => $active,
-            );
-
-        $this->db->where('id', $id);
+            'question' => $this->question,
+            'reponse' => $this->reponse,
+            'active' => $this->active
+        );
+        $this->db->where('id', $this->id);
         $this->db->update('faq', $data);
 
         return true;

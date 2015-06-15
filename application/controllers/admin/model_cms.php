@@ -74,22 +74,22 @@ class Model_cms extends CI_Controller {
             $data["cms"] = $this->cms->get($this->input->post('id'));
             $this->load->templateAdmin('cms/edit',$data);
         } else {
-            $id = $this->input->post('id');
-            $code = $this->input->post('code');
-            $label = $this->input->post('label');
-            $value = $this->input->post('value');
-            $active = $this->input->post('active');
+            $this->cms->setId($this->input->post('id'));
+            $this->cms->setCode($this->input->post('code'));
+            $this->cms->setLabel($this->input->post('label'));
+            $this->cms->setValue($this->input->post('value'));
+            $this->cms->setActive($this->input->post('active'));
 
-            $this->cms->edit($id,$code,$label,$value,$active);
+            $this->cms->edit();
 
             redirect('admin/cmss/index', 'refresh');
         }
     }
 
     public function delete() {
-        $id = $this->input->get('id');
+        $this->cms->setId($this->input->get('id'));
 
-        $result = $this->cms->delete($id);
+        $result = $this->cms->delete();
 
         redirect('admin/cmss/index', 'refresh');
     }
