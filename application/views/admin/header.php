@@ -72,7 +72,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/carnet_voyages/edit'); ?>">Carnets voyages</a></li>
+                                <li><a href="<?php echo base_url('admin/carnet_voyages/liste'); ?>">Carnets voyages</a></li>
                                 <li><a href="<?php echo base_url('admin/continent/liste'); ?>">Continents</a></li>
                                 <li><a href="<?php echo base_url('admin/pictos/liste'); ?>">Pictos</a></li>
                                 <li><a href="<?php echo base_url('admin/voyages/liste'); ?>">Voyages</a></li>
@@ -85,7 +85,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/actualites/add'); ?>"> 
+                            <a href="<?php echo base_url('admin/actualites/liste'); ?>"> 
                                 <i class="icon-paper-clip"></i>
                                 <span>Actualites</span> 
                             </a> 
@@ -97,7 +97,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/administrateur/add'); ?>">Administrateurs</a></li>
+                                <li><a href="<?php echo base_url('admin/administrateur/liste'); ?>">Administrateurs</a></li>
                                 <li><a href="<?php echo base_url('admin/customer/liste'); ?>">Utilisateurs</a></li>
                             </ul>
                         </li>

@@ -106,7 +106,14 @@
                                 <div class="control-group">											
                                     <label class="control-label" for="meteo_image">Image meteo : </label>
                                     <div class="controls">
-                                        <input type='file' id="meteo_image" name='meteo_image'/>
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <span class="btn btn-primary btn-file">
+                                                    Browse&hellip;  <input type="file" id="meteo_image" name='meteo_image'>
+                                                </span>
+                                            </span>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
                                     </div>			
                                 </div>
 
@@ -148,7 +155,14 @@
                                 <div class="control-group">											
                                     <label class="control-label" for="drapeau">Image drapeau : </label>
                                     <div class="controls">
-                                        <input type='file' id="drapeau" name='drapeau'/>
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <span class="btn btn-primary btn-file">
+                                                    Browse&hellip;  <input type="file" id="drapeau" name='drapeau'>
+                                                </span>
+                                            </span>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
                                         <p class="help-block">Taille recommandé pour l'image : <b>60</b> x <b>40</b> px</p>
                                     </div>			
                                 </div>
@@ -186,7 +200,7 @@
 
                                 <div class="widget-header">
                                     <h3>Image slider ( taille recommandé <b>2000</b> x <b>1000</b> px )</h3> 
-                                    <a href="#image_slider" role="button" data-toggle="modal" class="btn btn-success bouton_right">Ajouter image description</a>
+                                    <a href="#image_slider" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image description</a>
                                     <?php modal("image_slider", "Ajout Image Slider", "add_image", "add_image", "Ajouter") ?>
                                 </div>
                                 <div  class="widget-content"  style="height: auto;">
@@ -214,7 +228,7 @@
                                 <br/>
                                 <div class="widget-header">
                                     <h3>Image Banière ( taille recommandé <b>400</b> x <b>300px</b> )</h3> 
-                                    <a href="#banniere" role="button" data-toggle="modal" class="btn btn-success bouton_right">Ajouter image banière</a>
+                                    <a href="#banniere" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image banière</a>
                                     <?php modal("banniere", "Ajout Image Banière", "add_image", "add_image", "Ajouter") ?>
                                 </div>
                                 <div  class="widget-content"  style="height: auto;">
@@ -241,7 +255,7 @@
                                 <br/>
                                 <div class="widget-header">
                                     <h3>Image Description ( taille recommandé <b>400</b> x <b>300px</b> )</h3> 
-                                    <a href="#image_description" role="button" data-toggle="modal" class="btn btn-success bouton_right">Ajouter image slider</a>
+                                    <a href="#image_description" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image slider</a>
                                     <?php modal("image_description", "Ajout Image Description", "add_image", "add_image", "Ajouter") ?>
                                 </div>
                                 <div  class="widget-content"  style="height: auto;">
@@ -269,7 +283,14 @@
                                 <div class="control-group">											
                                     <label class="control-label" for="image_sous_slider">Image Sous slider : </label>
                                     <div class="controls">
-                                        <input type='file' id="image_sous_slider" name='image_sous_slider'/>
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <span class="btn btn-primary btn-file">
+                                                    Browse&hellip;  <input type="file" id="image_sous_slider" name='image_sous_slider'>
+                                                </span>
+                                            </span>
+                                            <input type="text" class="form-control" readonly>
+                                        </div>
                                         <p class="help-block">Taille recommandé pour l'image : <b>900</b> x <b>512</b> px</p>
                                     </div>			
                                 </div>

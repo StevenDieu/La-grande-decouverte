@@ -36,7 +36,14 @@ function add_image($idHtml) {
         <div class="control-group">											
             <label class="control-label" for="Image">Image : </label>
             <div class="controls">
-                <input type="file" class="image_<?php echo $idHtml; ?>" name="image_<?php echo $idHtml; ?>">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse&hellip;  <input type="file" class="image_<?php echo $idHtml; ?>" name="image_<?php echo $idHtml; ?>">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
             </div>			
         </div>
     </div>

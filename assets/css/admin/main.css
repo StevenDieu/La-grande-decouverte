@@ -48,6 +48,7 @@ form#add-travel input {
 
 .modal .modal-header h3 {
     top: 2px;
+    color: black;
 }
 
 div#myModal {}
@@ -181,7 +182,6 @@ div#myModal {}
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 .widget-header input[type="file"]{
-    color: transparent;
     width: 132px;
 }
 
@@ -227,9 +227,36 @@ div#myModal {}
 }
 
 .delete_picto{
-    
+
 }
 
 .blockPicto{
     float: left;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    /* margin-top: -15px; */
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    opacity: 0;
+    outline: none;
+    background: black;
+    cursor: inherit;
+    display: block;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+  width: 257px !important;    margin-left: -8px;    padding-left: 8px;
 }

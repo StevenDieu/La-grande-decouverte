@@ -1322,3 +1322,8 @@ color: #333;
 	
 }
 
+
+
+.modal-body .input-group {
+    margin-top: -7px;
+}
