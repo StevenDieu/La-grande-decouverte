@@ -15,7 +15,7 @@
                     <div class="tabbable">
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a href="#formcontrols" data-toggle="tab">Ajouter une question FAQ</a>
+                                <a href="#formcontrols" data-toggle="tab">Éditer une question FAQ</a>
                             </li>
                         </ul>
 
