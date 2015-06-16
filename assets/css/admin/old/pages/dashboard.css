@@ -21,8 +21,7 @@ Bootstrap Admin Template by EGrappler.com
 	
 	text-decoration: none;
 	
-	/*background: #f9f6f1;*/
-	background:#3C3B3B;
+	background: #f9f6f1;
 	
 	border-radius: 5px;
 }
@@ -32,12 +31,11 @@ Bootstrap Admin Template by EGrappler.com
 	margin-bottom: .25em;
 	
 	font-size: 32px;
-	/*color: #545454;*/
-	color:#fff;
+	color: #545454;
 }
 
 .shortcuts .shortcut:hover {
-	background: #535454;
+	background: #00ba8b;
 }
 
 .shortcuts .shortcut:hover span{
@@ -52,8 +50,7 @@ Bootstrap Admin Template by EGrappler.com
 	display: block;
 	
 	font-weight: 400;
-	/*color: #545454;*/
-	color:#fff;
+	color: #545454;
 }
 
 
@@ -152,8 +149,7 @@ Bootstrap Admin Template by EGrappler.com
 	margin-bottom: .25em;
 	
 	font-size: 24px;
-	/*color: #888;*/
-	color: #2C2C2C;
+	color: #888;
 }
 
 .news-item-preview {
@@ -168,8 +164,7 @@ Bootstrap Admin Template by EGrappler.com
 	
 	font-size: 12px;
 	font-weight: 600;
-	/*color: #888;*/
-	color: #2C2C2C;
+	color: #888;
 }
 
 
@@ -225,8 +220,8 @@ Bootstrap Admin Template by EGrappler.com
 	border-right: 1px solid #CCC;
 	border-left: 1px solid #FFF;
 }
-#big_stats  i { font-size:30px; display:block; line-height: 40px; color:#3A3B3B;}
-#big_stats .stat:hover i {color:#535454;}
+#big_stats  i { font-size:30px; display:block; line-height: 40px; color:#b2afaa;}
+#big_stats .stat:hover i {color:#19bc9c;}
 
 h6.bigstats{margin: 20px;
 border-bottom: 1px solid #eee;

@@ -14,7 +14,7 @@ class Index extends CI_Controller {
     public function connexion() {
         if (!$this->session->userdata('logged_admin')) {
             $this->load->helper(array('form'));
-            $data["allCss"] = array("admin/main");
+            $data["allCss"] = array("admin/connexion");
             $data["alljs"] = array("admin/main");
             $this->load->view('admin/connexion', $data);
         } else {

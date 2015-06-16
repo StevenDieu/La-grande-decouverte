@@ -19,9 +19,10 @@
         <link href="<?php echo asset_url('css/admin/bootstrap.min.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/bootstrap-responsive.min.css'); ?>" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-        <link href="<?php echo asset_url('css/admin/font-awesome.css'); ?>" rel="stylesheet">
+        <link href="<?php echo asset_url('css/admin/font-awesome.min.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/style.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/pages/dashboard.css'); ?>" rel="stylesheet">
+        <link href="<?php echo asset_url('css/admin/main.css'); ?>" rel="stylesheet">
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
               <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -87,7 +88,6 @@
                             <a href="<?php echo base_url('admin/actualites/add'); ?>"> 
                                 <i class="icon-paper-clip"></i>
                                 <span>Actualites</span> 
-                                <b class="caret"></b>
                             </a> 
                         </li>
                         <li class="dropdown">
@@ -105,7 +105,6 @@
                             <a href="<?php echo base_url('admin/faqs/liste'); ?>"> 
                                 <i class="icon-question-sign"></i>
                                 <span>FAQ</span> 
-                                <b class="caret"></b>
                             </a> 
                         </li>
                         <li class="dropdown">
@@ -123,7 +122,6 @@
                             <a href="<?php echo base_url('admin/index/logout') ?>"> 
                                 <i class="icon-power-off"></i>
                                 <span>Déconnexion</span> 
-                                <b class="caret"></b>
                             </a> 
                         </li>
                     </ul>
