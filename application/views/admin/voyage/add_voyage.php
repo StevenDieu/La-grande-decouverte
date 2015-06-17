@@ -415,7 +415,7 @@
 
 
                             <div class="center">
-                                <a class='add_ligne btn btn-primary ' href="javascript:;" onclick="addLigne()">Ajouter une nouvelle information voyage</a>
+                                <a class='add_ligne btn btn-success ' href="javascript:;" onclick="addLigne()">Ajouter une nouvelle information voyage</a>
                             </div>
 
                             <br/>
@@ -424,37 +424,68 @@
                             <div class="info_deroulement">
                                 <legend>information déroulement voyage</legend>
 
-                                <div class="ligne">
-                                    <h3>Une déclinaison</h3> 
-                                    <a href="javascript:;" class="delete_ligne_deroulement">X</a>
-                                    <label for="titre">titre:</label>
-                                    <input type="text" id="titre" name="titrederoulement[]"/>
+                                <div class="ligne_info_deroulement">
+                                    <div class="center">
+                                        <h3>Une déclinaison</h3> 
+                                    </div>
                                     <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="titre">Titre : </label>
+                                        <div class="controls">
+                                            <input type="text" name="titrederoulement[]" class="span6" id="titrederoulement"  placeholder="Tva">
+                                        </div>			
+                                    </div>
 
-                                    <label for="texte">texte:</label>
-                                    <textarea NAME="texte[]" id="texte"> </textarea>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="texte">Texte : </label>
+                                        <div class="controls">
+                                            <input type="text" name="texte[]" class="span6" id="texte"  placeholder="Tva">
+                                        </div>			
+                                    </div>
 
-                                    <label for="jour">jour:</label>
-                                    <input type="text" id="jour" name="jour[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="jour">Jour : </label>
+                                        <div class="controls">
+                                            <input type="text" name="jour[]" class="span6" id="jour"  placeholder="Tva">
+                                        </div>			
+                                    </div>
 
-                                    <label for="image_description_5">image_description_5:</label>
-                                    <input type='file' id="image_description_5" name='image_description_5'/>
-                                    <br/><span>taille recommandé 650x435px</span>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="tva">Tva : </label>
+                                        <div class="controls">
+                                            <input type="text" name="tva[]" class="span6" id="tva"  placeholder="Tva">
+                                        </div>			
+                                    </div>
 
+                                    <div class="control-group">											
+                                        <label class="control-label" for="img_deroulement_voyage">Image : </label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-primary btn-file">
+                                                        Browse&hellip;  <input type="file" id="img_deroulement_voyage" name='img_deroulement_voyage'>
+                                                    </span>
+                                                </span>
+                                                <input type="text" class="form-control" readonly>
+                                            </div>
+                                            <p class="help-block">Taille recommandé pour l'image : <b>650</b> x <b>435</b> px</p>
+                                        </div>	
+                                    </div>
                                 </div>
-                            </div>
-                            <a class='add_ligne' href="javascript:;" onclick="addLigneDeroulement()">ajouter une journée</a>
 
-                            <input type="hidden" class="image_slider_hidden" name="image_slider_hidden" value="" />
-                            <input type="hidden" class="image_description_hidden" name="image_description_hidden" value="" />
-                            <input type="hidden" class="banniere_hidden" name="banniere_hidden" value="" />
+                            </div>
+
+                            <div class="center">
+                                <a class='add_ligne btn btn-success ' href="javascript:;" onclick="addLigneDeroulement()">Ajouter une journée</a>
+                            </div>
+
                             <input type="hidden" class="picto_hidden" name="picto_hidden" value="" />
 
                             <br/><br/>
-                            <input type="submit" value="enregistrer"/>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button> 
+                            </div>
 
                             <?php echo form_close(); ?> 
                         </fieldset>

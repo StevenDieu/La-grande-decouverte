@@ -16,6 +16,9 @@ function addLigne() {
     $('.info_de_vente').append('<br/><div class="ligne"><a href="javascript:;" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>' + $(".ligne_info_vente").html() + '</div>');
 }
 
+function addLigneDeroulement() {
+    $('.info_deroulement').append('<br/><div class="ligne"><a href="javascript:;" class="delete_ligne_deroulement btn btn-danger floatRight"><i class="icon-remove"></i></a>' + $(".ligne_info_deroulement").html() + '</div>');
+}
 function remove_nb(tableau, id) {
     var newTab = new Array();
     for (var i = 0; i < tableau.length; i++) {
@@ -149,9 +152,7 @@ function remove_picto(img) {
     });
 }
 
-function addLigneDeroulement() {
-    $('.info_deroulement').append("<div class='ligne'><h3>Une déclinaison</h3><a href='javascript:;' class='delete_ligne_deroulement'>X</a><label for='titre'>titre:</label><input type='text' id='titre' name='titrederoulement[]'/><br/><label for='texte'>texte:</label><TEXTAREA NAME='texte[]' id='texte'> </TEXTAREA><br/><label for='jour'>jour:</label><input type='text' id='jour' name='jour[]'/><br/></div>");
-}
+
 
 function action_reload() {
     $(".remove_image").on("click", function () {

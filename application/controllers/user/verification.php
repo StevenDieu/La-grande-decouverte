@@ -8,7 +8,6 @@ class Verification extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('user');
-        $this->load->model('images');
         $this->load->library('form_validation');
     }
 
@@ -182,7 +181,8 @@ class Verification extends CI_Controller {
     }
 
     function check_database_login($mdp) {
-
+        $this->load->model('images');
+        
         $user = $this->input->post('user');
 
         $result = $this->user->login($user, $mdp);
