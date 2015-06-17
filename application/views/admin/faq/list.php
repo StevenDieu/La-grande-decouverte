@@ -34,7 +34,7 @@
                                                             <th>id</th>
                                                             <th>question</th>
                                                             <th>activé</th>
-                                                            <th class="td-actions">supprimer</th>
+                                                            <th class="td-actions">Éditer</th>
                                                           </tr>
                                                     </thead>
                                                     <tbody>

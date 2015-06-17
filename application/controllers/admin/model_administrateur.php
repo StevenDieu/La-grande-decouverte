@@ -74,7 +74,8 @@ class Model_administrateur extends CI_Controller {
             }
 
             $this->userAdmin->editAdminUser();
-            redirect('admin/administrateur/liste', 'refresh');
+            $this->session->set_flashdata('login_administrateur', 'L\'administrateur a été édité.');
+            redirect('admin/administrateur/edit?id=' . $this->input->post('id'), 'refresh');
         }
     }
 
@@ -88,7 +89,7 @@ class Model_administrateur extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->library('session');
             $this->session->set_flashdata('login_administrateur', 'Le mot de passe du super admin ne peut pas être vide.');
-            redirect('admin/administrateur/liste', 'refresh');
+            redirect('admin/administrateur/edit?id=' . $this->input->post('id'), 'refresh');
         } else {
 
             $this->userAdmin->setId($this->input->post('id'));
@@ -100,6 +101,7 @@ class Model_administrateur extends CI_Controller {
                 $this->userAdmin->deleteAdministrateur();
             } else {
                 $this->session->set_flashdata('login_administrateur', 'Le mot de passe du super admin n\'est pas correct.');
+                redirect('admin/administrateur/edit?id=' . $this->input->post('id'), 'refresh');
             }
             redirect('admin/administrateur/liste', 'refresh');
         }
@@ -134,7 +136,7 @@ class Model_administrateur extends CI_Controller {
     }
 
     function check_actually_password_admin($id, $password) {
-        $this->userAdmin->login = $id;
+        $this->userAdmin->id = $id;
         $this->userAdmin->password = $password;
         if ($this->userAdmin->verifPassAdmin()) {
             return true;
