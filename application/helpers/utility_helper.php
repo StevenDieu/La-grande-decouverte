@@ -42,7 +42,7 @@ function add_image($idHtml) {
                             Browse&hellip;  <input type="file" class="image_<?php echo $idHtml; ?>" name="image_<?php echo $idHtml; ?>">
                         </span>
                     </span>
-                    <input type="text" class="form-control" readonly>
+                    <input type="text" class="form-control text_<?php echo $idHtml; ?>" readonly>
                 </div>
             </div>			
         </div>

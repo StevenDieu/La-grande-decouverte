@@ -192,7 +192,7 @@ div#myModal {}
 .img_picto{
     width: 64px;
     height: 64px;
-    margin: 6px;
+    margin: 10px;
     background-color: rgb(47, 47, 47);
 }
 
@@ -226,18 +226,21 @@ div#myModal {}
     margin: -63px 0px 0 -21px;
 }
 
-.delete_picto{
-
-}
-
 .blockPicto{
     float: left;
+}
+
+.blockPictoVoyage{
+    float: left;
+    cursor: pointer
+;
+    position: relative;
 }
 
 .btn-file {
     position: relative;
     overflow: hidden;
-    /* margin-top: -15px; */
+    cursor: pointer !important;
 }
 
 .btn-file input[type=file] {
@@ -253,10 +256,36 @@ div#myModal {}
     background: black;
     cursor: inherit;
     display: block;
+      cursor: pointer !important;
+}
+input[type="file"]::-webkit-file-upload-button {
+      cursor: pointer !important;
 }
 
 input[readonly] {
   background-color: white !important;
   cursor: text !important;
   width: 257px !important;    margin-left: -8px;    padding-left: 8px;
+}
+
+.valid_picto{
+    position: absolute;
+    
+    bottom: -2px;
+    right: -4px;
+    background-color: #6e9b13;
+    border: none;
+    outline: none;
+    height: 12px;
+    width: 22px;
+    color: white;
+}
+
+.img_picto_selected{
+    border: 3px solid #6e9b13;
+    margin: 7px;
+}
+
+.floatRight{
+    float: right;
 }

@@ -12,11 +12,13 @@ class Voyages extends CI_Controller {
             redirect('admin/index/connexion', 'refresh');
         }
         $this->load->model('voyage');
+        $this->load->model('picto');
         $this->load->model('continents');
     }
 
     public function add() {
         $data["continents"] = $this->continents->getContinents();
+        $data["pictos"] = $this->picto->getPictos();
         $data["adminJs"] = array("voyage/add_voyage");
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/voyage/add_voyage', $data);

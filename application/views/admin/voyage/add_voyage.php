@@ -280,6 +280,28 @@
                                     </table>
                                 </div>
                                 <br/>
+
+                                <div class="widget-header">
+                                    <h3>Choix des pictos</h3> 
+                                </div>
+                                <div  class="widget-content"  style="height: auto;">
+                                    <?php
+                                    if ($pictos) {
+                                        foreach ($pictos as $picto) {
+                                            ?>
+                                            <div class="blockPictoVoyage">
+                                                <img src="<?php echo asset_media($picto->lien); ?>" alt="picto" class="img_picto add_picto" data-id="<?php echo $picto->id ?>" />
+                                                <span class="btn-circle valid_picto hidden"><i class="icon-ok"></i></span>
+                                            </div>
+                                            <?php
+                                        }
+                                    } else {
+
+                                        echo "Pas de picto";
+                                    }
+                                    ?>
+                                </div>
+                                <br/>
                                 <div class="control-group">											
                                     <label class="control-label" for="image_sous_slider">Image Sous slider : </label>
                                     <div class="controls">
@@ -295,36 +317,8 @@
                                     </div>			
                                 </div>
 
-                                <label for="picto_1">picto_1:</label>
-                                <input type='file' id="picto_1" name='picto_1'/>
-                                <br/><span>taille recommandé 64x64px</span>
-                                <br/>
 
-                                <label for="picto_2">picto_2:</label>
-                                <input type='file' id="picto_2" name='picto_2'/>
-                                <br/><span>taille recommandé 64x64px</span>
-                                <br/>
 
-                                <label for="picto_3">picto_3:</label>
-                                <input type='file' id="picto_3" name='picto_3'/>
-                                <br/><span>taille recommandé 64x64px</span>
-                                <br/>
-
-                                <label for="picto_4">picto_4:</label>
-                                <input type='file' id="picto_4" name='picto_4'/>
-                                <br/><span>taille recommandé 64x64px</span>
-                                <br/>
-
-                                <label for="picto_5">picto_5:</label>
-                                <input type='file' id="picto_5" name='picto_5'/>
-                                <br/><span>taille recommandé 64x64px</span>
-                                <br/>
-
-                                <label for="picto_6">picto_6:</label>
-                                <input type='file' id="picto_6" name='picto_6'/>
-                                <br/><span>taille recommandé 64x64px</span>
-                                <br/>
-                                <br/>
                                 <br/>
 
 
@@ -334,55 +328,98 @@
                             <div class="info_de_vente">
                                 <legend>information vente</legend>
 
-                                <div class="ligne">
-                                    <h3>Une déclinaison</h3> 
-                                    <a href="javascript:;" class="delete_ligne">X</a>
-                                    <label for="date_depart">date_depart:</label>
-                                    <input type="date" id="date_depart" name="date_depart[]"/>
+                                <div class="ligne_info_vente">
+                                    <div class="center">
+                                        <h3>Une déclinaison</h3> 
+                                    </div>
                                     <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="date_depart">Date de départ : </label>
+                                        <div class="controls">
+                                            <input type="text" name="date_depart[]" class="span6" id="date_depart"  placeholder="Date de départ">
+                                        </div>			
+                                    </div>
 
-                                    <label for="date_arrivee">date_arrivee:</label>
-                                    <input type="date" id="date_arrivee" name="date_arrivee[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="date_arrivee">Date d'arrivée : </label>
+                                        <div class="controls">
+                                            <input type="text" name="date_arrivee[]" class="span6" id="date_arrivee"  placeholder="Date d'arrivée">
+                                        </div>			
+                                    </div>
 
-                                    <label for="depart">depart:</label>
-                                    <input type="text" id="depart" name="depart[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="depart">Emplacement de départ : </label>
+                                        <div class="controls">
+                                            <input type="text" name="depart[]" class="span6" id="depart"  placeholder="Emplcement de départ">
+                                        </div>			
+                                    </div>
 
-                                    <label for="arrivee">arrivee:</label>
-                                    <input type="text" id="arrivee" name="arrivee[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="arrivee">Emplacement d'arrivée : </label>
+                                        <div class="controls">
+                                            <input type="text" name="arrivee[]" class="span6" id="arrivee[]"  placeholder="Emplcement d'arrivée">
+                                        </div>			
+                                    </div>
 
-                                    <label for="formalite">formalite:</label>
-                                    <textarea NAME="formalite[]" id="formalite"> </textarea>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="formalite">Formalité : </label>
+                                        <div class="controls">
+                                            <input type="text" name="formalite[]" class="span6" id="formalite"  placeholder="Formalité">
+                                        </div>			
+                                    </div>
 
-                                    <label for="asavoir">asavoir:</label>
-                                    <textarea NAME="asavoir[]" id="asavoir"> </textarea>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="asavoir">A savoir : </label>
+                                        <div class="controls">
+                                            <input type="text" name="asavoir[]" class="span6" id="longitude"  placeholder="A savoir">
+                                        </div>			
+                                    </div>
 
-                                    <label for="comprenant">comprenant:</label>
-                                    <textarea NAME="comprenant[]" id="comprenant"> </textarea>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="comprenant">Comprenant : </label>
+                                        <div class="controls">
+                                            <input type="text" name="comprenant[]" class="span6" id="comprenant"  placeholder="Comprenant">
+                                        </div>			
+                                    </div>
 
-                                    <label for="place_dispo">place_dispo:</label>
-                                    <input type="text" id="place_dispo" name="place_dispo[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="place_dispo">Place disponible : </label>
+                                        <div class="controls">
+                                            <input type="text" name="place_dispo[]" class="span6" id="place_dispo"  placeholder="Place disponible">
+                                        </div>			
+                                    </div>
 
-                                    <label for="prix">prix:</label>
-                                    <input type="text" id="prix" name="prix[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="prix">Prix : </label>
+                                        <div class="controls">
+                                            <input type="text" name="prix[]" class="span6" id="prix"  placeholder="Prix">
+                                        </div>			
+                                    </div>
 
-                                    <label for="special_price">special_price:</label>
-                                    <input type="text" id="special_price" name="special_price[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="special_price">Prix spécial : </label>
+                                        <div class="controls">
+                                            <input type="text" name="special_price[]" class="span6" id="special_price"  placeholder="Prix spécial">
+                                        </div>			
+                                    </div>
 
-                                    <label for="tva">tva:</label>
-                                    <input type="text" id="tva" name="tva[]"/>
-                                    <br/>
+                                    <div class="control-group">											
+                                        <label class="control-label" for="tva">Tva : </label>
+                                        <div class="controls">
+                                            <input type="text" name="tva[]" class="span6" id="tva"  placeholder="Tva">
+                                        </div>			
+                                    </div>
                                 </div>
                             </div>
-                            <a class='add_ligne' href="javascript:;" onclick="addLigne()">ajouter</a>
+
+
+
+                            <div class="center">
+                                <a class='add_ligne btn btn-primary ' href="javascript:;" onclick="addLigne()">Ajouter une nouvelle information voyage</a>
+                            </div>
+
+                            <br/>
+                            <br/>
 
                             <div class="info_deroulement">
                                 <legend>information déroulement voyage</legend>
@@ -411,6 +448,10 @@
                             </div>
                             <a class='add_ligne' href="javascript:;" onclick="addLigneDeroulement()">ajouter une journée</a>
 
+                            <input type="hidden" class="image_slider_hidden" name="image_slider_hidden" value="" />
+                            <input type="hidden" class="image_description_hidden" name="image_description_hidden" value="" />
+                            <input type="hidden" class="banniere_hidden" name="banniere_hidden" value="" />
+                            <input type="hidden" class="picto_hidden" name="picto_hidden" value="" />
 
                             <br/><br/>
                             <input type="submit" value="enregistrer"/>

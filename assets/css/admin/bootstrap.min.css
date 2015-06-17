@@ -1790,6 +1790,7 @@ background-repeat:no-repeat;
 	background-color: #dbdbdb \9;
 }
 .btn:first-child {
+    cursor: pointer !important;
 *margin-left:0;
 }
 .btn:hover {
@@ -1881,6 +1882,7 @@ background-repeat:no-repeat;
   color: white;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
   *background-color: #1399dc;
+	 cursor: pointer !important;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
 	background-color: #1399dc;
