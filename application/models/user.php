@@ -15,6 +15,7 @@ Class User extends CI_Model {
     public $prenom;
     public $description;
     public $mail;
+    public $banni;
     public $id_image;
 
     function __construct() {
@@ -161,12 +162,26 @@ Class User extends CI_Model {
 
     function bannir() {
         $data = array(
-            'banni' => $this->banni,
+            'banni' => 1,
         );
 
         $this->db->where('id', $this->id);
         if ($this->db->update('utilisateur', $data) == 1) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    function get(){
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->where('id', $this->id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
         } else {
             return false;
         }
@@ -192,12 +207,30 @@ Class User extends CI_Model {
         $this->nom = $nom;
     }
 
+    function setEmail($mail) {
+        $this->mail = $mail;
+    }
+
     function setPrenom($prenom) {
         $this->prenom = $prenom;
     }
 
     function setId_image($id_image) {
         $this->id_image = $id_image;
+    }
+
+    function edit() {
+        $data = array(
+            'login' => $this->login,
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'mail' => $this->mail,
+            'banni' => $this->banni
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('utilisateur', $data);
+
+        return true;
     }
 
 }

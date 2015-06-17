@@ -171,4 +171,6 @@ Class UserAdmin extends CI_Model {
         $this->ip = $ip;
     }
 
+
+
 }

@@ -10,49 +10,47 @@ class Model_customer extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('userAdmin');
+        $this->load->model('user');
         $this->load->library('form_validation');
     }
 
     public function edit() {
         $this->load->library('form_validation');
 
-        //information générale
-        $this->form_validation->set_rules('titre', 'titre', 'trim|xss_clean');
-        $this->form_validation->set_rules('description', 'description', 'trim|xss_clean');
-        $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
-
+        $this->form_validation->set_rules('login', 'login', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('nom', 'nom', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('prenom', 'prenom', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('mail', 'mail', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('banni', 'banni', 'trim|xss_clean|required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->templateUser('page_inscription');
+            $this->user->setId($this->input->post('id'));
+            $data["customer"] = $this->user->get();
+            $this->load->templateAdmin('customer/edit_customer',$data);
         } else {
             //information générale
-            $titre = $this->input->post('titre');
-            $description = $this->input->post('description');
-
-            $image_1 = $_FILES['image_1']["name"];
-            $image_2 = $_FILES['image_2']["name"];
-            $image_3 = $_FILES['image_3']["name"];
-
-            if ($image_1 != "" || $image_2 != "" || $image_3 != "") {
-                $this->upload->initialize($this->initailisationConfig("/Users/alex/Documents/htdocs/TVAFS-1.0/media/actualite/", 'gif|jpg|png', '2048000', '3000', '2048'));
-
-                $image_1 = $this->uploadImage($image_1, 'image_1');
-                $image_2 = $this->uploadImage($image_2, 'image_2');
-                $image_3 = $this->uploadImage($image_3, 'image_3');
-            }
+            $login = $this->input->post('login');
+            $nom = $this->input->post('nom');
+            $prenom = $this->input->post('prenom');
+            $mail = $this->input->post('mail');
+            $banni = $this->input->post('banni');
             $id = $this->input->post('id');
 
-            $date = explode(' ', date("Y-m-d H:i:s"));
-            $this->actualite->editActualite($id, $titre, $description, $date[0], $date[1], $image_1, $image_2, $image_3);
+            $this->user->setLogin($login);
+            $this->user->setNom($nom);
+            $this->user->setPrenom($prenom);
+            $this->user->setEmail($mail);
+            $this->user->setId($id);
 
-            redirect('admin/actualites/liste', 'refresh');
+            $this->user->edit();
+
+            redirect('admin/customer/liste', 'refresh');
         }
     }
 
     public function bannir() {
-        $this->userAdmin->setId($this->input->get('id'));
-        $this->userAdmin->bannir();
+        $this->user->setId($this->input->get('id'));
+        $this->user->bannir();
 
         redirect('admin/customer/liste', 'refresh');
     }
