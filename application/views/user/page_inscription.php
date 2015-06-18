@@ -21,13 +21,6 @@
             </p>
         </div>
 
-        <div class="une_row user">
-            <!--<label for="user" class="">Nom d'utilisateur *</label>-->
-            <p>
-                <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Votre nom d'utilisateur*">
-            </p>
-        </div>
-
         <div class="une_row mail">
             <!--<label for="email" class="">E-mail *</label>-->
             <p>

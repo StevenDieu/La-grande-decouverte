@@ -23,8 +23,15 @@ class Newsletters extends CI_Controller {
         $this->load->templateAdmin('newsletter/edit_newsletter', $data);
     }
 
-    public function liste() {
+    public function index() {
         $data["newsletters"] = $this->newsletter->getNewsletters();
+        $this->load->model('user');
+        if($data["newsletters"]){
+            foreach ($data["newsletters"] as $value) {
+                $this->user->setMail($value->mail);
+                $value->customer = $this->user->getByMail();
+            }
+        }  
         $this->load->templateAdmin('/newsletter/list_newsletter', $data);
     }
 

@@ -68,12 +68,24 @@ class Pages extends CI_Controller {
         $this->form_validation->set_rules('mail', 'mail', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            index();
+            $this->index();
         } else {
-            $mail = $this->input->post('mail');
-            $data = $this->newsletter->ajouterNewsletter($mail);
+            $this->newsletter->setMail($this->input->post('mail'));
+            $result = $this->newsletter->check_mail_unique();
+
+            if($result){
+                // deja inscrit
+                $donnee = "Vous êtes déjà inscrit à la newsletter.";
+            }else{
+                //pas inscrit a la news
+                $this->newsletter->setMail($this->input->post('mail'));
+                $this->newsletter->setDate(date("Y-m-d H:i:s"));
+                $this->newsletter->ajouterNewsletter();
+                $donnee = "Vous êtes désormais inscrit à la newsletter.";
+            }
+                        
             $this->load->library('session');
-            $this->session->set_flashdata('result_newsletter', $data);
+            $this->session->set_flashdata('result_newsletter', $donnee);
             redirect('pages/index', 'refresh');
         }
     }

@@ -13,11 +13,15 @@
                             <li class="active">
                                 <a href="#formcontrols" data-toggle="tab">Informations générales</a>
                             </li>
+                            <li class="">
+                                <a href="#formcontrols2" data-toggle="tab">Adresse</a>
+                            </li>
                         </ul>
 
                         <br>
-
+                        <?php echo form_open_multipart('admin/model_customer/edit'); ?>
                         <div class="tab-content">
+                        
                             <div class="tab-pane active" id="formcontrols">
                                 <div id="liste-text-cms" class="form-horizontal">
                                    
@@ -29,16 +33,9 @@
                                         </div>      
                                     </div>
 
-                                   <?php echo form_open_multipart('admin/model_customer/edit'); ?>
+                                   
 
                                       <input type="hidden" name ="id" value="<?php echo $customer[0]->id; ?>">
-
-                                      <div class="control-group">                      
-                                          <label class="control-label" for="titre">Login : </label>
-                                          <div class="controls">
-                                            <input class="span6" type="text" id="login" name="login" value="<?php echo $customer[0]->login; ?>" placeholder="Login" />
-                                          </div>      
-                                      </div>
 
                                       <div class="control-group">                      
                                           <label class="control-label" for="titre">Nom : </label>
@@ -71,15 +68,33 @@
                                           </div>      
                                       </div>
 
+                                      <div class="control-group">                      
+                                          <label class="control-label" for="titre">Date d'inscription : </label>
+                                          <div class="controls">
+                                            <?php
+                                              $d = explode(('-'), $customer[0]->date_inscription);
+                                              $date = $d[2].'/'.$d[1].'/'.$d[0];
+                                            ?>
+                                            <p><?php echo $date; ?></p>
+                                          </div>      
+                                      </div>
+
                                       <div class="form-actions">
                                         <button type="submit" class="btn btn-primary">Enregistrer</button> 
                                       </div>
 
-                                   </form>
+                                   
                                 </div>
                             </div>
 
+                            <div class="tab-pane" id="formcontrols2">
+                              <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button> 
+                              </div>
+                            </div>
+                            
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -79,12 +79,6 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/newsletters/liste'); ?>">
-                                <i class="icon-envelope"></i>
-                                <span>Newsletters</span> 
-                            </a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url('admin/actualites/liste'); ?>"> 
                                 <i class="icon-paper-clip"></i>
                                 <span>Actualites</span> 
@@ -116,6 +110,16 @@
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url('admin/cmss/index'); ?>">Gestion des textes CMS</a></li>
                                 <li><a href="<?php echo base_url('admin/index/dashboard'); ?>">Gestion des pages CMS</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> 
+                                <i class="icon-envelope"></i>
+                                <span>Newsletter</span> 
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url('admin/newsletters/index'); ?>">Abonnés à la newsletter</a></li>
                             </ul>
                         </li>
                         <li>

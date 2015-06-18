@@ -65,6 +65,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            <?php if($this->session->flashdata('result_newsletter') != ''){ ?>
+                                <span><?php echo $this->session->flashdata('result_newsletter'); ?></span>
+                            <?php } ?>
                             <?php echo validation_errors(); ?>
                             <?php if (isset($error)) echo $error; ?>
                             <?php echo form_open('pages/addNewletter'); ?>

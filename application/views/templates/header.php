@@ -100,7 +100,7 @@
                             <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
                                 <p>
-                                    <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*">
+                                    <input type="text" name="mail" maxlength="50" class="required" id="mail" placeholder="Mail*">
                                 </p>
                             </div>
                             <div class="une_row">

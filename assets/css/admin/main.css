@@ -289,3 +289,7 @@ input[readonly] {
 .floatRight{
     float: right;
 }
+
+.controls p{
+    line-height: 30px;
+}

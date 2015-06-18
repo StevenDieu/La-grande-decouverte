@@ -15,10 +15,10 @@ class Model_newsletter extends CI_Controller {
     }
 
     public function delete() {
-        $id = $this->input->get('id');
-        $this->newsletter->deleteNewsletter($id);
+        $this->newsletter->setId($this->input->get('id'));
+        $this->newsletter->deleteNewsletter();
 
-        redirect('admin/newsletters/liste', 'refresh');
+        redirect('admin/newsletters/index', 'refresh');
     }
 
     public function edit() {
@@ -28,10 +28,11 @@ class Model_newsletter extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateUser('page_inscription');
         } else {
-            $mail = $this->input->post('mail');
-            $id = $this->input->post('id');
-            $result = $this->newsletter->editNewsletter($id, $mail);
-            redirect('admin/newsletters/liste', 'refresh');
+            $this->newsletter->setMail($this->input->post('mail'));
+            $this->newsletter->setId($this->input->post('id'));
+            $this->newsletter->setStatut($this->input->post('statut'));
+            $result = $this->newsletter->editNewsletter();
+            redirect('admin/newsletters/index', 'refresh');
         }
     }
 

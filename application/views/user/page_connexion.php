@@ -9,7 +9,7 @@
             <div class="une_row">
                 <!--<label for="user" class="col-sm-5 control-label">Nom d'utilisateur</label>-->
                 <p>
-                    <input type="text" name="user" maxlength="50" class="required" id="user" placeholder="Nom d'utilisateur*" />
+                    <input type="text" name="mail" maxlength="50" class="required" id="mail" placeholder="Mail*" />
                 </p>
             </div>
             <div class="une_row">

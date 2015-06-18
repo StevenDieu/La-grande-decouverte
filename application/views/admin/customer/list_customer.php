@@ -31,7 +31,7 @@
                                                     <thead>
                                                           <tr>
                                                             <th>#</th>
-                                                            <th>Login</th>
+                                                            <th>mail</th>
                                                             <th>Nom</th>
                                                             <th>prénom</th>
                                                             <th>Banni</th>
@@ -51,13 +51,21 @@
 																}
                                                         	?>
                                                             <td><?php echo $c->id ?></td>
-                                                            <td><?php echo $c->login ?></td>
+                                                            <td><?php echo $c->mail ?></td>
                                                             <td><?php echo $c->nom ?></td>
                                                             <td><?php echo $c->prenom ?></td>
                                                             <td><?php echo $banni ?></td>
-                                                            <td class="td-actions"><a onclick="return confirm(confirmation);" href="<?php echo base_url('admin/model_customer/bannir').'?id='.$c->id; ?>" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
                                                             <td class="td-actions">
-                                                                <a href="<?php echo base_url('admin/customer/edit').'?id='.$c->id ?>" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a>
+                                                                <?php 
+                                                                    if($c->banni == 0){ ?>
+                                                                        <a onclick="return confirm(confirmation);" href="<?php echo base_url('admin/model_customer/bannir').'?id='.$c->id; ?>" class="btn btn-danger btn-small" alt="bannir"><i class="btn-icon-only icon-remove"> </i></a>
+                                                                    <?php  }else{ ?>
+                                                                        <a href="<?php echo base_url('admin/model_customer/autoriser').'?id='.$c->id ?>" class="btn btn-small btn-success" alt="autoriser"><i class="btn-icon-only icon-ok"> </i></a>
+                                                                    <?php } ?>
+                                                                
+                                                            </td>
+                                                            <td class="td-actions">
+                                                                <a href="<?php echo base_url('admin/customer/edit').'?id='.$c->id ?>" class="btn btn-small btn-default"><i class="btn-icon-only icon-edit"> </i></a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach ?>

@@ -10,27 +10,54 @@ Class User extends CI_Model {
 
     public $id;
     public $password;
-    public $login;
     public $nom;
     public $prenom;
     public $description;
     public $mail;
     public $banni;
     public $id_image;
+    public $date_inscription;
 
     function __construct() {
         parent::__construct();
     }
 
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    function setMail($mail) {
+        $this->mail = $mail;
+    }
+
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+
+    function setId_image($id_image) {
+        $this->id_image = $id_image;
+    }
+
+    function setDate_inscription($date_inscription) {
+        $this->date_inscription = $date_inscription;
+    }
+
     function ajouterUser() {
         $this->db->set('nom', $this->nom);
         $this->db->set('prenom', $this->prenom);
-        $this->db->set('login', $this->login);
         $this->db->set('password', MD5($this->password));
         $this->db->set('mail', $this->mail);
+        $this->db->set('date_inscription', $this->date_inscription);
         $this->db->set('ip', $_SERVER["REMOTE_ADDR"]);
         $this->db->set('banni', "0");
-        $this->db->set('security', "2");
         $this->db->set('token', "");
         $this->db->insert('utilisateur');
 
@@ -40,7 +67,7 @@ Class User extends CI_Model {
     function login() {
         $this->db->select('*');
         $this->db->from('utilisateur');
-        $this->db->where('login', $this->login);
+        $this->db->where('mail', $this->mail);
         $this->db->where('banni', '0');
         $this->db->where('password', MD5($this->password));
         $this->db->limit(1);
@@ -53,6 +80,95 @@ Class User extends CI_Model {
             return false;
         }
     }
+
+    function check_mail_unique() {
+        $this->db->select('id');
+        $this->db->from('utilisateur');
+        $this->db->where('mail', $this->mail);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function bannir() {
+        $data = array(
+            'banni' => 1,
+        );
+
+        $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function autoriser() {
+        $data = array(
+            'banni' => 0,
+        );
+
+        $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function get(){
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->where('id', $this->id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function editBO() {
+        $data = array(
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'mail' => $this->mail,
+            'banni' => $this->banni
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('utilisateur', $data);
+
+        return true;
+    }
+
+    function getByMail(){
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->where('mail', $this->mail);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+
+
+
 
     function verifPassUser() {
         $this->db->select('id');
@@ -68,20 +184,7 @@ Class User extends CI_Model {
         }
     }
 
-    function check_user() {
-        $this->db->select('id');
-        $this->db->from('utilisateur');
-        $this->db->where('login', $this->login);
-        $this->db->limit(1);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    
 
     function getUsers() {
         $this->db->select('*');
@@ -136,7 +239,7 @@ Class User extends CI_Model {
         }
     }
 
-    function setMail() {
+    /*function setMail() {
         $data = array(
             'mail' => $this->mail,
         );
@@ -146,7 +249,7 @@ Class User extends CI_Model {
         } else {
             return false;
         }
-    }
+    }*/
 
     function setImageProfil() {
         $data = array(
@@ -160,77 +263,14 @@ Class User extends CI_Model {
         }
     }
 
-    function bannir() {
-        $data = array(
-            'banni' => 1,
-        );
 
-        $this->db->where('id', $this->id);
-        if ($this->db->update('utilisateur', $data) == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function get(){
-        $this->db->select('*');
-        $this->db->from('utilisateur');
-        $this->db->where('id', $this->id);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
 
     function getId() {
         return $this->id;
     }
 
-    function setId($id) {
-        $this->id = $id;
-    }
 
-    function setPassword($password) {
-        $this->password = $password;
-    }
 
-    function setLogin($login) {
-        $this->login = $login;
-    }
 
-    function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    function setEmail($mail) {
-        $this->mail = $mail;
-    }
-
-    function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
-
-    function setId_image($id_image) {
-        $this->id_image = $id_image;
-    }
-
-    function edit() {
-        $data = array(
-            'login' => $this->login,
-            'nom' => $this->nom,
-            'prenom' => $this->prenom,
-            'mail' => $this->mail,
-            'banni' => $this->banni
-        );
-        $this->db->where('id', $this->id);
-        $this->db->update('utilisateur', $data);
-
-        return true;
-    }
 
 }
