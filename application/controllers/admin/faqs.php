@@ -28,6 +28,9 @@ class Faqs extends CI_Controller {
         $crud->display_as('active','Activé');
         //$crud->unset_columns('productDescription');
 
+        $crud->fields('question','reponse','active');
+        $crud->required_fields('question','reponse','active');
+
         $output = $crud->render();
 
         $this->_example_output($output);
