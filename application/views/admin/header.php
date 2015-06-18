@@ -38,7 +38,7 @@
         ?> 
 
         <!-- JavaScript -->
-        <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
+        <script src="<?php echo asset_url('js/admin/jquery-1.7.2.min.js'); ?>"></script> 
         <?php
         if (isset($alljs)) {
             foreach ($alljs as $js) {

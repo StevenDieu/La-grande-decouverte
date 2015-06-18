@@ -12,25 +12,45 @@ class Faqs extends CI_Controller {
             redirect('admin/index/connexion', 'refresh');
         }
         $this->load->model('faq');
-    }
 
-    public function add() {
-        $this->load->helper(array('form'));
-        $this->load->templateAdmin('faq/add');
-    }
+        $this->load->database();
+        $this->load->helper('url');
 
-    public function edit() {
-        if (!$this->input->get('id')) {
-            redirect('admin/faqs/liste', 'refresh');
-        }
-        $data["faq"] = $this->faq->get($this->input->get('id'));
-        $this->load->helper(array('form'));
-        $this->load->templateAdmin('faq/edit', $data);
+        $this->load->library('grocery_CRUD');
     }
 
     public function liste() {
-        $data["faqs"] = $this->faq->getAll();
-        $this->load->templateAdmin('faq/list', $data);
+        $crud = new grocery_CRUD();
+
+        $crud->set_table('faq');
+        $crud->set_subject('question FAQ');
+        $crud->display_as('reponse','Réponse');
+        $crud->display_as('active','Activé');
+        //$crud->unset_columns('productDescription');
+
+        $output = $crud->render();
+
+        $this->_example_output($output);
+
     }
+
+    public function _example_output($output = null)
+    {
+        $this->load->templateAdmin('faq/list', $output);
+    }
+
+    public function offices()
+    {
+        $output = $this->grocery_crud->render();
+
+        $this->_example_output($output);
+    }
+
+    public function index()
+    {
+        $this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+    }
+
+
 
 }
