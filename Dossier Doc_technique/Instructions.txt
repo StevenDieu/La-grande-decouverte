@@ -1,0 +1,104 @@
+INSTRUCTIONS D'IMPRESSION ADOBE INDESIGN POUR LE RAPPORT DU PRESTATAIRE DE SERVICES
+
+NOM DE LA COMPOSITION : Doc_technique.indd
+
+DATE D'ASSEMBLAGE : 19/06/2015 16:09
+Date de création : 19/06/2015
+Date de modification : 19/06/2015
+
+INFORMATIONS DE CONTACT
+
+Nom de la société : 
+Contact : 
+Adresse : 
+
+
+
+
+
+Téléphone : 
+Télécopie : 
+Adresse électronique : 
+
+INSTRUCTIONS SPECIALES ET AUTRES REMARQUES
+
+
+
+
+
+
+Modules externes 0
+Objets non opaques :Page1, 2, 5, 7, 9, 12, 13, 26, 29, 30, 31, 33, 34
+
+POLICES
+16 Police(s) utilisée(s); 0 Manquant(e)(s), 0 Incorporé(e)(s), 0 Incomplète(s), 0 Protégée(s)
+
+Polices assemblées
+- Nom : Arial-BoldMT; Type : OpenType TrueType, Etat : OK
+- Nom : ArialMT; Type : OpenType TrueType, Etat : OK
+- Nom : Avenir-Light; Type : TrueType, Etat : OK
+- Nom : Helvetica; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-Bold; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-CondensedBlack; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-CondensedBold; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-Light; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-LightItalic; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-Medium; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-MediumItalic; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-Thin; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-ThinItalic; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-UltraLight; Type : TrueType, Etat : OK
+- Nom : HelveticaNeue-UltraLightItalic; Type : TrueType, Etat : OK
+
+
+COULEURS ET ENCRES
+4 Encre(s) quadri; 0 Encre(s) de tons directs
+
+- Nom et type : Cyan quadri; Angle : 0,000; Lignes/pouce : 0,000
+- Nom et type : Magenta quadri; Angle : 0,000; Lignes/pouce : 0,000
+- Nom et type : Jaune quadri; Angle : 0,000; Lignes/pouce : 0,000
+- Nom et type : Noir quadri; Angle : 0,000; Lignes/pouce : 0,000
+
+
+LIENS ET IMAGES
+(Liens manquants et incorporés uniquement)
+Liens et images : 23 Lien(s) détecté(s); 0 Modifié(s), 0 Manquant(e)(s) 0 Inaccessible(s)
+Images : 0 Incorporé(e)(s), 23 utilisant l'espace colorimétrique RVB
+
+
+PARAMETRES D'IMPRESSION
+PPD : N/A, (Brother DCP-145C)
+Impression sur : Imprimante
+Nombre de copies : 1
+Planches : Non
+Pages paires/impaires : Les deux
+Pages : Toutes
+Epreuve : Non
+Mosaïque : Sans
+Echelle : 100 %, 100 %
+Position de la page : En haut, à gauche
+Imprimer les calques : Calques visibles et imprimables
+Marques d'imprimeur : Sans
+Fond perdu : 0 px, 0 px, 0 px, 0 px
+Couleur : RVB composite
+Mode de recouvrement : Sans
+Envoi des données d'images : Echantillonnage optimisé
+Substitution d'image OPI/DCS : Non
+Format de page : A4
+Dimensions du papier : 595 px x 297,039 mm
+Orientation : Portrait
+Négatif : Non
+Symétrie : Désactivée
+
+
+LISTE DES FICHIERS DE L'ENVOI
+
+1. Doc_technique.indd; type : Composition Adobe InDesign; taille : 8744K
+2. Doc_technique.idml; type : Document InDesign Markup; taille : 354K
+3. Doc_technique.pdf; type : Document Adobe Acrobat; taille : 10936K
+4. Arial Bold.ttf; type : Fichier de polices; taille : 733K
+5. Arial.ttf; type : Fichier de polices; taille : 756K
+6. Avenir.ttc; type : Fichier de polices; taille : 1549K
+7. Helvetica.dfont; type : Fichier de polices; taille : 2491K
+8. HelveticaNeue.dfont; type : Fichier de polices; taille : 6580K
