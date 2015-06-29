@@ -4,14 +4,13 @@ session_start();
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Cmss extends CI_Controller {
+class PageCMS extends CI_Controller {
 
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('cms');
 
         $this->load->database();
         $this->load->helper('url');
@@ -22,11 +21,9 @@ class Cmss extends CI_Controller {
     public function liste() {
         $crud = new grocery_CRUD();
 
-        $crud->set_table('cms');
-        $crud->set_subject('Blocs CMS');
-        //$crud->display_as('reponse','Réponse');
-        //$crud->display_as('active','Activé');
-        //$crud->unset_columns('value');
+        $crud->set_table('page_cms');
+        $crud->set_subject('Page CMS');
+        $crud->display_as('label','Titre de la page');
 
         $crud->columns('code','label','active');
 
@@ -41,7 +38,7 @@ class Cmss extends CI_Controller {
 
     public function _example_output($output = null)
     {
-        $this->load->templateAdmin('cms/bloc', $output);
+        $this->load->templateAdmin('cms/page', $output);
     }
 
     public function offices()

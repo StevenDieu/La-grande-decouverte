@@ -108,8 +108,8 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/cmss/index'); ?>">Gestion des textes CMS</a></li>
-                                <li><a href="<?php echo base_url('admin/index/dashboard'); ?>">Gestion des pages CMS</a></li>
+                                <li><a href="<?php echo base_url('admin/cmss/liste'); ?>">Gestion des blocs CMS</a></li>
+                                <li><a href="<?php echo base_url('admin/pageCMS/liste'); ?>">Gestion des pages CMS</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

@@ -24,6 +24,10 @@ class Faqs extends CI_Controller {
 
         $crud->set_table('faq');
         $crud->set_subject('question FAQ');
+
+        $crud->columns('question','active');
+
+
         $crud->display_as('reponse','Réponse');
         $crud->display_as('active','Activé');
         //$crud->unset_columns('productDescription');
