@@ -27,9 +27,8 @@ class Index extends CI_Controller {
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
-
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('admin/connexion');
+            $this->connexion();
         } else {
             redirect('admin/index/dashboard', 'refresh');
         }

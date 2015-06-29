@@ -9,44 +9,29 @@
 Class InfoVoyage extends CI_Model {
 
     private $id;
-    private $date_depart;
-    private $date_arrivee;
-    private $depart;
-    private $arrivee;
-    private $formalite;
-    private $asavoir;
-    private $comprenant;
-    private $place_dispo;
-    private $prix;
-    private $special_price;
-    private $tva;
-    private $id_voyage;
+    private $input = array('date_depart', 'date_arrivee', 'depart', 'arrivee', 'formalite', 'asavoir', 'comprenant', 'place_dispo', 'prix', 'special_price', 'tva', 'id_voyage');
+    private $data = array();
 
-    function _construct() {
-        parent::_construct();
+    function __construct() {
+        parent::__construct();
     }
 
     function addInfoVoyage() {
-        $this->db->insert('info_voyage', $this);
+        $this->db->insert('info_voyage', $this->data);
         $this->id = $this->db->insert_id();
     }
 
     function editInfoVoyage() {
         $this->db->where('id', $this->id);
         $this->db->update('info_voyage', $this);
-        return true;
     }
 
-    function deleteInfoVoyage() {
-        $this->db->where('id', $this->id);
-        $this->db->delete('info_voyage');
-        return true;
-    }
-
-    function getInfoVoyage() {
+    function getInfoVoyageByVoyage() {
         $this->db->select('*');
         $this->db->from('info_voyage');
-        $this->db->where('id_voyage', $this->id_voyage);
+        $this->db->where('id_voyage', $this->data["id_voyage"]);
+
+
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -55,7 +40,7 @@ Class InfoVoyage extends CI_Model {
         }
     }
 
-    function getInfoVoyageById($id) {
+    function getInfoVoyageById() {
         $this->db->select('*');
         $this->db->from('info_voyage');
         $this->db->where('id', $this->id);
@@ -72,7 +57,7 @@ Class InfoVoyage extends CI_Model {
     function getInfoVoyageMin() {
         $this->db->select('*');
         $this->db->from('info_voyage');
-        $this->db->where('id_voyage', $this->id_voyage);
+        $this->db->where('id_voyage', $this->data["id_voyage"]);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -84,64 +69,26 @@ Class InfoVoyage extends CI_Model {
         }
     }
 
-    function getId() {
-        return $this->id;
+    function deleteInfoVoyageByVoyage() {
+        $this->db->where('id_voyage', $this->data["id_voyage"]);
+        $this->db->delete('info_voyage');
     }
 
-    function getId_voyage() {
-        return $this->id_voyage;
+    function deleteInfoVoyage() {
+        $this->db->where('id', $this->id);
+        $this->db->delete('info_voyage');
     }
 
     function setId($id) {
         $this->id = $id;
     }
 
-    function setDate_depart($date_depart) {
-        $this->date_depart = $date_depart;
+    function __set($name, $value) {
+        $this->data[$name] = $value;
     }
 
-    function setDate_arrivee($date_arrivee) {
-        $this->date_arrivee = $date_arrivee;
-    }
-
-    function setDepart($depart) {
-        $this->depart = $depart;
-    }
-
-    function setArrivee($arrivee) {
-        $this->arrivee = $arrivee;
-    }
-
-    function setFormalite($formalite) {
-        $this->formalite = $formalite;
-    }
-
-    function setAsavoir($asavoir) {
-        $this->asavoir = $asavoir;
-    }
-
-    function setComprenant($comprenant) {
-        $this->comprenant = $comprenant;
-    }
-
-    function setPlace_dispo($place_dispo) {
-        $this->place_dispo = $place_dispo;
-    }
-
-    function setPrix($prix) {
-        $this->prix = $prix;
-    }
-
-    function setSpecial_price($special_price) {
-        $this->special_price = $special_price;
-    }
-
-    function setTva($tva) {
-        $this->tva = $tva;
-    }
-
-    function setId_voyage($id_voyage) {
-        $this->id_voyage = $id_voyage;
+    function getInput() {
+        return $this->input;
     }
 
 }

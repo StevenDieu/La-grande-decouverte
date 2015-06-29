@@ -9,22 +9,16 @@
 Class Voyage extends CI_Model {
 
     private $id;
-    private $titre;
-    private $phrase_accroche;
-    private $duree;
-    private $description_first_bloc;
-    private $description_second_bloc;
-    private $description_third_bloc;
-    private $lattitude;
-    private $longitude;
-
-    function _construct() {
-        parent::_construct();
+    private $input = array('titre', 'phrase_accroche', 'phrase_accroche_slider', 'duree', 'description_first_bloc', 'description_second_bloc', 'description_third_bloc', 'lattitude', 'longitude','image_sous_slider');
+    private $data = array();
+    
+    function __construct() {
+        parent::__construct();
     }
 
-    function ajouterVoyage() {
-        $this->db->insert('voyage', $this);
-        $this->id = $this->db->insert_id();
+    function addVoyage() {
+        $this->db->insert('voyage',$this->data);
+        return $this->db->insert_id();
     }
 
     function editerVoyage() {
@@ -124,43 +118,18 @@ Class Voyage extends CI_Model {
     function deleteVoyage() {
         $this->db->where('id', $this->id);
         $this->db->delete('voyage');
-        return true;
     }
-
-    function setId($id) {
+    
+    function setId($id){
         $this->id = $id;
     }
 
-    function setTitre($titre) {
-        $this->titre = $titre;
+    function __set($name, $value) {
+        $this->data[$name] = $value; 
     }
-
-    function setPhrase_accroche($phrase_accroche) {
-        $this->phrase_accroche = $phrase_accroche;
-    }
-
-    function setDuree($duree) {
-        $this->duree = $duree;
-    }
-
-    function setDescription_first_bloc($description_first_bloc) {
-        $this->description_first_bloc = $description_first_bloc;
-    }
-
-    function setDescription_second_bloc($description_second_bloc) {
-        $this->description_second_bloc = $description_second_bloc;
-    }
-
-    function setDescription_third_bloc($description_third_bloc) {
-        $this->description_third_bloc = $description_third_bloc;
-    }
-
-    function setLattitude($lattitude) {
-        $this->lattitude = $lattitude;
-    }
-
-    function setLongitude($longitude) {
-        $this->longitude = $longitude;
+    
+    function getInput(){
+        return $this->input;
     }
 
 }

@@ -7,14 +7,11 @@
             <div class="widget">
                 <div class="widget-header">
                     <i class="icon-road"></i>
-                    <h3>Voyages</h3>
+                    <h3>Continent</h3>
                     <a href="<?php echo base_url('admin/continent/add'); ?>" id="bouton_header" role="button" class="btn" data-toggle="">Ajouter un Continent</a>
                 </div>
                 <div class="widget-content">
                     <div class="tabbable">
-                        <script type="text/javascript">
-                            confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
-                        </script>
                         <?php
                         if ($continents) {
                             ?>

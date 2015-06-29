@@ -26,18 +26,26 @@ function add_image() {
             success: function (result) {
                 $(".attenteSuppr").remove();
                 result = JSON.parse(result);
+                $(".alert").hide();
+                $(".message").empty();
                 if (result !== "-1") {
                     for (var i = 0; i < result["nombre"]; i++) {
-                        if ($(".tabbable").html().indexOf("Pas de picto") !== -1) {
-                            $(".tabbable").html('<div class="blockPicto">\n\
-                       <img class="img_picto" data-id="' + result["id" + i] + '" src="' + result["src" + i] + '" />\n\
-                       <button class="btn btn-danger btn-circle delete_picto button_delete_picto" data-id="' + result["id" + i] + '""><i class="icon-remove"></i></button>\n\
-                        </div>');
-                        } else {
-                            $(".tabbable").append('<div class="blockPicto">\n\
-                       <img class="img_picto" data-id="' + result["id" + i] + '" src="' + result["src" + i] + '" />\n\
-                       <button class="btn btn-danger btn-circle delete_picto button_delete_picto" data-id="' + result["id" + i] + '""><i class="icon-remove"></i></button>\n\
-                        </div>');
+                        if (result["message" + i] !== undefined) {
+                            $(".alert").show();
+                            $(".message").append(result["message" + i]);
+                        } else if(result["id" + i] !== undefined) {
+                            if ($(".tabbable").html().indexOf("Pas de picto") !== -1) {
+                                $(".tabbable").empty();
+                                $(".tabbable").append('<div class="blockPicto">\n\
+                                <img class="img_picto" data-id="' + result["id" + i] + '" src="' + result["src" + i] + '" />\n\
+                                <button class="btn btn-danger btn-circle delete_picto button_delete_picto" data-id="' + result["id" + i] + '""><i class="icon-remove"></i></button>\n\
+                                </div>');
+                            } else {
+                                $(".tabbable").append('<div class="blockPicto">\n\
+                                <img class="img_picto" data-id="' + result["id" + i] + '" src="' + result["src" + i] + '" />\n\
+                                <button class="btn btn-danger btn-circle delete_picto button_delete_picto" data-id="' + result["id" + i] + '""><i class="icon-remove"></i></button>\n\
+                                </div>');
+                            }
                         }
                     }
                     $('.add_image').val("");

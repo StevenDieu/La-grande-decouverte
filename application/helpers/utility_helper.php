@@ -39,7 +39,7 @@ function add_image($idHtml) {
                 <div class="input-group">
                     <span class="input-group-btn">
                         <span class="btn btn-primary btn-file">
-                            Browse&hellip;  <input type="file" class="image_<?php echo $idHtml; ?>" name="image_<?php echo $idHtml; ?>">
+                            Parcourir&hellip;  <input type="file" class="image_<?php echo $idHtml; ?>" name="image_<?php echo $idHtml; ?>">
                         </span>
                     </span>
                     <input type="text" class="form-control text_<?php echo $idHtml; ?>" readonly>
@@ -175,6 +175,14 @@ function carnet_court_liste($carnetVoyages, $i) {
     if ($i % 2 == 1) {
         echo "<div style='clear:both'></div>";
     }
+}
+
+function remove_last_element_array($arrays, $j){
+    $newArrray = array();
+    for($i = 0; $i < (count($arrays) - $j); $i++){
+        array_push($newArrray, $arrays[$i]);
+    }
+    return $newArrray;
 }
 
 function asset_url($url = "") {

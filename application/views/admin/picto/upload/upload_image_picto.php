@@ -7,25 +7,16 @@ $tabExt = array('jpg', 'gif', 'png', 'jpeg');    // Extensions autorisees
 $infosImg = array();
 
 // Variables
-$extension = '';
-$message = '';
-$nomImage = '';
-$tableauMessage = '';
-$great = 0;
+$extension = "";
+$nomImage = "";
+$tableauMessage = array();
+$nbrImage = 0;
 
-/* * **********************************************************
- * Creation du repertoire cible si inexistant
- * *********************************************************** */
-if (!is_dir(TARGETIMAGE)) {
-    if (!mkdir(TARGETIMAGE, 0755)) {
-        $message = '-1';
-    }
-}
-/* * **********************************************************
- * Script d'upload
- * *********************************************************** */
+$error[1] = $error[2] = $error[3] = $error[4] = $error[5] = $error[6] = true;
+
 if (!empty($_FILES)) {
     for ($i = 0; $i < $_POST["nombre"]; $i++) {
+        $message = array();
         if (!empty($_FILES["fichier_" . $i]['name'])) {
             $extension = pathinfo($_FILES["fichier_" . $i]['name'], PATHINFO_EXTENSION);
             if (in_array(strtolower($extension), $tabExt)) {
@@ -34,31 +25,53 @@ if (!empty($_FILES)) {
                     if (isset($_FILES["fichier_" . $i]['error']) && UPLOAD_ERR_OK === $_FILES["fichier_" . $i]['error']) {
                         $nomImage = md5(uniqid()) . '.' . $extension;
                         if (move_uploaded_file($_FILES["fichier_" . $i]['tmp_name'], TARGETIMAGE . $nomImage)) {
-                            $great++;
-                            $this->picto->setLien("produit/picto/" . $nomImage);
-                            $id = $this->picto->addPicto();
-                            $tableauMessage[$i] =  array("src".$i => asset_media("produit/picto/" . $nomImage), "id".$i => $id);
-                            if($i != 0){
-                                $tableauMessage[$i] = array_merge($tableauMessage[$i-1],$tableauMessage[$i]);
-                            }
+
+                            $this->ImagePicto->setLien("produit/picto/" . $nomImage);
+                            $id = $this->ImagePicto->addPicto();
+                            $message = array("src" . $i => asset_media("produit/picto/" . $nomImage), "id" . $i => $id);
                         } else {
-                            $message = '-6';
+                            if ($error[1] == true) {
+                                $message = array("message" . $i => 'Problème lors de l\'upload concernant une image!');
+                                $error[1] = false;
+                            }
                         }
                     } else {
-                        $message = '-5';
+                        if ($error[2] == true) {
+                            $message = array("message" . $i => 'Une erreur interne a empêché l\'uplaod d\une image');
+                            $error[2] = false;
+                        }
                     }
                 } else {
-                    $message = '-4';
+                    if ($error[3] == true) {
+                        $message = array("message" . $i => 'Erreur dans les dimensions d\une image !');
+                        $error[3] = false;
+                    }
                 }
             } else {
-                $message = '-3';
+                if ($error[4] == true) {
+                    $message = array("message" . $i => 'Le fichier à uploader n\'est pas une image !');
+                    $error[4] = false;
+                }
             }
         } else {
-            $message = '-2';
+            if ($error[5] == true) {
+                $message = array("message" . $i => 'L\'extension du fichier est incorrecte !');
+                $error[5] = false;
+            }
         }
+        if (!empty($tableauMessage)) {
+            if (!empty($message)) {
+                $tableauMessage[$i] = array_merge($tableauMessage[$i - 1], $message);
+            } else {
+                $tableauMessage[$i] = $tableauMessage[$i - 1];
+            }
+        } else {
+            $tableauMessage[$i] = $message;
+        }
+        $nbrImage++;
     }
 } else {
-    $message = '-1';
+    $tableauMessage[0] = array("message" . $i => 'Veuillez remplir le formulaire svp !');
 }
-$great = array("nombre" => $great);
-echo json_encode(array_merge($great,$tableauMessage[$i-1]));
+
+echo json_encode(array_merge(array("nombre" => $nbrImage), $tableauMessage[$i - 1]));

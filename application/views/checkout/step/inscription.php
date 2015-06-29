@@ -1,5 +1,5 @@
 <form action="#" class="adress_form">
-	<div class="all_text_field">
+    <div class="all_text_field">
         <div class="address_fields_left">
             <p><input name="inscription_nom" id="inscription_nom" type="text" placeholder="Votre Nom*" /></p>
         </div>

@@ -5,24 +5,203 @@ if (!defined('BASEPATH'))
 
 class Model_voyage extends CI_Controller {
 
+    private $id_voyage;
+    private $inputInfoGene;
+    private $inputInfopays;
+
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('voyage');
         $this->load->library('form_validation');
-        $this->load->library('upload');
+        $this->load->model('voyage');
+        $this->load->model('pays');
+        $this->load->model('images');
+        $this->load->model('pictoVoyage');
+        $this->load->model('infoVoyage');
+        $this->load->model('deroulementVoyage');
+
+        $this->load->model('imagePicto');
+        $this->load->model('continents');
     }
 
     public function save() {
+        $this->generateSetRules();
+        
+        $this->uploadImage();
+        die();
+        if ($this->form_validation->run() == FALSE) {
+            $data["continents"] = $this->continents->getContinents();
+            $data["pictos"] = $this->imagePicto->getPictos();
+            $data["adminJs"] = array("voyage/add_voyage");
+            $this->load->templateAdmin('/voyage/add_voyage', $data);
+        } else {
+            $this->id_voyage = $this->ajouterVoyage();
+            if ($this->id_voyage > 0) {
+                $this->ajouterPays();
+                $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
+                $this->ajouterImage($this->input->post('image_banniere'), "banniere");
+                $this->ajouterImage($this->input->post('image_image_description'), "image_description");
+                $this->ajouterPicto();
+                $this->ajouterInfoVoyage();
+                $this->ajouterDeroulementVoyage();
+                redirect('admin/voyages/liste', 'refresh');
+            }
+        }
+    }
+
+    private function generateSetRules() {
+        //information générale
+        $this->inputInfoGene = $this->voyage->getInput();
+        $inputInfoGene = remove_last_element_array($this->inputInfoGene, 1);
+        foreach ($inputInfoGene as $input) {
+            $this->form_validation->set_rules($input, $input, 'trim|xss_clean|required');
+        }
+        if (empty($_FILES['image_sous_slider']['name'])) {
+            $this->form_validation->set_rules('image_sous_slider', 'image_sous_slider', 'xss_clean|required');
+        }
+
+        //information pays
+        $this->inputInfopays = $this->pays->getInput();
+        $inputInfoPays = remove_last_element_array($this->inputInfoGene, 2);
+        foreach ($inputInfoPays as $input) {
+            $this->form_validation->set_rules($input, $input, 'trim|xss_clean');
+        }
+        $this->form_validation->set_rules("id_continent", "id_continent", 'trim|xss_clean|required');
+
+
+        //images
+        $this->form_validation->set_rules('image_image_slider', 'image_image_slider', 'xss_clean|required');
+        $this->form_validation->set_rules('image_banniere', 'image_banniere', 'xss_clean|required');
+        $this->form_validation->set_rules('image_image_description', 'image_image_description', 'xss_clean|required');
+        $this->form_validation->set_rules('picto_hidden', 'picto_hidden', 'xss_clean|required');
+
+
+        //info voyage
+        $this->inputInfoVoyage = $this->infoVoyage->getInput();
+        $this->form_validation->set_rules('date_depart', 'date_depart', 'xss_clean|required');
+        $this->form_validation->set_rules('date_arrivee', 'date_arrivee', 'xss_clean|required');
+        $this->form_validation->set_rules('depart', 'depart', 'xss_clean|required');
+        $this->form_validation->set_rules('arrivee', 'arrivee', 'xss_clean|required');
+        $this->form_validation->set_rules('prix', 'prix', 'xss_clean|required|callback_is_price');
+        $this->form_validation->set_rules('special_price', 'special_price', 'xss_clean|callback_is_price');
+        $this->form_validation->set_rules('tva', 'tva', 'xss_clean|required|callback_is_price');
+        $this->form_validation->set_rules('formalite', 'formalite', 'xss_clean');
+        $this->form_validation->set_rules('asavoir', 'asavoir', 'xss_clean');
+        $this->form_validation->set_rules('comprenant', 'comprenant', 'xss_clean');
+
+        //info déroulement
+        $this->inputDeroulementVoyage = $this->deroulementVoyage->getInput();
+        $inputDeroulementVoyage = remove_last_element_array($this->inputDeroulementVoyage, 1);
+        foreach ($inputDeroulementVoyage as $input) {
+            $this->form_validation->set_rules($input, $input, 'xss_clean|required');
+        }
+        $this->form_validation->set_rules("img_deroulement_voyage", "img_deroulement_voyage", 'xss_clean');
+        
+    }
+    
+    private function uploadImage(){
         
     }
 
-    public function delete() {
-        $id = $this->input->get('id');
+    private function ajouterVoyage() {
+        foreach ($this->inputInfoGene as $input) {
+            $this->voyage->__set($input, $this->input->post($input));
+        }
+        return $this->voyage->addVoyage();
+    }
 
-        $result = $this->voyage->deleteVoyage($id);
+    private function ajouterPays() {
+        foreach ($this->inputInfopays as $input) {
+            $this->pays->__set($input, $this->input->post($input));
+        }
+        $this->pays->__set('id_voyage', $this->id_voyage);
+        $this->pays->addPays();
+    }
+
+    private function ajouterImage($input, $emplacement) {
+        for ($i = 0; $i < count($input); $i++) {
+            $nom = $this->input->post('titre_' . $emplacement)[$i];
+            $this->images->setLien($input[$i]);
+            $this->images->setNom($nom);
+            $this->images->setEmplacement($emplacement);
+            $this->images->setId_voyage($this->id_voyage);
+            $this->images->addImage();
+        }
+    }
+
+    private function ajouterPicto() {
+        $input = explode(",", $this->input->post("picto_hidden"));
+        for ($i = 0; $i < count($input); $i++) {
+            $this->pictoVoyage->setId_image_picto($input[$i]);
+            $this->pictoVoyage->setId_voyage($this->id_voyage);
+            $this->pictoVoyage->addPictoVoyage();
+        }
+    }
+
+    private function ajouterInfoVoyage() {
+        $input = $this->input->post("date_depart");
+        for ($i = 0; $i < count($input); $i++) {
+            foreach ($this->inputInfoVoyage as $input) {
+                $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+            }
+            $this->infoVoyage->__set('id_voyage', $this->id_voyage);
+            $this->infoVoyage->addInfoVoyage();
+        }
+    }
+
+    private function ajouterDeroulementVoyage() {
+        $input = $this->input->post("titrederoulement");
+        for ($i = 0; $i < count($input); $i++) {
+            foreach ($this->inputDeroulementVoyage as $input) {
+                $this->deroulementVoyage->__set($input, $this->input->post($input)[$i]);
+            }
+            $this->deroulementVoyage->__set('id_voyage', $this->id_voyage);
+            $this->deroulementVoyage->addDeroulement();
+        }
+    }
+
+    public function is_price($prix) {
+        $regex = "/^[0-9]*(,[0-9]{2}|[.][0-9]{2}|)$/";
+        for ($i = 0; $i < count($prix); $i++) {
+            if (!empty($prix[$i])) {
+                if (preg_match($regex, $prix[$i])) {
+                    return true;
+                } else {
+                    if ("%s" === "prix") {
+                        $label = "Prix";
+                    } else if ("%s" === "special_price") {
+                        $label = "Prix spécial";
+                    } else {
+                        $label = "Tva";
+                    }
+                    $this->form_validation->set_message('is_price', $label . ' doit être un prix.');
+                    return false;
+                }
+            }
+        }
+    }
+
+    public function delete() {
+        if (!$this->input->get('id')) {
+            redirect('admin/voyages/liste', 'refresh');
+        }
+        $this->voyage->setId($this->input->get('id'));
+        $this->pictoVoyage->setId_voyage($this->input->get('id'));
+        $this->pays->__set("id_voyage", $this->input->get('id'));
+        $this->images->setId_voyage($this->input->get('id'));
+        $this->infoVoyage->__set("id_voyage", $this->input->get('id'));
+        $this->deroulementVoyage->__set("id_voyage", $this->input->get('id'));
+
+        $data["pictoVoyage"] = $this->pictoVoyage->deletePictoVoyage();
+        $data["pays"] = $this->pays->deletePaysByVoyage();
+        $data["images"] = $this->images->deleteImagesByVoyage();
+       
+        $data["infoVoyages"] = $this->infoVoyage->deleteInfoVoyageByVoyage();
+        $data["deroulementVoyages"] = $this->deroulementVoyage->deleteAllDeroulementByVoyage();
+         
+        $data["voyage"] = $this->voyage->deleteVoyage();
 
         redirect('admin/voyages/liste', 'refresh');
     }

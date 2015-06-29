@@ -108,7 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('image');
+$autoload['model'] = array('');
 $autoload['libraries'] = array('database','session');
 
 

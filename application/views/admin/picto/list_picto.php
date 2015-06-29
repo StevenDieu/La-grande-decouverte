@@ -3,7 +3,13 @@
     var urlDeleteImage = '<?php echo base_url('admin/pictos/delete'); ?>';
 </script>
 
+
 <div class="container">
+
+    <div class="alert hide">
+        <strong>Alert!</strong><span class="message"></span>
+    </div>
+    
     <div class="row">
         <div class="span12">
             <div class="widget">
@@ -13,6 +19,7 @@
                     <input type="file" id="bouton_header" class="file_design_green add_image" multiple=""/>
                 </div>
                 <div class="widget-content">
+
                     <div class="tabbable">
                         <?php
                         if ($pictos) {

@@ -512,6 +512,8 @@ fieldset {
 	padding: 0;
 	margin: 0;
 	border: 0;
+	width: 100%;
+	min-width: inherit;
 }
 legend {
 	display: block;
@@ -898,7 +900,7 @@ color:#999999;
 .input-prepend.input-append input, .input-prepend.input-append select, .input-prepend.input-append .uneditable-input {
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
-	border-radius: 0;
+	border-radius: 4px;
 }
 .input-prepend.input-append .add-on:first-child, .input-prepend.input-append .btn:first-child {
 	-webkit-border-radius: 4px 0 0 4px;
@@ -924,7 +926,7 @@ color:#999999;
 }
 .form-search input, .form-inline input, .form-horizontal input, .form-search textarea, .form-inline textarea, .form-horizontal textarea, .form-search select, .form-inline select, .form-horizontal select, .form-search .help-inline, .form-inline .help-inline, .form-horizontal .help-inline, .form-search .uneditable-input, .form-inline .uneditable-input, .form-horizontal .uneditable-input, .form-search .input-prepend, .form-inline .input-prepend, .form-horizontal .input-prepend, .form-search .input-append, .form-inline .input-append, .form-horizontal .input-append {
 	display: inline-block;
-	margin-bottom: 0;
+	margin-bottom: 0;        
 }
 .form-search .hide, .form-inline .hide, .form-horizontal .hide {
 	display: none;
@@ -965,9 +967,10 @@ legend+.control-group {
 }
 .form-horizontal .control-label {
 	float: left;
-	width: 180px;
+	width: 185px;
 	padding-top: 5px;
 	text-align: right;
+	font-weight: bold;
 }
 .form-horizontal .controls {
 	margin-left: 191px;

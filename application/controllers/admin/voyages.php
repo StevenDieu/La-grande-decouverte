@@ -12,14 +12,20 @@ class Voyages extends CI_Controller {
             redirect('admin/index/connexion', 'refresh');
         }
         $this->load->model('voyage');
-        $this->load->model('picto');
+        $this->load->model('pays');
+        $this->load->model('images');
+        $this->load->model('pictoVoyage');
+        $this->load->model('infoVoyage');
+        $this->load->model('deroulementVoyage');
+
+        $this->load->model('imagePicto');
         $this->load->model('continents');
     }
 
     public function add() {
         $data["continents"] = $this->continents->getContinents();
-        $data["pictos"] = $this->picto->getPictos();
-        $data["adminJs"] = array("voyage/add_voyage");
+        $data["pictos"] = $this->imagePicto->getPictos();
+        $data["adminJs"] = array("voyage/voyage");
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/voyage/add_voyage', $data);
     }
@@ -28,9 +34,24 @@ class Voyages extends CI_Controller {
         if (!$this->input->get('id')) {
             redirect('admin/voyages/liste', 'refresh');
         }
-        $data["voyage"] = $this->voyage->getVoyage($this->input->get('id'));
-        $data["voyageVente"] = $this->voyage->getInfoVoyage($this->input->get('id'));
-        $data["continents"] = $this->voyage->getContinents();
+        $this->voyage->setId($this->input->get('id'));
+        $this->pictoVoyage->setId_voyage($this->input->get('id'));
+        $this->pays->__set("id_voyage", $this->input->get('id'));
+        $this->images->setId_voyage($this->input->get('id'));
+        $this->infoVoyage->__set("id_voyage", $this->input->get('id'));
+        $this->deroulementVoyage->__set("id_voyage", $this->input->get('id'));
+
+        $data["voyage"] = $this->voyage->getVoyage();
+        $data["pictoVoyages"] = $this->pictoVoyage->getPictoVoyages();
+        $data["pays"] = $this->pays->getPaysByVoyage();
+        $data["images"] = $this->images->getImagesByVoyage();
+        $data["infoVoyages"] = $this->infoVoyage->getInfoVoyageByVoyage();
+        $data["deroulementVoyages"] = $this->deroulementVoyage->getAllDeroulementByVoyage();
+        $data["continents"] = $this->continents->getContinents();
+        $data["pictos"] = $this->imagePicto->getPictos();
+
+        $data["adminJs"] = array("voyage/voyage");
+
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/voyage/edit_voyage', $data);
     }

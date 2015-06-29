@@ -11,7 +11,7 @@ class Pictos extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('picto');
+        $this->load->model('ImagePicto');
     }
 
     public function add() {
@@ -24,9 +24,9 @@ class Pictos extends CI_Controller {
             redirect('admin/picto/liste', 'refresh');
         }
 
-        $this->picto->setId($this->input->post('id'));
-        $data["pictos"] = $this->picto->getPicto();
-        if ($this->picto->deletePicto()) {
+        $this->ImagePicto->setId($this->input->post('id'));
+        $data["pictos"] = $this->ImagePicto->getPicto();
+        if ($this->ImagePicto->deletePicto()) {
             $this->load->view('admin/picto/upload/delete_image_picto.php', $data);
         } else {
             echo -1;
@@ -36,7 +36,7 @@ class Pictos extends CI_Controller {
     public function liste() {
         $data["adminJs"] = array("picto/picto");
         $this->load->helper(array('form'));
-        $data["pictos"] = $this->picto->getPictos();
+        $data["pictos"] = $this->ImagePicto->getPictos();
         $this->load->templateAdmin('/picto/list_picto', $data);
     }
 
