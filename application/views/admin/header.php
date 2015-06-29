@@ -119,7 +119,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/newsletters/index'); ?>">Abonnés à la newsletter</a></li>
+                                <li><a href="<?php echo base_url('admin/newsletters/liste'); ?>">Abonnés à la newsletter</a></li>
                             </ul>
                         </li>
                         <li>

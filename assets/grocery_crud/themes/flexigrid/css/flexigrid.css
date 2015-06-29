@@ -684,7 +684,7 @@ div.pGroup {
 	padding:0px !important;
 	padding-bottom:0px !important;
 	margin-left:5px;
-	display: none;
+	display: block;
 }
 .flexigrid .tools
 {
@@ -1453,4 +1453,8 @@ input[type="submit"].btn.btn-mini {
 	content: "Loading...";
 	margin-left: 550px;
 	z-index: 1000;
+}
+
+.form-field-box img{
+	max-width: 500px;
 }

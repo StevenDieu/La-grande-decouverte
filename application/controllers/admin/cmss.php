@@ -11,7 +11,6 @@ class Cmss extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('cms');
 
         $this->load->database();
         $this->load->helper('url');
@@ -27,6 +26,8 @@ class Cmss extends CI_Controller {
         //$crud->display_as('reponse','Réponse');
         //$crud->display_as('active','Activé');
         //$crud->unset_columns('value');
+
+        $crud->unset_read();
 
         $crud->columns('code','label','active');
 

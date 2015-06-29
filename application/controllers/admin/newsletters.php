@@ -11,28 +11,57 @@ class Newsletters extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('newsletter');
         $this->load->helper(array('form'));
+
+        $this->load->database();
+        $this->load->helper('url');
+
+        $this->load->library('grocery_CRUD');
     }
 
-    public function edit() {
-        if (!$this->input->get('id')) {
-            redirect('admin/newsletter/liste', 'refresh');
-        }
-        $data["newsletter"] = $this->newsletter->getNewsletter($this->input->get('id'));
-        $this->load->templateAdmin('newsletter/edit_newsletter', $data);
+    public function liste() {
+        $crud = new grocery_CRUD();
+
+        $crud->set_table('newsletter');
+        $crud->set_subject('Abonnés à la newsletter');
+        $crud->unset_add();
+        $crud->unset_edit();
+
+        //$crud->columns('id','mail','nom','prenom','statut','date_inscription');
+
+        //$crud->display_as('prenom','Prénom');
+        //$crud->display_as('active','Activé');
+        //$crud->unset_columns('productDescription');
+
+        //$crud->set_relation('mail','utilisateur','prenom');
+
+        //$crud->fields('question','reponse','active');
+        //$crud->required_fields('question','reponse','active');
+
+        $output = $crud->render();
+        $this->_example_output($output);
+
     }
 
-    public function index() {
-        $data["newsletters"] = $this->newsletter->getNewsletters();
-        $this->load->model('user');
-        if($data["newsletters"]){
-            foreach ($data["newsletters"] as $value) {
-                $this->user->setMail($value->mail);
-                $value->customer = $this->user->getByMail();
-            }
-        }  
-        $this->load->templateAdmin('/newsletter/list_newsletter', $data);
+    public function _example_output($output = null)
+    {
+        $this->load->templateAdmin('newsletter/list', $output);
     }
+
+    public function offices()
+    {
+        $output = $this->grocery_crud->render();
+
+        $this->_example_output($output);
+    }
+
+    public function index()
+    {
+        $this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+    }
+
+
+
+
 
 }

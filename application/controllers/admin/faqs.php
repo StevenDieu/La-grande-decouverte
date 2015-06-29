@@ -11,7 +11,6 @@ class Faqs extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('faq');
 
         $this->load->database();
         $this->load->helper('url');
@@ -34,6 +33,8 @@ class Faqs extends CI_Controller {
 
         $crud->fields('question','reponse','active');
         $crud->required_fields('question','reponse','active');
+
+        $crud->unset_read();
 
         $output = $crud->render();
 

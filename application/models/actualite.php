@@ -18,12 +18,6 @@ Class Actualite extends CI_Model {
         parent::_construct();
     }
 
-    function ajouterActualite() {
-        $this->db->insert('actualite',$this);
-
-        return $this->db->insert_id();
-    }
-
     function getActualite() {
         $this->db->select('*');
         $this->db->from('actualite');
@@ -73,20 +67,6 @@ Class Actualite extends CI_Model {
             return false;
         }
     }
-
-    function editActualite() {
-        $this->db->where('id', $this->id);
-        $this->db->update('actualite', $this);
-
-        return true;
-    }
-
-    function deleteActualite() {
-        $this->db->where('id', $this->id);
-        $this->db->delete('actualite');
-        return true;
-    }
-
 }
 
 ?>

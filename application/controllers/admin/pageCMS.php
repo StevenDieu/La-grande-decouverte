@@ -28,6 +28,7 @@ class PageCMS extends CI_Controller {
         $crud->columns('code','label','active');
 
         $crud->fields();
+        $crud->unset_read();
         $crud->required_fields('code','label','active','value');
 
         $output = $crud->render();
