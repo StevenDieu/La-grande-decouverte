@@ -43,12 +43,7 @@ class Actualites extends CI_Controller {
 
     public function _example_output($output = null)
     {
-        $this->load->templateAdmin('faq/list', $output);
-    }
-
-    function add_field_callback_1()
-    {
-    return '+30 <input type="text" maxlength="50" value="YOUR VALUE" name="phone" style="width:462px">';
+        $this->load->templateAdmin('actualite/list', $output);
     }
 
     public function offices()

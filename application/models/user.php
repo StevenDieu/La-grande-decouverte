@@ -96,6 +96,22 @@ Class User extends CI_Model {
         }
     }
 
+    function check_mail_user() {
+        $this->db->select('id');
+        $this->db->from('utilisateur');
+        $this->db->where('mail', $this->mail);
+        $this->db->where('id', $this->id);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function bannir() {
         $data = array(
             'banni' => 1,
