@@ -57,7 +57,7 @@
     <body>
         <div class="subsubnavbar">
             <div class="logo_admin">
-                <a href=""></a>
+                <a href="<?php echo base_url(''); ?>admin/index/dashboard"></a>
             </div>
             <div class="header-right">
                 <p class="super">
