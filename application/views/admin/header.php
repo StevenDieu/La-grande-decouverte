@@ -55,6 +55,22 @@
 
     </head>
     <body>
+        <div class="subsubnavbar">
+            <div class="header-right">
+                <p class="super">
+                    <?php 
+
+                    $jour = array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"); 
+
+                    $mois = array("","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"); 
+
+                    $datefr = $jour[date("w")]." ".date("d")." ".$mois[date("n")]." ".date("Y"); 
+
+                    ?> 
+                    Connecté sous <strong><?php echo $this->session->userdata('logged_admin')['username'] ?></strong><span class="separator">|</span><?php echo $datefr;  ?><span class="separator">|</span><a href="<?php echo base_url('admin/index/logout') ?>" class="link-logout">Déconnexion</a>
+                </p>
+            </div>
+        </div>
         <div class="subnavbar">
             <div class="subnavbar-inner">
                 <div class="container">
@@ -62,7 +78,7 @@
                         <li>
                             <a href="<?php echo base_url('admin/index/dashboard'); ?>">
                                 <i class="icon-home"></i>
-                                <span>Accueil</span> 
+                                <span>Tableau de bord</span> 
                             </a>
                         </li>
                         <li class="dropdown">
@@ -121,12 +137,6 @@
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url('admin/newsletters/liste'); ?>">Abonnés à la newsletter</a></li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('admin/index/logout') ?>"> 
-                                <i class="icon-power-off"></i>
-                                <span>Déconnexion</span> 
-                            </a> 
                         </li>
                     </ul>
                 </div>
