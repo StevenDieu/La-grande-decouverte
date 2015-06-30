@@ -1357,6 +1357,15 @@ color: #333;
   margin-left: 1.3em;
 }
 
+.logo_admin{
+	float: left;
+}
 
+.logo_admin a{
+	display: block;
+	height: 70px;
+	width: 278px;
+	background: url(images/logo_admin.png);
+}
 
 

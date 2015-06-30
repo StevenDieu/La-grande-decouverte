@@ -56,6 +56,9 @@
     </head>
     <body>
         <div class="subsubnavbar">
+            <div class="logo_admin">
+                <a href=""></a>
+            </div>
             <div class="header-right">
                 <p class="super">
                     <?php 
