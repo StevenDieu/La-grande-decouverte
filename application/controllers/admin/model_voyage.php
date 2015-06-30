@@ -3,11 +3,15 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+define('TARGETIMAGE', str_replace('\\', '/', getcwd()) . "/media/produit/");
+
 class Model_voyage extends CI_Controller {
 
     private $id_voyage;
     private $inputInfoGene;
     private $inputInfopays;
+    private $inputImages = array("meteo_image", "drapeau", "image_sous_slider", "img_deroulement_voyage");
+    private $tabExt = array('jpg', 'gif', 'png', 'jpeg');
 
     function __construct() {
         parent::__construct();
@@ -24,13 +28,13 @@ class Model_voyage extends CI_Controller {
 
         $this->load->model('imagePicto');
         $this->load->model('continents');
+
+        $this->load->helper('file');
     }
 
     public function save() {
         $this->generateSetRules();
-        
         $this->uploadImage();
-        die();
         if ($this->form_validation->run() == FALSE) {
             $data["continents"] = $this->continents->getContinents();
             $data["pictos"] = $this->imagePicto->getPictos();
@@ -93,28 +97,38 @@ class Model_voyage extends CI_Controller {
 
         //info déroulement
         $this->inputDeroulementVoyage = $this->deroulementVoyage->getInput();
-        $inputDeroulementVoyage = remove_last_element_array($this->inputDeroulementVoyage, 1);
+        $inputDeroulementVoyage = remove_last_element_array($this->inputDeroulementVoyage, 2);
         foreach ($inputDeroulementVoyage as $input) {
             $this->form_validation->set_rules($input, $input, 'xss_clean|required');
         }
-        $this->form_validation->set_rules("img_deroulement_voyage", "img_deroulement_voyage", 'xss_clean');
-        
     }
-    
-    private function uploadImage(){
-        
+
+    private function uploadImage() {
+        foreach ($this->inputImages as $inputImage) {
+            if ($_FILES[$inputImage]["size"] != 0) {
+                $this->add_upload($_FILES[$inputImage], $inputImage);
+            }
+        }
     }
 
     private function ajouterVoyage() {
         foreach ($this->inputInfoGene as $input) {
-            $this->voyage->__set($input, $this->input->post($input));
+            if ($input == "image_sous_slider" && isset($this->inputImages[$input])) {
+                $this->voyage->__set($input, $this->inputImages[$input][0]);
+            } else {
+                $this->voyage->__set($input, $this->input->post($input));
+            }
         }
         return $this->voyage->addVoyage();
     }
 
     private function ajouterPays() {
         foreach ($this->inputInfopays as $input) {
-            $this->pays->__set($input, $this->input->post($input));
+            if (($input == "meteo_image" || $input == "drapeau") && isset($this->inputImages[$input])) {
+                $this->pays->__set($input, $this->inputImages[$input][0]);
+            } else {
+                $this->pays->__set($input, $this->input->post($input));
+            }
         }
         $this->pays->__set('id_voyage', $this->id_voyage);
         $this->pays->addPays();
@@ -141,8 +155,8 @@ class Model_voyage extends CI_Controller {
     }
 
     private function ajouterInfoVoyage() {
-        $input = $this->input->post("date_depart");
-        for ($i = 0; $i < count($input); $i++) {
+        $inputs = $this->input->post("date_depart");
+        for ($i = 0; $i < count($inputs); $i++) {
             foreach ($this->inputInfoVoyage as $input) {
                 $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
             }
@@ -152,10 +166,16 @@ class Model_voyage extends CI_Controller {
     }
 
     private function ajouterDeroulementVoyage() {
-        $input = $this->input->post("titrederoulement");
-        for ($i = 0; $i < count($input); $i++) {
+        $inputs = $this->input->post("titrederoulement");
+        $image = 0;
+        for ($i = 0; $i < count($inputs); $i++) {
             foreach ($this->inputDeroulementVoyage as $input) {
-                $this->deroulementVoyage->__set($input, $this->input->post($input)[$i]);
+                if ($input == "img_deroulement_voyage" && isset($this->inputImages[$input]) && $_FILES[$input]["size"][$i] != 0) {
+                    $this->deroulementVoyage->__set($input, $this->inputImages[$input][$image]);
+                    $image++;
+                } else {
+                    $this->deroulementVoyage->__set($input, $this->input->post($input)[$i]);
+                }
             }
             $this->deroulementVoyage->__set('id_voyage', $this->id_voyage);
             $this->deroulementVoyage->addDeroulement();
@@ -197,13 +217,46 @@ class Model_voyage extends CI_Controller {
         $data["pictoVoyage"] = $this->pictoVoyage->deletePictoVoyage();
         $data["pays"] = $this->pays->deletePaysByVoyage();
         $data["images"] = $this->images->deleteImagesByVoyage();
-       
+
         $data["infoVoyages"] = $this->infoVoyage->deleteInfoVoyageByVoyage();
         $data["deroulementVoyages"] = $this->deroulementVoyage->deleteAllDeroulementByVoyage();
-         
+
         $data["voyage"] = $this->voyage->deleteVoyage();
 
         redirect('admin/voyages/liste', 'refresh');
+    }
+
+    private function add_upload($file, $dossier) {
+        if (is_array($file["name"])) {
+            for ($i = 0; $i < count($file["name"]); $i++) {
+                $name = $file["name"][$i];
+                $error = $file['error'][$i];
+                $tmp_name = $file['tmp_name'][$i];
+                $this->upload($name, $error, $tmp_name, $dossier);
+            }
+        } else {
+            $name = $file["name"];
+            $error = $file['error'];
+            $tmp_name = $file['tmp_name'];
+            $this->upload($name, $error, $tmp_name, $dossier);
+        }
+    }
+
+    private function upload($name, $error, $tmp_name, $dossier) {
+        if (!empty($name)) {
+            $extension = pathinfo($name, PATHINFO_EXTENSION);
+            if (in_array(strtolower($extension), $this->tabExt)) {
+                if (isset($error) && UPLOAD_ERR_OK === $error) {
+                    $nomImage = md5(uniqid()) . '.' . $extension;
+                    if (move_uploaded_file($tmp_name, TARGETIMAGE . $dossier . "/" . $nomImage)) {
+                        if (!isset($this->inputImages[$dossier])) {
+                            $this->inputImages[$dossier] = array();
+                        }
+                        array_push($this->inputImages[$dossier], "produit/" . $dossier . "/" . $nomImage);
+                    }
+                }
+            }
+        }
     }
 
 }

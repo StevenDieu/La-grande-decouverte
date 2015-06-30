@@ -359,105 +359,7 @@
                                 <legend>information vente</legend>
 
                                 <div class="ligne_info_vente">
-                                    <div class="center">
-                                        <h3>Une déclinaison</h3> 
-                                    </div>
-                                    <br/>
-                                    <div class="control-group">											
-                                        <label class="control-label" for="date_depart">Date de départ * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="date" name="date_depart[]" class="span6 required" id="date_depart"  placeholder="Date de départ">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="date_arrivee">Date d'arrivée * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="date" name="date_arrivee[]" class="span6 required" id="date_arrivee"  placeholder="Date d'arrivée">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="depart">Emplacement de départ * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="text" name="depart[]" maxlength="255" class="span6 required" id="depart"  placeholder="Emplcement de départ">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="arrivee">Emplacement d'arrivée * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="text" name="arrivee[]" maxlength="255" class="span6 required" id="arrivee"  placeholder="Emplcement d'arrivée">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="place_dispo">Place disponible * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="text" name="place_dispo[]" class="span6 required place_dispo" id="place_dispo"  placeholder="Place disponible">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="prix">Prix * : </label>
-                                        <div class="controls">
-                                            <div class="input-prepend input-append">
-                                                <input type="text" name="prix[]" class="span6 prix required prix" id="prix"  placeholder="Prix">
-                                                <span class="add-on">€</span>
-                                            </div>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="special_price">Prix spécial : </label>
-                                        <div class="controls">
-                                            <div class="input-prepend input-append">
-                                                <input type="text" name="special_price[]" class="span6 special_price" id="special_price"  placeholder="Prix spécial">
-                                                <span class="add-on">€</span>
-                                            </div>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="tva">Tva * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="text" name="tva[]" class="span6 tva required" id="tva"  placeholder="Tva">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="formalite">Formalité : </label>
-                                        <div class="controls">
-                                            <input type="text" name="formalite[]" class="span6" id="formalite"  placeholder="Formalité">
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="asavoir">A savoir : </label>
-                                        <div class="controls">
-                                            <input type="text" name="asavoir[]" class="span6" id="longitude"  placeholder="A savoir">
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="comprenant">Comprenant : </label>
-                                        <div class="controls">
-                                            <input type="text" name="comprenant[]" class="span6" id="comprenant"  placeholder="Comprenant">
-                                        </div>			
-                                    </div>
-
+                                   <?php echo venteHTMLHelper();?>
                                 </div>
                             </div>
 
@@ -474,54 +376,8 @@
                                 <legend>Information déroulement voyage</legend>
 
                                 <div class="ligne_info_deroulement">
-                                    <div class="center">
-                                        <h3>Une déclinaison</h3> 
-                                    </div>
-                                    <br/>
-                                    <div class="control-group">											
-                                        <label class="control-label" for="titrederoulement">Titre * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="text" maxlength="1024" name="titrederoulement[]" class="span6 required" id="titrederoulement"  placeholder="Titre">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="texte">Texte * : </label>
-                                        <div class="controls">
-                                            <p>
-                                                <input type="text" name="texte[]" class="span6 required" id="texte"  placeholder="Texte">
-                                            </p>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="jour">Jour * : </label>
-                                        <div class="controls">
-                                            <div class="input-prepend input-append">
-                                                <input type="text" name="jour[]" class="span6 required" id="jour"  placeholder="Jour">
-                                                <span class="add-on">Jours</span>
-                                            </div>
-                                        </div>			
-                                    </div>
-
-                                    <div class="control-group">											
-                                        <label class="control-label" for="img_deroulement_voyage">Image : </label>
-                                        <div class="controls">
-                                            <div class="input-group">
-                                                <span class="input-group-btn">
-                                                    <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="img_deroulement_voyage" name='img_deroulement_voyage'>
-                                                    </span>
-                                                </span>
-                                                <input type="text" class="form-control" readonly>
-                                            </div>
-                                            <p class="help-block">Taille recommandé pour l'image : <b>650</b> x <b>435</b> px</p>
-                                        </div>	
-                                    </div>
+                                    <?php echo deroulementHTMLHelper(); ?>
                                 </div>
-
                             </div>
 
                             <div class="center">

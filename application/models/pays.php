@@ -9,7 +9,7 @@
 Class Pays extends CI_Model {
 
     private $id;
-    private $input = array('capital', 'villes_principales', 'religion', 'nombre_habitant', 'monnaie', 'fete', 'langue_officielle', 'meteo_temperature', 'meteo_image', 'drapeau', 'id_continent', 'id_voyage');
+    private $input = array('capital', 'villes_principales', 'religion', 'nombre_habitant', 'monnaie', 'fete', 'langue_officielle', 'meteo_temperature', 'drapeau', 'id_continent', 'id_voyage');
     private $data = array();
 
     function __construct() {

@@ -185,7 +185,6 @@ if ($this->session->userdata('logged_in')) { ?>
         $('#wrapper').on('click', '#billing_confirmation', function () {
             if(verifChampBilling()){
                 createJsonBilling();
-                //console.log(billing);
                 $(".open_command.containBilling").removeClass('active');
                 $(".inside_command_panel.billing").css('display','none');
                 $(".open_command.containBilling").addClass('check');

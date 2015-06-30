@@ -5,8 +5,7 @@ $(document).on('change', '.btn-file :file', function () {
     input.innerHTML = "";
     input.trigger('fileselect', [numFiles, label]);
 });
-
-$(document).ready(function () {
+function btn_file() {
     $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
 
         var input = $(this).parents('.input-group').find(':text'),
@@ -20,14 +19,15 @@ $(document).ready(function () {
         }
 
     });
-});
+}
 
 $(document).ready(function () {
+
+    btn_file();
     var mess_required = "<span class='mess_required'>Ce champ est obligatoire.</span>";
     var mess_required_image = "<span class='mess_required'>Il faut au moins une image.</span>";
     var mess_required_picto = "<span class='mess_required'>Il faut au moins un picto de selectionner.</span>";
     var mess_nombre = "<span class='mess_required'>Ce champ doit être un nombre.</span>";
-
     //page inscription
     $('.submit_bouton_verif').click(function () {
         $('.form-horizontal span.mess_required').remove();
@@ -44,19 +44,14 @@ $(document).ready(function () {
                 submit = false;
             }
         });
-
-
-
         $('.form-horizontal .content_image').each(function () {
             if ($(this).find("tr").length <= 1) {
                 var regexp_localisation = new RegExp("^[0-9]*(,[0-9]*|[.][0-9]*)$", "g");
-
                 $(this).parent().append(mess_required_image);
                 $(this).parent().addClass("failed");
                 submit = false;
             }
         });
-
         if ($(".form-horizontal").find(".img_picto_selected").length == 0) {
             $(".picto_hidden").parent().append(mess_required_picto);
             $(".picto_hidden").parent().addClass("failed");
@@ -82,7 +77,6 @@ $(document).ready(function () {
 
         if (submit) {
             var regexp_nombre = new RegExp("^[0-9]*$", "g");
-
             if (!regexp_nombre.test($("#duree").val())) {
                 $("#duree").parent().parent().append(mess_nombre);
                 $("#duree").toggleClass('failed');
@@ -96,7 +90,6 @@ $(document).ready(function () {
                     submit = false;
                 }
             });
-
             $('.form-horizontal .place_dispo').each(function () {
                 if (regexp_nombre.test($(this).val())) {
                     $(this).parent().parent().append(mess_nombre);
@@ -115,7 +108,6 @@ $(document).ready(function () {
                     submit = false;
                 }
             });
-
             $('.form-horizontal .tva').each(function () {
                 if (regexp_prix.test($(this).val())) {
                     $(this).parent().parent().append(mess_nombre);
@@ -124,7 +116,6 @@ $(document).ready(function () {
                 }
 
             });
-
             $('.form-horizontal .special_price').each(function () {
                 if ($(this).val() !== '') {
                     if (regexp_prix.test($(this).val())) {
@@ -134,10 +125,52 @@ $(document).ready(function () {
                     }
                 }
             });
-
-
         }
 
+        if (submit) {
+            $('.form-horizontal .file').each(function () {
+                if ($(this).val() != "") {
+                    var extension = $(this).val().split(".");
+                    extension = extension[(extension.length - 1)];
+                    if (extension !== 'jpg' && extension !== 'png' && extension !== 'gif' && extension !== 'jpeg') {
+                        $(this).parent().parent().parent().append("<span class='mess_required'>Le format d'image n'est pas correct</span>");
+                        $(this).parent().parent().parent().toggleClass('failed');
+                        $(this).val('');
+                        $(this).parent().parent().parent().children("input").val("");
+                        submit = false;
+                    }
+                }
+            });
+        }
+
+        if (submit) {
+            var regexp_prix = new RegExp("^[0-9]*(,[0-9]{2}|[.][0-9]{2}|)$", "g");
+            $('.form-horizontal .prix').each(function () {
+                if (regexp_prix.test($(this).val())) {
+                    $(this).parent().parent().append(mess_nombre);
+                    $(this).toggleClass('failed');
+                    submit = false;
+                }
+            });
+            $('.form-horizontal .tva').each(function () {
+                if (regexp_prix.test($(this).val())) {
+                    $(this).parent().parent().append(mess_nombre);
+                    $(this).toggleClass('failed');
+                    submit = false;
+                }
+
+            });
+            $('.form-horizontal .special_price').each(function () {
+                if ($(this).val() !== '') {
+                    if (regexp_prix.test($(this).val())) {
+                        $(this).parent().parent().append(mess_nombre);
+                        $(this).toggleClass('failed');
+                        submit = false;
+                    }
+                }
+            });
+        }
+        submit = false;
         return submit;
     });
 });

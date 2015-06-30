@@ -133,10 +133,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="meteo_image" name='meteo_image'>
+                                                        Parcourir&hellip;  <input type="file" id="meteo_image" class="file" value="<?= array_pop(explode("/",$pays[0]->meteo_image)) ?>" name='meteo_image'>
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control" readonly>
+                                                <input type="text" class="form-control" value="<?= array_pop(explode("/",$pays[0]->meteo_image)) ?>" readonly>
                                             </div>
                                         </div>			
                                     </div>
@@ -184,10 +184,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="drapeau" name='drapeau'>
+                                                        Parcourir&hellip;  <input type="file" id="drapeau" value="<?= array_pop(explode("/",$pays[0]->drapeau)) ?>" class="file" name='drapeau'>
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control" readonly>
+                                                <input type="text" class="form-control" value="<?= array_pop(explode("/",$pays[0]->drapeau)) ?>" readonly>
                                             </div>
                                             <p class="help-block">Taille recommandé pour l'image : <b>60</b> x <b>40</b> px</p>
                                         </div>			
@@ -321,7 +321,7 @@
                                                         if ($image->emplacement == "banniere") {
                                                             ?>
                                                         <script type="text/javascript">
-                                                            if (tabImageSlider === undefined) {
+                                                            if (tabImageBanniere === undefined) {
                                                                 var tabImageBanniere = new Array();
                                                                 var sizeTabImageBanniere = tabImageBanniere.length;
                                                             }
@@ -381,7 +381,7 @@
                                                         if ($image->emplacement == "image_description") {
                                                             ?>
                                                         <script type="text/javascript">
-                                                            if (tabImageSlider === undefined) {
+                                                            if (tabImageDescription === undefined) {
                                                                 var tabImageDescription = new Array();
                                                                 var sizeTabImageDescription = tabImageDescription.length;
                                                             }
@@ -468,10 +468,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="image_sous_slider" class="required" name='image_sous_slider'>
+                                                        Parcourir&hellip;  <input type="file" id="image_sous_slider" value="<?= array_pop(explode("/",$voyage[0]->image_sous_slider)) ?>" class="required file" name='image_sous_slider'>
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control" readonly>
+                                                <input type="text" class="form-control" value="<?= array_pop(explode("/",$voyage[0]->image_sous_slider)) ?>" readonly>
                                             </div>
                                             <p class="help-block">Taille recommandé pour l'image : <b>900</b> x <b>512</b> px</p>
                                         </div>			
@@ -603,7 +603,7 @@
                                     }
                                     ?>
                                 </div>
-                            
+
                                 <div class="center">
                                     <a class='add_ligne btn btn-success ' href="javascript:;" onclick="addLigne()">Ajouter une nouvelle information voyage</a>
                                 </div>
@@ -662,10 +662,10 @@
                                                     <div class="input-group">
                                                         <span class="input-group-btn">
                                                             <span class="btn btn-primary btn-file">
-                                                                Parcourir&hellip;  <input type="file" id="img_deroulement_voyage" name='img_deroulement_voyage'>
+                                                                Parcourir&hellip;  <input type="file" id="img_deroulement_voyage" value="<?= array_pop(explode("/",$deroulementVoyage->img_deroulement_voyage)) ?>" class="file" name='img_deroulement_voyage[]'>
                                                             </span>
                                                         </span>
-                                                        <input type="text" class="form-control" readonly>
+                                                        <input type="text" class="form-control" value="<?= array_pop(explode("/",$deroulementVoyage->img_deroulement_voyage)) ?>" readonly>
                                                     </div>
                                                     <p class="help-block">Taille recommandé pour l'image : <b>650</b> x <b>435</b> px</p>
                                                 </div>
@@ -689,7 +689,7 @@
                                 <br/>
 
                                 <div class = "form-actions">
-                                    <button type = "submit" class = "btn btn-primary submit_bouton_verif">Enregistrer</button>
+                                    <button type = "submit" class = "btn btn-primary submit_bouton_verif">Editer</button>
                                 </div>
 
                                 <?php

@@ -14,22 +14,29 @@ if (tabImageBanniere === undefined) {
 }
 if (tabImagePicto === undefined) {
     var tabImagePicto = new Array();
-}else{
+} else {
     $(".picto_hidden").val(tabImagePicto);
 }
 
 
 var flagAddImageVoyage = true;
 
-var html_info_vente;
-var html_info_deroulement;
+var html_info_vente = $(".ligne_info_vente").html();
+var html_info_deroulement = $(".ligne_info_deroulement").html();
+var $ligne_vente = 0;
+var $ligne_deroulement = 0;
 
 function addLigne() {
-    $('.info_de_vente').append('<br/><div class="ligne"><a href="javascript:;" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>' + html_info_vente + '</div>');
+    $('.info_de_vente').append('<br/><div class="ligne' + $ligne_vente + '"><a href="javascript:;" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>' + html_info_vente + '</div>');
+    $(".ligne" + $ligne_vente + " input").val('');
+    $ligne_vente++;
 }
 
 function addLigneDeroulement() {
-    $('.info_deroulement').append('<br/><div class="ligne"><a href="javascript:;" class="delete_ligne_deroulement btn btn-danger floatRight"><i class="icon-remove"></i></a>' + html_info_deroulement + '</div>');
+    $('.info_deroulement').append('<br/><div class="ligne' + $ligne_deroulement + '"><a href="javascript:;" class="delete_ligne_deroulement btn btn-danger floatRight"><i class="icon-remove"></i></a>' + html_info_deroulement + '</div>');
+    $(".ligne" + $ligne_deroulement + " input").val('');
+    $ligne_deroulement++;
+    btn_file()
 }
 function remove_nb(tableau, id) {
     var newTab = new Array();
@@ -200,8 +207,6 @@ function action_reload() {
 }
 
 $(document).ready(function () {
-    html_info_vente = $(".ligne_info_vente").html();
-    html_info_deroulement = $(".ligne_info_deroulement").html();
 
     $('.info_de_vente').on('click', '.delete_ligne', function () {
         if (confirm(confirmation)) {
@@ -218,6 +223,7 @@ $(document).ready(function () {
     $(".add_image").on("click", function () {
         add_image($(this).data("idhtml"));
     });
+
     $(".add_picto").on("click", function () {
         add_picto($(this));
     });
