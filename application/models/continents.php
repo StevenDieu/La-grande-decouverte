@@ -10,11 +10,6 @@ Class Continents extends CI_Model {
         parent::_construct();
     }
 
-    function addContinent() {
-        $this->db->insert('continent', $this);
-        return $this->db->insert_id();
-    }
-
     function getContinent() {
         $this->db->select('*');
         $this->db->from('continent');
@@ -41,19 +36,6 @@ Class Continents extends CI_Model {
         } else {
             return false;
         }
-    }
-
-    function editContinent() {
-        $this->db->where('id', $this->id);
-        $this->db->update('continent', $this);
-        return true;
-    }
-
-    function deleteContinent() {
-        $this->db->where('id', $this->id);
-        $this->db->delete('continent');
-
-        return true;
     }
 
     function getNomContinent() {

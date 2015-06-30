@@ -13,14 +13,11 @@ class Customer extends CI_Controller {
         }
         $this->load->database();
         $this->load->helper('url');
-
         $this->load->library('grocery_CRUD');
     }
 
-    
     public function liste() {
         $crud = new grocery_CRUD();
-
         $crud->set_table('utilisateur');
         $crud->set_subject('Utilisateurs');
         $crud->columns('id','nom','prenom','banni');
@@ -37,7 +34,6 @@ class Customer extends CI_Controller {
         $crud->display_as('password','Nouveau mot de passe');
         $crud->display_as('cpassword','Confirmation nouveau mot de passe');
         $crud->display_as('last_password','Ancien mot de passe');
-
         $output = $crud->render();
         $this->_example_output($output);
     }
@@ -62,8 +58,6 @@ class Customer extends CI_Controller {
     function set_password_input_to_empty() {
         return "<input type='password' name='password' value='' />";
     }
-
-        
 
     function encrypt_password_callback($post_array, $primary_key) {
         $this->load->library('encrypt');

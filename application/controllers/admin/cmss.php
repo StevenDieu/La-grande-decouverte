@@ -14,30 +14,19 @@ class Cmss extends CI_Controller {
 
         $this->load->database();
         $this->load->helper('url');
-
         $this->load->library('grocery_CRUD');
     }
 
     public function liste() {
         $crud = new grocery_CRUD();
-
         $crud->set_table('cms');
         $crud->set_subject('Blocs CMS');
-        //$crud->display_as('reponse','Réponse');
-        //$crud->display_as('active','Activé');
-        //$crud->unset_columns('value');
-
         $crud->unset_read();
-
         $crud->columns('code','label','active');
-
         $crud->fields();
         $crud->required_fields('code','label','active','value');
-
         $output = $crud->render();
-
         $this->_example_output($output);
-
     }
 
     public function _example_output($output = null)
@@ -48,7 +37,6 @@ class Cmss extends CI_Controller {
     public function offices()
     {
         $output = $this->grocery_crud->render();
-
         $this->_example_output($output);
     }
 

@@ -11,29 +11,37 @@ class Continent extends CI_Controller {
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
-        $this->load->model('continents');
-    }
-
-    public function add() {
-        $this->load->helper(array('form'));
-        $this->load->templateAdmin('/continent/add_continent');
-    }
-
-    public function edit() {
-        if (!$this->input->get('id')) {
-            redirect('admin/continent/liste', 'refresh');
-        }
-        
-        $this->continents->setId($this->input->get('id'));
-        $data["continent"] = $this->continents->getContinent();
-        $this->load->helper(array('form'));
-        $this->load->templateAdmin('/continent/edit_continent', $data);
+        $this->load->database();
+        $this->load->helper('url');
+        $this->load->library('grocery_CRUD');
     }
 
     public function liste() {
-        $this->load->helper(array('form'));
-        $data["continents"] = $this->continents->getContinents();
-        $this->load->templateAdmin('/continent/list_continent', $data);
+        $crud = new grocery_CRUD();
+        $crud->set_table('continent');
+        $crud->set_subject('Continents');
+        $crud->required_fields('name','tag');
+        $crud->display_as('name','Nom');
+        $crud->display_as('tag','Code');
+        $crud->unset_read();
+        $output = $crud->render();
+        $this->_example_output($output);
+    }
+
+    public function _example_output($output = null)
+    {
+        $this->load->templateAdmin('continent/list', $output);
+    }
+
+    public function offices()
+    {
+        $output = $this->grocery_crud->render();
+        $this->_example_output($output);
+    }
+
+    public function index()
+    {
+        $this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
     }
 
 }
