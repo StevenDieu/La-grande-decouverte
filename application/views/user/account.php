@@ -34,7 +34,7 @@
 <div class="content content_account">
     <ul name="menuUtilisateur" class="menuUtilisateur">
         <li name="titre Menu" class="menuTitre">
-            <?php echo $username; ?>
+            <?php echo $user[0]->nom; ?>
         </li>
         <li class="menuChamp menuChampPremier comptes" data-onglet="comptes">
             <a href="#" ><span class="icon"><span class="glyphicon glyphicon-user"></span></span>Mon compte</a>

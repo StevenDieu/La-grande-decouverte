@@ -31,6 +31,7 @@ class Customer extends CI_Controller {
         $crud->callback_before_update(array($this,'encrypt_password_callback'));
         $crud->unique_fields('mail');
         $crud->unset_read();
+        $crud->unset_texteditor('description','full_text');
         $crud->display_as('password','Nouveau mot de passe');
         $crud->display_as('cpassword','Confirmation nouveau mot de passe');
         $crud->display_as('last_password','Ancien mot de passe');

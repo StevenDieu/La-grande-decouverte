@@ -12,6 +12,7 @@ class Newsletters extends CI_Controller {
             redirect('admin/index/connexion', 'refresh');
         }
         $this->load->helper(array('form'));
+        $this->load->model('user');
 
         $this->load->database();
         $this->load->helper('url');
@@ -27,20 +28,38 @@ class Newsletters extends CI_Controller {
         $crud->unset_add();
         $crud->unset_edit();
 
-        //$crud->columns('id','mail','nom','prenom','statut','date_inscription');
-
-        //$crud->display_as('prenom','Prénom');
-        //$crud->display_as('active','Activé');
-        //$crud->unset_columns('productDescription');
-
-        //$crud->set_relation('mail','utilisateur','prenom');
-
-        //$crud->fields('question','reponse','active');
-        //$crud->required_fields('question','reponse','active');
+        $crud->callback_column('nom',array($this,'nom_client'));
+        $crud->callback_column('prenom',array($this,'prenom_client'));
 
         $output = $crud->render();
         $this->_example_output($output);
 
+    }
+
+    function nom_client($value, $row)
+    {
+        $mail = $row->mail;
+        $this->user->setMail($mail);
+
+        $result = $this->user->getByMail();
+        if($result){
+            return $result[0]->nom;
+        }else{
+            return '--';
+        }
+    }
+
+    function prenom_client($value, $row)
+    {
+        $mail = $row->mail;
+        $this->user->setMail($mail);
+
+        $result = $this->user->getByMail();
+        if($result){
+            return $result[0]->prenom;
+        }else{
+            return '--';
+        }
     }
 
     public function _example_output($output = null)
