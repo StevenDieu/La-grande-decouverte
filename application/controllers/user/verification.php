@@ -35,6 +35,7 @@ class Verification extends CI_Controller {
             foreach ($result as $row) { 
                 $sess_array = array(
                     'id' => $row->id,
+                    'prenom' => $row->prenom
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
             }

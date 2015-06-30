@@ -134,7 +134,7 @@
                     } else {
                         ?>
                         <div class="connexion_header">
-                            <span>Bienvenue <?php echo $user[0]->prenom; ?></span>
+                            <span>Bienvenue <?php echo $this->session->userdata('logged_in')['prenom']; ?></span>
                         </div>
                         <ul class="menu_popup">
                             <a href="<?php echo base_url('user/account') ?>#comptes" class="menuChamp" data-onglet="comptes">
