@@ -125,6 +125,7 @@ table th
 	overflow:hidden;
 	border:1px solid #ccc;
 	cursor:pointer;
+	display: none;
 }
 .flexigrid div.mDiv div.ptogtitle:hover {
 	background-position:left -2px;
