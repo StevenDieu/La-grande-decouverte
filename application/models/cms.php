@@ -38,48 +38,10 @@ Class Cms extends CI_Model {
         $this->active = $active;
     }
 
-    function add() {
-        $data = array(
-            'code' => $this->code,
-            'label' => $this->label,
-            'value' => $this->value,
-            'active' => $this->active
-        );
-        $this->db->insert('cms', $data);
-        $this->id = $this->db->insert_id();
-    }
-
-    function getAll() {
+    function get() {
         $this->db->select('*');
         $this->db->from('cms');
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-    function getAllVisible() {
-        $this->db->select('*');
-        $this->db->from('cms');
-        $this->db->where('active', 1);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-    function get($id) {
-        $this->db->select('*');
-        $this->db->from('cms');
-        $this->db->where('id', $id);
+        $this->db->where('id', $this->id);
 
         $query = $this->db->get();
 
@@ -90,10 +52,10 @@ Class Cms extends CI_Model {
         }
     }
 
-    function getByCode($code) {
+    function getByCode() {
         $this->db->select('*');
         $this->db->from('cms');
-        $this->db->where('code', $code);
+        $this->db->where('code', $this->code);
 
         $query = $this->db->get();
 
@@ -104,25 +66,20 @@ Class Cms extends CI_Model {
         }
     }
 
-    function delete() {
-        $this->db->where('id', $this->id);
-        $this->db->delete('cms');
-        return true;
-    }
+    function getPageByCode() {
+        $this->db->select('*');
+        $this->db->from('page_cms');
+        $this->db->where('code', $this->code);
+        $this->db->where('active', '1');
 
-    function edit() {
-        $data = array(
-            'code' => $this->code,
-            'label' => $this->label,
-            'value' => $this->value,
-            'active' => $this->active
-        );
-        $this->db->where('id', $this->id);
-        $this->db->update('cms', $data);
+        $query = $this->db->get();
 
-        return true;
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
     }
 
 }
 
-?>

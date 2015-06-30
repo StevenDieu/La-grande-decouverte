@@ -1454,3 +1454,7 @@ input[type="submit"].btn.btn-mini {
 	margin-left: 550px;
 	z-index: 1000;
 }
+
+.form-field-box img{
+	max-width: 500px;
+}

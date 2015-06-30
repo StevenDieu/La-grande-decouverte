@@ -9,6 +9,8 @@ class Pages extends CI_Controller {
      * 
      */
     public function index() {
+        
+
         $this->load->model('voyage');
         $this->load->model('carnetVoyage');
         $this->load->model('actualite');
@@ -21,6 +23,22 @@ class Pages extends CI_Controller {
         $data["map"] = 1;
 
         $this->load->templatePages('home', $data);
+    }
+
+    public function cms(){
+        $this->load->helper('url');
+        $code = $this->uri->segment(3);
+        if($code){
+            $this->load->model('cms');
+            $this->cms->setCode($code);
+            $result = $this->cms->getPageByCode();
+            if($result){
+                $data['page'] = $result;
+                $this->load->templatePages('cms', $data);
+            }else{
+                redirect('pages/index', 'refresh');
+            }
+        }
     }
 
     public function mailling() {

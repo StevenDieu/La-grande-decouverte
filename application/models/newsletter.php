@@ -85,13 +85,6 @@ Class Newsletter extends CI_Model {
         return true;
     }
 
-    function deleteNewsletter() {
-        $this->db->where('id', $this->id);
-        $this->db->delete('newsletter'); 
-
-        return true;
-    }
-
     function check_mail_unique() {
         $this->db->select('id');
         $this->db->from('newsletter');

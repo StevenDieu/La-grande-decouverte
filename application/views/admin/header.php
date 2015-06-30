@@ -108,8 +108,8 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/cmss/index'); ?>">Gestion des textes CMS</a></li>
-                                <li><a href="<?php echo base_url('admin/index/dashboard'); ?>">Gestion des pages CMS</a></li>
+                                <li><a href="<?php echo base_url('admin/cmss/liste'); ?>">Gestion des blocs CMS</a></li>
+                                <li><a href="<?php echo base_url('admin/pageCMS/liste'); ?>">Gestion des pages CMS</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -119,7 +119,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url('admin/newsletters/index'); ?>">Abonnés à la newsletter</a></li>
+                                <li><a href="<?php echo base_url('admin/newsletters/liste'); ?>">Abonnés à la newsletter</a></li>
                             </ul>
                         </li>
                         <li>
