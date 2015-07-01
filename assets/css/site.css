@@ -717,25 +717,39 @@ h2.titre{
     width: 100%;
     margin: auto;
     color: #000;
-    background-color: #f5f5f5 !important;
+    background-color: #FBFBFB !important;
 }
 
 .content-inscription,.content-contact{
-    max-width: 400px;
+    max-width: 1000px;
     width: 100%;
     margin: auto;
     padding: 25px 10px;
 }
 
+.content-inscription .left{
+    width: 70%;
+    float: left;
+}
+
+.content-inscription .right {
+    width: 30%;
+    float: right ;
+}
+
 .content .legend{
     font-family: 'NewCicleGordita', sans-serif;
-    font-size: 22px;
+    font-size: 33px;
     font-weight: 500 !important;
     color: #0A1E39 !important;
     width: 100%;
     padding-left: 10px;
-    border-bottom: 1px solid #cdcdcd;
+      border-bottom: 1px dotted #aaa;
     margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
 }
 
 .une_row input[type='text'],.une_row input[type='password'],
@@ -743,7 +757,7 @@ h2.titre{
     width: 100%;
     height: 17px;
     border: none;
-    background: none;
+    background: #fff;
     font-size: 12px;
     color: #818181;
     font-style: italic;
@@ -765,7 +779,8 @@ h2.titre{
 
 .une_row .floatright {
     float: right;
-    color: #8b8b8b;
+    color: #000;
+    font-size: 12px;
 }
 
 .une_row a{
@@ -773,6 +788,11 @@ h2.titre{
     text-decoration: none;
     font-family: "helvetica";
     font-size: 13px;
+    float: left;
+}
+
+.une_row a:hover{
+    color: #000;
 }
 
 .content-inscription h3,
@@ -780,9 +800,9 @@ h2.titre{
     font-size: 14px;
     text-transform: uppercase;
     font-family: "helvetica";
-    color: #006695;
+    color: #D44B53;
     font-weight: normal;
-    margin-top: 0px;
+    margin-top: 30px;
 }
 
 .clear{
@@ -819,7 +839,7 @@ span.ou{
 
 .une_row .submit_all_text input,.une_row .submit_all_text button{
     height: 38px;
-    background: #006695;
+    background: #D44B53;
     width: 100%;
     font-size: 14px;
     color: #fff;
@@ -830,8 +850,12 @@ span.ou{
     cursor: pointer;
     border: none;
     -webkit-appearance: none;
-    -webkit-border-radius: 5px;
     outline: none;
+    max-width: 300px;
+}
+
+.content-inscription .une_row .submit_all_text input{
+    float: right;
 }
 
 .connexion_form .submit_all_text input{
@@ -879,46 +903,56 @@ span.ou{
 
 .une_row .submit_all_text input:hover,.une_row .submit_all_text button:hover, .connexion_form .submit_all_text input:hover{
     color: #fff;
-    background-color: #006695;
 }
 
 .btn_inscription{
     display: block;
     height: 38px;
-    background: #006695;
+    background: #D44B53;
     font-size: 14px;
     color: #fff !important;
     text-align: center;
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 42px;
-    -webkit-border-radius: 5px;
     font-family: sans-serif;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 
 .btn_inscription:hover{
     text-decoration: none;
-    color: #fff !important;
-    background: #006695;
 }
 /*page connexion */
 .content-connexion{
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
     padding-top: 25px;
     padding-bottom: 25px;
 }
 
+.content-connexion .colonne_left{
+    min-height: 250px;
+    position: relative;
+}
+
+.content-connexion  .submit_all_text{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
 @media (min-width: 820px){
     .content-connexion .colonne_left{
         float: left;
-        width: 400px;
+        width: 490px;
     }
 
     .content-connexion .colonne_left.first{
-        width: 380px;
-        padding-right: 20px;
+        width: 490px;
+        margin-right: 20px;
     }
 
     .btn_inscription{
@@ -1226,7 +1260,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
 }
 
 .bblue{
-    background-color: #006695;
+    background-color: #D44B53;
 }
 
 .borange{
@@ -1354,9 +1388,6 @@ ul.menu_popup .glyphicon {
     font-family: 'NewCicleGordita';
 }
 
-
-
-
 a#add_participant {
     margin-top: -13px;
     margin-bottom: 35px;
@@ -1370,3 +1401,122 @@ a#add_participant {}
     font-size: 42px;
     margin-bottom: 72px;
 }
+
+
+
+
+
+
+/*page inscription */
+.account-assistance {
+  float: right;
+  display: block;
+  width: 90%;
+}
+
+.box-contextual-help, .box-notice, .uspCarousel {
+  border: 1px solid #d7d7d7;
+}
+
+.box-contextual-help h1.local-assistance, .box-contextual-help h1.delivery-question {
+  line-height: 1;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  color: #000;
+  text-shadow:none;
+  width: 100%;
+}
+
+.help-options, .box-contextual-help ul{
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.box-contextual-help li, .box-contextual-help p {
+  font-size: 11px;
+  line-height: 1.5;
+  margin-bottom: .5em;
+    color: #666;
+}
+
+.box-contextual-help .help-option {
+  display: block;
+  padding-left: 25px;
+  position: relative;
+}
+
+.box-contextual-help {
+  display: block;
+  margin: 0 0 20px;
+  padding: 20px;
+}
+
+.box-contextual-help .help-option em, .box-contextual-help .help-option i {
+  color: transparent;
+  left: 0;
+  position: absolute;
+}
+
+.account-assistance a{
+  color: #aaa;
+  text-decoration: none;
+}
+
+.account-assistance a:hover{
+  color: #000;
+}
+
+.box-contextual-help .to-faq {
+  background: url(../images/dotted-line.png)repeat-x;
+  margin: 22px 0 0;
+  padding: 22px 0 0;
+}
+
+.box-contextual-help .faq-option {
+  display: block;
+  padding-left: 14px;
+  position: relative;
+}
+
+.account-assistance h1 {
+  line-height: 1;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  color: #000;
+  text-shadow:none;
+}
+
+
+
+
+@media (max-width: 768px){
+    .content-inscription .left{
+        width: 100%;
+        float: left;
+    }
+
+    .content-inscription .right {
+        display: none;
+    }
+}
+
+.rouge{
+    background: #D44B53;
+}
+
+
+.content-connexion .une_row .submit_all_text input{
+    max-width: none;
+}
+
+
+
+
+
+
+
