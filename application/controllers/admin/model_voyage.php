@@ -33,12 +33,12 @@ class Model_voyage extends CI_Controller {
     }
 
     public function save() {
-        $this->generateSetRules();
+        $this->generateSetRules(true);
         $this->uploadImage();
         if ($this->form_validation->run() == FALSE) {
             $data["continents"] = $this->continents->getContinents();
             $data["pictos"] = $this->imagePicto->getPictos();
-            $data["adminJs"] = array("voyage/add_voyage");
+            $data["adminJs"] = array("voyage/voyage");
             $this->load->templateAdmin('/voyage/add_voyage', $data);
         } else {
             $this->id_voyage = $this->ajouterVoyage();
@@ -55,14 +55,44 @@ class Model_voyage extends CI_Controller {
         }
     }
 
-    private function generateSetRules() {
+    public function edit() {
+        if ($this->input->post("id_voyage") == null) {
+            redirect('admin/voyages/liste', 'refresh');
+        }
+        $this->id_voyage = $this->input->post("id_voyage");
+        $this->generateSetRules(false);
+        $this->uploadImage();
+        if ($this->form_validation->run() == FALSE) {
+            $data["continents"] = $this->continents->getContinents();
+            $data["pictos"] = $this->imagePicto->getPictos();
+            $data["adminJs"] = array("voyage/voyage");
+            $this->load->templateAdmin('/voyage/edit?id=' + $this->input->post("id_voyage"), $data);
+        } else {
+            $this->editerVoyage();
+            $this->editerPays();
+            $this->images->setId_voyage($this->id_voyage);
+            $this->images->deleteImageByVoyage();
+            $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
+            $this->ajouterImage($this->input->post('image_banniere'), "banniere");
+            $this->ajouterImage($this->input->post('image_image_description'), "image_description");
+            $this->pictoVoyage->setId_voyage($this->id_voyage);
+            $this->pictoVoyage->deletePictoVoyage();
+            $this->ajouterPicto();
+            die();
+            $this->editerInfoVoyage();
+            $this->editerDeroulementVoyage();
+            redirect('admin/voyages/liste', 'refresh');
+        }
+    }
+
+    private function generateSetRules($addVoyage) {
         //information générale
         $this->inputInfoGene = $this->voyage->getInput();
         $inputInfoGene = remove_last_element_array($this->inputInfoGene, 1);
         foreach ($inputInfoGene as $input) {
             $this->form_validation->set_rules($input, $input, 'trim|xss_clean|required');
         }
-        if (empty($_FILES['image_sous_slider']['name'])) {
+        if (empty($_FILES['image_sous_slider']['name']) && $addVoyage) {
             $this->form_validation->set_rules('image_sous_slider', 'image_sous_slider', 'xss_clean|required');
         }
 
@@ -122,6 +152,18 @@ class Model_voyage extends CI_Controller {
         return $this->voyage->addVoyage();
     }
 
+    private function editerVoyage() {
+        foreach ($this->inputInfoGene as $input) {
+            if ($input == "image_sous_slider" && isset($this->inputImages[$input])) {
+                $this->voyage->__set($input, $this->inputImages[$input][0]);
+            } else {
+                $this->voyage->__set($input, $this->input->post($input));
+            }
+        }
+        $this->voyage->setId($this->id_voyage);
+        $this->voyage->editerVoyage();
+    }
+
     private function ajouterPays() {
         foreach ($this->inputInfopays as $input) {
             if (($input == "meteo_image" || $input == "drapeau") && isset($this->inputImages[$input])) {
@@ -132,6 +174,18 @@ class Model_voyage extends CI_Controller {
         }
         $this->pays->__set('id_voyage', $this->id_voyage);
         $this->pays->addPays();
+    }
+
+    private function editerPays() {
+        foreach ($this->inputInfopays as $input) {
+            if (($input == "meteo_image" || $input == "drapeau") && isset($this->inputImages[$input])) {
+                $this->pays->__set($input, $this->inputImages[$input][0]);
+            } else {
+                $this->pays->__set($input, $this->input->post($input));
+            }
+        }
+        $this->pays->__set('id_voyage', $this->id_voyage);
+        $this->pays->editerPays();
     }
 
     private function ajouterImage($input, $emplacement) {

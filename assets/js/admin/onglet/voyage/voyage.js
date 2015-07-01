@@ -41,7 +41,7 @@ function addLigneDeroulement() {
 function remove_nb(tableau, id) {
     var newTab = new Array();
     for (var i = 0; i < tableau.length; i++) {
-        if (tableau[i] !== id) {
+        if (tableau[i].toString() !== id.toString()) {
             newTab.push(tableau[i]);
         }
     }
@@ -115,7 +115,7 @@ function add_image(idHtml) {
                                 </p>\n\
                             </td>\n\
                             <td class="center td_image">\n\
-                                <input type="hidden" name="image_' + idHtml + '[]" value="' + result["lien"] + '"/>\n\
+                                <input type="hidden" id="image_' + idHtml + '_' + id + '" name="image_' + idHtml + '[]" value="' + result["lien"] + '"/>\n\
                                 <img class="image_100" src="' + result["src"] + '" alt="' + $(".titre_" + idHtml).val() + '" />\n\
                             </td>\n\
                             <td class="center">\n\
@@ -156,15 +156,21 @@ function add_image(idHtml) {
 }
 
 function remove_image(idhtml, id, button) {
-    $.ajax({
-        url: urlDeleteImage,
-        type: "POST",
-        data: "lien=" + $(".image_" + idhtml + "_" + id).val(),
-        success: function () {
-            remove_nb_array(idhtml, id);
-            button.parent().parent().remove();
-        }
-    });
+    if ($("#image_" + idhtml + "_" + id).val() == undefined) {
+        remove_nb_array(idhtml, id);
+        button.parent().parent().remove();
+    } else {
+        $.ajax({
+            url: urlDeleteImage,
+            type: "POST",
+            data: "lien=" + $("#image_" + idhtml + "_" + id).val(),
+            success: function () {
+                remove_nb_array(idhtml, id);
+                button.parent().parent().remove();
+            }
+        });
+
+    }
 
 }
 
@@ -192,6 +198,7 @@ function remove_picto(img) {
     img.parent().children('span').addClass("hidden");
 
     tabImagePicto = remove_nb(tabImagePicto, img.data("id"));
+    console.log(tabImagePicto);
     $(".picto_hidden").val(tabImagePicto);
 
     img.unbind("click");
@@ -207,7 +214,7 @@ function action_reload() {
 }
 
 $(document).ready(function () {
-
+    action_reload();
     $('.info_de_vente').on('click', '.delete_ligne', function () {
         if (confirm(confirmation)) {
             $(this).parent().remove();

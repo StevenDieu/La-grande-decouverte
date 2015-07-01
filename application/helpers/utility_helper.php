@@ -143,7 +143,7 @@ function venteHTMLHelper() {
         <label class="control-label" for="special_price">Prix spécial : </label>
         <div class="controls">
             <div class="input-prepend input-append">
-                <input type="text" name="special_price[]" class="span6 special_price" id="special_price"  placeholder="Prix spécial">
+                <input type="text" name="special_price[]" class="span6 prix" id="special_price"  placeholder="Prix spécial">
                 <span class="add-on">€</span>
             </div>
         </div>			
@@ -153,7 +153,7 @@ function venteHTMLHelper() {
         <label class="control-label" for="tva">Tva * : </label>
         <div class="controls">
             <p>
-                <input type="text" name="tva[]" class="span6 tva required" id="tva"  placeholder="Tva">
+                <input type="text" name="tva[]" class="span6 prix required" id="tva"  placeholder="Tva">
             </p>
         </div>			
     </div>

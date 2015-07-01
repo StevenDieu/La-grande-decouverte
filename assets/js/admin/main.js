@@ -28,6 +28,8 @@ $(document).ready(function () {
     var mess_required_image = "<span class='mess_required'>Il faut au moins une image.</span>";
     var mess_required_picto = "<span class='mess_required'>Il faut au moins un picto de selectionner.</span>";
     var mess_nombre = "<span class='mess_required'>Ce champ doit être un nombre.</span>";
+    var mess_prix = "<span class='mess_required'>Ce champ doit être un prix.</span>";
+    var mess_localisation = "<span class='mess_required'>Ce champ n'est pas une localisation.</span>";
     //page inscription
     $('.submit_bouton_verif').click(function () {
         $('.form-horizontal span.mess_required').remove();
@@ -44,14 +46,15 @@ $(document).ready(function () {
                 submit = false;
             }
         });
+
         $('.form-horizontal .content_image').each(function () {
             if ($(this).find("tr").length <= 1) {
-                var regexp_localisation = new RegExp("^[0-9]*(,[0-9]*|[.][0-9]*)$", "g");
                 $(this).parent().append(mess_required_image);
                 $(this).parent().addClass("failed");
                 submit = false;
             }
         });
+
         if ($(".form-horizontal").find(".img_picto_selected").length == 0) {
             $(".picto_hidden").parent().append(mess_required_picto);
             $(".picto_hidden").parent().addClass("failed");
@@ -59,20 +62,17 @@ $(document).ready(function () {
         }
 
         if (submit) {
+            var regexp_localisation = new RegExp("^[0-9]{1,}(,([0-9]{1,})|[.]([0-9]{1,})){0,1}$");
 
-            if (!regexp_localisation.test($('#lattitude').val())) {
-                $('#lattitude').val($('#lattitude').val().replace(",", "."));
-                $('#lattitude').parent().parent().append(mess_nombre);
-                $('#lattitude').toggleClass('failed');
-                submit = false;
-            }
-
-            if (!regexp_localisation.test($('#longitude').val())) {
-                $('#longitude').val($('#longitude').val().replace(",", "."));
-                $('#longitude').parent().parent().append(mess_nombre);
-                $('#longitude').toggleClass('failed');
-                submit = false;
-            }
+            $('.form-horizontal .localisation').each(function () {
+                if (!regexp_localisation.test($(this).val())) {
+                    $(this).parent().parent().append(mess_nombre);
+                    $(this).toggleClass('failed');
+                    submit = false;
+                } else {
+                    $(this).val($(this).val().replace(",", "."));
+                }
+            });
         }
 
         if (submit) {
@@ -82,47 +82,24 @@ $(document).ready(function () {
                 $("#duree").toggleClass('failed');
                 submit = false;
             }
-
             $('.form-horizontal .place_dispo').each(function () {
-                if (!regexp_nombre.test($(this).val())) {
-                    $(this).parent().parent().append(mess_nombre);
-                    $(this).toggleClass('failed');
-                    submit = false;
-                }
-            });
-            $('.form-horizontal .place_dispo').each(function () {
-                if (regexp_nombre.test($(this).val())) {
+                var regexp_place_dispo = new RegExp("^[0-9]*$", "g");
+                if (!regexp_place_dispo.test($(this).val())) {
                     $(this).parent().parent().append(mess_nombre);
                     $(this).toggleClass('failed');
                     submit = false;
                 }
             });
         }
-
         if (submit) {
-            var regexp_prix = new RegExp("^[0-9]*(,[0-9]{2}|[.][0-9]{2}|)$", "g");
+            var regexp_prix = new RegExp("^[0-9]{1,}(,[0-9]{1,2}|[.][0-9]{1,2}){0,1}$");
             $('.form-horizontal .prix').each(function () {
-                if (regexp_prix.test($(this).val())) {
-                    $(this).parent().parent().append(mess_nombre);
+                if (!regexp_prix.test($(this).val())) {
+                    $(this).parent().parent().append(mess_prix);
                     $(this).toggleClass('failed');
                     submit = false;
-                }
-            });
-            $('.form-horizontal .tva').each(function () {
-                if (regexp_prix.test($(this).val())) {
-                    $(this).parent().parent().append(mess_nombre);
-                    $(this).toggleClass('failed');
-                    submit = false;
-                }
-
-            });
-            $('.form-horizontal .special_price').each(function () {
-                if ($(this).val() !== '') {
-                    if (regexp_prix.test($(this).val())) {
-                        $(this).parent().parent().append(mess_nombre);
-                        $(this).toggleClass('failed');
-                        submit = false;
-                    }
+                } else {
+                    $(this).val($(this).val().replace(",", "."));
                 }
             });
         }
@@ -143,34 +120,7 @@ $(document).ready(function () {
             });
         }
 
-        if (submit) {
-            var regexp_prix = new RegExp("^[0-9]*(,[0-9]{2}|[.][0-9]{2}|)$", "g");
-            $('.form-horizontal .prix').each(function () {
-                if (regexp_prix.test($(this).val())) {
-                    $(this).parent().parent().append(mess_nombre);
-                    $(this).toggleClass('failed');
-                    submit = false;
-                }
-            });
-            $('.form-horizontal .tva').each(function () {
-                if (regexp_prix.test($(this).val())) {
-                    $(this).parent().parent().append(mess_nombre);
-                    $(this).toggleClass('failed');
-                    submit = false;
-                }
-
-            });
-            $('.form-horizontal .special_price').each(function () {
-                if ($(this).val() !== '') {
-                    if (regexp_prix.test($(this).val())) {
-                        $(this).parent().parent().append(mess_nombre);
-                        $(this).toggleClass('failed');
-                        submit = false;
-                    }
-                }
-            });
-        }
-        submit = false;
         return submit;
+
     });
 });

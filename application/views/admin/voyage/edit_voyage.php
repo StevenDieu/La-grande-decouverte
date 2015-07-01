@@ -22,8 +22,9 @@
                             }
                             if (!empty($voyage)) {
                                 $attributes = array('class' => 'form-horizontal', 'id' => 'add-travel');
-                                echo form_open_multipart('admin/model_voyage/save', $attributes);
+                                echo form_open_multipart('admin/model_voyage/edit', $attributes);
                                 ?>
+                            <input type="hidden" value="<?= $_GET["id"]?>" name="id_voyage" />
                                 <div class="info_generale">
                                     <legend>Information générale</legend>
                                     <div class="control-group">											
@@ -133,13 +134,24 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="meteo_image" class="file" value="<?= array_pop(explode("/",$pays[0]->meteo_image)) ?>" name='meteo_image'>
+                                                        Parcourir&hellip;  <input type="file" id="meteo_image" class="file" name='meteo_image'>
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control" value="<?= array_pop(explode("/",$pays[0]->meteo_image)) ?>" readonly>
+                                                <input type="text" class="form-control" readonly>
                                             </div>
                                         </div>			
                                     </div>
+
+                                    <?php if ($pays[0]->meteo_image != "") { ?>
+                                        <div class="control-group">											
+                                            <label class="control-label" for="img_deroulement_voyage">Apercu : </label>
+                                            <div class="controls">
+                                                <div class="apercu">
+                                                    <img class="apercu_image" src="<?= asset_media($pays[0]->meteo_image); ?>" title="<?= array_pop(explode("/", $pays[0]->meteo_image)); ?>" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
 
                                     <div class="control-group">											
                                         <label class="control-label" for="villes_principales">Villes principales : </label>
@@ -184,14 +196,25 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="drapeau" value="<?= array_pop(explode("/",$pays[0]->drapeau)) ?>" class="file" name='drapeau'>
+                                                        Parcourir&hellip;  <input type="file" id="drapeau" class="file" name='drapeau'>
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control" value="<?= array_pop(explode("/",$pays[0]->drapeau)) ?>" readonly>
+                                                <input type="text" class="form-control" readonly>
                                             </div>
                                             <p class="help-block">Taille recommandé pour l'image : <b>60</b> x <b>40</b> px</p>
                                         </div>			
                                     </div>
+
+                                    <?php if ($pays[0]->drapeau != "") { ?>
+                                        <div class="control-group">											
+                                            <label class="control-label" for="img_deroulement_voyage">Apercu : </label>
+                                            <div class="controls">
+                                                <div class="apercu">
+                                                    <img class="apercu_image" src="<?= asset_media($pays[0]->drapeau); ?>" title="<?= array_pop(explode("/", $pays[0]->drapeau)); ?>" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
 
                                     <div class="control-group">											
                                         <label class="control-label" for="langue_officielle">Langue officielle : </label>
@@ -211,7 +234,7 @@
                                         <label class="control-label" for="lattitude">Lattitude * : </label>
                                         <div class="controls">
                                             <p>
-                                                <input type="text" name="lattitude" class="span6 required" id="lattitude"  placeholder="Lattitude"  value="<?= $voyage[0]->lattitude ?>">
+                                                <input type="text" name="lattitude" class="span6 required localisation" id="lattitude"  placeholder="Lattitude"  value="<?= $voyage[0]->lattitude ?>">
                                             </p>
                                         </div>			
                                     </div>
@@ -219,7 +242,7 @@
                                         <label class="control-label" for="longitude">Longitude * : </label>
                                         <div class="controls">
                                             <p>
-                                                <input type="text" name="longitude" class="span6 required" id="longitude"  placeholder="Longitude"  value="<?= $voyage[0]->longitude ?>">
+                                                <input type="text" name="longitude" class="span6 required localisation" id="longitude"  placeholder="Longitude"  value="<?= $voyage[0]->longitude ?>">
                                             </p>
                                         </div>			
                                     </div>
@@ -468,16 +491,25 @@
                                             <div class="input-group">
                                                 <span class="input-group-btn">
                                                     <span class="btn btn-primary btn-file">
-                                                        Parcourir&hellip;  <input type="file" id="image_sous_slider" value="<?= array_pop(explode("/",$voyage[0]->image_sous_slider)) ?>" class="required file" name='image_sous_slider'>
+                                                        Parcourir&hellip;  <input type="file" id="image_sous_slider" class=" <?php if ($voyage[0]->image_sous_slider == "") { ?>required<?php } ?> file" name='image_sous_slider'>
                                                     </span>
                                                 </span>
-                                                <input type="text" class="form-control" value="<?= array_pop(explode("/",$voyage[0]->image_sous_slider)) ?>" readonly>
+                                                <input type="text" class="form-control" readonly>
                                             </div>
                                             <p class="help-block">Taille recommandé pour l'image : <b>900</b> x <b>512</b> px</p>
                                         </div>			
                                     </div>
 
-
+                                    <?php if ($voyage[0]->image_sous_slider != "") { ?>
+                                        <div class="control-group">											
+                                            <label class="control-label" for="img_deroulement_voyage">Apercu : </label>
+                                            <div class="controls">
+                                                <div class="apercu">
+                                                    <img class="apercu_image" src="<?= asset_media($voyage[0]->image_sous_slider); ?>" title="<?= array_pop(explode("/", $voyage[0]->image_sous_slider)); ?>" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
 
                                     <br/>
 
@@ -560,7 +592,7 @@
                                                 <label class="control-label" for="special_price">Prix spécial : </label>
                                                 <div class="controls">
                                                     <div class="input-prepend input-append">
-                                                        <input type="text" name="special_price[]" class="span6 special_price" id="special_price" value="<?= $infoVoyage->special_price ?>" placeholder="Prix spécial">
+                                                        <input type="text" name="special_price[]" class="span6 prix" id="special_price" value="<?= $infoVoyage->special_price ?>" placeholder="Prix spécial">
                                                         <span class="add-on">€</span>
                                                     </div>
                                                 </div>			
@@ -570,7 +602,7 @@
                                                 <label class="control-label" for="tva">Tva * : </label>
                                                 <div class="controls">
                                                     <p>
-                                                        <input type="text" name="tva[]" class="span6 tva required" id="tva"  placeholder="Tva" value="<?= $infoVoyage->tva ?>">
+                                                        <input type="text" name="tva[]" class="span6 prix required" id="tva"  placeholder="Tva" value="<?= $infoVoyage->tva ?>">
                                                     </p>
                                                 </div>			
                                             </div>
@@ -662,15 +694,28 @@
                                                     <div class="input-group">
                                                         <span class="input-group-btn">
                                                             <span class="btn btn-primary btn-file">
-                                                                Parcourir&hellip;  <input type="file" id="img_deroulement_voyage" value="<?= array_pop(explode("/",$deroulementVoyage->img_deroulement_voyage)) ?>" class="file" name='img_deroulement_voyage[]'>
+                                                                Parcourir&hellip;  <input type="file" id="img_deroulement_voyage" class="file" name='img_deroulement_voyage[]'>
                                                             </span>
                                                         </span>
-                                                        <input type="text" class="form-control" value="<?= array_pop(explode("/",$deroulementVoyage->img_deroulement_voyage)) ?>" readonly>
+                                                        <input type="text" class="form-control" readonly>
                                                     </div>
                                                     <p class="help-block">Taille recommandé pour l'image : <b>650</b> x <b>435</b> px</p>
+
                                                 </div>
                                             </div>
+                                            <?php if ($deroulementVoyage->img_deroulement_voyage != "") { ?>
+                                                <div class="control-group">											
+                                                    <label class="control-label" for="img_deroulement_voyage">Apercu : </label>
+                                                    <div class="controls">
+                                                        <div class="apercu">
+                                                            <img class="apercu_image" src="<?= asset_media($deroulementVoyage->img_deroulement_voyage); ?>" title="<?= array_pop(explode("/", $deroulementVoyage->img_deroulement_voyage)); ?>" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
                                         </div>
+
+
 
                                         <?php
                                         $suppr = false;

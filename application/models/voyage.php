@@ -9,22 +9,24 @@
 Class Voyage extends CI_Model {
 
     private $id;
-    private $input = array('titre', 'phrase_accroche', 'phrase_accroche_slider', 'duree', 'description_first_bloc', 'description_second_bloc', 'description_third_bloc', 'lattitude', 'longitude','image_sous_slider');
+    private $input = array('titre', 'phrase_accroche', 'phrase_accroche_slider', 'duree', 'description_first_bloc', 'description_second_bloc', 'description_third_bloc', 'lattitude', 'longitude', 'image_sous_slider');
     private $data = array();
-    
+
     function __construct() {
         parent::__construct();
     }
 
     function addVoyage() {
-        $this->db->insert('voyage',$this->data);
+        $this->db->insert('voyage', $this->data);
         return $this->db->insert_id();
     }
 
     function editerVoyage() {
-
+        if ($this->data["image_sous_slider"] == null) {
+            unset($this->data["image_sous_slider"]);
+        }
         $this->db->where('id', $this->id);
-        $this->db->update('voyage', $this);
+        $this->db->update('voyage', $this->data);
 
         return true;
     }
@@ -126,16 +128,16 @@ Class Voyage extends CI_Model {
         $this->db->where('id', $this->id);
         $this->db->delete('voyage');
     }
-    
-    function setId($id){
+
+    function setId($id) {
         $this->id = $id;
     }
 
     function __set($name, $value) {
-        $this->data[$name] = $value; 
+        $this->data[$name] = $value;
     }
-    
-    function getInput(){
+
+    function getInput() {
         return $this->input;
     }
 

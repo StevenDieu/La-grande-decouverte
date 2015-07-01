@@ -9,7 +9,7 @@
 Class Pays extends CI_Model {
 
     private $id;
-    private $input = array('capital', 'villes_principales', 'religion', 'nombre_habitant', 'monnaie', 'fete', 'langue_officielle', 'meteo_temperature', 'drapeau', 'id_continent', 'id_voyage');
+    private $input = array('capital', 'villes_principales', 'religion', 'nombre_habitant', 'monnaie', 'fete', 'langue_officielle', 'meteo_temperature', 'drapeau', 'meteo_image', 'id_continent', 'id_voyage');
     private $data = array();
 
     function __construct() {
@@ -19,6 +19,18 @@ Class Pays extends CI_Model {
     function addPays() {
         $this->db->insert("pays", $this->data);
         return $this->db->insert_id();
+    }
+
+    function editerPays() {
+        if ($this->data["meteo_image"] == null) {
+            unset($this->data["meteo_image"]);
+        }
+        if ($this->data["drapeau"] == null) {
+            unset($this->data["drapeau"]);
+        }
+        $this->db->where('id_voyage', $this->data["id_voyage"]);
+        $this->db->update("pays", $this->data);
+        return true;
     }
 
     function getPaysByVoyage() {
