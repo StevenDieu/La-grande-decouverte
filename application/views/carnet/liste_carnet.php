@@ -15,12 +15,12 @@
                         <div class="cercleDroit"></div>
                     </div>
                     <?php
-                    //foreach ($carnetVoyage as $cv) { 
-                    if ($carnetVoyage) {
-                        for ($i = 0; $i < count($carnetVoyage); $i++) {
-                            carnet_court_liste($carnetVoyage, $i);
-                        }
-                    }
+                   // // foreach ($carnetVoyage as $cv) { 
+                 //   if ($carnetVoyage) {
+                   //     for ($i = 0; $i < count($carnetVoyage); $i++) {
+                            carnet_court_liste($carnetVoyage, $images);
+                     //   }
+                    //}
                     ?>
 
                 </div>

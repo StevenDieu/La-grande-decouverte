@@ -70,6 +70,7 @@ class Carnet extends CI_Controller {
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
         // creation fonction getAllCarnVoyages dans le model carnetVoyage
         $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
+        $data['images'] = $this->carnetVoyage->getImagesByCarnetVoyage();
 
         $config['base_url'] = base_url() . "voyage/carnet/liste";
         $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
@@ -103,7 +104,7 @@ class Carnet extends CI_Controller {
             } else {
                 //sinon, j'affiche tous les voyages
                 $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
-
+                //et je signal qu'il n'y a pas de voyages pour le continent choisi
                 $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné.<br/><br/> Voici la liste des voyages :";
             }
         } else {

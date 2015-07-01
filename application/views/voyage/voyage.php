@@ -27,36 +27,36 @@
                         <?php
                     }
                     $i = 0;
+                    $id = 0;
                     foreach ($voyage as $v) {
-                        $i++;
-                        if ($i % 2) {
-                            ?>
-                            <div class="voyage gauche">
+                        if ( $id != $v->id_voyage ) {
+                            $i++;
+                            if ($i % 2) {
+                                    echo '<div class="voyage gauche">';
+                                } else {
+                                    echo '<div class="voyage droite">';
+                                }
+                                ?>
 
-                                <?php
-                            } else {
-                                echo '<div class="voyage droite">';
-                            }
-                            ?>
-
-                            <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->id; ?>">
-                                <div class="bloc_image">
-                                    <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $v->image_slider_1; ?>" alt="<?php echo $v->image_slider_1; ?>" title="<?php echo $v->image_slider_1; ?>" />
-                                </div>
-                                <div class="rotate_description">
-                                    <div class="bloc_description">
-                                        <div class="titre"><?php echo $v->titre; ?></div>
-                                        <div class="description"><?php echo tronque($v->description_first_bloc, 300); ?></div>
-                                        <div class="voir_plus">Plus d'info ></div>
+                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->id; ?>">
+                                    <div class="bloc_image">
+                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
                                     </div>
-                                </div>
+                                    <div class="rotate_description">
+                                        <div class="bloc_description">
+                                            <div class="titre"><?php echo $v->titre; ?></div>
+                                            <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
+                                            <div class="voir_plus">Plus d'info ></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
 
-
-                            </a>
-                        </div>
-
-                        <div class="separateur_article"></div>
-                    <?php } ?>
+                            <div class="separateur_article"></div>
+                    <?php 
+                        $id = $v->id_voyage;
+                        }
+                    } ?>
                     <div class="clear"></div>
                     <div class="pagination">
                         <?php echo $this->pagination->create_links(); ?>
