@@ -550,11 +550,10 @@ footer li{
     color: #7C8081;
     height: 32px;
     float: right;
-    border-radius: 4px;
 }
 
 .buttonNewsletter:hover{
-    background: #E2E2E2;
+    background: #FBFBFB;
 }
 .buttonNewsletter:focus{
     border: 0;
@@ -1043,7 +1042,7 @@ span.ou{
     z-index: 100;    
     width: 330px;  
     right: 0;
-    color: black;
+    color: #000;
     top: 76px;
 }
 
@@ -1116,10 +1115,21 @@ ul.menu_popup li{
     text-align: left;
     padding: 7px;
     padding-left: 43px;
-    border: 1px solid rgb(171, 156, 156);
+    border: 1px solid #dfdfdf;
     margin-bottom: 4px;
-    border-radius: 4px;
     position: relative;
+}
+
+.form-control{
+    border-radius: 0px !important;
+    border: 1px solid #dfdfdf !important;
+    color: #818181 !important;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-control.description{
+    max-width: 290px;
 }
 
 ul.menu_popup a{
@@ -1232,7 +1242,6 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
 }
 
 .bblue,.borange,.bgreen,.bwhite{
-    text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none;
@@ -1240,9 +1249,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     color: #fff;
     font-family: "helvetica";
     font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left;
+    min-width: 230px;
     border-color: transparent;
 }
 .bblue:focus,.borange:focus,.bgreen:focus,.bwhite:focus{
@@ -1338,7 +1345,7 @@ ul.menu_popup a:hover {
 }
 
 ul.menu_popup li:hover {
-    background-color: rgb(232, 232, 232);
+    background-color: #FBFBFB;
 }
 
 .icon{
