@@ -947,11 +947,25 @@ span.ou{
 @media (min-width: 820px){
     .content-connexion .colonne_left{
         float: left;
-        width: 490px;
+        width:  490px;
     }
 
     .content-connexion .colonne_left.first{
         width: 490px;
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 820px){
+    .content-connexion .colonne_left{
+        float: left;
+        width: 48%;
+        max-width: 490px;
+    }
+
+    .content-connexion .colonne_left.first{
+        max-width: 490px;
+        width: 48%;
         margin-right: 20px;
     }
 
@@ -1443,8 +1457,6 @@ a#add_participant {}
 }
 
 .box-contextual-help .help-option {
-  display: block;
-  padding-left: 25px;
   position: relative;
 }
 
@@ -1489,6 +1501,13 @@ a#add_participant {}
   text-transform: uppercase;
   color: #000;
   text-shadow:none;
+}
+
+.account-assistance .image_assistance{
+    width: 100%;
+    margin-bottom: 10px;
+    height: 57px;
+    background: url(../images/assis.png) center bottom no-repeat;
 }
 
 
