@@ -25,7 +25,8 @@ class Index extends CI_Controller {
     }
 
     function DateFr($date) {
-        $date = explode('-', $date);
+        $date = explode(' ', $date);
+        $date = explode('-', $date[0]);
         if($date[2][0] == 0) $date[2][0] = '';
         return $date[2].' '.$this->getMonth($date[1]).' '.$date[0];
     }
