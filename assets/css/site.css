@@ -750,18 +750,13 @@ h2.titre{
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 2px;
     outline : none;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    -webkit-text-fill-color: #a9a9a9 !important;
-    -webkit-box-shadow: 0 0 0px 1000px #F7F7F7 inset;
-    -webkit-text-fill-color: #a9a9a9 !important;
-    padding: 3px 2% 0px;    height: 30px;
+    padding-left: 5px;    
+    height: 40px;
+    border: 1px solid #dfdfdf;
 }
 
 .content-inscription .une_row p,.content-connexion .une_row p,.content-contact .une_row p, .connexion_popin .une_row p {
     min-height: 35px;
-    border-left: 1px solid #dcdcdc;
-    border-right: 1px solid #dcdcdc;
-    background: url(../images/checkout/bgr_text_field.png) repeat-x;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -992,23 +987,19 @@ span.ou{
 
 /***popup login */
 .connexion_popin {
-    background: white;    border: 1px solid #c0c0c0;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    -ms-border-radius: 3px;    -o-border-radius: 3px;    border-radius: 3px;    box-shadow: 3px 3px 3px rgba(0,0,0,0.17);    display: none;    font-family: Arial, "sans-serif";    font-size: 13px;    margin-top: 17px;    
+    background: white;    
+    display: none;        
+    font-size: 13px;   
     position: absolute;    
-    padding: 10px 10px 0px 10px;    z-index: 100;    
-    width: 250px;  
+    padding: 20px 20px 10px 20px;   
+    z-index: 100;    
+    width: 330px;  
     right: 0;
     color: black;
-    top: 72px;
+    top: 76px;
 }
 
-.login-arrow{
-    display: block;
-    height: 13px;
-    margin-top: -22px;
-    margin-bottom: 14px;
-    width: 25px;
-    margin-left: 185px;
-}
+
 
 .connexion_header {
     border-radius: 10px 10px 0px 0px;
@@ -1038,12 +1029,14 @@ span.ou{
 }
 
 .connexion_hr {
-    display:inline;
-    margin: 7px 5px 0px 5px;
-    width: 86px;
+    display:block;
+    width: 25px;
     border:0px;
     height: 1px;
-    background-color: #9A9997;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #000;
 }
 
 .g {
@@ -1055,13 +1048,11 @@ span.ou{
 }
 
 .connexion_footer {
-    height: 30px;
-    padding: 0 5px;
-    margin-top: -6px;
+    height: 25px;
 }
 
 .connexion_footer a {
-    color: #0ca9fa;
+    color: #000;
 }
 
 .connexion_footer a span.d:hover{
@@ -1199,7 +1190,6 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     text-decoration: none;
     height: 40px;
     color: #fff;
-    border-radius: 5px;
     font-family: "helvetica";
     font-size: 20px;
     padding-left: 10px;

@@ -94,7 +94,6 @@
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
-                    <img src="<?php echo asset_url() . "images/header/login-arrow-menu.png" ?>" class="login-arrow" alt="arrow image header"/>
                     <?php if (!$this->session->userdata('logged_in')) { ?>
                         <div class="login">
                             <?php echo form_open('user/verification/login'); ?>
@@ -116,7 +115,7 @@
                             </div>
                             </form>
                         </div>
-                        <hr class="connexion_hr g"/><span class="ou">OU</span><hr class="connexion_hr d"/>
+                        <hr class="connexion_hr"/>
                         <div class="bottom">
                             <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
