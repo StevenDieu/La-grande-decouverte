@@ -18,7 +18,7 @@
             <ul class="rslides" id="slider_top">
                 <?php foreach ($voyages as $voyage) { ?>
                     <li>
-                        <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="">
+                        <img src="<?php echo asset_media($voyage->lien); ?>" alt="">
                     </li>
                 <?php } ?>
             </ul>
