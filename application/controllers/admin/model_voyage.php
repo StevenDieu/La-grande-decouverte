@@ -56,32 +56,39 @@ class Model_voyage extends CI_Controller {
     }
 
     public function edit() {
+
         if ($this->input->post("id_voyage") == null) {
             redirect('admin/voyages/liste', 'refresh');
         }
+
         $this->id_voyage = $this->input->post("id_voyage");
         $this->generateSetRules(false);
         $this->uploadImage();
+
         if ($this->form_validation->run() == FALSE) {
-            $data["continents"] = $this->continents->getContinents();
-            $data["pictos"] = $this->imagePicto->getPictos();
-            $data["adminJs"] = array("voyage/voyage");
-            $this->load->templateAdmin('/voyage/edit?id=' + $this->input->post("id_voyage"), $data);
+            $this->redirectEditOrder();
         } else {
             $this->editerVoyage();
             $this->editerPays();
+
+
             $this->images->setId_voyage($this->id_voyage);
-            $this->images->deleteImageByVoyage();
+            $this->images->deleteImagesByVoyage(false);
+            $this->pictoVoyage->setId_voyage($this->id_voyage);
+            $this->pictoVoyage->deletePictoVoyage();
+            $this->infoVoyage->__set("id_voyage", $this->id_voyage);
+            $this->infoVoyage->deleteInfoVoyageByVoyage();
+            $this->deroulementVoyage->__set("id_voyage", $this->id_voyage);
+            $this->deroulementVoyage->deleteAllDeroulementByVoyage();
+
+
             $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
             $this->ajouterImage($this->input->post('image_banniere'), "banniere");
             $this->ajouterImage($this->input->post('image_image_description'), "image_description");
-            $this->pictoVoyage->setId_voyage($this->id_voyage);
-            $this->pictoVoyage->deletePictoVoyage();
             $this->ajouterPicto();
-            die();
-            $this->editerInfoVoyage();
-            $this->editerDeroulementVoyage();
-            redirect('admin/voyages/liste', 'refresh');
+            $this->ajouterInfoVoyage();
+            $this->ajouterDeroulementVoyage();
+            $this->redirectEditOrder();
         }
     }
 
@@ -270,7 +277,7 @@ class Model_voyage extends CI_Controller {
 
         $data["pictoVoyage"] = $this->pictoVoyage->deletePictoVoyage();
         $data["pays"] = $this->pays->deletePaysByVoyage();
-        $data["images"] = $this->images->deleteImagesByVoyage();
+        $data["images"] = $this->images->deleteImagesByVoyage(true);
 
         $data["infoVoyages"] = $this->infoVoyage->deleteInfoVoyageByVoyage();
         $data["deroulementVoyages"] = $this->deroulementVoyage->deleteAllDeroulementByVoyage();
@@ -294,6 +301,29 @@ class Model_voyage extends CI_Controller {
             $tmp_name = $file['tmp_name'];
             $this->upload($name, $error, $tmp_name, $dossier);
         }
+    }
+
+    private function redirectEditOrder() {
+        $this->voyage->setId($this->id_voyage);
+        $this->pictoVoyage->setId_voyage($this->id_voyage);
+        $this->pays->__set("id_voyage", $this->id_voyage);
+        $this->images->setId_voyage($this->id_voyage);
+        $this->infoVoyage->__set("id_voyage", $this->id_voyage);
+        $this->deroulementVoyage->__set("id_voyage", $this->id_voyage);
+
+        $data["voyage"] = $this->voyage->getVoyage();
+        $data["pictoVoyages"] = $this->pictoVoyage->getPictoVoyages();
+        $data["pays"] = $this->pays->getPaysByVoyage();
+        $data["images"] = $this->images->getImagesByVoyage();
+        $data["infoVoyages"] = $this->infoVoyage->getInfoVoyageByVoyage();
+        $data["deroulementVoyages"] = $this->deroulementVoyage->getAllDeroulementByVoyage();
+        $data["continents"] = $this->continents->getContinents();
+        $data["pictos"] = $this->imagePicto->getPictos();
+
+        $data["adminJs"] = array("voyage/voyage");
+        $data["id_voyage"] = $this->id_voyage;
+        $this->load->helper(array('form'));
+        $this->load->templateAdmin('/voyage/edit_voyage', $data);
     }
 
     private function upload($name, $error, $tmp_name, $dossier) {
