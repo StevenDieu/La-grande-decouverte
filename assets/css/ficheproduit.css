@@ -232,6 +232,8 @@ span.fleche{
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .ligne_image{
     margin-bottom: 15px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
@@ -310,15 +312,15 @@ span.fleche{
 
     .onglet3mobile .contenu_article_suivant .un_article.left{
         margin-right: 15px;
-    
-}
+
+    }
 
     .onglet3mobile .contenu_article_suivant .un_article .callbacks_container.carnet{
         height: 242px;
-    
+
         /* max-width: 420px; */
         margin: 0 auto;
-}
+    }
 
     .onglet3mobile .contenu_article_suivant .un_article{
         height: 600px;
@@ -1332,8 +1334,8 @@ span.fleche{
 {
     position:relative;       
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 .topRight:before, .topRight:after
 {
@@ -1544,9 +1546,9 @@ span.fleche{
 
 @media (max-width: 400px){
     #embarque{
-          width: 160px !important;
-          text-align: left !important;
-          font-size: 21px !important;
+        width: 160px !important;
+        text-align: left !important;
+        font-size: 21px !important;
     }
 
     .bloc3 span.titre{
@@ -1611,12 +1613,23 @@ span.fleche{
 }
 
 
-#onglet3?.callbacks {}
-
 div#onglet3 .callbacks {
     height: 240px;
 }
 
 div#onglet3 .callbacks img {
     min-width: 100%;    min-height: 100%;
+}
+
+.imageDeroulement{
+    max-width: 100%;
+    max-height: 160px;
+}
+
+.blocImageDeroulement{
+    max-width: 30%;
+    float: left;
+    display: block;
+    margin-right: 20px;
+    height: auto;
 }
