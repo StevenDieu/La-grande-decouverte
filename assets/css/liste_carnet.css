@@ -1376,12 +1376,11 @@ span.fleche{
     .content .entete .titre{
         text-align: center;
         width: 100%;
-        padding-top: 30px;
-        font-size: 40px;
+        font-size: 33px;
         white-space: nowrap;
         font-family: 'NewCicleGordita', sans-serif;
         text-transform: uppercase;
-        color: #090A1F;
+        color: #000;
 
     }
 
@@ -1396,7 +1395,7 @@ span.fleche{
         padding-bottom: 30px;
         font-family: "helvetica";
         font-size: 16px;
-        color: #565a5c;
+        color: #8b8b8b;
     }
 
 div#onglet3 {

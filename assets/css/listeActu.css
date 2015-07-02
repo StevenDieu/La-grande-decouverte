@@ -47,18 +47,17 @@
     .content .actu .entete .titre{
         text-align: center;
         width: 100%;
-        padding-top: 30px;
-        font-size: 40px;
+        font-size: 33px;
         white-space: nowrap;
         font-family: 'NewCicleGordita', sans-serif;
         text-transform: uppercase;
-        color: #090A1F;
+        color: #000;
 
     }
 
         .content .actu .entete .titre sup{
             font-size: 25px;
-            color: #337ab7;
+            color: #D44B53;
         }
 
     .content .actu .entete .description{

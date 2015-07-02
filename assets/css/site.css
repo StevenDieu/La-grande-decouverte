@@ -739,8 +739,7 @@ h2.titre{
 .content .legend{
     font-family: 'NewCicleGordita', sans-serif;
     font-size: 33px;
-    font-weight: 500 !important;
-    color: #0A1E39 !important;
+    color: #000 !important;
     width: 100%;
     padding-left: 10px;
       border-bottom: 1px dotted #aaa;
