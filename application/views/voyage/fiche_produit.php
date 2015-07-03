@@ -51,7 +51,7 @@
         <div class="fil_arianne">
             <ul class="breadcrumbs">
                 <li class="acceuil"><a href="/">Accueil</a></li>
-                <li><a href="/">Voyages</a></li>
+                <li><a href="/voyage/carnet/voyage">Voyages</a></li>
                 <li class="last"><?php echo $voyage[0]->titre; ?></li>
             </ul>
         </div>
@@ -236,7 +236,11 @@
                 foreach ($images as $image) {
                     if ($image->emplacement == "banniere") {
                         ?>                         
-                        <div class="img"><img src="<?php echo asset_media($image->lien); ?>" alt="<?php echo asset_media($image->lien); ?>"></div>
+                        <div class="img">
+                            <div class="bloc_image_banniere">
+                                <img class="image_banniere" src="<?php echo asset_media($image->lien); ?>" alt="<?php echo asset_media($image->lien); ?>">
+                            </div>
+                        </div>
                         <?php
                     }
                 }

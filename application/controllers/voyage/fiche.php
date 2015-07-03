@@ -1,7 +1,8 @@
 <?php
 
-//fuseau horaire
+// fuseau horaire
 // 4  baniere
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 

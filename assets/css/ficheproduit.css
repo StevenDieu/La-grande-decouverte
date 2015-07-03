@@ -911,7 +911,6 @@ span.fleche{
 
 
 .ligne_image .img img{
-    width: 100%;
 }
 
 
@@ -1632,4 +1631,18 @@ div#onglet3 .callbacks img {
     display: block;
     margin-right: 20px;
     height: auto;
+}
+
+.bloc_image_banniere{
+    width: 100%;
+    display: block;
+    overflow: hidden;    
+    height: 30%;;
+}
+
+.image_banniere{
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 200%;
+    max-height: 140%;
 }
