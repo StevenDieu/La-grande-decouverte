@@ -23,9 +23,9 @@ class Model_carnet_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             echo "0";
         } else {
-            $this->carnetVoyage->titre = str_replace("'","&#146;",$this->input->post('titre'));
-            $this->carnetVoyage->id_voyage = $this->input->post('id_voyage');
-            $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            $this->carnetVoyage->setTitre( str_replace("'","&#146;",$this->input->post('titre')) );
+            $this->carnetVoyage->setId_voyage( $this->input->post('id_voyage') );
+            $this->carnetVoyage->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
 
             echo $this->carnetVoyage->addCarnetVoyage();
         }
@@ -40,9 +40,9 @@ class Model_carnet_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             echo "0";
         } else {
-            $this->carnetVoyage->titre = str_replace("'","&#146;",$this->input->post('titre'));
-            $this->carnetVoyage->id = $this->input->post('id');
-            $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            $this->carnetVoyage->setTitre( str_replace("'","&#146;",$this->input->post('titre')) );
+            $this->carnetVoyage->setId( $this->input->post('id') );
+            $this->carnetVoyage->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
             if ($this->carnetVoyage->verifCompte()) {
                 $this->carnetVoyage->setCarnetVoyage();
                 echo "1";
@@ -62,8 +62,8 @@ class Model_carnet_voyage extends CI_Controller {
             echo "0";
         } else {
             $this->carnetVoyage->setPrive($this->input->post('prive'));
-            $this->carnetVoyage->id = $this->input->post('id');
-            $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            $this->carnetVoyage->setId( $this->input->post('id') );
+            $this->carnetVoyage->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
             if ($this->carnetVoyage->verifCompte()) {
                 $this->carnetVoyage->setCarnetVoyagePrive();
                 echo "1";
@@ -77,8 +77,8 @@ class Model_carnet_voyage extends CI_Controller {
         if (!$this->input->post('id')) {
             echo "0";
         }
-        $this->carnetVoyage->id = $this->input->post('id');
-        $this->carnetVoyage->id_utilisateur = $this->session->userdata('logged_in')["id"];
+        $this->carnetVoyage->setId( $this->input->post('id') );
+        $this->carnetVoyage->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
         if ($this->carnetVoyage->nbrArticle()) {
             echo "-1";
         } else {

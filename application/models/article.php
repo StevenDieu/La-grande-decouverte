@@ -20,7 +20,14 @@ Class Article extends CI_Model {
     }
 
     function addArticle() {
-        $this->db->insert('fichevoyage', $this);
+        $data = array(
+            'titre' => $this->titre,
+            'contenu' => $this->contenu,
+            'id_carnetvoyage' => $this->id_carnetvoyage,
+            'visible' => $this->visible,
+            'id_utilisateur' => $this->id_utilisateur
+            );
+        $this->db->insert('fichevoyage', $data);
         $this->id = $this->db->insert_id();
     }
 
@@ -161,6 +168,25 @@ Class Article extends CI_Model {
         return $this->visible;
     }
 
+    function setId_utilisateur($id_utilisateur) {
+        $this->id_utilisateur = $id_utilisateur;
+    }
+
+    function setTitre($titre) {
+        $this->titre = $titre;
+    }
+
+    function setContenu($contenu) {
+        $this->contenu = $contenu;
+    }
+
+    function setVisible($visible) {
+        $this->visible = $visible;
+    }
+
+    function setId_carnetvoyage($id_carnetvoyage) {
+        $this->id_carnetvoyage = $id_carnetvoyage;
+    }
 
 }
 

@@ -8,10 +8,10 @@
  */
 Class CarnetVoyage extends CI_Model {
 
-    public $id;
-    public $titre;
-    public $id_voyage;
-    public $id_utilisateur;
+    private $id;
+    private $titre;
+    private $id_voyage;
+    private $id_utilisateur;
     private $prive;
 
     function __construct() {

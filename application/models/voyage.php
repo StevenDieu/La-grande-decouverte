@@ -34,7 +34,7 @@ Class Voyage extends CI_Model {
     function getVoyage() {
         $this->db->select('*');
         $this->db->from('voyage');
-        $this->db->where('id', $this->id);
+        //$this->db->where('id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -89,7 +89,7 @@ Class Voyage extends CI_Model {
     function getAllVoyages($limit, $start) {
 
         $this->db->_protect_identifiers=false;  //empeche l'ajout de quotes ( `` ) automatique
-        $this->db->select('*');
+        $this->db->select('v.id as vId, v.titre as titre, v.phrase_accroche, phrase_accroche, i.nom as nom, i.lien as lien');
         $this->db->from('voyage AS v');
         $this->db->join("images AS i","emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
         $this->db->order_by("titre", "asc");

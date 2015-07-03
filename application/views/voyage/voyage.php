@@ -29,7 +29,7 @@
                     $i = 0;
                     $id = 0;
                     foreach ($voyage as $v) {
-                        if ( $id != $v->id_voyage ) {
+                        if ( $id != $v->vId ) {
                             $i++;
                             if ($i % 2) {
                                     echo '<div class="voyage gauche">';
@@ -38,7 +38,7 @@
                                 }
                                 ?>
 
-                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->id; ?>">
+                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
                                     <div class="bloc_image">
                                         <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
                                     </div>
@@ -54,7 +54,7 @@
 
                             <div class="separateur_article"></div>
                     <?php 
-                        $id = $v->id_voyage;
+                        $id = $v->vId;
                         }
                     } ?>
                     <div class="clear"></div>

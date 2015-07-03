@@ -5,7 +5,9 @@
     </div>
     <div class="modal-body">
         <div class="info_generale">
-            <?php if ($voyages) { ?>
+            <?php 
+            if ($voyages) { 
+                ?>
                 <div class="form-group form-titre">
                     <label for="titre" class="col-sm-2 control-label">Titre :</label>
                     <div class="col-sm-10">
@@ -18,9 +20,10 @@
                         <select id="id_voyage" name="id_voyage" class="form-control">
                             <option value="">Choix du voyage</option>
 
-                            <?php foreach ($voyages as $voyage) { ?>
+                            <?php foreach ($voyages as $voyage) { 
+                                ?>
 
-                                <option value="<?php echo $voyage[0]->id; ?>"><?php echo $voyage[0]->titre ?></option>
+                                <option value="<?php echo $voyage[0]->id; ?>"><?php echo $voyage[0]->titre; ?></option>
 
                             <?php } ?>
                         </select>

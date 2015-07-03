@@ -23,11 +23,11 @@ class Model_article extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             echo "0";
         } else {
-            $this->article->titre = $this->input->post('titre');
-            $this->article->contenu = $this->input->post('contenu');
-            $this->article->visible = "0";
-            $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
-            $this->article->id_carnetvoyage = $this->input->post('id_carnet_voyage');
+            $this->article->setTitre( $this->input->post('titre') );
+            $this->article->setContenu( $this->input->post('contenu') );
+            $this->article->setVisible( "0" );
+            $this->article->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
+            $this->article->setId_carnetvoyage( $this->input->post('id_carnet_voyage') );
             echo $this->article->addArticle();
         }
     }
@@ -53,11 +53,11 @@ class Model_article extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             echo "0";
         } else {
-            $this->article->id = $this->input->post('id');
-            $this->article->titre = $this->input->post('titre');
-            $this->article->contenu = str_replace("style/", "style", $this->input->post('contenu'));
-            $this->article->visible = "0";
-            $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            $this->article->setId( $this->input->post('id') );
+            $this->article->setTitre( $this->input->post('titre') );
+            $this->article->setContenu( str_replace("style/", "style", $this->input->post('contenu')) );
+            $this->article->setVisible( "0" );
+            $this->article->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
             if ($this->article->verifCompteArticle()) {
                 $this->article->setArticle();
                 echo "1";
@@ -71,8 +71,8 @@ class Model_article extends CI_Controller {
         if (!$this->input->post('id')) {
             echo "0";
         } else {
-            $this->article->id = $this->input->post('id');
-            $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+            $this->article->setId( $this->input->post('id') );
+            $this->article->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
             if ($this->article->verifCompteArticle()) {
                 $this->article->deleteArticle();
                 echo "1";

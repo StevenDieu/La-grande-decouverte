@@ -25,7 +25,7 @@ class Carnet extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
 
-        $this->carnetVoyage->id = $this->input->get('id');
+        $this->carnetVoyage->setId( $this->input->get('id') );
         $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage();
         $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
 
@@ -56,7 +56,7 @@ class Carnet extends CI_Controller {
         if ($data['articles'] == null) {
             redirect('pages/index/', 'refresh');
         }
-        $this->carnetVoyage->id = $data["articles"][0]->id_carnetvoyage;
+        $this->carnetVoyage->setId( $data["articles"][0]->id_carnetvoyage );
         $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
         $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
         $data["allCss"] = array("article");

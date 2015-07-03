@@ -19,7 +19,12 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function addCarnetVoyage() {
-        $this->db->insert('carnetvoyage', $this);
+        $data = array(
+            'titre' => $this->titre,
+            'id_voyage' => $this->id_voyage,
+            'id_utilisateur' => $this->id_utilisateur
+            );
+        $this->db->insert('carnetvoyage', $data);
         return $this->db->insert_id();
     }
 

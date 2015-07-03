@@ -14,7 +14,7 @@ class Articles extends CI_Controller {
         }
         $this->load->helper(array('form'));
         $this->load->model('article');
-        $this->article->id_utilisateur = $this->session->userdata('logged_in')["id"];
+        $this->article->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
     }
 
     public function add() {
@@ -68,7 +68,7 @@ class Articles extends CI_Controller {
                 "plugins/video.min",
                 "langs/fr"
             );
-            $this->article->id = $this->input->post('idArticle');
+            $this->article->setId( $this->input->post('idArticle') );
             $data["article"] = $this->article->getArticle();
             if ($data["article"] != false) {
                 $this->load->view('user/article/edit_article', $data);
@@ -81,7 +81,7 @@ class Articles extends CI_Controller {
             echo "0";
         }
         $this->load->helper(array('form'));
-        $this->article->id_carnetvoyage = $this->input->post('idCarnet');
+        $this->article->setId_carnetvoyage( $this->input->post('idCarnet') );
 
         $data["articles"] = $this->article->getArticles();
         $data["id_carnet_voyage"] = $this->input->post('id');
