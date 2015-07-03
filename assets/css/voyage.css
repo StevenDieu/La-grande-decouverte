@@ -46,17 +46,18 @@
 
 .bloc-voyage .voyage .bloc_image{
     overflow: hidden;    
-    margin: 0 auto;
+    margin: 0;
     height: 288px;
-    width: 500px;
+    width: 100%;
     text-align: center;
     z-index: -1;
 }
 
 .bloc-voyage .voyage .bloc_image img{
-    max-width: 576px;
-    min-height: 245px;
+    max-width: 580px;
     z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .bloc-voyage .voyage{
@@ -64,8 +65,7 @@
     position: relative;    
     overflow: hidden;    
     margin: 20px auto;
-    border-radius: 5px;
-   /* border: 2px solid rgb(228, 197, 141);*/
+   
    border : solid 10px #F5F5F5;
     -webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);  -moz-box-shadow:    3px 3px 16px 0px rgba(50, 50, 50, 0.8);  box-shadow:         3px 3px 16px 0px rgba(50, 50, 50, 0.8);
 }
@@ -89,7 +89,7 @@
     background-color: rgba(0, 0, 0, 0.57);
     top: 0;    
     height: 288px;
-    width: 500px;
+    width: 100%;
     display: none;            
     -webkit-transform: rotate(180deg);      -moz-transform: rotate(180deg);      -o-transform: rotate(180deg);
 }
