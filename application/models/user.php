@@ -15,39 +15,11 @@ Class User extends CI_Model {
     public $description;
     public $mail;
     public $banni;
-    public $id_image;
+    public $lien_image;
     public $date_inscription;
 
     function __construct() {
         parent::__construct();
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setPassword($password) {
-        $this->password = $password;
-    }
-
-    function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    function setMail($mail) {
-        $this->mail = $mail;
-    }
-
-    function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
-
-    function setId_image($id_image) {
-        $this->id_image = $id_image;
-    }
-
-    function setDate_inscription($date_inscription) {
-        $this->date_inscription = $date_inscription;
     }
 
     function ajouterUser() {
@@ -138,7 +110,7 @@ Class User extends CI_Model {
         }
     }
 
-    function get(){
+    function get() {
         $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->where('id', $this->id);
@@ -165,7 +137,7 @@ Class User extends CI_Model {
         return true;
     }
 
-    function getByMail(){
+    function getByMail() {
         $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->where('mail', $this->mail);
@@ -178,13 +150,6 @@ Class User extends CI_Model {
             return false;
         }
     }
-
-
-
-
-
-
-
 
     function verifPassUser() {
         $this->db->select('id');
@@ -199,8 +164,6 @@ Class User extends CI_Model {
             return false;
         }
     }
-
-    
 
     function getUsers() {
         $this->db->select('*');
@@ -255,21 +218,9 @@ Class User extends CI_Model {
         }
     }
 
-    /*function setMail() {
-        $data = array(
-            'mail' => $this->mail,
-        );
-        $this->db->where('id', $this->id);
-        if ($this->db->update('utilisateur', $data) == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }*/
-
     function setImageProfil() {
         $data = array(
-            'id_image' => $this->id_image,
+            'lien_image' => $this->lien_image,
         );
         $this->db->where('id', $this->id);
         if ($this->db->update('utilisateur', $data) == 1) {
@@ -278,15 +229,37 @@ Class User extends CI_Model {
             return false;
         }
     }
-
-
 
     function getId() {
         return $this->id;
     }
 
+    function setId($id) {
+        $this->id = $id;
+    }
 
+    function setPassword($password) {
+        $this->password = $password;
+    }
 
+    function setNom($nom) {
+        $this->nom = $nom;
+    }
 
+    function setMail($mail) {
+        $this->mail = $mail;
+    }
+
+    function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+
+    function setLien_image($lien_image) {
+        $this->lien_image = $lien_image;
+    }
+
+    function setDate_inscription($date_inscription) {
+        $this->date_inscription = $date_inscription;
+    }
 
 }

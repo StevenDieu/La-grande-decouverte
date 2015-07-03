@@ -33,35 +33,11 @@ if (!empty($_POST)) {
                     $file_tmp = $_FILES['fichier']['tmp_name'];
                     $dest_file = TARGET . $nomImage;
                     if (resize_image($file_tmp, $dest_file, $_POST)) {
-                        $this->user->id = $this->session->userdata('logged_in')["id"];
-                        $idImage = $this->session->userdata('logged_in')["id_image"];
-                        if ($idImage == "") {
-                            $this->images->setLien(TARGET . $nomImage);
-                            $this->images->setNom($nomImage);
-                            $idImage = $this->images->addImage();
-                        } else {
-                            $this->images->setLien(TARGET . $nomImage);
-                            $this->images->setNom($nomImage);
-                            $this->images->setOldLien($this->session->userdata('logged_in')["lien_image"]);
-                            $this->images->setId($idImage);
-                            $this->images->editImage();
-                        }
+                        $this->user->setId($this->session->userdata('logged_in')["id"]);
+                        $this->user->setLien_image($nomImage);
 
-
-                        $this->user->id_image = $idImage;
                         if ($this->user->setImageProfil()) {
-                            $sess_array = array(
-                                'id' => $this->session->userdata('logged_in')["id"],
-                                'nom' => $this->session->userdata('logged_in')["nom"],
-                                'prenom' => $this->session->userdata('logged_in')["prenom"],
-                                'description' => $this->session->userdata('logged_in')["description"],
-                                'user' => $this->session->userdata('logged_in')["user"],
-                                'id_image' => $idImage,
-                                'lien_image' => $this->images->getLien(),
-                                'nom_image' => $this->images->getNom()
-                            );
                             $message = $nomImage;
-                            $this->session->set_userdata('logged_in', $sess_array);
                         }
                     }
                 } else {
