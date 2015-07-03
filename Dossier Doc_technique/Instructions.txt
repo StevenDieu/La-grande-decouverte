@@ -2,7 +2,7 @@ INSTRUCTIONS D'IMPRESSION ADOBE INDESIGN POUR LE RAPPORT DU PRESTATAIRE DE SERVI
 
 NOM DE LA COMPOSITION : Doc_technique.indd
 
-DATE D'ASSEMBLAGE : 03/07/2015 14:51
+DATE D'ASSEMBLAGE : 03/07/2015 16:18
 Date de création : 03/07/2015
 Date de modification : 03/07/2015
 
@@ -28,7 +28,7 @@ INSTRUCTIONS SPECIALES ET AUTRES REMARQUES
 
 
 Modules externes 0
-Objets non opaques :Page1, 2, 4, 6, 8, 9, 22, 25, 26, 27, 31, 32, 34, 38, 39, 45, 49, 51, 52, 54
+Objets non opaques :Page1, 2, 5, 7, 9, 10, 23, 26, 27, 28, 32, 33, 35, 39, 40, 46, 50, 52, 53, 58
 
 POLICES
 17 Police(s) utilisée(s); 0 Manquant(e)(s), 0 Incorporé(e)(s), 0 Incomplète(s), 0 Protégée(s)
@@ -64,8 +64,8 @@ COULEURS ET ENCRES
 
 LIENS ET IMAGES
 (Liens manquants et incorporés uniquement)
-Liens et images : 43 Lien(s) détecté(s); 0 Modifié(s), 2 Manquant(e)(s) 0 Inaccessible(s)
-Images : 0 Incorporé(e)(s), 43 utilisant l'espace colorimétrique RVB
+Liens et images : 46 Lien(s) détecté(s); 0 Modifié(s), 2 Manquant(e)(s) 0 Inaccessible(s)
+Images : 0 Incorporé(e)(s), 46 utilisant l'espace colorimétrique RVB
 
 - Nom : carnet_global.png; Type : Portable Network Graphics (PNG) RVB; Etat : Manquant(e)(s)
 - Nom : tunnel.png; Type : Portable Network Graphics (PNG) RVB; Etat : Manquant(e)(s)
@@ -97,9 +97,9 @@ Symétrie : Désactivée
 
 LISTE DES FICHIERS DE L'ENVOI
 
-1. Doc_technique.indd; type : Composition Adobe InDesign; taille : 13612K
-2. Doc_technique.idml; type : Document InDesign Markup; taille : 445K
-3. Doc_technique.pdf; type : Document Adobe Acrobat; taille : 15502K
+1. Doc_technique.indd; type : Composition Adobe InDesign; taille : 14316K
+2. Doc_technique.idml; type : Document InDesign Markup; taille : 459K
+3. Doc_technique.pdf; type : Document Adobe Acrobat; taille : 16022K
 4. Arial Bold.ttf; type : Fichier de polices; taille : 733K
 5. Arial.ttf; type : Fichier de polices; taille : 756K
 6. Avenir.ttc; type : Fichier de polices; taille : 1549K
