@@ -115,7 +115,7 @@
                             <li><a href="<?php echo base_url('/pages/presse') ?>" target="_blank">Espace presse</a></li>
                             <li><a href="<?php echo base_url('/contact/index') ?>">Nous contacter</a></li>
                             <li><a href="<?php echo base_url('/pages/nous_rejoindre') ?>" target="_blank">Nous rejoindre</a></li>
-                            <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>" target="_blank">Mensions legales</a></li>
+                            <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>" target="_blank">Mentions légales</a></li>
                             <li><a href="<?php echo base_url('/pages/cgv') ?>" target="_blank">CGV</a></li>
                         </ul>
                     </div>
@@ -141,7 +141,7 @@
             <div class="menuBas">
                 <span><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></span>
                 &nbsp; . &nbsp;
-                <span><a href="<?php echo base_url('/faq/index') ?>">FAQs</a></span>
+                <span><a href="<?php echo base_url('/faq/index') ?>">FAQ</a></span>
                 &nbsp; . &nbsp;
                 <span><a href="<?php echo base_url('/pages/cgv') ?>">Conditions générales de vente</a></span>
                 &nbsp; . &nbsp;

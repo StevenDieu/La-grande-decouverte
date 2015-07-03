@@ -217,7 +217,7 @@ jQuery(document).ready(function(){
         $.ajax({
             url: urlLogin , // ici l'url du controleur de la vue que tu veux faire appeller
             type: "post",
-            data: {login: $('#login').val(), mdp: $('#password').val()},
+            data: {mail: $('.identification_left #mail').val(), mdp: $('#password').val()},
             beforeSend : function (){
                 $(".identification_left form").append(chargmeentLogin);
             },
@@ -247,7 +247,6 @@ jQuery(document).ready(function(){
             data:{
                     nom: $('#inscription_nom').val(), 
                     prenom: $('#inscription_prenom').val(),
-                    login: $('#inscription_login').val(),
                     email: $('#inscription_email').val(),
                     confirmer_email: $('#inscription_confirmer_email').val(),
                     mdp: $('#inscription_mdp').val(),
@@ -262,13 +261,14 @@ jQuery(document).ready(function(){
                     $(".inside_command_panel.inscription").html('');
                     $(".inside_command_panel.inscription").css('display','none');
                     $(".open_command.containInscription").removeClass('active');
+                    $(".open_command.first").removeClass('active');
                     $(".open_command.first").addClass('check');
                     $(".open_command.containInscription").addClass('check');
                     getBilling();
                     jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
                 }else{
                     $('.submit_all_text.ins .chargement').remove();
-                    alert('L\'utilisateur n\'a pas pu être créé');
+                    alert(data.message);
                 }
                 
             }
@@ -284,7 +284,7 @@ jQuery(document).ready(function(){
         $('#form_billing input.required').each(function () {
             if ($(this).val() == '') {
                 $($(this).parent().parent()).append(spanObligatoire);
-                $($(this).parent()).toggleClass('failed');
+                $($(this)).toggleClass('failed');
                 submit = false;
             }
         });
@@ -321,6 +321,25 @@ jQuery(document).ready(function(){
                 pays: $('#billing_pays').val(),
                 telephone: $('#billing_telephone').val(),
                 fax: $('#billing_fax').val()
+            };
+    }
+
+    function createJsonBillingEdit(){
+        billing = 
+            {
+                nom: $('#billing_nom').val(),
+                prenom: $('#billing_prenom').val(),
+                societe: $('#billing_societe').val(),
+                email: $('#billing_email').val(),
+                adresss: $('#billing_adresss').val(),
+                complement_adresse: $('#billing_complement_adresse').val(),
+                codePostal: $('#billing_code_postal').val(),
+                ville: $('#billing_ville').val(),
+                region: $('#billing_region').val(),
+                pays: $('#billing_pays').val(),
+                telephone: $('#billing_telephone').val(),
+                fax: $('#billing_fax').val(),
+                id: $('#billing_id').val()
             };
     }
 

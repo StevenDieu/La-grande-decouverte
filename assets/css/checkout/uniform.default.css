@@ -32,7 +32,7 @@ div.selector, div.selector *, div.radio, div.radio *, div.checker, div.checker *
 .selector {
 	background:url(../../images/checkout/bgr_select_edge.png) no-repeat right top!important;
   line-height: 35px;
-  height: 35px;
+  height: 33px;
   position: relative;
   overflow: hidden;
   	font-size:12px;

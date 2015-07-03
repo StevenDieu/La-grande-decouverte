@@ -30,11 +30,13 @@ class Cart extends CI_Controller {
         $data["idInfo"] = $idInfo;
 
         $this->load->model('cms');
-        $data["info_tunnel"] = $this->cms->getByCode('info_tunnel');
+        $this->cms->setCode('info_tunnel');
+        $data["info_tunnel"] = $this->cms->getByCode();
 
 
         $info = $this->voyage->getInfoVoyageById($idInfo);
-        $data["voyage"] =$this->voyage->getVoyage($id);
+        $this->voyage->setId($id);
+        $data["voyage"] =$this->voyage->getVoyage();
         $data["voyageInfo"] = $info;
         $data["voyageInfo"][0]->date_depart = $this->DateFr($data["voyageInfo"][0]->date_depart);
         $data["voyageInfo"][0]->date_arrivee = $this->DateFr($data["voyageInfo"][0]->date_arrivee);
@@ -48,6 +50,14 @@ class Cart extends CI_Controller {
 
 
     public function billing(){
+        if($this->session->userdata('logged_in')['id']){
+            $id = $this->session->userdata('logged_in')['id'];
+            $this->load->model('billing');
+            $result = $this->billing->getByIdUser($id);
+            if($result){
+                $data['billing'] = $result;
+            }
+        }
         $this->load->model('departement');
         $data['departements'] = $this->departement->getAllDepartements();
         $this->load->view('checkout/step/billing',$data);
@@ -70,7 +80,8 @@ class Cart extends CI_Controller {
             $nbParticipant = $this->input->post('nbParticipant');
         }
 
-        $data["voyage"] = $this->voyage->getVoyage($id);
+        $this->voyage->setId($id);
+        $data["voyage"] = $this->voyage->getVoyage();
         $data["voyageInfo"] = $this->voyage->getInfoVoyageById($idInfo);
 
         $data["voyageInfo"][0]->date_depart = $this->DateFr($data["voyageInfo"][0]->date_depart);
@@ -88,6 +99,10 @@ class Cart extends CI_Controller {
         $data["acompte"] = number_format($data["acompte"], 2, ',', ' ');
         $data["resteAPayer"] = number_format($data["resteAPayer"], 2, ',', ' ');
 
+        $this->load->model('cms');
+        $this->cms->setCode('cgv_tunnel');
+        $data["cgv_tunnel"] = $this->cms->getByCode();
+
         $this->load->view('checkout/step/recap',$data);
     }
 
@@ -101,7 +116,7 @@ class Cart extends CI_Controller {
 
     public function login(){
 
-        $this->form_validation->set_rules('login', 'login', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('mail', 'mail', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_database_login');
         $this->load->model('images');
         
@@ -111,36 +126,21 @@ class Cart extends CI_Controller {
                 'message' => 'login ou mot de passe invalide'
             );
         } else {
-            $login = $this->input->post('login');
+            $mail = $this->input->post('mail');
             $mdp = $this->input->post('mdp');
 
-            $result = $this->user->login($login, $mdp);
+            $this->user->setMail($mail);
+            $this->user->setPassword($mdp);
+
+            $result = $this->user->login();
 
             if ($result) {
                 $sess_array = array();
 
                 foreach ($result as $row) {
-                    $this->images->setId($row->id_image);
-                    $resultImage = $this->images->getImage();
-                    $imageLien = "";
-                    $imageNom = "";
-                    $id_image= "";
-                    if ($resultImage) {
-                        foreach ($resultImage as $image) {
-                            $imageLien = $image->lien;
-                            $imageNom = $image->nom;
-                            $id_image = $image->id;
-                        }
-                    }
                     $sess_array = array(
                         'id' => $row->id,
-                        'nom' => $row->nom,
                         'prenom' => $row->prenom,
-                        'description' => $row->description,
-                        'id_image' => $id_image,
-                        'lien_image' => $imageLien,
-                        'nom_image' => $imageNom,
-                        'user' => $row->login
                     );
                     $this->session->set_userdata('logged_in', $sess_array);
                 }
@@ -166,7 +166,6 @@ class Cart extends CI_Controller {
 
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');
         $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean|callback_check_size_50');
-        $this->form_validation->set_rules('login', 'login', 'trim|required|xss_clean|callback_check_database_user|callback_check_size');
         $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
         $this->form_validation->set_rules('confirmer_email', 'confirmer_email', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_size|callback_check_size');
@@ -178,29 +177,35 @@ class Cart extends CI_Controller {
                     'message' => "L'utilisateur n'a pas pu etre créé"
             );
         } else {
-            $nom = $this->input->post('nom');
-            $prenom = $this->input->post('prenom');
-            $login = $this->input->post('login');
-            $mdp = $this->input->post('mdp');
-            $mail = $this->input->post('email');
-            $result = $this->user->ajouterUser($nom, $prenom, $login, $mdp, $mail);
-            if ($result != 0) {
-                $sess_array = array(
-                    'id' => $result,
-                    'user' => $login,
-                    'nom' => $nom,
-                    'prenom' => $prenom,
-                    'description' => "",
-                    'id_image' => "",
-                    'lien_image' => "",
-                    'nom_image' => ""
-                );
-                $this->session->set_userdata('logged_in', $sess_array);
+
+            $this->user->setMail($this->input->post('email'));
+            $result = $this->user->check_mail_unique();
+
+            if($result) {
                 $res = array(
-                    'retour' => 'creation',
-                    'message' => "L'utilisateur est créé"
-                );
-            }
+                    'retour' => 'error',
+                    'message' => "Le mail est déjà utilisé."
+                );                
+            }else{
+                $this->user->setNom($this->input->post('nom'));
+                $this->user->setPrenom($this->input->post('prenom'));
+                $this->user->setPassword($this->input->post('mdp'));
+                $this->user->setMail($this->input->post('email'));
+                $this->user->setDate_inscription(date("Y-m-d"));
+
+                $result = $this->user->ajouterUser();
+                if ($result != 0) {
+                    $sess_array = array(
+                        'id' => $result,
+                        'prenom' => $this->input->post('prenom'),
+                    );
+                    $this->session->set_userdata('logged_in', $sess_array);
+                    $res = array(
+                        'retour' => 'creation',
+                        'message' => "L'utilisateur est créé"
+                    );
+                }
+            }    
         }
         echo json_encode($res);
     }
@@ -249,7 +254,6 @@ class Cart extends CI_Controller {
             return true;
         }
         $this->form_validation->set_message('check_mdp', 'Les mots de passe ne sont pas identiques');
-
         return false;
     }
 
@@ -293,25 +297,47 @@ class Cart extends CI_Controller {
             $participants = $this->input->post('participant');
         }
 
-        //save donnée billing
-        $session_data = $this->session->userdata('logged_in');
-        $user_id = $session_data['id'];
-        $id_billing = $this->billing->add(
-        $billing["nom"],
-        $billing["prenom"],
-        $billing["societe"],
-        $billing["email"],
-        $billing["adresss"],
-        $billing["complement_adresse"],
-        $billing["codePostal"],
-        $billing["ville"],
-        $billing["region"],
-        $billing["pays"],
-        $billing["telephone"],
-        $billing["fax"],
-        $user_id,
-        ''
-        );
+        if($billing["id"]){
+            //edit donnée billing
+            $session_data = $this->session->userdata('logged_in');
+            $user_id = $session_data['id'];
+            $id_billing = $billing["id"];
+            $this->billing->edit(
+                $billing["nom"],
+                $billing["prenom"],
+                $billing["societe"],
+                $billing["email"],
+                $billing["adresss"],
+                $billing["complement_adresse"],
+                $billing["codePostal"],
+                $billing["ville"],
+                $billing["region"],
+                $billing["pays"],
+                $billing["telephone"],
+                $billing["fax"],
+                $user_id,
+                $billing["id"]
+            );
+        }else{
+            //save donnée billing
+            $session_data = $this->session->userdata('logged_in');
+            $user_id = $session_data['id'];
+            $id_billing = $this->billing->add(
+            $billing["nom"],
+            $billing["prenom"],
+            $billing["societe"],
+            $billing["email"],
+            $billing["adresss"],
+            $billing["complement_adresse"],
+            $billing["codePostal"],
+            $billing["ville"],
+            $billing["region"],
+            $billing["pays"],
+            $billing["telephone"],
+            $billing["fax"],
+            $user_id
+            );
+        }
 
         //save donnée order
         $id_order = $this->order->add(
@@ -330,9 +356,6 @@ class Cart extends CI_Controller {
         $order["id_info_voyage"]
         );
 
-        //save increment id dans billing
-        $this->billing->edit($id_billing,$id_order);
-
         //save participants
         foreach ($participants as $participant) {
             $this->participant->add(
@@ -343,6 +366,7 @@ class Cart extends CI_Controller {
             $id_order
             );
         }
+
 
         if($order["payment"] == "PAYPAL"){
             $res = array(

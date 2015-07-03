@@ -52,11 +52,11 @@ function couleurAlerteCss(element, css, cssOrigine) {
     }, 5000);
 }
 $(document).ready(function () {
-    var mess_required = "<span class='mess_required'>Ce champ est obligatoire.</span>";
-    var mdp_required = "<span class='mess_required'>Les mots de passe sont différents.</span>";
-    var mail_required = "<span class='mess_required'>Les mails sont différents.</span>";
-    var mdp_identique_required = "<span class='mess_required'>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</span>";
-    var login_insuffisant = "<span class='mess_required'>Le nom d'utilisateur doit être compris entre 6 et 50 caratères</span>";
+    mess_required = "<span class='mess_required'>Ce champ est obligatoire.</span>";
+    mdp_required = "<span class='mess_required'>Les mots de passe sont différents.</span>";
+    mail_required = "<span class='mess_required'>Les mails sont différents.</span>";
+    mdp_identique_required = "<span class='mess_required'>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</span>";
+    login_insuffisant = "<span class='mess_required'>Le nom d'utilisateur doit être compris entre 6 et 50 caratères</span>";
     
     var iniPopUp = 0;
     $('body').click(function (e) {
@@ -112,12 +112,12 @@ $(document).ready(function () {
     //page inscription
     $('#bouton_page_inscription').click(function () {
         $('.content-inscription span.mess_required').remove();
-        $('.content-inscription p.failed').removeClass("failed");
+        $('.content-inscription input.failed').removeClass("failed");
         var submit = true;
         $('.content-inscription input.required').each(function () {
             if ($(this).val() == '') {
-                $($(this).parent().parent()).append(mess_required);
-                $($(this).parent()).toggleClass('failed');
+                $($(this).parent()).append(mess_required);
+                $(this).addClass('failed');
                 submit = false;
             }
         });
@@ -131,22 +131,16 @@ $(document).ready(function () {
         }
 
         if (submit) {
-            if ($(".content-inscription #user").val().length < 6 || $(".content-inscription #user").val().length > 60) {
-                $(".content-inscription .une_row.user").append(login_insuffisant);
-                $(".content-inscription .une_row.user p").toggleClass('failed');
-                submit = false;
-            }
-            
             if ($(".content-inscription input.mdp").val() != $(".content-inscription input.cmdp").val()) {
                 $(".content-inscription .une_row.cmdp").append(mdp_required);
-                $(".content-inscription .une_row.mdp p").toggleClass('failed');
+                $(".content-inscription .une_row.mdp input").toggleClass('failed');
                 submit = false;
             }
 
             var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
             if (!regex.test($(".content-inscription input.mdp").val())) {
                 $(".content-inscription .une_row.cmdp").append(mdp_identique_required);
-                $(".content-inscription .une_row.mdp p").toggleClass('failed');
+                $(".content-inscription .une_row.mdp input").toggleClass('failed');
                 submit = false;
             }
         }
@@ -160,8 +154,8 @@ $(document).ready(function () {
         var submit = true;
         $('.content-connexion input.required').each(function () {
             if ($(this).val() == '') {
-                $($(this).parent().parent()).append(mess_required);
-                $($(this).parent()).toggleClass('failed');
+                $($(this).parent()).append(mess_required);
+                $($(this)).toggleClass('failed');
                 submit = false;
             }
         });

@@ -42,6 +42,7 @@ Class Cms extends CI_Model {
         $this->db->select('*');
         $this->db->from('cms');
         $this->db->where('id', $this->id);
+        $this->db->where('active', '1');
 
         $query = $this->db->get();
 
@@ -56,6 +57,7 @@ Class Cms extends CI_Model {
         $this->db->select('*');
         $this->db->from('cms');
         $this->db->where('code', $this->code);
+        $this->db->where('active', '1');
 
         $query = $this->db->get();
 

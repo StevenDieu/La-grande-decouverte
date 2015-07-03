@@ -8,7 +8,6 @@
     var urlCreate = '<?php echo base_url('checkout/cart/create'); ?>';
     var urlSave = '<?php echo base_url('checkout/cart/save'); ?>';
     var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
-    var urlcgv = '<?php echo base_url('checkout/cart/getCgv'); ?>';
     var urlVerif = '<?php echo base_url('checkout/cart/verifConnexion'); ?>';
 </script>
 
@@ -50,8 +49,8 @@ if ($this->session->userdata('logged_in')) { ?>
                                     	<div class="identification_left">
                                         	<h3>vous avez déjà un compte ?</h3>
                                             <form action="#">
-                                            	<div><p><input class="required" id="login" name="login" type="mail" placeholder="Votre Email*" /></p></div>
-                                                <div><p><input class="required" id="password" name="password" type="password" placeholder="Votre Mot de passe*" /></p></div>
+                                            	<div><p><input class="required" id="mail" name="mail" type="mail" placeholder="Votre Email*" /></p></div>
+                                                <div><p class="mdp"><input class="required" id="password" name="password" type="password" placeholder="Votre Mot de passe*" /></p></div>
                                                 <span><a href="#">J’ai perdu mon mot de passe ?</a></span>
                                                 <div class="submit_command login"><input id="connexion" type="submit" value="connexion" /></div>
                                             </form>
@@ -175,6 +174,43 @@ if ($this->session->userdata('logged_in')) { ?>
         });
 
         $('#wrapper').on('click', '#inscription_bouton', function () {
+
+            $('.inside_command_panel.inscription span.mess_required').remove();
+            $('.inside_command_panel.inscription input.failed').removeClass("failed");
+            var submit = true;
+            $('.inside_command_panel.inscription input.required').each(function () {
+                if ($(this).val() == '') {
+                    $($(this).parent()).append(mess_required);
+                    $($(this)).toggleClass('failed');
+                    submit = false;
+                }
+            });
+
+            if (submit) {
+                if ($(".inside_command_panel.inscription input.mail").val() != $(".inside_command_panel.inscription input.cmail").val()) {
+                    $(".inside_command_panel.inscription input.mail").parent().append(mail_required);
+                    $(".inside_command_panel.inscription input.mail").toggleClass('failed');
+                    submit = false;
+                }
+            }
+
+            if (submit) {
+                if ($(".inside_command_panel.inscription input.mdp").val() != $(".inside_command_panel.inscription input.cmdp").val()) {
+                    $(".inside_command_panel.inscription input.mdp").parent().append(mdp_required);
+                    $(".inside_command_panel.inscription input.mdp").toggleClass('failed');
+                    submit = false;
+                }
+
+                var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+                if (!regex.test($(".inside_command_panel.inscription input.mdp").val())) {
+                    $(".inside_command_panel.inscription input.mdp").parent().append(mdp_identique_required);
+                    $(".inside_command_panel.inscription input.mdp").toggleClass('failed');
+                    submit = false;
+                }
+            }
+
+            if(!submit) return false;
+
             createAccount();
             $("#command_right_column li.iden").removeClass('active');
             $("#command_right_column li.iden").addClass('check');
@@ -182,9 +218,36 @@ if ($this->session->userdata('logged_in')) { ?>
             return false;
         });
 
+        //si pas d'adresse billing on en créer une.
         $('#wrapper').on('click', '#billing_confirmation', function () {
             if(verifChampBilling()){
                 createJsonBilling();
+                $(".open_command.containBilling").removeClass('active');
+                $(".inside_command_panel.billing").css('display','none');
+                $(".open_command.containBilling").addClass('check');
+                getParticipants();
+                jQuery(".open_command.containParticipants").toggleClass("active").next().slideToggle("slow");
+                //affiche donnée dans bloc à droite
+                $('#command_right_column li.billing p.nom').html(billing.nom+' '+billing.prenom);
+                $('#command_right_column li.billing p.societe').html(billing.societe);
+                $('#command_right_column li.billing p.mail').html(billing.email);
+                $('#command_right_column li.billing p.adr').html(billing.adresss+' '+billing.complement_adresse);
+                $('#command_right_column li.billing p.cpville').html(billing.codePostal+' '+billing.ville);
+                $('#command_right_column li.billing p.regionpays').html(billing.region+' '+billing.pays);
+                $('#command_right_column li.billing p.tel').html(billing.telephone+' '+billing.fax);
+                $('#command_right_column li.billing .container_adr').show();
+                $('#command_right_column li').removeClass('active');
+                $('#command_right_column li.billing').addClass('check');
+                $('#command_right_column li.participants').addClass('active');
+            }
+            return false;
+        });
+
+        //si pas adresse billing deja enregister
+        $('#wrapper').on('click', '#billing_confirmation_edit', function () {
+            if(verifChampBilling()){
+                createJsonBillingEdit();
+                console.log(billing);
                 $(".open_command.containBilling").removeClass('active');
                 $(".inside_command_panel.billing").css('display','none');
                 $(".open_command.containBilling").addClass('check');
@@ -240,7 +303,6 @@ if ($this->session->userdata('logged_in')) { ?>
                 $(".open_command.containPayment").addClass('check');
                 getRecap(<?php echo $id; ?>,<?php echo $idInfo; ?>,order.nb_participant);
                 jQuery(".open_command.containRecap").toggleClass("active").next().slideToggle("slow");
-                getCgv();
                 $('#command_right_column li').removeClass('active');
                 $('#command_right_column li.payment').addClass('check');
                 if(order.payment == 'PAYPAL'){

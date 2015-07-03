@@ -348,7 +348,7 @@
 	padding:0 53px 0 0;
 }
 .show_content a:hover {
-	color:#D44B53;
+	color:#FF6F00;
 }
 .show_content small {
 	display:none;
@@ -358,10 +358,10 @@
 }
 .show_content.active small {
 	display:block;
-	color:#D44B53;
+	color:#FF6F00;
 }
 .show_content.active h2 {
-	color: #D44B53;
+	color: #FF6F00;
 }
 .show_content.active a {
 	background:url(../images/faq/icon_active_arrow.png) no-repeat right center;

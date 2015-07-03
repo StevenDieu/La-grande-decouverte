@@ -30,7 +30,7 @@ Class Order extends CI_Model {
         ) {
 
         $this->db->set('date', $date);
-        $this->db->set('id_user', $id_user);
+        $this->db->set('id_utilisateur', $id_user);
         $this->db->set('id_billing', $id_billing);
         $this->db->set('nb_participant', $nb_participant);
         $this->db->set('payment', $payment);

@@ -78,6 +78,7 @@
 <!-- popup -->
 <div style="display:none">
     <div id="popCGV">
+        <?php echo $cgv_tunnel[0]->value; ?>
     </div>
 </div>
 <script type="text/javascript">

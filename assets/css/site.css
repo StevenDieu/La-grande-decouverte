@@ -798,7 +798,7 @@ h2.titre{
     font-size: 14px;
     text-transform: uppercase;
     font-family: "helvetica";
-    color: #D44B53;
+    color: #FF6F00;
     font-weight: normal;
     margin-top: 30px;
 }
@@ -837,7 +837,7 @@ span.ou{
 
 .une_row .submit_all_text input,.une_row .submit_all_text button{
     height: 38px;
-    background: #D44B53;
+    background: #FF6F00;
     width: 100%;
     font-size: 14px;
     color: #fff;
@@ -906,7 +906,7 @@ span.ou{
 .btn_inscription{
     display: block;
     height: 38px;
-    background: #D44B53;
+    background: #FF6F00;
     font-size: 14px;
     color: #fff !important;
     text-align: center;
@@ -1236,7 +1236,7 @@ ul.menu_popup a{
 
 a.bblue,a.borange,a.bgreen,a.bwhite{
     line-height: 42px;
-    color: white;
+    color: #000;
     text-decoration: none;
 }
 
@@ -1280,7 +1280,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
 }
 
 .bblue{
-    background-color: #D44B53;
+    background-color: #FF6F00;
 }
 
 .borange{
@@ -1367,7 +1367,6 @@ button.attentionIcon:focus {
 .confirmationDescription,
 .confirmationMdp,
 .confirmationEmail,
-.buttonAjouterBoUtilisateur,
 .retourListCarnet,
 .buttonAjouterArticle,
 .retourListArticle,
@@ -1377,6 +1376,10 @@ button.attentionIcon:focus {
     text-align: center;
     font-family: 'NewCicleGordita', sans-serif;
     letter-spacing: 4px;
+}
+
+.buttonAjouterBoUtilisateur{
+    letter-spacing: 1px;
 }
 
 .glyphicon-arrow-left:before,
@@ -1409,11 +1412,10 @@ ul.menu_popup .glyphicon {
 }
 
 a#add_participant {
-    margin-top: -13px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+    display: block;
+    text-decoration: none;
 }
-
-a#add_participant {}
 
 .contentPageSansSlide h1 {
     color: #000000;
@@ -1422,7 +1424,10 @@ a#add_participant {}
     margin-bottom: 72px;
 }
 
-
+a#delete_participant{
+    display: block;
+    float: right;
+}
 
 
 
@@ -1531,7 +1536,7 @@ a#add_participant {}
 }
 
 .rouge{
-    background: #D44B53;
+    background: #FF6F00;
 }
 
 
@@ -1540,7 +1545,11 @@ a#add_participant {}
 }
 
 
-
+.une_row input.failed{
+    border: 1px dashed #eb340a!important;
+    background: #faebe7!important;
+    margin-bottom: 2px !important;
+}
 
 
 
