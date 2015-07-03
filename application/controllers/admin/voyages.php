@@ -6,6 +6,8 @@ if (!defined('BASEPATH'))
 
 class Voyages extends CI_Controller {
 
+    private $id_voyage;
+
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
@@ -31,15 +33,17 @@ class Voyages extends CI_Controller {
     }
 
     public function edit() {
-        if (!$this->input->get('id')) {
+        if ($this->input->get('id') == null) {
             redirect('admin/voyages/liste', 'refresh');
         }
-        $this->voyage->setId($this->input->get('id'));
-        $this->pictoVoyage->setId_voyage($this->input->get('id'));
-        $this->pays->__set("id_voyage", $this->input->get('id'));
-        $this->images->setId_voyage($this->input->get('id'));
-        $this->infoVoyage->__set("id_voyage", $this->input->get('id'));
-        $this->deroulementVoyage->__set("id_voyage", $this->input->get('id'));
+        $this->id_voyage = $this->input->get('id');
+
+        $this->voyage->setId($this->id_voyage);
+        $this->pictoVoyage->setId_voyage($this->id_voyage);
+        $this->pays->__set("id_voyage", $this->id_voyage);
+        $this->images->setId_voyage($this->id_voyage);
+        $this->infoVoyage->__set("id_voyage", $this->id_voyage);
+        $this->deroulementVoyage->__set("id_voyage", $this->id_voyage);
 
         $data["voyage"] = $this->voyage->getVoyage();
         $data["pictoVoyages"] = $this->pictoVoyage->getPictoVoyages();
@@ -51,7 +55,7 @@ class Voyages extends CI_Controller {
         $data["pictos"] = $this->imagePicto->getPictos();
 
         $data["adminJs"] = array("voyage/voyage");
-
+        $data["id_voyage"] = $this->id_voyage;
         $this->load->helper(array('form'));
         $this->load->templateAdmin('/voyage/edit_voyage', $data);
     }

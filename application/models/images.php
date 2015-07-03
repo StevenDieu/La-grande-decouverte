@@ -57,8 +57,7 @@ Class Images extends CI_Model {
         $this->db->from('images');
         $this->db->where('id_voyage', $this->id_voyage);
         $query = $this->db->get();
-        $this->db->where('id_voyage', $this->id_voyage);
-        $this->db->delete("images");
+
         if ($query->num_rows() >= 1) {
             foreach ($query->result() as $result) {
                 $lien = str_replace('\\', '/', getcwd()) . "/media/" . $result->lien;
@@ -72,13 +71,13 @@ Class Images extends CI_Model {
         }
     }
 
-    function deleteImagesByVoyage() {
-        if ($this->deleteImageByVoyage()) {
-            $this->db->where('id_voyage', $this->id_voyage);
-            $this->db->delete("images");
-        } else {
-            return false;
+    function deleteImagesByVoyage($supprImage) {
+        if ($supprImage) {
+            $this->deleteImageByVoyage();
         }
+
+        $this->db->where('id_voyage', $this->id_voyage);
+        $this->db->delete("images");
     }
 
     function deleteImage() {

@@ -26,15 +26,17 @@
     <!-- Slideshow 4 -->
     <div class="callbacks_container slider_principal">
         <ul class="rslides" id="slider_top">
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_1; ?>" alt="<?php echo $voyage[0]->image_slider_1; ?>">
-            </li>
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_2; ?>" alt="<?php echo $voyage[0]->image_slider_2; ?>">
-            </li>
-            <li>
-                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage[0]->image_slider_3; ?>" alt="<?php echo $voyage[0]->image_slider_3; ?>">
-            </li>
+            <?php
+            foreach ($images as $image) {
+                if ($image->emplacement == "image_slider") {
+                    ?>
+                    <li>
+                        <img src="<?php echo asset_media($image->lien); ?>" alt="<?php echo asset_media($image->nom); ?>">
+                    </li>
+                    <?php
+                }
+            }
+            ?>
         </ul>
         <div class="texte_slide">
             <div class="titre"><?php echo $voyage[0]->titre; ?></div>
@@ -48,8 +50,8 @@
     <div class="fil_arianne_conteneur">
         <div class="fil_arianne">
             <ul class="breadcrumbs">
-                <li class="acceuil"><a href="/">Acceuil</a></li>
-                <li><a href="/">Voyages</a></li>
+                <li class="acceuil"><a href="/">Accueil</a></li>
+                <li><a href="/voyage/carnet/voyage">Voyages</a></li>
                 <li class="last"><?php echo $voyage[0]->titre; ?></li>
             </ul>
         </div>
@@ -94,9 +96,13 @@
                             <span>Il existe plusieurs dates pour ce voyage : </span>
                             <?php
                             foreach ($allInfoVoyage as $info) {
-                                echo "> Du " . $info->date_depart . " au " . $info->date_arrivee . ' : ';
+                                if ($info->id != $voyageInfo[0]->id) {
+                                    ?>
 
-                                echo "<a href='" . base_url('voyage/fiche') . "?id=" . $voyage[0]->id . "&idInfo=" . $info->id . "'>Choisir ces dates</a><br>";
+                                    > Du  <?= $info->date_depart ?> au <?= $info->date_arrivee ?> :
+                                    <a href='<?php echo base_url('voyage/fiche') . "?id=" . $voyage[0]->id . "&idInfo=" . $info->id; ?>'>Choisir ces dates</a><br>
+                                    <?php
+                                }
                             }
                             ?>
                         </div>
@@ -114,7 +120,9 @@
                         });
                     </script>
                 <?php endif; ?>
-                <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
+                <?php if ($voyageInfo[0]->place_dispo != 0) { ?>
+                    <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
+                <?php } ?>
                 </form>
             </div>         
 
@@ -146,7 +154,7 @@
             <!-- contenu info pratique -->
             <div class="info_pratique">
                 <div class="filtre_image"></div>
-                <div class="fond_image"><img src="<?php echo base_url(''); ?>media/produit/image_sous_slider/<?php echo $voyage[0]->image_sous_slider; ?>" alt="<?php echo $voyage[0]->image_sous_slider; ?>"></div>
+                <div class="fond_image"><img src="<?php echo asset_media($voyage[0]->image_sous_slider); ?>" alt="<?= $voyage[0]->image_sous_slider; ?>"></div>
                 <div class="inner">
 
                     <div class="top">
@@ -155,32 +163,46 @@
                         <div class="trait_info"></div>
                     </div>
 
-                    <?php
-                    $this->load->model('voyage');
-                    $result = $this->voyage->getContinent($voyage[0]->continent);
-                    $date = new DateTime(null, new DateTimeZone('America/Santiago'));
-                    ?>
-
                     <div class="leftBloc">
                         <div class="titre">Information général du pays</div>
                         <ul>
-                            <li><strong>Drapeau</strong><span><img src="<?php echo base_url(''); ?>media/produit/drapeau/<?php echo $voyage[0]->drapeau; ?>" alt="<?php echo $voyage[0]->drapeau; ?>"></span></li>
+                            <?php if ($pays[0]->drapeau != null && $pays[0]->drapeau != 0) { ?>
+                                <li><strong>Drapeau</strong><span><img src="<?php echo asset_media($pays[0]->drapeau); ?>" alt="<?= $pays[0]->drapeau; ?>"></span></li>
+                            <?php } ?>
+                            <?php //if ($pays[0]->fuseauHoraire !== null) {   ?>
                             <li><strong>Heure locale</strong><span><?php echo str_replace(':', 'h', $date->format('H:i')); ?></span></li>
-                            <li><strong>Capital</strong><span><?php echo $voyage[0]->capital; ?></span></li>
-                            <li><strong>Météo</strong><span><?php echo $voyage[0]->meteo_temperature; ?>°C </span></li>
-                            <li><strong>Continent</strong><span><?php echo $result[0]->name; ?></span></li>
+                            <?php //}  ?>
+                            <?php if ($pays[0]->capital != null) { ?>
+                                <li><strong>Capital</strong><span><?php echo $pays[0]->capital; ?></span></li>
+                            <?php } ?>
+                            <?php if ($pays[0]->meteo_temperature != null) { ?>
+                                <li><strong>Météo</strong><span><?php echo $pays[0]->meteo_temperature; ?>°C </span></li>
+                            <?php } ?>
+                            <li><strong>Continent</strong><span><?php echo $continent[0]->name; ?></span></li>
                         </ul>
                     </div>
 
                     <div class="rightBloc">
                         <div class="titre">à savoir avant de partir</div>
                         <ul>
-                            <li><strong>Villes principales</strong><span><?php echo $voyage[0]->villes_principales; ?></span><div class="clear"></div></li>
-                            <li><strong>Religion</strong><span><?php echo $voyage[0]->religion; ?></span><div class="clear"></div></li>
-                            <li><strong>Nombre d'habitants</strong><span><?php echo $voyage[0]->nombre_habitant; ?></span><div class="clear"></div></li>
-                            <li><strong>Monnaie</strong><span><?php echo $voyage[0]->monnaie; ?></span><div class="clear"></div></li>
-                            <li><strong>Fête</strong><span><?php echo $voyage[0]->fete; ?></span><div class="clear"></div></li>
-                            <li><strong>Langue officielle</strong><span><?php echo $voyage[0]->langue_officielle; ?></span><div class="clear"></div></li>
+                            <?php if ($pays[0]->villes_principales != null) { ?>
+                                <li><strong>Villes principales</strong><span><?php echo $pays[0]->villes_principales; ?></span><div class="clear"></div></li>
+                            <?php } ?>
+                            <?php if ($pays[0]->religion != null) { ?>
+                                <li><strong>Religion</strong><span><?php echo $pays[0]->religion; ?></span><div class="clear"></div></li>
+                            <?php } ?>
+                            <?php if ($pays[0]->nombre_habitant != null) { ?>
+                                <li><strong>Nombre d'habitants</strong><span><?php echo $pays[0]->nombre_habitant; ?></span><div class="clear"></div></li>
+                            <?php } ?>
+                            <?php if ($pays[0]->monnaie != null) { ?>
+                                <li><strong>Monnaie</strong><span><?php echo $pays[0]->monnaie; ?></span><div class="clear"></div></li>
+                            <?php } ?>
+                            <?php if ($pays[0]->fete != null) { ?>
+                                <li><strong>Fête</strong><span><?php echo $pays[0]->fete; ?></span><div class="clear"></div></li>
+                            <?php } ?>
+                            <?php if ($pays[0]->langue_officielle != null) { ?>
+                                <li><strong>Langue officielle</strong><span><?php echo $pays[0]->langue_officielle; ?></span><div class="clear"></div></li>
+                            <?php } ?>
                         </ul>
                     </div>
 
@@ -190,12 +212,12 @@
 
                     <div class="picto">
                         <ul>
-                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_1; ?>" alt="<?php echo $voyage[0]->picto_1; ?>"></li>
-                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_2; ?>" alt="<?php echo $voyage[0]->picto_2; ?>"></li>
-                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_3; ?>" alt="<?php echo $voyage[0]->picto_3; ?>"></li>
-                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_4; ?>" alt="<?php echo $voyage[0]->picto_4; ?>"></li>
-                            <li><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_5; ?>" alt="<?php echo $voyage[0]->picto_5; ?>"></li>
-                            <li class="last"><img src="<?php echo base_url(''); ?>media/produit/picto/<?php echo $voyage[0]->picto_6; ?>" alt="<?php echo $voyage[0]->picto_6; ?>"></li>
+
+                            <?php foreach ($pictoVoyages as $pictoVoyage) { ?>
+                                <li>
+                                    <img src="<?php echo asset_media($pictoVoyage->lien); ?>" alt="<?php echo asset_media($pictoVoyage->lien); ?>">
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
 
@@ -210,11 +232,19 @@
             </div>
 
             <div class="ligne_image">
-                <div class="img img1"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_1; ?>" alt="<?php echo $voyage[0]->image_baniere_1; ?>"></div>
-                <div class="img img2"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_2; ?>" alt="<?php echo $voyage[0]->image_baniere_2; ?>"></div>
-                <div class="separation_image"></div>
-                <div class="img img3"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_3; ?>" alt="<?php echo $voyage[0]->image_baniere_3; ?>"></div>
-                <div class="img img4"><img src="<?php echo base_url(''); ?>media/produit/banniere/<?php echo $voyage[0]->image_baniere_4; ?>" alt="<?php echo $voyage[0]->image_baniere_4; ?>"></div>
+                <?php
+                foreach ($images as $image) {
+                    if ($image->emplacement == "banniere") {
+                        ?>                         
+                        <div class="img">
+                            <div class="bloc_image_banniere">
+                                <img class="image_banniere" src="<?php echo asset_media($image->lien); ?>" alt="<?php echo asset_media($image->lien); ?>">
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
                 <div class="clear"></div>
             </div>
 
@@ -224,12 +254,15 @@
 
             <div class="slider_bot">
                 <ul class="" id="sliderbot">
-                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_1; ?>" alt="<?php echo $voyage[0]->image_description_1; ?>"></li>
-                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_2; ?>" alt="<?php echo $voyage[0]->image_description_2; ?>"></li>
-                    <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_3; ?>" alt="<?php echo $voyage[0]->image_description_3; ?>"></li>
-                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_4; ?>" alt="<?php echo $voyage[0]->image_description_4; ?>"></li>
-                    <li class="miniature"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_5; ?>" alt="<?php echo $voyage[0]->image_description_5; ?>"></li>
-                    <li class="miniature last"><img src="<?php echo base_url(''); ?>media/produit/image_description/<?php echo $voyage[0]->image_description_6; ?>" alt="<?php echo $voyage[0]->image_description_6; ?>"></li>
+                    <?php
+                    foreach ($images as $image) {
+                        if ($image->emplacement == "image_description") {
+                            ?>                         
+                            <li class="miniature"><img src="<?php echo asset_media($image->lien); ?>" alt="<?php echo asset_media($image->lien); ?>"></li>
+                            <?php
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
             <script type="text/javascript">initialiseResponsiveSilide('#sliderbot');</script>
@@ -279,7 +312,7 @@
                 }
             } else {
                 ?>
-                        <p class="center" style="padding: 10px;">Aucun carnet de voyage pour ce produit.</p>
+                <p class="center" style="padding: 10px;">Aucun carnet de voyage pour ce produit.</p>
                 <?php
             }
             ?>
@@ -290,69 +323,38 @@
         <div id="onglet4" class="contenu_fiche_onglet onglet4mobile">
             <div class="contenu">
                 <div class="blue_line"></div>
+                <?php
+                $jour = 1;
+                foreach ($deroulementVoyages as $deroulementVoyage) {
+                    ?>
 
-                <!-- 1 jour -->
-                <div class="jour_container">
-                    <div class="day_counter">
-                        <div class="pointRouge"></div><div class="day">Jour 1</div>                       
-                    </div>
-                    <div class="day_container">
-                        <div class="fleche_jour"></div>
-                        <div class="description_container">
-                            <div class="image">
-                                <img src="<?php echo asset_url(''); ?>images/ficheproduit/deroulement/imagen_unidad_2.jpg" alt="">
-                            </div>
-                            <div class="texte">
-                                <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
-                                <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                                    Le soir, l'observation des étoiles y est incroyable !</div>
-                            </div>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
-                </div>
-                <!-- fin 1 jour -->
+                    <div class="jour_container">
+                        <div class="day_counter">
+                            <?php if ($deroulementVoyage->jour == 1) { ?>
+                                <div class="pointRouge"></div><div class="day">Jour <?= $jour++ ?></div>          
+                            <?php } else { ?>
+                                <div class="pointRouge"></div><div class="day">Jour <?= $jour++ ?> - <?= $jour + $deroulementVoyage->jour ?></div>          
+                            <?php } ?>
 
-                <!-- 1 jour -->
-                <div class="jour_container">
-                    <div class="day_counter">
-                        <div class="pointRouge"></div><div class="day">Jour 2</div>                       
-                    </div>
-                    <div class="day_container">
-                        <div class="fleche_jour"></div>
-                        <div class="description_container">
-                            <div class="texte no-image">
-                                <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
-                                <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                                    Le soir, l'observation des étoiles y est incroyable !</div>
-                            </div>
                         </div>
-                        <div style="clear:both"></div>
-                    </div>
-                </div>
-                <!-- fin 1 jour -->
+                        <div class="day_container">
+                            <div class="fleche_jour"></div>
+                            <div class="description_container">
+                                <?php if ($deroulementVoyage->img_deroulement_voyage !== null && $deroulementVoyage->img_deroulement_voyage !== 0) { ?>
+                                    <div class="blocImageDeroulement">
+                                        <img class="imageDeroulement" src="<?php echo asset_media($deroulementVoyage->img_deroulement_voyage) ?>" alt="">
+                                    </div>
+                                <?php } ?>
+                                <div class="texte">
+                                    <div class="titre"><?= $deroulementVoyage->titrederoulement ?></div>
+                                    <div class="text"><?= $deroulementVoyage->texte ?></div>
+                                </div>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>       
 
-                <!-- 1 jour -->
-                <div class="jour_container">
-                    <div class="day_counter">
-                        <div class="pointRouge"></div><div class="day">Jour 3</div>                       
-                    </div>
-                    <div class="day_container">
-                        <div class="fleche_jour"></div>
-                        <div class="description_container">
-                            <div class="image">
-                                <img src="<?php echo asset_url(''); ?>images/ficheproduit/deroulement/imagen_unidad_2.jpg" alt="">
-                            </div>
-                            <div class="texte">
-                                <div class="titre">Vol domestique Santiago - Calama et transfert en voiture vers votre lodge.</div>
-                                <div class="text">Alto Atacama propose un large éventail d'activités au choix : Excursions en voiture, à pied ou en VTT vers les splendeurs de l’Atacama : lacs de haute montagne, Andes, geysers del Tatio, visites de villages, déserts de sel, randonnées, ascensions de volcans, … avec des guides expérimentés connaissant les moindres recoins de la région.
-                                    Le soir, l'observation des étoiles y est incroyable !</div>
-                            </div>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
-                </div>
-                <!-- fin 1 jour -->
+                <?php } ?>
             </div>
             <br />
         </div>

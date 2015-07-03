@@ -24,7 +24,7 @@
                                 $attributes = array('class' => 'form-horizontal', 'id' => 'add-travel');
                                 echo form_open_multipart('admin/model_voyage/edit', $attributes);
                                 ?>
-                            <input type="hidden" value="<?= $_GET["id"]?>" name="id_voyage" />
+                            <input type="hidden" value="<?= $id_voyage?>" name="id_voyage" />
                                 <div class="info_generale">
                                     <legend>Information générale</legend>
                                     <div class="control-group">											

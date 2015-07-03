@@ -110,9 +110,10 @@ Class CarnetVoyage extends CI_Model {
         $this->db->select('i_s.lien as isLien, i_s.nom as isNom, cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
-        $this->db->join('image_slider AS i_s', 'i_s.id_voyage = v.id');
+        $this->db->join('images AS i_s', 'i_s.id_voyage = v.id');
         $this->db->order_by("cv.id", "desc");
         $this->db->where('prive', '0');
+        $this->db->where('emplacement', 'image_slider');
         $this->db->limit(3);
         $query = $this->db->get();
 

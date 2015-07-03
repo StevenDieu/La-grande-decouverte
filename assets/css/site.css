@@ -516,7 +516,7 @@ footer li{
 .textFooter a{
     font-size: 16px;
     line-height: 17px;
-    color: #BBBBBB !important;
+    color: #8b8b8b !important;
     margin: 0 0 15px 0;
     font-family: "helvetica";
 }
@@ -550,11 +550,10 @@ footer li{
     color: #7C8081;
     height: 32px;
     float: right;
-    border-radius: 4px;
 }
 
 .buttonNewsletter:hover{
-    background: #E2E2E2;
+    background: #FBFBFB;
 }
 .buttonNewsletter:focus{
     border: 0;
@@ -564,7 +563,7 @@ footer li{
 .textFooter{
     font-size: 16px;
     line-height: 17px;
-    color: #BBBBBB !important;
+    color: #8b8b8b !important;
     margin: 0 0 15px 0;
     font-family: "helvetica";
 }
@@ -740,8 +739,7 @@ h2.titre{
 .content .legend{
     font-family: 'NewCicleGordita', sans-serif;
     font-size: 33px;
-    font-weight: 500 !important;
-    color: #0A1E39 !important;
+    color: #000 !important;
     width: 100%;
     padding-left: 10px;
       border-bottom: 1px dotted #aaa;
@@ -947,11 +945,25 @@ span.ou{
 @media (min-width: 820px){
     .content-connexion .colonne_left{
         float: left;
-        width: 490px;
+        width:  490px;
     }
 
     .content-connexion .colonne_left.first{
         width: 490px;
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 820px){
+    .content-connexion .colonne_left{
+        float: left;
+        width: 48%;
+        max-width: 490px;
+    }
+
+    .content-connexion .colonne_left.first{
+        max-width: 490px;
+        width: 48%;
         margin-right: 20px;
     }
 
@@ -1029,7 +1041,7 @@ span.ou{
     z-index: 100;    
     width: 330px;  
     right: 0;
-    color: black;
+    color: #000;
     top: 76px;
 }
 
@@ -1102,10 +1114,21 @@ ul.menu_popup li{
     text-align: left;
     padding: 7px;
     padding-left: 43px;
-    border: 1px solid rgb(171, 156, 156);
+    border: 1px solid #dfdfdf;
     margin-bottom: 4px;
-    border-radius: 4px;
     position: relative;
+}
+
+.form-control{
+    border-radius: 0px !important;
+    border: 1px solid #dfdfdf !important;
+    color: #818181 !important;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-control.description{
+    max-width: 290px;
 }
 
 ul.menu_popup a{
@@ -1218,7 +1241,6 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
 }
 
 .bblue,.borange,.bgreen,.bwhite{
-    text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
     text-decoration: none;
@@ -1226,9 +1248,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
     color: #fff;
     font-family: "helvetica";
     font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left;
+    min-width: 230px;
     border-color: transparent;
 }
 .bblue:focus,.borange:focus,.bgreen:focus,.bwhite:focus{
@@ -1324,7 +1344,7 @@ ul.menu_popup a:hover {
 }
 
 ul.menu_popup li:hover {
-    background-color: rgb(232, 232, 232);
+    background-color: #FBFBFB;
 }
 
 .icon{
@@ -1373,7 +1393,7 @@ ul.menu_popup .glyphicon {
 }
 
 .menuBas a{
-  color: #BBBBBB !important;
+  color: #8b8b8b !important;
 }
 
 .menuBas a:hover{
@@ -1443,8 +1463,6 @@ a#add_participant {}
 }
 
 .box-contextual-help .help-option {
-  display: block;
-  padding-left: 25px;
   position: relative;
 }
 
@@ -1489,6 +1507,13 @@ a#add_participant {}
   text-transform: uppercase;
   color: #000;
   text-shadow:none;
+}
+
+.account-assistance .image_assistance{
+    width: 100%;
+    margin-bottom: 10px;
+    height: 57px;
+    background: url(../images/assis.png) center bottom no-repeat;
 }
 
 

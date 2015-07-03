@@ -59,19 +59,26 @@
         <div class="right">
             <aside class="account-assistance">
                 <section class="box-contextual-help ">
-                    <h1 class="local-assistance">Local assistance?</h1>
+                    <div class="image_assistance"></div>
+                    <h1 class="local-assistance">Assistance locale ?</h1>
                     <ul class="help-options">
-                        <li><a href="mailto:service.nl@g-star.com" class="help-option email-help" target="_blank" onclick="return false;"><em>by email</em> service.nl@g-star.com</a></li>
-                        <li><a href="callto:08000200454" class="help-option phone-help" target="_blank"><em>by phone</em>0800-0200454</a></li>
-                        <li>From: Mon-Fri 09.00-20.00 | Sat 10.00-14.00</li>
+                        <li>
+                            <img src="<?php echo asset_url(''); ?>images/mail_assi.png" class="" alt="mail"/> 
+                            <a href="mailto:service.nl@g-star.com" class="help-option email-help" target="_blank" onclick="return false;"><em>by email</em>lagrandecouverte@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="<?php echo asset_url(''); ?>images/tel_assi.png" class="" alt="tel"/> 
+                            <a href="callto:08000200454" class="help-option phone-help" target="_blank"><em>by phone</em>06 71 69 85 16</a>
+                        </li>
+                        <li>Du lundi au vendredi de 9h à 12h30 et de 13h30 à 17h15</li>
                     </ul>
                 </section>
                 <section class="box-contextual-help ">
-                    <h1 class="delivery-question">Delivery question?</h1>
-                    <p class="to-faq">Go To<a href="/en_nl/help-info/frequently-asked-questions.htm" class="faq-option" title="Frequently Asked Questions - Delivery" target="_blank">> Frequently asked questions</a></p>
+                    <h1 class="delivery-question">Questions ?</h1>
+                    <p class="to-faq">Vous avez des questions concernant la réservation<a href="<?php echo base_url('/faq/index') ?>" class="faq-option" title="Frequently Asked Questions - Delivery" target="_blank">> Consulter notre FAQ</a></p>
                 </section>
                 <section class="box-contextual-help membershipBenefits membership-benefits">   
-                    <h1 class="membership-question">G-Star Membership</h1>
+                    <h1 class="membership-question">Membre de la Grande Découverte</h1>
                     <ul class="membership-benefits-list">
                         <li class="membership-benefit-shipping"><span class="icon"></span><span class="text">Always free shipping on all orders</span></li>
                         <li class="membership-benefit-offers"><span class="icon"></span><span class="text">Special offers in-store and online</span></li>

@@ -119,7 +119,7 @@ function add_image(idHtml) {
                                 <img class="image_100" src="' + result["src"] + '" alt="' + $(".titre_" + idHtml).val() + '" />\n\
                             </td>\n\
                             <td class="center">\n\
-                                <input type="button" class="btn btn-danger remove_image width_auto" value="x" data-idhtml="' + idHtml + '" data-id="' + sizeTabImageSlider + '"/>\n\
+                                <input type="button" class="btn btn-danger remove_image width_auto" value="x" data-idhtml="' + idHtml + '" data-id="' + id + '"/>\n\
                             </td>\n\
                         </tr>');
 

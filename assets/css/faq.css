@@ -348,7 +348,7 @@
 	padding:0 53px 0 0;
 }
 .show_content a:hover {
-	color:#006695;
+	color:#D44B53;
 }
 .show_content small {
 	display:none;
@@ -358,10 +358,10 @@
 }
 .show_content.active small {
 	display:block;
-	color:#006695;
+	color:#D44B53;
 }
 .show_content.active h2 {
-	color: #006695;
+	color: #D44B53;
 }
 .show_content.active a {
 	background:url(../images/faq/icon_active_arrow.png) no-repeat right center;
@@ -472,11 +472,11 @@
         text-align: center;
         width: 100%;
         padding-top: 30px;
-        font-size: 40px;
+        font-size: 33px;
         white-space: nowrap;
         font-family: 'NewCicleGordita', sans-serif;
         text-transform: uppercase;
-        color: #090A1F;
+        color: #000;
 
     }
 
@@ -491,5 +491,5 @@
         padding-bottom: 30px;
         font-family: "helvetica";
         font-size: 16px;
-        color: #565a5c;
+        color: #8b8b8b;
     }

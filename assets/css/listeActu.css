@@ -3,13 +3,8 @@
     max-width: 1200px;
     margin:auto;
     padding-bottom: 20px;
-    background-color: #f5f5f5;
+    background-color: #FBFBFB;
 }
-
-.content.actualites{
-    background-color: #f5f5f5;
-}
-
 
 @media (max-width: 900px){
     .content .actu{
@@ -52,18 +47,17 @@
     .content .actu .entete .titre{
         text-align: center;
         width: 100%;
-        padding-top: 30px;
-        font-size: 40px;
+        font-size: 33px;
         white-space: nowrap;
         font-family: 'NewCicleGordita', sans-serif;
         text-transform: uppercase;
-        color: #090A1F;
+        color: #000;
 
     }
 
         .content .actu .entete .titre sup{
             font-size: 25px;
-            color: #337ab7;
+            color: #D44B53;
         }
 
     .content .actu .entete .description{
@@ -72,7 +66,7 @@
         padding-bottom: 30px;
         font-family: "helvetica";
         font-size: 16px;
-        color: #565a5c;
+        color: #8b8b8b;
     }
 
 .content .actu .uneActu{
@@ -95,7 +89,7 @@
         font-family: "helvetica";
         font-size: 16px;
         border-bottom: 1px solid rgba(0,0,0,0.07);
-        color: #525465;
+        color: #000;
     }
 
     .content .actu .uneActu .image{
@@ -124,7 +118,7 @@
         }
 
         .content .actu .uneActu .reseau ul li:hover{
-            border:1px solid #BFBFBF;
+            border:1px solid #8b8b8b;
             transition: all 400ms cubic-bezier(0.7, 0.5, 0.3, 1.5);
         }
 
@@ -155,7 +149,7 @@
             }
 
     .content .actu .uneActu .titreActu .meta{
-        color: #525465;
+        color: #8b8b8b;
         text-align: center;
         line-height: 50px;
         text-transform: uppercase;
@@ -172,21 +166,14 @@
 
     .content .actu .uneActu .titreActu .titre{
         text-align: center;
-        text-transform: uppercase;
         padding-bottom: 30px;
         font-size: 30px;
         font-family: "helvetica";
-        color: #090A1F;
+        color: #D44B53;
         
     }
 
-    .content .actu .uneActu .titreActu .titre span:hover{
-        color: #337ab7;
-        transition: all 300ms linear;
-    }
-      
-
-
+    
 .callbacks_nav {
     position: absolute;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
