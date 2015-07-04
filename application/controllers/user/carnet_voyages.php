@@ -15,7 +15,7 @@ class Carnet_voyages extends CI_Controller {
         $this->load->helper(array('form'));
         $this->load->model('voyage');
         $this->load->model('carnetVoyage');
-        $this->load->model('voyageUtilisateur');
+        $this->load->model('order');
     }
 
     public function add() {
@@ -24,13 +24,14 @@ class Carnet_voyages extends CI_Controller {
             die;
         }
         $this->load->helper(array('form'));
-        $data["id_voyages"] = $this->voyageUtilisateur->getVoyageUtilisateurs($this->session->userdata('logged_in')["id"]);
+        $this->order->setId_utilisateur($this->session->userdata('logged_in')["id"]);
+        $data["id_voyages"] = $this->order->getVoyageUtilisateurs();
         $data["voyages"] = array();
         if ($data["id_voyages"]) {
             foreach ($data["id_voyages"] as $id_voyages) {
-                $this->carnetVoyage->setId_voyage($id_voyages->voyage_id);
+                $this->carnetVoyage->setId_voyage($id_voyages->id_voyage);
                 if ($this->carnetVoyage->getVoyage() == false) {
-                    array_push($data["voyages"], $this->voyage->getVoyage($id_voyages->voyage_id));
+                    array_push($data["voyages"], $this->voyage->getVoyage($id_voyages->id_voyage));
                 }
             }
         }

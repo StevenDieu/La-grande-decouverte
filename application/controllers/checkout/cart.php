@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class Cart extends CI_Controller {
 
-	function __construct() {
+    function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('user');
@@ -14,17 +14,17 @@ class Cart extends CI_Controller {
 
     public function onepage() {
 
-	    $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
-	    $this->form_validation->set_rules('idInfo', 'idInfo', 'trim|xss_clean');
+        $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
+        $this->form_validation->set_rules('idInfo', 'idInfo', 'trim|xss_clean');
 
-	    if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == FALSE) {
             redirect('pages', 'refresh');
         } else {
-        	$id = $this->input->post('id');
+            $id = $this->input->post('id');
             $idInfo = $this->input->post('idInfo');
         }
 
-        $data["allCss"] = array("checkout/style","checkout/responsive","checkout/uniform.default");
+        $data["allCss"] = array("checkout/style", "checkout/responsive", "checkout/uniform.default");
         $data["alljs"] = array("checkout/custom");
         $data["id"] = $id;
         $data["idInfo"] = $idInfo;
@@ -36,7 +36,7 @@ class Cart extends CI_Controller {
 
         $info = $this->voyage->getInfoVoyageById($idInfo);
         $this->voyage->setId($id);
-        $data["voyage"] =$this->voyage->getVoyage();
+        $data["voyage"] = $this->voyage->getVoyage();
         $data["voyageInfo"] = $info;
         $data["voyageInfo"][0]->date_depart = $this->DateFr($data["voyageInfo"][0]->date_depart);
         $data["voyageInfo"][0]->date_arrivee = $this->DateFr($data["voyageInfo"][0]->date_arrivee);
@@ -47,27 +47,25 @@ class Cart extends CI_Controller {
         $this->load->templateCheckout('/onepage', $data);
     }
 
-
-
-    public function billing(){
-        if($this->session->userdata('logged_in')['id']){
+    public function billing() {
+        if ($this->session->userdata('logged_in')['id']) {
             $id = $this->session->userdata('logged_in')['id'];
             $this->load->model('billing');
             $result = $this->billing->getByIdUser($id);
-            if($result){
+            if ($result) {
                 $data['billing'] = $result;
             }
         }
         $this->load->model('departement');
         $data['departements'] = $this->departement->getAllDepartements();
-        $this->load->view('checkout/step/billing',$data);
+        $this->load->view('checkout/step/billing', $data);
     }
-    
-    public function payment(){
+
+    public function payment() {
         $this->load->view('checkout/step/payment');
     }
 
-    public function recap(){
+    public function recap() {
         $this->form_validation->set_rules('id', 'id', 'trim|xss_clean');
         $this->form_validation->set_rules('idInfo', 'idInfo', 'trim|xss_clean');
         $this->form_validation->set_rules('nbParticipant', 'nbParticipant', 'trim|xss_clean');
@@ -88,10 +86,10 @@ class Cart extends CI_Controller {
         $data["voyageInfo"][0]->date_arrivee = $this->DateFr($data["voyageInfo"][0]->date_arrivee);
 
         $data["prixTotal"] = (float) $nbParticipant * $data["voyageInfo"][0]->prix;
-        $data["sousTotal"] = (float) $data["prixTotal"]*0.8;
-        $data["taxe"] = (float) $data["prixTotal"]*0.2;
-        $data["acompte"] = (float) $data["prixTotal"]*0.1;
-        $data["resteAPayer"] = (float) $data["prixTotal"]*0.9;
+        $data["sousTotal"] = (float) $data["prixTotal"] * 0.8;
+        $data["taxe"] = (float) $data["prixTotal"] * 0.2;
+        $data["acompte"] = (float) $data["prixTotal"] * 0.1;
+        $data["resteAPayer"] = (float) $data["prixTotal"] * 0.9;
 
         $data["prixTotal"] = number_format($data["prixTotal"], 2, ',', ' ');
         $data["sousTotal"] = number_format($data["sousTotal"], 2, ',', ' ');
@@ -103,23 +101,23 @@ class Cart extends CI_Controller {
         $this->cms->setCode('cgv_tunnel');
         $data["cgv_tunnel"] = $this->cms->getByCode();
 
-        $this->load->view('checkout/step/recap',$data);
+        $this->load->view('checkout/step/recap', $data);
     }
 
-    public function participants(){
+    public function participants() {
         $this->load->view('checkout/step/participants');
     }
 
-    public function inscription(){
+    public function inscription() {
         $this->load->view('checkout/step/inscription');
     }
 
-    public function login(){
+    public function login() {
 
         $this->form_validation->set_rules('mail', 'mail', 'trim|required|xss_clean');
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_database_login');
         $this->load->model('images');
-        
+
         if ($this->form_validation->run() == FALSE) {
             $res = array(
                 'retour' => 'error',
@@ -149,20 +147,18 @@ class Cart extends CI_Controller {
                     'retour' => 'connexion',
                     'message' => "L'utilisateur est connecte"
                 );
-                
-            }else{
+            } else {
                 $res = array(
                     'retour' => 'error',
                     'message' => 'login ou mot de passe invalide'
                 );
-            }   
+            }
         }
 
         echo json_encode($res);
-
     }
 
-    public function create(){
+    public function create() {
 
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');
         $this->form_validation->set_rules('prenom', 'prenom', 'trim|required|xss_clean|callback_check_size_50');
@@ -173,20 +169,20 @@ class Cart extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $res = array(
-                    'retour' => 'error',
-                    'message' => "L'utilisateur n'a pas pu etre créé"
+                'retour' => 'error',
+                'message' => "L'utilisateur n'a pas pu etre créé"
             );
         } else {
 
             $this->user->setMail($this->input->post('email'));
             $result = $this->user->check_mail_unique();
 
-            if($result) {
+            if ($result) {
                 $res = array(
                     'retour' => 'error',
                     'message' => "Le mail est déjà utilisé."
-                );                
-            }else{
+                );
+            } else {
                 $this->user->setNom($this->input->post('nom'));
                 $this->user->setPrenom($this->input->post('prenom'));
                 $this->user->setPassword($this->input->post('mdp'));
@@ -205,7 +201,7 @@ class Cart extends CI_Controller {
                         'message' => "L'utilisateur est créé"
                     );
                 }
-            }    
+            }
         }
         echo json_encode($res);
     }
@@ -259,28 +255,29 @@ class Cart extends CI_Controller {
 
     function DateFr($date) {
         $date = explode('-', $date);
-        if($date[2][0] == 0) $date[2][0] = '';
-        return $date[2].' '.$this->getMonth($date[1]).' '.$date[0];
+        if ($date[2][0] == 0)
+            $date[2][0] = '';
+        return $date[2] . ' ' . $this->getMonth($date[1]) . ' ' . $date[0];
     }
 
     function getMonth($month) {
-        $month_arr[01] =   "Janvier";
-        $month_arr[02] =   "Février";
-        $month_arr[03] =   "Mars";
-        $month_arr[04] =   "Avril";
-        $month_arr[05] =   "Mai";
-        $month_arr[06] =   "Juin";
-        $month_arr[07] =   "Juillet";
-        $month_arr[08] =   "Août";
-        $month_arr[09] =   "Septembre";
-        $month_arr[10] =  "Octobre";
-        $month_arr[11] =  "Novembre";
-        $month_arr[12] =  "Décembre";
+        $month_arr[01] = "Janvier";
+        $month_arr[02] = "Février";
+        $month_arr[03] = "Mars";
+        $month_arr[04] = "Avril";
+        $month_arr[05] = "Mai";
+        $month_arr[06] = "Juin";
+        $month_arr[07] = "Juillet";
+        $month_arr[08] = "Août";
+        $month_arr[09] = "Septembre";
+        $month_arr[10] = "Octobre";
+        $month_arr[11] = "Novembre";
+        $month_arr[12] = "Décembre";
 
-        return $month_arr[(int)$month];
+        return $month_arr[(int) $month];
     }
 
-    function save(){
+    function save() {
         $this->load->model('order');
         $this->load->model('billing');
         $this->load->model('participant');
@@ -290,132 +287,103 @@ class Cart extends CI_Controller {
         $this->form_validation->set_rules('participant', 'participant', 'required|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-
+            
         } else {
             $order = $this->input->post('order');
             $billing = $this->input->post('billing');
             $participants = $this->input->post('participant');
         }
 
-        if($billing["id"]){
+        if ($billing["id"]) {
             //edit donnée billing
             $session_data = $this->session->userdata('logged_in');
             $user_id = $session_data['id'];
             $id_billing = $billing["id"];
             $this->billing->edit(
-                $billing["nom"],
-                $billing["prenom"],
-                $billing["societe"],
-                $billing["email"],
-                $billing["adresss"],
-                $billing["complement_adresse"],
-                $billing["codePostal"],
-                $billing["ville"],
-                $billing["region"],
-                $billing["pays"],
-                $billing["telephone"],
-                $billing["fax"],
-                $user_id,
-                $billing["id"]
+                    $billing["nom"], $billing["prenom"], $billing["societe"], $billing["email"], $billing["adresss"], $billing["complement_adresse"], $billing["codePostal"], $billing["ville"], $billing["region"], $billing["pays"], $billing["telephone"], $billing["fax"], $user_id, $billing["id"]
             );
-        }else{
+        } else {
             //save donnée billing
             $session_data = $this->session->userdata('logged_in');
             $user_id = $session_data['id'];
             $id_billing = $this->billing->add(
-            $billing["nom"],
-            $billing["prenom"],
-            $billing["societe"],
-            $billing["email"],
-            $billing["adresss"],
-            $billing["complement_adresse"],
-            $billing["codePostal"],
-            $billing["ville"],
-            $billing["region"],
-            $billing["pays"],
-            $billing["telephone"],
-            $billing["fax"],
-            $user_id
+                    $billing["nom"], $billing["prenom"], $billing["societe"], $billing["email"], $billing["adresss"], $billing["complement_adresse"], $billing["codePostal"], $billing["ville"], $billing["region"], $billing["pays"], $billing["telephone"], $billing["fax"], $user_id
             );
         }
 
         //save donnée order
-        $id_order = $this->order->add(
-        $order["date"],
-        $user_id,
-        $id_billing,
-        $order["nb_participant"],
-        $order["payment"],
-        $order["acompte"],
-        $order["ip"],
-        $order["prixTotal"],
-        $order["resteAPayer"],
-        $order["sousTotal"],
-        $order["taxe"],
-        $order["id_voyage"],
-        $order["id_info_voyage"]
-        );
+        $this->order->setDate($order["date"]);
+        $this->order->setId_utilisateur($user_id);
+        $this->order->setId_billing($id_billing);
+        $this->order->setNb_participant($order["nb_participant"]);
+        $this->order->setPayment($order["payment"]);
+        $this->order->setAcompte($order["acompte"]);
+        $this->order->setIp($order["ip"]);
+        $this->order->setPrix_total($order["prixTotal"]);
+        $this->order->setReste_a_payer($order["resteAPayer"]);
+        $this->order->setSous_total($order["sousTotal"]);
+        $this->order->setTaxe($order["taxe"]);
+        $this->order->setId_voyage($order["id_voyage"]);
+        $this->order->setId_info_voyage($order["id_info_voyage"]);
+        $this->order->add();
 
         //save participants
         foreach ($participants as $participant) {
             $this->participant->add(
-            $participant["nom"],
-            $participant["prenom"],
-            $participant["info"],
-            $participant["dob"],
-            $id_order
+                    $participant["nom"], $participant["prenom"], $participant["info"], $participant["dob"], $this->order->getId()
             );
         }
 
 
-        if($order["payment"] == "PAYPAL"){
+        if ($order["payment"] == "PAYPAL") {
             $res = array(
                 'retour' => 'PAYPAL',
                 'message' => ""
             );
             echo json_encode($res);
-        }elseif($order["payment"] == "CB"){
+        } elseif ($order["payment"] == "CB") {
             $res = array(
                 'retour' => 'CB',
                 'message' => ""
             );
             echo json_encode($res);
-        }else{
+        } else {
             $res = array(
                 'retour' => 'CHECKMO',
-                'message' => $id_order
+                'message' => $this->order->getId()
             );
             echo json_encode($res);
-        }      
+        }
     }
 
-    function getSucces(){
+    function getSucces() {
         $data['increment_id'] = $this->input->post('increment_id');
-        $this->load->view('checkout/success',$data);
-    }  
+        $this->load->view('checkout/success', $data);
+    }
 
-    function getCgv(){
+    function getCgv() {
         $this->load->view('checkout/step/cgv');
-    }  
+    }
 
-    function cb(){
+    function cb() {
         $this->load->view('checkout/step/payment/cb');
-    }  
+    }
 
-    function paypal(){
+    function paypal() {
         $this->load->view('checkout/step/payment/paypal');
-    }  
+    }
 
-    function verifConnexion(){
-        if($this->session->userdata('logged_in')){
+    function verifConnexion() {
+        if ($this->session->userdata('logged_in')) {
             $res = array(
                 'retour' => true
             );
-        }else{
+        } else {
             $res = array(
                 'retour' => false
             );
         }
         echo json_encode($res);
     }
+
 }

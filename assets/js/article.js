@@ -126,4 +126,7 @@ $(document).ready(function () {
 
 });
 
+$(".froala-wrapper").ready(function () {
+    $(".froala-wrapper").next().remove();
+})
 

@@ -78,6 +78,8 @@ class Model_voyage extends CI_Controller {
             $this->pictoVoyage->deletePictoVoyage();
             $this->infoVoyage->__set("id_voyage", $this->id_voyage);
             $this->infoVoyage->deleteInfoVoyageByVoyage();
+                                    die();
+
             $this->deroulementVoyage->__set("id_voyage", $this->id_voyage);
             $this->deroulementVoyage->deleteAllDeroulementByVoyage();
 
