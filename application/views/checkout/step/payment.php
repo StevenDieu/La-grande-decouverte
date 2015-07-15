@@ -37,6 +37,7 @@
         </div>
     </div>
     <div class="btn_postal_submit"><input id="confirmation_payment" type="submit" value="continuer" /></div>
+    <div class="clear"></div>
 </form>
 
 <?php

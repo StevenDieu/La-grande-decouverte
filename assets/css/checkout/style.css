@@ -642,7 +642,7 @@ html,body {
   	font-family: 'NewCicleGordita', sans-serif;
 }
 .command_panel h2.active {
-	color:#FF6F00;
+	color:#960018;
 }
 .inside_command_panel {
 	min-height: 30px;
@@ -675,7 +675,7 @@ html,body {
 	width:100%;
 }
 .identification_left form p {
-	height:35px;
+	min-height:35px;
 	margin-bottom:11px !important;
 }
 
@@ -702,7 +702,6 @@ html,body {
 	text-decoration: none;
 	font-family: "helvetica";
 	font-size: 13px;
-	float: left;
 	
 }
 .identification_left form span a {
@@ -731,7 +730,7 @@ html,body {
 	cursor:pointer;
 	text-transform:uppercase;
 	-webkit-appearance: none;
-    background-color: #FF6F00;
+    background-color: #960018;
     border: none;
 }
 
@@ -764,7 +763,7 @@ html,body {
 	letter-spacing:4px;
 	text-transform:uppercase;
 	line-height:38px;
-	 background-color: #FF6F00;
+	 background-color: #960018;
 	 position: absolute;
 	 bottom: 0;
 	 width: 100%;
@@ -796,7 +795,7 @@ html,body {
 }
 
 #command_right_column li.active > a {
-	color: #FF6F00 !important;
+	color: #960018 !important;
 }
 .adress_form {
 	width:100%;
@@ -886,7 +885,7 @@ html,body {
 	letter-spacing: 4px;
 	text-transform: uppercase;
 	line-height: 38px;
-	background-color: #FF6F00;
+	background-color: #960018;
 	width: 100%;
 }
 
@@ -1032,6 +1031,7 @@ html,body {
 	width:49.01%;
 	height:38px;
 	padding:10px 0 19px 0;
+	float: right;
 }
 .btn_postal_submit input {
 	display: block;
@@ -1044,7 +1044,7 @@ html,body {
 	letter-spacing: 4px;
 	text-transform: uppercase;
 	line-height: 38px;
-	background-color: #FF6F00;
+	background-color: #960018;
 	width: 100%;
 }
 
@@ -1113,7 +1113,7 @@ html,body {
 .price_leftcolumn h3 a {
 	font-weight:normal;
 	font-size:16px;
-	color:#FF6F00;
+	color:#960018;
 	letter-spacing:2px;
 	text-transform:uppercase;
 	padding-bottom:2px;
@@ -1203,7 +1203,7 @@ html,body {
 	letter-spacing: 4px;
 	text-transform: uppercase;
 	line-height: 38px;
-	background-color: #FF6F00;
+	background-color: #960018;
 	width: 49.01%;
 }
 
@@ -1526,7 +1526,7 @@ html,body {
 	letter-spacing: 4px;
 	text-transform: uppercase;
 	line-height: 38px;
-	background-color: #FF6F00;
+	background-color: #960018;
 	width: 300px;
 	margin: auto;
 	margin-top: 30px;
@@ -1544,7 +1544,7 @@ html,body {
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #FF6F00;
+  color: #960018;
   padding-top: 30px;
 }
 
@@ -1554,7 +1554,7 @@ html,body {
 
 #wrapper.success p span{
 	font-weight: bold;
-	color: #FF6F00;
+	color: #960018;
 }
 
 #wrapper.success p.second{
@@ -1617,11 +1617,19 @@ html,body {
 }
 
 
-.adress_form p input.failed{
+.adress_form p input.failed, .identification_left p input.failed{
 	border: 1px dashed #eb340a!important;
     background: #faebe7!important;
     margin-bottom: 2px !important;
 }
 
+.address_fields_right{
+	float: right !important;
+	margin-right: 0px !important;
+	margin-top: 15px;
+}
 
+.address_fields.last{
+	padding-bottom: 0px;
+}
 

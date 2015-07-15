@@ -60,7 +60,7 @@
         </div>
         <div class="require_field">* Champs obligatoires</div>
         <div class="all_text_field">
-            <div class="address_fields_left">
+            <div class="address_fields_left address_fields_right">
                 <div class="submit_all_text"><input type="submit" id="billing_confirmation_edit" value="continuer" /></div>
             </div>
         </div>

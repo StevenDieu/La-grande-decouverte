@@ -26,6 +26,7 @@ jQuery(document).ready(function(){
             jQuery(".open_command.containRecap").removeClass("active");
             jQuery(".open_command.containRecap").next().hide();
             jQuery(".open_command.containInfo").toggleClass("active").next().slideToggle("slow");
+            $('.inside_command_panel.inscription').hide();
 
             $('#command_right_column li').removeClass('active');
             $('#command_right_column li.info').addClass('active');
@@ -346,11 +347,11 @@ jQuery(document).ready(function(){
     function vérifFormulaireParticipant(){
         var submit = true;
         $('#form_participant span.mess_required').remove();
-        $('#form_participant p.failed').removeClass("failed");
+        $('#form_participant failed').removeClass("failed");
         $('#form_participant input.required').each(function () {
             if ($(this).val() == '') {
-                $($(this).parent().parent()).append(spanObligatoire);
-                $($(this).parent()).toggleClass('failed');
+                $($(this).parent()).append(spanObligatoire);
+                $($(this)).toggleClass('failed');
                 submit = false;
             }
         });

@@ -15,7 +15,7 @@
             <p><input class="required cmail" name="inscription_confirmer_email" id="inscription_confirmer_email" type="mail" placeholder="Confirmer votre Email*" /></p>
         </div>
     </div>
-    <div class="address_fields">
+    <div class="address_fields last">
         <div class="address_fields_left">
             <p><input class="required mdp" name="inscription_mdp" id="inscription_mdp" type="password" placeholder="Votre Mot de passe*" /></p>
         </div>
@@ -25,7 +25,7 @@
     </div>
     <div class="require_field">* Champs obligatoires</div>
     <div class="all_text_field">
-        <div class="address_fields_left bouton">
+        <div class="address_fields_left address_fields_right bouton">
             <div class="submit_all_text ins"><input id="inscription_bouton" type="submit" value="continuer" /></div>
         </div>
         <a href="javascript:;" id="retourLogin">< Retour</a>
