@@ -91,7 +91,7 @@ Class Voyage extends CI_Model {
     function getAllVoyages($limit, $start) {
 
 
-        $this->db->_protect_identifiers=false;  //empeche l'ajout de quotes ( `` ) automatique
+        $this->db->_protect_identifiers = false;  //empeche l'ajout de quotes ( `` ) automatique
         $this->db->select('v.id as vId, v.titre as titre, v.phrase_accroche, phrase_accroche, i.nom as nom, i.lien as lien');
         $this->db->from('voyage AS v');
         $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
@@ -122,6 +122,25 @@ Class Voyage extends CI_Model {
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->num_rows();
+        } else {
+            return false;
+        }
+    }
+
+    function getVoyagesByContinent($continent) {
+        $this->db->_protect_identifiers = false;
+        $this->db->select('v.id as vId, v.titre as titre, v.phrase_accroche, phrase_accroche, i.nom as nom, i.lien as lien');
+        $this->db->from('voyage as v');
+        $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
+        $this->db->join("pays as p", "v.id = p.id_voyage");
+        $this->db->join("continent as c", "c.id = p.id_continent");
+        $this->db->where('c.id', $continent);
+        $this->db->order_by("titre", "asc");
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
         } else {
             return false;
         }

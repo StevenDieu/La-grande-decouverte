@@ -15,6 +15,7 @@ class Carnet extends CI_Controller {
 
         $this->load->model('user');
         $this->load->model('images');
+        $this->load->model('continents');
     }
 
     public function index() {
@@ -50,7 +51,7 @@ class Carnet extends CI_Controller {
         if ($this->input->get('id') == null) {
             redirect('pages/index/', 'refresh');
         }
-        $this->article->id = $this->input->get('id');
+        $this->article->setId($this->input->get('id'));
         $data["articles"] = $this->article->getArticlePublic();
 
         if ($data['articles'] == null) {
@@ -100,7 +101,8 @@ class Carnet extends CI_Controller {
                 
             if ($data['voyage'] != false) {
                 //si il y a bien des voyages pour ce continent, je récupère le nom du continent.
-                $data['nomContinent'] = $this->Voyage->getNomContinent($continent);
+                $this->continents->setId($continent);
+                $data['nomContinent'] = $this->continents->getNomContinent();
             } else {
                 //sinon, j'affiche tous les voyages
                 $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);

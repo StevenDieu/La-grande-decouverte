@@ -29,12 +29,36 @@
         <div class="map">
             <div id="map-continents">
                 <ul class="continents">
-                    <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=14') ?>">Afrique</a></li>
-                    <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=15') ?>">Asie</a></li>
-                    <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') ?>">Océanie</a></li>
-                    <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=13') ?>">Europe</a></li>
-                    <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') ?>">Amerique du nord</a></li>
-                    <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') ?>">Amerique du sud</a></li>
+
+                    <?php
+                    foreach ($continents as $continent) {
+                        if ($continent->tag == "AFRIQUE") {
+                            ?>
+                            <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Afrique</a></li>
+                            <?php
+                        } else if ($continent->tag == "ASIE") {
+                            ?>
+                            <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Asie</a></li>
+                            <?php
+                        } else if ($continent->tag == "OCEANIE") {
+                            ?>
+                            <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Océanie</a></li>
+                            <?php
+                        } else if ($continent->tag == "EUROPE") {
+                            ?>
+                            <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Europe</a></li>
+                            <?php
+                        } else if ($continent->tag == "AMERIQUE_DU_NORD") {
+                            ?>
+                            <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Amerique du nord</a></li>
+                            <?php
+                        } else if ($continent->tag == "AMERIQUE_DU_SUD") {
+                            ?>
+                            <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Amerique du sud</a></li>
+                            <?php
+                        }
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="divLeTireurBottom">
@@ -138,8 +162,8 @@
                                 <div class="image">
                                     <ul id="slider<?php echo $i ?>">
                                         <li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img1 . '" alt="' . $actualite->img1 . '"'; ?></li>
-                                        <?php if($actualite->img2): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2 . '"'; ?></li><?php endif; ?>
-                                        <?php if($actualite->img3): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3 . '"'; ?></li><?php endif; ?>
+                                        <?php if ($actualite->img2): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2 . '"'; ?></li><?php endif; ?>
+                                        <?php if ($actualite->img3): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3 . '"'; ?></li><?php endif; ?>
                                     </ul>
                                 </div>
                                 <script type="text/javascript">
