@@ -29,42 +29,43 @@
                     $i = 0;
                     $id = 0;
                     foreach ($voyage as $v) {
-                        if ( $id != $v->vId ) {
+                        if ($id != $v->vId) {
                             $i++;
                             if ($i % 2) {
-                                    echo '<div class="voyage gauche">';
-                                } else {
-                                    echo '<div class="voyage droite">';
-                                }
-                                ?>
+                                echo '<div class="voyage gauche">';
+                            } else {
+                                echo '<div class="voyage droite">';
+                            }
+                            ?>
 
-                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
-                                    <div class="bloc_image">
-                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
+                            <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
+                                <div class="bloc_image">
+                                    <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
+                                </div>
+                                <div class="rotate_description">
+                                    <div class="bloc_description">
+                                        <div class="titre"><?php echo $v->titre; ?></div>
+                                        <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
+                                        <div class="voir_plus">Plus d'info ></div>
                                     </div>
-                                    <div class="rotate_description">
-                                        <div class="bloc_description">
-                                            <div class="titre"><?php echo $v->titre; ?></div>
-                                            <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
-                                            <div class="voir_plus">Plus d'info ></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
+                        </div>
 
-                            <div class="separateur_article"></div>
-                    <?php 
+                        <div class="separateur_article"></div>
+                        <?php
                         $id = $v->vId;
-                        }
-                    } ?>
-                    <div class="clear"></div>
-                    <div class="pagination">
-                        <?php echo $this->pagination->create_links(); ?>
-                    </div>
+                    }
+                }
+                ?>
+                <div class="clear"></div>
+                <div class="pagination">
+                    <?php echo $this->pagination->create_links(); ?>
                 </div>
             </div>
-            <div class="separateur_article"></div>
-            <div style='clear:both'></div>
         </div>
+        <div class="separateur_article"></div>
+        <div style='clear:both'></div>
     </div>
-    <div class="clear"></div>
+</div>
+<div class="clear"></div>
