@@ -21,7 +21,7 @@ class Pages extends CI_Controller {
         $data["actualites"] = $this->actualite->getActualitesHome();
         $data["continents"] = $this->continents->getContinents();
         
-        $data["allCss"] = array("listeActu", "ficheProduit", "home/home", "home/cssmap-continents");
+        $data["allCss"] = array("listeActu", "ficheProduit", "home/home", "home/cssmap-continents", "voyage");
         $data["alljs"] = array("slide", "ficheProduit", "home/home", "home/jquery.cssmap");
         $data["map"] = 1;
 

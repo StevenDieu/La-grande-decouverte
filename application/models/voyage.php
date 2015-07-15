@@ -59,11 +59,12 @@ Class Voyage extends CI_Model {
     }
 
     function getVoyagesHome() {
-        $this->db->select('v.id,titre,description_first_bloc,lien');
-        $this->db->from('voyage as v');
-        $this->db->join('images AS i_s', 'i_s.id_voyage = v.id');
-        $this->db->order_by("id", "desc");
-        $this->db->where('emplacement', 'image_slider');
+        $this->db->_protect_identifiers = false;
+        $this->db->select('v.id as vId, v.titre as titre, v.phrase_accroche, phrase_accroche, i.nom as nom, i.lien as lien');
+        $this->db->from('voyage AS v');
+        $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
+        $this->db->order_by("titre", "asc");
+        $this->db->_protect_identifiers = TRUE;
         $this->db->limit(4);
 
         $query = $this->db->get();

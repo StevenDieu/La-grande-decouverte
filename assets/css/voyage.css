@@ -34,8 +34,6 @@
 }
 
 .bloc-voyage{
-    padding-top: 75px;
-    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
@@ -217,4 +215,8 @@
 
 .floarRight {
     float: right;
+}
+
+.content-voyage{
+    padding-top: 75px;
 }

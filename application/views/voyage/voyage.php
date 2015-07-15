@@ -2,7 +2,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
-<div class="content">
+<div class="content content-voyage">
     <div class="bloc-voyage">
         <div class="voyages">
             <div class="liste_voyages">
@@ -28,7 +28,7 @@
                     }
                     $i = 0;
                     $id = 0;
-                    foreach ($voyage as $v) {
+                    foreach ($voyages as $v) {
                         if ($id != $v->vId) {
                             $i++;
                             if ($i % 2) {
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="separateur_article"></div>
-        <div style='clear:both'></div>
+        <div class="clear"></div>
     </div>
 </div>
 <div class="clear"></div>

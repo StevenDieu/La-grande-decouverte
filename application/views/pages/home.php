@@ -34,27 +34,27 @@
                     foreach ($continents as $continent) {
                         if ($continent->tag == "AFRIQUE") {
                             ?>
-                            <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Afrique</a></li>
+                            <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Afrique</a></li>
                             <?php
                         } else if ($continent->tag == "ASIE") {
                             ?>
-                            <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Asie</a></li>
+                            <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Asie</a></li>
                             <?php
                         } else if ($continent->tag == "OCEANIE") {
                             ?>
-                            <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Océanie</a></li>
+                            <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Océanie</a></li>
                             <?php
                         } else if ($continent->tag == "EUROPE") {
                             ?>
-                            <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Europe</a></li>
+                            <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Europe</a></li>
                             <?php
                         } else if ($continent->tag == "AMERIQUE_DU_NORD") {
                             ?>
-                            <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Amerique du nord</a></li>
+                            <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Amerique du nord</a></li>
                             <?php
                         } else if ($continent->tag == "AMERIQUE_DU_SUD") {
                             ?>
-                            <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=').$continent->id ?>">Amerique du sud</a></li>
+                            <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Amerique du sud</a></li>
                             <?php
                         }
                     }
@@ -84,40 +84,46 @@
         <?php } ?>
         <div class="voyages">
             <h2>Nos voyages en cours</h2>
-            <div class="liste_voyages">
-                <?php
-                $i = 0;
-                foreach ($voyages as $voyage) {
-                    $i++;
-                    if ($i % 2) {
-                        ?>
-                        <div class="voyage gauche">
+            <div class="bloc-voyage">
+                <div class="liste_voyages">
+                    <?php
+                    $i = 0;
+                    $id = 0;
+                    foreach ($voyages as $v) {
+                        if ($id != $v->vId) {
+                            $i++;
+                            if ($i % 2) {
+                                echo '<div class="voyage gauche">';
+                            } else {
+                                echo '<div class="voyage droite">';
+                            }
+                            ?>
 
-                            <?php
-                        } else {
-                            echo '<div class="voyage droite">';
-                        }
-                        ?>
-
-                        <a href="<?php echo base_url('/voyage/fiche/?id=') . $voyage->id; ?>">
-                            <div class="bloc_image">
-                                <img src="<?php echo base_url(''); ?>media/produit/image_slider/<?php echo $voyage->image; ?>" alt="<?php echo $voyage->image; ?>" title="<?php echo $voyage->image; ?>" />
-                            </div>
-                            <div class="rotate_description">
-                                <div class="bloc_description">
-                                    <div class="titre"><?php echo $voyage->titre; ?></div>
-                                    <div class="description"><?php echo tronque($voyage->description_first_bloc, 300); ?></div>
-                                    <div class="voir_plus">Plus d'info</div>
+                            <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
+                                <div class="bloc_image">
+                                    <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
                                 </div>
-                            </div>
+                                <div class="rotate_description">
+                                    <div class="bloc_description">
+                                        <div class="titre"><?php echo $v->titre; ?></div>
+                                        <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
+                                        <div class="voir_plus">Plus d'info ></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
 
-
-                        </a>
-                    </div>
-                <?php } ?>
+                        <div class="separateur_article"></div>
+                        <?php
+                        $id = $v->vId;
+                    }
+                }
+                ?>
                 <div class="clear"></div>
             </div>
         </div>
+        <div class="clear"></div>
+
         <div class="carnet_voyages">
             <h2>Nos récents carnets</h2>
             <div class="liste_carnet">
