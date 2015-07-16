@@ -798,7 +798,7 @@ h2.titre{
     font-size: 14px;
     text-transform: uppercase;
     font-family: "helvetica";
-    color: #960018;
+    color: #FF6F00;
     font-weight: normal;
     margin-top: 30px;
 }
@@ -831,15 +831,13 @@ h2.titre{
 }
 
 span.ou{
-    background: white;    
-    font-size: 14px;    
-    color: #9A9997;    
+    background: white;    font-size: 14px;    color: #9A9997;    
     padding: 0 7px;
 }
 
 .une_row .submit_all_text input,.une_row .submit_all_text button{
     height: 38px;
-    background: #960018;
+    background: #FF6F00;
     width: 100%;
     font-size: 14px;
     color: #fff;
@@ -908,7 +906,7 @@ span.ou{
 .btn_inscription{
     display: block;
     height: 38px;
-    background: #960018;
+    background: #FF6F00;
     font-size: 14px;
     color: #fff !important;
     text-align: center;
@@ -1286,7 +1284,7 @@ a.bblue,a.borange,a.bgreen,a.bwhite{
 }
 
 .borange{
-    background-color: #960018;
+    background-color: #F47A0C;
 }
 
 .bwhite{
@@ -1417,7 +1415,6 @@ a#add_participant {
     margin-bottom: 25px;
     display: block;
     text-decoration: none;
-    float: right;
 }
 
 .contentPageSansSlide h1 {

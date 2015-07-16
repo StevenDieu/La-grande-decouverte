@@ -9,18 +9,32 @@ class Pages extends CI_Controller {
      * 
      */
     public function index() {
-        
+
 
         $this->load->model('voyage');
         $this->load->model('carnetVoyage');
         $this->load->model('actualite');
         $this->load->model('continents');
+        $this->load->model('images');
         
         $data["voyages"] = $this->voyage->getVoyagesHome();
-        $data["carnetVoyages"] = $this->carnetVoyage->getCarnetVoyagesHome();
+        
+        $data['carnetVoyages'] = $this->carnetVoyage->getAllCarnetVoyages(4, 0);
+
+        for ($i = 0; $i < count($data['carnetVoyages']); $i++) {
+            $this->images->setId_voyage($data['carnetVoyages'][$i]->vId);
+            $this->images->setEmplacement("image_slider");
+            $data['images'] = $this->images->getImagesByVoyageEmplacement();
+            $j = 0;
+            foreach ($data['images'] as $image) {
+                $data['carnetVoyages'][$i]->lien[$j] = $image->lien;
+                $data['carnetVoyages'][$i]->nom[$j] = $image->nom;
+                $j++;
+            }
+        }
         $data["actualites"] = $this->actualite->getActualitesHome();
         $data["continents"] = $this->continents->getContinents();
-        
+
         $data["allCss"] = array("listeActu", "ficheProduit", "home/home", "home/cssmap-continents", "voyage");
         $data["alljs"] = array("slide", "ficheProduit", "home/home", "home/jquery.cssmap");
         $data["map"] = 1;
@@ -28,17 +42,17 @@ class Pages extends CI_Controller {
         $this->load->templatePages('home', $data);
     }
 
-    public function cms(){
+    public function cms() {
         $this->load->helper('url');
         $code = $this->uri->segment(3);
-        if($code){
+        if ($code) {
             $this->load->model('cms');
             $this->cms->setCode($code);
             $result = $this->cms->getPageByCode();
-            if($result){
+            if ($result) {
                 $data['page'] = $result;
                 $this->load->templatePages('cms', $data);
-            }else{
+            } else {
                 redirect('pages/index', 'refresh');
             }
         }
@@ -63,7 +77,7 @@ class Pages extends CI_Controller {
     public function presse() {
         $this->load->templatePages('presse');
     }
-    
+
     public function nous_rejoindre() {
         $this->load->templatePages('nous_rejoindre');
     }
@@ -94,17 +108,17 @@ class Pages extends CI_Controller {
             $this->newsletter->setMail($this->input->post('mail'));
             $result = $this->newsletter->check_mail_unique();
 
-            if($result){
+            if ($result) {
                 // deja inscrit
                 $donnee = "Vous êtes déjà inscrit à la newsletter.";
-            }else{
+            } else {
                 //pas inscrit a la news
                 $this->newsletter->setMail($this->input->post('mail'));
                 $this->newsletter->setDate(date("Y-m-d H:i:s"));
                 $this->newsletter->ajouterNewsletter();
                 $donnee = "Vous êtes désormais inscrit à la newsletter.";
             }
-                        
+
             $this->load->library('session');
             $this->session->set_flashdata('result_newsletter', $donnee);
             redirect('pages/index', 'refresh');

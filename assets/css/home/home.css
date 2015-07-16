@@ -164,6 +164,7 @@ and open the template in the editor.
     color: rgb(0, 0, 0);
     /* max-width: 1200px; */
     margin: 0 auto;
+    background-color: #FBFBFB !important; */;
 }
 
 .contenu_home a{

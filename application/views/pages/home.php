@@ -73,7 +73,10 @@
             </div>
         </div>
     </div>
+
+
     <div class="clear"></div>
+
     <div class="contenu_home">
         <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
             <div class="messageAlerteCarnet center">
@@ -95,30 +98,34 @@
                             if ($i % 2) {
                                 echo '<div class="voyage gauche">';
                             } else {
-                                echo '<div class="voyage droite">';
-                            }
-                            ?>
+                                ?>
+                                <div class="voyage droite">
+                                    <?php
+                                }
+                                ?>
 
-                            <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
-                                <div class="bloc_image">
-                                    <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
-                                </div>
-                                <div class="rotate_description">
-                                    <div class="bloc_description">
-                                        <div class="titre"><?php echo $v->titre; ?></div>
-                                        <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
-                                        <div class="voir_plus">Plus d'info ></div>
+                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
+                                    <div class="bloc_image">
+                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
                                     </div>
-                                </div>
-                            </a>
-                        </div>
+                                    <div class="rotate_description">
+                                        <div class="bloc_description">
+                                            <div class="titre"><?php echo $v->titre; ?></div>
+                                            <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
+                                            <div class="voir_plus">Plus d'info ></div>
+                                        </div>
+                                    </div>
+                                </a>
 
-                        <div class="separateur_article"></div>
-                        <?php
-                        $id = $v->vId;
+
+                            </div>
+                            <div class="separateur_article"></div>
+                            <?php
+                            $id = $v->vId;
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </div>
                 <div class="clear"></div>
             </div>
         </div>
@@ -132,7 +139,6 @@
 
 
                     <?php
-
                     for ($i = 0; $i < count($carnetVoyages); $i++) {
                         if ($i == 0) {
                             carnet_long($carnetVoyages, $i);

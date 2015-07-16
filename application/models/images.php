@@ -40,6 +40,20 @@ Class Images extends CI_Model {
         }
     }
 
+    function getImagesByVoyageEmplacement() {
+        $this->db->select('*');
+        $this->db->from('images');
+        $this->db->where('id_voyage', $this->id_voyage);
+        $this->db->where('emplacement', $this->emplacement);
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getImages() {
         $this->db->select('*');
         $this->db->from("images");
