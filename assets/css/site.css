@@ -915,7 +915,7 @@ span.ou{
     line-height: 42px;
     font-family: sans-serif;
     position: absolute;
-    bottom: 0px;
+    bottom: -10px;
     width: 100%;
 }
 
@@ -938,7 +938,7 @@ span.ou{
 
 .content-connexion  .submit_all_text{
     position: absolute;
-    bottom: 0px;
+    bottom: -10px;
     width: 100%;
 }
 
@@ -968,7 +968,7 @@ span.ou{
     }
 
     .btn_inscription{
-        margin-top: 70px;
+        margin-top: 74px;
     }
 }
 
