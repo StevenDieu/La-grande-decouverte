@@ -34,7 +34,7 @@ if ($this->session->userdata('logged_in')) { ?>
                                     </div>
                                     <form action="#" class="adress_form" id="">
                                         <div class="all_text_field">
-                                            <div class="address_fields_left bouton">
+                                            <div class="address_fields_left address_fields_right bouton">
                                                 <div class="submit_all_text"><input type="submit" id="info_confirmation" value="continuer" /></div>
                                             </div>
                                         </div>
@@ -153,11 +153,11 @@ if ($this->session->userdata('logged_in')) { ?>
             var mess_obli = "<span class='mess_obli'>Ce champ est obligatoire.</span>";
             var submit = true;
             $('.identification .identification_left span.mess_obli').remove();
-            $('.identification .identification_left p.failed').removeClass("failed");
+            $('.identification .identification_left input.failed').removeClass("failed");
             $('.identification .identification_left input.required').each(function () {
                 if ($(this).val() == '') {
-                    $($(this).parent().parent()).append(mess_obli);
-                    $($(this).parent()).toggleClass('failed');
+                    $($(this).parent()).append(mess_obli);
+                    $($(this)).toggleClass('failed');
                     submit = false;
                 }
             });
