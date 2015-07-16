@@ -23,7 +23,7 @@ Class CarnetVoyage extends CI_Model {
             'titre' => $this->titre,
             'id_voyage' => $this->id_voyage,
             'id_utilisateur' => $this->id_utilisateur
-            );
+        );
         $this->db->insert('carnetvoyage', $data);
         return $this->db->insert_id();
     }
@@ -169,15 +169,16 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getAllCarnetVoyages($limit, $start) {
-       // $this->db->select('image_slider_1,image_slider_2,image_slider_3,cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->_protect_identifiers = false;
         $this->db->select('cv.id AS cvId, v.id AS vId, cv.titre AS cvTitre, v.titre as vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
-        $this->db->join('voyage AS v', 'v.id = cv.id_voyage','inner');
+        $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
         $this->db->where('prive', '0');
+        $this->db->_protect_identifiers = TRUE;
+
         if (isset($limit) && isset($start)) {
             $this->db->limit($limit, $start);
         }
-
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -185,30 +186,6 @@ Class CarnetVoyage extends CI_Model {
         } else {
             return false;
         }
-    }
-
-    function getImagesByCarnetVoyage() {
-
-
-        $this->db->_protect_identifiers=false;  //empeche l'ajout de quotes ( `` ) automatique
-        $this->db->select('cv.id AS cvId, v.id AS vId, cv.titre AS cvTitre, i.id_voyage, lien, nom');
-        $this->db->from('carnetvoyage AS cv');
-        $this->db->join('voyage AS v', "v.id = cv.id_voyage",'inner');
-        $this->db->join('images AS i', "i.id_voyage = cv.id_voyage AND emplacement = 'image_slider'",'inner');
-        $this->db->where('prive', '0');
-        $this->db->_protect_identifiers = TRUE; //remet l'ajout de quotes automatique
-
-        if (isset($limit) && isset($start)) {
-            $this->db->limit($limit, $start);
-        }
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return false;
-        } 
     }
 
     //renvoie le nombre de carnets de voyages (pour la pagination)

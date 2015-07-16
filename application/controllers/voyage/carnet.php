@@ -26,7 +26,7 @@ class Carnet extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
 
-        $this->carnetVoyage->setId( $this->input->get('id') );
+        $this->carnetVoyage->setId($this->input->get('id'));
         $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage();
         $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
 
@@ -57,7 +57,7 @@ class Carnet extends CI_Controller {
         if ($data['articles'] == null) {
             redirect('pages/index/', 'refresh');
         }
-        $this->carnetVoyage->setId( $data["articles"][0]->id_carnetvoyage );
+        $this->carnetVoyage->setId($data["articles"][0]->id_carnetvoyage);
         $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
         $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
         $data["allCss"] = array("article");
@@ -71,8 +71,19 @@ class Carnet extends CI_Controller {
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;  //numero de page
         // creation fonction getAllCarnVoyages dans le model carnetVoyage
         $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
-        $data['images'] = $this->carnetVoyage->getImagesByCarnetVoyage();
 
+        for ($i = 0; $i < count($data['carnetVoyage']); $i++) {
+            $this->images->setId_voyage($data['carnetVoyage'][$i]->vId);
+            $this->images->setEmplacement("image_slider");
+            $data['images'] = $this->images->getImagesByVoyageEmplacement();
+            $j = 0;
+            foreach ($data['images'] as $image) {
+                $data['carnetVoyage'][$i]->lien[$j] = $image->lien;
+                $data['carnetVoyage'][$i]->nom[$j] = $image->nom;
+                $j++;
+            }
+        }
+        
         $config['base_url'] = base_url() . "voyage/carnet/liste";
         $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
         $config['per_page'] = $perPage;
@@ -98,14 +109,14 @@ class Carnet extends CI_Controller {
         if ($continent) {
             //si un continent a été passé en paramètre, j'affiche tous les voyages du continent choisi
             $data['voyages'] = $this->Voyage->getVoyagesByContinent($continent);
-                
+
             if ($data['voyages'] != false) {
                 //si il y a bien des voyages pour ce continent, je récupère le nom du continent.
                 $this->continents->setId($continent);
                 $data['nomContinent'] = $this->continents->getNomContinent();
             } else {
                 //sinon, j'affiche tous les voyages
-                $data['voyage'] = $this->Voyage->getAllVoyages($perPage,$page);
+                $data['voyage'] = $this->Voyage->getAllVoyages($perPage, $page);
                 //et je signal qu'il n'y a pas de voyages pour le continent choisi
                 $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné.<br/><br/> Voici la liste des voyages :";
             }

@@ -15,16 +15,13 @@
                         <div class="cercleDroit"></div>
                     </div>
                     <?php
-                   // // foreach ($carnetVoyage as $cv) { 
-                 //   if ($carnetVoyage) {
-                   //     for ($i = 0; $i < count($carnetVoyage); $i++) {
-                            carnet_court_liste($carnetVoyage, $images);
-                     //   }
-                    //}
+                    if ($carnetVoyage) {
+                        for ($i = 0; $i < count($carnetVoyage); $i++) {
+                            carnet_court_liste($carnetVoyage,$i);
+                        }
+                    }
                     ?>
-
                 </div>
-                <!-- fin contenu carnet de voyage -->
                 <div class="pagination">
                     <?php echo $this->pagination->create_links(); ?>
                 </div>
