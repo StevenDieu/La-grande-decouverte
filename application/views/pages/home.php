@@ -130,32 +130,32 @@
             </div>
         </div>
         <div class="clear"></div>
+        <?php if (!empty($carnetVoyages)) { ?>
+            <div class="carnet_voyages">
+                <h2>Nos récents carnets</h2>
+                <div class="liste_carnet">
+                    <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
 
-        <div class="carnet_voyages">
-            <h2>Nos récents carnets</h2>
-            <div class="liste_carnet">
-                <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
 
 
+                        <?php
+                        for ($i = 0; $i < count($carnetVoyages); $i++) {
+                            if ($i == 0) {
+                                carnet_long($carnetVoyages, $i);
+                            }
+                            if ($i == 1 && (count($carnetVoyages) - 1) == 1) {
+                                carnet_long($carnetVoyages, $i);
+                            }
 
-                    <?php
-                    for ($i = 0; $i < count($carnetVoyages); $i++) {
-                        if ($i == 0) {
-                            carnet_long($carnetVoyages, $i);
+                            if ($i > 0 && (count($carnetVoyages) - 1) >= 2) {
+                                carnet_court($carnetVoyages, $i);
+                            }
                         }
-                        if ($i == 1 && (count($carnetVoyages) - 1) == 1) {
-                            carnet_long($carnetVoyages, $i);
-                        }
-
-                        if ($i > 0 && (count($carnetVoyages) - 1) >= 2) {
-                            carnet_court($carnetVoyages, $i);
-                        }
-                    }
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
-
+        <?php } ?>
         <div class="actualites">
             <h2>Nos dernières actualités</h2>
             <div class="liste_actu actualites">

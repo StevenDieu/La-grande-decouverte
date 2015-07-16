@@ -16,20 +16,22 @@ class Pages extends CI_Controller {
         $this->load->model('actualite');
         $this->load->model('continents');
         $this->load->model('images');
-        
+
         $data["voyages"] = $this->voyage->getVoyagesHome();
-        
+
         $data['carnetVoyages'] = $this->carnetVoyage->getAllCarnetVoyages(4, 0);
 
-        for ($i = 0; $i < count($data['carnetVoyages']); $i++) {
-            $this->images->setId_voyage($data['carnetVoyages'][$i]->vId);
-            $this->images->setEmplacement("image_slider");
-            $data['images'] = $this->images->getImagesByVoyageEmplacement();
-            $j = 0;
-            foreach ($data['images'] as $image) {
-                $data['carnetVoyages'][$i]->lien[$j] = $image->lien;
-                $data['carnetVoyages'][$i]->nom[$j] = $image->nom;
-                $j++;
+        if (!empty($data['carnetVoyages'])) {
+            for ($i = 0; $i < count($data['carnetVoyages']); $i++) {
+                $this->images->setId_voyage($data['carnetVoyages'][$i]->vId);
+                $this->images->setEmplacement("image_slider");
+                $data['images'] = $this->images->getImagesByVoyageEmplacement();
+                $j = 0;
+                foreach ($data['images'] as $image) {
+                    $data['carnetVoyages'][$i]->lien[$j] = $image->lien;
+                    $data['carnetVoyages'][$i]->nom[$j] = $image->nom;
+                    $j++;
+                }
             }
         }
         $data["actualites"] = $this->actualite->getActualitesHome();
