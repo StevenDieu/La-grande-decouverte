@@ -48,7 +48,7 @@
                                         <div class="bloc_description">
                                             <div class="titre"><?php echo $v->titre; ?></div>
                                             <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
-                                            <div class="voir_plus">Plus d'info ></div>
+                                            <div class="voir_plus">Plus d'infos ></div>
                                         </div>
                                     </div>
                                 </a>

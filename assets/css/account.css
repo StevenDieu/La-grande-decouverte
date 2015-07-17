@@ -71,6 +71,11 @@
     margin: 75px auto 0;
 }
 
+.content_voyage{
+    max-width:1400px;
+    margin: 75px auto 0;
+}
+
 .inputTitreCarnetVoyage{
     width: 77%;
     float: left;
