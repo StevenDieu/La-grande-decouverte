@@ -54,6 +54,20 @@ Class InfoVoyage extends CI_Model {
         }
     }
 
+    function getPlaceDispoById() {
+        $this->db->select('place_dispo');
+        $this->db->from('info_voyage');
+        $this->db->where('id', $this->id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getInfoVoyageMin() {
         $this->db->select('*');
         $this->db->from('info_voyage');

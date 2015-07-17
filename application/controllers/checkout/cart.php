@@ -386,4 +386,35 @@ class Cart extends CI_Controller {
         echo json_encode($res);
     }
 
+    function verifPlaceDispo() {
+
+
+        $this->form_validation->set_rules('idInfo', 'idInfo', 'required|xss_clean');
+        $this->form_validation->set_rules('nb_place_demande', 'nb_place_demande', 'required|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+            
+        } else {
+            $idInfo = $this->input->post('idInfo');
+            $nb_place_demande = $this->input->post('nb_place_demande');
+
+            $this->load->model('infoVoyage');
+            $this->infoVoyage->setId($idInfo);
+            $result = $this->infoVoyage->getPlaceDispoById();
+
+            if($nb_place_demande <= $result[0]->place_dispo){
+                $res = array(
+                    'retour' => true
+                );
+            }else{
+                $res = array(
+                    'retour' => false,
+                    'message' => 'Il ne reste que '.$result[0]->place_dispo.' place(s) disponible'
+                );
+            }  
+            echo json_encode($res);       
+
+        }
+    }
+
 }

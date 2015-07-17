@@ -9,6 +9,7 @@
     var urlSave = '<?php echo base_url('checkout/cart/save'); ?>';
     var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
     var urlVerif = '<?php echo base_url('checkout/cart/verifConnexion'); ?>';
+    var urlPlacedispo = '<?php echo base_url('checkout/cart/verifPlaceDispo'); ?>'; 
 </script>
 
 <?php 
@@ -18,6 +19,8 @@ if ($this->session->userdata('logged_in')) { ?>
 
 <div class="content">
     <input type="hidden" id="isLogin" name="isLogin" value="">
+    <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
+    <input type="hidden" id="idInfo" name="idInfo" value="<?php echo $idInfo; ?>">
 	<div id="wrapper"><!--start wrapper-->        
   		<div id="main_content"><!--start main_content-->
         	<div id="page_content"><!--start page_content-->

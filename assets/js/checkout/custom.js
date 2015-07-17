@@ -383,6 +383,21 @@ jQuery(document).ready(function(){
         });
     }
 
+    function verifPlaceDispo(){
+        var nb_place_demande = $(".unParticipant").length + 1;
+        $.ajax({
+            url: urlPlacedispo , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: {idInfo: $("#idInfo").val(), nb_place_demande: nb_place_demande},
+            success: function (result) {
+                data = jQuery.parseJSON(result);
+                console.log(data);
+            }
+        });
+        alert('verif place dispo');
+        return true;
+    }
+
     
 
 
