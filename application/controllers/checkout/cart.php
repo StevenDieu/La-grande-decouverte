@@ -409,7 +409,7 @@ class Cart extends CI_Controller {
             }else{
                 $res = array(
                     'retour' => false,
-                    'message' => 'Il ne reste que '.$result[0]->place_dispo.' place(s) disponible'
+                    'message' => 'Désolé, il ne reste plus que '.$result[0]->place_dispo.' place(s) disponible.'
                 );
             }  
             echo json_encode($res);       

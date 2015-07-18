@@ -54,7 +54,7 @@
 .adress_form {
 	width:100%;
 }
-.address_fields_left {
+.address_fields_left, .address_fields_left.bouton {
 	width:100%;
 	float:none;
 }

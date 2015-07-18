@@ -1128,7 +1128,7 @@ html,body {
 .price_leftcolumn strong {
 	display:none;
 	font-size:16px;
-	color:#194864;
+	color:#960018;
 }
 .total_rgt strong {
 	display:block;
@@ -1631,5 +1631,12 @@ html,body {
 
 .address_fields.last{
 	padding-bottom: 0px;
+}
+
+a#add_participant {
+    margin-bottom: 25px;
+    display: block;
+    text-decoration: none;
+    float: right;
 }
 
