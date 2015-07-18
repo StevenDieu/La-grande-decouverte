@@ -401,6 +401,56 @@ jQuery(document).ready(function(){
         return data.retour;
     }
 
+    function verifPlaceDispoFinal(){
+        var nb_place_demande = listeParticipant.length;
+        $.ajax({
+            url: urlPlacedispo , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: {idInfo: $("#idInfo").val(), nb_place_demande: nb_place_demande},
+            success: function (result) {
+                data = jQuery.parseJSON(result);
+                if(data.retour == false){
+                    alert(data.message);
+                }
+            }
+        });
+        if(data.retour == true){
+            save(order,billing,listeParticipant);
+        }else{
+            return false;
+        }
+    }
+
+    function save(order,billing,participant){
+        $.ajax({
+            url: urlSave , // ici l'url du controleur de la vue que tu veux faire appeller
+            type: "post",
+            data: {
+                order: order, 
+                billing: billing, 
+                participant: participant
+            } ,
+            async: true,
+            beforeSend : function (){
+                $(".reset_field.save").append(chargement)
+            },
+            success: function (result) {
+                data = jQuery.parseJSON(result);
+                if(data.retour == 'PAYPAL'){
+                    document.location.href=urlPaypal;
+                }else if(data.retour == 'CB'){
+                    document.location.href=urlCb;
+                }else{
+                    getSucces(data.message);
+                }
+                return false;
+            }
+        });
+    }
+
+    
+
+
     
 
 

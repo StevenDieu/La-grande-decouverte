@@ -334,7 +334,17 @@ class Cart extends CI_Controller {
             );
         }
 
+        //soustraction nombre participant au voyages
+        $nbParticipant = (int)$order["nb_participant"];
 
+        $this->load->model('infoVoyage');
+        $this->infoVoyage->setId($order["id_info_voyage"]);
+        $place = (int)$this->infoVoyage->getPlaceDispoById()[0]->place_dispo;
+
+        $place = $place - $nbParticipant;
+
+        $this->infoVoyage->updateQuantitePlace($place);
+        
         if ($order["payment"] == "PAYPAL") {
             $res = array(
                 'retour' => 'PAYPAL',

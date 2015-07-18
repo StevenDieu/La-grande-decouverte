@@ -68,6 +68,15 @@ Class InfoVoyage extends CI_Model {
         }
     }
 
+    function updateQuantitePlace($place){
+        $data = array(
+               'place_dispo' => $place
+            );
+
+        $this->db->where('id', $this->id);
+        $this->db->update('info_voyage', $data); 
+    }
+
     function getInfoVoyageMin() {
         $this->db->select('*');
         $this->db->from('info_voyage');

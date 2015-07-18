@@ -10,6 +10,8 @@
     var urlSucces = '<?php echo base_url('checkout/cart/getSucces'); ?>';
     var urlVerif = '<?php echo base_url('checkout/cart/verifConnexion'); ?>';
     var urlPlacedispo = '<?php echo base_url('checkout/cart/verifPlaceDispo'); ?>'; 
+    var urlPaypal = "<?php echo base_url(''); ?>checkout/cart/paypal";
+    var urlCb = "<?php echo base_url(''); ?>checkout/cart/cb";
 </script>
 
 <?php 
