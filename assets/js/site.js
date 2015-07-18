@@ -150,7 +150,7 @@ $(document).ready(function () {
     //page connexion
     $('#input_page_connexion').click(function () {
         $('.content-connexion span.mess_required').remove();
-        $('.content-connexion p.failed').removeClass("failed");
+        $('.content-connexion input.failed').removeClass("failed");
         var submit = true;
         $('.content-connexion input.required').each(function () {
             if ($(this).val() == '') {

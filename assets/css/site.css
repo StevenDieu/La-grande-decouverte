@@ -426,6 +426,10 @@ form.form-horizontal{
         margin-top: -20px;
     }
 
+    .allTextMenu a span{
+        display: none;
+    }
+
     .cacher{
         display: none !important;
     }
@@ -674,17 +678,21 @@ h2.titre{
         text-align: center;
     }
 }
+
+.allTextMenu a{
+    color: #8b8b8b;
+    text-decoration: none;
+}
 @media (max-width: 768px){
     .textMenu{
-        line-height: 30px;
+        line-height: 45px;
     }
     .navbar-right{
         display: none;
     }
     .allTextMenu{
-
         width: 100%;
-        text-align: center;
+        text-align: left;
         display: initial;
     }
     .navbar-header {
@@ -932,7 +940,7 @@ span.ou{
 }
 
 .content-connexion .colonne_left{
-    min-height: 250px;
+    min-height: 275px;
     position: relative;
 }
 

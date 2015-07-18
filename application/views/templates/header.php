@@ -67,22 +67,22 @@
                     <div class="allTextMenu">
                         <a href="<?php echo base_url('voyage/carnet/voyage') ?>" class="textMenu">
                             <div>
-                                VOYAGES
+                                <span>- </span>VOYAGES
                             </div>
                         </a>
                         <a href="<?php echo base_url('voyage/carnet/liste') ?>" class="textMenu">
                             <div>
-                                CARNETS DE VOYAGES
+                                <span>- </span>CARNETS DE VOYAGES
                             </div>
                         </a>
                         <a href="<?php echo base_url('/actualite/index') ?>" class="textMenu">
                             <div>
-                                ACTUALIT&Eacute;S
+                                <span>- </span>ACTUALIT&Eacute;S
                             </div>
                         </a>
                         <a href="<?php echo base_url('/user/verification/login') ?>" class="textMenu cacher">
                             <div>
-                                CONNEXION / INSCRIPTION
+                                <span>- </span>CONNEXION / INSCRIPTION
                             </div>
                         </a>
                     </div>

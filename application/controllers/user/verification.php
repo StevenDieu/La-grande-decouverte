@@ -14,14 +14,30 @@ class Verification extends CI_Controller {
     /****** connexion ****/
     function login() {
 
-        $this->form_validation->set_rules('mail', 'mail', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean|callback_check_database_login');
+        $this->form_validation->set_rules('mail', 'mail', 'trim|callback_requireMail|xss_clean');
+        $this->form_validation->set_rules('mdp', 'mdp', 'trim|callback_requireMdp|xss_clean|callback_check_database_login');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateUser('page_connexion');
         } else {
             redirect('user/account', 'refresh');
         }
+    }
+
+    function requireMail($mail){
+        if ($mail == '') {
+            $this->form_validation->set_message('requireMail', 'Le champ mail est obligatoire.');
+            return false;
+        }
+        return true;
+    }
+
+    function requireMdp($mdr){
+        if ($mdr == '') {
+            $this->form_validation->set_message('requireMail', 'Le champ mot de passe est obligatoire.');
+            return false;
+        }
+        return true;
     }
 
     function check_database_login($mdp) {
