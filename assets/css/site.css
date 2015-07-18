@@ -1051,6 +1051,8 @@ span.ou{
     right: 0;
     color: #000;
     top: 76px;
+    border: 1px solid #B2ACAC;
+    border-top: 0px;
 }
 
 
