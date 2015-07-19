@@ -172,9 +172,9 @@
                                 </div>
 
                                 <div class="control-group">											
-                                    <label class="control-label" for="fete">Fête natiannal : </label>
+                                    <label class="control-label" for="fete">Fête nationale : </label>
                                     <div class="controls">
-                                        <input type="text" name="fete" class="span6" id="fete"  placeholder="Fête natiannal">
+                                        <input type="text" name="fete" class="span6" id="fete"  placeholder="Fête nationale">
                                     </div>			
                                 </div>
 

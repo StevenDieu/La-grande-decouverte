@@ -34,7 +34,7 @@ Class Voyage extends CI_Model {
     function getVoyage() {
         $this->db->select('*');
         $this->db->from('voyage');
-        //$this->db->where('id', $this->id);
+        $this->db->where('id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
