@@ -385,7 +385,7 @@ form.form-horizontal{
 
 
 .textMenu:hover{
-    color: #DFDEDE !important;
+    color: #FFFFFF !important;
 }
 
 
@@ -680,7 +680,7 @@ h2.titre{
 }
 
 .allTextMenu a{
-    color: #8b8b8b;
+    color: #E9E9E9;
     text-decoration: none;
 }
 @media (max-width: 768px){

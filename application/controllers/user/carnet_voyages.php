@@ -31,10 +31,12 @@ class Carnet_voyages extends CI_Controller {
             foreach ($data["id_voyages"] as $id_voyages) {
                 $this->carnetVoyage->setId_voyage($id_voyages->id_voyage);
                 if ($this->carnetVoyage->getVoyage() == false) {
-                    array_push($data["voyages"], $this->voyage->getVoyage($id_voyages->id_voyage));
+                     $this->voyage->setId($id_voyages->id_voyage);
+                    array_push($data["voyages"], $this->voyage->getVoyage());
                 }
             }
         }
+        
         $this->load->view('user/carnet/add_carnet_voyage', $data);
     }
 
