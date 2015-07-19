@@ -1558,4 +1558,102 @@ a#delete_participant{
 
 
 
+/* actu home page */
+.actu_home{
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    min-height: 200px;
+    padding-bottom: 40px;
+    background: #edefed;
+}
+
+.actu_home ul li.uneActu{
+    width: 25%;
+    float: left;
+    position: relative;
+    padding: 5px;
+    height: 440px;
+}
+
+.actu_home ul li.uneActu .filtre{
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+}
+
+.actu_home ul li.uneActu:hover .filtre{
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.actu_home ul {
+    margin-bottom: 0px;
+}
+
+.actu_home ul li.uneActu img{
+    height: 100%;
+}
+
+.actu_home ul li.uneActu .callbacks_nav.next{
+    background: url(../images/next.png)center center no-repeat;
+}
+
+.actu_home ul li.uneActu .callbacks_nav.prev{
+    background: url(../images/prev.png)center center no-repeat;
+}
+
+.actu_home ul li.uneActu .date{
+    position: absolute;
+    top: 20px;
+    height: 30px;
+    width: 130;
+    background: white;
+    z-index: 110;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translatey(-50%);
+    -moz-transform: translateX(-50%) translatey(-50%);
+    transform: translateX(-50%) translatey(-50%);
+    line-height: 30px;
+    text-align: center;
+}
+
+.actu_home ul li.uneActu div.description{
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    height: 170px;
+    z-index: 13;
+    padding-top: 15px;
+}
+
+.actu_home ul li.uneActu .description.desc1, .actu_home ul li.uneActu .description.desc3{
+    background: white;
+}
+
+.actu_home ul li.uneActu .description.desc2, .actu_home ul li.uneActu .description.desc4{
+    color: white;
+}
+
+
+.actu_home ul li.uneActu .callbacks_nav{
+    top: 32%;
+}
+
+.actu_home ul li.uneActu .description p.titre{
+    text-align: center;
+    line-height: 40px;
+    font-size: 22px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.actu_home ul li.uneActu .description p.description{
+    text-align: center;
+    padding: 5px;
+    font-family: "helvetica";
+    font-size: 15px;
+}
 

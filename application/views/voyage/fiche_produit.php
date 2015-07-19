@@ -248,7 +248,7 @@
                 <div class="clear"></div>
             </div>
 
-            <div class="text">
+            <div class="text last">
                 <p><?php echo $voyage[0]->description_third_bloc; ?></p>
             </div>
 

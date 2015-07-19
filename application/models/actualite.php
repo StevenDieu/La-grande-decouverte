@@ -57,7 +57,7 @@ Class Actualite extends CI_Model {
         $this->db->select('*');
         $this->db->from('actualite');
         $this->db->order_by("id", "desc");
-        $this->db->limit(3);
+        $this->db->limit(4);
 
         $query = $this->db->get();
 

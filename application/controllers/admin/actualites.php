@@ -24,6 +24,7 @@ class Actualites extends CI_Controller {
         $crud->edit_fields('titre','description','img1','img2','img3','active');
         $crud->required_fields('titre','description','img1','active');
         $crud->columns('titre','date','active');
+         $crud->unset_texteditor('description','full_text');
         $crud->set_field_upload('img1','media/actualite');
         $crud->set_field_upload('img2','media/actualite');
         $crud->set_field_upload('img3','media/actualite');
