@@ -1246,8 +1246,8 @@ ul.menu_popup a{
 
 a.bblue,a.borange,a.bgreen,a.bwhite{
     line-height: 42px;
-    color: #000;
     text-decoration: none;
+    font-size: 14px;    color: #fff;    text-align: center;    font-family: 'NewCicleGordita', sans-serif;    letter-spacing: 4px;
 }
 
 .bblue,.borange,.bgreen,.bwhite{
