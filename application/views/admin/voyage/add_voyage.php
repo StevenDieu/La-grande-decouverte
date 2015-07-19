@@ -258,7 +258,7 @@
                                 </div>
                                 <br/>
                                 <div class="widget-header">
-                                    <h3>Image Banière ( taille recommandé <b>400</b> x <b>300px</b> ) *</h3> 
+                                    <h3>Image Banière ( taille recommandé <b>400</b> x <b>300px</b> ) 4 images néccessaires *</h3>
                                     <a href="#banniere" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image banière</a>
                                     <?php modal("banniere", "Ajout Image Banière", "add_image", "add_image", "Ajouter") ?>
                                 </div>
@@ -359,7 +359,7 @@
                                 <legend>information vente</legend>
 
                                 <div class="ligne_info_vente">
-                                   <?php echo venteHTMLHelper();?>
+                                    <?php echo venteHTMLHelper(); ?>
                                 </div>
                             </div>
 

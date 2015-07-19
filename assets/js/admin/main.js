@@ -30,7 +30,8 @@ $(document).ready(function () {
     var mess_nombre = "<span class='mess_required'>Ce champ doit être un nombre.</span>";
     var mess_prix = "<span class='mess_required'>Ce champ doit être un prix.</span>";
     var mess_localisation = "<span class='mess_required'>Ce champ n'est pas une localisation.</span>";
-    //page inscription
+    var mess_baniere = "<span class='mess_required'>Il est néccessaire d'avoir que 4 images pour les banières</span>";
+
     $('.submit_bouton_verif').click(function () {
         $('.form-horizontal span.mess_required').remove();
         $('.form-horizontal .failed').removeClass("failed");
@@ -66,7 +67,7 @@ $(document).ready(function () {
 
             $('.form-horizontal .localisation').each(function () {
                 if (!regexp_localisation.test($(this).val())) {
-                    $(this).parent().parent().append(mess_nombre);
+                    $(this).parent().parent().append(mess_localisation);
                     $(this).toggleClass('failed');
                     submit = false;
                 } else {
@@ -119,6 +120,15 @@ $(document).ready(function () {
                 }
             });
         }
+
+        if (submit) {
+            if ($("#content_end_banniere").find("tr").length !== 5) {
+                $("#content_end_banniere").parent().append(mess_baniere);
+                $("#content_end_banniere").parent().addClass("failed");
+                submit = false;
+            }
+        }
+
 
         return submit;
 

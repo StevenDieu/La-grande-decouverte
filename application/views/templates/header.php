@@ -88,7 +88,7 @@
                     </div>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><img id="popUpConnexion" src="<?php echo asset_url(''); ?>images/header/compte.png" class="imageCompte" /></a></li>
+                        <li><a href="javascript:void(0)"><img id="popUpConnexion" src="<?php echo asset_url(''); ?>images/header/compte.png" class="imageCompte" /></a></li>
                     </ul>
                 </nav>
             </div>
@@ -113,7 +113,7 @@
                             <div>
                                 <input type="submit" name="submit" class="bblue w100 center" id="popup_input_connexion" value="Se connecter">
                             </div>
-                            </form>
+                            <?php echo form_close(); ?>
                         </div>
                         <hr class="connexion_hr"/>
                         <div class="bottom">

@@ -1092,10 +1092,11 @@ span.fleche{
     bottom: 8px;
     width: 225px;
     font-size: 23px;
-    line-height: 40px;
+    line-height: 36px;
     font-family: 'NewCicleGordita';
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
+    padding-left: 18px;
 }
 
 .slider_bot{

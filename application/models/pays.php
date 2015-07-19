@@ -17,17 +17,27 @@ Class Pays extends CI_Model {
     }
 
     function addPays() {
+        if ($this->data["meteo_image"] == null) {
+            $this->data["meteo_image"] = "null";
+        }
+        if ($this->data["drapeau"] == null) {
+            $this->data["drapeau"] = "null";
+        }
         $this->db->insert("pays", $this->data);
         return $this->db->insert_id();
     }
 
     function editerPays() {
+
+
         if ($this->data["meteo_image"] == null) {
-            unset($this->data["meteo_image"]);
-        }
+            $this->data["meteo_image"] = "null";
+        } 
+
         if ($this->data["drapeau"] == null) {
-            unset($this->data["drapeau"]);
-        }
+            $this->data["drapeau"] = "null";
+        } 
+
         $this->db->where('id_voyage', $this->data["id_voyage"]);
         $this->db->update("pays", $this->data);
         return true;
