@@ -15,7 +15,7 @@
             <div class="une_row">
                 <!--<label for="mdp" class="col-sm-5 control-label">Mot de passe</label>-->
                 <p>
-                    <input type="text" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
+                    <input type="password" name="mdp" maxlength="50" class="required" id="mdp" placeholder="Mot de passe*">
                 </p>
             </div>
             <div class="une_row">

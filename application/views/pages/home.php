@@ -87,6 +87,7 @@
         <?php } ?>
         <div class="voyages">
             <h2>Nos voyages en cours</h2>
+            <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
             <div class="bloc-voyage">
                 <div class="liste_voyages">
                     <?php

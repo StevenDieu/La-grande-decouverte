@@ -368,7 +368,6 @@ span.fleche{
     .ligne_image .img{
         width: 25%;
         float: left;
-        border: 1px solid #fff;
     }
 }
 
@@ -477,7 +476,6 @@ span.fleche{
     .ligne_image .img{
         width: 50%;
         float: left;
-        border: 1px solid #fff;
     }
 
     .fiche_produit .contenu_onglet .contenu_fiche_onglet.onglet1mobile .info_pratique{
@@ -802,9 +800,8 @@ span.fleche{
 }
 
 .onglet4mobile .contenu .jour_container .day_container{
-    box-shadow: -1px 2px 5px 1px #D3D3D3;
+    box-shadow: 2px 2px 5px 1px #D3D3D3;
     background: #fff;
-    border-radius: 5px;
     position: relative;
     padding: 10px;
 }
@@ -962,14 +959,14 @@ span.fleche{
     }
 
     .fiche_produit .texte_slide .titre{
-        font-size: 35px !important;
         padding-bottom: 25px !important;
         padding-top: 15px !important;
+
+        font-family: 'NewCicleGordita', sans-serif;
+        font-size: 72px !important;
     }
 
-    .fiche_produit .texte_slide{
-        max-width: 450px !important;
-    }
+
 }
 
 @media (min-width: 800px) and (max-width: 900px){
@@ -1053,10 +1050,6 @@ span.fleche{
 
 .fil_arianne_conteneur ul, .fil_arianne_conteneur{
     margin-bottom: 0px;
-}
-
-.fiche_produit .fil_arianne_conteneur{
-    background-color: #f5f5f5;
 }
 
 .choix .titre{
@@ -1198,12 +1191,13 @@ span.fleche{
     width: 70%;
     text-align: right;
     font-family: "helvetica";
+    -webkit-font-smoothing: antialiased;
 }
 
 .info_pratique .leftBloc ul li span{
     float: right;
     font-family: "helvetica";
-
+    -webkit-font-smoothing: antialiased;
 }
 
 .info_pratique .leftBloc ul, .info_pratique .rightBloc ul{
@@ -1266,7 +1260,7 @@ span.fleche{
 .top_bloc .topLeft h2{
     font-family: "helvetica";
     font-size: 16px;
-    font-weight: bold;
+    color: #565a5c;
 }
 
 .top_bloc{
@@ -1288,6 +1282,30 @@ span.fleche{
     }
 }
 
+@media (min-width: 650px){
+    .fiche_produit .texte_slide .titre{
+        font-size: 54px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 650px){
+    .fiche_produit .texte_slide .titre{
+        font-size: 34px;
+    }
+    .fiche_produit .texte_slide .date{
+        font-size: 23px !important;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 500px){
+    .fiche_produit .texte_slide .titre{
+        font-size: 24px;
+    }
+    .fiche_produit .texte_slide .date{
+        font-size: 18px !important;
+    }
+}
+
 .fiche_produit .texte_slide{
     /* border-top:2px solid #fff; */
     /* border-bottom:2px solid #fff; */
@@ -1297,13 +1315,12 @@ span.fleche{
     top:-65%;
     padding: 20px;
     width: auto;
-    max-width: 350px;
 }
 
 .fiche_produit .texte_slide .titre{
     text-align: center;
     font-family: 'NewCicleGordita', sans-serif;
-    font-size: 27px;
+    
     font-weight: 100;
     text-transform: uppercase;
     color: #fff;
@@ -1324,6 +1341,8 @@ span.fleche{
     padding-top: 15px;
     font-family: "helvetica";
     font-style: italic;
+    -webkit-font-smoothing: antialiased;
+      font-size: 26px;
 }
 
 .top_bloc .topRight{
@@ -1359,7 +1378,7 @@ span.fleche{
 
 @media (max-width: 900px){
     .fiche_produit .texte_slide{
-        top: -70%;
+        top: -65%;
     }
 
     .top_bloc{
@@ -1369,7 +1388,7 @@ span.fleche{
 
 @media (max-width: 500px){
     .fiche_produit .texte_slide{
-        top: -80%;
+        top: -70%;
         border: none;
     }
 }
@@ -1444,6 +1463,7 @@ span.fleche{
     font-family: "helvetica";
     font-size: 16px;
     padding-left: 75px;
+    -webkit-font-smoothing: antialiased;
 }
 
 @media (max-width: 900px){
@@ -1563,9 +1583,12 @@ span.fleche{
 .topLeft h1{
     font-family: 'NewCicleGordita';
     text-shadow: none;
-    color: #000;
+    color: #565a5c;
     text-align: left;
-    font-size: 28px;
+    font-size: 50px;
+    text-transform: none;
+    margin-bottom: 0px;
+    padding-top: 0px;
 }
 
 #data span{
