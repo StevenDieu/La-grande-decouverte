@@ -38,6 +38,7 @@ class Pages extends CI_Controller {
         if($data["actualites"]){
             foreach ($data["actualites"] as $actu) {
                 $actu->date = $this->DateFr($actu->date);
+                $actu->description = substr($actu->description, 0, 90).'...';
             }  
         }
         
@@ -47,6 +48,10 @@ class Pages extends CI_Controller {
         $data["allCss"] = array("listeActu", "ficheProduit", "home/home", "home/cssmap-continents", "voyage");
         $data["alljs"] = array("slide", "ficheProduit", "home/home", "home/jquery.cssmap");
         $data["map"] = 1;
+
+        $this->load->model('cms');
+        $this->cms->setCode('bloc_image_cms _home_page');
+        $data["image_cms"] = $this->cms->getByCode();
 
         $this->load->templatePages('home', $data);
     }

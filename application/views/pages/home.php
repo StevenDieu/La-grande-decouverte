@@ -156,8 +156,19 @@
                 </div>
             </div>
         <?php } ?>
+
+        <div class="cms_image">
+            <?php if($image_cms[0]): ?>
+                <img src="<?php echo base_url(''); ?>media/home/cms/<?php echo $image_cms[0]->image; ?>" alt="<?php echo $image_cms[0]->label; ?>" title="<?php echo $image_cms[0]->label; ?>" />
+                <div class='text'>
+                    <p class="titre"><?php echo $image_cms[0]->label; ?></p>
+                    <?php echo $image_cms[0]->value; ?>
+                </div>
+            <?php endif; ?>
+        </div>
         <div class="actualites">
-            <h2>Nos dernières actualités</h2>
+            <h2>Nos actualités</h2>
+            <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
                 <div class="actu_home">
                     <ul>
                     <?php if($actualites): ?>
@@ -171,6 +182,7 @@
                                 <div class="description desc<?php echo $i ?>">
                                     <p class="titre"><?php echo $actualite->titre; ?></p>
                                     <p class="description"><?php echo $actualite->description; ?></p>
+                                    <a href="<?php echo base_url('/actualite/index') ?>">Voir toutes l'actualité</a>
                                 </div>
                                 
                                 <ul id="slider<?php echo $i ?>">

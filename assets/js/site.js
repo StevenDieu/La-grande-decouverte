@@ -81,13 +81,13 @@ $(document).ready(function () {
 
     //popup login connexion
     $('#popup_input_connexion').click(function () {
-        $('.connexion_form.login span.mess_required').remove();
-        $('.content-inscription p.failed').removeClass("failed");
+        $('.connexion_popin .login span.mess_required').remove();
+        $('.connexion_popin .login input.failed').removeClass("failed");
         var submit = true;
-        $('.connexion_form.login input.required').each(function () {
+        $('.connexion_popin .login input.required').each(function () {
             if ($(this).val() == '') {
-                $($(this).parent().parent()).append(mess_required);
-                $($(this).parent()).toggleClass('failed');
+                $($(this).parent()).append(mess_required);
+                $($(this)).toggleClass('failed');
                 submit = false;
             }
         });
@@ -96,13 +96,13 @@ $(document).ready(function () {
 
     //popup login inscription
     $('#popup_login_inscription').click(function () {
-        $('.connexion_form.bottom span.mess_required').remove();
-        $('.content-inscription p.failed').removeClass("failed");
+        $('.connexion_popin .bottom span.mess_required').remove();
+        $('.connexion_popin .bottom input.failed').removeClass("failed");
         var submit = true;
-        $('.connexion_form.bottom input.required').each(function () {
+        $('.connexion_popin .bottom input.required').each(function () {
             if ($(this).val() == '') {
-                $($(this).parent().parent()).append(mess_required);
-                $($(this).parent()).toggleClass('failed');
+                $($(this).parent()).append(mess_required);
+                $($(this)).toggleClass('failed');
                 submit = false;
             }
         });

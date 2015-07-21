@@ -25,6 +25,7 @@ class Cmss extends CI_Controller {
         $crud->columns('code','label','active');
         $crud->fields();
         $crud->required_fields('code','label','active','value');
+        $crud->set_field_upload('image','media/home/cms');
         $output = $crud->render();
         $this->_example_output($output);
     }
