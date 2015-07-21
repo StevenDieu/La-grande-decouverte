@@ -28,20 +28,15 @@ class Carnet extends CI_Controller {
 
         $this->carnetVoyage->setId($this->input->get('id'));
         $data['carnetVoyage'] = $this->carnetVoyage->getCarnetVoyage();
-        $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
+        $data['imagesCarnetVoyages'] = $this->carnetVoyage->getImagesCarnetVoyage();
 
 
         if ($data['carnetVoyage'] == null) {
             redirect('pages/index/', 'refresh');
         }
-        $this->article->id_carnetvoyage = $data['carnetVoyage'][0]->id;
-
-        $data["user"] = $this->user->getUser($data['carnetVoyage'][0]->id_utilisateur);
-        if ($data["user"][0]->id_image != 0) {
-            $this->images->setId($data["user"][0]->id_image);
-            $data["image"] = $this->images->getImage();
-        }
-
+        $this->article->setId_carnetvoyage($data['carnetVoyage'][0]->id);
+        $this->user->setId($data['carnetVoyage'][0]->id_utilisateur);
+        $data["user"] = $this->user->getUser();
         $data["articles"] = $this->article->getArticleVisible();
 
         $this->load->templateCarnet('/carnet', $data);
@@ -58,7 +53,7 @@ class Carnet extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
         $this->carnetVoyage->setId($data["articles"][0]->id_carnetvoyage);
-        $data['imagesCarnetVoyage'] = $this->carnetVoyage->getImagesCarnetVoyage();
+        $data['imagesCarnetVoyages'] = $this->carnetVoyage->getImagesCarnetVoyage();
         $data["librairieCss"] = array("font-awesome.min", "froala_editor.min", "froala_style.min");
         $data["allCss"] = array("article");
         $data["alljs"] = array("slide", "ficheVoyage");
@@ -83,7 +78,7 @@ class Carnet extends CI_Controller {
                 $j++;
             }
         }
-        
+
         $config['base_url'] = base_url() . "voyage/carnet/liste";
         $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
         $config['per_page'] = $perPage;

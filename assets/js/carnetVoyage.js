@@ -18,6 +18,9 @@ function enregistrerCarnetVoyage() {
                         id = 1;
                     } else {
                         id = parseInt($('.table-carnet tbody>tr:last td:first').html()) + 1;
+                        if(isNaN(id)){
+                            id = 1;
+                        }
                     }
                     $(".table-carnet > tbody:last").append("<tr><td class='tdPetithauteur'>" + id + "</td><td> "
                             + '<input type="text" class="form-control inputTitreCarnetVoyage" id ="' + result + '" placeholder="Titre voyage"  value="' + $(".titre").val() + '" />'

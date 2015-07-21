@@ -1,15 +1,15 @@
 <div class="content fiche_voyage">
     <!-- Slideshow 4 -->
-    <div class="callbacks_container">
-        <ul class="rslides" id="slider_top">
-            <?php foreach ($imagesCarnetVoyage[0] as $images) { ?>
-                <li>
-                    <img src="<?php echo base_url(); ?>media/produit/image_slider/<?php echo $images; ?>" alt="">
-                </li>
-                <?php
-            }
-            ?>
-        </ul>
+    <div class="callbacks_container slider_principal">
+        <?php if ($imagesCarnetVoyages) { ?>
+            <ul class="rslides" id="slider_top">
+                <?php foreach ($imagesCarnetVoyages as $imagesCarnetVoyage) { ?>
+                    <li>
+                        <img src="<?php echo asset_media($imagesCarnetVoyage->lien); ?>" alt="">
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } ?>
     </div>
     <div style="clear:both"></div>
     <div class="content_fiche_voyage">
@@ -38,10 +38,10 @@
             <div class="content_fiche_voyage">
                 <div class="image_profile">
                     <div class="bloc_image_profile">
-                        <?php if ($user[0]->id_image == 0) { ?>
-                            <img src="<?php echo asset_url('images/utilisateur/photoProfil/profil-photo.jpg'); ?>" class="image_profile" alt="Image carnet de voyage"/>
+                        <?php if ($user[0]->lien_image == null) { ?>
+                            <img src="<?php echo asset_url('images/utilisateur/photoProfil/profile-photo.jpg'); ?>" class="image_profile" alt="Image carnet de voyage"/>
                         <?php } else { ?>
-                            <img src="<?php echo asset_url('images/utilisateur/photoProfil/') . $image[0]->nom; ?>" class="image_profile" alt="Image carnet de voyage"/>
+                            <img src="<?php echo asset_url('images/utilisateur/photoProfil/') . $user[0]->lien_image; ?>" class="image_profile" alt="Image carnet de voyage"/>
                         <?php } ?>
                     </div>
                 </div>

@@ -79,10 +79,12 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getImagesCarnetVoyage() {
-        $this->db->select('image_slider_1,image_slider_2,image_slider_3');
+        $this->db->select('lien,nom');
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
+        $this->db->join('images AS i', 'i.id_voyage = v.id');
         $this->db->where('cv.id', $this->id);
+        $this->db->where('emplacement', "image_slider");
         $query = $this->db->get();
 
         if ($query->num_rows() >= 1) {

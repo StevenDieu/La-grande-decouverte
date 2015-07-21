@@ -2,16 +2,16 @@
     <div class="content_fiche">
 
         <?php if ($articles[0]->visible == 1) { ?>
-            <div class="callbacks_container">
-                <ul class="rslides" id="slider_top">
-                    <?php foreach ($imagesCarnetVoyage[0] as $images) { ?>
-                        <li>
-                            <img src="<?php echo base_url(); ?>media/produit/image_slider/<?php echo $images; ?>" alt="">
-                        </li>
-                        <?php
-                    }
-                    ?>
-                </ul>
+            <div class="callbacks_container slider_principal">
+                <?php if ($imagesCarnetVoyages) { ?>
+                    <ul class="rslides" id="slider_top">
+                        <?php foreach ($imagesCarnetVoyages as $imagesCarnetVoyage) { ?>
+                            <li>
+                                <img src="<?php echo asset_media($imagesCarnetVoyage->lien); ?>" alt="">
+                            </li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
             </div>
             <div class="clear"></div>
 
