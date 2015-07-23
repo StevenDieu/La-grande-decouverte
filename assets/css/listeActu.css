@@ -1,16 +1,4 @@
-.content .actu{
-    width: 100%;
-    max-width: 1200px;
-    margin:auto;
-    padding-bottom: 20px;
-    background-color: #FBFBFB;
-}
 
-@media (max-width: 900px){
-    .content .actu{
-        padding: 10px;
-    }
-}
 
 .content .actu .entete{
     width: 100%;
@@ -69,11 +57,7 @@
         color: #8b8b8b;
     }
 
-.content .actu .uneActu{
-    width: 100%;
-    margin-top: 34px;
-    -webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);  -moz-box-shadow:    3px 3px 16px 0px rgba(50, 50, 50, 0.8);  box-shadow:         3px 3px 16px 0px rgba(50, 50, 50, 0.8);
-}
+
 
     .content .actu .uneActu .image, .content .actu .uneActu .image img{
         width: 100%;
@@ -216,24 +200,19 @@
 .actu ul {
     position: relative;    list-style: none;    overflow: hidden;    width: 100%;    padding: 0;    margin: 0;    
     height: auto;
-    max-height: 386px;
 }
 
 .actu img {
     margin-top: -15%;
 }
 
-.content {
-    padding-top: 110px;
-}
+
 
 .un_article .callbacks img {
     width: 100% !important;
 }
 
-.article_first .callbacks img {}
 
-.article_first .callbacks img {}
 
 .article_first .callbacks img {
     width: 100%;
@@ -242,3 +221,279 @@
 .article_first img {
     width: 100% !important;
 }
+
+
+
+.actualites{
+    text-align: center;
+    background: #edefed;
+    padding-top: 20px;
+}
+.content {
+    padding-top: 75px;
+}
+
+
+
+
+/* actu home page */
+.actu_home{
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    min-height: 200px;
+    padding-bottom: 40px;
+    background: #edefed;
+}
+
+.actu_home ul li.uneActu{
+    width: 50%;
+    float: left;
+    position: relative;
+    padding: 5px;
+    height: 500px;
+}
+
+.actu_home ul li.uneActu .filtre{
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+}
+
+.actu_home ul li.uneActu:hover .filtre{
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.actu_home ul {
+    margin-bottom: 0px;
+}
+
+.actu_home ul li.uneActu img{
+    height: 100%;
+}
+
+.actu_home ul li.uneActu .callbacks_nav.next{
+    background: url(../images/next.png)center center no-repeat;
+}
+
+.actu_home ul li.uneActu .callbacks_nav.prev{
+    background: url(../images/prev.png)center center no-repeat;
+}
+
+.actu_home ul li.uneActu .date{
+    position: absolute;
+    top: 20px;
+    height: 30px;
+    width: 130;
+    background: white;
+    z-index: 110;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translatey(-50%);
+    -moz-transform: translateX(-50%) translatey(-50%);
+    transform: translateX(-50%) translatey(-50%);
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+.actu_home ul li.uneActu div.description{
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    height: 142px;
+    z-index: 13;
+    padding-top: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+.actu_home ul li.uneActu .callbacks_nav{
+    top: 32%;
+}
+
+.actu_home ul li.uneActu .description p.titre{
+    text-align: center;
+    line-height: 40px;
+    font-size: 22px;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 0;
+}
+
+.actu_home ul li.uneActu .description p.description{
+    text-align: center;
+    padding: 5px;
+    font-family: "helvetica", sans-serif;
+    font-size: 15px;
+    line-height: 1.43;
+    -webkit-font-smoothing: antialiased;
+}
+
+.actu_home ul li.uneActu .description a{
+    text-align: center;
+    padding: 5px;
+    font-family: "helvetica";
+    font-size: 14px;
+    color: #fff;
+    text-decoration: underline;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 10px;
+}
+
+.actu_home ul li.uneActu.act1 .date, .actu_home ul li.uneActu .description.desc1{
+      background: #00d1c1;
+}
+
+.actu_home ul li.uneActu.act2 .date, .actu_home ul li.uneActu .description.desc2{
+      background: #F5434A;
+}
+
+.actu_home ul li.uneActu .description.desc3, .actu_home ul li.uneActu.act3 .date{
+      background: #8ce071;
+}
+
+.actu_home ul li.uneActu.act4 .date, .actu_home ul li.uneActu .description.desc4{
+      background: #7b0051;
+}
+
+@media (max-width: 767px){
+    .actu_home ul li.uneActu{
+        width: 50%;
+        float: left;
+        position: relative;
+        padding: 0px;
+        height: 440px;
+    }
+
+    .actu_home ul li.uneActu .date{
+        top: 15px;
+    }
+
+    .actu_home ul li.uneActu .filtre{
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 9;
+    }
+
+    .actu_home ul li.uneActu div.description{
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 170px;
+        z-index: 13;
+        padding-top: 15px;
+        color: #fff;
+    }
+
+    .act1, .act2{
+        margin-bottom: 5px;
+    }
+
+    .act3{
+        width: 100% !important;
+    }
+
+    .actu_home ul li.uneActu div.description.desc3{
+        height: 125px;
+        padding-top: 0px;
+    }
+}
+
+@media (max-width: 568px){
+    .actu_home ul li.uneActu{
+        width: 100%;
+        float: left;
+        position: relative;
+        padding: 0px;
+        height: 440px;
+    }
+
+    .actu_home ul li.uneActu div.description.desc3{
+        height: 170px;
+        padding-top: 15px;
+    }
+
+}
+
+.actualites h2, .voyages h2{
+    color: #565a5c !important;
+    text-transform: none !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 0px !important;
+}
+
+.actualites h2:after, .voyages h2:after{
+    display: none;
+}
+
+.actualites p.soush, .voyages p.soush{
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #565a5c;
+    font-family: "helvetica";
+    margin-bottom: 30px;
+}
+
+.cms_image {
+    position: relative;
+    width: 100%;
+    max-height: 600px;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.cms_image img{
+    width: 100%;
+}
+
+.cms_image .text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translatey(-50%);
+    -moz-transform: translateX(-50%) translatey(-50%);
+    transform: translateX(-50%) translatey(-50%);
+    color: #fff;
+    text-align: center;
+}
+.cms_image .text p.titre{
+    font-family: 'NewCicleGordita', sans-serif;
+  font-size: 72px;
+}
+
+.cms_image .text p{
+    font-family: 'helvetica', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+  
+
+@media (max-width: 700px){
+    .cms_image .text p.titre{    
+        font-size: 34px;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px){
+    .cms_image .text p.titre{    
+        font-size: 54px;
+    }
+}
+
+h2 sup {
+    font-size: 25px;
+    color: #960018;
+}
+
+

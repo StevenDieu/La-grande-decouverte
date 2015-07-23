@@ -1,4 +1,4 @@
-<div class="content actualites">
+<!--<div class="content actualites">
 	<div class="actu">
 		<div class="entete">
 			<div class="titre">Actualités <sup>(<?php echo $nbActu; ?>)</sup></div>
@@ -51,5 +51,62 @@
         }
         ?>
     </div>
+</div>-->
+
+
+<div class="content actualites">
+    <div class="actu">
+        <?php
+        if ($actualites) { ?>
+            <div class="actualites">
+                <h2>Nos actualités <sup>(<?php echo $nbActu; ?>)</sup></h2>
+                <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
+                    <div class="actu_home">
+                        <ul>
+                        <?php if($actualites): ?>
+                            <?php $i = 1; ?>
+                            <?php foreach ($actualites as $actualite): ?>
+                                <li class="uneActu act<?php echo $i ?>">
+                                    <div class="filtre"></div>
+
+                                    <div class="date"><?php echo $actualite->date; ?></div>
+
+                                    <div class="description desc<?php echo $i ?>">
+                                        <p class="titre"><?php echo $actualite->titre; ?></p>
+                                        <p class="description"><?php echo $actualite->description; ?></p>
+                                    </div>
+                                    
+                                    <ul id="slider<?php echo $i ?>">
+                                        <li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img1 . '" alt="' . $actualite->img1 . '"'; ?></li>
+                                        <?php if ($actualite->img2): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2 . '"'; ?></li><?php endif; ?>
+                                        <?php if ($actualite->img3): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3 . '"'; ?></li><?php endif; ?>
+                                    </ul>
+                                    
+                                    <script type="text/javascript">
+                                        initialiseResponsiveSilide('#slider<?php echo $i ?>');
+                                    </script>
+
+                                </li>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            pas d'actualité
+                        <?php endif; ?>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+        <?php } else {
+            echo "pas d'actualité";
+        }
+        ?>
+    </div>
 </div>
+
+
+
+        
+
+
+
 
