@@ -305,7 +305,7 @@ span.glyphicon.glyphicon-user {}
 }
 
 .actu_home ul li.uneActu{
-    width: 25%;
+    width: 33%;
     float: left;
     position: relative;
     padding: 5px;
@@ -363,9 +363,9 @@ span.glyphicon.glyphicon-user {}
     left: 5px;
     right: 5px;
     bottom: 5px;
-    height: 170px;
+    height: 142px;
     z-index: 13;
-    padding-top: 15px;
+    padding-top: 5px;
     color: #fff;
     text-align: center;
 }
@@ -379,6 +379,7 @@ span.glyphicon.glyphicon-user {}
     line-height: 40px;
     font-size: 22px;
     -webkit-font-smoothing: antialiased;
+    margin-bottom: 0;
 }
 
 .actu_home ul li.uneActu .description p.description{
@@ -407,7 +408,7 @@ span.glyphicon.glyphicon-user {}
       background: #00d1c1;
 }
 
-.actu_home ul li.uneActu.act2 .date{
+.actu_home ul li.uneActu.act2 .date, .actu_home ul li.uneActu .description.desc2{
       background: #F5434A;
 }
 
@@ -419,7 +420,7 @@ span.glyphicon.glyphicon-user {}
       background: #7b0051;
 }
 
-@media (max-width: 967px){
+@media (max-width: 767px){
     .actu_home ul li.uneActu{
         width: 50%;
         float: left;
@@ -451,6 +452,19 @@ span.glyphicon.glyphicon-user {}
         padding-top: 15px;
         color: #fff;
     }
+
+    .act1, .act2{
+        margin-bottom: 5px;
+    }
+
+    .act3{
+        width: 100% !important;
+    }
+
+    .actu_home ul li.uneActu div.description.desc3{
+        height: 125px;
+        padding-top: 0px;
+    }
 }
 
 @media (max-width: 568px){
@@ -461,6 +475,12 @@ span.glyphicon.glyphicon-user {}
         padding: 0px;
         height: 440px;
     }
+
+    .actu_home ul li.uneActu div.description.desc3{
+        height: 170px;
+        padding-top: 15px;
+    }
+
 }
 
 .actualites h2, .voyages h2{
