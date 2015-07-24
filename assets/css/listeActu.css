@@ -362,6 +362,8 @@
     font-size: 15px;
     line-height: 1.43;
     -webkit-font-smoothing: antialiased;
+    max-height: 90px;
+    overflow: hidden;
 }
 
 .actu_home ul li.uneActu .description a{
@@ -473,7 +475,7 @@
     color: #565a5c !important;
     text-transform: none !important;
     padding-bottom: 2px !important;
-    margin-bottom: 0px !important;
+    margin-bottom: 10px !important;
 }
 
 .actualites h2:after, .voyages h2:after{
