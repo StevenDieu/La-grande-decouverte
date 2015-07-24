@@ -53,7 +53,6 @@
     </div>
 </div>-->
 
-
 <div class="content actualites">
     <div class="actu">
         <?php
@@ -81,12 +80,23 @@
                                         <?php if ($actualite->img2): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2 . '"'; ?></li><?php endif; ?>
                                         <?php if ($actualite->img3): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3 . '"'; ?></li><?php endif; ?>
                                     </ul>
+
+                                    <div class="reseau">
+                                        <ul>
+                                            <li class="gplus"><a href="#"></a></li>
+                                            <li class="facebook"><a href="#"></a></li>
+                                            <li class="twitter"><a href="#"></a></li>
+                                            <li class="link"><a href="#"></a></li>
+                                            <li class="pinte"><a href="#"></a></li>
+                                        </ul>
+                                    </div>
                                     
                                     <script type="text/javascript">
                                         initialiseResponsiveSilide('#slider<?php echo $i ?>');
                                     </script>
 
                                 </li>
+                                <?php if($i == 4) $i = 0; ?>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
@@ -97,7 +107,7 @@
                 </div>
             </div>
         <?php } else {
-            echo "pas d'actualité";
+            echo "Désolé, il n'y a pas d'actualité.";
         }
         ?>
     </div>

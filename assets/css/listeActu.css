@@ -89,7 +89,16 @@
     .content .actu .uneActu .reseau{
         width: 100%;
         text-align: center;
-        padding: 20px 0;
+        position: absolute;
+        top: 294px;
+        z-index: 100;
+    }
+
+    .reseau ul{
+        width: 320px !important;
+        margin: auto !important;
+        background-color: rgba(0, 0, 0, 0.37);
+        padding-top: 5px !important;
     }
 
         .content .actu .uneActu .reseau ul li{
@@ -116,20 +125,40 @@
                 background: url(../images/listeActu/google116.png) center center no-repeat;
             }
 
+            .content .actu .uneActu .reseau ul li.gplus:hover a{
+                background: url(../images/listeActu/google116_hover.png) center center no-repeat;
+            }
+
             .content .actu .uneActu .reseau ul li.facebook a{
                 background: url(../images/listeActu/facebook55.png) center center no-repeat;
+            }
+
+            .content .actu .uneActu .reseau ul li.facebook:hover a{
+                background: url(../images/listeActu/facebook55_hover.png) center center no-repeat;
             }
 
             .content .actu .uneActu .reseau ul li.twitter a{
                 background: url(../images/listeActu/twitter1.png) center center no-repeat;
             }
 
+            .content .actu .uneActu .reseau ul li.twitter:hover a{
+                background: url(../images/listeActu/twitter1_hover.png) center center no-repeat;
+            }
+
             .content .actu .uneActu .reseau ul li.link a{
                 background: url(../images/listeActu/linkedin12.png) center center no-repeat;
             }
 
+            .content .actu .uneActu .reseau ul li.link:hover a{
+                background: url(../images/listeActu/linkedin12_hover.png) center center no-repeat;
+            }
+
             .content .actu .uneActu .reseau ul li.pinte a{
                 background: url(../images/listeActu/pinterest11.png) center center no-repeat;
+            }
+
+            .content .actu .uneActu .reseau ul li.pinte:hover a{
+                background: url(../images/listeActu/pinterest11_hover.png) center center no-repeat;
             }
 
     .content .actu .uneActu .titreActu .meta{
@@ -310,10 +339,12 @@
     padding-top: 5px;
     color: #fff;
     text-align: center;
+    overflow: hidden;
 }
 
 .actu_home ul li.uneActu .callbacks_nav{
-    top: 32%;
+    top: 39%;
+        z-index: 1000;
 }
 
 .actu_home ul li.uneActu .description p.titre{
@@ -369,6 +400,19 @@
         position: relative;
         padding: 0px;
         height: 440px;
+        margin-bottom: 5px;
+    }
+
+    .content .actu .uneActu .reseau {
+        top: 211px;
+    }
+
+    .actualites{
+        padding-top: 1px !important;
+    }
+
+    .actu_home ul li.uneActu.act3 img {
+        width: 100%;
     }
 
     .actu_home ul li.uneActu .date{
@@ -495,5 +539,18 @@ h2 sup {
     font-size: 25px;
     color: #960018;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
