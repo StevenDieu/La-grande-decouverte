@@ -88,45 +88,28 @@
         <div class="voyages">
             <h2>Nos voyages en cours</h2>
             <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
-            <div class="bloc-voyage">
-                <div class="liste_voyages">
-                    <?php
-                    $i = 0;
-                    $id = 0;
-                    foreach ($voyages as $v) {
-                        if ($id != $v->vId) {
-                            $i++;
-                            if ($i % 2) {
-                                echo '<div class="voyage gauche">';
-                            } else {
-                                ?>
-                                <div class="voyage droite">
-                                    <?php
-                                }
-                                ?>
-
-                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
-                                    <div class="bloc_image">
-                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
-                                    </div>
-                                    <div class="rotate_description">
-                                        <div class="bloc_description">
-                                            <div class="titre"><?php echo $v->titre; ?></div>
-                                            <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
-                                            <div class="voir_plus">Plus d'info ></div>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-                            </div>
-                            <div class="separateur_article"></div>
-                            <?php
-                            $id = $v->vId;
-                        }
-                    }
-                    ?>
-                </div>
+            <div class="voyage_home">
+                <ul>
+                    <?php $i = 0; $id = 0; ?>
+                    <?php foreach ($voyages as $v): ?>
+                        <?php if ($id != $v->vId): ?>
+                            <?php $i++; ?>
+                            <li class="voyage <?php if(($i % 2) == 0) echo 'right'; ?>">
+                                <div class="bloc_image">
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>"><img src="<?php echo base_url(''); ?>media/produit/image_slider/aze~~~~92f3072ea71470c6986bed95d0e4ecdc.jpg" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" /></a>
+                                </div>
+                                <div class="bloc_bottom">
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">Voir<br><span>le voyage</span></a>
+                                    <p class="titre"><?php echo $v->titre; ?></p>
+                                    <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
+                                </div>
+                            </li>
+                            <?php $id = $v->vId; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <div class="clear"></div>
+                </ul>
+                <a href="<?php echo base_url('voyage/carnet/voyage') ?>" class="other_voyage">Voir tous les voyages</a>
                 <div class="clear"></div>
             </div>
         </div>
@@ -136,9 +119,6 @@
                 <h2>Nos récents carnets</h2>
                 <div class="liste_carnet">
                     <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
-
-
-
                         <?php
                         for ($i = 0; $i < count($carnetVoyages); $i++) {
                             if ($i == 0) {

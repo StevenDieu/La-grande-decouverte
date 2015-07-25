@@ -113,10 +113,6 @@
     .voyage.droite {
         float: none;
     }
-    .contenu_home .voyage{
-        margin: 10px auto;
-        max-width: 580px;
-    }
 }
 
 .liste_voyages {

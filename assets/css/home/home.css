@@ -24,16 +24,11 @@ and open the template in the editor.
     z-index: 2;
 }
 .blurpmenu{
-
     position: absolute;
     margin: -50px auto 0 auto;
     text-align: center;
-
-
     width: 99%;
     z-index: 25;
-
-
     bottom: -11px;
 }
 
@@ -118,7 +113,6 @@ and open the template in the editor.
 @media (min-width: 767px){
     .content-home{
         padding-top: 76px;
-
     }
 }
 
@@ -142,7 +136,6 @@ and open the template in the editor.
     font-family: 'NewCicleGordita', sans-serif;    
     font-size: 47px;    
     font-weight: 100;    
-    text-transform: uppercase;            
     letter-spacing: 3px;  
     margin-top: 80px;
 }
@@ -151,7 +144,6 @@ and open the template in the editor.
 .contenu_home{
     padding-top: 1px;
     color: rgb(0, 0, 0);
-    /* max-width: 1200px; */
     margin: 0 auto;
     background-color: #edefed !important; */;
 }
@@ -161,8 +153,6 @@ and open the template in the editor.
     color: black;
 }
 
-
-
 .contenu_home .voyage .bloc_image{
     overflow: hidden;    
     margin: 0 auto;
@@ -170,11 +160,6 @@ and open the template in the editor.
     z-index: -1;
 }
 
-.contenu_home .voyage .bloc_image img{
-    max-width: 576px;
-    min-height: 245px;
-    z-index: -1;
-}
 
 .bloc_description {
     position: absolute;
@@ -183,31 +168,14 @@ and open the template in the editor.
     top: 0;    
     height: 245px;
     display: none;            
-    -webkit-transform: rotate(180deg);      -moz-transform: rotate(180deg);      -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);      
+    -moz-transform: rotate(180deg);      
+    -o-transform: rotate(180deg);
 }
 
-.contenu_home .voyage{
-    max-width: 580px;
-    position: relative;    
-    overflow: hidden;    
-    margin: 20px auto;
-    border-radius: 5px;
-    border: 2px solid rgb(228, 197, 141);
-    -webkit-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);    -moz-box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);    box-shadow: 3px 3px 16px 0px rgba(50, 50, 50, 0.8);
-}
-
-.contenu_home .voyage .titre{
-    color: rgb(249, 241, 224);    
-    padding-bottom: 15px;    text-align: center;    
-    margin-top: -8px;
-    font-family: 'NewCicleGordita', sans-serif;    
-    font-size: 25px;    font-weight: 100;    text-transform: uppercase;    letter-spacing: 3px;
-
-}
 
 .contenu_home .voyage .description{
     color: white;
-
 }
 
 .rotate_description{
@@ -218,14 +186,9 @@ and open the template in the editor.
 
 .voir_plus{
     margin: 25px auto;
-
-
     text-align: center;
     color: white;
 }
-
-
-
 
 .voir_plus:hover {
     text-decoration: underline;
@@ -253,10 +216,7 @@ and open the template in the editor.
     .voyage.droite {
         float: none;
     }
-    .contenu_home .voyage{
-        margin: 10px auto;
-        max-width: 580px;
-    }
+
 }
 
 .onglet3mobile .contenu_article_suivant .un_article:hover {
@@ -550,9 +510,103 @@ span.glyphicon.glyphicon-user {}
 }
 
 
+.voyage_home{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100px;
+}
+
+.voyage_home ul li.voyage{
+    display: block;
+    float: left;
+    width: 49%;
+    height: 333px;
+    margin-bottom: 23px;
+    position: relative;
+}
+
+.voyage_home ul li.voyage.right{
+    float: right;
+}
+
+@media (max-width: 900px){
+    .voyage_home ul li.voyage{
+        float: left !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+}
+
+.voyage_home .other_voyage{
+    display: block;
+    margin:auto;
+    border:1px solid #c4c4c4;
+    background: white;
+    color: #565a5c;
+    width: 300px;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 21px;
+}
+
+.voyage_home .other_voyage:hover{
+    border-color: #aaa;
+}
+
+.voyage_home ul li.voyage .bloc_image img{
+    width: 100%;
+}
+
+.voyage_home ul li.voyage .bloc_image{
+    border: 1px solid #edefed;
+    border-bottom: 0px;
+}
+
+.voyage_home ul li.voyage .bloc_bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFF;
+    height: 88px;
+    border: 1px solid #E6E6E6;
+    border-top: 0px;
+}
+
+.voyage_home ul li.voyage .bloc_bottom p.titre{
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    color: #565a5c !important;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 80%;
+    float: left;
+}
+.voyage_home ul li.voyage .bloc_bottom p.accroche{
+    font-family: 'helvetica', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-left: 10px;
+    color: #565a5c !important;
+    width: 80%;
+    float: left;
+    font-size: 14px;
+}
+
+.voyage_home ul li.voyage .bloc_bottom a{
+    float: right;
+    width: 20%;
+    text-align: left;
+    color: #960018;
+    padding-left: 29px;
+    padding-top: 29px;
+    font-family: 'NewCicleGordita', sans-serif;
+}
 
 
-
-
-
-
+.voyage_home ul li.voyage .bloc_bottom a:hover{
+    text-decoration: none;
+}
