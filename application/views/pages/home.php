@@ -86,8 +86,8 @@
             <br/><br/>
         <?php } ?>
         <div class="voyages">
-            <h2>Nos voyages en cours</h2>
-            <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
+            <h2>Nos derniers voyages</h2>
+            <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
             <div class="voyage_home">
                 <ul>
                     <?php $i = 0; $id = 0; ?>
@@ -114,29 +114,29 @@
             </div>
         </div>
         <div class="clear"></div>
-        <?php if (!empty($carnetVoyages)) { ?>
+
+        <?php if (!empty($carnetVoyages)): ?>
             <div class="carnet_voyages">
                 <h2>Nos récents carnets</h2>
-                <div class="liste_carnet">
-                    <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
-                        <?php
-                        for ($i = 0; $i < count($carnetVoyages); $i++) {
-                            if ($i == 0) {
-                                carnet_long($carnetVoyages, $i);
-                            }
-                            if ($i == 1 && (count($carnetVoyages) - 1) == 1) {
-                                carnet_long($carnetVoyages, $i);
-                            }
-
-                            if ($i > 0 && (count($carnetVoyages) - 1) >= 2) {
-                                carnet_court($carnetVoyages, $i);
-                            }
+                <p class="soush">Retrouvez les derniers récits de voyages créés par nos voyageurs</p>
+                    <ul>
+                    <?php for ($i = 0; $i < count($carnetVoyages); $i++) {
+                        if ($i == 0) {
+                            carnet_first($carnetVoyages, $i);
                         }
-                        ?>
-                    </div>
-                </div>
+                        if ($i == 1) {
+                            carnet_second($carnetVoyages, $i);
+                        }
+                        if ($i == 2) {
+                            carnet_third($carnetVoyages, $i);
+                        }
+                    } ?>
+                    <div class="clear"></div>
+                </ul>
+                <a href="<?php echo base_url('voyage/carnet/liste') ?>" class="other_voyage">Voir tous les carnets</a>
+                <div class="clear"></div>
             </div>
-        <?php } ?>
+        <?php endif; ?>
 
         <div class="cms_image">
             <?php if($image_cms[0]): ?>
@@ -149,7 +149,7 @@
         </div>
         <div class="actualites">
             <h2>Nos actualités</h2>
-            <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
+            <p class="soush">Toute l’actualité de Lagrandecouverte, c’est ici !</p>
                 <div class="actu_home">
                     <ul>
                     <?php if($actualites): ?>
