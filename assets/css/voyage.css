@@ -206,12 +206,172 @@
 
 .floarLeft {
     float: left;
+    margin-bottom: 20px;
 }
 
 .floarRight {
     float: right;
+    margin-bottom: 20px;
 }
 
 .content-voyage{
     padding-top: 75px;
 }
+
+
+
+
+
+
+
+
+
+.voyage_home{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100px;
+}
+
+.voyage_home ul li.voyage{
+    display: block;
+    float: left;
+    width: 49%;
+    height: 333px;
+    margin-bottom: 23px;
+    position: relative;
+    overflow: hidden;
+}
+
+.voyage_home ul li.voyage.right{
+    float: right;
+}
+
+@media (max-width: 900px){
+    .voyage_home ul li.voyage{
+        float: left !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+}
+
+.voyage_home .other_voyage, .carnet_voyages .other_voyage{
+    display: block;
+    margin:auto;
+    border:1px solid #c4c4c4;
+    background: white;
+    color: #565a5c;
+    width: 300px;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 21px;
+}
+
+.voyage_home .other_voyage:hover{
+    border-color: #aaa;
+}
+
+.voyage_home ul li.voyage .bloc_image img{
+    width: 100%;
+}
+
+.voyage_home ul li.voyage .bloc_image{
+    border: 1px solid #edefed;
+    border-bottom: 0px;
+}
+
+.voyage_home ul li.voyage .bloc_bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFF;
+    height: 88px;
+    border: 1px solid #E6E6E6;
+    border-top: 0px;
+}
+
+.voyage_home ul li.voyage .bloc_bottom p.titre{
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    color: #565a5c !important;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 80%;
+    float: left;
+}
+.voyage_home ul li.voyage .bloc_bottom p.accroche{
+    font-family: 'helvetica', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-left: 10px;
+    color: #565a5c !important;
+    width: 80%;
+    float: left;
+    font-size: 14px;
+}
+
+.voyage_home ul li.voyage .bloc_bottom a{
+    float: right;
+    width: 20%;
+    text-align: left;
+    color: #960018;
+    padding-left: 29px;
+    padding-top: 29px;
+    font-family: 'NewCicleGordita', sans-serif;
+}
+
+
+.voyage_home ul li.voyage .bloc_bottom a:hover{
+    text-decoration: none;
+}
+
+
+.voyages h2 {
+    color: #565a5c !important;
+    text-transform: none !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 0px !important;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.voyages p.soush {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #565a5c;
+    font-family: "helvetica";
+    margin-bottom: 30px;
+}
+
+.voyage_home .erreur{
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

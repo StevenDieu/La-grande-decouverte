@@ -265,6 +265,77 @@ function carnet_third($carnetVoyages, $i) {
 
 }
 
+function carnet_long($carnetVoyages, $i) {
+    ?>
+    <div class="article_first">
+        <div class="image">
+            <div class="callbacks_container carnet">
+                <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">
+                    <ul class="rslides" id="slidercarnet<?php echo $i ?>">
+                        <?php for ($j = 0; $j < count($carnetVoyages[$i]->lien); $j++) { ?>
+                            <li>
+                                <div class = "image_slide_carnet">
+                                    <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[$j]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[$j]; ?>"/>
+                                </div>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="partie_droite">
+            <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+            <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
+            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 270) . '...'; ?></div>
+            <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
+        </div>
+        <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
+    </div>
+    <div style='clear:both'></div>
+    <?php
+}
+
+function carnet_court($carnetVoyages, $i) {
+    if ($i % 2) {
+        ?>
+
+        <div class="contenu_article_suivant">
+        <?php } ?>
+        <div class="un_article <?php if ($i % 2 == 1) echo "left" ?>">
+            <div class="callbacks_container carnet">
+                <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">
+                    <ul class="rslides" id="slidercarnet<?php echo $i ?>">
+                        <?php for ($j = 0; $j < count($carnetVoyages[$i]->lien); $j++) { ?>
+                            <li>
+                                <div class = "image_slide_carnet">
+                                    <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[$j]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[$j]; ?>"/>
+                                </div>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </a>
+            </div>
+            <div style="clear:both"></div>
+            <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+            <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
+            <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 270) . '...'; ?></div>
+            <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" class="lire_suite">Voir le carnet ></a>
+            <script type="text/javascript">initialiseResponsiveSilide('#slidercarnet<?php echo $i ?>');</script>
+        </div>
+        <?php if (!($i % 2)) { ?>
+        </div>
+    <?php } ?>
+    <?php
+    if ($i % 2 == 0) {
+        echo "<div style='clear:both'></div>";
+    }
+}
+
 function carnet_court_liste($carnetVoyages, $i) {
 
 

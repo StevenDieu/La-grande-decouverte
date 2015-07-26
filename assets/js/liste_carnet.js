@@ -50,3 +50,24 @@ $( document ).ready(function() {
         event.preventDefault();
     });
 });
+
+
+$(window).load(function(){
+    //Initialisation des variables
+    var thumbnail = {
+        effectDuration : 400
+    };
+
+    //Quand le curseur survol l'image...
+    $('.carnet_voyages ul li').hover(function(){
+        //Montre la légende utilisant l'événement slideDown
+        $(this).find('.legende:not(:animated)').slideDown(thumbnail.effectDuration);
+        $(this).find('.titre_sans_hover').hide();
+    //Quand le curseur ne survol plus la zone...
+    }, function(){
+        //Cache la légende utilisant l'événement slideUp
+        $(this).find('.legende').slideUp(thumbnail.effectDuration);
+        $(this).find('.titre_sans_hover').show();
+    });
+    
+});

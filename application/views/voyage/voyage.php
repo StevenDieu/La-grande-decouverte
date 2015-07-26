@@ -1,74 +1,56 @@
 <!---------- CONTENT ---------->	
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZo93gQX7j_kr0Bn3oqfwfIIPCQLAKhuI"></script>
-<script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
-<link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
-<div class="content content-voyage">
-    <div class="bloc-voyage">
+<div class="content liste-voyage">
+    <div class="liste_voyages">
+        
         <div class="voyages">
-            <div class="liste_voyages">
-                <div class="entete">
-                    <div class="titre">Voyages</div>
-                    <div class="description">Découvrez les nouveaux voyages, et visitez des pays du monde entier !</div>
-                    <div class="cercleGauche"></div>
-                    <div class="cercleDroit"></div>
-                </div>
-                <?php if (isset($erreur)) echo "<div class='erreur'>" . $erreur . "</div>"; ?>
-                <?php if (isset($nomContinent)) { ?>
-                    <div class="floarLeft">
-                        <a href="<?php echo base_url('voyage/carnet/voyage') ?>">
-                            Retour à tous les voyages
-                        </a>
-                    </div>
-                    <div class="floarRight">
-                        Page filtrer par : <?php echo $nomContinent[0]->name ?> 
-                    </div>
-                    <div class="clear"></div>
-                    <div class="liste_contient">
-                        <?php
-                    }
-                    $i = 0;
-                    $id = 0;
-                    foreach ($voyages as $v) {
-                        if ($id != $v->vId) {
-                            $i++;
-                            if ($i % 2) {
-                                echo '<div class="voyage gauche">';
-                            } else {
-                                ?>
-                                <div class="voyage droite">
-                                    <?php
-                                }
-                                ?>
+            <h2>Nos derniers voyages</h2>
+            <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
+            <div class="voyage_home">
 
-                                <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
-                                    <div class="bloc_image">
-                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
-                                    </div>
-                                    <div class="rotate_description">
-                                        <div class="bloc_description">
-                                            <div class="titre"><?php echo $v->titre; ?></div>
-                                            <div class="description"><?php echo tronque($v->phrase_accroche, 300); ?></div>
-                                            <div class="voir_plus">Plus d'infos ></div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+            <?php if(isset($erreur)) echo "<div class='erreur'>" . $erreur . "</div>"; ?>
 
-                            <div class="separateur_article"></div>
-                            <?php
-                            $id = $v->vId;
-                        }
-                    }
-                    ?>
-                    <div class="clear"></div>
-                    <div class="pagination">
-                        <?php echo $this->pagination->create_links(); ?>
-                    </div>
+            <?php if (isset($nomContinent)): ?>
+                <div class="floarLeft">
+                    <a href="<?php echo base_url('voyage/carnet/voyage') ?>">
+                        Retour à tous les voyages
+                    </a>
                 </div>
+                <div class="floarRight">
+                    Page filtrer par : <?php echo $nomContinent[0]->name ?> 
+                </div>
+                <div class="clear"></div>
+            <?php endif; ?>
+
+                <ul>
+                    <?php $i = 0; $id = 0; ?>
+                    <?php foreach ($voyages as $v): ?>
+                        <?php if ($id != $v->vId): ?>
+                            <?php $i++; ?>
+                            <li class="voyage <?php if(($i % 2) == 0) echo 'right'; ?>">
+                                <div class="bloc_image">
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>"><img src="<?php echo base_url(''); ?>media/produit/image_slider/aze~~~~92f3072ea71470c6986bed95d0e4ecdc.jpg" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" /></a>
+                                </div>
+                                <div class="bloc_bottom">
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">Voir<br><span>le voyage</span></a>
+                                    <p class="titre"><?php echo $v->titre; ?></p>
+                                    <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
+                                </div>
+                            </li>
+                            <?php $id = $v->vId; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
             </div>
-            <div class="separateur_article"></div>
-            <div class="clear"></div>
+        </div>
+
+        <div class="pagination">
+            <?php echo $this->pagination->create_links(); ?>
         </div>
     </div>
+
+
+    <div class="clear"></div>
 </div>
 <div class="clear"></div>

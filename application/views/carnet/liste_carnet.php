@@ -3,31 +3,26 @@
 <script type="text/javascript" src ="<?php echo asset_url(''); ?>librairie/js/fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link href="<?php echo asset_url(''); ?>librairie/css/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" rel="stylesheet"/>
 
-<div class="fiche_produit">	
-    <div class="contenu_onglet">
-        <div class="content liste_carnet">
-            <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
-                <div class="contenu_article_suivant">
-                    <div class="entete">
-                        <div class="titre">Carnets de voyage</div>
-                        <div class="description">Visitez et voyagez avec d'autres personnes.</div>
-                        <div class="cercleGauche"></div>
-                        <div class="cercleDroit"></div>
-                    </div>
-                    <?php
-                    if ($carnetVoyage) {
-                        for ($i = 0; $i < count($carnetVoyage); $i++) {
-                            carnet_court_liste($carnetVoyage,$i);
-                        }
-                    }
-                    ?>
-                </div>
-                <div class="pagination">
-                    <?php echo $this->pagination->create_links(); ?>
-                </div>
-            </div>
-        </div>
+<div class="content listCarnet">
+    <div class="carnet_voyages">
+        <h2>Nos récents carnets</h2>
+        <p class="soush">Retrouvez les derniers récits de voyages créés par nos voyageurs</p>
+        <ul>
+            <?php
+            $y =1;
+            if ($carnetVoyage):
+                for ($i = 0; $i < count($carnetVoyage); $i++) {
+                    if($y == 4) $y=1;
+                    if($y == 1) carnet_first($carnetVoyage,$i);
+                    if($y == 2) carnet_second($carnetVoyage,$i);
+                    if($y == 3) carnet_third($carnetVoyage,$i);
+                    $y++;
+                }                               
+            endif;
+            ?>
+            <div class="clear"></div>
+        </ul>
     </div>
+    <div class="clear"></div>
+    &nbsp;
 </div>
-</div>
-<div class="clear"></div>

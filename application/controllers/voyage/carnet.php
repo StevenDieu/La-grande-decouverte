@@ -114,7 +114,7 @@ class Carnet extends CI_Controller {
                 $data['voyages'] = $this->Voyage->getAllVoyages($perPage, $page);
 
                 //et je signal qu'il n'y a pas de voyages pour le continent choisi
-                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné.<br/><br/> Voici la liste des voyages :";
+                $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
             }
         } else {
             //sinon j'affiche tous les voyages du continent sélectionné, avec une pagination

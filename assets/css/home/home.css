@@ -269,7 +269,7 @@ span.glyphicon.glyphicon-user {}
     float: left;
     position: relative;
     padding: 5px;
-    height: 440px;
+    height: 500px;
 }
 
 .actu_home ul li.uneActu .filtre{
@@ -294,11 +294,11 @@ span.glyphicon.glyphicon-user {}
 }
 
 .actu_home ul li.uneActu .callbacks_nav.next{
-    background: url(../images/next.png)center center no-repeat;
+    background: url(../../images/next.png)center center no-repeat;
 }
 
 .actu_home ul li.uneActu .callbacks_nav.prev{
-    background: url(../images/prev.png)center center no-repeat;
+    background: url(../../images/prev.png)center center no-repeat;
 }
 
 .actu_home ul li.uneActu .date{
@@ -331,7 +331,7 @@ span.glyphicon.glyphicon-user {}
 }
 
 .actu_home ul li.uneActu .callbacks_nav{
-    top: 32%;
+    top: 40%;
 }
 
 .actu_home ul li.uneActu .description p.titre{
