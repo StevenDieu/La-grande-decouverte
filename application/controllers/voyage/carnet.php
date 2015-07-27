@@ -95,7 +95,7 @@ class Carnet extends CI_Controller {
         $this->load->templateCarnet('/liste_carnet', $data);
     }
 
-    public function voyage() {
+   /* public function voyage() {
         $continent = $this->input->get('continent');
 
         $perPage = 6;   //nombres d'articles par page
@@ -134,6 +134,6 @@ class Carnet extends CI_Controller {
 
         //appel du template
         $this->load->templateVoyage('/voyage', $data);
-    }
+    }*/
 
 }

@@ -109,7 +109,7 @@
                     <?php endforeach; ?>
                     <div class="clear"></div>
                 </ul>
-                <a href="<?php echo base_url('voyage/carnet/voyage') ?>" class="other_voyage">Voir tous les voyages</a>
+                <a href="<?php echo base_url('voyage/index/liste') ?>" class="other_voyage">Voir tous les voyages</a>
                 <div class="clear"></div>
             </div>
         </div>

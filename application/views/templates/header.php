@@ -65,7 +65,7 @@
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <div class="allTextMenu">
-                        <a href="<?php echo base_url('voyage/carnet/voyage') ?>" class="textMenu">
+                        <a href="<?php echo base_url('voyage/index/liste') ?>" class="textMenu">
                             <div>
                                 <span>- </span>VOYAGES
                             </div>
