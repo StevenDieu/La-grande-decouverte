@@ -80,10 +80,8 @@
                 <section class="box-contextual-help membershipBenefits membership-benefits">   
                     <h1 class="membership-question">Membre de la Grande Découverte</h1>
                     <ul class="membership-benefits-list">
-                        <li class="membership-benefit-shipping"><span class="icon"></span><span class="text">Always free shipping on all orders</span></li>
-                        <li class="membership-benefit-offers"><span class="icon"></span><span class="text">Special offers in-store and online</span></li>
-                        <li class="membership-benefit-invites"><span class="icon"></span><span class="text">Invitations to special store events</span></li><li class="membership-benefit-previews"><span class="icon">&nbsp;</span><span class="text">Exclusive previews of new collections</span></li>
-                        <li class="membership-benefit-newsletter"><span class="icon"></span><span class="text">Newsletter featuring the latest G-Star collections</span></li>
+                        <li class="membership-benefit-shipping"><span class="icon"></span><span class="text">Explorez le monde grâce à notre sélection de voyage.</span></li>
+                        <li class="membership-benefit-offers"><span class="icon"></span><span class="text">Créez vos récits de voyage grâce aux carnets de voyage.</span></li>
                     </ul>
                 </section>
             </aside>
