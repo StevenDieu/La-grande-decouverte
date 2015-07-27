@@ -96,7 +96,7 @@
                             <?php $i++; ?>
                             <li class="voyage <?php if(($i % 2) == 0) echo 'right'; ?>">
                                 <div class="bloc_image">
-                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>"><img src="<?php echo base_url(''); ?>media/produit/image_slider/aze~~~~92f3072ea71470c6986bed95d0e4ecdc.jpg" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" /></a>
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>"><img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" /></a>
                                 </div>
                                 <div class="bloc_bottom">
                                     <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">Voir<br><span>le voyage</span></a>
