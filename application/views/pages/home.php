@@ -172,6 +172,16 @@
                                     <?php if ($actualite->img3): ?><li><?php echo '<img src="' . base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3 . '"'; ?></li><?php endif; ?>
                                 </ul>
                                 
+                                 <div class="reseau">
+                                        <ul>
+                                            <li class="gplus"><a href="#"></a></li>
+                                            <li class="facebook"><a href="#"></a></li>
+                                            <li class="twitter"><a href="#"></a></li>
+                                            <li class="link"><a href="#"></a></li>
+                                            <li class="pinte"><a href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                    
                                 <script type="text/javascript">
                                     initialiseResponsiveSilide('#slider<?php echo $i ?>');
                                 </script>
