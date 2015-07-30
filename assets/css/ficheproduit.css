@@ -524,14 +524,14 @@ span.fleche{
     text-transform: uppercase;
     text-decoration: none;
     font-family: 'NewCicleGordita';
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 100;
     color: #006695;
 }
 
 .onglet.active a,.onglet:hover a{
     font-family: 'NewCicleGordita'!important;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 500 !important;
     color: #0A1E39 !important;
 }
@@ -1088,12 +1088,12 @@ span.fleche{
     right: 8px;
     bottom: 8px;
     width: 225px;
-    font-size: 23px;
+    font-size: 18px;
     line-height: 36px;
     font-family: 'NewCicleGordita';
     text-transform: uppercase;
     text-align: left;
-    padding-left: 18px;
+    padding-left: 56px;
 }
 
 .slider_bot{

@@ -836,7 +836,7 @@ span.glyphicon.glyphicon-user {}
             }
 
             .content .actualites .uneActu .reseau ul li.pinte a{
-                background: url(..././images/listeActu/pinterest11.png) center center no-repeat;
+                background: url(../../images/listeActu/pinterest11.png) center center no-repeat;
             }
 
             .content .actualites .uneActu .reseau ul li.pinte:hover a{
