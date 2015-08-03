@@ -21,6 +21,19 @@ function btn_file() {
     });
 }
 
+function message(url, message) {
+    $.ajax({
+        type: "post",
+        url: url,
+        data: "message=" + message,
+        success: function (t) {
+            $(".alertType").stop(true);
+            $(".alertType").show("0");
+            $(".alertType").html(t);
+            $(".alertType").delay("2000").hide("0");
+        }});
+}
+
 $(document).ready(function () {
 
     btn_file();

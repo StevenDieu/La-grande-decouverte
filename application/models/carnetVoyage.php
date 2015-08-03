@@ -157,9 +157,37 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getCarnetVoyages() {
-        $this->db->select("id, titre,prive");
+        $this->db->select("id, titre, prive");
         $this->db->from('carnetvoyage');
         $this->db->where("id_utilisateur", $this->id_utilisateur);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getAllCarnetVoyagesVisibleBO() {
+        $this->db->select("cv.id, cv.titre");
+        $this->db->from('carnetvoyage as cv');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getAllCarnetVoyagesNotVisibleBO() {
+        $this->db->select("cv.id, cv.titre");
+        $this->db->from('carnetvoyage as cv');
+        $this->db->join('ficheVoyage AS fv', 'cv.id = fv.id_carnetvoyage');
+        $this->db->where("visible", 0);
 
         $query = $this->db->get();
 

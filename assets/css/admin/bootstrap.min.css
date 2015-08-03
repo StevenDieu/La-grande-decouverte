@@ -525,6 +525,7 @@ legend {
 	color: #333333;
 	border: 0;
 	border-bottom: 1px solid #eee;
+	text-align: center;      font-size: 31px;      padding-top: 15px;      padding-bottom: 6px;
 }
 legend small {
 	font-size: 13.5px;

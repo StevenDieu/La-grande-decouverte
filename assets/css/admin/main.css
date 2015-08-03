@@ -10,10 +10,6 @@ form#add-travel{
 }
 
 form#add-travel legend {
-    text-align: center;
-    font-size: 31px;
-    padding-top: 15px;
-    padding-bottom: 6px;
 }
 
 
@@ -231,8 +227,7 @@ div#myModal {}
 
 .blockPictoVoyage{
     float: left;
-    cursor: pointer
-        ;
+    cursor: pointer;
     position: relative;
 }
 
@@ -337,4 +332,25 @@ textarea.failed{
 .apercu_image{
     max-width: 100%;    
     max-height: 335px;
+}
+
+.icon_click{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+span.validate .icon-remove {
+    color: #D13023;
+}
+
+span.validate .icon-ok {
+    color: #166500;
+}
+
+span.validate .spinneur img {
+    width: 24px;
+}
+
+.action_validate img {
+    width: 24px;
 }

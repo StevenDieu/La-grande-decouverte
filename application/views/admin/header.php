@@ -51,6 +51,7 @@
         <script type="text/javascript">
             var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
             var urlLittleSpinneur = '<?php echo asset_url() . "images/ajax-loader.gif"; ?>';
+            var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
         </script>
 
     </head>

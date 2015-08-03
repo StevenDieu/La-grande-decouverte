@@ -26,7 +26,7 @@ Class Article extends CI_Model {
             'id_carnetvoyage' => $this->id_carnetvoyage,
             'visible' => $this->visible,
             'id_utilisateur' => $this->id_utilisateur
-            );
+        );
         $this->db->insert('fichevoyage', $data);
         $this->id = $this->db->insert_id();
     }
@@ -55,7 +55,18 @@ Class Article extends CI_Model {
         );
         $this->db->where('id', $this->id);
         $this->db->update('fichevoyage', $data);
-        return true;
+    }
+
+    function setFicheVisible() {
+        $data = array(
+            'visible' => $this->visible
+        );
+        $this->db->where('id', $this->id);
+        if($this->db->update('fichevoyage', $data) == 1){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     function getArticle() {
@@ -98,6 +109,19 @@ Class Article extends CI_Model {
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getAllArticle() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id_carnetvoyage', $this->id_carnetvoyage);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
             return $query->result();
         } else {
             return false;

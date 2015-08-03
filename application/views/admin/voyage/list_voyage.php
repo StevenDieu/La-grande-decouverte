@@ -45,7 +45,9 @@
                             </div>
                             <?php
                         } else {
-                            echo "Pas de voyage";
+                            ?>
+                        <br/>Pas de voyage<br/>
+                            <?php
                         }
                         ?>
                     </div>

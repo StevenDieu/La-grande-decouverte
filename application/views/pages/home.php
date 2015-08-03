@@ -82,7 +82,7 @@
             <div class="messageAlerteCarnet center">
                 <div class="alertType"><div class="alert alert-success fade in limiteMessage">
                         <strong>Succés !</strong> Vous êtes bien inscrit à la newsletter.</div></div>
-            </div>
+                </div>
             <br/><br/>
         <?php } ?>
         <div class="voyages">

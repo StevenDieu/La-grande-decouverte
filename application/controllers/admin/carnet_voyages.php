@@ -7,27 +7,42 @@ if (!defined('BASEPATH'))
 class Carnet_voyages extends CI_Controller {
 
     function __construct() {
+        parent::__construct();
         $this->load->helper(array('form'));
         $this->load->model('carnetVoyage');
-        parent::__construct();
+        $this->load->model('article');
         if (!$this->session->userdata('logged_admin')) {
             redirect('admin/index/connexion', 'refresh');
         }
     }
 
-    public function edit() {
+    public function liste() {
+        $data["carnetVoyagesVisibles"] = $this->carnetVoyage->getAllCarnetVoyagesVisibleBO();
+        $data["carnetVoyagesNotVisibles"] = $this->carnetVoyage->getAllCarnetVoyagesNotVisibleBO();
+        $this->load->templateAdmin('/carnet/list_carnet_voyage', $data);
+    }
+
+    public function list_fiche_voyage() {
         if (!$this->input->get('id')) {
             redirect('admin/carnet_voyages/liste', 'refresh');
         }
-        $this->carnetVoyage->id = $this->input->post('id');
-        $data["carnet_voyage"] = $this->carnet_voyage->getCarnetVoyage();
-        $this->load->helper(array('form'));
-        $this->load->templateAdmin('/carnet/edit_carnet_voyage', $data);
+        $data["adminJs"] = array("ficheVoyage/ficheVoyage");
+        $this->article->setId_carnetvoyage($this->input->get('id'));
+        $data["articles"] = $this->article->getAllArticle();
+        $this->load->templateAdmin('/ficheVoyage/list_fiche_voyage', $data);
     }
 
-    public function liste() {
-        $data["carnet_voyages"] = $this->carnet_voyage->getCarnetVoyages();
-        $this->load->templateAdmin('/carnet/list_carnet_voyage', $data);
+    public function visible() {
+        if (($this->input->post('id'))) {
+            $this->article->setId($this->input->post('id'));
+            $this->article->setVisible($this->input->post('visible'));
+            if ($this->article->setFicheVisible()) {
+                echo "1";
+                return;
+            }
+        }
+        echo "0";
+        return;
     }
 
 }
