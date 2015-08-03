@@ -20,7 +20,7 @@ class Customer extends CI_Controller {
         $crud = new grocery_CRUD();
         $crud->set_table('utilisateur');
         $crud->set_subject('Utilisateurs');
-        $crud->columns('id','nom','prenom','banni','code_postal');
+        $crud->columns('id','nom','prenom','banni');
         $crud->required_fields('nom','prenom','mail','description');
         $crud->add_fields('nom','prenom','mail','description','banni','password','cpassword');
         $crud->edit_fields('nom','prenom','mail','description','banni','password','cpassword','last_password');
@@ -32,11 +32,7 @@ class Customer extends CI_Controller {
         // vérif des champs mot de passe
         $crud->set_rules('password', 'password', 'callback_check_mdp');
         $crud->callback_before_update(array($this,'encrypt_password_callback'));
-        $crud->callback_before_insert(array($this,'encrypt_password_callback_insert'));
-
-        //relation table adresse
-        $crud->set_relation('idBilling','billing','code_postal');
-        
+        $crud->callback_before_insert(array($this,'encrypt_password_callback_insert'));        
 
         $crud->unique_fields('mail');
         $crud->unset_read();
