@@ -42,6 +42,7 @@ Class Order extends CI_Model {
         $this->db->set('taxe', $this->taxe);
         $this->db->set('id_voyage', $this->id_voyage);
         $this->db->set('id_info_voyage', $this->id_info_voyage);
+        $this->db->set('statut', $order);
 
         $this->db->insert('order');
 
@@ -75,6 +76,53 @@ Class Order extends CI_Model {
         } else {
             return false;
         }
+    }
+
+    function getOrders() {
+        $this->db->select('*');
+        $this->db->from('order');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getOrder() {
+        $this->db->select('*');
+        $this->db->from('order');
+        $this->db->where('id', $this->id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function editStatut(){
+        $data = array(
+               'statut' => $this->statut
+            );
+
+        $this->db->where('id', $this->id);
+        $this->db->update('order', $data); 
+
+    }
+
+    function delete(){
+        $this->db->where('id', $this->id);
+        $this->db->delete('order');
+
+        $this->db->where('numCommande', $this->id);
+        $this->db->delete('order');
+
+        return true;
     }
 
     function getId() {
@@ -135,6 +183,10 @@ Class Order extends CI_Model {
 
     function setDate($date) {
         $this->date = $date;
+    }
+
+    function setStatut($statut) {
+        $this->statut = $statut;
     }
 
 }

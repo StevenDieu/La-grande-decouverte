@@ -32,6 +32,20 @@ Class Participant extends CI_Model {
         return $this->db->insert_id();
     }
 
+    function get($id){
+        $this->db->select('*');
+        $this->db->from('participants');
+        $this->db->where('id_order', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }
 
 ?>

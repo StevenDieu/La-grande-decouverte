@@ -25,7 +25,7 @@
 			</tr>
 		</thead>		
 		<tbody>
-<?php foreach($list as $num_row => $row){ ?>        
+<?php foreach($list as $num_row => $row){ ?>  
 		<tr  <?php if($num_row % 2 == 1){?>class="erow"<?php }?>>
 			<?php foreach($columns as $column){?>
 			<td width='<?php echo $column_width?>%' class='<?php if(isset($order_by[0]) &&  $column->field_name == $order_by[0]){?>sorted<?php }?>'>
@@ -41,7 +41,14 @@
                     	</a>
                     <?php }?>
                     <?php if(!$unset_edit){?>
-						<a href='<?php echo $row->edit_url?>' title='<?php echo $this->l('list_edit')?> <?php echo $subject?>' class="edit_button"><span class='edit-icon'></span></a>
+                    <?php 
+                    	if( strstr($row->edit_url, 'orders')) { 
+                    		$url = base_url('').'admin/orders/edit?id='.$row->numCommande;
+						}else{
+							$url = $row->edit_url;
+						}
+                    ?>
+						<a href='<?php echo $url; ?>' title='<?php echo $this->l('list_edit')?> <?php echo $subject?>' class="edit_button"><span class='edit-icon'></span></a>
 					<?php }?>
 					<?php if(!$unset_read){?>
 						<a href='<?php echo $row->read_url?>' title='<?php echo $this->l('list_view')?> <?php echo $subject?>' class="edit_button"><span class='read-icon'></span></a>

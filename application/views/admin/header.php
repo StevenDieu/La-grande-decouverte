@@ -85,6 +85,12 @@
                                 <span>Tableau de bord</span> 
                             </a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url('admin/orders/liste'); ?>">
+                                <i class="icon-home"></i>
+                                <span>Commandes</span> 
+                            </a>
+                        </li>
                         <li class="dropdown">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> 
                                 <i class="icon-road"></i>
