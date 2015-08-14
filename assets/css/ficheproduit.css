@@ -1252,7 +1252,6 @@ span.fleche{
 .top_bloc .topLeft{
     width: 70%;
     float: left;
-    text-align: justify;
     max-width: 400px;
     overflow: hidden;
 }
@@ -1395,7 +1394,6 @@ span.fleche{
 
 .fiche_produit .infoPersoVoyage{
     width: 100%;
-    min-height: 200px;
     background-color: #f5f5f5;
 }
 

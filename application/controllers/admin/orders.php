@@ -20,6 +20,7 @@ class Orders extends CI_Controller {
         $this->load->model('orderGrid');
         $this->load->database();
         $this->load->helper('url');
+        $this->load->model('InfoVoyage');
         $this->load->library('grocery_CRUD');
     }
 
@@ -103,6 +104,9 @@ class Orders extends CI_Controller {
 
         $this->voyage->setId($data["order"][0]->id_voyage);
         $data["order"][0]->id_voyage = $this->voyage->getVoyage();
+
+        $this->InfoVoyage->setId($data["order"][0]->id_info_voyage);
+        $data["order"][0]->id_info_voyage = $this->InfoVoyage->getInfoVoyageById();
 
         $data["order"][0]->nb_participant = $this->participant->get($id_voyage);
 

@@ -50,6 +50,13 @@
                     <div class="clear"></div>
 
                     <div class="bloc_commande parti">
+                        <h4>Voyage</h4>
+                        <p>Nom du voyage : <span><?php echo $order[0]->id_voyage[0]->titre ?></span></p>
+                        <p>Date de départ : <span><?php echo $order[0]->id_info_voyage[0]->date_depart ?></span></p>
+                        <p>Date d'arrivée : <span><?php echo $order[0]->id_info_voyage[0]->date_arrivee ?></span></p>
+                    </div>
+
+                    <div class="bloc_commande parti">
                         <h4>Liste des participants</h4>
                         <table>
                         <tr><th>Nom</th><th>Prénom</th><th>Date d'anniversaire</th><th>Commentaire</th></tr>

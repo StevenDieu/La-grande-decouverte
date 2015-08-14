@@ -294,7 +294,7 @@ class Cart extends CI_Controller {
             $participants = $this->input->post('participant');
         }
 
-        if ($billing["id"]) {
+        if (isset($billing["id"])) {
             //edit donnée billing
             $session_data = $this->session->userdata('logged_in');
             $user_id = $session_data['id'];

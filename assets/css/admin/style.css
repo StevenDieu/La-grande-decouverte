@@ -1421,4 +1421,59 @@ div.bloc_commande.totaux p{
 	text-align: right;
 }
 
+.container_dash{
+	width: 100%;
+	max-width: 1200px;
+	margin:auto;
+	border: 1px solid #ccc;
+	min-height: 200px;
+}
+
+.container_dash .bloc_commande.price{
+	min-height: 70px;
+	width: 38%;
+	clear: both;
+	margin-bottom: 0;
+}
+
+.container_dash .bloc_commande.price p{
+	padding-left: 0;
+	text-align: center;
+	font-weight: bold;
+	line-height: 40px;
+	font-size: 20px;
+}
+
+.container_dash .bloc_commande.price table{
+	font-size: 12px;
+	text-align: left;
+}
+
+.container_dash .bloc_commande.price table td,.container_dash .bloc_commande.price table th {
+	    border-width: 0 1px 1px 0;
+    border-color: #dadfe0;
+    border-style: solid;
+    padding-left: 5px;
+}
+
+.container_dash .bloc_commande.price table th{
+	line-height: 20px;
+}
+
+.container_dash .bloc_commande.price table tr.entete{
+	background: #CDCDCD !important;
+	color: #67767e;
+}
+
+.container_dash .bloc_commande.price table tr:nth-child(2n+1){background-color:#e4ecf5;} 
+
+
+.container_dash .bloc_commande.price table tr.ligne.hover{
+	background: #fcf5dd !important;
+	cursor: pointer;
+}
+
+
+
+
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Jeu 13 Août 2015 à 14:01
+-- Généré le :  Ven 14 Août 2015 à 15:10
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.5.17
 
@@ -71,14 +71,19 @@ CREATE TABLE `billing` (
   `fax` int(11) DEFAULT NULL,
   `id_departements` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `billing`
 --
 
 INSERT INTO `billing` (`id`, `nom`, `prenom`, `societe`, `email`, `adresse`, `complement_adresse`, `code_postal`, `ville`, `pays`, `telephone`, `fax`, `id_departements`, `id_utilisateur`) VALUES
-(5, 'k,', 'sqd', 'qsd', 'dss', 'qd', 'qds', 0, 'lens', 'France', 0, 0, 61, 1);
+(5, 'k,', 'sqd', 'qsd', 'dss', 'qd', 'qds', 0, 'lens', 'France', 0, 0, 61, 1),
+(6, 'Boussemart', 'Alexandre', '', 'alexandre.boussemart94@gmail.com', '92 rue de bretagne', '', 62300, 'lens', 'France', 2147483647, 0, 61, 2),
+(7, 'Boussemart', 'Alexandre', '', 'alexandre.boussemart94@gmail.com', '92 rue de bretagne', '', 62300, 'lens', 'France', 2147483647, 0, 61, 2),
+(8, 'Boussemart', 'Alexandre', '', 'alexandre.boussemart94@gmail.com', '92 rue de bretagne', '', 62300, 'lens', 'France', 2147483647, 0, 61, 2),
+(9, 'Boussemart', 'Alexandre', '', 'alexandre.boussemart94@gmail.com', '92 rue de bretagne', '', 62300, 'lens', 'France', 2147483647, 0, 61, 2),
+(10, 'Boussemart', 'Alexandre', '', 'alexandre.boussemart94@gmail.com', '92 rue de bretagne', '', 62300, 'lens', 'France', 2147483647, 0, 61, 2);
 
 -- --------------------------------------------------------
 
@@ -344,7 +349,7 @@ CREATE TABLE `grid_order` (
   `reste_a_payer` varchar(255) NOT NULL,
   `payment` varchar(255) NOT NULL,
   `statut` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `grid_order`
@@ -353,7 +358,9 @@ CREATE TABLE `grid_order` (
 INSERT INTO `grid_order` (`id`, `numCommande`, `date`, `nom`, `prenom`, `prix_total`, `reste_a_payer`, `payment`, `statut`) VALUES
 (14, 1, '2015-07-25 15:02:18', 'boussemart', 'alexandre', '10,02 €', '9,02 €', 'Paypal', 'Annulée'),
 (15, 2, '2015-07-25 17:34:32', 'boussemart', 'alexandre', '122,00 €', '109,80 €', 'Chèque', 'Accompte versé'),
-(16, 3, '2015-08-03 19:34:43', 'boussemart', 'alexandre', '122,00 €', '109,80 €', 'Paypal', 'Facturée');
+(16, 3, '2015-08-03 19:34:43', 'boussemart', 'alexandre', '122,00 €', '109,80 €', 'Paypal', 'Facturée'),
+(17, 4, '2015-08-13 14:10:16', 'boussemart', 'alexandre', '122,00 €', '109,80 €', 'Paypal', 'Reçu'),
+(18, 5, '2015-08-13 14:21:35', 'boussemart', 'alexandre', '122,00 €', '109,80 €', 'Paypal', 'Facturée');
 
 -- --------------------------------------------------------
 
@@ -442,7 +449,7 @@ CREATE TABLE `info_voyage` (
 INSERT INTO `info_voyage` (`id`, `date_depart`, `date_arrivee`, `depart`, `arrivee`, `formalite`, `asavoir`, `comprenant`, `place_dispo`, `prix`, `special_price`, `tva`, `id_voyage`) VALUES
 (58, '2015-06-01', '2015-06-30', 'aze', 'aze', 'ici sont les formalité ici sont les formalitéici sont les formalitéici sont les formalitéici sont les formalitéici sont les formalitéici sont les formalitéici sont les formalitéici sont les formalité', 'ici sont les à savoir ici sont les à savoir ici sont les à savoir ici sont les à savoir ici sont les à savoir ici sont les à savoir ici sont les à savoir ici sont les à savoir ici sont les à savoir ', 'ici c''est comprenant ici c''est comprenant ici c''est comprenant ici c''est comprenant ici c''est comprenant ici c''est comprenant ici c''est comprenant ', 11, 10.02, 0, 10.02, 25),
 (59, '2015-07-09', '2015-07-25', 'paris', 'bruxelles', 'FORMALITÉ', 'A SAVOIR', 'COMPRENANT', 12, 1200, 0, 20, 25),
-(60, '2015-07-12', '2015-07-22', 'deroule', 'deroule', '', '', '', 10, 122, 0, 1, 26);
+(60, '2015-07-12', '2015-07-22', 'deroule', 'deroule', '', '', '', 8, 122, 0, 1, 26);
 
 -- --------------------------------------------------------
 
@@ -481,7 +488,7 @@ CREATE TABLE `order` (
   `taxe` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `statut` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `order`
@@ -490,7 +497,9 @@ CREATE TABLE `order` (
 INSERT INTO `order` (`id`, `id_voyage`, `id_utilisateur`, `id_billing`, `id_info_voyage`, `nb_participant`, `payment`, `acompte`, `ip`, `prix_total`, `reste_a_payer`, `sous_total`, `taxe`, `date`, `statut`) VALUES
 (1, 25, 1, 5, 58, 1, 'PAYPAL', '1,00', '::1', '10,02', '9,02', '8,02', '2,00', '2015-07-25 15:02:18', 'Annulée'),
 (2, 26, 1, 5, 60, 1, 'CHECKMO', '12,20', '::1', '122,00', '109,80', '97,60', '24,40', '2015-07-25 17:34:32', 'Accompte versé'),
-(3, 26, 1, 5, 60, 1, 'PAYPAL', '12,20', '::1', '122,00', '109,80', '97,60', '24,40', '2015-08-03 19:34:43', 'Facturée');
+(3, 26, 1, 5, 60, 1, 'PAYPAL', '12,20', '::1', '122,00', '109,80', '97,60', '24,40', '2015-08-03 19:34:43', 'Facturée'),
+(4, 26, 2, 10, 60, 1, 'PAYPAL', '12,20', '::1', '122,00', '109,80', '97,60', '24,40', '2015-08-13 14:10:16', 'Reçu'),
+(5, 26, 2, 6, 60, 1, 'PAYPAL', '12,20', '::1', '102,00', '109,80', '97,60', '24,40', '2015-08-13 14:21:35', 'Facturée');
 
 -- --------------------------------------------------------
 
@@ -519,7 +528,7 @@ CREATE TABLE `participants` (
   `info` text,
   `dob` date NOT NULL,
   `id_order` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `participants`
@@ -528,7 +537,9 @@ CREATE TABLE `participants` (
 INSERT INTO `participants` (`id`, `nom`, `prenom`, `info`, `dob`, `id_order`) VALUES
 (1, 'xwc', 'qsd', '', '2015-07-18', 1),
 (2, 'ze', 'aze', '', '2015-07-03', 2),
-(3, 'qsd', 'xcw', '', '2015-08-07', 3);
+(3, 'qsd', 'xcw', '', '2015-08-07', 3),
+(4, 'boussemart', 'alexandre', 'informations complémentaire', '2015-08-22', 4),
+(5, 'bous', 'alex', '', '2015-08-03', 5);
 
 -- --------------------------------------------------------
 
@@ -585,6 +596,26 @@ INSERT INTO `picto_voyage` (`id_picto`, `id_voyage`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `product_view`
+--
+
+CREATE TABLE `product_view` (
+`id` bigint(20) unsigned NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `view` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `product_view`
+--
+
+INSERT INTO `product_view` (`id`, `product_id`, `view`) VALUES
+(1, 25, 4),
+(2, 26, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user_admin`
 --
 
@@ -621,14 +652,15 @@ CREATE TABLE `utilisateur` (
   `token` varchar(45) DEFAULT NULL,
   `lien_image` text,
   `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `password`, `mail`, `description`, `ip`, `banni`, `token`, `lien_image`, `date_inscription`) VALUES
-(1, 'boussemart', 'alexandre', '0a5b3913cbc9a9092311630e869b4442', 'alexandre.boussemart94@gmail.com', 'des,', '::1', 0, '', NULL, '2015-07-20 22:00:00');
+(1, 'boussemart', 'alexandre', '0a5b3913cbc9a9092311630e869b4442', 'alexandre.boussemart94@gmail.com', 'des,', '::1', 0, '', NULL, '2015-07-20 22:00:00'),
+(2, 'boussemart', 'alexandre', '0c30a5e34af69174e0013eef7ed231bb', 'alexb@adexos.fr', NULL, '::1', 0, '', NULL, '2015-08-12 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -777,6 +809,12 @@ ALTER TABLE `picto_voyage`
  ADD PRIMARY KEY (`id_picto`,`id_voyage`), ADD KEY `fk_picto_has_voyage_voyage1_idx` (`id_voyage`), ADD KEY `fk_picto_has_voyage_picto1_idx` (`id_picto`);
 
 --
+-- Index pour la table `product_view`
+--
+ALTER TABLE `product_view`
+ ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Index pour la table `user_admin`
 --
 ALTER TABLE `user_admin`
@@ -807,7 +845,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 -- AUTO_INCREMENT pour la table `billing`
 --
 ALTER TABLE `billing`
-MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `carnetvoyage`
 --
@@ -847,7 +885,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT pour la table `grid_order`
 --
 ALTER TABLE `grid_order`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `images`
 --
@@ -872,7 +910,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT pour la table `order`
 --
 ALTER TABLE `order`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `page_cms`
 --
@@ -882,12 +920,17 @@ MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT pour la table `participants`
 --
 ALTER TABLE `participants`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `pays`
 --
 ALTER TABLE `pays`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+--
+-- AUTO_INCREMENT pour la table `product_view`
+--
+ALTER TABLE `product_view`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `user_admin`
 --
@@ -897,7 +940,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `voyage`
 --

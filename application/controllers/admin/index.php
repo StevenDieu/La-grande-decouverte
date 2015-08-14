@@ -61,7 +61,22 @@ class Index extends CI_Controller {
         if ($this->session->userdata('logged_admin')) {
             $session_data = $this->session->userdata('logged_admin');
             $data['username'] = $session_data['username'];
+            
+
+            //chargement de toutes les données du dashboard
+            $this->load->model('order');
+            $this->load->model('user');
+            $data['somme'] = $this->order->getSum();
+            $data['moyenne'] = $this->order->getMoyenne();
+            $data['order_last'] = $this->order->getLastOrder();
+
+            foreach ($data['order_last'] as $order) {
+                $this->user->setId($order->id_utilisateur);
+                $order->id_utilisateur = $this->user->get();
+            }
+
             $this->load->templateAdmin('dashboard', $data);
+
         } else {
             redirect('admin/index/connexion', 'refresh');
         }

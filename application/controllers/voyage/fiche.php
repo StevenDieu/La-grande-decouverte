@@ -30,6 +30,22 @@ class Fiche extends CI_Controller {
             redirect('pages/index/', 'refresh');
         }
 
+        $this->load->model('productView');
+        $this->productView->setProductId($this->input->get('id'));
+
+        $view = $this->productView->getByProduct();
+
+        if($view)
+        {
+            $this->productView->setView($view[0]->view +1);
+            $this->productView->edit();
+        }
+        else
+        {
+            $this->productView->add();
+        }
+
+
         $this->id_voyage = $this->input->get('id');
 
         $this->voyage->setId($this->id_voyage);

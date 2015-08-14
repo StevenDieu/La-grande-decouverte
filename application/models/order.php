@@ -42,7 +42,7 @@ Class Order extends CI_Model {
         $this->db->set('taxe', $this->taxe);
         $this->db->set('id_voyage', $this->id_voyage);
         $this->db->set('id_info_voyage', $this->id_info_voyage);
-        $this->db->set('statut', $order);
+        $this->db->set('statut', 'Reçu');
 
         $this->db->insert('order');
 
@@ -187,6 +187,50 @@ Class Order extends CI_Model {
 
     function setStatut($statut) {
         $this->statut = $statut;
+    }
+
+    function getSum(){
+        $this->db->select_sum('prix_total');
+        $this->db->from('order');
+        $this->db->where('statut !=', 'Annulée');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getMoyenne(){
+        $this->db->select_avg('prix_total');
+        $this->db->from('order');
+        $this->db->where('statut !=', 'Annulée');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getLastOrder(){
+        $this->db->select('*');
+        $this->db->from('order');
+        $this->db->where('statut !=', 'Annulée');
+        $this->db->order_by("id", "desc");
+        $this->db->limit(5);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
     }
 
 }
