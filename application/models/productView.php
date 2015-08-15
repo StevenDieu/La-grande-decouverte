@@ -63,6 +63,21 @@ Class ProductView extends CI_Model {
         return true;
     }
 
+    function getMoreView(){
+        $this->db->select('*');
+        $this->db->from('product_view');
+        $this->db->order_by("view", "desc");
+        $this->db->limit(5);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }
 
 ?>

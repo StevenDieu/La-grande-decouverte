@@ -66,13 +66,27 @@ class Index extends CI_Controller {
             //chargement de toutes les données du dashboard
             $this->load->model('order');
             $this->load->model('user');
+            $this->load->model('productView');
+            $this->load->model('voyage');
             $data['somme'] = $this->order->getSum();
             $data['moyenne'] = $this->order->getMoyenne();
             $data['order_last'] = $this->order->getLastOrder();
+            $data['view'] = $this->productView->getMoreView();
+            $data['users'] = $this->user->getLastUser();
 
             foreach ($data['order_last'] as $order) {
                 $this->user->setId($order->id_utilisateur);
                 $order->id_utilisateur = $this->user->get();
+            }
+
+            foreach ($data['view'] as $view) {
+                $this->voyage->setId($view->product_id);
+                $view->product_id = $this->voyage->getVoyage();
+            }
+
+            foreach ($data['users'] as $user) {
+                $this->order->setId_utilisateur($user->id);
+                $user->description = $this->order->countOrderByCustomer(); 
             }
 
             $this->load->templateAdmin('dashboard', $data);

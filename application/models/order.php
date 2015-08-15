@@ -233,4 +233,15 @@ Class Order extends CI_Model {
         }
     }
 
+    function countOrderByCustomer(){
+        $this->db->select('id');
+        $this->db->distinct();
+        $this->db->from('order');
+        $this->db->where('statut !=', 'Annulée');
+        $this->db->where('id_utilisateur', $this->id_utilisateur);
+        $query = $this->db->get();
+        return $query->num_rows();
+
+    }
+
 }

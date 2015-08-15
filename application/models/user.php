@@ -262,4 +262,19 @@ Class User extends CI_Model {
         $this->date_inscription = $date_inscription;
     }
 
+    function getLastUser(){
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->order_by("id", "desc");
+        $this->db->limit(5);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }

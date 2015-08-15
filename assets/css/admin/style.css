@@ -1427,16 +1427,18 @@ div.bloc_commande.totaux p{
 	margin:auto;
 	border: 1px solid #ccc;
 	min-height: 200px;
+	padding-top: 15px;
 }
 
-.container_dash .bloc_commande.price{
+.container_dash .bloc_commande{
 	min-height: 70px;
-	width: 38%;
-	clear: both;
-	margin-bottom: 0;
+	width: 95%;
+	margin: auto;
+	margin-bottom: 15px;
+	float: none;
 }
 
-.container_dash .bloc_commande.price p{
+.container_dash .bloc_commande p{
 	padding-left: 0;
 	text-align: center;
 	font-weight: bold;
@@ -1444,36 +1446,57 @@ div.bloc_commande.totaux p{
 	font-size: 20px;
 }
 
-.container_dash .bloc_commande.price table{
+.container_dash .bloc_commande table{
 	font-size: 12px;
 	text-align: left;
 }
 
-.container_dash .bloc_commande.price table td,.container_dash .bloc_commande.price table th {
+.container_dash .bloc_commande table td,.container_dash .bloc_commande table th {
 	    border-width: 0 1px 1px 0;
     border-color: #dadfe0;
     border-style: solid;
     padding-left: 5px;
 }
 
-.container_dash .bloc_commande.price table th{
+.container_dash .bloc_commande table th{
 	line-height: 20px;
 }
 
-.container_dash .bloc_commande.price table tr.entete{
+.container_dash .bloc_commande table tr.entete{
 	background: #CDCDCD !important;
 	color: #67767e;
 }
 
-.container_dash .bloc_commande.price table tr:nth-child(2n+1){background-color:#e4ecf5;} 
+.container_dash .bloc_commande table tr:nth-child(2n+1){background-color:#e4ecf5;} 
 
 
-.container_dash .bloc_commande.price table tr.ligne.hover{
+.container_dash .bloc_commande table tr.ligne.hover{
 	background: #fcf5dd !important;
 	cursor: pointer;
 }
 
 
+.dash_left{
+	width: 40%;
+	float: left;
+}
+
+
+.dash_right{
+	width: 60%;
+	float: right;
+}
+
+.dash_right .bloc_commande{
+	float: none;
+	width: 95%;
+	margin: auto;
+	margin-top: 0;
+}
+
+.dash_right table{
+	width: 100%; 
+}
 
 
 
