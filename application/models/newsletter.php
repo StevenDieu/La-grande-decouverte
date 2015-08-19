@@ -99,6 +99,21 @@ Class Newsletter extends CI_Model {
             return false;
         }
     }
+
+    function getLastNewsletter(){
+        $this->db->select('*');
+        $this->db->from('newsletter');
+        $this->db->order_by("id", "desc");
+        $this->db->limit(5);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

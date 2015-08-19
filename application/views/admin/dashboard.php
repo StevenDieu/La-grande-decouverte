@@ -34,21 +34,42 @@
 
 		<div class="dash_right">
 	        <div class="bloc_commande">
-	            <h4>Moyenne des commandes</h4>
+
+	        	<div class="panel-body">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+
+
 	            <ul class="nav nav-tabs">
-				  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+				  <li class="active"><a data-toggle="tab" href="#home">Meilleures ventes</a></li>
 				  <li><a data-toggle="tab" href="#menu1">Produits les plus consultés</a></li>
 				  <li><a data-toggle="tab" href="#menu2">Nouveaux clients</a></li>
-				  <li><a data-toggle="tab" href="#menu3">Derniers abonnés à la newsletter</a></li>
+				  <li><a data-toggle="tab" href="#menu3">Derniers abonnés</a></li>
 				</ul>
 
 				<div class="tab-content">
 				  <div id="home" class="tab-pane fade in active">
-				    <h3>HOME</h3>
-				    <p>Some content.</p>
+				    <?php if($view): ?>
+				     <table>
+		            	<tr class="entete">
+		            		<th>Nom du produit</th>
+		            		<th>Prix</th>
+		            		<th>Quantité commandée</th>
+		            	</tr>
+		            	<?php foreach ($view as $v): ?>
+		            		<tr class="ligne" data-id="<?php echo $v->product_id[0]->id; ?>">
+			            		<td><?php echo $v->product_id[0]->titre; ?></td>
+			            		<td><?php echo $v->product_id[0]->duree; ?> jours</td>
+			            		<td><?php echo $v->view; ?></td>
+			            	</tr>
+
+		            	<?php endforeach; ?>
+		             </table>
+		            <?php endif; ?>
 				  </div>
 				  <div id="menu1" class="tab-pane fade">
-				    <table>
+				  	<?php if($view): ?>
+				     <table>
 		            	<tr class="entete">
 		            		<th>Nom du produit</th>
 		            		<th>Durée</th>
@@ -62,10 +83,12 @@
 			            	</tr>
 
 		            	<?php endforeach; ?>
-		            </table>
+		             </table>
+		            <?php endif; ?>
 				  </div>
 				  <div id="menu2" class="tab-pane fade">
-				  	<table>
+				  	<?php if($users): ?>
+				  	 <table>
 				    	<tr class="entete">
 		            		<th>Nom du client</th>
 		            		<th>Date d'inscription</th>
@@ -79,12 +102,25 @@
 			            		<td><?php echo $u->mail; ?></td>
 			            		<td><?php echo $u->description ?></td>
 			            	</tr>
-
 		            	<?php endforeach; ?>
-		            </table>
+		             </table>
+		            <?php endif; ?>
 				  </div>
 				  <div id="menu3" class="tab-pane fade">
-				  test
+				  	<?php if($newsletter): ?>
+				     <table>
+				    	<tr class="entete">
+		            		<th>Adresse mail</th>
+		            		<th>Date d'inscription</th>
+		            	</tr>
+		            	<?php foreach ($newsletter as $n): ?>
+		            		<tr class="ligne" data-id="<?php echo $n->id; ?>">
+			            		<td><?php echo $n->mail; ?></td>
+			            		<td><?php echo $n->date_inscription ?></td>
+			            	</tr>
+		            	<?php endforeach; ?>
+		             </table>
+		            <?php endif; ?>
 				  </div>
 				</div>
 	        </div>
@@ -134,5 +170,51 @@
 		var id = $(this).data('id');
 	  	window.location = "<?php echo base_url() ?>admin/customer/liste/edit/"+id;
 	});
+
+	$( "#menu3 tr.ligne" ).click(function() {
+		var id = $(this).data('id');
+	  	window.location = "<?php echo base_url() ?>admin/newsletters/liste/read/"+id;
+	});
+
+	            Morris.Bar({
+                element: 'morris-bar-chart',
+                data: [{
+                    y: '2006',
+                    a: 100,
+                    b: 90
+                }, {
+                    y: '2007',
+                    a: 75,
+                    b: 65
+                }, {
+                    y: '2008',
+                    a: 50,
+                    b: 40
+                }, {
+                    y: '2009',
+                    a: 75,
+                    b: 65
+                }, {
+                    y: '2010',
+                    a: 50,
+                    b: 40
+                }, {
+                    y: '2011',
+                    a: 75,
+                    b: 65
+                }, {
+                    y: '2012',
+                    a: 100,
+                    b: 90
+                }],
+                xkey: 'y',
+                ykeys: ['a', 'b'],
+                labels: ['Series A', 'Series B'],
+                hideHover: 'auto',
+                resize: true
+            });
 	
 </script>
+
+
+

@@ -1485,6 +1485,7 @@ div.bloc_commande.totaux p{
 .dash_right{
 	width: 60%;
 	float: right;
+
 }
 
 .dash_right .bloc_commande{
@@ -1492,6 +1493,8 @@ div.bloc_commande.totaux p{
 	width: 95%;
 	margin: auto;
 	margin-top: 0;
+		padding: 15px;
+	box-sizing: border-box;
 }
 
 .dash_right table{

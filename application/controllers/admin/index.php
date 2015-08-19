@@ -68,11 +68,13 @@ class Index extends CI_Controller {
             $this->load->model('user');
             $this->load->model('productView');
             $this->load->model('voyage');
+            $this->load->model('newsletter');
             $data['somme'] = $this->order->getSum();
             $data['moyenne'] = $this->order->getMoyenne();
             $data['order_last'] = $this->order->getLastOrder();
             $data['view'] = $this->productView->getMoreView();
             $data['users'] = $this->user->getLastUser();
+            $data['newsletter'] = $this->newsletter->getLastNewsletter();
 
             foreach ($data['order_last'] as $order) {
                 $this->user->setId($order->id_utilisateur);
