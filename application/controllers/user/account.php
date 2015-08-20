@@ -16,14 +16,17 @@ class Account extends CI_Controller {
             $id = $this->session->userdata('logged_in')['id'];
             $this->load->model('user');
             $this->user->setId($id);
-        
+
             $data["allCss"] = array("account");
+
             $data["user"] = $this->user->get();
             $data["alljs"] = array("account");
             $data["librairieJs"] = array("jquery.Jcrop.min");
             $data["librairieCss"] = array("jquery.Jcrop.min");
 
-            if($data["user"] == ''){
+            if ($data["user"] == '') {
+
+                die();
                 session_destroy();
                 redirect('pages/index', 'refresh');
             }
@@ -52,8 +55,10 @@ class Account extends CI_Controller {
         $this->user->setId($id);
         $data['user'] = $this->user->get();
         $this->load->helper(array('form'));
-        
-        if($data["user"] == ''){
+
+
+        if ($data["user"] == '') {
+
             session_destroy();
             redirect('pages/index', 'refresh');
         }
@@ -71,6 +76,29 @@ class Account extends CI_Controller {
             $this->load->helper(array('form'));
             $this->load->templateUser('page_inscription', $data);
         }
+    }
+
+    function motDePasseOublie() {
+        $this->load->library('form_validation');
+        $this->load->templateUser('motDePasseOublie');
+    }
+
+    function motDePasseOublieMail() {
+        $this->load->model('user');
+        if (isset($_GET["token"]) && isset($_GET["mail"])) {
+            $this->user->setToken($_GET["token"]);
+            $this->user->setMail($_GET["mail"]);
+            if ($this->user->verif_token()) {
+                $data["mail"] = $_GET["mail"];
+                $data["token"] = $_GET["token"];
+                $this->load->templateUser('motDePasseOublieMail', $data);
+                return;
+            }
+            
+        }
+        $data["message"] = "Un problème est survenu veuillez recommencer...";
+        $this->load->templateUser('motDePasseOublieMail', $data);
+        return;
     }
 
 }

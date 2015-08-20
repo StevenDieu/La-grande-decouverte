@@ -13,6 +13,7 @@ Class CarnetVoyage extends CI_Model {
     private $id_voyage;
     private $id_utilisateur;
     private $prive;
+    private $token;
 
     function __construct() {
         parent::__construct();
@@ -22,7 +23,8 @@ Class CarnetVoyage extends CI_Model {
         $data = array(
             'titre' => $this->titre,
             'id_voyage' => $this->id_voyage,
-            'id_utilisateur' => $this->id_utilisateur
+            'id_utilisateur' => $this->id_utilisateur,
+            'token' => $this->token
         );
         $this->db->insert('carnetvoyage', $data);
         return $this->db->insert_id();
@@ -146,6 +148,7 @@ Class CarnetVoyage extends CI_Model {
         $this->db->select('*');
         $this->db->from('carnetvoyage');
         $this->db->where('id_voyage', $this->id_voyage);
+        $this->db->where("id_utilisateur", $this->id_utilisateur);
         $this->db->limit(1);
         $query = $this->db->get();
 
@@ -157,7 +160,7 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getCarnetVoyages() {
-        $this->db->select("id, titre, prive");
+        $this->db->select("*");
         $this->db->from('carnetvoyage');
         $this->db->where("id_utilisateur", $this->id_utilisateur);
 
@@ -171,8 +174,8 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getAllCarnetVoyagesVisibleBO() {
-        $this->db->select("cv.id, cv.titre");
-        $this->db->from('carnetvoyage as cv');
+        $this->db->select("*");
+        $this->db->from('carnetvoyage');
 
         $query = $this->db->get();
 
@@ -184,7 +187,7 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getAllCarnetVoyagesNotVisibleBO() {
-        $this->db->select("cv.id, cv.titre");
+        $this->db->select("cv.token, cv.id, cv.titre");
         $this->db->from('carnetvoyage as cv');
         $this->db->join('ficheVoyage AS fv', 'cv.id = fv.id_carnetvoyage');
         $this->db->where("visible", 0);
@@ -257,6 +260,14 @@ Class CarnetVoyage extends CI_Model {
 
     function setPrive($prive) {
         $this->prive = $prive;
+    }
+    
+    function setToken($token) {
+        $this->token = $token;
+    }
+
+    function getToken() {
+        return $this->token;
     }
 
 }

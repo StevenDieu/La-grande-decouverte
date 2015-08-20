@@ -1,6 +1,9 @@
 <script type="text/javascript">
     var confirmationDelete = "Etes vous sûre de vouloir supprimer cette valeur ?";
-    var urlVisibleFiche = '<?php echo base_url('admin/carnet_voyages/visible'); ?>';
+    var urlVisibleFiche = '<?php echo base_url('admin/model_carnet_voyage/visible'); ?>';
+    var urlDeleteArticle = '<?php echo base_url('admin/model_carnet_voyage/deleteArticle'); ?>'
+    var urlSucces = '<?php echo base_url('pages/messageSucces'); ?>';
+    var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
 </script>
 <div class="container">
     <div class="row">
@@ -10,7 +13,7 @@
                 <div class="widget-header">
                     <i class="icon-road"></i>
                     <h3>Fiches voyages</h3>
-                    <a href="<?php echo base_url('admin/carnet_voyages/liste'); ?>" id="bouton_header" role="button" class="btn" data-toggle="">Retour à la liste</a>
+                    <a href="<?php echo base_url('admin/carnet_voyages/liste'); ?>" id="bouton_header" role="button" class="btn" data-toggle="">Retour à la liste des carnets de voyages</a>
                 </div>
                 <div class="widget-content">
                     <div class="tabbable">
@@ -38,7 +41,7 @@
                                                     <?php echo $article->id; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?php echo base_url('admin/carnet/list_fiche_voyage') . '?id=' . $article->id; ?>"><?php echo $article->titre; ?></a>
+                                                    <a href="<?php echo base_url('/voyage/carnet/article') . '?id=' . $article->id; ?>" target="_BLANCK"><?php echo $article->titre; ?></a>
                                                 </td>
                                                 <td class="center action_validate validate<?= $article->id; ?>">
                                                     <?php if ($article->visible == 1) { ?>
@@ -48,10 +51,10 @@
                                                     <?php } ?>
                                                 </td>
                                                 <td class="center">
-                                                    <span class="icon_click" href="<?php echo base_url('admin/model_carnet_voyage/update') . '?id=' . $article->id; ?>"><span class="icon-pencil"></span></span>
+                                                    <a class="icon_click" href="<?php echo base_url('admin/carnet_voyages/edit_article') . '?idArticle=' . $article->id; ?>"><span class="icon-pencil"></span></a>
                                                 </td>
                                                 <td class="center">
-                                                    <a onclick="return confirm(confirmationDelete);" class="btn btn-danger" href="<?php echo base_url('admin/model_carnet_voyage/delete') . '?id=' . $article->id; ?>">X</a>
+                                                    <a onclick="return confirm(confirmationDelete);" class="btn btn-danger deleteArticle" data-id="<?= $article->id; ?>">X</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

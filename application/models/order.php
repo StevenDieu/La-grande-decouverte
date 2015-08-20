@@ -77,6 +77,7 @@ Class Order extends CI_Model {
             return false;
         }
     }
+    
 
     function getOrders() {
         $this->db->select('*');

@@ -37,6 +37,17 @@
             }
         }
         ?> 
+                
+                
+        <?php
+        if (isset($librairieCss)) {
+            foreach ($librairieCss as $css) {
+                ?>
+                <link href="<?php echo asset_url(''); ?>librairie/css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
+                <?php
+            }
+        }
+        ?> 
 
         <!-- JavaScript -->
         <script src="<?php echo asset_url('js/admin/jquery-1.7.2.min.js'); ?>"></script> 

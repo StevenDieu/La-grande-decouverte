@@ -46,7 +46,7 @@
                                 <a class="deleteCarnetVoyage" data-id="<?php echo $carnet_voyage->id; ?>"><span class="glyphicon glyphicon-trash"></span></a>
                             </td>
                             <td class="tdPetitGlaphi">
-                                <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnet_voyage->id; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                                <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnet_voyage->id . "&token=" . $carnet_voyage->token; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
                             </td>
                             <td class="tdPetitGlaphi">
                                 <?php if ($carnet_voyage->prive == 0) { ?>
@@ -77,6 +77,7 @@
                             <th class="tdMoyen">Editer article</th>
                             <th class="tdPetit">Supprimer</th>
                             <th class="tdPetit">Visuel</th>
+                            <th class="tdPetit">Prive</th>
                         </tr>
                     </table>
                 </div>

@@ -208,7 +208,7 @@ function add_image($idHtml) {
 }
 
 function carnet_first($carnetVoyages, $i) {
-?>
+    ?>
     <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
         <li class="carnet car1">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
@@ -227,7 +227,7 @@ function carnet_first($carnetVoyages, $i) {
 }
 
 function carnet_second($carnetVoyages, $i) {
-?>
+    ?>
     <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
         <li class="carnet car2">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
@@ -246,7 +246,7 @@ function carnet_second($carnetVoyages, $i) {
 }
 
 function carnet_third($carnetVoyages, $i) {
-?>
+    ?>
     <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
         <li class="carnet car3">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
@@ -262,7 +262,6 @@ function carnet_third($carnetVoyages, $i) {
         </li>
     </a>
     <?php
-
 }
 
 function carnet_long($carnetVoyages, $i) {
@@ -439,4 +438,14 @@ function nombre_caratere($tab, $tabTexte, $nombreARetirer) {
     $result = array("flag" => $flag, "error" => $texte_error);
 
     return $result;
+}
+
+function random($car) {
+    $string = "";
+    $chaine = "abcdefghijklmnpqrstuvwxy";
+    srand((double) microtime() * 1000000);
+    for ($i = 0; $i < $car; $i++) {
+        $string .= $chaine[rand() % strlen($chaine)];
+    }
+    return $string;
 }

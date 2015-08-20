@@ -14,6 +14,7 @@ Class User extends CI_Model {
     public $prenom;
     public $description;
     public $mail;
+    private $token;
     public $banni;
     public $lien_image;
     public $date_inscription;
@@ -60,9 +61,38 @@ Class User extends CI_Model {
         $this->db->limit(1);
 
         $query = $this->db->get();
-
         if ($query->num_rows() == 1) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    function generate_token() {
+        $token = random_string("alnum", 49);
+        $data = array(
+            'token' => $token,
+        );
+
+        $this->db->where('mail', $this->mail);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return $token;
+        } else {
+            return false;
+        }
+    }
+
+    function verif_token() {
+        $this->db->select('id');
+        $this->db->from('utilisateur');
+        $this->db->where('mail', $this->mail);
+        $this->db->where('token', $this->token);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
         } else {
             return false;
         }
@@ -218,6 +248,18 @@ Class User extends CI_Model {
         }
     }
 
+    function setMdpMail() {
+        $data = array(
+            'password' => MD5($this->password),
+        );
+        $this->db->where('mail', $this->mail);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function setImageProfil() {
         $data = array(
             'lien_image' => $this->lien_image,
@@ -262,7 +304,15 @@ Class User extends CI_Model {
         $this->date_inscription = $date_inscription;
     }
 
-    function getLastUser(){
+    function setToken($token) {
+        $this->token = $token;
+    }
+
+    function setBanni($banni) {
+        $this->banni = $banni;
+    }
+
+    function getLastUser() {
         $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->order_by("id", "desc");

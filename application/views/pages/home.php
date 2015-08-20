@@ -34,27 +34,27 @@
                     foreach ($continents as $continent) {
                         if ($continent->tag == "AFRIQUE") {
                             ?>
-                            <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Afrique</a></li>
+                            <li class="c1"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Afrique</a></li>
                             <?php
                         } else if ($continent->tag == "ASIE") {
                             ?>
-                            <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Asie</a></li>
+                            <li class="c2"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Asie</a></li>
                             <?php
                         } else if ($continent->tag == "OCEANIE") {
                             ?>
-                            <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Océanie</a></li>
+                            <li class="c3"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Océanie</a></li>
                             <?php
                         } else if ($continent->tag == "EUROPE") {
                             ?>
-                            <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Europe</a></li>
+                            <li class="c4"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Europe</a></li>
                             <?php
                         } else if ($continent->tag == "AMERIQUE_DU_NORD") {
                             ?>
-                            <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Amerique du nord</a></li>
+                            <li class="c5"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Amerique du nord</a></li>
                             <?php
                         } else if ($continent->tag == "AMERIQUE_DU_SUD") {
                             ?>
-                            <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Amerique du sud</a></li>
+                            <li class="c6"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Amerique du sud</a></li>
                             <?php
                         }
                     }
@@ -109,7 +109,7 @@
                     <?php endforeach; ?>
                     <div class="clear"></div>
                 </ul>
-                <a href="<?php echo base_url('voyage/index/liste') ?>" class="other_voyage">Voir tous les voyages</a>
+                <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
                 <div class="clear"></div>
             </div>
         </div>
@@ -133,7 +133,7 @@
                     } ?>
                     <div class="clear"></div>
                 </ul>
-                <a href="<?php echo base_url('voyage/carnet/liste') ?>" class="other_voyage">Voir tous les carnets</a>
+                <a href="<?php echo base_url('/carnetsdevoyage') ?>" class="other_voyage">Voir tous les carnets</a>
                 <div class="clear"></div>
             </div>
         <?php endif; ?>
@@ -163,7 +163,7 @@
                                 <div class="description desc<?php echo $i ?>">
                                     <p class="titre"><?php echo $actualite->titre; ?></p>
                                     <p class="description"><?php echo $actualite->description; ?></p>
-                                    <a href="<?php echo base_url('/actualite/index') ?>">Voir toutes l'actualité</a>
+                                    <a href="<?php echo base_url('/actualites') ?>">Voir toutes l'actualité</a>
                                 </div>
                                 
                                 <ul id="slider<?php echo $i ?>">

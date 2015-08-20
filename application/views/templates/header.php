@@ -65,17 +65,17 @@
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <div class="allTextMenu">
-                        <a href="<?php echo base_url('voyage/index/liste') ?>" class="textMenu">
+                        <a href="<?php echo base_url('/voyages') ?>" class="textMenu">
                             <div>
                                 <span>- </span>VOYAGES
                             </div>
                         </a>
-                        <a href="<?php echo base_url('voyage/carnet/liste') ?>" class="textMenu">
+                        <a href="<?php echo base_url('/carnetsdevoyage') ?>" class="textMenu">
                             <div>
                                 <span>- </span>CARNETS DE VOYAGES
                             </div>
                         </a>
-                        <a href="<?php echo base_url('/actualite/index') ?>" class="textMenu">
+                        <a href="<?php echo base_url('/actualites') ?>" class="textMenu">
                             <div>
                                 <span>- </span>ACTUALIT&Eacute;S
                             </div>
@@ -108,7 +108,7 @@
                                 </p>
                             </div>
                             <div class="connexion_footer">
-                                <a href="#"><span class="g">Mot de passe oubli&eacute; ?</span></a>
+                                <a href="<?php echo base_url('user/account/motDePasseOublie') ?>"><span class="g">Mot de passe oubli&eacute; ?</span></a>
                             </div>
                             <div>
                                 <input type="submit" name="submit" class="bblue w100 center" id="popup_input_connexion" value="Se connecter">

@@ -12,6 +12,7 @@ function chargementAjaxOnglet(block, tableauVariable) {
     if (block === "carnets") {
         url = urlCarnet;
     } else if (block === "comptes") {
+        
         url = urlCompte;
     } else if (block === "listArticle") {
         $(".carnets").addClass("actif");

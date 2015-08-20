@@ -21,6 +21,22 @@ function btn_file() {
     });
 }
 
+function couleurAlerteClass(element, css) {
+    $(element).stop(true);
+    $(element).addClass(css);
+    setTimeout(function () {
+        $(element).removeClass(css);
+    }, 5000);
+}
+
+function couleurAlerteCss(element, css, cssOrigine) {
+    $(element).stop(true);
+    $(element).css(css);
+    setTimeout(function () {
+        $(element).css(cssOrigine);
+    }, 5000);
+}
+
 function message(url, message) {
     $.ajax({
         type: "post",
