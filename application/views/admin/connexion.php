@@ -46,7 +46,7 @@
             <?php echo validation_errors(); ?>
             <?php
             $attributes = array('class' => 'form-signin');
-            echo form_open('admin/index/login', $attributes);
+            echo form_open('admin/connexion/login', $attributes);
             ?>
             <input type="text" class="form-control" placeholder="Identifant" id="username" name="username"autofocus>
             <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password">

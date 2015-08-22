@@ -107,12 +107,12 @@ span.fleche{
     display: block;
     position: relative;
     z-index: 1;
-    border: 0;
+    height: auto;
     min-width: 100%;
+    border: 0;
     min-height: 100%;
     max-width: 140%;
-    width: auto;
-    height: auto;
+    max-height: 140%;
 }
 
 .callbacks_nav {
@@ -853,11 +853,9 @@ span.fleche{
 }
 
 .carousel .miniature{
-    width: 32%;
     margin-right: 2%;
-    height: auto;
-    list-style-type:none;
-    float: left;
+    height: 700px;
+    list-style-type: none;
     vertical-align: middle;
     margin-bottom: 12px;
 }
@@ -1010,6 +1008,16 @@ span.fleche{
     font-family: "helvetica";
     margin-top: 10px;
     color: #989898;
+}
+
+@media (max-width: 700px){
+    .carousel .miniature{
+        margin-right: 2%;
+        height: 300px;
+        list-style-type: none;
+        vertical-align: middle;
+        margin-bottom: 12px;
+    }
 }
 
 @media (max-width: 400px){
@@ -1306,8 +1314,6 @@ span.fleche{
 }
 
 .fiche_produit .texte_slide{
-    /* border-top:2px solid #fff; */
-    /* border-bottom:2px solid #fff; */
     position: relative;
     z-index: 100;
     margin: auto;
@@ -1319,7 +1325,7 @@ span.fleche{
 .fiche_produit .texte_slide .titre{
     text-align: center;
     font-family: 'NewCicleGordita', sans-serif;
-    
+
     font-weight: 100;
     text-transform: uppercase;
     color: #fff;
@@ -1341,7 +1347,7 @@ span.fleche{
     font-family: "helvetica";
     font-style: italic;
     -webkit-font-smoothing: antialiased;
-      font-size: 26px;
+    font-size: 26px;
 }
 
 .top_bloc .topRight{
@@ -1643,7 +1649,10 @@ div#onglet3 .callbacks {
 }
 
 div#onglet3 .callbacks img {
-    min-width: 100%;    min-height: 100%;
+    min-width: 100%;    
+    min-height: 100%;
+    max-width: 140%;
+    max-height: 140%;
 }
 
 .imageDeroulement{

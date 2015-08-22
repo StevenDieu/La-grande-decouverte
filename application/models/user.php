@@ -24,8 +24,8 @@ Class User extends CI_Model {
     }
 
     function ajouterUser() {
-        $this->db->set('nom', $this->nom);
-        $this->db->set('prenom', $this->prenom);
+        $this->db->set('nom', ucfirst(strtolower($this->nom)));
+        $this->db->set('prenom', ucfirst(strtolower($this->prenom)));
         $this->db->set('password', MD5($this->password));
         $this->db->set('mail', $this->mail);
         $this->db->set('date_inscription', $this->date_inscription);
@@ -224,8 +224,8 @@ Class User extends CI_Model {
 
     function setDescription() {
         $data = array(
-            'nom' => $this->nom,
-            'prenom' => $this->prenom,
+            'nom' => ucfirst(strtolower($this->nom)),
+            'prenom' => ucfirst(strtolower($this->prenom)),
             'description' => $this->description
         );
         $this->db->where('id', $this->id);

@@ -217,12 +217,18 @@ $(document).ready(function () {
     action_reload();
     $('.info_de_vente').on('click', '.delete_ligne', function () {
         if (confirm(confirmation)) {
+            if ($(this).data("idinfo") !== undefined) {
+                $(".info_de_vente").append('<type type="hidden" value="' + $(this).data("idinfo") + '" name="deleteInfoVente[]" />')
+            }
             $(this).parent().remove();
         }
     });
 
     $('.info_deroulement').on('click', '.delete_ligne_deroulement', function () {
         if (confirm(confirmation)) {
+            if ($(this).data("idderoulement") !== undefined) {
+                $(".info_deroulement").append('<type type="hidden" value="' + $(this).data("idderoulement") + '" name="deleteDeroulement[]" />')
+            }
             $(this).parent().remove();
         }
     });

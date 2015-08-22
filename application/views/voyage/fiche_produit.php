@@ -38,6 +38,7 @@
             }
             ?>
         </ul>
+        <div class="flou z10"></div>
         <div class="texte_slide">
             <div class="titre"><?php echo $voyage[0]->titre; ?></div>
             <div class="trait"></div>
@@ -253,7 +254,7 @@
             </div>
 
             <div class="slider_bot">
-                <ul class="" id="sliderbot">
+                <ul class="carousel" id="sliderbot">
                     <?php
                     foreach ($images as $image) {
                         if ($image->emplacement == "image_description") {
@@ -330,11 +331,11 @@
 
                     <div class="jour_container">
                         <div class="day_counter">
-                            <?php if ($deroulementVoyage->jour == 1) { ?>
+                            <?php if ($deroulementVoyage->jour <= 1 ) { ?>
                                 <div class="pointRouge"></div><div class="day">Jour <?= $jour++ ?></div>          
                             <?php } else { ?>
-                                <div class="pointRouge"></div><div class="day">Jour <?= $jour++ ?> - <?= $jour + $deroulementVoyage->jour ?></div>          
-                            <?php } ?>
+                                <div class="pointRouge"></div><div class="day">Jour <?= $jour++ ?> - <?= $jour + $deroulementVoyage->jour - 1 ?></div>          
+                            <?php $jour = $jour + $deroulementVoyage->jour;} ?>
 
                         </div>
                         <div class="day_container">

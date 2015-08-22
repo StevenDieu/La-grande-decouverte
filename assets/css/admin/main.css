@@ -218,7 +218,7 @@ div#myModal {}
 }
 
 .button_delete_picto{
-    margin: -63px 0px 0 -21px;
+    margin: -57px 0px 0 -25px;
 }
 
 .blockPicto{
@@ -355,7 +355,7 @@ span.validate .spinneur img {
     width: 24px;
 }
 
-[class^="icon-"], [class*=" icon-"]{
+.adminCarnetVoyage [class^="icon-"], [class*=" icon-"]{
     font-size: 23px ;
 }
 .icon-check{

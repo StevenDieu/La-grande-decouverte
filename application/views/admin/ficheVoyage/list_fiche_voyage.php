@@ -5,7 +5,7 @@
     var urlSucces = '<?php echo base_url('pages/messageSucces'); ?>';
     var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
 </script>
-<div class="container">
+<div class="container adminCarnetVoyage">
     <div class="row">
         <div class="alertType"></div>
         <div class="span12">

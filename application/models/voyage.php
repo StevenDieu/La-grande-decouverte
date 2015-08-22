@@ -22,6 +22,7 @@ Class Voyage extends CI_Model {
     }
 
     function editerVoyage() {
+        
         if ($this->data["image_sous_slider"] == null) {
             unset($this->data["image_sous_slider"]);
         }

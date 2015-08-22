@@ -441,17 +441,19 @@
                                     </div>
                                     <div  class="widget-content"  style="height: auto;">
                                         <?php
-                                        foreach ($pictoVoyages as $pictoVoyage) {
-                                            ?>
-                                            <script type="text/javascript">
-                                                if (tabImagePicto === undefined) {
-                                                    var tabImagePicto = new Array();
-                                                }
-                                                tabImagePicto.push("<?php echo $pictoVoyage->id; ?>")
+                                        if ($pictoVoyages) {
+                                            foreach ($pictoVoyages as $pictoVoyage) {
+                                                ?>
+                                                <script type="text/javascript">
+                                                    if (tabImagePicto === undefined) {
+                                                        var tabImagePicto = new Array();
+                                                    }
+                                                    tabImagePicto.push("<?php echo $pictoVoyage->id; ?>")
 
-                                            </script>
+                                                </script>
 
-                                            <?php
+                                                <?php
+                                            }
                                         }
                                         ?>
                                         <input type = "hidden" class = "picto_hidden" name = "picto_hidden" value = "" />
@@ -459,10 +461,12 @@
                                         $class = false;
                                         if ($pictos) {
                                             foreach ($pictos as $picto) {
-                                                foreach ($pictoVoyages as $pictoVoyage) {
-                                                    if ($picto->id == $pictoVoyage->id) {
-                                                        $class = true;
-                                                        break;
+                                                if ($pictoVoyages) {
+                                                    foreach ($pictoVoyages as $pictoVoyage) {
+                                                        if ($picto->id == $pictoVoyage->id) {
+                                                            $class = true;
+                                                            break;
+                                                        }
                                                     }
                                                 }
                                                 ?>
@@ -522,13 +526,18 @@
                                     <?php
                                     $suppr = true;
                                     foreach ($infoVoyages as $infoVoyage) {
+                                        ?>
+
+                                        <?php
                                         if ($suppr) {
                                             echo '<div class = "ligne_info_vente">';
                                         } else {
                                             ?>
                                             <div class = "ligne">
-                                                <a href="javascript:;" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>
+                                                <a href="javascript:;" data-idInfo="<?= $infoVoyage->id ?>" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>
                                             <?php } ?> 
+                                            <input type="hidden" value="<?= $infoVoyage->id ?>" name="id_info_voyage[]" />
+
                                             <div class = "center">
                                                 <h3>Une déclinaison</h3>
                                             </div>
@@ -648,13 +657,16 @@
                                     <?php
                                     $suppr = true;
                                     foreach ($deroulementVoyages as $deroulementVoyage) {
+                                        ?>
+                                        <?php
                                         if ($suppr) {
                                             echo '<div class="ligne_info_deroulement">';
                                         } else {
                                             ?>
                                             <div class = "ligne">
-                                                <a href="javascript:;" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>
+                                                <a href="javascript:;" data-idderoulement="<?= $deroulementVoyage->id ?>" class="delete_ligne btn btn-danger floatRight"><i class="icon-remove"></i></a>
                                             <?php } ?> 
+                                            <input type="hidden" value="<?= $deroulementVoyage->id ?>" name="id_deroulement[]" />
 
                                             <div class="center">
                                                 <h3>Une déclinaison</h3> 

@@ -141,6 +141,7 @@
         <div class="cms_image">
             <?php if($image_cms[0]): ?>
                 <img src="<?php echo base_url(''); ?>media/home/cms/<?php echo $image_cms[0]->image; ?>" alt="<?php echo $image_cms[0]->label; ?>" title="<?php echo $image_cms[0]->label; ?>" />
+                <div class="flou"></div>
                 <div class='text'>
                     <p class="titre"><?php echo $image_cms[0]->label; ?></p>
                     <?php echo $image_cms[0]->value; ?>
@@ -174,14 +175,13 @@
                                 
                                  <div class="reseau">
                                         <ul>
-                                            <li class="gplus"><a href="#"></a></li>
-                                            <li class="facebook"><a href="#"></a></li>
-                                            <li class="twitter"><a href="#"></a></li>
-                                            <li class="link"><a href="#"></a></li>
-                                            <li class="pinte"><a href="#"></a></li>
+                                            <li class="gplus"><a target="_blank" href="https://plus.google.com/share?url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
+                                            <li class="facebook"><a target="_blank" href="http://www.facebook.com/share.php?u=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>"></a></li>
+                                            <li class="twitter"><a target="_blank" href="http://twitter.com/intent/tweet?status=<?= $actualite->titre; ?>+<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
+                                            <li class="link"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>&source=[SOURCE/DOMAIN]"></a></li>
+                                            <li class="pinte"><a target="_blank" href="http://pinterest.com/pin/create/bookmarklet/?media=[MEDIA]&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&is_video=false&description=<?= $actualite->titre; ?>"></a></li>
                                         </ul>
                                     </div>
-                                    
                                 <script type="text/javascript">
                                     initialiseResponsiveSilide('#slider<?php echo $i ?>');
                                 </script>

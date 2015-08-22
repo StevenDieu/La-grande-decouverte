@@ -16,7 +16,7 @@ class Model_voyage extends CI_Controller {
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
-            redirect('admin/index/connexion', 'refresh');
+            redirect('admin/connexion', 'refresh');
         }
         $this->load->library('form_validation');
         $this->load->model('voyage');
@@ -48,8 +48,8 @@ class Model_voyage extends CI_Controller {
                 $this->ajouterImage($this->input->post('image_banniere'), "banniere");
                 $this->ajouterImage($this->input->post('image_image_description'), "image_description");
                 $this->ajouterPicto();
-                $this->ajouterInfoVoyage();
-                $this->ajouterDeroulementVoyage();
+                $this->ajouterInfoVoyages();
+                $this->ajouterDeroulementVoyages();
                 redirect('admin/voyages/liste', 'refresh');
             }
         }
@@ -68,28 +68,45 @@ class Model_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->redirectEditOrder();
         } else {
-            $this->editerVoyage();
-            $this->editerPays();
-
-
-            $this->images->setId_voyage($this->id_voyage);
-            $this->images->deleteImagesByVoyage(false);
-            $this->pictoVoyage->setId_voyage($this->id_voyage);
-            $this->pictoVoyage->deletePictoVoyage();
-            $this->infoVoyage->__set("id_voyage", $this->id_voyage);
-            $this->infoVoyage->deleteInfoVoyageByVoyage();
-            $this->deroulementVoyage->__set("id_voyage", $this->id_voyage);
-            $this->deroulementVoyage->deleteAllDeroulementByVoyage();
-
-
-            $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
-            $this->ajouterImage($this->input->post('image_banniere'), "banniere");
-            $this->ajouterImage($this->input->post('image_image_description'), "image_description");
-            $this->ajouterPicto();
-            $this->ajouterInfoVoyage();
-            $this->ajouterDeroulementVoyage();
-            $this->redirectEditOrder();
+//            $this->editerVoyage();
+//            $this->editerPays();
+//
+//
+//            $this->images->setId_voyage($this->id_voyage);
+//            $this->images->deleteImagesByVoyage(false);
+//            $this->pictoVoyage->setId_voyage($this->id_voyage);
+//            $this->pictoVoyage->deletePictoVoyage();
+//            $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
+//            $this->ajouterImage($this->input->post('image_banniere'), "banniere");
+//            $this->ajouterImage($this->input->post('image_image_description'), "image_description");
+//            $this->ajouterPicto();
+            $this->editerInfoVoyages();
+            $this->editerDeroulementVoyages();
+            //$this->redirectEditOrder();
         }
+    }
+
+    public function delete() {
+        if (!$this->input->get('id')) {
+            redirect('admin/voyages/liste', 'refresh');
+        }
+        $this->voyage->setId($this->input->get('id'));
+        $this->pictoVoyage->setId_voyage($this->input->get('id'));
+        $this->pays->__set("id_voyage", $this->input->get('id'));
+        $this->images->setId_voyage($this->input->get('id'));
+        $this->infoVoyage->__set("id_voyage", $this->input->get('id'));
+        $this->deroulementVoyage->__set("id_voyage", $this->input->get('id'));
+
+        $data["pictoVoyage"] = $this->pictoVoyage->deletePictoVoyage();
+        $data["pays"] = $this->pays->deletePaysByVoyage();
+        $data["images"] = $this->images->deleteImagesByVoyage(true);
+
+        $data["infoVoyages"] = $this->infoVoyage->deleteInfoVoyageByVoyage();
+        $data["deroulementVoyages"] = $this->deroulementVoyage->deleteAllDeroulementByVoyage();
+
+        $data["voyage"] = $this->voyage->deleteVoyage();
+
+        redirect('admin/voyages/liste', 'refresh');
     }
 
     private function generateSetRules($addVoyage) {
@@ -133,8 +150,10 @@ class Model_voyage extends CI_Controller {
         $this->form_validation->set_rules('comprenant', 'comprenant', 'xss_clean');
 
         //info déroulement
-        $this->inputDeroulementVoyage = $this->deroulementVoyage->getInput();
+        $this->inputDeroulementVoyage = remove_last_element_array($this->deroulementVoyage->getInput(), 1);
+
         $inputDeroulementVoyage = remove_last_element_array($this->inputDeroulementVoyage, 2);
+
         foreach ($inputDeroulementVoyage as $input) {
             $this->form_validation->set_rules($input, $input, 'xss_clean|required');
         }
@@ -215,32 +234,100 @@ class Model_voyage extends CI_Controller {
         }
     }
 
-    private function ajouterInfoVoyage() {
+    private function editerInfoVoyages() {
         $inputs = $this->input->post("date_depart");
         for ($i = 0; $i < count($inputs); $i++) {
-            foreach ($this->inputInfoVoyage as $input) {
-                $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+            if (isset($this->input->post("id_info_voyage")[$i]) && !empty($this->input->post("id_info_voyage")[$i])) {
+                $this->editerInfoVoyage($i, $this->input->post("id_info_voyage")[$i]);
+            } else {
+
+                $this->ajouterInfoVoyage($i);
             }
-            $this->infoVoyage->__set('id_voyage', $this->id_voyage);
-            $this->infoVoyage->addInfoVoyage();
         }
     }
 
-    private function ajouterDeroulementVoyage() {
+    private function editerInfoVoyage($i, $id) {
+        foreach ($this->inputInfoVoyage as $input) {
+            $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+        }
+        $this->infoVoyage->__set('id_voyage', $this->id_voyage);
+        $this->infoVoyage->setId($id);
+        $this->infoVoyage->editInfoVoyage();
+    }
+
+    private function deleteDeroulementVoyage($id) {
+        $this->deroulementVoyage->setId($id);
+        $this->deroulementVoyage->deleteDeroulement();
+    }
+
+    private function deleteInfoVoyage($id) {
+        $this->infoVoyage->setId($id);
+        $this->infoVoyage->deleteInfoVoyage();
+    }
+
+    private function ajouterInfoVoyages() {
+        $inputs = $this->input->post("date_depart");
+        for ($i = 0; $i < count($inputs); $i++) {
+            $this->ajouterInfoVoyage($i);
+        }
+    }
+
+    private function ajouterInfoVoyage($i) {
+        foreach ($this->inputInfoVoyage as $input) {
+            $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+        }
+        $this->infoVoyage->__set('id_voyage', $this->id_voyage);
+        $this->infoVoyage->addInfoVoyage();
+    }
+
+    private function editerDeroulementVoyages() {
         $inputs = $this->input->post("titrederoulement");
         $image = 0;
         for ($i = 0; $i < count($inputs); $i++) {
-            foreach ($this->inputDeroulementVoyage as $input) {
-                if ($input == "img_deroulement_voyage" && isset($this->inputImages[$input]) && $_FILES[$input]["size"][$i] != 0) {
-                    $this->deroulementVoyage->__set($input, $this->inputImages[$input][$image]);
-                    $image++;
-                } else {
-                    $this->deroulementVoyage->__set($input, $this->input->post($input)[$i]);
-                }
+
+            if (isset($this->input->post("id_deroulement")[$i]) && !empty($this->input->post("id_deroulement")[$i])) {
+                $image = $this->editerDeroulementVoyage($i, $this->input->post("id_deroulement")[$i], $image);
+            } else {
+                $image = $this->ajouterDeroulementVoyage($i, $image);
             }
-            $this->deroulementVoyage->__set('id_voyage', $this->id_voyage);
-            $this->deroulementVoyage->addDeroulement();
         }
+    }
+
+    private function editerDeroulementVoyage($i, $id, $image) {
+        foreach ($this->inputDeroulementVoyage as $input) {
+            if ($input == "img_deroulement_voyage" && isset($this->inputImages[$input]) && $_FILES[$input]["size"][$i] != 0) {
+                $this->deroulementVoyage->__set($input, $this->inputImages[$input][$image]);
+                $image++;
+            } else {
+                $this->deroulementVoyage->__set($input, $this->input->post($input)[$i]);
+            }
+        }
+        $this->deroulementVoyage->__set('id_voyage', $this->id_voyage);
+        $this->deroulementVoyage->setId($id);
+        $this->deroulementVoyage->editDeroulement();
+        return $image;
+    }
+
+    private function ajouterDeroulementVoyages() {
+        $inputs = $this->input->post("titrederoulement");
+        $image = 0;
+        for ($i = 0; $i < count($inputs); $i++) {
+            $this->ajouterDeroulementVoyage($i, $image);
+        }
+    }
+
+    private function ajouterDeroulementVoyage($i, $image) {
+        foreach ($this->inputDeroulementVoyage as $input) {
+            if ($input == "img_deroulement_voyage" && isset($this->inputImages[$input]) && $_FILES[$input]["size"][$i] != 0) {
+                $this->deroulementVoyage->__set($input, $this->inputImages[$input][$image]);
+                $image++;
+            } else {
+                $this->deroulementVoyage->__set($input, $this->input->post($input)[$i]);
+            }
+        }
+        $this->deroulementVoyage->__set('id_voyage', $this->id_voyage);
+        $this->deroulementVoyage->addDeroulement();
+        return $image;
     }
 
     public function is_price($prix) {
@@ -262,29 +349,6 @@ class Model_voyage extends CI_Controller {
                 }
             }
         }
-    }
-
-    public function delete() {
-        if (!$this->input->get('id')) {
-            redirect('admin/voyages/liste', 'refresh');
-        }
-        $this->voyage->setId($this->input->get('id'));
-        $this->pictoVoyage->setId_voyage($this->input->get('id'));
-        $this->pays->__set("id_voyage", $this->input->get('id'));
-        $this->images->setId_voyage($this->input->get('id'));
-        $this->infoVoyage->__set("id_voyage", $this->input->get('id'));
-        $this->deroulementVoyage->__set("id_voyage", $this->input->get('id'));
-
-        $data["pictoVoyage"] = $this->pictoVoyage->deletePictoVoyage();
-        $data["pays"] = $this->pays->deletePaysByVoyage();
-        $data["images"] = $this->images->deleteImagesByVoyage(true);
-
-        $data["infoVoyages"] = $this->infoVoyage->deleteInfoVoyageByVoyage();
-        $data["deroulementVoyages"] = $this->deroulementVoyage->deleteAllDeroulementByVoyage();
-
-        $data["voyage"] = $this->voyage->deleteVoyage();
-
-        redirect('admin/voyages/liste', 'refresh');
     }
 
     private function add_upload($file, $dossier) {

@@ -37,14 +37,26 @@ Class ImagesFiche extends CI_Model {
         }
     }
     
+    function getImagesArticle(){
+        $this->db->select('lien');
+        $this->db->from("images_fiche");
+        $this->db->where('id_article', $this->id_article);
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+            
     function getImagesCarnetVoyage() {
         $this->db->select('lien');
         $this->db->from("images_fiche");
         $this->db->where('id_carnet_voyage', $this->id_carnet_voyage);
-        $this->db->limit(1);
         $query = $this->db->get();
 
-        if ($query->num_rows() == 1) {
+        if ($query->num_rows() >= 1) {
             return $query->result();
         } else {
             return false;

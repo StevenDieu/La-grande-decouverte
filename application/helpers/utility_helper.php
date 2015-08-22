@@ -213,13 +213,14 @@ function carnet_first($carnetVoyages, $i) {
         <li class="carnet car1">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
             <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
             <div class="legende">
                 <div class="containe">
-                    <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
                     <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
                     <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
                 </div>
-                <a class="lien" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">Voir le carnet</a>
+                <span class="lien">Voir le carnet</span>
             </div>
         </li>
     </a>
@@ -228,17 +229,18 @@ function carnet_first($carnetVoyages, $i) {
 
 function carnet_second($carnetVoyages, $i) {
     ?>
-    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
+    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">
         <li class="carnet car2">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
             <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
             <div class="legende">
                 <div class="containe">
-                    <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
                     <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
                     <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
                 </div>
-                <a class="lien" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">Voir le carnet</a>
+                <span class="lien">Voir le carnet</span>
             </div>
         </li>
     </a>
@@ -251,13 +253,14 @@ function carnet_third($carnetVoyages, $i) {
         <li class="carnet car3">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
             <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
             <div class="legende">
                 <div class="containe">
-                    <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
                     <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
                     <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
                 </div>
-                <a class="lien" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >Voir le carnet</a>
+                <span class="lien">Voir le carnet</span>
             </div>
         </li>
     </a>

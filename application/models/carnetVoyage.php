@@ -129,7 +129,7 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getVoyageProduit() {
-        $this->db->select('cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
+        $this->db->select('cv.id AS cvId,v.Id as vId, cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
         $this->db->order_by("v.id", "desc");

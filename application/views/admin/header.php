@@ -20,7 +20,6 @@
         <link href="<?php echo asset_url('css/admin/bootstrap-responsive.min.css'); ?>" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/font-awesome.min.css'); ?>" rel="stylesheet">
-        <link href="<?php echo asset_url('css/admin/morris-0.4.3.min.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/style.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/pages/dashboard.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/main.css'); ?>" rel="stylesheet">
@@ -51,9 +50,6 @@
 
         <!-- JavaScript -->
         <script src="<?php echo asset_url('js/admin/jquery-1.7.2.min.js'); ?>"></script> 
-        <script src="<?php echo asset_url('js/admin/morris.js'); ?>"></script> 
-        <script src="<?php echo asset_url('js/admin/raphael-2.1.0.min.js'); ?>"></script> 
-        
         <?php
         if (isset($alljs)) {
             foreach ($alljs as $js) {
@@ -73,7 +69,7 @@
     <body>
         <div class="subsubnavbar">
             <div class="logo_admin">
-                <a href="<?php echo base_url(''); ?>admin/index/dashboard"></a>
+                <a href="<?php echo base_url(''); ?>admin/dashboard"></a>
             </div>
             <div class="header-right">
                 <p class="super">
@@ -86,7 +82,7 @@
                     $datefr = $jour[date("w")]." ".date("d")." ".$mois[date("n")]." ".date("Y"); 
 
                     ?> 
-                    Connecté sous <strong><?php echo $this->session->userdata('logged_admin')['username'] ?></strong><span class="separator">|</span><?php echo $datefr;  ?><span class="separator">|</span><a href="<?php echo base_url('admin/index/logout') ?>" class="link-logout">Déconnexion</a>
+                    Connecté sous <strong><?php echo $this->session->userdata('logged_admin')['username'] ?></strong><span class="separator">|</span><?php echo $datefr;  ?><span class="separator">|</span><a href="<?php echo base_url('admin/logout') ?>" class="link-logout">Déconnexion</a>
                 </p>
             </div>
         </div>
@@ -95,7 +91,7 @@
                 <div class="container">
                     <ul class="mainnav">
                         <li>
-                            <a href="<?php echo base_url('admin/index/dashboard'); ?>">
+                            <a href="<?php echo base_url('admin/dashboard'); ?>">
                                 <i class="icon-home"></i>
                                 <span>Tableau de bord</span> 
                             </a>

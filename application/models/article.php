@@ -46,7 +46,7 @@ Class Article extends CI_Model {
             return false;
         }
     }
-    
+
     function setArticleAdmin() {
         $data = array(
             'titre' => $this->titre,
@@ -71,9 +71,9 @@ Class Article extends CI_Model {
             'visible' => $this->visible
         );
         $this->db->where('id', $this->id);
-        if($this->db->update('fichevoyage', $data) == 1){
+        if ($this->db->update('fichevoyage', $data) == 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -93,7 +93,7 @@ Class Article extends CI_Model {
             return false;
         }
     }
-    
+
     function getArticleAdmin() {
         $this->db->select('*');
         $this->db->from('fichevoyage');
@@ -125,9 +125,10 @@ Class Article extends CI_Model {
     }
 
     function getArticlePublic() {
-        $this->db->select('*');
-        $this->db->from('fichevoyage');
-        $this->db->where('id', $this->id);
+        $this->db->select('f.id as id,f.visible as visible,f.titre as titre,f.contenu as contenu,f.date_creation as date_creation,f.id_carnetvoyage as id_carnetvoyage,u.nom as nom,u.prenom as prenom');
+        $this->db->from('fichevoyage as f');
+        $this->db->join('utilisateur as u', 'f.id_utilisateur = u.id', 'inner');
+        $this->db->where('f.id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -187,9 +188,8 @@ Class Article extends CI_Model {
         $this->db->delete('fichevoyage');
         return true;
     }
-    
-    
-    function verifUserListArticle(){
+
+    function verifUserListArticle() {
         $this->db->select('id');
         $this->db->from('carnetvoyage');
         $this->db->where("id", $this->id_carnetvoyage);

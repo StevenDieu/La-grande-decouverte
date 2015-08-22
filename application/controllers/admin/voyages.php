@@ -11,7 +11,7 @@ class Voyages extends CI_Controller {
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
-            redirect('admin/index/connexion', 'refresh');
+            redirect('admin/connexion', 'refresh');
         }
         $this->load->model('voyage');
         $this->load->model('pays');

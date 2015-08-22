@@ -12,7 +12,7 @@ class Carnet_voyages extends CI_Controller {
         $this->load->model('carnetVoyage');
         $this->load->model('article');
         if (!$this->session->userdata('logged_admin')) {
-            redirect('admin/index/connexion', 'refresh');
+            redirect('admin/connexion', 'refresh');
         }
     }
 

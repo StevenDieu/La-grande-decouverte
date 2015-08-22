@@ -29,7 +29,7 @@ function add_image() {
                 $(".alert").hide();
                 $(".message").empty();
                 if (result !== "-1") {
-                    for (var i = 0; i < result["nombre"]; i++) {
+                    for (var i = 0; i <= result["nombre"]; i++) {
                         if (result["message" + i] !== undefined) {
                             $(".alert").show();
                             $(".message").append(result["message" + i]);

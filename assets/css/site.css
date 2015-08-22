@@ -1565,4 +1565,14 @@ a#delete_participant{
     padding-bottom: 25px;
 }
 
+.flou{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.21);
+    height: 100%;
+}
 
+.z10{
+    z-index: 10;
+}

@@ -25,10 +25,10 @@
         </div>
         <div class="share_carnet">
             <p><!--Partager ce carnet de voyage :-->
-                <a href="http://www.facebook.com/share.php?u=<?= "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>&title=<?= $carnetVoyage[0]->titre ?>" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" class="icone-social" alt=""></a>
-                <a href="http://twitter.com/intent/tweet?status=<?= $carnetVoyage[0]->titre ?> + <?= "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" class="icone-social" alt=""></a>
-                <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?= "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>&title=<?= $carnetVoyage[0]->titre ?>&source=[SOURCE/DOMAIN]" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" class="icone-social" alt=""></a>
-                <a href="https://plus.google.com/share?url=<?= "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" class="icone-social" alt=""></a>
+                <a href="http://www.facebook.com/share.php?u=<?= "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>&title=<?= $carnetVoyage[0]->titre ?>" target="_blank" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-facebook.png" class="icone-social" alt=""></a>
+                <a href="http://twitter.com/intent/tweet?status=<?= $carnetVoyage[0]->titre ?> + <?= "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-twitter.png" class="icone-social" alt=""></a>
+                <a href="http://www.linkedin.com/shareArticle?mini=true&url=<?= "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>&title=<?= $carnetVoyage[0]->titre ?>&source=[SOURCE/DOMAIN]" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-linkedin.png" class="icone-social" alt=""></a>
+                <a href="https://plus.google.com/share?url=<?= "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" target="_blank"><img src="<?php echo asset_url(''); ?>images/footer/img-social-google.png" class="icone-social" alt=""></a>
             </p>
         </div> 
     </div>
@@ -61,9 +61,8 @@
     <div class="clear"></div>
     <br/><br/><br/>
     <div class="content_fiche_voyage">
-
-        <?php
-        if ($carnetVoyage[0]->prive == 1 && $carnetVoyage[0]->token !== $_GET["token"]) { ?>
+        <h1 class="titreCarnet"><?= $carnetVoyage[0]->titre ?></h1>
+        <?php if ($carnetVoyage[0]->prive == 1 && $carnetVoyage[0]->token !== $_GET["token"]) { ?>
             <div class="content_fiche_voyage">
                 <h2> --- Carnet privé --- </h2>
                 <br/>
@@ -74,7 +73,7 @@
                 <br/>
                 <br/>
             </div>
-        <?php }else if ($articles) {
+        <?php } else if ($articles) {
             ?>
             <div class="row blocTraiVerticalePoitiller">
                 <div class="col-md-5"></div>
@@ -98,22 +97,34 @@
                     </div>
 
                     <div class="col-md-6">
-                        <div class="row blockRow">                        
-                            <div class="col-md-8">
-                                <div class="descriptionJour">
+                        <div class="row blockRow">  
+                            <?php if (isset($article->lien)) { ?>
+                                <div class="col-md-8">
+                                    <div class="descriptionJour">
+                                        <div class="textDescriptionJourHaut">
+                                            <?php echo tronque($article->contenu, 400); ?>
+                                        </div>
+                                        <div class="textDescriptionJourBas">
+                                            <a href="<?php echo base_url('voyage/carnet/article?id=' . $article->id) ?>">Lire la fiche</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">                                    
+                                    <div class="imgJour">
+                                        <img src="<?php echo asset_media($article->lien); ?>" class="image_profile" alt="<?= $article->nom ?>"/> 
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+                                <div class="descriptionJourSansImage">
                                     <div class="textDescriptionJourHaut">
-                                        <?php echo tronque($article->contenu); ?>
+                                        <?php echo tronque($article->contenu, 500); ?>
                                     </div>
                                     <div class="textDescriptionJourBas">
                                         <a href="<?php echo base_url('voyage/carnet/article?id=' . $article->id) ?>">Lire la fiche</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">                                    
-                                <div class="imgJour">
-                                    <img src="<?php echo asset_url(''); ?>images/ficheVoyage/Av-Alameda.jpg" class="image_profile" alt="Image Voyage 1"/> 
-                                </div>
-                            </div>
+                            <?php } ?>
+
                         </div>
                     </div>
 
@@ -132,7 +143,7 @@
                 <br/>
                 <br/>
             </div>
-            
+
             <?php
         }
         ?>
