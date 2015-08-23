@@ -10,8 +10,7 @@
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <link rel="icon" href="assets/images/header/favicon.png" type="image/x-icon">
-        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+        <link rel="icon" href="<?php echo asset_url(''); ?>images/header/favicon.png" type="image/x-icon"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
 

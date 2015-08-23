@@ -1,21 +1,24 @@
 <html>
     <head lang="fr">
+        
         <meta charset="UTF-8"/>  
-        <title>La Grande Decouverte</title>
-        <meta name="description" content="remplir" />
-        <meta name="keywords" content="remplir"/> 
+        <title><?php if(isset($titre)){echo $titre . " - ";}?>La Grande Decouverte</title>
+        <meta name="description" content="<?php if(isset($description)){echo $description;}else{?><?php }?>" />
+        <meta name="keywords" content="lagrandecouverte,la grande decouverte, agence, Globetrotter voyage chez l’habitant ,voyage aventure ,voyage en immersion,voyage communautaire,voyage unique,voyage atypique,voyage en terre inconnue, tourisme communautaire,séjour atypique"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width"/>
-        <link rel="icon" href="<?php echo asset_url(''); ?>images/header/favicon.png" type="image/x-icon"/>
+        <meta name="msapplication-TileImage" content="<?php echo asset_url('images/header/favicon.png'); ?>" />
+        <meta property="fb:page-id" content="<?=  "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" />
+        <link rel="canonical" href="<?=  "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" />
+        <link rel="apple-touch-icon" href="<?php echo asset_url('images/header/favicon.png'); ?>" />
+        <link rel="icon" href="<?php echo asset_url('images/header/favicon.png'); ?>" type="image/x-icon"/>
 
         <!-- CSS -->
         <link href="<?php echo asset_url(''); ?>librairie/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
         <link href="<?php echo asset_url(''); ?>css/jquery-ui.min.css" type="text/css" rel="stylesheet"/><!-- datepicker -->
-
-
         <link href="<?php echo asset_url(''); ?>css/site.css" type="text/css" rel="stylesheet"/>
         <?php
         if (isset($allCss)) {
@@ -26,7 +29,6 @@
             }
         }
         ?> 
-
         <?php
         if (isset($librairieCss)) {
             foreach ($librairieCss as $css) {
@@ -36,7 +38,7 @@
             }
         }
         ?> 
-
+                
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>

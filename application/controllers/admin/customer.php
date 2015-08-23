@@ -46,18 +46,21 @@ class Customer extends CI_Controller {
 
     function check_mdp($mdp) {
         //si on est en edit
+        $mdp = $this->input->post('password');
+        $cmdp = $this->input->post('cpassword');
+        $last_password = $this->input->post('last_password');
         if($this->uri->segment(4) == 'update_validation'){
             //si les 3 sont vides
-            if(empty($this->input->post('password')) && empty($this->input->post('cpassword')) && empty($this->input->post('last_password'))){
+            if(empty($mdp) && empty($cmdp)&& empty($last_password)){
                 return true;
             }else{
                 //si les 3 sont plein
-                if(!empty($this->input->post('password')) && !empty($this->input->post('cpassword')) && !empty($this->input->post('last_password'))){
+                if(!empty($mdp) && !empty($cmdp) && !empty($last_password)){
                     //on fait le traitement car les 3 sont remplis
                     $this->load->model('user');
                     $this->user->setId($this->uri->segment(5));
-                    $this->user->setPassword($this->input->post('last_password'));
-                    if(($this->input->post('password') == $this->input->post('cpassword')) && $this->user->verifPassUser()){
+                    $this->user->setPassword($last_password);
+                    if(($mdp == $cmdp) && $this->user->verifPassUser()){
                         //tous les mots de passe sont bon
                         return true;
                     }else{
@@ -71,8 +74,8 @@ class Customer extends CI_Controller {
             }
         }else if($this->uri->segment(4) == 'insert_validation'){
             //si deux sont plein
-            if(!empty($this->input->post('password')) && !empty($this->input->post('cpassword'))){
-                if($this->input->post('password') == $this->input->post('cpassword')){
+            if(!empty($mdp) && !empty($cmdp)){
+                if($mdp == $cmdp){
                     //tous les mots de passe sont bon
                     return true;
                 }else{

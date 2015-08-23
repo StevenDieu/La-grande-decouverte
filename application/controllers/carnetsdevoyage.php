@@ -45,7 +45,7 @@ class Carnetsdevoyage extends CI_Controller {
         }
 
         // génération des css et js
-        $data["allCss"] = array("liste_carnet", "ficheproduit");
+        $data["allCss"] = array("liste_carnet");
         $data["alljs"] = array("slide", "liste_carnet");
 
         //appel du template
