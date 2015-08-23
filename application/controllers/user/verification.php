@@ -295,7 +295,7 @@ class Verification extends CI_Controller {
         if ($this->user->check_mail_unique()) {
             $token = $this->user->generate_token();
 
-            define('GUSER', 'lagrandecouverte.contact@gmail.com');
+            define('GUSER', 'lagrandedecouverte.contact@gmail.com');
             define('GPWD', 'lagrandecouverte123456');
             $mail = new PHPMailer();
             $mail->IsSMTP();
@@ -306,34 +306,10 @@ class Verification extends CI_Controller {
             $mail->Port = 465;
             $mail->Username = GUSER;
             $mail->Password = GPWD;
+            $mail->isHTML(true); 
             $mail->SetFrom($this->input->post('mail'), 'La grande decouverte');
             $mail->Subject = 'Restaurer le mot de passe LA GRANDE DECOUVERTE';
-            $message = 'Ce qui suit est un courriel envoyé par un administrateur de «  LAGRANDECOUVERTE.fr
-            ». Si ce message est un pourriel ou qu’il contient des commentaires que
-            vous trouvez déplacés, veuillez contacter le webmestre du forum à l’adresse
-            suivante :
-
-            lagrandecouverte.contact@gmail.com
-
-            Incluez ce courriel en entier (particulièrement les en-têtes).
-
-            Message qui vous a été envoyé :
-            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            Bonjour ' . $this->session->userdata('logged_in')['prenom'] . '
-
-            Vous avez récemment demandé un nouveau mot de passe pour Todoist.
-
-            Pour restaurer votre mot de passe, suivez le lien ci-dessous :
-
-            <a href="https://lagrandedecouverte.com/user/account/motDePasseOublieMail?token=' . $token . '&mail=' . $this->input->post('mail') . '" >Restaurer le mot de passe Todoist</a>
-
-            Vous avez des questions ou besoin d\'aide ? Visitez https://lagrandedecouverte.com/faq/index
-
-            Cordialement,
-            Équipe de La grande decouverte 
-
-            ';
+            $message = mot_de_passe_oublier_mail(base_url().'user/account/motDePasseOublieMail?token=' . $token . '&mail=' . $this->input->post('mail'));
             $mail->Body = $message;
             $mail->AddAddress($this->input->post('mail'));
             if ($mail->Send()) {

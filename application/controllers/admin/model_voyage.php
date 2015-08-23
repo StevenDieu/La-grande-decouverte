@@ -68,21 +68,21 @@ class Model_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->redirectEditOrder();
         } else {
-//            $this->editerVoyage();
-//            $this->editerPays();
-//
-//
-//            $this->images->setId_voyage($this->id_voyage);
-//            $this->images->deleteImagesByVoyage(false);
-//            $this->pictoVoyage->setId_voyage($this->id_voyage);
-//            $this->pictoVoyage->deletePictoVoyage();
-//            $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
-//            $this->ajouterImage($this->input->post('image_banniere'), "banniere");
-//            $this->ajouterImage($this->input->post('image_image_description'), "image_description");
-//            $this->ajouterPicto();
+            $this->editerVoyage();
+            $this->editerPays();
+
+
+            $this->images->setId_voyage($this->id_voyage);
+            $this->images->deleteImagesByVoyage(false);
+            $this->pictoVoyage->setId_voyage($this->id_voyage);
+            $this->pictoVoyage->deletePictoVoyage();
+            $this->ajouterImage($this->input->post('image_image_slider'), "image_slider");
+            $this->ajouterImage($this->input->post('image_banniere'), "banniere");
+            $this->ajouterImage($this->input->post('image_image_description'), "image_description");
+            $this->ajouterPicto();
             $this->editerInfoVoyages();
             $this->editerDeroulementVoyages();
-            //$this->redirectEditOrder();
+            $this->redirectEditOrder();
         }
     }
 

@@ -69,7 +69,7 @@ Class User extends CI_Model {
     }
 
     function generate_token() {
-        $token = random_string("alnum", 49);
+        $token = random_string("alnum", 20);
         $data = array(
             'token' => $token,
         );
@@ -90,6 +90,7 @@ Class User extends CI_Model {
         $this->db->limit(1);
 
         $query = $this->db->get();
+
 
         if ($query->num_rows() == 1) {
             return $query->result();
