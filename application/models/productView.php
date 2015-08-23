@@ -37,6 +37,13 @@ Class ProductView extends CI_Model {
         return $this->db->insert_id();
     }
 
+    function addLog() {
+        $this->db->set('visite', '1');
+        $this->db->insert('log_visitor');
+        
+        return $this->db->insert_id();
+    }
+
     function getByProduct() {
         $this->db->select('*');
         $this->db->from('product_view');
@@ -76,6 +83,15 @@ Class ProductView extends CI_Model {
         } else {
             return false;
         }
+    }
+
+    function getVisiteByMonth(){
+        $this->db->select('MONTH(date) as date, count(*) as sum');
+        $this->db->from('log_visitor');
+        $this->db->group_by("MONTH(date)");
+        $this->db->where('YEAR(date)', date('Y') );
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }

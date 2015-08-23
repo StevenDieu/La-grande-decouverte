@@ -75,6 +75,8 @@ class Index extends CI_Controller {
             $data['view'] = $this->productView->getMoreView();
             $data['users'] = $this->user->getLastUser();
             $data['newsletter'] = $this->newsletter->getLastNewsletter();
+            $data['graphique'] = $this->order->sumOrderByMonth();
+            $data['log'] = $this->productView->getVisiteByMonth();
 
             foreach ($data['order_last'] as $order) {
                 $this->user->setId($order->id_utilisateur);

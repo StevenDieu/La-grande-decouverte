@@ -127,7 +127,237 @@
 		</div>
 		
 
+		<?php 
+		$string = '';
+		foreach ($graphique as $point) {
+			$mois = (int) explode('-',$point->date)[1];
+			$sum = $point->sum;
+			
+		}
+		foreach ($log as $l) {
+			$mois_log = (int) $l->date;
+			$sum_log = $l->sum;
+			
+		}
 
+
+		for ($month=1; $month < 13; $month++) { 
+			$trouve = false; $sum = 0; $sum_log = 0;
+			foreach ($graphique as $point) {
+				if((int) explode('-',$point->date)[1] == $month && $trouve == false){
+					$mois = (int) explode('-',$point->date)[1];
+					$sum = $point->sum;
+					$trouve = true;
+				}	
+			}
+
+			$trouve = false;
+			foreach ($log as $l) {
+				if((int) $l->date == $month && $trouve == false){
+					$mois_log = (int) $l->date;
+					$sum_log = $l->sum;
+					$trouve = true;
+				}	
+			}
+
+			if($month == 1){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Janvier',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Janvier',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 2){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Février',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Février',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 3){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Mars',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Mars',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 4){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Avril',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Avril',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 5){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Mai',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Mai',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 6){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Juin',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Juin',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 7){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Juillet',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Juillet',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 8){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Août',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Août',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 9){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Septembre',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Septembre',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 10){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Octobre',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Octobre',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 11){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Novembre',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Novembre',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+
+			if($month == 12){
+				if($month == $mois || $month == $mois_log){
+					$string .= "{
+		                y: 'Décembre',
+		                a: ".$sum.",
+		                b: ".$sum_log."
+		            },";
+				}else{
+					$string .= "{
+		                y: 'Décembre',
+		                a: 0,
+		                b: 0
+		            },";
+				}
+			}
+		}
+
+
+
+		//var_dump($string);
+
+		?>
 
 
 
@@ -178,38 +408,10 @@
 
 	            Morris.Bar({
                 element: 'morris-bar-chart',
-                data: [{
-                    y: '2006',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: '2007',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2008',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2009',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2010',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2011',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2012',
-                    a: 100,
-                    b: 90
-                }],
+                data: [<?php echo $string; ?>],
                 xkey: 'y',
                 ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
+                labels: ['Ventes par mois', 'Visites par mois'],
                 hideHover: 'auto',
                 resize: true
             });

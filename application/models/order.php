@@ -192,7 +192,7 @@ Class Order extends CI_Model {
     function getSum(){
         $this->db->select_sum('prix_total');
         $this->db->from('order');
-        $this->db->where('statut !=', 'Annulée');
+        $this->db->where('statut', 'Facturée');
 
         $query = $this->db->get();
 
@@ -206,7 +206,7 @@ Class Order extends CI_Model {
     function getMoyenne(){
         $this->db->select_avg('prix_total');
         $this->db->from('order');
-        $this->db->where('statut !=', 'Annulée');
+        $this->db->where('statut', 'Facturée');
 
         $query = $this->db->get();
 
@@ -220,7 +220,7 @@ Class Order extends CI_Model {
     function getLastOrder(){
         $this->db->select('*');
         $this->db->from('order');
-        $this->db->where('statut !=', 'Annulée');
+        $this->db->where('statut', 'Facturée');
         $this->db->order_by("id", "desc");
         $this->db->limit(5);
 
@@ -241,6 +241,17 @@ Class Order extends CI_Model {
         $this->db->where('id_utilisateur', $this->id_utilisateur);
         $query = $this->db->get();
         return $query->num_rows();
+
+    }
+
+    function sumOrderByMonth(){
+        $this->db->select('date,sum(prix_total) as sum');
+        $this->db->from('order');
+        $this->db->where('statut', 'Facturée');
+        $this->db->group_by("MONTH(date)");
+        $this->db->where('YEAR(date)', date('Y') );
+        $query = $this->db->get();
+        return $query->result();
 
     }
 

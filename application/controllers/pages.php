@@ -16,6 +16,9 @@ class Pages extends CI_Controller {
         $this->load->model('actualite');
         $this->load->model('continents');
         $this->load->model('images');
+        $this->load->model('productView');
+
+        $this->productView->addLog();
 
         $data["voyages"] = $this->voyage->getVoyagesHome();
 
