@@ -10,25 +10,27 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('userAdmin', '', TRUE);
     }
-    
-
 
     function index() {
         if ($this->session->userdata('logged_admin')) {
             $session_data = $this->session->userdata('logged_admin');
             $data['username'] = $session_data['username'];
-            
+
 
             //chargement de toutes les données du dashboard
             $this->load->model('order');
             $this->load->model('user');
             $this->load->model('productView');
             $this->load->model('voyage');
+            $this->load->model('newsletter');
             $data['somme'] = $this->order->getSum();
             $data['moyenne'] = $this->order->getMoyenne();
             $data['order_last'] = $this->order->getLastOrder();
             $data['view'] = $this->productView->getMoreView();
             $data['users'] = $this->user->getLastUser();
+            $data['newsletter'] = $this->newsletter->getLastNewsletter();
+            $data['graphique'] = $this->order->sumOrderByMonth();
+            $data['log'] = $this->productView->getVisiteByMonth();
 
             foreach ($data['order_last'] as $order) {
                 $this->user->setId($order->id_utilisateur);
@@ -42,16 +44,13 @@ class Dashboard extends CI_Controller {
 
             foreach ($data['users'] as $user) {
                 $this->order->setId_utilisateur($user->id);
-                $user->description = $this->order->countOrderByCustomer(); 
+                $user->description = $this->order->countOrderByCustomer();
             }
 
             $this->load->templateAdmin('dashboard', $data);
-
         } else {
             redirect('admin/connexion', 'refresh');
         }
     }
-
-
 
 }

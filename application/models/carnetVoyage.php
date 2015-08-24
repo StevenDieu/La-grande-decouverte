@@ -189,7 +189,7 @@ Class CarnetVoyage extends CI_Model {
     function getAllCarnetVoyagesNotVisibleBO() {
         $this->db->select("cv.token, cv.id, cv.titre");
         $this->db->from('carnetvoyage as cv');
-        $this->db->join('ficheVoyage AS fv', 'cv.id = fv.id_carnetvoyage');
+        $this->db->join('fichevoyage AS fv', 'cv.id = fv.id_carnetvoyage');
         $this->db->where("visible", 0);
 
         $query = $this->db->get();

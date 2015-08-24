@@ -18,7 +18,7 @@ class Connexion extends CI_Controller {
             $data["alljs"] = array("admin/main");
             $this->load->view('admin/connexion', $data);
         } else {
-            redirect('admin/index/dashboard', 'refresh');
+            redirect('admin/dashboard', 'refresh');
         }
     }
 
@@ -33,7 +33,7 @@ class Connexion extends CI_Controller {
             $data['erreur'] = 'Identifiant ou mot de passe invalide';
             $this->load->view('admin/connexion', $data);
         } else {
-            redirect('admin/index/dashboard', 'refresh');
+            redirect('admin/dashboard', 'refresh');
         }
     }
 
