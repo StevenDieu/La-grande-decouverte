@@ -59,11 +59,12 @@ Class Voyage extends CI_Model {
         }
     }
 
-    function getVoyageOrderInfo() {
+    function getVoyageOrderInfo($id) {
         $this->db->select('*');
         $this->db->from('voyage as v');
         $this->db->join('order as o','v.id = o.id_voyage', 'inner');
         $this->db->join('info_voyage as iv','v.id = iv.id_voyage', 'inner');
+        $this->db->where('o.id_utilisateur', $id);
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {

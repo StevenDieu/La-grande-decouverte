@@ -27,7 +27,7 @@ class Voyages extends CI_Controller {
         $data["alljs"] = array("voyage");
         $data['username'] = $this->session->userdata('logged_in');
         $this->load->helper(array('form'));
-        $data["voyage"] = $this->voyage->getVoyageOrderInfo();
+        $data["voyage"] = $this->voyage->getVoyageOrderInfo($this->session->userdata('logged_in')["id"]);
         $this->load->view('user/voyages', $data);
     }
 
