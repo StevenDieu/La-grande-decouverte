@@ -22,6 +22,9 @@
         <link href="<?php echo asset_url('css/admin/style.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/pages/dashboard.css'); ?>" rel="stylesheet">
         <link href="<?php echo asset_url('css/admin/main.css'); ?>" rel="stylesheet">
+        <link href="<?php echo asset_url('css/admin/morris-0.4.3.min.css'); ?>" rel="stylesheet">
+
+
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
               <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -49,6 +52,8 @@
 
         <!-- JavaScript -->
         <script src="<?php echo asset_url('js/admin/jquery-1.7.2.min.js'); ?>"></script> 
+        <script src="<?php echo asset_url('js/admin/morris.js'); ?>"></script> 
+        <script src="<?php echo asset_url('js/admin/raphael-2.1.0.min.js'); ?>"></script> 
         <?php
         if (isset($alljs)) {
             foreach ($alljs as $js) {
