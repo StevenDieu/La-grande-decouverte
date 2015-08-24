@@ -18,5 +18,11 @@ if (isset($adminJs)) {
 }
 ?>
 
+<div class="footer">
+</div>
+<div class="sous_footer">
+	ver. <b>1.0.0</b>
+</div>
+
 </body> 
 </html>

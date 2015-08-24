@@ -97,8 +97,9 @@
 		            	</tr>
 		            	<?php foreach ($users as $u): ?>
 		            		<tr class="ligne" data-id="<?php echo $u->id; ?>">
+		            			<?php $date = explode('-',explode(' ',$u->date_inscription)[0]); ?>
 			            		<td><?php echo $u->nom.' '.$u->prenom; ?></td>
-			            		<td><?php echo explode(' ',$u->date_inscription)[0]; ?></td>
+			            		<td><?php echo $date[2].'.'.$date[1].'.'.$date[0]; ?></td>
 			            		<td><?php echo $u->mail; ?></td>
 			            		<td><?php echo $u->description ?></td>
 			            	</tr>
@@ -115,8 +116,9 @@
 		            	</tr>
 		            	<?php foreach ($newsletter as $n): ?>
 		            		<tr class="ligne" data-id="<?php echo $n->id; ?>">
+		            			<?php $date = explode('-',explode(' ',$n->date_inscription)[0]); ?>
 			            		<td><?php echo $n->mail; ?></td>
-			            		<td><?php echo $n->date_inscription ?></td>
+			            		<td><?php echo $date[2].'.'.$date[1].'.'.$date[0].' '.explode(' ',$n->date_inscription)[1]; ?></td>
 			            	</tr>
 		            	<?php endforeach; ?>
 		             </table>

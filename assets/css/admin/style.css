@@ -1428,6 +1428,7 @@ div.bloc_commande.totaux p{
 	border: 1px solid #ccc;
 	min-height: 200px;
 	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 .container_dash .bloc_commande{
@@ -1501,5 +1502,19 @@ div.bloc_commande.totaux p{
 	width: 100%; 
 }
 
+.footer{
+	width: 100%;
+	height: 90px;
+	background: url(../../images/admin/footer_bg.gif);
+	border-top: none;
+}
+
+.sous_footer{
+	background: #DCDCDC;
+	height: 60px;
+	width: 100%;
+	text-align: center;
+	line-height: 30px;
+}
 
 

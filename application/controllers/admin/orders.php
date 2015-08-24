@@ -63,6 +63,7 @@ class Orders extends CI_Controller {
         $crud->display_as('prix_total','Montant total');
         $crud->display_as('reste_a_payer','Reste à payer');
         $crud->display_as('payment','Méthode de paiement');
+        $crud->callback_column('date',array($this,'date_modifier'));
         $crud->unset_add();
         $crud->unset_read();
         $crud->unset_delete();
@@ -70,6 +71,16 @@ class Orders extends CI_Controller {
         $this->_example_output($output);
 
 
+    }
+
+    function date_modifier($value, $row)
+    {
+        $date = explode(' ',$row->date);
+        $d = explode('-', $date[0]);
+
+        return $d[2].'/'.$d[1].'/'.$d[0].' - '.$date[1];
+
+        
     }
 
     public function _example_output($output = null)
