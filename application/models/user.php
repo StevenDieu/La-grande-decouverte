@@ -14,6 +14,7 @@ Class User extends CI_Model {
     public $prenom;
     public $description;
     public $mail;
+    private $token;
     public $banni;
     public $lien_image;
     public $date_inscription;
@@ -23,8 +24,8 @@ Class User extends CI_Model {
     }
 
     function ajouterUser() {
-        $this->db->set('nom', $this->nom);
-        $this->db->set('prenom', $this->prenom);
+        $this->db->set('nom', ucfirst(strtolower($this->nom)));
+        $this->db->set('prenom', ucfirst(strtolower($this->prenom)));
         $this->db->set('password', MD5($this->password));
         $this->db->set('mail', $this->mail);
         $this->db->set('date_inscription', $this->date_inscription);
@@ -60,9 +61,39 @@ Class User extends CI_Model {
         $this->db->limit(1);
 
         $query = $this->db->get();
-
         if ($query->num_rows() == 1) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    function generate_token() {
+        $token = random_string("alnum", 20);
+        $data = array(
+            'token' => $token,
+        );
+
+        $this->db->where('mail', $this->mail);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return $token;
+        } else {
+            return false;
+        }
+    }
+
+    function verif_token() {
+        $this->db->select('id');
+        $this->db->from('utilisateur');
+        $this->db->where('mail', $this->mail);
+        $this->db->where('token', $this->token);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
         } else {
             return false;
         }
@@ -194,8 +225,8 @@ Class User extends CI_Model {
 
     function setDescription() {
         $data = array(
-            'nom' => $this->nom,
-            'prenom' => $this->prenom,
+            'nom' => ucfirst(strtolower($this->nom)),
+            'prenom' => ucfirst(strtolower($this->prenom)),
             'description' => $this->description
         );
         $this->db->where('id', $this->id);
@@ -211,6 +242,18 @@ Class User extends CI_Model {
             'password' => MD5($this->password),
         );
         $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function setMdpMail() {
+        $data = array(
+            'password' => MD5($this->password),
+        );
+        $this->db->where('mail', $this->mail);
         if ($this->db->update('utilisateur', $data) == 1) {
             return true;
         } else {
@@ -262,7 +305,15 @@ Class User extends CI_Model {
         $this->date_inscription = $date_inscription;
     }
 
-    function getLastUser(){
+    function setToken($token) {
+        $this->token = $token;
+    }
+
+    function setBanni($banni) {
+        $this->banni = $banni;
+    }
+
+    function getLastUser() {
         $this->db->select('*');
         $this->db->from('utilisateur');
         $this->db->order_by("id", "desc");

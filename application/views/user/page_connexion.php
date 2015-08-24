@@ -19,7 +19,7 @@
                 </p>
             </div>
             <div class="une_row">
-                <a href="#" class="">
+                <a href="<?php echo base_url('user/account/motDePasseOublie') ?>" >
                     Mot de passe oublié?
                 </a>
                 <span class="floatright">* Champs obligatoires</span>

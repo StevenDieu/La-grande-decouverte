@@ -185,6 +185,21 @@ $(document).ready(function () {
 
         return submit;
     });
+    
+    // Page mot de passe oublié
+    $('#input_page_password').click(function () {
+        $('.content-motdepass span.mess_required').remove();
+        $('.content-motdepass input.failed').removeClass("failed");
+        var submit = true;
+        $('.content-motdepass input.required').each(function () {
+            if ($(this).val() == '') {
+                $($(this).parent()).append(mess_required);
+                $($(this)).toggleClass('failed');
+                submit = false;
+            }
+        });
+        return submit;
+    });
 });
 
 $(window).load(function () {

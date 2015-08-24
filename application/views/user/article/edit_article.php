@@ -1,5 +1,4 @@
 <script type="text/javascript">
-    
     var id_carnet_voyage = '<?php echo $article[0]->id_carnetvoyage; ?>';
 </script>
 

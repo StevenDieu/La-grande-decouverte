@@ -1,0 +1,5 @@
+# Référencement webophil.net
+# Fichier robots.txt pour le site : http://stevendieu.com/lagrandecouverte/
+User-agent: *
+Disallow: /admin
+Sitemap: http://stevendieu.com/lagrandecouverte/sitemap.xml

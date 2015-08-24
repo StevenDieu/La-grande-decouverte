@@ -22,15 +22,17 @@ Class InfoVoyage extends CI_Model {
     }
 
     function editInfoVoyage() {
+
         $this->db->where('id', $this->id);
-        $this->db->update('info_voyage', $this);
+        $this->db->update('info_voyage', $this->data);
+        
     }
 
     function getInfoVoyageByVoyage() {
         $this->db->select('*');
         $this->db->from('info_voyage');
         $this->db->where('id_voyage', $this->data["id_voyage"]);
-
+        $this->db->order_by('id', "asc");
 
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -68,13 +70,13 @@ Class InfoVoyage extends CI_Model {
         }
     }
 
-    function updateQuantitePlace($place){
+    function updateQuantitePlace($place) {
         $data = array(
-               'place_dispo' => $place
-            );
+            'place_dispo' => $place
+        );
 
         $this->db->where('id', $this->id);
-        $this->db->update('info_voyage', $data); 
+        $this->db->update('info_voyage', $data);
     }
 
     function getInfoVoyageMin() {

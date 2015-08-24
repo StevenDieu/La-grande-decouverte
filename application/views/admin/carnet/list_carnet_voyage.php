@@ -1,8 +1,13 @@
 <script type="text/javascript">
     confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
+    var urlDeleteCarnet = '<?php echo base_url('admin/model_carnet_voyage/deleteCarnetVoyage'); ?>';
+    var urlEditCarnet = '<?php echo base_url('admin/model_carnet_voyage/editCarnetVoyage'); ?>';
+    var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
+    var urlSucces = '<?php echo base_url('pages/messageSucces'); ?>';
 </script>
-<div class="container">
+<div class="container adminCarnetVoyage">
     <div class="row">
+        <div class="alertType"></div>
         <div class="span12">
             <div class="widget">
                 <div class="widget-header">
@@ -30,6 +35,8 @@
                                                             <tr>
                                                                 <th class="center w10">#</th>
                                                                 <th>Titre</th>
+                                                                <th class="center w10">Editer</th>
+                                                                <th class="tdPetit">Visuel</th>
                                                                 <th class="center w10">Supprimer</th>
                                                             </tr>
                                                         </thead>
@@ -42,10 +49,20 @@
                                                                         <?php echo $carnetVoyagesNotVisible->id; ?>
                                                                     </td>
                                                                     <td>
-                                                                        <a href="<?php echo base_url('admin/carnet_voyages/list_fiche_voyage') . '?id=' . $carnetVoyagesNotVisible->id; ?>"><?php echo $carnetVoyagesNotVisible->titre; ?></a>
+                                                                        <input type="text" class="form-control inputTitreCarnetVoyage" id="<?= $carnetVoyagesNotVisible->id ?>" placeholder="Titre voyage" value="<?= $carnetVoyagesNotVisible->titre ?>">
+                                                                        <span class="<?= $carnetVoyagesNotVisible->id ?> glyphiHide">
+                                                                            <a class="icon-check  editCarnetVoyage" data-id="<?= $carnetVoyagesNotVisible->id ?>"><span class="glyphicon glyphicon-ok"></span></a>
+                                                                            <a class="icon-repeat redoTitreCarnetVoyage" data-id="<?= $carnetVoyagesNotVisible->id ?>"><span class="glyphicon glyphicon-repeat"></span></a>
+                                                                        </span> 
+                                                                    </td>
+                                                                    <td class="center w10">
+                                                                        <a  href="<?php echo base_url('admin/carnet_voyages/list_fiche_voyage') . '?id=' . $carnetVoyagesNotVisible->id; ?>"><span class="icon-pencil"></span></a>
+                                                                    </td>
+                                                                    <td class="center w10">
+                                                                        <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyagesNotVisible->id . "&token=" . $carnetVoyagesNotVisible->token; ?>"><span class="icon-list-alt"></span></a>
                                                                     </td>
                                                                     <td class="center">
-                                                                        <a onclick="return confirm(confirmation);" class="btn btn-danger" href="<?php echo base_url('admin/model_carnet_voyage/delete') . '?id=' . $carnetVoyagesNotVisible->id; ?>">X</a>
+                                                                        <a onclick="return confirm(confirmation);" class="btn btn-danger deleteCarnetVoyage" data-id="<?= $carnetVoyagesNotVisible->id ?>">X</a>
                                                                     </td>
                                                                 </tr>
                                                             <?php } ?>
@@ -79,6 +96,8 @@
                                                             <tr>
                                                                 <th class="center w10">#</th>
                                                                 <th>Titre</th>
+                                                                <th class="center w10">Editer</th>
+                                                                <th class="tdPetit">Visuel</th>
                                                                 <th class="center w10">Supprimer</th>
                                                             </tr>
                                                         </thead>
@@ -91,10 +110,20 @@
                                                                         <?php echo $carnetVoyagesVisible->id; ?>
                                                                     </td>
                                                                     <td>
-                                                                        <a href="<?php echo base_url('admin/carnet_voyages/list_fiche_voyage') . '?id=' . $carnetVoyagesVisible->id; ?>"><?php echo $carnetVoyagesVisible->titre; ?></a>
+                                                                        <input type="text" class="form-control inputTitreCarnetVoyage" id="<?= $carnetVoyagesVisible->id ?>" placeholder="Titre voyage" value="<?= $carnetVoyagesVisible->titre ?>">
+                                                                        <span class="<?= $carnetVoyagesVisible->id ?> glyphiHide">
+                                                                            <a class="icon-check  editCarnetVoyage" data-id="<?= $carnetVoyagesVisible->id ?>"><span class="glyphicon glyphicon-ok"></span></a>
+                                                                            <a class="icon-repeat redoTitreCarnetVoyage" data-id="<?= $carnetVoyagesVisible->id ?>"><span class="glyphicon glyphicon-repeat"></span></a>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="center w10">
+                                                                        <a  href="<?php echo base_url('admin/carnet_voyages/list_fiche_voyage') . '?id=' . $carnetVoyagesVisible->id; ?>"><span class="icon-pencil"></span></a>
+                                                                    </td>
+                                                                    <td class="center w10">
+                                                                        <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyagesVisible->id . "&token=" . $carnetVoyagesVisible->token; ?>"><span class="icon-list-alt"></span></a>
                                                                     </td>
                                                                     <td class="center">
-                                                                        <a onclick="return confirm(confirmation);" class="btn btn-danger" href="<?php echo base_url('admin/model_carnet_voyage/delete') . '?id=' . $carnetVoyagesVisible->id; ?>">X</a>
+                                                                        <a onclick="return confirm(confirmation);" class="btn btn-danger deleteCarnetVoyage" data-id="<?= $carnetVoyagesVisible->id ?>">X</a>
                                                                     </td>
                                                                 </tr>
                                                             <?php } ?>

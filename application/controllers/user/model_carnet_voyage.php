@@ -26,7 +26,8 @@ class Model_carnet_voyage extends CI_Controller {
             $this->carnetVoyage->setTitre( str_replace("'","&#146;",$this->input->post('titre')) );
             $this->carnetVoyage->setId_voyage( $this->input->post('id_voyage') );
             $this->carnetVoyage->setId_utilisateur( $this->session->userdata('logged_in')["id"] );
-
+            $this->carnetVoyage->setToken( random_string("alnum", 49));
+            
             echo $this->carnetVoyage->addCarnetVoyage();
         }
     }
@@ -74,8 +75,10 @@ class Model_carnet_voyage extends CI_Controller {
     }
 
     public function delete() {
-        if (!$this->input->post('id')) {
+        $id = $this->input->post('id');
+        if (!isset($id)) {
             echo "0";
+            return;
         }
         $this->carnetVoyage->setId( $this->input->post('id') );
         $this->carnetVoyage->setId_utilisateur( $this->session->userdata('logged_in')["id"] );

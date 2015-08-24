@@ -16,8 +16,12 @@ Class DeroulementVoyage extends CI_Model {
     }
 
     function editDeroulement() {
+        echo $this->data["img_deroulement_voyage"]."<br/><br/><br/>";
+        if ($this->data["img_deroulement_voyage"] == null) {
+            unset($this->data["img_deroulement_voyage"]);
+        }
         $this->db->where('id', $this->id);
-        $this->db->update('deroulement_voyage', $this);
+        $this->db->update('deroulement_voyage', $this->data);
         return true;
     }
 
@@ -25,7 +29,7 @@ Class DeroulementVoyage extends CI_Model {
         $this->db->select('*');
         $this->db->from('deroulement_voyage');
         $this->db->where('id_voyage', $this->data['id_voyage']);
-        $this->db->order_by("jour", "asc");
+        $this->db->order_by("id", "asc");
 
         $query = $this->db->get();
 

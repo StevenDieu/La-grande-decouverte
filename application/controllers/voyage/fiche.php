@@ -20,6 +20,7 @@ class Fiche extends CI_Controller {
         $this->load->model('deroulementVoyage');
         $this->load->model('carnetVoyage');
         $this->load->model('continents');
+        $this->load->model('imagesFiche');
     }
 
     /**
@@ -97,6 +98,32 @@ class Fiche extends CI_Controller {
         }
         $this->carnetVoyage->setId_voyage($this->input->get('id'));
         $data["carnetVoyages"] = $this->carnetVoyage->getVoyageProduit();
+        
+        if (!empty($data['carnetVoyages'])) {
+            for ($i = 0; $i < count($data['carnetVoyages']); $i++) {
+                $this->imagesFiche->setid_carnet_voyage($data['carnetVoyages'][$i]->cvId);
+                $imagesCanetVoyages = $this->imagesFiche->getImagesCarnetVoyage();
+                if ($imagesCanetVoyages) {
+                    $j = 0;
+                    foreach ($imagesCanetVoyages as $imagesCanetVoyage) {
+                        $data['carnetVoyages'][$i]->lien[$j] = $imagesCanetVoyage->lien;
+                        $data['carnetVoyages'][$i]->nom[$j] = "image carnet voyage " . ($i + 1);
+                        $j++;
+                    }
+                } else {
+                    $this->images->setId_voyage($data['carnetVoyages'][$i]->vId);
+                    $this->images->setEmplacement("image_slider");
+                    $imagesCanetVoyage = $this->images->getImagesByVoyageEmplacement();
+                    $j = 0;
+                    foreach ($imagesCanetVoyage as $image) {
+                        $data['carnetVoyages'][$i]->lien[$j] = $image->lien;
+                        $data['carnetVoyages'][$i]->nom[$j] = $image->nom;
+                        $j++;
+                    }
+                }
+            }
+        }
+        
         $data["allCss"] = array("ficheProduit");
         $data["alljs"] = array("slide", "ficheProduit");
         $this->load->templateVoyage('/fiche_produit', $data);

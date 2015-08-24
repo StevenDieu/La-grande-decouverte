@@ -208,18 +208,19 @@ function add_image($idHtml) {
 }
 
 function carnet_first($carnetVoyages, $i) {
-?>
+    ?>
     <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
         <li class="carnet car1">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
             <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
             <div class="legende">
                 <div class="containe">
-                    <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
                     <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
                     <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
                 </div>
-                <a class="lien" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">Voir le carnet</a>
+                <span class="lien">Voir le carnet</span>
             </div>
         </li>
     </a>
@@ -227,18 +228,19 @@ function carnet_first($carnetVoyages, $i) {
 }
 
 function carnet_second($carnetVoyages, $i) {
-?>
-    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
+    ?>
+    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">
         <li class="carnet car2">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
             <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
             <div class="legende">
                 <div class="containe">
-                    <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
                     <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
                     <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
                 </div>
-                <a class="lien" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>">Voir le carnet</a>
+                <span class="lien">Voir le carnet</span>
             </div>
         </li>
     </a>
@@ -246,23 +248,23 @@ function carnet_second($carnetVoyages, $i) {
 }
 
 function carnet_third($carnetVoyages, $i) {
-?>
+    ?>
     <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
         <li class="carnet car3">
             <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
             <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
             <div class="legende">
                 <div class="containe">
-                    <a class="titre" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>"><?php echo $carnetVoyages[$i]->cvTitre; ?></a>
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
                     <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
                     <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
                 </div>
-                <a class="lien" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >Voir le carnet</a>
+                <span class="lien">Voir le carnet</span>
             </div>
         </li>
     </a>
     <?php
-
 }
 
 function carnet_long($carnetVoyages, $i) {
@@ -439,4 +441,91 @@ function nombre_caratere($tab, $tabTexte, $nombreARetirer) {
     $result = array("flag" => $flag, "error" => $texte_error);
 
     return $result;
+}
+
+function random($car) {
+    $string = "";
+    $chaine = "abcdefghijklmnpqrstuvwxy";
+    srand((double) microtime() * 1000000);
+    for ($i = 0; $i < $car; $i++) {
+        $string .= $chaine[rand() % strlen($chaine)];
+    }
+    return $string;
+}
+
+function mot_de_passe_oublier_mail($lien) {
+
+    return '<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:  Arial;margin:0px; padding:0px;">
+    <tbody>
+        <tr style="color: white;background-color: #1a171b;">
+
+            <td colspan=2 align="center">
+                <div style="max-width: 1200px;width: 100% ;margin: 0 auto">
+                    <img src="http://stevendieu.com/mailling/logo.png" style="max-width: 400px; width: 100%;padding: 15px 0;" alt="Image Logo">
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan=2 class="titre" style=" font-size: 27px;padding: 50px 0 15px 15px; font-weight: 600;text-transform: uppercase">
+                <div style="max-width: 1200px;width: 100% ;margin: 0 auto;text-align:center;">
+                    MOT DE PASSE OUBLI&Eacute;
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 style="">
+                <div style="max-width: 1200px;width: 100% ;margin: 0 auto">
+                    <div style="max-height: 550px;  overflow: hidden;text-align:center">
+                        Vous avez r&eacute;cemment demand&eacute; un nouveau mot de passe pour La grande decouverte.<br/>
+                        Afin de valider votre restauration de mot de passe, merci de cliquer sur le bouton ci-dessous.
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 100px;color: white;text-align:center;">
+                <div style="background-color:#006597;width:360px;margin:0 auto;padding:20px;border-radius:20px">
+                    <img src="http://stevendieu.com/mailling/arrow.png" alt="fleche"/>
+                    <a href="' . $lien . '" style="text-decoration: none;color: white;font-size: 1.4em;text-transform: uppercase;vertical-align:10px;">MODIFIER MOT DE PASSE</a>
+                </div>
+            </td >
+        </tr>
+        <tr style="color: white;background-color: #1a171b;">
+
+            <td colspan=2 align="center" class="textFooter" style="font-size: 1.6em;">
+                <br/><br/>
+                <span>
+                    Des offres haut de gamme rigoureusement s&eacute;lectionn&eacute;es<br/>
+                    Des  voyages exclusif et inoubliable <br/>
+                    Un service client &agrave; votre &eacute;coute 7 jours / 7<br/>
+                </span>
+                <br/><br/><br/>
+                <span>
+                    Suivez nous :
+                </span><br/>
+                <a href="#">
+                    <img src="http://stevendieu.com/mailling/img-social-facebook.png" style="  width: 45px;margin: 10px auto;padding: 0 20px 0px 0px;" alt="facebook" />
+                </a>
+                <a href="#">
+                    <img src="http://stevendieu.com/mailling/img-social-twitter.png" style="  width: 45px;margin: 10px auto;" alt="twitter" />
+                </a>
+                <br/><br/>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center;font-size: 0.8em">
+                <br/><br/>
+                Cet email vous est envoy&eacute; car vous &ecirc;tes membre de Lagrandecouverte.com, enregistr&eacute; depuis le XX/XX/XXXX <br/>
+                avec l\'adresse mail : xx@aaaa.com<br/>
+                Attention ce message contient vos informations personnelles - ne pas le transf&eacute;rer.<br/>
+                <br/>
+                Pour &ecirc;tre s&ucirc;r(e) de recevoir nos prochaines invitations, ajoutez "email@lagrandecouverte.com"<br/>
+                dans votre carnet d\'adresses ou dans votre liste d\'exp&eacute;diteurs autoris&eacute;s.<br/>
+                <br/><br/><br/>
+            </td>
+        </tr>
+    </tbody>
+</table>';
 }

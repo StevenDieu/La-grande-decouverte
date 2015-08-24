@@ -750,7 +750,7 @@ h2.titre{
     color: #000 !important;
     width: 100%;
     padding-left: 10px;
-      border-bottom: 1px dotted #aaa;
+    border-bottom: 1px dotted #aaa;
     margin-bottom: 20px;
     text-align: center;
     padding-bottom: 20px;
@@ -1131,7 +1131,7 @@ ul.menu_popup li{
 
 .form-control{
     border-radius: 0px !important;
-    border: 1px solid #dfdfdf !important;
+    border: 1px solid #dfdfdf;
     color: #818181 !important;
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
@@ -1406,11 +1406,11 @@ ul.menu_popup .glyphicon {
 }
 
 .menuBas a{
-  color: #8b8b8b !important;
+    color: #8b8b8b !important;
 }
 
 .menuBas a:hover{
-      color: #fff !important;
+    color: #fff !important;
 }
 
 .panel-title, .form-horizontal .control-label{
@@ -1439,84 +1439,84 @@ a#delete_participant{
 
 /*page inscription */
 .account-assistance {
-  float: right;
-  display: block;
-  width: 90%;
+    float: right;
+    display: block;
+    width: 90%;
 }
 
 .box-contextual-help, .box-notice, .uspCarousel {
-  border: 1px solid #d7d7d7;
+    border: 1px solid #d7d7d7;
 }
 
 .box-contextual-help h1.local-assistance, .box-contextual-help h1.delivery-question {
-  line-height: 1;
-  font-weight: 700;
-  font-size: 14px;
-  margin: 0 0 20px;
-  text-transform: uppercase;
-  color: #000;
-  text-shadow:none;
-  width: 100%;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    color: #000;
+    text-shadow:none;
+    width: 100%;
 }
 
 .help-options, .box-contextual-help ul{
     list-style-type: none;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .box-contextual-help li, .box-contextual-help p {
-  font-size: 11px;
-  line-height: 1.5;
-  margin-bottom: .5em;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: .5em;
     color: #666;
 }
 
 .box-contextual-help .help-option {
-  position: relative;
+    position: relative;
 }
 
 .box-contextual-help {
-  display: block;
-  margin: 0 0 20px;
-  padding: 20px;
+    display: block;
+    margin: 0 0 20px;
+    padding: 20px;
 }
 
 .box-contextual-help .help-option em, .box-contextual-help .help-option i {
-  color: transparent;
-  left: 0;
-  position: absolute;
+    color: transparent;
+    left: 0;
+    position: absolute;
 }
 
 .account-assistance a{
-  color: #aaa;
-  text-decoration: none;
+    color: #aaa;
+    text-decoration: none;
 }
 
 .account-assistance a:hover{
-  color: #000;
+    color: #000;
 }
 
 .box-contextual-help .to-faq {
-  background: url(../images/dotted-line.png)repeat-x;
-  margin: 22px 0 0;
-  padding: 22px 0 0;
+    background: url(../images/dotted-line.png)repeat-x;
+    margin: 22px 0 0;
+    padding: 22px 0 0;
 }
 
 .box-contextual-help .faq-option {
-  display: block;
-  padding-left: 14px;
-  position: relative;
+    display: block;
+    padding-left: 14px;
+    position: relative;
 }
 
 .account-assistance h1 {
-  line-height: 1;
-  font-size: 13px;
-  font-weight: 700;
-  margin: 0 0 14px;
-  text-transform: uppercase;
-  color: #000;
-  text-shadow:none;
+    line-height: 1;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    color: #000;
+    text-shadow:none;
 }
 
 .account-assistance .image_assistance{
@@ -1557,6 +1557,22 @@ a#delete_participant{
 }
 
 
+.content-motdepass{
+    width: 100%;
+    max-width: 511px;
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
 
+.flou{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.21);
+    height: 100%;
+}
 
-
+.z10{
+    z-index: 10;
+}

@@ -28,7 +28,7 @@ Class Article extends CI_Model {
             'id_utilisateur' => $this->id_utilisateur
         );
         $this->db->insert('fichevoyage', $data);
-        $this->id = $this->db->insert_id();
+        return $this->db->insert_id();
     }
 
     function verifCompteArticle() {
@@ -47,6 +47,15 @@ Class Article extends CI_Model {
         }
     }
 
+    function setArticleAdmin() {
+        $data = array(
+            'titre' => $this->titre,
+            'contenu' => $this->contenu,
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('fichevoyage', $data);
+    }
+
     function setArticle() {
         $data = array(
             'titre' => $this->titre,
@@ -54,7 +63,7 @@ Class Article extends CI_Model {
             'visible' => 0
         );
         $this->db->where('id', $this->id);
-        $this->db->update('fichevoyage', $data);
+        die($this->db->update('fichevoyage', $data));
     }
 
     function setFicheVisible() {
@@ -62,9 +71,9 @@ Class Article extends CI_Model {
             'visible' => $this->visible
         );
         $this->db->where('id', $this->id);
-        if($this->db->update('fichevoyage', $data) == 1){
+        if ($this->db->update('fichevoyage', $data) == 1) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -74,6 +83,21 @@ Class Article extends CI_Model {
         $this->db->from('fichevoyage');
         $this->db->where('id', $this->id);
         $this->db->where("id_utilisateur", $this->id_utilisateur);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getArticleAdmin() {
+        $this->db->select('*');
+        $this->db->from('fichevoyage');
+        $this->db->where('id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -101,9 +125,10 @@ Class Article extends CI_Model {
     }
 
     function getArticlePublic() {
-        $this->db->select('*');
-        $this->db->from('fichevoyage');
-        $this->db->where('id', $this->id);
+        $this->db->select('f.id as id,f.visible as visible,f.titre as titre,f.contenu as contenu,f.date_creation as date_creation,f.id_carnetvoyage as id_carnetvoyage,u.nom as nom,u.prenom as prenom');
+        $this->db->from('fichevoyage as f');
+        $this->db->join('utilisateur as u', 'f.id_utilisateur = u.id', 'inner');
+        $this->db->where('f.id', $this->id);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -162,6 +187,21 @@ Class Article extends CI_Model {
         $this->db->where('id', $this->id);
         $this->db->delete('fichevoyage');
         return true;
+    }
+
+    function verifUserListArticle() {
+        $this->db->select('id');
+        $this->db->from('carnetvoyage');
+        $this->db->where("id", $this->id_carnetvoyage);
+        $this->db->where("id_utilisateur", $this->id_utilisateur);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
     }
 
     function getId() {

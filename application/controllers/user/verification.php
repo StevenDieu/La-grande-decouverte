@@ -10,8 +10,9 @@ class Verification extends CI_Controller {
         $this->load->model('user');
         $this->load->library('form_validation');
     }
-    
-    /****** connexion ****/
+
+    /*     * **** connexion *** */
+
     function login() {
 
         $this->form_validation->set_rules('mail', 'mail', 'trim|callback_requireMail|xss_clean');
@@ -24,7 +25,7 @@ class Verification extends CI_Controller {
         }
     }
 
-    function requireMail($mail){
+    function requireMail($mail) {
         if ($mail == '') {
             $this->form_validation->set_message('requireMail', 'Le champ mail est obligatoire.');
             return false;
@@ -32,7 +33,7 @@ class Verification extends CI_Controller {
         return true;
     }
 
-    function requireMdp($mdr){
+    function requireMdp($mdr) {
         if ($mdr == '') {
             $this->form_validation->set_message('requireMail', 'Le champ mot de passe est obligatoire.');
             return false;
@@ -48,7 +49,7 @@ class Verification extends CI_Controller {
         if ($result) {
             $sess_array = array();
 
-            foreach ($result as $row) { 
+            foreach ($result as $row) {
                 $sess_array = array(
                     'id' => $row->id,
                     'prenom' => $row->prenom
@@ -61,10 +62,12 @@ class Verification extends CI_Controller {
             return false;
         }
     }
-    /****** fin connexion ****/
+
+    /*     * **** fin connexion *** */
 
 
-    /****** inscription ****/
+    /*     * **** inscription *** */
+
     function inscription() {
 
         $this->form_validation->set_rules('nom', 'nom', 'trim|required|xss_clean|callback_check_size_50');
@@ -87,6 +90,7 @@ class Verification extends CI_Controller {
             if ($result != 0) {
                 $sess_array = array(
                     'id' => $result,
+                    'prenom' => $this->input->post('prenom')
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
             }
@@ -117,8 +121,8 @@ class Verification extends CI_Controller {
         }
 
         return true;
-        
     }
+
     function check_size_50($valeur) {
         if (strlen($valeur) <= 50) {
             return true;
@@ -132,10 +136,8 @@ class Verification extends CI_Controller {
 
         return false;
     }
-    /****** fin inscription ****/
 
-
-
+    /*     * **** fin inscription *** */
 
     function changeEmail() {
         if (!$this->session->userdata('logged_in')) {
@@ -207,10 +209,6 @@ class Verification extends CI_Controller {
         $this->load->view('user/myaccount/uploadImageProfile.php');
     }
 
-
-
-
-
     function check_size($valeur) {
         if (strlen($valeur) >= 6 && strlen($valeur) <= 50) {
             return true;
@@ -224,10 +222,6 @@ class Verification extends CI_Controller {
         return false;
     }
 
-    
-
-
-
     function check_mdp() {
         $mdp = $this->input->post('mdp');
         $cmdp = $this->input->post('cmdp');
@@ -239,7 +233,6 @@ class Verification extends CI_Controller {
 
         return false;
     }
-
 
     function check_database_user($user) {
         $result = $this->user->check_user($user);
@@ -286,6 +279,94 @@ class Verification extends CI_Controller {
             }
         }
         return false;
+    }
+
+    function reloadPassword() {
+        $this->load->library('phpmailer');
+
+        $this->form_validation->set_rules('mail', 'mail', 'trim|required|xss_clean');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->templateUser('motDePasseOublie');
+            return;
+        }
+
+        $this->user->setMail($this->input->post('mail'));
+
+        if ($this->user->check_mail_unique()) {
+            $token = $this->user->generate_token();
+
+            define('GUSER', 'lagrandedecouverte.contact@gmail.com');
+            define('GPWD', 'lagrandecouverte123456');
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = GUSER;
+            $mail->Password = GPWD;
+            $mail->isHTML(true); 
+            $mail->SetFrom($this->input->post('mail'), 'La grande decouverte');
+            $mail->Subject = 'Restaurer le mot de passe LA GRANDE DECOUVERTE';
+            $message = mot_de_passe_oublier_mail(base_url().'user/account/motDePasseOublieMail?token=' . $token . '&mail=' . $this->input->post('mail'));
+            $mail->Body = $message;
+            $mail->AddAddress($this->input->post('mail'));
+            if ($mail->Send()) {
+                $data["message"] = "Un mail à été envoyé, vérifier votre boite de réception";
+                $this->load->templateUser('motDePasseOublie', $data);
+                return;
+            } else {
+                $data["message"] = "Un problème est survenu durant l'envoi du mail";
+                $this->load->templateUser('motDePasseOublie', $data);
+                return;
+            }
+        }
+        $data["message"] = "L'email n'existe pas";
+        $this->load->templateUser('motDePasseOublie', $data);
+        return;
+    }
+
+    function reloadPasswordMail() {
+        $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('cmdp', 'cmdp', 'trim|required|xss_clean');
+        if ($this->form_validation->run() == FALSE && isset($_POST["token"]) && isset($_POST["mail"])) {
+            $data["token"] = $_POST["token"];
+            $data["mail"] = $_POST["mail"];
+            $this->load->templateUser('motDePasseOublieMail', $data);
+            return;
+        }
+        if (!isset($_POST["token"]) || !isset($_POST["mail"])) {
+            redirect('pages', 'refresh');
+            return;
+        }
+        if ($this->form_validation->run() == FALSE) {
+            redirect('pages', 'refresh');
+            return;
+        }
+
+        $this->user->setToken($_POST["token"]);
+        $this->user->setMail($_POST["mail"]);
+        if ($this->user->verif_token()) {
+            if ($_POST["mdp"] == $_POST["cmdp"]) {
+                $this->user->setPassword($_POST["mdp"]);
+                if ($this->user->setMdpMail()) {
+                    $data["message"] = "Votre mot de passe à bien été changé";
+                    $this->load->templateUser('motDePasseOublieMail', $data);
+                    return;
+                }
+                $data["messageRetour"] = "Un problème est survenu veuillez recommencer.";
+                $this->load->templateUser('motDePasseOublieMail', $data);
+                return;
+            }
+            $data["messageRetour"] = "Les mots de passe ne sont pas identiques";
+            $data["token"] = $_POST["token"];
+            $data["mail"] = $_POST["mail"];
+            $this->load->templateUser('motDePasseOublieMail', $data);
+            return;
+        }
+        redirect('pages', 'refresh');
+        return;
     }
 
 }

@@ -130,6 +130,7 @@
 		
 
 		<?php 
+
 		$string = '';
 		foreach ($graphique as $point) {
 			$mois = (int) explode('-',$point->date)[1];
@@ -355,9 +356,6 @@
 			}
 		}
 
-
-
-		//var_dump($string);
 
 		?>
 

@@ -8,7 +8,7 @@ class Model_administrateur extends CI_Controller {
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
-            redirect('admin/index/connexion', 'refresh');
+            redirect('admin/connexion', 'refresh');
         }
         $this->load->model('userAdmin');
     }

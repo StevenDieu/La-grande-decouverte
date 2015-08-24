@@ -67,6 +67,24 @@ Class Actualite extends CI_Model {
             return false;
         }
     }
+    
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setTitre($titre) {
+        $this->titre = $titre;
+    }
+
+    function setDesciption($desciption) {
+        $this->desciption = $desciption;
+    }
+
+    function setDate($date) {
+        $this->date = $date;
+    }
+
+
 }
 
 ?>

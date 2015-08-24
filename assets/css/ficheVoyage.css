@@ -12,6 +12,16 @@
     text-align: justify;
     font-family: "helvetica";
 }
+
+.titreCarnet{
+    margin-top: -45px;
+    text-shadow: none;
+    text-align: center;
+    font-size: 51px;
+    padding-bottom: 24px;
+    word-wrap: break-word;
+    color: #c0ac79;
+}
 .rslides {
     margin: 0 auto 40px;
 }
@@ -69,8 +79,11 @@
     position: relative;
     z-index: 1;
     height: auto;
-    width: 100%;
+    min-width: 100%;
     border: 0;
+    min-height: 100%;
+    max-width: 140%;
+    max-height: 140%;
 }
 
 .callbacks .caption {
@@ -158,12 +171,19 @@
     min-height: 160px;
 }
 
+.descriptionJourSansImage{
+    float : left;
+    padding: 8px 14px 21px 0;
+    margin: 0 auto;
+    min-height: 160px;
+    width: 100%;
+}
 
 
 .textDescriptionJourHaut{
     font-size: 14px;
-    font-family: 'Avenir'
-        ;color: #c0ac79;
+    font-family: 'Avenir';
+    color: #c0ac79;
     max-height: 140px;
     text-align: justify;
     word-wrap: break-word;
@@ -177,11 +197,20 @@
 
 .imgJour{
     width: 176px;
+    height: 200px;
     overflow: hidden;
     margin: 0 auto;
     float: right;
 }
 
+.imgJour img{
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 150%;
+    max-height: 150%;
+    width: auto;
+    height: auto;
+}
 
 
 .blockJour{
@@ -370,8 +399,8 @@
     }
     .baniere_description{
         height: 420px;
-    
-}
+
+    }
     .image_transparente{
         height: 420px;
     }

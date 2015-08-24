@@ -218,7 +218,7 @@ div#myModal {}
 }
 
 .button_delete_picto{
-    margin: -63px 0px 0 -21px;
+    margin: -57px 0px 0 -25px;
 }
 
 .blockPicto{
@@ -353,4 +353,27 @@ span.validate .spinneur img {
 
 .action_validate img {
     width: 24px;
+}
+
+.adminCarnetVoyage [class^="icon-"], [class*=" icon-"]{
+    font-size: 23px ;
+}
+.icon-check{
+    color: rgb(52, 132, 52);
+}
+
+.icon-check:hover{
+    color: rgb(4, 215, 4);
+}
+
+.icon-repeat{
+    color: rgb(181, 31, 31);
+}
+
+.icon-repeat:hover{
+    color: rgb(255, 0, 0);
+}
+
+.glyphiHide{
+    display: none;
 }

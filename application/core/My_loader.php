@@ -14,7 +14,7 @@ class My_loader extends CI_Loader {
 
     public function templateVoyage($template_name, $vars = array(), $return = FALSE) {
         $content = $this->view('templates/header', $vars, $return);
-        $content .= $this->view('Voyage/' . $template_name, $vars, $return);
+        $content .= $this->view('voyage/' . $template_name, $vars, $return);
         $content .= $this->view('templates/footer', $vars, $return);
 
         if ($return) {

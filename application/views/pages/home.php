@@ -34,27 +34,27 @@
                     foreach ($continents as $continent) {
                         if ($continent->tag == "AFRIQUE") {
                             ?>
-                            <li class="c1"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Afrique</a></li>
+                            <li class="c1"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Afrique</a></li>
                             <?php
                         } else if ($continent->tag == "ASIE") {
                             ?>
-                            <li class="c2"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Asie</a></li>
+                            <li class="c2"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Asie</a></li>
                             <?php
                         } else if ($continent->tag == "OCEANIE") {
                             ?>
-                            <li class="c3"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Océanie</a></li>
+                            <li class="c3"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Océanie</a></li>
                             <?php
                         } else if ($continent->tag == "EUROPE") {
                             ?>
-                            <li class="c4"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Europe</a></li>
+                            <li class="c4"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Europe</a></li>
                             <?php
                         } else if ($continent->tag == "AMERIQUE_DU_NORD") {
                             ?>
-                            <li class="c5"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Amerique du nord</a></li>
+                            <li class="c5"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Amerique du nord</a></li>
                             <?php
                         } else if ($continent->tag == "AMERIQUE_DU_SUD") {
                             ?>
-                            <li class="c6"><a href="<?php echo base_url('/voyage/carnet/voyage?continent=') . $continent->id ?>">Amerique du sud</a></li>
+                            <li class="c6"><a href="<?php echo base_url('voyages?continent=') . $continent->id ?>">Amerique du sud</a></li>
                             <?php
                         }
                     }
@@ -109,7 +109,7 @@
                     <?php endforeach; ?>
                     <div class="clear"></div>
                 </ul>
-                <a href="<?php echo base_url('voyage/index/liste') ?>" class="other_voyage">Voir tous les voyages</a>
+                <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
                 <div class="clear"></div>
             </div>
         </div>
@@ -133,7 +133,7 @@
                     } ?>
                     <div class="clear"></div>
                 </ul>
-                <a href="<?php echo base_url('voyage/carnet/liste') ?>" class="other_voyage">Voir tous les carnets</a>
+                <a href="<?php echo base_url('/carnetsdevoyage') ?>" class="other_voyage">Voir tous les carnets</a>
                 <div class="clear"></div>
             </div>
         <?php endif; ?>
@@ -141,6 +141,7 @@
         <div class="cms_image">
             <?php if($image_cms[0]): ?>
                 <img src="<?php echo base_url(''); ?>media/home/cms/<?php echo $image_cms[0]->image; ?>" alt="<?php echo $image_cms[0]->label; ?>" title="<?php echo $image_cms[0]->label; ?>" />
+                <div class="flou"></div>
                 <div class='text'>
                     <p class="titre"><?php echo $image_cms[0]->label; ?></p>
                     <?php echo $image_cms[0]->value; ?>
@@ -163,7 +164,7 @@
                                 <div class="description desc<?php echo $i ?>">
                                     <p class="titre"><?php echo $actualite->titre; ?></p>
                                     <p class="description"><?php echo $actualite->description; ?></p>
-                                    <a href="<?php echo base_url('/actualite/index') ?>">Voir toutes l'actualité</a>
+                                    <a href="<?php echo base_url('/actualites') ?>">Voir toutes l'actualité</a>
                                 </div>
                                 
                                 <ul id="slider<?php echo $i ?>">
@@ -174,14 +175,13 @@
                                 
                                  <div class="reseau">
                                         <ul>
-                                            <li class="gplus"><a href="#"></a></li>
-                                            <li class="facebook"><a href="#"></a></li>
-                                            <li class="twitter"><a href="#"></a></li>
-                                            <li class="link"><a href="#"></a></li>
-                                            <li class="pinte"><a href="#"></a></li>
+                                            <li class="gplus"><a target="_blank" href="https://plus.google.com/share?url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
+                                            <li class="facebook"><a target="_blank" href="http://www.facebook.com/share.php?u=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>"></a></li>
+                                            <li class="twitter"><a target="_blank" href="http://twitter.com/intent/tweet?status=<?= $actualite->titre; ?>+<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
+                                            <li class="link"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>&source=[SOURCE/DOMAIN]"></a></li>
+                                            <li class="pinte"><a target="_blank" href="http://pinterest.com/pin/create/bookmarklet/?media=[MEDIA]&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&is_video=false&description=<?= $actualite->titre; ?>"></a></li>
                                         </ul>
                                     </div>
-                                    
                                 <script type="text/javascript">
                                     initialiseResponsiveSilide('#slider<?php echo $i ?>');
                                 </script>
