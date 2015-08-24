@@ -47,6 +47,7 @@
             $attributes = array('class' => 'form-signin');
             echo form_open('admin/connexion/login', $attributes);
             ?>
+            <p style="color:red;"><?php if($erreur) echo $erreur; ?></p>
             <input type="text" class="form-control" placeholder="Identifant" id="username" name="username"autofocus>
             <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>

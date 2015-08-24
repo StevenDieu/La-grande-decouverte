@@ -18,19 +18,22 @@ class Connexion extends CI_Controller {
             $data["alljs"] = array("admin/main");
             $this->load->view('admin/connexion', $data);
         } else {
-            redirect('admin/dashboard', 'refresh');
+            redirect('admin/index/dashboard', 'refresh');
         }
     }
 
     function login() {
         $this->load->library('form_validation');
-
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
         if ($this->form_validation->run() == FALSE) {
-            $this->connexion();
+            $this->load->helper(array('form'));
+            $data["allCss"] = array("admin/connexion");
+            $data["alljs"] = array("admin/main");
+            $data['erreur'] = 'Identifiant ou mot de passe invalide';
+            $this->load->view('admin/connexion', $data);
         } else {
-            redirect('admin/dashboard', 'refresh');
+            redirect('admin/index/dashboard', 'refresh');
         }
     }
 

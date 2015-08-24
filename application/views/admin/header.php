@@ -95,7 +95,7 @@
                 <div class="container">
                     <ul class="mainnav">
                         <li>
-                            <a href="<?php echo base_url('admin/dashboard'); ?>">
+                            <a href="<?php echo base_url('admin/index/dashboard'); ?>">
                                 <i class="icon-home"></i>
                                 <span>Tableau de bord</span> 
                             </a>
