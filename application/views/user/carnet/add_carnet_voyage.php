@@ -37,6 +37,17 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="bwhite" data-dismiss="modal">Close</button>
-        <button type="button" class="validCarnetVoyage bblue">Enregistrer</button>
+        <button id="creation_carnet" type="button" class="validCarnetVoyage bblue">Enregistrer</button>
     </div>
 </form>
+
+
+<script type="text/javascript">
+
+$('.form-horizontal').keypress(function(e){
+    if( e.which == 13 ){
+        $('#creation_carnet').trigger('click');
+    }
+});
+</script>
+
