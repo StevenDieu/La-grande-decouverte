@@ -19,6 +19,7 @@ class Pages extends CI_Controller {
         $this->load->model('productView');
 
         $this->productView->addLog();
+
         $this->load->model('imagesFiche');
 
         $data["voyages"] = $this->voyage->getVoyagesHome();

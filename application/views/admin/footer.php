@@ -26,6 +26,7 @@ if (isset($adminJs)) {
 	ver. <b>1.0.0</b>
 </div>
 
+
 <?php
 if (isset($librairieJs)) {
     ?>
@@ -65,6 +66,7 @@ if (isset($librairieJs)) {
     <?php
 }
 ?>
+
 
 </body> 
 </html>
