@@ -6,5 +6,5 @@
 	Vous allez recevoir un mail de confirmation avec les détails de votre
 	commande ainsi qu'un lien pour suivre son avancement.</p>
 
-	<a href="<?php echo base_url('pages'); ?>">Continuer vos achats</a>
+	<a href="<?php echo base_url(); ?>">Continuer vos achats</a>
 </div>

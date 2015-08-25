@@ -1831,7 +1831,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 
 	protected function showEditForm($state_info)
 	{
-		$this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
+		//$this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
 
 		$data 				= $this->get_common_data();
 		$data->types 		= $this->get_field_types();
@@ -1862,7 +1862,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 
 	protected function showReadForm($state_info)
 	{
-		$this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
+		//$this->set_js_lib($this->default_javascript_path.'/'.grocery_CRUD::JQUERY);
 
 		$data 				= $this->get_common_data();
 		$data->types 		= $this->get_field_types();

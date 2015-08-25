@@ -10,7 +10,8 @@ class Carnetsdevoyage extends CI_Controller {
         $this->load->model('carnetVoyage');
         $this->load->model('Voyage');
         $this->load->model('article');
-
+        $this->load->model('imagesFiche');
+        
         $this->load->library('pagination');
 
         $this->load->model('user');
@@ -24,24 +25,26 @@ class Carnetsdevoyage extends CI_Controller {
         //
         // creation fonction getAllCarnVoyages dans le model carnetVoyage
         $data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
-
-        if ($data['carnetVoyage']) {
+        
+        if (!empty($data['carnetVoyage'])) {
             for ($i = 0; $i < count($data['carnetVoyage']); $i++) {
-                $this->images->setId_voyage($data['carnetVoyage'][$i]->vId);
-                $this->images->setEmplacement("image_slider");
-                $data['images'] = $this->images->getImagesByVoyageEmplacement();
-                $j = 0;
-                foreach ($data['images'] as $image) {
-                    $data['carnetVoyage'][$i]->lien[$j] = $image->lien;
-                    $data['carnetVoyage'][$i]->nom[$j] = $image->nom;
-                    $j++;
+                $this->imagesFiche->setid_carnet_voyage($data['carnetVoyage'][$i]->cvId);
+                $imagesCanetVoyage = $this->imagesFiche->getImagesCarnetVoyage();
+                if ($imagesCanetVoyage) {
+                    $data['carnetVoyage'][$i]->lien[0] = $imagesCanetVoyage[0]->lien;
+                    $data['carnetVoyage'][$i]->nom[0] = "image carnet voyage " . ($i + 1);
+                } else {
+                    $this->images->setId_voyage($data['carnetVoyage'][$i]->vId);
+                    $this->images->setEmplacement("image_slider");
+                    $data['images'] = $this->images->getImagesByVoyageEmplacement();
+                    $j = 0;
+                    foreach ($data['images'] as $image) {
+                        $data['carnetVoyage'][$i]->lien[$j] = $image->lien;
+                        $data['carnetVoyage'][$i]->nom[$j] = $image->nom;
+                        $j++;
+                    }
                 }
             }
-            $config['base_url'] = base_url() . "voyage/carnet/liste";
-            $config['total_rows'] = $this->carnetVoyage->getRowAllCarnetVoyages();
-            $config['per_page'] = $perPage;
-            $config["uri_segment"] = 4;
-            $this->pagination->initialize($config);
         }
 
         // génération des css et js
