@@ -42,7 +42,7 @@
         <div class="texte_slide">
             <div class="titre"><?php echo $voyage[0]->titre; ?></div>
             <div class="trait"></div>
-            <div class="date"><?php echo $voyageInfo[0]->date_depart; ?> - <?php echo $voyageInfo[0]->date_arrivee; ?> </div>
+            <div class="date"><?php echo dateFr($voyageInfo[0]->date_depart); ?> - <?php echo dateFr($voyageInfo[0]->date_arrivee); ?> </div>
         </div>
     </div>
 
@@ -83,8 +83,8 @@
                 </div>
 
                 <div class="bloc_date">
-                    <p>DU <span><?php echo $voyageInfo[0]->date_depart; ?></span></p>
-                    <p>AU <span><?php echo $voyageInfo[0]->date_arrivee; ?></span></p>
+                    <p>DU <span><?php echo dateFr($voyageInfo[0]->date_depart); ?></span></p>
+                    <p>AU <span><?php echo dateFr($voyageInfo[0]->date_arrivee); ?></span></p>
                 </div>
 
                 <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
@@ -121,7 +121,8 @@
                         });
                     </script>
                 <?php endif; ?>
-                <?php if ($voyageInfo[0]->place_dispo != 0) { ?>
+
+                <?php if ($voyageInfo[0]->place_dispo != 0 && strtotime(date("Y-m-d")) < strtotime($voyageInfo[0]->date_depart)) { ?>
                     <button id="embarque" class="borange bbillet" type="submit">J'embarque</button>
                 <?php } ?>
                 </form>
@@ -363,4 +364,30 @@
     <div style="clear:both"></div>
 </div>
 
+<?php 
 
+    function DateFr($date) {
+        $date = explode('-', $date);
+        if ($date[2][0] == 0)
+            $date[2][0] = '';
+        return $date[2] . ' ' . getMonth($date[1]) . ' ' . $date[0];
+    }
+
+    function getMonth($month) {
+        $month_arr[1] = "Janvier";
+        $month_arr[2] = "Février";
+        $month_arr[3] = "Mars";
+        $month_arr[4] = "Avril";
+        $month_arr[5] = "Mai";
+        $month_arr[6] = "Juin";
+        $month_arr[7] = "Juillet";
+        $month_arr[8] = "Août";
+        $month_arr[9] = "Septembre";
+        $month_arr[10] = "Octobre";
+        $month_arr[11] = "Novembre";
+        $month_arr[12] = "Décembre";
+
+        return $month_arr[(int) $month];
+    }
+
+?>

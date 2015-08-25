@@ -1,4 +1,9 @@
-<div class="content admin-connexion">
+<div class="content">
+
+	<div class="entete_dash">
+		Tableau de bord
+	</div>
+
 	<div class="container_dash">
 
 		<div class="dash_left">
