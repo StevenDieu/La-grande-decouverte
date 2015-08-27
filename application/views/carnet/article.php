@@ -5,7 +5,7 @@
     var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
     var urlSignalComment = '<?php echo base_url('voyage/carnet/signalComment'); ?>';
 </script>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="content article">
     <div class="content_fiche">
 
@@ -71,6 +71,9 @@
                             <p>
                                 <textarea class=" required commentaire" id="commentaire" placeholder="Commentaire"></textarea>
                             </p>
+                        </div>
+                        <div class="une_row">
+                            <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
                         </div>
                         <input type="button" class="bgreen addComment" value="Envoyer">
                     </form>

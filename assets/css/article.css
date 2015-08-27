@@ -274,3 +274,7 @@ span.casePage {
 span.casePage.active {
     background: #F0F0F0;      color: #333;
 }
+
+.g-recaptcha {
+    margin-bottom: 20px;
+}

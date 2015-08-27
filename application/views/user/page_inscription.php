@@ -1,3 +1,4 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="content">
     <div class="content-inscription">
         <div class="legend">Inscription</div>  
@@ -54,6 +55,9 @@
                 <span class="floatright">* Champs obligatoires</span>
             </div>
             <div class="clear"></div>
+            <div class="une_row">
+                <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
+            </div>
         </div>
 
         <div class="right">
