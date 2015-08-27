@@ -70,7 +70,6 @@ function addArticle() {
         var contenu = $('#edit').editable('getHTML', false, false);
         var reg = new RegExp('style', "g");
         contenu = contenu.replace(reg, "style/");
-        console.log(id_carnet_voyage);
         $.ajax({
             type: "post",
             url: urlAddArticle,
@@ -101,6 +100,7 @@ function popUpAddArticle() {
 }
 
 
+
 $(document).ready(function () {
     $(".buttonAjouterArticle").on("click", function () {
         popUpAddArticle();
@@ -125,6 +125,7 @@ $(document).ready(function () {
     $(".retourListCarnet").on("click", function () {
         chargementAjaxOnglet("carnets");
     });
+
 
 });
 

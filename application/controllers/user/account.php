@@ -94,10 +94,25 @@ class Account extends CI_Controller {
                 $this->load->templateUser('motDePasseOublieMail', $data);
                 return;
             }
-            
         }
         $data["message"] = "Un problème est survenu veuillez recommencer...";
         $this->load->templateUser('motDePasseOublieMail', $data);
+        return;
+    }
+
+    function confirmationUser() {
+        $this->load->model('user');
+        if (isset($_GET["token"]) && isset($_GET["mail"])) {
+            $this->user->setToken($_GET["token"]);
+            $this->user->setMail($_GET["mail"]);
+            if ($this->user->verif_token()) {
+                $this->user->setValidateUser();
+                $data["mail"] = $_GET["mail"];
+                $this->load->templateUser('compteValider', $data);
+                return;
+            }
+        }
+        $this->load->templateUser('compteNonValider');
         return;
     }
 

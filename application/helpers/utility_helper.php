@@ -453,8 +453,7 @@ function random($car) {
     return $string;
 }
 
-function mot_de_passe_oublier_mail($lien) {
-
+function sendMail($titre, $content, $button, $lien) {
     return '<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:  Arial;margin:0px; padding:0px;">
     <tbody>
         <tr style="color: white;background-color: #1a171b;">
@@ -469,7 +468,7 @@ function mot_de_passe_oublier_mail($lien) {
         <tr>
             <td colspan=2 class="titre" style=" font-size: 27px;padding: 50px 0 15px 15px; font-weight: 600;text-transform: uppercase">
                 <div style="max-width: 1200px;width: 100% ;margin: 0 auto;text-align:center;">
-                    MOT DE PASSE OUBLI&Eacute;
+                    ' . $titre . '
                 </div>
             </td>
         </tr>
@@ -477,8 +476,7 @@ function mot_de_passe_oublier_mail($lien) {
             <td colspan=2 style="">
                 <div style="max-width: 1200px;width: 100% ;margin: 0 auto">
                     <div style="max-height: 550px;  overflow: hidden;text-align:center">
-                        Vous avez r&eacute;cemment demand&eacute; un nouveau mot de passe pour La grande decouverte.<br/>
-                        Afin de valider votre restauration de mot de passe, merci de cliquer sur le bouton ci-dessous.
+                        ' . $content . '
                     </div>
                 </div>
             </td>
@@ -487,7 +485,7 @@ function mot_de_passe_oublier_mail($lien) {
             <td colspan="2" style="padding: 100px;color: white;text-align:center;">
                 <div style="background-color:#006597;width:360px;margin:0 auto;padding:20px;border-radius:20px">
                     <img src="http://stevendieu.com/mailling/arrow.png" alt="fleche"/>
-                    <a href="' . $lien . '" style="text-decoration: none;color: white;font-size: 1.4em;text-transform: uppercase;vertical-align:10px;">MODIFIER MOT DE PASSE</a>
+                    <a href="' . $lien . '" style="text-decoration: none;color: white;font-size: 1.4em;text-transform: uppercase;vertical-align:10px;">' . $button . '</a>
                 </div>
             </td >
         </tr>
@@ -528,4 +526,12 @@ function mot_de_passe_oublier_mail($lien) {
         </tr>
     </tbody>
 </table>';
+}
+
+function mot_de_passe_oublier_mail($lien) {
+    return sendMail("MOT DE PASSE OUBLI&Eacute;", 'Vous avez r&eacute;cemment demand&eacute; un nouveau mot de passe pour La grande decouverte.<br/>Afin de valider votre restauration de mot de passe, merci de cliquer sur le bouton ci-dessous.', "MODIFIER MOT DE PASSE", $lien);
+}
+
+function confirmation_user_mail($lien) {
+    return sendMail("BIENVENUE SUR LAGRANDECOUVERTE", 'Nous vous remercions pour votre inscription sur le site www.lagrandecouverte.com<br/>Afin de valider votre inscription, merci de cliquer sur le bouton ci-dessous.', "JE VALIDE MON INSCRIPTION", $lien);
 }

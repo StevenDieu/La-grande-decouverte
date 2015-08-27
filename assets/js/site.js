@@ -32,7 +32,7 @@ function message(url, message) {
             $(".alertType").stop(true);
             $(".alertType").show("0");
             $(".alertType").html(t);
-            $(".alertType").delay("2000").hide("0");
+            $(".alertType").delay("2500").hide("0");
         }});
 }
 
@@ -51,14 +51,43 @@ function couleurAlerteCss(element, css, cssOrigine) {
         $(element).css(cssOrigine);
     }, 5000);
 }
+
+function sendMail(button) {
+    $(this).val("Envoi en cours ...");
+    $(this).prop('onclick', null).off('click');
+
+    $.ajax({
+        type: "post",
+        url: urlSendMail,
+        data: "mail=" + button.data("mail"),
+        success: function (t) {
+            if (t === "1") {
+                message(urlSucces, "Un email à été envoyer");
+            } else {
+                message(urlError, "un probleme est survenu veuillez actualiser la page et reessayer");
+            }
+            $(this).val("Renvoyer le mail");
+            sendMailClick();
+        }});
+}
+
+function sendMailClick() {
+    $(".sendMail").on("click", function () {
+        sendMail($(this));
+    });
+}
+
 $(document).ready(function () {
     mess_required = "<span class='mess_required'>Ce champ est obligatoire.</span>";
     mdp_required = "<span class='mess_required'>Les mots de passe sont différents.</span>";
     mail_required = "<span class='mess_required'>Les mails sont différents.</span>";
     mdp_identique_required = "<span class='mess_required'>Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</span>";
     login_insuffisant = "<span class='mess_required'>Le nom d'utilisateur doit être compris entre 6 et 50 caratères</span>";
-    
+
     var iniPopUp = 0;
+
+    sendMailClick();
+
     $('body').click(function (e) {
         if (e.target.id === "popUpConnexion") {
             if (iniPopUp === 0) {
@@ -185,7 +214,7 @@ $(document).ready(function () {
 
         return submit;
     });
-    
+
     // Page mot de passe oublié
     $('#input_page_password').click(function () {
         $('.content-motdepass span.mess_required').remove();
@@ -200,6 +229,8 @@ $(document).ready(function () {
         });
         return submit;
     });
+
+
 });
 
 $(window).load(function () {

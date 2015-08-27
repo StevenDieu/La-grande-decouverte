@@ -36,13 +36,10 @@ class Fiche extends CI_Controller {
 
         $view = $this->productView->getByProduct();
 
-        if($view)
-        {
-            $this->productView->setView($view[0]->view +1);
+        if ($view) {
+            $this->productView->setView($view[0]->view + 1);
             $this->productView->edit();
-        }
-        else
-        {
+        } else {
             $this->productView->add();
         }
 
@@ -89,7 +86,7 @@ class Fiche extends CI_Controller {
         }
         $this->carnetVoyage->setId_voyage($this->input->get('id'));
         $data["carnetVoyages"] = $this->carnetVoyage->getVoyageProduit();
-        
+
         if (!empty($data['carnetVoyages'])) {
             for ($i = 0; $i < count($data['carnetVoyages']); $i++) {
                 $this->imagesFiche->setid_carnet_voyage($data['carnetVoyages'][$i]->cvId);
@@ -114,7 +111,7 @@ class Fiche extends CI_Controller {
                 }
             }
         }
-        
+
         $data["allCss"] = array("ficheProduit");
         $data["alljs"] = array("slide", "ficheProduit");
         $this->load->templateVoyage('/fiche_produit', $data);

@@ -5,6 +5,10 @@ if (!defined('BASEPATH'))
 
 class Verification extends CI_Controller {
 
+    private $id;
+    private $prenom;
+    private $mail;
+
     function __construct() {
         parent::__construct();
         $this->load->model('user');
@@ -14,14 +18,26 @@ class Verification extends CI_Controller {
     /*     * **** connexion *** */
 
     function login() {
-
         $this->form_validation->set_rules('mail', 'mail', 'trim|callback_requireMail|xss_clean');
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|callback_requireMdp|xss_clean|callback_check_database_login');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateUser('page_connexion');
         } else {
-            redirect('user/account', 'refresh');
+            $this->user->setMail($this->input->post('mail'));
+
+            if ($this->user->check_validation()) {
+                $data["mail"] = $this->input->post('mail');
+                $this->load->templateUser('page_attente_validation', $data);
+            } else {
+                $sess_array = array(
+                    'id' => $this->id,
+                    'prenom' => $this->prenom
+                );
+                $this->session->set_userdata('logged_in', $sess_array);
+
+                redirect('user/account', 'refresh');
+            }
         }
     }
 
@@ -47,14 +63,10 @@ class Verification extends CI_Controller {
         $result = $this->user->login();
 
         if ($result) {
-            $sess_array = array();
 
             foreach ($result as $row) {
-                $sess_array = array(
-                    'id' => $row->id,
-                    'prenom' => $row->prenom
-                );
-                $this->session->set_userdata('logged_in', $sess_array);
+                $this->id = $row->id;
+                $this->prenom = $row->prenom;
             }
             return TRUE;
         } else {
@@ -86,15 +98,14 @@ class Verification extends CI_Controller {
             $this->user->setMail($this->input->post('email'));
             $this->user->setDate_inscription(date("Y-m-d"));
 
-            $result = $this->user->ajouterUser();
-            if ($result != 0) {
-                $sess_array = array(
-                    'id' => $result,
-                    'prenom' => $this->input->post('prenom')
-                );
-                $this->session->set_userdata('logged_in', $sess_array);
+            if ($this->user->ajouterUser()) {
+                $this->mail = $this->input->post('email');
+                $this->confirmation_user_mail();
+                $data["mail"] = $this->input->post('email');
+                $this->load->templateUser('page_validation_inscription', $data);
+                return;
             }
-            redirect('user/account', 'refresh');
+            $this->load->templateUser('page_inscription');
         }
     }
 
@@ -306,10 +317,10 @@ class Verification extends CI_Controller {
             $mail->Port = 465;
             $mail->Username = GUSER;
             $mail->Password = GPWD;
-            $mail->isHTML(true); 
+            $mail->isHTML(true);
             $mail->SetFrom($this->input->post('mail'), 'La grande decouverte');
             $mail->Subject = 'Restaurer le mot de passe LA GRANDE DECOUVERTE';
-            $message = mot_de_passe_oublier_mail(base_url().'user/account/motDePasseOublieMail?token=' . $token . '&mail=' . $this->input->post('mail'));
+            $message = mot_de_passe_oublier_mail(base_url() . 'user/account/motDePasseOublieMail?token=' . $token . '&mail=' . $this->input->post('mail'));
             $mail->Body = $message;
             $mail->AddAddress($this->input->post('mail'));
             if ($mail->Send()) {
@@ -325,6 +336,50 @@ class Verification extends CI_Controller {
         $data["message"] = "L'email n'existe pas";
         $this->load->templateUser('motDePasseOublie', $data);
         return;
+    }
+
+    function return_confirmation_user_mail() {
+        $email = $this->input->get('email');
+        if (isset($email) && !empty($email)) {
+            $this->mail = $this->input->get('email');
+            echo $this->confirmation_user_mail();
+            return;
+        }
+        echo 0;
+    }
+
+    function confirmation_user_mail() {
+        $this->load->library('phpmailer');
+
+
+        if ($this->mail != null) {
+            $this->user->setMail($this->mail);
+
+            $token = $this->user->generate_token();
+
+            define('GUSER', 'lagrandedecouverte.contact@gmail.com');
+            define('GPWD', 'lagrandecouverte123456');
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = GUSER;
+            $mail->Password = GPWD;
+            $mail->isHTML(true);
+            $mail->SetFrom($this->mail, 'La grande decouverte');
+            $mail->Subject = 'Confirmation compte LA GRANDE DECOUVERTE';
+            $message = confirmation_user_mail(base_url() . 'user/account/confirmationUser?token=' . $token . '&mail=' . $this->mail);
+            $mail->Body = $message;
+            $mail->AddAddress($this->mail);
+            if ($mail->Send()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
     }
 
     function reloadPasswordMail() {

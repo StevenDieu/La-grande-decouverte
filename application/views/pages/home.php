@@ -117,7 +117,7 @@
 
         <?php if (!empty($carnetVoyages)): ?>
             <div class="carnet_voyages">
-                <h2>Nos récents carnets</h2>
+                <h2>Nos récents carnets de voyage</h2>
                 <p class="soush">Retrouvez les derniers récits de voyages créés par nos voyageurs</p>
                     <ul>
                     <?php for ($i = 0; $i < count($carnetVoyages); $i++) {

@@ -54,15 +54,15 @@ class Actualites extends CI_Controller {
     }
 
     function getMonth($month) {
-        $month_arr[01] = "Janvier";
-        $month_arr[02] = "Février";
-        $month_arr[03] = "Mars";
-        $month_arr[04] = "Avril";
-        $month_arr[05] = "Mai";
-        $month_arr[06] = "Juin";
-        $month_arr[07] = "Juillet";
-        $month_arr[08] = "Août";
-        $month_arr[09] = "Septembre";
+        $month_arr[1] = "Janvier";
+        $month_arr[2] = "Février";
+        $month_arr[3] = "Mars";
+        $month_arr[4] = "Avril";
+        $month_arr[5] = "Mai";
+        $month_arr[6] = "Juin";
+        $month_arr[7] = "Juillet";
+        $month_arr[8] = "Août";
+        $month_arr[9] = "Septembre";
         $month_arr[10] = "Octobre";
         $month_arr[11] = "Novembre";
         $month_arr[12] = "Décembre";

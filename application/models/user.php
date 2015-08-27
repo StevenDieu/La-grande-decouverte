@@ -32,6 +32,7 @@ Class User extends CI_Model {
         $this->db->set('ip', $_SERVER["REMOTE_ADDR"]);
         $this->db->set('banni', "0");
         $this->db->set('token', "");
+        $this->db->set('validation', "1");
         $this->db->insert('utilisateur');
 
         return $this->db->insert_id();
@@ -196,6 +197,20 @@ Class User extends CI_Model {
         }
     }
 
+    function check_validation() {
+        $this->db->select('*');
+        $this->db->from('utilisateur');
+        $this->db->where('mail', $this->mail);
+        $this->db->where('validation', 1);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function getUsers() {
         $this->db->select('*');
         $this->db->from('utilisateur');
@@ -242,6 +257,18 @@ Class User extends CI_Model {
             'password' => MD5($this->password),
         );
         $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function setValidateUser() {
+        $data = array(
+            'validation' => '0',
+        );
+        $this->db->where('mail', $this->mail);
         if ($this->db->update('utilisateur', $data) == 1) {
             return true;
         } else {

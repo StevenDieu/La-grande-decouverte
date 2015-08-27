@@ -11,6 +11,7 @@ class Carnet extends CI_Controller {
         $this->load->model('Voyage');
         $this->load->model('article');
         $this->load->model('imagesFiche');
+        $this->load->model('commentaire');
 
         $this->load->library('pagination');
 
@@ -75,7 +76,96 @@ class Carnet extends CI_Controller {
 
         $data["articles"][0]->date_creation = $this->DateFr($data["articles"][0]->date_creation);
 
+        $this->commentaire->setId_article($this->input->get('id'));
+        $data["countComment"] = $this->commentaire->countAllCommentArticle();
+        $data["nbrPageComment"] = ceil($data["countComment"] / 10);
+        $data["pageCourante"] = 1;
+        if ($data["countComment"]) {
+            $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+            $this->commentaire->setStart($page);
+            $this->commentaire->setLimit(10);
+            $data["comments"] = $this->commentaire->getAllComments();
+
+            $i = 0;
+
+            foreach ($data["comments"] as $comment) {
+                $data["comments"][$i]->date_creation = $this->DateFr($comment->date_creation);
+                $i++;
+            }
+        }
+
+
+
         $this->load->templateCarnet('/article', $data);
+    }
+
+    function addComment() {
+        $name = $this->input->post('name');
+        $commentaire = $this->input->post('commentaire');
+        $mail = $this->input->post('mail');
+        $idArticle = $this->input->post('id_article');
+
+
+        if ((!isset($name) || empty($name)) || (!isset($commentaire) || empty($commentaire)) || (!isset($mail) || empty($mail)) || (!isset($idArticle) || empty($idArticle))) {
+            echo "0";
+            return;
+        }
+
+        $this->commentaire->setName($name);
+        $this->commentaire->setMail($mail);
+        $this->commentaire->setCommentaire($commentaire);
+        $this->commentaire->setId_article($idArticle);
+        $id = $this->commentaire->addComment();
+        if ($id) {
+            echo $id;
+        } else {
+            echo "0";
+        }
+    }
+
+    function signalComment() {
+        $id_comment = $this->input->post('id_comment');
+
+        if ((!isset($id_comment) || empty($id_comment))) {
+            echo "0";
+            return;
+        }
+        $this->commentaire->setId($id_comment);
+        $this->commentaire->setSignal(1);
+        if ($this->commentaire->setSignalArticle()) {
+            echo "1";
+        } else {
+            echo "0";
+        }
+    }
+
+    function getCommentPerPage() {
+        $pageComment = $this->input->post('pageComment');
+        $id_article = $this->input->post('id_article');
+
+        if ((!isset($pageComment) || empty($pageComment)) || (!isset($id_article) || empty($id_article))) {
+            echo "0";
+            return;
+        }
+
+        $this->commentaire->setId_article($id_article);
+        $data["countComment"] = $this->commentaire->countAllCommentArticle();
+        $data["nbrPageComment"] = ceil($data["countComment"] / 10);
+        if ($data["countComment"]) {
+            $this->commentaire->setStart($pageComment * 10 - 10);
+            $this->commentaire->setLimit(10);
+            $data["comments"] = $this->commentaire->getAllComments();
+            $i = 0;
+            foreach ($data["comments"] as $comment) {
+                $json["name"][$i] = $comment->name;
+                $json["id"][$i] = $comment->id;
+                $json["commentaire"][$i] = $comment->commentaire;
+                $json["date_creation"][$i] = $this->DateFr($comment->date_creation);
+                $i++;
+            }
+            $json["nbr_comment_page"] = $i;
+            echo json_encode($json);
+        }
     }
 
     function DateFr($date) {
