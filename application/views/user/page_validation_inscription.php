@@ -31,7 +31,7 @@
 
                     &nbsp;&nbsp;&nbsp;&nbsp;<label for="nom" class="">Vous n'avez pas reçu de mail ?</label><br/><br/><br/>
 
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="bblue sendMail" value="Renvoyer le mail">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" data-mail="<?= $mail; ?>" class="bblue sendMail" value="Renvoyer le mail">
                     <br/><br/>
                     <div class="alertType">
                     </div>

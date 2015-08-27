@@ -1,6 +1,7 @@
-<div class="content ">
-    <div class="contentPageSansSlide mentionLegales">
-        <h1 id="overview-mobile">Mentions Légales</h1><br/><br/>
+<div class="content">
+    <div class="content-contact">
+        <div class="legend">Mentions Légales</div>
+
         <p>
             Ce site internet est exploité par :<br/><br/>
             <strong>La grande decouverte</strong><br/>

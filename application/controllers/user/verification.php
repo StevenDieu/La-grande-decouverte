@@ -339,9 +339,9 @@ class Verification extends CI_Controller {
     }
 
     function return_confirmation_user_mail() {
-        $email = $this->input->get('email');
+        $email = $this->input->post('mail');
         if (isset($email) && !empty($email)) {
-            $this->mail = $this->input->get('email');
+            $this->mail = $email;
             echo $this->confirmation_user_mail();
             return;
         }

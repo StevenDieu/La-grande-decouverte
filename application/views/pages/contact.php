@@ -4,13 +4,19 @@
         <span class="mess_required"><?php echo validation_errors(); ?></span>
         <?php
         echo form_open('contact/index/verification');
-        //message d'erreur/validation après envoie du formulaire de contact.
-        if ($error == -1) {
-            echo "Erreur lors de l'envoie du message.";
-        } elseif ($error == 1) {
-            echo "Votre message à bien été envoyer, nous vous répondrons dès que possible.";
-        } elseif ($error == -2) {
-            echo "N'oubliez pas de dire que vous n'êtes pas un robot.";
+        if (isset($messageSucess)) {
+            ?>
+            <div class="alert alert-success fade in limiteMessage">
+                <strong>Succés !</strong> <?php echo $messageSucess ?>
+            </div>
+            <?php
+        }
+        if (isset($messageError)) {
+            ?>
+            <div class="alert alert-danger fade in">
+                <strong>Erreur!</strong> <?php echo $messageError ?>
+            </div>
+            <?php
         }
         ?>
         <!-- Form Name -->
@@ -36,7 +42,7 @@
         <div class="une_row">
             <!--<label class="control-label col-sm-4" for="mail">Email *</label>-->
             <p>
-                <input id="mail" name="mail" type="text" placeholder="Votre mail*" class="required">
+                <input id="mail" name="mail" type="email" placeholder="Votre mail*" class="required">
 
             </p>
         </div>
@@ -52,13 +58,13 @@
         <!-- Textarea -->
         <div class="une_row">
             <!--<label class="control-label col-sm-4" for="message">Votre message *</label>-->
-                <textarea id="message" class="required" placeholder="Votre message*" name="message"></textarea>
+            <textarea id="message" class="required" placeholder="Votre message*" name="message"></textarea>
         </div>
         <!-- ReCaptcha -->
         <div class="">
             <!--<label class="control-label col-sm-4" for="captacha"></label>-->
             <p>  
-                <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
+            <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
             </p>
         </div>
         <div class="une_row">

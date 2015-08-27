@@ -1,10 +1,8 @@
-<div class="content ">
-    <div class="contentPageSansSlide mentionLegales">
+<div class="content">
+    <div class="content-contact">
         <section>
             <paragraph>
-                <h1>
-                    Qui sommes-nous
-                </h1>
+                <div class="legend">Qui sommes-nous</div>
             </paragraph>
             <div>
                 <p>

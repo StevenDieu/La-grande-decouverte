@@ -1,9 +1,17 @@
 <html>
     <head lang="fr">
-        
+
         <meta charset="UTF-8"/>  
-        <title><?php if(isset($titre)){echo $titre . " - ";}?>La Grande Decouverte</title>
-        <meta name="description" content="<?php if(isset($description)){echo $description;}else{?><?php }?>" />
+        <title><?php
+            if (isset($titre)) {
+                echo $titre . " - ";
+            }
+            ?>La Grande Decouverte</title>
+        <meta name="description" content="<?php
+            if (isset($description)) {
+                echo $description;
+            } else {
+                ?><?php } ?>" />
         <meta name="keywords" content="lagrandecouverte,la grande decouverte, agence, Globetrotter voyage chez l’habitant ,voyage aventure ,voyage en immersion,voyage communautaire,voyage unique,voyage atypique,voyage en terre inconnue, tourisme communautaire,séjour atypique"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="index, follow" />
@@ -11,8 +19,8 @@
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width"/>
         <meta name="msapplication-TileImage" content="<?php echo asset_url('images/header/favicon.png'); ?>" />
-        <meta property="fb:page-id" content="<?=  "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" />
-        <link rel="canonical" href="<?=  "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" />
+        <meta property="fb:page-id" content="<?= "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
+        <link rel="canonical" href="<?= "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>" />
         <link rel="apple-touch-icon" href="<?php echo asset_url('images/header/favicon.png'); ?>" />
         <link rel="icon" href="<?php echo asset_url('images/header/favicon.png'); ?>" type="image/x-icon"/>
 
@@ -34,11 +42,11 @@
             foreach ($librairieCss as $css) {
                 ?>
                 <link href="<?php echo asset_url(''); ?>librairie/css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
-                <?php
-            }
-        }
-        ?> 
-                
+        <?php
+    }
+}
+?> 
+
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>
@@ -47,13 +55,16 @@
             foreach ($alljs as $js) {
                 ?> 
                 <script src="<?php echo asset_url(''); ?>js/<?php echo $js; ?>.js" type="text/javascript"></script>
-                <?php
-            }
-        }
-        ?> 
+        <?php
+    }
+}
+?> 
 
     </head>
     <body>
+        <script type="text/javascript">
+            var urlAddMailNewsletter = '<?php echo base_url('pages/addNewletter'); ?>';
+        </script>
         <header class="navbar navbar-static-top bs-docs-nav " id="top" role="banner">
             <div class="header">
                 <div class="navbar-header ">
@@ -96,9 +107,9 @@
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
-                    <?php if (!$this->session->userdata('logged_in')) { ?>
+<?php if (!$this->session->userdata('logged_in')) { ?>
                         <div class="login">
-                            <?php echo form_open('user/verification/login'); ?>
+    <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="mail" maxlength="50" class="required" id="mail" placeholder="Mail*">
@@ -119,7 +130,7 @@
                         </div>
                         <hr class="connexion_hr"/>
                         <div class="bottom">
-                            <?php echo form_open('user/account/inscription'); ?>
+    <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="mail" class="required" id="mail" placeholder="Votre mail">
@@ -131,9 +142,9 @@
                             </form>
                         </div>
 
-                        <?php
-                    } else {
-                        ?>
+    <?php
+} else {
+    ?>
                         <div class="connexion_header">
                             <span>Bienvenue <?php echo $this->session->userdata('logged_in')['prenom']; ?></span>
                         </div>
@@ -171,7 +182,7 @@
                                 </li>
                             </a>
                         </ul>
-                    <?php } ?>
+<?php } ?>
                 </div>
             </div>
         </header>

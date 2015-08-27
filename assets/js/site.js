@@ -53,8 +53,8 @@ function couleurAlerteCss(element, css, cssOrigine) {
 }
 
 function sendMail(button) {
-    $(this).val("Envoi en cours ...");
-    $(this).prop('onclick', null).off('click');
+    button.val("Envoi en cours ...");
+    button.prop('onclick', null).off('click');
 
     $.ajax({
         type: "post",
@@ -62,18 +62,46 @@ function sendMail(button) {
         data: "mail=" + button.data("mail"),
         success: function (t) {
             if (t === "1") {
-                message(urlSucces, "Un email à été envoyer");
+                message(urlSucces, "Un email à été envoyé.");
             } else {
-                message(urlError, "un probleme est survenu veuillez actualiser la page et reessayer");
+                message(urlError, "un probleme est survenu veuillez actualiser la page et reessayer.");
             }
-            $(this).val("Renvoyer le mail");
+            button.val("Renvoyer le mail");
             sendMailClick();
+        }});
+}
+
+function addNewletter(button) {
+    button.val("");
+    button.prop('onclick', null).off('click');
+
+    $.ajax({
+        type: "get",
+        url: urlAddMailNewsletter,
+        data: "mail=" + $(".inputButtonNewsletter").val(),
+        success: function (t) {
+            $(".resultNewsletter").html(t);
+            $(".inputButtonNewsletter").val("")
+            button.val("OK");
+            sendAddNewsletter();
         }});
 }
 
 function sendMailClick() {
     $(".sendMail").on("click", function () {
         sendMail($(this));
+    });
+}
+
+function sendAddNewsletter() {
+    $(".buttonNewsletter").on("click", function () {
+        var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+        $('.mess_required').remove();
+        if (!reg.test($(".inputButtonNewsletter").val())) {
+            $($('.resultNewsletter').parent()).append("<span class='mess_required'>Ceci n'est pas un email</span>");
+        } else {
+            addNewletter($(this));
+        }
     });
 }
 
@@ -87,6 +115,7 @@ $(document).ready(function () {
     var iniPopUp = 0;
 
     sendMailClick();
+    sendAddNewsletter();
 
     $('body').click(function (e) {
         if (e.target.id === "popUpConnexion") {

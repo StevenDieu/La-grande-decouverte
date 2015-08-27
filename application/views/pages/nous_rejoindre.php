@@ -1,11 +1,10 @@
 <div class="content">
-    <div class="contentPageSansSlide mentionLegales">
-        <h1>Candidature spontanée</h1>
+    <div class="content-contact">
+        <div class="legend">Candidature spontanée</div>
+
         <br/>
         Vous avez envie de nous rejoindre mais aucune offre ne correspond actuellement à votre profil ? Envoyez-nous une candidature spontanée, nous proposons chaque semaine de nouveaux postesà pourvoir !<br/>
         <br/>
-        <div class="center"><h3>Envoyer sa candidature</h3></div>
-        <div class="center"><h3>Procédure de recrutement</h3></div>
         <br/>
         Vous postulez en ligne<br/>
         en nous envoyant votre CV accompagné d'une lettre expliquant vos motivations<br/>
@@ -19,7 +18,9 @@
         <br/>
         <br/>
         <br/>
-        <div<h2>Politique de stage</h2><br/>
+        <div>
+
+        </div><h2>Politique de stage</h2><br/>
         <br/>
         Nous sommes particulièrement attachés à proposer des missions intéressantes aux personnes qui nous rejoignent en stage, leur permettant de développer de réelles compétences sur nos métiers et d'être au cœurdu business.  Nous leur offrons des opportunités de stages au sein de notre siège social à Aix-en-Provence mais également dans nos filiales à l'étranger pour qu’ils puissent acquérir une expérience internationale. <br/>
     </div>

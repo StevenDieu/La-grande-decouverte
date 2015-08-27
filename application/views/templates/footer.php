@@ -65,13 +65,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <?php if ($this->session->flashdata('result_newsletter') != '') { ?>
-                                <span><?php echo $this->session->flashdata('result_newsletter'); ?></span>
-                            <?php } ?>
-                            <?php echo validation_errors(); ?>
-                            <?php if (isset($error)) echo $error; ?>
-                            <?php echo form_open('pages/addNewletter'); ?>
-                            <input name="mail" id="mail" type="text" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
+                            <label class="resultNewsletter"></label>
+                            <input name="mail" id="mail" type="email" class="form-control inputButtonNewsletter" placeholder="votre e-mail"/>
                             <input type="submit" class="buttonNewsletter" value="OK" />
                             </form>
                         </div>
@@ -111,12 +106,12 @@
                     </div>
                     <div class="row textFooter">
                         <ul>
-                            <li><a href="<?php echo base_url('/pages/qui_sommes_nous') ?>" target="_blank">Qui sommes-nous ?</a></li>
-                            <li><a href="<?php echo base_url('/pages/presse') ?>" target="_blank">Espace presse</a></li>
+                            <li><a href="<?php echo base_url('/pages/qui_sommes_nous') ?>">Qui sommes-nous ?</a></li>
+                            <li><a href="<?php echo base_url('/pages/presse') ?>">Espace presse</a></li>
                             <li><a href="<?php echo base_url('/contact/index') ?>">Nous contacter</a></li>
-                            <li><a href="<?php echo base_url('/pages/nous_rejoindre') ?>" target="_blank">Nous rejoindre</a></li>
-                            <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>" target="_blank">Mentions légales</a></li>
-                            <li><a href="<?php echo base_url('/pages/cgv') ?>" target="_blank">CGV</a></li>
+                            <li><a href="<?php echo base_url('/pages/nous_rejoindre') ?>">Nous rejoindre</a></li>
+                            <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></li>
+                            <li><a href="<?php echo base_url('/pages/cgv') ?>">CGV</a></li>
                         </ul>
                     </div>
                 </div>
@@ -145,7 +140,7 @@
                 &nbsp; . &nbsp;
                 <span><a href="<?php echo base_url('/pages/cgv') ?>">Conditions générales de vente</a></span>
                 &nbsp; . &nbsp;
-                <span><a href="#">Conditions générales d'utilisation du site </a></span>
+                <span><a href="<?php echo base_url('/pages/cgu') ?>">Conditions générales d'utilisation du site </a></span>
             </div>
         </div>
         <div class="col-md-1"></div>
@@ -180,13 +175,20 @@ if (isset($map)) {
 ?> 
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/bootstrap.min.js" ></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-66652844-1', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-66652844-1', 'auto');
+        ga('send', 'pageview');
 
 </script>
 </body> 

@@ -19,7 +19,7 @@ class Actualites extends CI_Controller {
             redirect('actualites', 'refresh');
         }
         $data["alljs"] = array("slide");
-        $data["allCss"] = array("listeActu");
+        $data["allCss"] = array("listeActu","ficheProduit");
         $this->actualite->setId($id_actualite);
         $data["actualite"] = $this->actualite->getActualite();
         if(!$data["actualite"]){
@@ -34,7 +34,7 @@ class Actualites extends CI_Controller {
     public function index() {
 
         $data["alljs"] = array("slide");
-        $data["allCss"] = array("listeActu");
+        $data["allCss"] = array("listeActu","ficheProduit");
 
         $data["actualites"] = $this->actualite->getActualites();
         $data['nbActu'] = $this->actualite->getCount();

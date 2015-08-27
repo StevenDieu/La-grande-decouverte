@@ -5,11 +5,64 @@ if (!defined('BASEPATH'))
 
 class Cart extends CI_Controller {
 
+    private $id;
+
     function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('user');
         $this->load->model('voyage');
+    }
+
+    public function facture_pdf() {
+        $this->id = $this->input->get('id');
+        if (isset($this->id) && !empty($this->id)) {
+            $this->load->helper(array('dompdf', 'file'));
+            $content = $this->generation_facture();
+            $titre = "facture - N° ";
+            $data = pdf_create($content, $titre, true);
+            write_file('name', $data);
+            return;
+        }
+        echo "0";
+    }
+
+    function generation_facture() {
+        $this->load->helper("facture");
+        $this->load->model('order');
+        $this->load->model('billing');
+        $this->load->model('user');
+        $this->load->model('InfoVoyage');
+        $this->load->model('participant');
+
+        if ($this->id == null) {
+            redirect('admin/orders/liste', 'refresh');
+        }
+
+        $id_voyage = $this->id;
+        $this->order->setId($id_voyage);
+        $order = $this->order->getOrder();
+
+        $order[0]->id_billing = $this->billing->getByIdUser($order[0]->id_utilisateur);
+
+        $this->user->setId($order[0]->id_utilisateur);
+        $order[0]->id_utilisateur = $this->user->get();
+
+        $this->voyage->setId($order[0]->id_voyage);
+        $order[0]->id_voyage = $this->voyage->getVoyage();
+
+        $this->InfoVoyage->setId($order[0]->id_info_voyage);
+        $order[0]->id_info_voyage = $this->InfoVoyage->getInfoVoyageById();
+
+        $order[0]->nb_participant = $this->participant->get($id_voyage);
+
+        if ($order[0]->payment == 'PAYPAL') {
+            $order[0]->payment = 'Paypal';
+        }
+        if ($order[0]->payment == 'CHECKMO') {
+            $order[0]->payment = 'Chèque';
+        }
+        return content_facture($order);
     }
 
     public function onepage() {
@@ -335,16 +388,16 @@ class Cart extends CI_Controller {
         }
 
         //soustraction nombre participant au voyages
-        $nbParticipant = (int)$order["nb_participant"];
+        $nbParticipant = (int) $order["nb_participant"];
 
         $this->load->model('infoVoyage');
         $this->infoVoyage->setId($order["id_info_voyage"]);
-        $place = (int)$this->infoVoyage->getPlaceDispoById()[0]->place_dispo;
+        $place = (int) $this->infoVoyage->getPlaceDispoById()[0]->place_dispo;
 
         $place = $place - $nbParticipant;
 
         $this->infoVoyage->updateQuantitePlace($place);
-        
+
         if ($order["payment"] == "PAYPAL") {
             $res = array(
                 'retour' => 'PAYPAL',
@@ -412,18 +465,17 @@ class Cart extends CI_Controller {
             $this->infoVoyage->setId($idInfo);
             $result = $this->infoVoyage->getPlaceDispoById();
 
-            if($nb_place_demande <= $result[0]->place_dispo){
+            if ($nb_place_demande <= $result[0]->place_dispo) {
                 $res = array(
                     'retour' => true
                 );
-            }else{
+            } else {
                 $res = array(
                     'retour' => false,
-                    'message' => 'Désolé, il ne reste plus que '.$result[0]->place_dispo.' place(s) disponible.'
+                    'message' => 'Désolé, il ne reste plus que ' . $result[0]->place_dispo . ' place(s) disponible.'
                 );
-            }  
-            echo json_encode($res);       
-
+            }
+            echo json_encode($res);
         }
     }
 

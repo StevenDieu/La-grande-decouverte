@@ -68,6 +68,10 @@ class Pages extends CI_Controller {
         $this->load->templatePages('home', $data);
     }
 
+    public function cgu() {
+        $this->load->templatePages('cgu');
+    }
+
     public function cms() {
         $this->load->helper('url');
         $code = $this->uri->segment(3);
@@ -125,30 +129,19 @@ class Pages extends CI_Controller {
     public function addNewletter() {
         $this->load->model('newsletter');
 
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('mail', 'mail', 'trim|xss_clean');
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->index();
-        } else {
-            $this->newsletter->setMail($this->input->post('mail'));
-            $result = $this->newsletter->check_mail_unique();
-
-            if ($result) {
-                // deja inscrit
-                $donnee = "Vous êtes déjà inscrit à la newsletter.";
-            } else {
-                //pas inscrit a la news
-                $this->newsletter->setMail($this->input->post('mail'));
-                $this->newsletter->setDate(date("Y-m-d H:i:s"));
-                $this->newsletter->ajouterNewsletter();
-                $donnee = "Vous êtes désormais inscrit à la newsletter.";
-            }
-
-            $this->load->library('session');
-            $this->session->set_flashdata('result_newsletter', $donnee);
-            redirect('pages/index', 'refresh');
+        if ($this->input->get('mail') == null) {
+            echo "Le mail est nécessaire.";
+            return;
         }
+
+        $this->newsletter->setMail($this->input->get('mail'));
+        if ($this->newsletter->check_mail_unique()) {
+            echo "Vous êtes déjà inscrit à la newsletter.";
+            return;
+        }
+        $this->newsletter->setDate(date("Y-m-d H:i:s"));
+        $this->newsletter->ajouterNewsletter();
+        echo "Vous êtes désormais inscrit à la newsletter.";
     }
 
     function DateFr($date) {

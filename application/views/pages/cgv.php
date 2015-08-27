@@ -1,6 +1,7 @@
-<div class="content ">
-    <div class="contentPageSansSlide">
-        <h1>Conditions générales de ventes</h1>
+<div class="content">
+    <div class="content-contact">
+        <div class="legend">Conditions générales de ventes</div>
+
         <h2>Préambule—</h2>
         <p>Les prestations figurant sur le site internet http://www.lagrandecouverte.com, sont proposées par la société LGD, qui édite ce site sous la direction de publication de Georges Doe en sa qualité de président de la société LGD. Vous pouvez entrer en contact avec une personne physique au numéro d’appel suivant (0892 426 425) Le nom, la raison sociale, l’adresse et le numéro de téléphone de l’hébergeur du site sont indiqués sur le site.</p>
         <p><br></p>

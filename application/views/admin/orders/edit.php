@@ -18,14 +18,14 @@
                 <div class="widget-content">
 
                     <div class="bloc_commande right">
-                        <h4>Inforamtion de la commande N°<?php echo $order[0]->id ?></h4>
+                        <h4>Information de la commande N°<?php echo $order[0]->id ?></h4>
                         <p>Date de la commmande : <span><?php echo $order[0]->date ?></span></p>
                         <p>Placé depuis l'IP : <span><?php echo $order[0]->ip ?></span></p>
                         <p>Statut de la commande : <span><?php echo $order[0]->statut ?></span></p>
                     </div>
 
                     <div class="bloc_commande">
-                        <h4>Inforamtion du compte</h4>
+                        <h4>Information du compte</h4>
                         <p>Nom du client : <span><?php echo $order[0]->id_utilisateur[0]->nom.' '.$order[0]->id_utilisateur[0]->prenom ?></span></p>
                         <p>Email : <span><?php echo $order[0]->id_utilisateur[0]->mail ?></span></p>
                         <p>Date d'inscription : <span><?php echo explode(' ', $order[0]->id_utilisateur[0]->date_inscription)[0] ?></span></p>
