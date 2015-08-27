@@ -38,8 +38,8 @@
             }
         }
         ?> 
-                
-                
+
+
         <?php
         if (isset($librairieCss)) {
             foreach ($librairieCss as $css) {
@@ -77,16 +77,14 @@
             </div>
             <div class="header-right">
                 <p class="super">
-                    <?php 
+                    <?php
+                    $jour = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
 
-                    $jour = array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"); 
+                    $mois = array("", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
 
-                    $mois = array("","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"); 
-
-                    $datefr = $jour[date("w")]." ".date("d")." ".$mois[date("n")]." ".date("Y"); 
-
+                    $datefr = $jour[date("w")] . " " . date("d") . " " . $mois[date("n")] . " " . date("Y");
                     ?> 
-                    Connecté sous <strong><?php echo $this->session->userdata('logged_admin')['username'] ?></strong><span class="separator">|</span><?php echo $datefr;  ?><span class="separator">|</span><a href="<?php echo base_url('admin/logout') ?>" class="link-logout">Déconnexion</a>
+                    Connecté sous <strong><?php echo $this->session->userdata('logged_admin')['username'] ?></strong><span class="separator">|</span><?php echo $datefr; ?><span class="separator">|</span><a href="<?php echo base_url('admin/logout') ?>" class="link-logout">Déconnexion</a>
                 </p>
             </div>
         </div>
@@ -162,6 +160,18 @@
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url('admin/newsletters/liste'); ?>">Abonnés à la newsletter</a></li>
                             </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="<?php echo base_url('admin/faqs/liste'); ?>"> 
+                                <i class="icon-comments"></i>
+                                <span>Commentaire</span> 
+                            </a> 
+                        </li>
+                        <li class="dropdown">
+                            <a href="<?php echo base_url('admin/faqs/liste'); ?>"> 
+                                <i class="icon-comments"></i>
+                                <span>Commentaire</span> 
+                            </a> 
                         </li>
                     </ul>
                 </div>
