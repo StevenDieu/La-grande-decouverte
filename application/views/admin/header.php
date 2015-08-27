@@ -162,13 +162,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="<?php echo base_url('admin/faqs/liste'); ?>"> 
-                                <i class="icon-comments"></i>
-                                <span>Commentaire</span> 
-                            </a> 
-                        </li>
-                        <li class="dropdown">
-                            <a href="<?php echo base_url('admin/faqs/liste'); ?>"> 
+                            <a href="<?php echo base_url('admin/commentaires/liste'); ?>"> 
                                 <i class="icon-comments"></i>
                                 <span>Commentaire</span> 
                             </a> 
