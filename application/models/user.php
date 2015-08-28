@@ -211,6 +211,20 @@ Class User extends CI_Model {
         }
     }
 
+    function getMailUser() {
+        $this->db->select('mail');
+        $this->db->from('utilisateur');
+        $this->db->where('id', $this->id);
+        
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getUsers() {
         $this->db->select('*');
         $this->db->from('utilisateur');

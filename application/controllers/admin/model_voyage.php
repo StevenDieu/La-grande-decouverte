@@ -50,10 +50,13 @@ class Model_voyage extends CI_Controller {
                 $this->ajouterPicto();
                 $this->ajouterInfoVoyages();
                 $this->ajouterDeroulementVoyages();
+
                 redirect('admin/voyages/liste', 'refresh');
             }
         }
     }
+
+
 
     public function edit() {
 

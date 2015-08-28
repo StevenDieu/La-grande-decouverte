@@ -12,6 +12,9 @@
                     Nom du voyage
                 </th>
                 <th class="center">
+                    Statut
+                </th>
+                <th class="center">
                     Prix total
                 </th>
                 <th class="center">
@@ -27,7 +30,7 @@
                     Payement
                 </th>
                 <th class="center">
-                    + Infos
+                    PDF
                 </th>
             </tr>
             <?php
@@ -38,12 +41,13 @@
                     ?>
                     <tr>
                         <td class="center"><?php echo $v->titre; ?></td>
+                        <td class="center"><?php echo $v->statut; ?></td>
                         <td class="center"><?php echo $v->prix_total; ?></td>
                         <td class="center"><?php echo $v->date_depart; ?></td>
                         <td class="center"><?php echo $v->date_arrivee; ?></td>
                         <td class="center"><?php echo $v->nb_participant; ?></td>
-                        <td class="center"><?php echo $v->payment; ?></td>
-                        <td class="center"> <span class="glyphicon glyphicon-arrow-down"></span></td>
+                        <td class="center"><?php if($v->payment=="CHECKMO"){echo "CHEQUE";}else{echo $v->payment;} ?></td>
+                        <td class="center"><a href="<?php echo base_url('checkout/cart/facture_pdf?id=') . $v->id ?>" target="_BLANK"><span class="glyphicon glyphicon-download-alt"></span></a></td>
                     </tr>
                     <?php
                 }

@@ -52,6 +52,7 @@ class Carnetsdevoyage extends CI_Controller {
         $data["alljs"] = array("slide", "liste_carnet");
 
         //appel du template
+        $data["titre"] = "Liste carnets de voyage";
         $this->load->templateCarnet('/liste_carnet', $data);
     }
 

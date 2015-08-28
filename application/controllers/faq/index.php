@@ -13,6 +13,7 @@ class Index extends CI_Controller {
     function index() {
         $data["allCss"] = array("faq");
         $data["faqs"] = $this->faq->getAllVisible();
+        $data["titre"] = "Foire aux questions";
 
         $this->load->templateFaq('content', $data);
     }

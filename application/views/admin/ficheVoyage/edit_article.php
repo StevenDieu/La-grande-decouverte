@@ -21,10 +21,10 @@
                     <div class="tabbable">
                         <legend>Editer un article</legend>
 
-                        <form action="#" method="post" class="form-horizontal center">
+                        <form action="#" method="post" class="form-horizontal">
                             <div class="info_generale">
                                 <div class="control-group">											
-                                    <div class="controls">
+                                    <div class="center">
                                         Titre : <input type="text" class="span5 titre form-titre" placeholder="Titre de l'article" value="<?php echo $article[0]->titre; ?>">
                                     </div>			
                                 </div>

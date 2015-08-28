@@ -30,6 +30,7 @@ class Account extends CI_Controller {
                 session_destroy();
                 redirect('pages/index', 'refresh');
             }
+            $data["titre"] = "Back office utilisateur";
 
             $this->load->templateUser('account', $data);
         } else {

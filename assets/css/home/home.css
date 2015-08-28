@@ -558,6 +558,7 @@ span.glyphicon.glyphicon-user {}
 
 .voyage_home ul li.voyage .bloc_image img{
     width: 100%;
+    margin-top: -5%;
 }
 
 .voyage_home ul li.voyage .bloc_image{

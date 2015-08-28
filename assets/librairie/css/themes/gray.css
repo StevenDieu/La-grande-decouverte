@@ -294,7 +294,7 @@
 .gray-theme.froala-editor .froala-popup.froala-image-editor-popup div.f-popup-line + div.f-popup-line {
   border-top: solid 1px #d1d5d8;
 }
-.gray-theme.froala-editor .froala-popup.froala-video-popup p.or {
+.gray-theme.froala-editor .froala-popup.froala-video-popup  {
   color: #28324e;
 }
 .gray-theme.froala-editor .froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload {

@@ -67,6 +67,7 @@
             var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
             var urlLittleSpinneur = '<?php echo asset_url() . "images/ajax-loader.gif"; ?>';
             var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
+            var urlSucces = '<?php echo base_url('pages/messageSucces'); ?>';
         </script>
 
     </head>
@@ -159,6 +160,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url('admin/newsletters/liste'); ?>">Abonnés à la newsletter</a></li>
+                                <li><a href="<?php echo base_url('admin/newsletters/create'); ?>">Envoyé newsletter</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

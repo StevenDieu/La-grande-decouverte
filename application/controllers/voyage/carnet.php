@@ -53,7 +53,7 @@ class Carnet extends CI_Controller {
                 }
             }
         }
-
+        $data["titre"] = "Carnet de voyage";
         $this->load->templateCarnet('/carnet', $data);
     }
 
@@ -94,7 +94,7 @@ class Carnet extends CI_Controller {
             }
         }
 
-
+        $data["titre"] = "Article d'un voyage";
 
         $this->load->templateCarnet('/article', $data);
     }
@@ -168,7 +168,7 @@ class Carnet extends CI_Controller {
         }
     }
 
-    function DateFr($date) {
+    private function DateFr($date) {
         $date = explode(' ', $date);
         $date = explode('-', $date[0]);
 
@@ -177,7 +177,7 @@ class Carnet extends CI_Controller {
         return $date[2] . ' ' . $this->getMonth($date[1]) . ' ' . $date[0];
     }
 
-    function getMonth($month) {
+    private function getMonth($month) {
         $month_arr[1] = "Janvier";
         $month_arr[2] = "Février";
         $month_arr[3] = "Mars";

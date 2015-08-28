@@ -1,16 +1,20 @@
-<html>
-    <head lang="fr">
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<div class="content">
+    <div class="content-inscription">
+        <div class="legend">ERREUR FACTURE</div>  
+        <?php
+            echo form_open('user/verification/inscription');
+        ?> 
+        <div class="left">
+            <label>Impossible de générer la facture, veuillez réessayer ultérieurement, merci.</label>
+        </div>
 
-        <meta charset="UTF-8">  
-        <title>La Grande Decouverte</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="lagrandecouverte,la grande decouverte, agence, Globetrotter voyage chez l’habitant ,voyage aventure ,voyage en immersion,voyage communautaire,voyage unique,voyage atypique,voyage en terre inconnue, tourisme communautaire,séjour atypique"> 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="robots" content="index, follow">
-        <meta name="googlebot" content="index, follow">
-        <meta name="google" content="notranslate">
-        <meta name="viewport" content="width=device-width">
+         <div class="clear"></div>
 
-    </head>
-   
-</html>
+        <div class="legend"></div>
+
+        <?php
+        echo form_close();
+        ?>
+    </div>
+</div>

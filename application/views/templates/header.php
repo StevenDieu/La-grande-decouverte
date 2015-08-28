@@ -222,7 +222,7 @@
                         </div>
                     </div>
                 </div>
-                <h1>Chargement ...</h1>
+                <span class="chargementHome">Chargement ...</span>
             </div>
         </div>
         <script type="text/javascript">

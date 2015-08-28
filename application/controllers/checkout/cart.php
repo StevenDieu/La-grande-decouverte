@@ -13,21 +13,26 @@ class Cart extends CI_Controller {
         $this->load->model('user');
         $this->load->model('voyage');
     }
+    
 
     public function facture_pdf() {
         $this->id = $this->input->get('id');
         if (isset($this->id) && !empty($this->id)) {
             $this->load->helper(array('dompdf', 'file'));
-            $content = $this->generation_facture();
-            $titre = "facture - N° ".$this->id." VOYAGE LA GRANDE DECOUVERTE";
+            $content = $this->generation_facture(true);
+            if ($content === false) {
+                redirect('pages/facture', 'refresh');
+                return;
+            }
+            $titre = "facture - N° " . $this->id . " VOYAGE LA GRANDE DECOUVERTE";
             $data = pdf_create($content, $titre, true);
             write_file('name', $data);
             return;
         }
-        echo "0";
+        redirect('pages/facture', 'refresh');
     }
 
-    private function generation_facture() {
+    private function generation_facture($pdf) {
         $this->load->helper("facture");
         $this->load->model('order');
         $this->load->model('billing');
@@ -42,11 +47,18 @@ class Cart extends CI_Controller {
         $id_voyage = $this->id;
         $this->order->setId($id_voyage);
         $order = $this->order->getOrder();
-
+        if (empty($order)) {
+            return false;
+        }
         $order[0]->id_billing = $this->billing->getByIdUser($order[0]->id_utilisateur);
 
         $this->user->setId($order[0]->id_utilisateur);
         $order[0]->id_utilisateur = $this->user->get();
+
+
+        if ($this->session->userdata('logged_in')["id"] !== $order[0]->id_utilisateur[0]->id) {
+            return false;
+        }
 
         $this->voyage->setId($order[0]->id_voyage);
         $order[0]->id_voyage = $this->voyage->getVoyage();
@@ -62,7 +74,11 @@ class Cart extends CI_Controller {
         if ($order[0]->payment == 'CHECKMO') {
             $order[0]->payment = 'Chèque';
         }
-        return content_facture($order);
+
+        if ($pdf) {
+            return content_facture_pdf($order);
+        }
+        return content_facture_mail($order);
     }
 
     public function onepage() {
@@ -416,6 +432,41 @@ class Cart extends CI_Controller {
                 'message' => $this->order->getId()
             );
             echo json_encode($res);
+        }
+
+        $this->id = $this->order->getId();
+        $this->generation_mail_facture();
+    }
+
+    private function generation_mail_facture() {
+        $this->load->helper("facture");
+        $this->load->library('phpmailer');
+        $this->user->setId($this->session->userdata('logged_in')["id"]);
+        $mailUser = $this->user->getMailUser();
+
+        if ($mailUser[0]->mail != null) {
+            define('GUSER', 'lagrandedecouverte.contact@gmail.com');
+            define('GPWD', 'lagrandecouverte123456');
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = GUSER;
+            $mail->Password = GPWD;
+            $mail->isHTML(true);
+            $mail->SetFrom($mailUser[0]->mail, 'La grande decouverte');
+            $mail->Subject = 'Confirmation commande LA GRANDE DECOUVERTE';
+            $message = $this->generation_facture(false);
+            $mail->Body = $message;
+            $mail->AddAddress($mailUser[0]->mail);
+            if ($mail->Send()) {
+                return 1;
+            } else {
+                return 0;
+            }
         }
     }
 

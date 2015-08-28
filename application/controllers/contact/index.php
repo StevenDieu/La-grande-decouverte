@@ -18,7 +18,8 @@ class Index extends CI_Controller {
     }
 
     public function index() {
-        $this->load->templatePages('contact');
+        $data["titre"] = "Nous contacter";
+        $this->load->templatePages('contact',$data);
     }
 
     function verification() {
@@ -61,7 +62,7 @@ class Index extends CI_Controller {
         }
     }
 
-    function envoie_mail() {
+    private function envoie_mail() {
         $this->load->library('phpmailer');
         if (isset($this->nom) && !empty($this->nom)) {
             define('GUSER', 'lagrandedecouverte.contact@gmail.com');

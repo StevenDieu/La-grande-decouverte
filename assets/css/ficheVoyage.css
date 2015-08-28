@@ -242,12 +242,14 @@
 .textDescriptionJourBas {
     padding: 12px 6px 0 0;
     text-align: right;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 15px;
     color : #000;
     font-family: 'Avenir';
 }
-
+.textDescriptionJourBas:hover {
+    text-decoration: underline;
+}
 
 
 @media (min-width: 992px){
@@ -291,7 +293,6 @@
     .textDescriptionJourBas {
         padding: 12px 6px 0 0;
         text-align: right;
-        text-decoration: underline;
         font-size: 15px;
         color : #000;
         font-family: 'Avenir';
@@ -320,7 +321,6 @@
     }
     .textDescriptionJourBas {
         margin: 0 auto;
-
         text-align: center;
     }
     .imgJour{

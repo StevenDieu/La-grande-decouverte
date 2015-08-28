@@ -28,6 +28,7 @@ class Actualites extends CI_Controller {
         foreach ($data["actualite"] as $actu) {
             $actu->date = $this->DateFr($actu->date);
         }
+        $data["titre"] = "Page d'une actualite";
         $this->load->templateActualite('partage_actualite', $data);
     }
 
@@ -41,10 +42,11 @@ class Actualites extends CI_Controller {
         foreach ($data["actualites"] as $actu) {
             $actu->date = $this->DateFr($actu->date);
         }
+        $data["titre"] = "Liste actualites";
         $this->load->templateActualite('list_actualite', $data);
     }
 
-    function DateFr($date) {
+    private function DateFr($date) {
         $date = explode(' ', $date);
         $date = explode('-', $date[0]);
 
@@ -53,7 +55,7 @@ class Actualites extends CI_Controller {
         return $date[2] . ' ' . $this->getMonth($date[1]) . ' ' . $date[0];
     }
 
-    function getMonth($month) {
+    private function getMonth($month) {
         $month_arr[1] = "Janvier";
         $month_arr[2] = "Février";
         $month_arr[3] = "Mars";

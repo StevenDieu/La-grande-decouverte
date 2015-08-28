@@ -114,17 +114,18 @@ class Fiche extends CI_Controller {
 
         $data["allCss"] = array("ficheProduit");
         $data["alljs"] = array("slide", "ficheProduit");
+        $data["titre"] = "Fiche produit d'un voyage";
         $this->load->templateVoyage('/fiche_produit', $data);
     }
 
-    function DateFr($date) {
+    private function DateFr($date) {
         $date = explode('-', $date);
         if ($date[2][0] == 0)
             $date[2][0] = '';
         return $date[2] . ' ' . $this->getMonth($date[1]) . ' ' . $date[0];
     }
 
-    function getMonth($month) {
+    private function getMonth($month) {
         $month_arr[01] = "Janvier";
         $month_arr[02] = "Février";
         $month_arr[03] = "Mars";

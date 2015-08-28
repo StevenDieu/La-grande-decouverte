@@ -64,12 +64,18 @@ class Pages extends CI_Controller {
         $this->load->model('cms');
         $this->cms->setCode('bloc_image_cms _home_page');
         $data["image_cms"] = $this->cms->getByCode();
-
+        $data["titre"] = "Page accueil";
         $this->load->templatePages('home', $data);
     }
 
     public function cgu() {
-        $this->load->templatePages('cgu');
+        $data["titre"] = "Conditions générales d'utilisation";
+        $this->load->templatePages('cgu', $data);
+    }
+
+    public function facture() {
+        $data["titre"] = "Facture";
+        $this->load->templatePages('facture', $data);
     }
 
     public function cms() {
@@ -89,27 +95,33 @@ class Pages extends CI_Controller {
     }
 
     public function mailling() {
-        $this->load->view('mailling/mailling');
+        $data["titre"] = "Mailling";
+        $this->load->view('mailling/mailling', $data);
     }
 
     public function mentionsLegales() {
-        $this->load->templatePages('mentions_legales');
+        $data["titre"] = "Mentions legales";
+        $this->load->templatePages('mentions_legales', $data);
     }
 
     public function cgv() {
-        $this->load->templatePages('cgv');
+        $data["titre"] = "Conditions générales de ventes";
+        $this->load->templatePages('cgv', $data);
     }
 
     public function qui_sommes_nous() {
-        $this->load->templatePages('qui_sommes_nous');
+        $data["titre"] = "Mailling";
+        $this->load->templatePages('qui_sommes_nous', $data);
     }
 
     public function presse() {
-        $this->load->templatePages('presse');
+        $data["titre"] = "Presse";
+        $this->load->templatePages('presse', $data);
     }
 
     public function nous_rejoindre() {
-        $this->load->templatePages('nous_rejoindre');
+        $data["titre"] = "Nous rejoindre";
+        $this->load->templatePages('nous_rejoindre', $data);
     }
 
     public function messageSucces() {
@@ -117,6 +129,7 @@ class Pages extends CI_Controller {
             $data["message"] = $this->input->post('message');
             $this->load->view('templates/great.php', $data);
         }
+        redirect('pages/index', 'refresh');
     }
 
     public function messageErreur() {
@@ -124,6 +137,7 @@ class Pages extends CI_Controller {
             $data["message"] = $this->input->post('message');
             $this->load->view('templates/error.php', $data);
         }
+        redirect('pages/index', 'refresh');
     }
 
     public function addNewletter() {
@@ -144,7 +158,7 @@ class Pages extends CI_Controller {
         echo "Vous êtes désormais inscrit à la newsletter.";
     }
 
-    function DateFr($date) {
+    private function DateFr($date) {
         $date = explode(' ', $date);
         $date = explode('-', $date[0]);
         if ($date[2][0] == 0)
@@ -152,7 +166,7 @@ class Pages extends CI_Controller {
         return $date[2] . ' ' . $this->getMonth($date[1]) . ' ' . $date[0];
     }
 
-    function getMonth($month) {
+    private function getMonth($month) {
         $month_arr[1] = "Janvier";
         $month_arr[2] = "Février";
         $month_arr[3] = "Mars";

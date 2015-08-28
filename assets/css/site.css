@@ -1575,3 +1575,13 @@ a#delete_participant{
 .z10{
     z-index: 10;
 }
+
+.chargementHome{
+    font-family: "Helvetica";
+    text-align: center;
+    text-transform: uppercase;
+    color: #E3E3E3;
+    font-size: 20px;
+    padding-top: 10px;
+    text-shadow: 1px 1px 0px #111;
+}
