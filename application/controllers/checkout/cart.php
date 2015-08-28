@@ -19,13 +19,12 @@ class Cart extends CI_Controller {
         if (isset($this->id) && !empty($this->id)) {
             $this->load->helper(array('dompdf', 'file'));
             $content = $this->generation_facture();
-
-            $titre = "facture - N° ";
-//            $data = pdf_create($content, $titre, true);
-//            write_file('name', $data);
+            $titre = "facture - N° ".$this->id." VOYAGE LA GRANDE DECOUVERTE";
+            $data = pdf_create($content, $titre, true);
+            write_file('name', $data);
             return;
         }
-//        echo "0";
+        echo "0";
     }
 
     private function generation_facture() {
@@ -42,28 +41,28 @@ class Cart extends CI_Controller {
 
         $id_voyage = $this->id;
         $this->order->setId($id_voyage);
-        $data["order"] = $this->order->getOrder();
+        $order = $this->order->getOrder();
 
-        $data["order"][0]->id_billing = $this->billing->getByIdUser($data["order"][0]->id_utilisateur);
+        $order[0]->id_billing = $this->billing->getByIdUser($order[0]->id_utilisateur);
 
-        $this->user->setId($data["order"][0]->id_utilisateur);
-        $data["order"][0]->id_utilisateur = $this->user->get();
+        $this->user->setId($order[0]->id_utilisateur);
+        $order[0]->id_utilisateur = $this->user->get();
 
-        $this->voyage->setId($data["order"][0]->id_voyage);
-        $data["order"][0]->id_voyage = $this->voyage->getVoyage();
+        $this->voyage->setId($order[0]->id_voyage);
+        $order[0]->id_voyage = $this->voyage->getVoyage();
 
-        $this->InfoVoyage->setId($data["order"][0]->id_info_voyage);
-        $data["order"][0]->id_info_voyage = $this->InfoVoyage->getInfoVoyageById();
+        $this->InfoVoyage->setId($order[0]->id_info_voyage);
+        $order[0]->id_info_voyage = $this->InfoVoyage->getInfoVoyageById();
 
-        $data["order"][0]->nb_participant = $this->participant->get($id_voyage);
+        $order[0]->nb_participant = $this->participant->get($id_voyage);
 
-        if ($data["order"][0]->payment == 'PAYPAL') {
-            $data["order"][0]->payment = 'Paypal';
+        if ($order[0]->payment == 'PAYPAL') {
+            $order[0]->payment = 'Paypal';
         }
-        if ($data["order"][0]->payment == 'CHECKMO') {
-            $data["order"][0]->payment = 'Chèque';
+        if ($order[0]->payment == 'CHECKMO') {
+            $order[0]->payment = 'Chèque';
         }
-        $this->load->view('pages/facture', $data);
+        return content_facture($order);
     }
 
     public function onepage() {
