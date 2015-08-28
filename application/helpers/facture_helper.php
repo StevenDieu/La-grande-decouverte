@@ -212,6 +212,7 @@ function content_facture_mail($order) {
 
 function participantHtml($order) {
     $participant = "";
+
     foreach ($order[0]->nb_participant as $p) {
         $tmpparticipant = '<tr><td style=" padding-left: 15px;   border: 1px solid #d6d6d6;border-left: 0px solid; #d6d6d6;border-bottom: 0px solid; #d6d6d6;    text-align: left;">' . $p->nom . '</td> <td style="padding-left: 15px;    border: 1px solid #d6d6d6;border-bottom: 0px solid; #d6d6d6;     text-align: left;">' . $p->prenom . '</td><td style=" padding-left: 15px;   border: 1px solid #d6d6d6;border-bottom: 0px solid; #d6d6d6;     text-align: left;">' . $p->dob . '</td><td style="  padding-left: 15px;  border: 1px solid #d6d6d6; border-right: 0px solid #d6d6d6;border-bottom: 0px solid; #d6d6d6;   text-align: left;">' . $p->info . '</td></tr>';
         $participant = $participant . $tmpparticipant;
