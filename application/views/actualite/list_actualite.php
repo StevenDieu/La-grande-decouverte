@@ -1,11 +1,18 @@
+<script type="text/javascript">
+    var urlAddArticle = '<?php echo base_url('actualites/addInList'); ?>';
+    var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
+    var activePaginate = '<?= $activePaginate ?>';
+</script>
+
+
 <div class="content actualites">
     <div class="actu">
         <?php if ($actualites) { ?>
             <div class="actualites">
                 <h2>Nos actualités <sup>(<?php echo $nbActu; ?>)</sup></h2>
                 <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
-                <div class="actu_home">
-                    <ul>
+                <div class="actu_home list">
+                    <ul class="ulList">
                         <?php if ($actualites): ?>
                             <?php $i = 1; ?>
                             <?php foreach ($actualites as $actualite): ?>
@@ -20,7 +27,7 @@
                                     </div>
 
                                     <ul id="slider<?php echo $i ?>">
-                                        <li> <img src=" <?php echo base_url('') . 'media/actualite/' . $actualite->img1 . '" alt="' . $actualite->img1; ?>" ></li>
+                                        <li> <img src=" <?php echo base_url('') . 'media/actualite/' . $actualite->img1 . '" alt="' . $actualite->img1; ?>" >
                                         <?php if ($actualite->img2): ?><li><img src="<?php echo base_url('') . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2; ?>"></li><?php endif; ?>
                                         <?php if ($actualite->img3): ?><li><img src="<?php echo base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3; ?>"></li><?php endif; ?>
                                     </ul>
@@ -40,14 +47,14 @@
                                     </script>
 
                                 </li>
-                                <?php if ($i == 4) $i = 0; ?>
+                                <?php if ($i == 3) $i = 0; ?>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
                             pas d'actualité
                         <?php endif; ?>
-                        <div class="clear"></div>
                     </ul>
+                    <div class="clear"></div>
                 </div>
             </div>
             <?php

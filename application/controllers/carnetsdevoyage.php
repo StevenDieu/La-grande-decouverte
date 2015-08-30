@@ -6,6 +6,8 @@ if (!defined('BASEPATH'))
 class Carnetsdevoyage extends CI_Controller {
 
     private $data;
+    private $limit = 6;
+
 
     function __construct() {
         parent::__construct();
@@ -22,7 +24,8 @@ class Carnetsdevoyage extends CI_Controller {
     }
 
     public function index() {
-        $perPage = 6;
+
+        $perPage = $this->limit;
 
         $this->data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, 0);
         $this->data['activePaginate'] = true;
@@ -65,37 +68,38 @@ class Carnetsdevoyage extends CI_Controller {
             echo "0";
             return;
         }
-        $perPage = 6;   //nombres d'articles par page
+        $perPage = $this->limit;   //nombres d'articles par page
         $page = $pagePost * $perPage;  //numero de page
-        $carnetVoyages = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
-        if ($carnetVoyages) {
+        $this->data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, $page);
+        if ($this->data['carnetVoyage']) {
+            $this->getImageCarnet();
             $i = 0;
-            foreach ($carnetVoyages as $carnetVoyage) {
-                if (($i % 2) == 0) {
-                    $right = "right";
+            foreach ($this->data['carnetVoyage'] as $carnetVoyage) {
+                if (($i % 3) == 0) {
+                    $right = "car1";
+                } else if (($i % 3) == 1) {
+                    $right = "car2";
                 } else {
-                    $right = "";
+                    $right = "car3";
                 }
                 $json["id"][$i] = $carnetVoyage->vId;
-                $json["header"][$i] = '<li class="listElement-' . $carnetVoyage->vId . ' voyage  ' . $right . '" style="display:none;"></li>';
-                $json["content"][$i] = '    
-                    <a href="<?php echo base_url("voyage/carnet") . "?id=" . $carnetVoyages[$i]->cvId ?>" >
-                        <li class="carnet car1">
-                            <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
-                            <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+                $json["header"][$i] = '<a href="' . base_url("voyage/carnet") . "?id=" . $carnetVoyage->cvId . '" ><li class="listElement-' . $carnetVoyage->vId . ' carnet ' . $right . '"></li></a>';
+                $json["content"][$i] = '
+                            <div class="titre_sans_hover">' . $carnetVoyage->cvTitre . '</div>
+                            <img src = "' . base_url() . 'media/' . $this->data['carnetVoyage'][$i]->lien[0] . '" alt = "' . $this->data['carnetVoyage'][$i]->nom[0] . '"/>
                             <div class="flou"></div>
                             <div class="legende">
                                 <div class="containe">
-                                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
-                                    <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
-                                    <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . "..."; ?></div>
+                                    <span class="titre">' . $carnetVoyage->cvTitre . '</span>
+                                    <div class="date_auteur"><span>' . $carnetVoyage->vTitre . '</span></div>
+                                    <div class="texte">' . substr(strip_tags($carnetVoyage->vAccroche), 0, 370) . "..." . '</div>
                                 </div>
                                 <span class="lien">Voir le carnet</span>
-                            </div>
-                        </li>
-                    </a>';
+                            </div>';
                 $i++;
             }
+            $json["page"] = "carnet";
+            $json["nbr_limit"] = $this->limit;
             $json["nbr_list"] = $i;
             echo json_encode($json);
             return;

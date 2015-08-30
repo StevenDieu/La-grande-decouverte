@@ -355,24 +355,11 @@
     margin-bottom: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 767px){
+    .content.liste-voyage {
+        padding-top: 100px;
+    }
+}
+.content.liste-voyage {
+    background-color: #edefed !important;
+}

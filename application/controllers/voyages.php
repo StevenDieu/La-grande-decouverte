@@ -5,6 +5,8 @@ if (!defined('BASEPATH'))
 
 class Voyages extends CI_Controller {
 
+    private $limit = 8;
+
     function __construct() {
         parent::__construct();
         $this->load->model('carnetVoyage');
@@ -21,7 +23,6 @@ class Voyages extends CI_Controller {
     public function index() {
         $continent = $this->input->get('continent');
 
-        $perPage = 8;
         $data['activePaginate'] = true;
 
         if ($continent) {
@@ -31,11 +32,11 @@ class Voyages extends CI_Controller {
                 $data['nomContinent'] = $this->continents->getNomContinent();
                 $data['activePaginate'] = false;
             } else {
-                $data['voyages'] = $this->Voyage->getAllVoyages($perPage, 0);
+                $data['voyages'] = $this->Voyage->getAllVoyages($this->limit, 0);
                 $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
             }
         } else {
-            $data['voyages'] = $this->Voyage->getAllVoyages($perPage, 0);
+            $data['voyages'] = $this->Voyage->getAllVoyages($this->limit, 0);
         }
         
         if (isset($data['voyages']) && count($data['voyages']) < 7) {
@@ -55,9 +56,8 @@ class Voyages extends CI_Controller {
             echo "0";
             return;
         }
-        $perPage = 8;   //nombres d'articles par page
-        $page = $pagePost * $perPage;  //numero de page
-        $voyages = $this->Voyage->getAllVoyages($perPage, $page);
+        $page = $pagePost * $this->limit;
+        $voyages = $this->Voyage->getAllVoyages($this->limit, $page);
         if ($voyages) {
             $i = 0;
             foreach ($voyages as $voyage) {
@@ -81,6 +81,8 @@ class Voyages extends CI_Controller {
                         '</li>';
                 $i++;
             }
+
+            $json["nbr_limit"] = $this->limit;
             $json["nbr_list"] = $i;
             echo json_encode($json);
             return;
