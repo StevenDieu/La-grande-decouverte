@@ -1,6 +1,7 @@
 <script type="text/javascript">
     var urlAddArticle = '<?php echo base_url('voyages/addInList'); ?>';
     var urlSpiner = '<?php echo asset_url() . "images/spinner.gif"; ?>';
+    var activePaginate = '<?= $activePaginate ?>'
 </script>
 
 <!---------- CONTENT ---------->	
