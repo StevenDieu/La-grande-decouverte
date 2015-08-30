@@ -20,10 +20,12 @@ function check() {
                 if (result !== '0') {
                     var allList = JSON.parse(result);
                     for (var i = 0; i < parseInt(allList["nbr_list"]); i++) {
-                        $(allList["header"][i]).appendTo('.ulList').fadeIn('slow', function(){useScrollPaginate = true;});
-                        $('.listElement-'+allList["id"][i]).html(allList["content"][i], 1500);
+                        $(allList["header"][i]).appendTo('.ulList').fadeIn('slow', function () {
+                            useScrollPaginate = true;
+                        });
+                        $('.listElement-' + allList["id"][i]).html(allList["content"][i], 1500);
                     }
-                    if(allList["nbr_list"] < 8){
+                    if (allList["nbr_list"] < 8) {
                         endList = false;
                     }
                     page++;
@@ -33,15 +35,17 @@ function check() {
 }
 
 $(document).ready(function () {
-    $('html, body').animate({scrollTop: 0}, "slow", function () {
-        useScrollPaginate = true;
-    });
+    if (activePaginate) {
+        $('html, body').animate({scrollTop: 0}, "slow", function () {
+            useScrollPaginate = true;
+        });
 
-    $(window).scroll(function () {
-        check();
-    });
+        $(window).scroll(function () {
+            check();
+        });
 
-    $(window).resize(function () {
-        check();
-    });
+        $(window).resize(function () {
+            check();
+        });
+    }
 });

@@ -12,7 +12,7 @@ class Model_voyage extends CI_Controller {
     private $inputInfopays;
     private $inputImages = array("meteo_image", "drapeau", "image_sous_slider", "img_deroulement_voyage");
     private $tabExt = array('jpg', 'gif', 'png', 'jpeg');
-
+    
     function __construct() {
         parent::__construct();
         if (!$this->session->userdata('logged_admin')) {
@@ -50,13 +50,10 @@ class Model_voyage extends CI_Controller {
                 $this->ajouterPicto();
                 $this->ajouterInfoVoyages();
                 $this->ajouterDeroulementVoyages();
-
                 redirect('admin/voyages/liste', 'refresh');
             }
         }
     }
-
-
 
     public function edit() {
 

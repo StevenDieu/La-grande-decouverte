@@ -21,41 +21,30 @@ class Voyages extends CI_Controller {
     public function index() {
         $continent = $this->input->get('continent');
 
-        $perPage = 8;   //nombres d'articles par page
-        $page = 0;  //numero de page
+        $perPage = 8;
+        $data['activePaginate'] = true;
 
         if ($continent) {
-            //si un continent a été passé en paramètre, j'affiche tous les voyages du continent choisi
             $data['voyages'] = $this->Voyage->getVoyagesByContinent($continent);
-
             if ($data['voyages'] != false) {
-                //si il y a bien des voyages pour ce continent, je récupère le nom du continent.
                 $this->continents->setId($continent);
                 $data['nomContinent'] = $this->continents->getNomContinent();
+                $data['activePaginate'] = false;
             } else {
-                //sinon, j'affiche tous les voyages
-                $data['voyages'] = $this->Voyage->getAllVoyages($perPage, $page);
-
-                //et je signal qu'il n'y a pas de voyages pour le continent choisi
+                $data['voyages'] = $this->Voyage->getAllVoyages($perPage, 0);
                 $data['erreur'] = "Il n'y a aucun voyages pour le continent sélectionné. Voici la liste des voyages :";
             }
         } else {
-            //sinon j'affiche tous les voyages du continent sélectionné, avec une pagination
-            $data['voyages'] = $this->Voyage->getAllVoyages($perPage, $page);
+            $data['voyages'] = $this->Voyage->getAllVoyages($perPage, 0);
+        }
+        
+        if (isset($data['voyages']) && count($data['voyages']) < 8) {
+            $data['activePaginate'] = false;
         }
 
-        $config['base_url'] = base_url() . "voyage/index/voyage";
-        $config['total_rows'] = $this->Voyage->getRowAllVoyages();
-        $config['per_page'] = $perPage;
-        $config["uri_segment"] = 4;
-
-        // génération des css et js
         $data["allCss"] = array("voyage");
         $data["alljs"] = array("voyage", "slide", "ajaxPaginate");
 
-        $this->pagination->initialize($config);
-
-        //appel du template
         $data["titre"] = "Liste voyages";
         $this->load->templateVoyage('/voyage', $data);
     }
@@ -74,11 +63,11 @@ class Voyages extends CI_Controller {
             foreach ($voyages as $voyage) {
                 if (($i % 2) == 0) {
                     $right = "right";
-                }else{
+                } else {
                     $right = "";
                 }
                 $json["id"][$i] = $voyage->vId;
-                $json["header"][$i] = '<li class="listElement-'. $voyage->vId.' voyage  '. $right .'" style="display:none;"></li>' ;
+                $json["header"][$i] = '<li class="listElement-' . $voyage->vId . ' voyage  ' . $right . '" style="display:none;"></li>';
                 $json["content"][$i] = '<div class="bloc_image">' .
                         '<a href="' . base_url('/voyage/fiche/?id=') . $voyage->vId . '">' .
                         '<img src="' . base_url('') . 'media/' . $voyage->lien . '" alt="' . $voyage->nom . '" title="' . $voyage->nom . '">' .
