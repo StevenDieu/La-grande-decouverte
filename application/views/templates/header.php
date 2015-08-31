@@ -49,6 +49,7 @@
 
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
+        <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.lazyload.js" ></script>
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/site.js" ></script>
         <?php
         if (isset($alljs)) {

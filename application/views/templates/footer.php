@@ -175,6 +175,10 @@ if (isset($map)) {
 ?> 
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/bootstrap.min.js" ></script>
 <script>
+        $(function() {
+            $("img").lazyload();
+        });
+
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
