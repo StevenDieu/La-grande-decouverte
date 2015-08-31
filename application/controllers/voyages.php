@@ -38,8 +38,8 @@ class Voyages extends CI_Controller {
         } else {
             $data['voyages'] = $this->Voyage->getAllVoyages($this->limit, 0);
         }
-
-        if (isset($data['voyages']) && count($data['voyages']) <= 7) {
+        
+        if (isset($data['voyages']) && count($data['voyages']) < 7) {
             $data['activePaginate'] = false;
         }
 

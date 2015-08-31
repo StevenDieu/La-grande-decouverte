@@ -8,6 +8,7 @@ class Carnetsdevoyage extends CI_Controller {
     private $data;
     private $limit = 6;
 
+
     function __construct() {
         parent::__construct();
         $this->load->model('carnetVoyage');
@@ -23,6 +24,7 @@ class Carnetsdevoyage extends CI_Controller {
     }
 
     public function index() {
+
         $perPage = $this->limit;
 
         $this->data['carnetVoyage'] = $this->carnetVoyage->getAllCarnetVoyages($perPage, 0);
@@ -30,7 +32,7 @@ class Carnetsdevoyage extends CI_Controller {
 
         if (!empty($this->data['carnetVoyage'])) {
             $this->getImageCarnet();
-            if (count($this->data['carnetVoyage']) <= 5) {
+            if (count($this->data['carnetVoyage']) < 5) {
                 $this->data['activePaginate'] = false;
             }
         }
