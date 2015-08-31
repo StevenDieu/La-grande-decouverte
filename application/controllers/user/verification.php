@@ -92,20 +92,37 @@ class Verification extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->templateUser('page_inscription');
         } else {
-            $this->user->setNom($this->input->post('nom'));
-            $this->user->setPrenom($this->input->post('prenom'));
-            $this->user->setPassword($this->input->post('mdp'));
-            $this->user->setMail($this->input->post('email'));
-            $this->user->setDate_inscription(date("Y-m-d"));
 
-            if ($this->user->ajouterUser()) {
-                $this->mail = $this->input->post('email');
-                $this->confirmation_user_mail();
-                $data["mail"] = $this->input->post('email');
-                $this->load->templateUser('page_validation_inscription', $data);
-                return;
+            $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
+
+            $secret = '6LdLFAQTAAAAACM8KXqIYKU8Wfo_Hn4Kc_0ny8IH';
+
+            $url = "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $recaptchaResponse;
+            $response = @file_get_contents($url);
+            
+            $resultat = json_decode($response);
+
+            if (!empty($resultat) && $resultat->success == true) {
+
+                $this->user->setNom($this->input->post('nom'));
+                $this->user->setPrenom($this->input->post('prenom'));
+                $this->user->setPassword($this->input->post('mdp'));
+                $this->user->setMail($this->input->post('email'));
+                $this->user->setDate_inscription(date("Y-m-d"));
+
+                if ($this->user->ajouterUser()) {
+                    $this->mail = $this->input->post('email');
+                    $this->confirmation_user_mail();
+                    $data["mail"] = $this->input->post('email');
+                    $this->load->templateUser('page_validation_inscription', $data);
+                    return;
+                }
+                $this->load->templateUser('page_inscription');
+
+            } else {
+                $data ["messageError"] = "N'oubliez pas de dire que vous n'êtes pas un robot.";
+                $this->load->templateUser('page_inscription');
             }
-            $this->load->templateUser('page_inscription');
         }
     }
 

@@ -57,6 +57,7 @@
             <div class="clear"></div>
             <div class="une_row">
                 <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
+                <?php if (isset($messageError)) { echo $messageError; } ?>
             </div>
         </div>
 

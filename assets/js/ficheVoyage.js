@@ -12,7 +12,7 @@ function addComment() {
     $.ajax({
         type: "post",
         url: urlAddComment,
-        data: "name=" + $('.name').val() + "&mail=" + $('.mail').val() + "&commentaire=" + $('.commentaire').val().split("\n").join('<br/>') + "&id_article=" + $(".id_article").val(),
+        data: "name=" + $('.name').val() + "&mail=" + $('.mail').val() + "&commentaire=" + $('.commentaire').val().split("\n").join('<br/>') + "&id_article=" + $(".id_article").val() + "&g-recaptcha-response=" + $('.g-recaptcha-response').val() ,
         success: function (result) {
             if (result >= '1') {
                 $(".list_comment").prepend(
@@ -26,6 +26,9 @@ function addComment() {
 
                         '</div>');
                 clear_comment();
+            } 
+            else if (result == '-1'){
+                $(".recaptcha-error").text("N'oubliez pas de dire que vous n'êtes pas un robot !");
             } else {
                 message(urlError, "Veuillez recharger la page !")
                 $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');

@@ -105,21 +105,33 @@ class Carnet extends CI_Controller {
         $mail = $this->input->post('mail');
         $idArticle = $this->input->post('id_article');
 
-
         if ((!isset($name) || empty($name)) || (!isset($commentaire) || empty($commentaire)) || (!isset($mail) || empty($mail)) || (!isset($idArticle) || empty($idArticle))) {
             echo "0";
             return;
         }
+        $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
 
-        $this->commentaire->setName($name);
-        $this->commentaire->setMail($mail);
-        $this->commentaire->setCommentaire($commentaire);
-        $this->commentaire->setId_article($idArticle);
-        $id = $this->commentaire->addComment();
-        if ($id) {
-            echo $id;
-        } else {
-            echo "0";
+        $secret = '6LdLFAQTAAAAACM8KXqIYKU8Wfo_Hn4Kc_0ny8IH';
+
+        $url = "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $recaptchaResponse;
+        $response = @file_get_contents($url);
+        
+        $resultat = json_decode($response);
+        
+        if (!empty($resultat) && $resultat->success == true) {
+            $this->commentaire->setName($name);
+            $this->commentaire->setMail($mail);
+            $this->commentaire->setCommentaire($commentaire);
+            $this->commentaire->setId_article($idArticle);
+            $id = $this->commentaire->addComment();
+            if ($id) {
+                echo $id;
+            } else {
+                echo "0";
+            }
+
+        } else {    //si recaptcha pas valider
+            echo "-1";
         }
     }
 

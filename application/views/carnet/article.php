@@ -74,7 +74,9 @@
                         </div>
                         <div class="une_row">
                             <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
+                            
                         </div>
+                        <div class="recaptcha-error"></div>
                         <input type="button" class="bgreen addComment" value="Envoyer">
                     </form>
 
