@@ -8,20 +8,20 @@
 <div class="content actualites">
     <div class="actu">
         <?php if ($actualites) { ?>
-            <div class="actualites">
+            <div class="actualites list">
                 <h2>Nos actualités <sup>(<?php echo $nbActu; ?>)</sup></h2>
                 <p class="soush">Soyez au courant de nos dernières nouveautés grâce aux actualités.</p>
-                <div class="actu_home list">
+                <div class="actu_home">
                     <ul class="ulList">
                         <?php if ($actualites): ?>
-                            <?php $i = 1; ?>
+                            <?php $i = 0; ?>
                             <?php foreach ($actualites as $actualite): ?>
-                                <li class="uneActu act<?php echo $i ?>">
+                                <li class="uneActu act<?= (($i % 3) + 1) ?>">
                                     <div class="filtre"></div>
 
                                     <div class="date"><?php echo $actualite->date; ?></div>
 
-                                    <div class="description desc<?php echo $i ?>">
+                                    <div class="description desc<?= (($i % 3) + 1) ?>">
                                         <p class="titre"><?php echo $actualite->titre; ?></p>
                                         <p class="description"><?php echo $actualite->description; ?></p>
                                     </div>
@@ -47,12 +47,12 @@
                                     </script>
 
                                 </li>
-                                <?php if ($i == 3) $i = 0; ?>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
                         <?php else: ?>
                             pas d'actualité
                         <?php endif; ?>
+                        <div class="clear"></div>
                     </ul>
                     <div class="clear"></div>
                 </div>

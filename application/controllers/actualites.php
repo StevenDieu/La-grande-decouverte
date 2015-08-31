@@ -6,11 +6,10 @@ if (!defined('BASEPATH'))
 class Actualites extends CI_Controller {
 
     private $limit = 6;
+    private $nbrActu = 6;
 
     function __construct() {
         parent::__construct();
-        //recaptcha
-        $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->model('actualite');
     }
@@ -48,7 +47,10 @@ class Actualites extends CI_Controller {
         if ($data['nbActu'] <= 8) {
             $data['activePaginate'] = false;
         }
-
+        $sess_array = array(
+            'nbrActu' => count($data["actualites"])
+        );
+        $this->session->set_userdata('logged_in', $sess_array);
         foreach ($data["actualites"] as $actu) {
             $actu->date = $this->DateFr($actu->date);
         }
@@ -68,15 +70,22 @@ class Actualites extends CI_Controller {
         }
 
         $acualites = $this->actualite->getActualitesListe($this->limit, $pagePost * $this->limit);
-        
+
         if ($acualites) {
             $i = 0;
+            $this->nbrActu = $this->session->userdata('logged_in')["nbrActu"];
+
             foreach ($acualites as $actualite) {
+                $this->nbrActu++;
+
+                $json["idActu"][$i] = $this->nbrActu;
 
                 $imageActu = '<li> <img src=" ' . base_url('') . 'media/actualite/' . $actualite->img1 . '" alt="' . $actualite->img1 . '" ></li>';
+
                 if ($actualite->img2) {
                     $imageActu = $imageActu . '<li><img src="' . base_url() . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2 . '"></li>';
                 }
+
                 if ($actualite->img3) {
                     $imageActu = $imageActu . '<li><img src="' . base_url() . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3 . '"></li>';
                 }
@@ -86,14 +95,14 @@ class Actualites extends CI_Controller {
                 $json["content"][$i] = '
                                     <div class="filtre"></div>
 
-                                    <div class="date">' . $actualite->date . '</div>
+                                    <div class="date">' . $this->DateFr($actualite->date) . '</div>
 
                                     <div class="description desc' . (($i % 3) + 1) . '">
                                         <p class="titre">' . $actualite->titre . '</p>
                                         <p class="description">' . $actualite->description . '</p>
                                     </div>
 
-                                    <ul id="slider' . (($i % 3) + 1) . '">
+                                    <ul id="slider' . $this->nbrActu . '">
                                        ' . $imageActu . '
                                     </ul>
 
@@ -109,7 +118,11 @@ class Actualites extends CI_Controller {
                                     ';
                 $i++;
             }
-
+            $sess_array = array(
+                'nbrActu' => $this->nbrActu
+            );
+            $this->session->set_userdata('logged_in', $sess_array);
+            $json["page"] = "actu";
             $json["nbr_limit"] = $this->limit;
             $json["nbr_list"] = $i;
             echo json_encode($json);

@@ -255,6 +255,20 @@
     }
 }
 
+.actu_home .other_voyage{
+    display: block;
+    margin:auto;
+    border:1px solid #c4c4c4;
+    background: white;
+    color: #565a5c;
+    width: 300px;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 21px;
+    margin-top: 33px;
+}
+
 .voyage_home .other_voyage, .carnet_voyages .other_voyage{
     display: block;
     margin:auto;
@@ -268,7 +282,7 @@
     font-size: 21px;
 }
 
-.voyage_home .other_voyage:hover{
+.other_voyage:hover{
     border-color: #aaa;
 }
 

@@ -22,7 +22,7 @@ Class Voyage extends CI_Model {
     }
 
     function editerVoyage() {
-        
+
         if ($this->data["image_sous_slider"] == null) {
             unset($this->data["image_sous_slider"]);
         }
@@ -62,8 +62,8 @@ Class Voyage extends CI_Model {
     function getVoyageOrderInfo($id) {
         $this->db->select('v.titre as titre,o.prix_total as prix_total,iv.date_depart as date_depart,iv.date_arrivee as date_arrivee,o.nb_participant as nb_participant,o.payment as payment,o.id as id,o.statut as statut');
         $this->db->from('voyage as v');
-        $this->db->join('order as o','v.id = o.id_voyage', 'inner');
-        $this->db->join('info_voyage as iv','v.id = iv.id_voyage', 'inner');
+        $this->db->join('order as o', 'v.id = o.id_voyage', 'inner');
+        $this->db->join('info_voyage as iv', 'v.id = iv.id_voyage', 'inner');
         $this->db->where('o.id_utilisateur', $id);
         $query = $this->db->get();
 
@@ -105,6 +105,18 @@ Class Voyage extends CI_Model {
         }
     }
 
+    function getImageSousSlider() {
+        $this->db->select('image_sous_slider');
+        $this->db->from('voyage');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getAllVoyages($limit, $start) {
 
 
@@ -113,7 +125,7 @@ Class Voyage extends CI_Model {
         $this->db->from('voyage AS v');
         $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
         $this->db->order_by("titre", "asc");
-        $this->db->group_by("v.id"); 
+        $this->db->group_by("v.id");
         $this->db->_protect_identifiers = TRUE; //remet l'ajout de quotes automatique
         if (isset($limit) && isset($start)) {
             $this->db->limit($limit, $start);

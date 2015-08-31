@@ -36,8 +36,8 @@ Class ImagesFiche extends CI_Model {
             return false;
         }
     }
-    
-    function getImagesArticle(){
+
+    function getImagesArticle() {
         $this->db->select('lien');
         $this->db->from("images_fiche");
         $this->db->where('id_article', $this->id_article);
@@ -49,7 +49,19 @@ Class ImagesFiche extends CI_Model {
             return false;
         }
     }
-            
+
+    function getImagesArticles() {
+        $this->db->select('lien');
+        $this->db->from("images_fiche");
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getImagesCarnetVoyage() {
         $this->db->select('lien');
         $this->db->from("images_fiche");
@@ -67,13 +79,11 @@ Class ImagesFiche extends CI_Model {
         $this->db->where('id', $this->id);
         $this->db->delete("images_fiche");
     }
-    
+
     function deleteImageLien() {
         $this->db->where('lien', $this->lien);
         $this->db->delete("images_fiche");
     }
-    
-    
 
     function setId($id) {
         $this->id = $id;
@@ -90,6 +100,5 @@ Class ImagesFiche extends CI_Model {
     function setId_carnet_voyage($id_carnet_voyage) {
         $this->id_carnet_voyage = $id_carnet_voyage;
     }
-
 
 }

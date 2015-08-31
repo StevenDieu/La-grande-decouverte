@@ -8,6 +8,9 @@ class Dashboard extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if (!$this->session->userdata('logged_admin')) {
+            redirect('admin/connexion', 'refresh');
+        }
         $this->load->model('userAdmin', '', TRUE);
     }
 
@@ -46,6 +49,8 @@ class Dashboard extends CI_Controller {
                 $this->order->setId_utilisateur($user->id);
                 $user->description = $this->order->countOrderByCustomer();
             }
+
+            $data["adminJs"] = array("dashboard/dashboard");
 
             $this->load->templateAdmin('dashboard', $data);
         } else {

@@ -286,8 +286,8 @@ span.glyphicon.glyphicon-user {}
     background-color: rgba(0, 0, 0, 0.37);
 }
 
-.actu_home ul {
-    margin-bottom: 0px;
+ul {
+    margin-bottom: 33px;
 }
 
 .actu_home ul li.uneActu img{
@@ -552,7 +552,7 @@ span.glyphicon.glyphicon-user {}
     font-size: 21px;
 }
 
-.voyage_home .other_voyage:hover{
+.other_voyage:hover{
     border-color: #aaa;
 }
 

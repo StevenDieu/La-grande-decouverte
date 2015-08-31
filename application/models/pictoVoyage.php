@@ -31,6 +31,19 @@ Class PictoVoyage extends CI_Model {
         }
     }
 
+    function getImagePicto() {
+        $this->db->select('lien');
+        $this->db->from("image_picto");
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function deletePictoVoyage() {
         $this->db->where('id_voyage', $this->id_voyage);
         if ($this->db->delete("picto_voyage") >= 1) {
