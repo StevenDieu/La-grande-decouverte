@@ -649,6 +649,11 @@ h2.titre{
     max-width: 1000px;
     padding-bottom: 49px;
 }
+
+.copyright {
+    font-family: 'helvetica';
+    margin-bottom: 30px;
+}
 /******* end footer *********/
 @media (min-width: 768px){
     .ecartConnexionInscription{

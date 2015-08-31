@@ -146,6 +146,9 @@
         <div class="col-md-1"></div>
     </div>
 
+    <div class="row copyright">
+        © La grande decouverte • 2015
+    </div>
 </footer>
 
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>js/responsiveslides.min.js" ></script>
