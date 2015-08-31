@@ -601,7 +601,11 @@
                                                 <label class="control-label" for="special_price">Prix spécial : </label>
                                                 <div class="controls">
                                                     <div class="input-prepend input-append">
-                                                        <input type="text" name="special_price[]" class="span6 prix" id="special_price" value="<?= $infoVoyage->special_price ?>" placeholder="Prix spécial">
+                                                        <input type="text" name="special_price[]" class="span6 prix" id="special_price" value="<?php
+                                                        if ($infoVoyage->special_price != 0) {
+                                                            echo $infoVoyage->special_price;
+                                                        }
+                                                        ?>" placeholder="Prix spécial">
                                                         <span class="add-on">€</span>
                                                     </div>
                                                 </div>			

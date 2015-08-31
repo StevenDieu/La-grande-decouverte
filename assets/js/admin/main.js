@@ -127,7 +127,9 @@ $(document).ready(function () {
                 if (!regexp_prix.test($(this).val())) {
                     $(this).parent().parent().append(mess_prix);
                     $(this).toggleClass('failed');
-                    submit = false;
+                    if ($(this).hasClass("required")) {
+                        submit = false;
+                    }
                 } else {
                     $(this).val($(this).val().replace(",", "."));
                 }
