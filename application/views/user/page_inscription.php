@@ -3,62 +3,82 @@
     <div class="content-inscription">
         <div class="legend">Inscription</div>  
         <?php
-            echo form_open('user/verification/inscription');
+        echo form_open('user/verification/inscription');
         ?> 
         <div class="left">
             <span class="mess_required"><?php echo validation_errors(); ?></span>
+            <span class="mess_required"><?php
+                if (isset($messageError)) {
+                    echo $messageError;
+                }
+                ?></span>
             <h3>INFORMATION PERSONNELLE</h3>
             <div class="une_row">
-                <!--<label for="nom" class="">Nom *</label>-->
                 <p>
-                    <input type="text" name="nom" maxlength="50" class="required" id="nom" placeholder="Votre nom*">
+                    <input type="text" name="nom" maxlength="50" class="required" id="nom" value="<?php
+                    if (isset($nom)) {
+                        echo $nom;
+                    }
+                    ?>" placeholder="Votre nom*">
                 </p>
             </div>
 
             <div class="une_row">
-                <!--<label for="prenom" class="">Prenom *</label>-->
                 <p>
-                    <input type="text" name="prenom" maxlength="50" class="required" id="prenom" placeholder="Votre prenom*">
+                    <input type="text" name="prenom" maxlength="50" class="required" value="<?php
+                    if (isset($prenom)) {
+                        echo $prenom;
+                    }
+                    ?>" id="prenom" placeholder="Votre prenom*">
                 </p>
             </div>
 
             <div class="une_row mail">
-                <!--<label for="email" class="">E-mail *</label>-->
                 <p>
-                    <input type="email" name="email" class="required mail" id="email" placeholder="Votre e-mail*" <?php if (isset($mail)) {
-                echo "value='" . $mail . "'";
-            } ?>>
+                    <input type="email" name="email" class="required mail" id="email" placeholder="Votre e-mail*" value="<?php
+                    if (isset($mail)) {
+                        echo $mail;
+                    }
+                    ?>">
                 </p>
             </div>
 
             <div class="une_row mail cmail">
-                <!--<label for="cemail" class="">Confirmation E-mail *</label>-->
                 <p>
-                    <input type="email" name="cemail" class="required cmail" id="cemail" placeholder="Confirmer votre e-mail*">
+                    <input type="email" name="cemail" class="required cmail" id="cemail" value="<?php
+                    if (isset($cemail)) {
+                        echo $cemail;
+                    }
+                    ?>" placeholder="Confirmer votre e-mail*">
                 </p>
             </div>
             <h3>INFORMATION DE CONNEXION</h3>
             <div class="une_row mdp">
-                <!--<label for="mdp" class="">Mot de passe *</label>-->
                 <p>
-                    <input type="password" name="mdp" maxlength="50" class="required mdp" id="mdp" placeholder="Votre mot de passe*">
+                    <input type="password" name="mdp" maxlength="50" class="required mdp" id="mdp" value="<?php
+                    if (isset($mdp)) {
+                        echo $mdp;
+                    }
+                    ?>" placeholder="Votre mot de passe*">
                 </p>
             </div>
 
             <div class="une_row mdp cmdp">
-                <!--<label for="cmdp" class="">Confirmation mot de passe *</label>-->
                 <p>
-                    <input type="password" name="cmdp" maxlength="50" class="required cmdp" id="cmdp" placeholder="Confirmer votre mot de passe*">
+                    <input type="password" name="cmdp" maxlength="50" class="required cmdp" id="cmdp" value="<?php
+                    if (isset($cmdp)) {
+                        echo $cmdp;
+                    }
+                    ?>" placeholder="Confirmer votre mot de passe*">
                 </p>
             </div>
             <div class="une_row">
                 <span class="floatright">* Champs obligatoires</span>
             </div>
-            <div class="clear"></div>
             <div class="une_row">
                 <div class="g-recaptcha" data-sitekey="6LdLFAQTAAAAAJkTVuZtdW-Nf3mOQFIvNDQEhHDt"></div>
-                <?php if (isset($messageError)) { echo $messageError; } ?>
             </div>
+            <div class="clear"></div>
         </div>
 
         <div class="right">
@@ -91,7 +111,7 @@
                 </section>
             </aside>
         </div>
-         <div class="clear"></div>
+        <div class="clear"></div>
 
         <div class="legend"></div>
 

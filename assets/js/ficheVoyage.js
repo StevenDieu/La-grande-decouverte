@@ -12,9 +12,9 @@ function addComment() {
     $.ajax({
         type: "post",
         url: urlAddComment,
-        data: "name=" + $('.name').val() + "&mail=" + $('.mail').val() + "&commentaire=" + $('.commentaire').val().split("\n").join('<br/>') + "&id_article=" + $(".id_article").val() + "&g-recaptcha-response=" + $('.g-recaptcha-response').val() ,
+        data: "name=" + $('.name').val() + "&mail=" + $('.mail').val() + "&commentaire=" + $('.commentaire').val().split("\n").join('<br/>') + "&id_article=" + $(".id_article").val() + "&g-recaptcha-response=" + $('.g-recaptcha-response').val(),
         success: function (result) {
-            if (result >= '1') {
+            if (result === '1') {
                 $(".list_comment").prepend(
                         '<div class="comment">' +
                         '<div class="titre_comment">' +
@@ -23,16 +23,15 @@ function addComment() {
                         '<div class="texte_comment">' +
                         $(".commentaire").val().split("\n").join('<br/>') +
                         '</div>' +
-
                         '</div>');
                 clear_comment();
-            } 
-            else if (result == '-1'){
-                $(".recaptcha-error").text("N'oubliez pas de dire que vous n'êtes pas un robot !");
-            } else {
-                message(urlError, "Veuillez recharger la page !")
+            }
+            else if (result === '-1') {
+                message(urlError, "N'oubliez pas de dire que vous n'êtes pas un robot !");
                 $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');
-
+            } else {
+                message(urlError, "Veuillez recharger la page !");
+                $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');
             }
             on_click_js();
             $(".addComment").val("ENVOYER");
@@ -95,7 +94,7 @@ function getNextPage(numPage) {
                 $(".page-" + numPage).addClass("active")
                 $(".list_comment").empty();
                 var allComment = JSON.parse(result);
-                for (var i = (parseInt(allComment["nbr_comment_page"])-1); i >= 0 ; i--) {
+                for (var i = (parseInt(allComment["nbr_comment_page"]) - 1); i >= 0; i--) {
                     $(".list_comment").prepend(
                             '<div class="comment">' +
                             '<div class="titre_comment">' +

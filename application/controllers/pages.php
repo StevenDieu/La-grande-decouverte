@@ -24,19 +24,19 @@ class Pages extends CI_Controller {
         $this->load->model('imagesFiche');
 
         $result = $this->voyageh->getIdHome();
-    
-        if($result){
+
+        if ($result) {
             $data["voyages_by_choice"] = array();
             foreach ($result as $voyage) {
-                if(isset($voyage->id_voyage)){
+                if (isset($voyage->id_voyage)) {
                     array_push($data["voyages_by_choice"], $this->voyage->getVoyagesHomeWithID($voyage->id_voyage));
-                }   
-            } 
-        }else{
+                }
+            }
+        } else {
             $data["voyages"] = $this->voyage->getVoyagesHome();
         }
 
-        
+
 
         $data['carnetVoyages'] = $this->carnetVoyage->getAllCarnetVoyages(4, 0);
 
