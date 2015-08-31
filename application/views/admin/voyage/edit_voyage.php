@@ -564,7 +564,7 @@
                                                 <label class="control-label" for="depart">Emplacement de départ * : </label>
                                                 <div class="controls">
                                                     <p>
-                                                        <input type="text" name="depart[]" maxlength="255" value="<?= $infoVoyage->depart ?>" class="span6 required" id="depart"  placeholder="Emplcement de départ">
+                                                        <input type="text" name="depart[]" maxlength="255" value="<?= $infoVoyage->depart ?>" class="span6 required" id="depart"  placeholder="Emplacement de départ">
                                                     </p>
                                                 </div>			
                                             </div>
@@ -573,7 +573,7 @@
                                                 <label class="control-label" for="arrivee">Emplacement d'arrivée * : </label>
                                                 <div class="controls">
                                                     <p>
-                                                        <input type="text" name="arrivee[]" maxlength="255" value="<?= $infoVoyage->arrivee ?>" class="span6 required" id="arrivee"  placeholder="Emplcement d'arrivée">
+                                                        <input type="text" name="arrivee[]" maxlength="255" value="<?= $infoVoyage->arrivee ?>" class="span6 required" id="arrivee"  placeholder="Emplacement d'arrivée">
                                                     </p>
                                                 </div>			
                                             </div>

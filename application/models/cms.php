@@ -68,6 +68,19 @@ Class Cms extends CI_Model {
         }
     }
 
+    function getImagesCMS() {
+        $this->db->select('image');
+        $this->db->from('cms');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getPageByCode() {
         $this->db->select('*');
         $this->db->from('page_cms');
@@ -84,4 +97,3 @@ Class Cms extends CI_Model {
     }
 
 }
-

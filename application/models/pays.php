@@ -17,7 +17,7 @@ Class Pays extends CI_Model {
     }
 
     function addPays() {
-        
+
         if ($this->data["meteo_image"] == null) {
             unset($this->data["meteo_image"]);
         }
@@ -54,6 +54,17 @@ Class Pays extends CI_Model {
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getImageVoyage() {
+        $this->db->select('meteo_image,drapeau');
+        $this->db->from('pays');
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
             return $query->result();
         } else {
             return false;

@@ -33,6 +33,23 @@ Class Actualite extends CI_Model {
         }
     }
 
+    function getActualitesListe($limit, $start) {
+        $this->db->select('*');
+        $this->db->from('actualite');
+
+        if (isset($limit) && isset($start)) {
+            $this->db->limit($limit, $start);
+        }
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function getActualites() {
         $this->db->select('*');
         $this->db->from('actualite');
@@ -67,7 +84,20 @@ Class Actualite extends CI_Model {
             return false;
         }
     }
-    
+
+    function getImagesActualite() {
+        $this->db->select('img1,img2,img3');
+        $this->db->from('actualite');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -83,7 +113,6 @@ Class Actualite extends CI_Model {
     function setDate($date) {
         $this->date = $date;
     }
-
 
 }
 
