@@ -14,9 +14,20 @@
     </div>
 
     <div class="callbacks_container slider_principal">
-        <?php if ($voyages) { ?>
+         <?php if (isset($voyages)) { ?>
             <ul class="rslides" id="slider_top">
                 <?php foreach ($voyages as $voyage) { ?>
+                    <li>
+                        <img src="<?php echo asset_media($voyage->lien); ?>" alt="">
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } ?>
+
+        <?php if (isset($voyages_by_choice)) { ?>
+            <ul class="rslides" id="slider_top">
+                <?php foreach ($voyages_by_choice as $voyage) { ?>
+                <?php $voyage = $voyage[0]; ?>
                     <li>
                         <img src="<?php echo asset_media($voyage->lien); ?>" alt="">
                     </li>
@@ -85,39 +96,74 @@
             </div>
             <br/><br/>
         <?php } ?>
-        <div class="voyages">
-            <h2>Nos derniers voyages</h2>
-            <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
-            <div class="voyage_home">
-                <ul>
-                    <?php
-                    $i = 0;
-                    $id = 0;
-                    ?>
-                    <?php foreach ($voyages as $v): ?>
-                        <?php if ($id != $v->vId): ?>
-                            <?php $i++; ?>
-                            <li class="voyage <?php if (($i % 2) == 0) echo 'right'; ?>">
-                                <div class="bloc_image">
-                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
-                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
-                                    </a>
-                                </div>
-                                <div class="bloc_bottom">
-                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">Voir<br><span>le voyage</span></a>
-                                    <p class="titre"><?php echo $v->titre; ?></p>
-                                    <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
-                                </div>
-                            </li>
-                            <?php $id = $v->vId; ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+
+        <?php if(isset($voyages)): ?>
+            <div class="voyages">
+                <h2>Nos derniers voyages</h2>
+                <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
+                <div class="voyage_home">
+                    <ul>
+                        <?php $i = 0; $id = 0; ?>
+                        <?php foreach ($voyages as $v): ?>
+                            <?php if ($id != $v->vId): ?>
+                                <?php $i++; ?>
+                                <li class="voyage <?php if(($i % 2) == 0) echo 'right'; ?>">
+                                    <div class="bloc_image">
+                                        <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">
+                                            <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
+                                        </a>
+                                    </div>
+                                    <div class="bloc_bottom">
+                                        <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">Voir<br><span>le voyage</span></a>
+                                        <p class="titre"><?php echo $v->titre; ?></p>
+                                        <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
+                                    </div>
+                                </li>
+                                <?php $id = $v->vId; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <div class="clear"></div>
+                    </ul>
+                    <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
                     <div class="clear"></div>
-                </ul>
-                <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
-                <div class="clear"></div>
+                </div>
             </div>
-        </div>
+         <?php endif; ?>
+
+        <?php if(isset($voyages_by_choice)): ?>
+            <div class="voyages">
+                <h2>Nos derniers voyages</h2>
+                <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
+                <div class="voyage_home">
+                    <ul>
+                        <?php $i = 0; $id = 0; ?>
+                        <?php foreach ($voyages_by_choice as $v): ?>
+                            <?php $v = $v[0]; ?>
+                            <?php if ($id != $v->vId): ?>
+                                <?php $i++; ?>
+                                <li class="voyage <?php if(($i % 2) == 0) echo 'right'; ?>">
+                                    <div class="bloc_image">
+                                        <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">
+                                            <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
+                                        </a>
+                                    </div>
+                                    <div class="bloc_bottom">
+                                        <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId;?>">Voir<br><span>le voyage</span></a>
+                                        <p class="titre"><?php echo $v->titre; ?></p>
+                                        <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
+                                    </div>
+                                </li>
+                                <?php $id = $v->vId; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <div class="clear"></div>
+                    </ul>
+                    <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <div class="clear"></div>
 
         <?php if (!empty($carnetVoyages)): ?>

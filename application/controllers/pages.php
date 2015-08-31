@@ -12,6 +12,7 @@ class Pages extends CI_Controller {
 
 
         $this->load->model('voyage');
+        $this->load->model('voyageh');
         $this->load->model('carnetVoyage');
         $this->load->model('actualite');
         $this->load->model('continents');
@@ -22,7 +23,19 @@ class Pages extends CI_Controller {
 
         $this->load->model('imagesFiche');
 
-        $data["voyages"] = $this->voyage->getVoyagesHome();
+        $result = $this->voyageh->getIdHome();
+        $data["voyages_by_choice"] = array();
+        if($result){
+            foreach ($result as $voyage) {
+                if(isset($voyage->id_voyage)){
+                    array_push($data["voyages_by_choice"], $this->voyage->getVoyagesHomeWithID($voyage->id_voyage));
+                }   
+            } 
+        }else{
+            $data["voyages"] = $this->voyage->getVoyagesHome();
+        }
+
+        
 
         $data['carnetVoyages'] = $this->carnetVoyage->getAllCarnetVoyages(4, 0);
 
