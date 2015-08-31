@@ -8,10 +8,10 @@
             }
             ?>La Grande Decouverte</title>
         <meta name="description" content="<?php
-            if (isset($description)) {
-                echo $description;
-            } else {
-                ?><?php } ?>" />
+        if (isset($description)) {
+            echo $description;
+        } else {
+            ?><?php } ?>" />
         <meta name="keywords" content="lagrandecouverte,la grande decouverte, agence, Globetrotter voyage chez l’habitant ,voyage aventure ,voyage en immersion,voyage communautaire,voyage unique,voyage atypique,voyage en terre inconnue, tourisme communautaire,séjour atypique"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="index, follow" />
@@ -42,10 +42,10 @@
             foreach ($librairieCss as $css) {
                 ?>
                 <link href="<?php echo asset_url(''); ?>librairie/css/<?php echo $css; ?>.css" type="text/css" rel="stylesheet"/>
-        <?php
-    }
-}
-?> 
+                <?php
+            }
+        }
+        ?> 
 
         <!-- JavaScript -->
         <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/jquery.min.js" ></script>
@@ -56,10 +56,10 @@
             foreach ($alljs as $js) {
                 ?> 
                 <script src="<?php echo asset_url(''); ?>js/<?php echo $js; ?>.js" type="text/javascript"></script>
-        <?php
-    }
-}
-?> 
+                <?php
+            }
+        }
+        ?> 
 
     </head>
     <body>
@@ -81,22 +81,22 @@
                     <div class="allTextMenu">
                         <a href="<?php echo base_url('/voyages') ?>" class="textMenu">
                             <div>
-                                <span>- </span>VOYAGES
+                                VOYAGES
                             </div>
                         </a>
                         <a href="<?php echo base_url('/carnetsdevoyage') ?>" class="textMenu">
                             <div>
-                                <span>- </span>CARNETS DE VOYAGES
+                                CARNETS DE VOYAGES
                             </div>
                         </a>
                         <a href="<?php echo base_url('/actualites') ?>" class="textMenu">
                             <div>
-                                <span>- </span>ACTUALIT&Eacute;S
+                                ACTUALIT&Eacute;S
                             </div>
                         </a>
                         <a href="<?php echo base_url('/user/verification/login') ?>" class="textMenu cacher">
                             <div>
-                                <span>- </span>CONNEXION / INSCRIPTION
+                                CONNEXION / INSCRIPTION
                             </div>
                         </a>
                     </div>
@@ -108,9 +108,9 @@
             </div>
             <div class="content_popup">
                 <div class="connexion_popin" style="display:none">
-<?php if (!$this->session->userdata('logged_in')) { ?>
+                    <?php if (!$this->session->userdata('logged_in')) { ?>
                         <div class="login">
-    <?php echo form_open('user/verification/login'); ?>
+                            <?php echo form_open('user/verification/login'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="mail" maxlength="50" class="required" id="mail" placeholder="Mail*">
@@ -131,7 +131,7 @@
                         </div>
                         <hr class="connexion_hr"/>
                         <div class="bottom">
-    <?php echo form_open('user/account/inscription'); ?>
+                            <?php echo form_open('user/account/inscription'); ?>
                             <div class="une_row">
                                 <p>
                                     <input type="text" name="mail" class="required" id="mail" placeholder="Votre mail">
@@ -143,9 +143,9 @@
                             </form>
                         </div>
 
-    <?php
-} else {
-    ?>
+                        <?php
+                    } else {
+                        ?>
                         <div class="connexion_header">
                             <span>Bienvenue <?php echo $this->session->userdata('logged_in')['prenom']; ?></span>
                         </div>
@@ -183,7 +183,7 @@
                                 </li>
                             </a>
                         </ul>
-<?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </header>

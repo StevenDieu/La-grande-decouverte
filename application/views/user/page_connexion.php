@@ -27,7 +27,7 @@
             </div>
             <div class="une_row">
                 <div class="submit_all_text">
-                    <input type="submit" name="submit" class="" id="input_page_connexion" value="Valider"/>
+                    <input type="submit" name="submit" class="btn_inscription" id="input_page_connexion" value="Valider"/>
                 </div>
             </div>
 
@@ -43,9 +43,9 @@
                     En créant un compte, vous serez capable de procéder aux achats plus rapidement, 
                     de voir et suivre vos commandes sur votre compte et plus encore.
                 </p>
-
-                <a class="btn_inscription" href="<?php echo base_url('user/account/inscription') ?>">Créer un compte</a>
-
+                <div class="submit_all_text">
+                    <a class="btn_inscription" href="<?php echo base_url('user/account/inscription') ?>">Créer un compte</a>
+                </div>
             </div>
         </div>
         <div class="clear"></div>

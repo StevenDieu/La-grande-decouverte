@@ -639,6 +639,7 @@ h2.titre{
 .menuBas a, .menuBas{
     font-family: 'helvetica';
     font-size: 16px;
+    color: #8b8b8b;
 }
 
 .mentionLegales{
@@ -690,8 +691,10 @@ h2.titre{
 }
 @media (max-width: 768px){
     .textMenu{
-        line-height: 45px;
-    }
+        line-height: 55px;
+    
+        text-align: center;
+}
     .navbar-right{
         display: none;
     }
@@ -925,10 +928,7 @@ span.ou{
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 42px;
-    font-family: sans-serif;
-    position: absolute;
-    bottom: -10px;
-    width: 100%;
+    font-family: sans-serif;            
 }
 
 .btn_inscription:hover{
@@ -952,6 +952,7 @@ span.ou{
     position: absolute;
     bottom: -10px;
     width: 100%;
+    left: 0;
 }
 
 @media (min-width: 820px){

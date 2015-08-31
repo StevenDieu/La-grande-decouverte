@@ -135,19 +135,19 @@
         <div class="col-md-10">
             <div class="menuBas">
                 <span><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></span>
-                &nbsp; . &nbsp;
-                <span><a href="<?php echo base_url('/faq/index') ?>">FAQ</a></span>
-                &nbsp; . &nbsp;
+                &nbsp; &middot; &nbsp;
                 <span><a href="<?php echo base_url('/pages/cgv') ?>">Conditions générales de vente</a></span>
-                &nbsp; . &nbsp;
+                &nbsp; &middot; &nbsp;
                 <span><a href="<?php echo base_url('/pages/cgu') ?>">Conditions générales d'utilisation du site </a></span>
+                &nbsp; &middot; &nbsp;
+                <span><a href="<?php echo base_url('/faq/index') ?>">FAQ</a></span>
             </div>
         </div>
         <div class="col-md-1"></div>
     </div>
 
     <div class="row copyright">
-        © La grande decouverte • 2015
+        © La grande decouverte &middot; 2015
     </div>
 </footer>
 
@@ -178,7 +178,7 @@ if (isset($map)) {
 ?> 
 <script type="text/javascript" src = "<?php echo asset_url(''); ?>librairie/js/bootstrap.min.js" ></script>
 <script>
-        $(function() {
+        $(function () {
             $("img").lazyload();
         });
 
