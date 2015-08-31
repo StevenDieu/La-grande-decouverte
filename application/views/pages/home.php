@@ -96,7 +96,6 @@
             </div>
             <br/><br/>
         <?php } ?>
-<<<<<<< HEAD
 
         <?php if(isset($voyages)): ?>
             <div class="voyages">
@@ -126,35 +125,6 @@
                         <div class="clear"></div>
                     </ul>
                     <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
-=======
-        <div class="voyages">
-            <h2>Nos derniers voyages</h2>
-            <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
-            <div class="voyage_home">
-                <ul>
-                    <?php
-                    $i = 0;
-                    $id = 0;
-                    ?>
-                    <?php foreach ($voyages as $v): ?>
-                        <?php if ($id != $v->vId): ?>
-                            <?php $i++; ?>
-                            <li class="voyage <?php if (($i % 2) == 0) echo 'right'; ?>">
-                                <div class="bloc_image">
-                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
-                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
-                                    </a>
-                                </div>
-                                <div class="bloc_bottom">
-                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">Voir<br><span>le voyage</span></a>
-                                    <p class="titre"><?php echo $v->titre; ?></p>
-                                    <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
-                                </div>
-                            </li>
-                            <?php $id = $v->vId; ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
->>>>>>> origin/master
                     <div class="clear"></div>
                 </div>
             </div>
