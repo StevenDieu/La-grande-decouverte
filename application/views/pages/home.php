@@ -93,9 +93,10 @@
             <div class="messageAlerteCarnet center">
                 <div class="alertType"><div class="alert alert-success fade in limiteMessage">
                         <strong>Succés !</strong> Vous êtes bien inscrit à la newsletter.</div></div>
-                </div>
+            </div>
             <br/><br/>
         <?php } ?>
+<<<<<<< HEAD
 
         <?php if(isset($voyages)): ?>
             <div class="voyages">
@@ -125,6 +126,35 @@
                         <div class="clear"></div>
                     </ul>
                     <a href="<?php echo base_url('voyages') ?>" class="other_voyage">Voir tous les voyages</a>
+=======
+        <div class="voyages">
+            <h2>Nos derniers voyages</h2>
+            <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
+            <div class="voyage_home">
+                <ul>
+                    <?php
+                    $i = 0;
+                    $id = 0;
+                    ?>
+                    <?php foreach ($voyages as $v): ?>
+                        <?php if ($id != $v->vId): ?>
+                            <?php $i++; ?>
+                            <li class="voyage <?php if (($i % 2) == 0) echo 'right'; ?>">
+                                <div class="bloc_image">
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
+                                        <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
+                                    </a>
+                                </div>
+                                <div class="bloc_bottom">
+                                    <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">Voir<br><span>le voyage</span></a>
+                                    <p class="titre"><?php echo $v->titre; ?></p>
+                                    <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
+                                </div>
+                            </li>
+                            <?php $id = $v->vId; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+>>>>>>> origin/master
                     <div class="clear"></div>
                 </div>
             </div>
@@ -170,8 +200,9 @@
             <div class="carnet_voyages">
                 <h2>Nos récents carnets de voyage</h2>
                 <p class="soush">Retrouvez les derniers récits de voyages créés par nos voyageurs</p>
-                    <ul>
-                    <?php for ($i = 0; $i < count($carnetVoyages); $i++) {
+                <ul>
+                    <?php
+                    for ($i = 0; $i < count($carnetVoyages); $i++) {
                         if ($i == 0) {
                             carnet_first($carnetVoyages, $i);
                         }
@@ -181,7 +212,8 @@
                         if ($i == 2) {
                             carnet_third($carnetVoyages, $i);
                         }
-                    } ?>
+                    }
+                    ?>
                     <div class="clear"></div>
                 </ul>
                 <a href="<?php echo base_url('/carnetsdevoyage') ?>" class="other_voyage">Voir tous les carnets</a>
@@ -190,7 +222,7 @@
         <?php endif; ?>
 
         <div class="cms_image">
-            <?php if($image_cms[0]): ?>
+            <?php if ($image_cms[0]): ?>
                 <img src="<?php echo base_url(''); ?>media/home/cms/<?php echo $image_cms[0]->image; ?>" alt="<?php echo $image_cms[0]->label; ?>" title="<?php echo $image_cms[0]->label; ?>" />
                 <div class="flou"></div>
                 <div class='text'>
@@ -202,9 +234,9 @@
         <div class="actualites">
             <h2>Nos actualités</h2>
             <p class="soush">Toute l’actualité de Lagrandecouverte, c’est ici !</p>
-                <div class="actu_home">
-                    <ul>
-                    <?php if($actualites): ?>
+            <div class="actu_home">
+                <ul>
+                    <?php if ($actualites): ?>
                         <?php $i = 1; ?>
                         <?php foreach ($actualites as $actualite): ?>
                             <li class="uneActu act<?php echo $i ?>">
@@ -215,24 +247,23 @@
                                 <div class="description desc<?php echo $i ?>">
                                     <p class="titre"><?php echo $actualite->titre; ?></p>
                                     <p class="description"><?php echo $actualite->description; ?></p>
-                                    <a href="<?php echo base_url('/actualites') ?>">Voir toutes l'actualité</a>
                                 </div>
-                                
+
                                 <ul id="slider<?php echo $i ?>">
                                     <li> <img src=" <?php echo base_url('') . 'media/actualite/' . $actualite->img1 . '" alt="' . $actualite->img1; ?>" ></li>
                                     <?php if ($actualite->img2): ?><li><img src="<?php echo base_url('') . 'media/actualite/' . $actualite->img2 . '" alt="' . $actualite->img2; ?>"></li><?php endif; ?>
                                     <?php if ($actualite->img3): ?><li><img src="<?php echo base_url('') . 'media/actualite/' . $actualite->img3 . '" alt="' . $actualite->img3; ?>"></li><?php endif; ?>
                                 </ul>
-                                
-                                 <div class="reseau">
-                                        <ul>
-                                            <li class="gplus"><a target="_blank" href="https://plus.google.com/share?url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
-                                            <li class="facebook"><a target="_blank" href="http://www.facebook.com/share.php?u=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>"></a></li>
-                                            <li class="twitter"><a target="_blank" href="http://twitter.com/intent/tweet?status=<?= $actualite->titre; ?>+<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
-                                            <li class="link"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>&source=[SOURCE/DOMAIN]"></a></li>
-                                            <li class="pinte"><a target="_blank" href="http://pinterest.com/pin/create/bookmarklet/?media=[MEDIA]&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&is_video=false&description=<?= $actualite->titre; ?>"></a></li>
-                                        </ul>
-                                    </div>
+
+                                <div class="reseau">
+                                    <ul>
+                                        <li class="gplus"><a target="_blank" href="https://plus.google.com/share?url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
+                                        <li class="facebook"><a target="_blank" href="http://www.facebook.com/share.php?u=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>"></a></li>
+                                        <li class="twitter"><a target="_blank" href="http://twitter.com/intent/tweet?status=<?= $actualite->titre; ?>+<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>"></a></li>
+                                        <li class="link"><a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&title=<?= $actualite->titre; ?>&source=[SOURCE/DOMAIN]"></a></li>
+                                        <li class="pinte"><a target="_blank" href="http://pinterest.com/pin/create/bookmarklet/?media=[MEDIA]&url=<?php echo base_url('actualites/partage?idActu=') . $actualite->id ?>&is_video=false&description=<?= $actualite->titre; ?>"></a></li>
+                                    </ul>
+                                </div>
                                 <script type="text/javascript">
                                     initialiseResponsiveSilide('#slider<?php echo $i ?>');
                                 </script>
@@ -243,8 +274,9 @@
                     <?php else: ?>
                         pas d'actualité
                     <?php endif; ?>
-                    <div class="clear"></div>
                 </ul>
+                <div class="clear"></div>
+                <a href="<?php echo base_url('actualites') ?>" class="other_voyage">Voir toutes les actualités</a>
             </div>
         </div>
     </div>
