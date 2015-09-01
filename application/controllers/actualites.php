@@ -51,9 +51,12 @@ class Actualites extends CI_Controller {
             'nbrActu' => count($data["actualites"])
         );
         $this->session->set_userdata('logged_in', $sess_array);
-        foreach ($data["actualites"] as $actu) {
-            $actu->date = $this->DateFr($actu->date);
+        if($data["actualites"] != false){
+            foreach ($data["actualites"] as $actu) {
+                $actu->date = $this->DateFr($actu->date);
+            }
         }
+        
 
         $data["alljs"] = array("slide", "ajaxPaginate");
         $data["allCss"] = array("listeActu", "ficheProduit");
