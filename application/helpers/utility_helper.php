@@ -267,6 +267,26 @@ function carnet_third($carnetVoyages, $i) {
     <?php
 }
 
+function carnet_count($carnetVoyages, $i, $y) {
+    ?>
+    <a href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyages[$i]->cvId ?>" >
+        <li class="carnet car<?php echo $y; ?>">
+            <div class="titre_sans_hover"><?php echo $carnetVoyages[$i]->cvTitre; ?></div>
+            <img src = "<?php echo base_url(); ?>media/<?php echo $carnetVoyages[$i]->lien[0]; ?>" alt = "<?php echo $carnetVoyages[$i]->nom[0]; ?>"/>
+            <div class="flou"></div>
+            <div class="legende">
+                <div class="containe">
+                    <span class="titre"><?php echo $carnetVoyages[$i]->cvTitre; ?></span>
+                    <div class="date_auteur"><span><?php echo $carnetVoyages[$i]->vTitre; ?></span></div>
+                    <div class="texte"><?php echo substr(strip_tags($carnetVoyages[$i]->vAccroche), 0, 370) . '...'; ?></div>
+                </div>
+                <span class="lien">Voir le carnet</span>
+            </div>
+        </li>
+    </a>
+    <?php
+}
+
 function carnet_long($carnetVoyages, $i) {
     ?>
     <div class="article_first">

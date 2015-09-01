@@ -295,29 +295,24 @@
         <div id="onglet3mobile" class="onglet_mobile"><a href="#">Les carnets de voyage</a></div>
         <div id="onglet3" class="contenu_fiche_onglet onglet3mobile">
             <!-- contenu carnet de voyage -->
+            <div class="carnet_voyages">
             <?php
-            if ($carnetVoyages) {
-                for ($i = 0; $i < count($carnetVoyages); $i++) {
-                    if ($i == 0) {
-                        carnet_long($carnetVoyages, $i);
-                    }
-                    if ($i == 1) {
-                        ?> <div class="separateur_article"></div><?php
-                    }
-                    if ($i == 1 && (count($carnetVoyages) - 1) == 1) {
-                        carnet_long($carnetVoyages, $i);
-                    }
-
-                    if ($i > 0 && (count($carnetVoyages) - 1) >= 2) {
-                        carnet_court($carnetVoyages, $i);
-                    }
-                }
-            } else {
+            if ($carnetVoyages) { ?>
+                <ul>
+                    <?php $y = 1; ?>
+                    <?php for ($i = 0; $i < count($carnetVoyages); $i++) {
+                        carnet_count($carnetVoyages, $i, $y);
+                        $y++;
+                    } ?>
+                    <div class="clear"></div>
+                </ul>
+            <?php } else {
                 ?>
                 <p class="center" style="padding: 10px;">Aucun carnet de voyage pour ce produit.</p>
                 <?php
             }
             ?>
+            </div>
 
             <!-- fin contenu carnet de voyage -->	
         </div>

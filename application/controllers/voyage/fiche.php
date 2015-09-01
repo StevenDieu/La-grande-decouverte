@@ -112,8 +112,8 @@ class Fiche extends CI_Controller {
             }
         }
 
-        $data["allCss"] = array("ficheProduit");
-        $data["alljs"] = array("slide", "ficheProduit");
+        $data["allCss"] = array("ficheProduit", "home/home");
+        $data["alljs"] = array("slide", "ficheProduit", "home/home");
         $data["titre"] = "Fiche produit d'un voyage";
         $this->load->templateVoyage('/fiche_produit', $data);
     }
