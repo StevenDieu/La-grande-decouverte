@@ -144,7 +144,7 @@
 
 
         <?php
-        if (isset($graphique)) {
+        if (isset($graphique) && isset($log)) {
             $string = '';
             $mois = '';
             foreach ($graphique as $point) {
