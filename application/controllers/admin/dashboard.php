@@ -35,19 +35,29 @@ class Dashboard extends CI_Controller {
             $data['graphique'] = $this->order->sumOrderByMonth();
             $data['log'] = $this->productView->getVisiteByMonth();
 
-            $total = 0;
-            $total_ligne = 0;
-            foreach ($data['moyenne'] as $cmd) {
-                $total += (int) str_replace(' ', '',$cmd->prix_total);
-                $total_ligne ++;
+            if($data['moyenne'] != false){
+                $total = 0;
+                $total_ligne = 0;
+                foreach ($data['moyenne'] as $cmd) {
+                    $total += (int) str_replace(' ', '',$cmd->prix_total);
+                    $total_ligne ++;
+                }
+                $data['moyenne'] = number_format($total/$total_ligne,2,',',' ');
+            }else{
+                $data['moyenne'] = 0;
             }
-            $data['moyenne'] = number_format($total/$total_ligne,2,',',' ');
+            
 
-            $total = 0;
-            foreach ($data['somme'] as $cmd) {
-                $total += (int) str_replace(' ', '',$cmd->prix_total);
+            if($data['somme'] != false){
+                $total = 0;
+                foreach ($data['somme'] as $cmd) {
+                    $total += (int) str_replace(' ', '',$cmd->prix_total);
+                }
+                $data['somme'] = number_format($total,2,',',' ');
+            }else{
+                $data['somme'] = 0;
             }
-            $data['somme'] = number_format($total,2,',',' ');
+            
 
 
             if($data['order_last']){
