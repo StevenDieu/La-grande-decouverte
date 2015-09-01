@@ -29,7 +29,7 @@
                         <th>Nb participant</th>
                         <th>Montant global</th>
                     </tr>
-                    <?php if(isset($order_last) && $order_last != false): ?>
+                    <?php if (isset($order_last) && $order_last != false): ?>
                         <?php foreach ($order_last as $order): ?>
                             <tr class="ligne" data-id="<?php echo $order->id; ?>">
                                 <td><?php echo $order->id_utilisateur[0]->nom . ' ' . $order->id_utilisateur[0]->prenom ?></td>
@@ -144,7 +144,7 @@
 
 
         <?php
-        if(isset($graphique)){
+        if (isset($graphique)) {
             $string = '';
             $mois = '';
             foreach ($graphique as $point) {
@@ -390,6 +390,28 @@
         labels: ['Ventes par mois', 'Visites par mois'],
         hideHover: 'auto',
         resize: true
+    });
+
+    $(document).ready(function () {
+        $(".container_dash .bloc_commande.price table tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/orders/edit?id=" + id;
+        });
+
+        $("#menu1 tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/voyages/edit?id=" + id;
+        });
+
+        $("#menu2 tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/customer/liste/edit/" + id;
+        });
+
+        $("#menu3 tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/newsletters/liste/read/" + id;
+        });
     });
 </script>
 
