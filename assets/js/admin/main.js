@@ -92,8 +92,7 @@ $(document).ready(function () {
         }
 
         if (submit) {
-            var regexp_localisation = new RegExp("^[0-9]{1,}(,([0-9]{1,})|[.]([0-9]{1,})){0,1}$");
-
+            var regexp_localisation = new RegExp("^[-]{0,1}[0-9]{1,}(,([0-9]{1,})|[.]([0-9]{1,})){0,1}$");
             $('.form-horizontal .localisation').each(function () {
                 if (!regexp_localisation.test($(this).val())) {
                     $(this).parent().parent().append(mess_localisation);

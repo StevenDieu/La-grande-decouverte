@@ -142,6 +142,7 @@ class Pages extends CI_Controller {
         if ($this->input->post('message')) {
             $data["message"] = $this->input->post('message');
             $this->load->view('templates/great.php', $data);
+            return;
         }
         redirect('pages/index', 'refresh');
     }
@@ -150,6 +151,7 @@ class Pages extends CI_Controller {
         if ($this->input->post('message')) {
             $data["message"] = $this->input->post('message');
             $this->load->view('templates/error.php', $data);
+            return;
         }
         redirect('pages/index', 'refresh');
     }

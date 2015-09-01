@@ -7,11 +7,7 @@
                 echo $titre . " - ";
             }
             ?>La Grande Decouverte</title>
-        <meta name="description" content="<?php
-        if (isset($description)) {
-            echo $description;
-        } else {
-            ?><?php } ?>" />
+        <meta name="description" content="La grande découverte est une agence de voyages. Voyagez chez l'habitant et retrouvez vous au coeur des civilisations. Aventure & Découverte." />
         <meta name="keywords" content="lagrandecouverte,la grande decouverte, agence, Globetrotter voyage chez l’habitant ,voyage aventure ,voyage en immersion,voyage communautaire,voyage unique,voyage atypique,voyage en terre inconnue, tourisme communautaire,séjour atypique"/> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="index, follow" />
