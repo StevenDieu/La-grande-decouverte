@@ -191,7 +191,7 @@ Class Order extends CI_Model {
     }
 
     function getSum(){
-        $this->db->select_sum('prix_total');
+        $this->db->select('prix_total');
         $this->db->from('order');
         $this->db->where('statut', 'Facturée');
 
@@ -205,7 +205,7 @@ Class Order extends CI_Model {
     }
 
     function getMoyenne(){
-        $this->db->select_avg('prix_total');
+        $this->db->select('prix_total');
         $this->db->from('order');
         $this->db->where('statut', 'Facturée');
 

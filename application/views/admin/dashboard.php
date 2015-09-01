@@ -13,12 +13,12 @@
         <div class="dash_left">
             <div class="bloc_commande price">
                 <h4>Ventes depuis le début</h4>
-                <p><?php echo $somme[0]->prix_total; ?> €</p>
+                <p><?php echo $somme; ?> €</p>
             </div>
 
             <div class="bloc_commande price">
                 <h4>Moyenne des commandes</h4>
-                <p><?php echo $moyenne[0]->prix_total; ?> €</p>
+                <p><?php echo $moyenne; ?> €</p>
             </div>
 
             <div class="bloc_commande price">
