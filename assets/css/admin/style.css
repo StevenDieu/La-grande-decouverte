@@ -1448,6 +1448,7 @@ div.bloc_commande.totaux p{
 .container_dash .bloc_commande table{
 	font-size: 12px;
 	text-align: left;
+	    width: 100%;
 }
 
 .container_dash .bloc_commande table td,.container_dash .bloc_commande table th {

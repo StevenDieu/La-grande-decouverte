@@ -29,15 +29,15 @@
                         <th>Nb participant</th>
                         <th>Montant global</th>
                     </tr>
-                    <?php if(isset($order_last)): ?>
-                    <?php foreach ($order_last as $order): ?>
-                        <tr class="ligne" data-id="<?php echo $order->id; ?>">
-                            <td><?php echo $order->id_utilisateur[0]->nom . ' ' . $order->id_utilisateur[0]->prenom ?></td>
-                            <td><?php echo $order->nb_participant; ?></td>
-                            <td><?php echo $order->prix_total; ?> €</td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php if(isset($order_last) && $order_last != false): ?>
+                        <?php foreach ($order_last as $order): ?>
+                            <tr class="ligne" data-id="<?php echo $order->id; ?>">
+                                <td><?php echo $order->id_utilisateur[0]->nom . ' ' . $order->id_utilisateur[0]->prenom ?></td>
+                                <td><?php echo $order->nb_participant; ?></td>
+                                <td><?php echo $order->prix_total; ?> €</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </table>
             </div>
             <div class="bloc_commande price">
@@ -146,6 +146,7 @@
         <?php
         if(isset($graphique)){
             $string = '';
+            $mois = '';
             foreach ($graphique as $point) {
                 $mois = (int) explode('-', $point->date)[1];
                 $sum = $point->sum;

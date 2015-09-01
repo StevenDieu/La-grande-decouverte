@@ -35,10 +35,13 @@ class Dashboard extends CI_Controller {
             $data['graphique'] = $this->order->sumOrderByMonth();
             $data['log'] = $this->productView->getVisiteByMonth();
 
-            foreach ($data['order_last'] as $order) {
-                $this->user->setId($order->id_utilisateur);
-                $order->id_utilisateur = $this->user->get();
+            if($data['order_last']){
+                foreach ($data['order_last'] as $order) {
+                    $this->user->setId($order->id_utilisateur);
+                    $order->id_utilisateur = $this->user->get();
+                }
             }
+            
 
             foreach ($data['view'] as $view) {
                 $this->voyage->setId($view->product_id);
