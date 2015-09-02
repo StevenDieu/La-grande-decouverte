@@ -29,12 +29,13 @@
 
                 <ul class="ulList">
                     <?php
-                    $i = 0;
-                    foreach ($voyages as $v) {
-                        $i++;
-                        ?>
-                        <li class="voyage 
-                        <?php if (($i % 2) == 0) { ?> right <?php } ?>">
+                    if ($voyages) {
+                        $i = 0;
+                        foreach ($voyages as $v) {
+                            $i++;
+                            ?>
+                            <li class="voyage 
+                                <?php if (($i % 2) == 0) { ?> right <?php } ?>">
                                 <div class="bloc_image">
                                     <a href="<?php echo base_url('/voyage/fiche/?id=') . $v->vId; ?>">
                                         <img src="<?php echo base_url(''); ?>media/<?php echo $v->lien; ?>" alt="<?php echo $v->nom; ?>" title="<?php echo $v->nom; ?>" />
@@ -46,15 +47,20 @@
                                     <p class="accroche"><?php echo tronque($v->phrase_accroche, 200); ?></p>
                                 </div>
                             </li>
-                        <?php } ?>
-                        <div class="clear"></div>
-                    </ul>
+                        <?php }
+                    }else{
+                        ?>
+                            <div class="center">Pas de voyage</div>
+                            <?php
+                    } ?>
                     <div class="clear"></div>
-                </div>
+                </ul>
+                <div class="clear"></div>
             </div>
+        </div>
 
-            <div class="pagination">
-                <?php echo $this->pagination->create_links(); ?>
+        <div class="pagination">
+<?php echo $this->pagination->create_links(); ?>
         </div>
     </div>
 

@@ -259,6 +259,10 @@ $(document).ready(function () {
         return submit;
     });
 
+    $('.ancreVoyage').click(function () {
+        $("body").animate({scrollTop: ($('#contenu_home_ancre').offset().top)}, 1000, 'easeInOutCubic');
+    });
+
 
 });
 

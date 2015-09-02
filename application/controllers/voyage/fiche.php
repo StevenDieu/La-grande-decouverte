@@ -47,7 +47,7 @@ class Fiche extends CI_Controller {
         $this->id_voyage = $this->input->get('id');
 
         $this->voyage->setId($this->id_voyage);
-        $data['voyage'] = $this->voyage->getVoyage();
+        $data['voyage'] = $this->voyage->getVoyageFiche();
 
         $this->images->setId_voyage($this->id_voyage);
         $data['images'] = $this->images->getImagesByVoyage();

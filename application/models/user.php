@@ -190,6 +190,7 @@ Class User extends CI_Model {
         $this->db->where('password', MD5($this->password));
         $this->db->limit(1);
         $query = $this->db->get();
+
         if ($query->num_rows() == 1) {
             return true;
         } else {
@@ -215,7 +216,7 @@ Class User extends CI_Model {
         $this->db->select('mail');
         $this->db->from('utilisateur');
         $this->db->where('id', $this->id);
-        
+
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -269,6 +270,18 @@ Class User extends CI_Model {
     function setMdp() {
         $data = array(
             'password' => MD5($this->password),
+        );
+        $this->db->where('id', $this->id);
+        if ($this->db->update('utilisateur', $data) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function setMailUser() {
+        $data = array(
+            'mail' => $this->mail,
         );
         $this->db->where('id', $this->id);
         if ($this->db->update('utilisateur', $data) == 1) {

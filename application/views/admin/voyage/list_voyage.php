@@ -1,5 +1,6 @@
 <script type="text/javascript">
-    confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
+    var confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
+    var urlVisibleVoyage = '<?php echo base_url('admin/model_voyage/visibleVoyage'); ?>';
 </script>
 <div class="container">
     <div class="row">
@@ -21,7 +22,7 @@
                                         <tr>
                                             <th class="center w10">#</th>
                                             <th>Titre</th>
-                                            <th class="center w10">Supprimer</th>
+                                            <th class="center w10">Activer</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -35,8 +36,12 @@
                                                 <td>
                                                     <a href="<?php echo base_url('admin/voyages/edit') . '?id=' . $voyage->id; ?>"><?php echo $voyage->titre; ?></a>
                                                 </td>
-                                                <td class="center">
-                                                    <a onclick="return confirm(confirmation);" class="btn btn-danger" href="<?php echo base_url('admin/model_voyage/delete') . '?id=' . $voyage->id; ?>">X</a>
+                                                <td class="center action_validate validate<?= $voyage->id; ?>">
+                                                    <?php if ($voyage->visible == 1) { ?>
+                                                        <span class="validate icon_click" data-visible="0" data-id="<?= $voyage->id; ?>"><span class="icon-ok"></span></span>
+                                                    <?php } else { ?>
+                                                        <span class="validate icon_click" data-visible="1" data-id="<?= $voyage->id; ?>"><span class="icon-remove"></span></span>
+                                                        <?php } ?>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -46,7 +51,7 @@
                             <?php
                         } else {
                             ?>
-                        <br/>Pas de voyage<br/>
+                            <br/>Pas de voyage<br/>
                             <?php
                         }
                         ?>

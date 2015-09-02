@@ -15,7 +15,7 @@ class Actualites extends CI_Controller {
     }
 
     public function partage() {
-        $id_actualite = $this->input->get["idActu"];
+        $id_actualite = $this->input->get("idActu");
         if (!isset($id_actualite)) {
             redirect('actualites', 'refresh');
         }

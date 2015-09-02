@@ -116,7 +116,7 @@
                                 <li><a href="<?php echo base_url('admin/continent/liste'); ?>">Continents</a></li>
                                 <li><a href="<?php echo base_url('admin/pictos/liste'); ?>">Pictos</a></li>
                                 <li><a href="<?php echo base_url('admin/voyages/liste'); ?>">Voyages</a></li>
-                                <li><a href="<?php echo base_url('admin/voyage_home/liste'); ?>">Voyages homepage</a></li>
+                                <li><a href="<?php echo base_url('admin/voyage_home/liste'); ?>">Voyages accueil</a></li>
                             </ul>
                         </li>
                         <li>

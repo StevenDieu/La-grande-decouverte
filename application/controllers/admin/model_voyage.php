@@ -56,8 +56,6 @@ class Model_voyage extends CI_Controller {
         }
     }
 
-
-
     public function edit() {
 
         if ($this->input->post("id_voyage") == null) {
@@ -408,6 +406,20 @@ class Model_voyage extends CI_Controller {
                 }
             }
         }
+    }
+
+    public function visibleVoyage() {
+        $id = $this->input->post('id');
+        if (isset($id)) {
+            $this->voyage->setId($this->input->post('id'));
+            $this->voyage->setVisible($this->input->post('visible'));
+            if ($this->voyage->setVoyageVisible()) {
+                echo "1";
+                return;
+            }
+        }
+        echo "0";
+        return;
     }
 
 }

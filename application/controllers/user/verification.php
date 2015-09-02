@@ -98,7 +98,7 @@ class Verification extends CI_Controller {
             $data["cemail"] = $this->input->post('cemail');
             $data["mdp"] = $this->input->post('mdp');
             $data["cmdp"] = $this->input->post('cmdp');
-            
+
             $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
 
             $secret = '6LdLFAQTAAAAACM8KXqIYKU8Wfo_Hn4Kc_0ny8IH';
@@ -178,11 +178,12 @@ class Verification extends CI_Controller {
             die;
         }
         $this->form_validation->set_rules('mdp', 'mdp', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean|callback_change_email');
-        if ($this->form_validation->run() == FALSE) {
+        $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+
+        if ($this->form_validation->run() == false) {
             echo "0";
         } else {
-            echo "1";
+            echo $this->change_email($this->input->post('email'), $this->input->post('mdp'));
         }
     }
 
@@ -277,17 +278,19 @@ class Verification extends CI_Controller {
         }
     }
 
-    function change_email($email) {
-        $this->user->id = $this->session->userdata('logged_in')["id"];
-        $this->user->password = $this->input->post('mdp');
-        $this->user->mail = $email;
-
-        if ($this->user->verifPassUser()) {
-            if ($this->user->setMail()) {
-                return true;
+    function change_email($email, $mdp) {
+        $this->user->setId($this->session->userdata('logged_in')["id"]);
+        $this->user->setPassword($mdp);
+        $this->user->setMail($email);
+        if (!$this->user->check_mail_unique()) {
+            if ($this->user->verifPassUser()) {
+                if ($this->user->setMailUser()) {
+                    return "1";
+                }
             }
+            return "0";
         }
-        return false;
+        return "-1";
     }
 
     function change_mdp($nmdp) {

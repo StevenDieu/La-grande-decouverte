@@ -46,7 +46,12 @@ function changeEmail() {
             url: urlChangeEmail,
             data: "email=" + $(".nemail").val() + "&mdp=" + $(".mdpMail").val(),
             success: function (result) {
-                if (result !== "0") {
+                if (result === "0") {
+                    message(urlError, "Le mot de passe est incorrect.");
+                } else if (result === "-1") {
+                    message(urlError, "L'email est déja utilisé");
+                } else {
+
                     $(".mdpMail").val("");
                     $(".cnemail").val("");
                     $(".nemail").val("");
@@ -54,8 +59,6 @@ function changeEmail() {
                     couleurAlerteClass(".form-cnemail", "has-success");
                     couleurAlerteClass(".form-nemail", "has-success");
                     message(urlSucces, "Email modifié avec succés");
-                } else {
-                    message(urlError, "Le mot de passe est incorrect.");
                 }
             }});
     } else {

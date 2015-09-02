@@ -62,6 +62,8 @@ class Voyages extends CI_Controller {
 
     public function liste() {
         $this->load->helper(array('form'));
+        $data["adminJs"] = array("voyage/voyage");
+
         $data["voyages"] = $this->voyage->getVoyages();
         $this->load->templateAdmin('/voyage/list_voyage', $data);
     }

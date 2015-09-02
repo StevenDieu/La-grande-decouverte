@@ -40,13 +40,31 @@
                     $i++;
                     ?>
                     <tr>
-                        <td class="center"><?php echo $v->titre; ?></td>
+                        <?php
+                        if ($v->visible == 1) {
+                            ?> 
+                        <td class="center"><a href="<?= base_url('voyage/fiche/?id=') . $v->vId ?>" target="_BLANCK" ><?php echo $v->titre; ?></a></td>
+
+                            <?php
+                        } else {
+                            ?>
+                            <td class="center"><?php echo $v->titre; ?></td>
+
+                            <?php
+                        }
+                        ?>
                         <td class="center"><?php echo $v->statut; ?></td>
                         <td class="center"><?php echo $v->prix_total; ?></td>
                         <td class="center"><?php echo $v->date_depart; ?></td>
                         <td class="center"><?php echo $v->date_arrivee; ?></td>
                         <td class="center"><?php echo $v->nb_participant; ?></td>
-                        <td class="center"><?php if($v->payment=="CHECKMO"){echo "CHEQUE";}else{echo $v->payment;} ?></td>
+                        <td class="center"><?php
+                            if ($v->payment == "CHECKMO") {
+                                echo "CHEQUE";
+                            } else {
+                                echo $v->payment;
+                            }
+                            ?></td>
                         <td class="center"><a href="<?php echo base_url('checkout/cart/facture_pdf?id=') . $v->id ?>" target="_BLANK"><span class="glyphicon glyphicon-download-alt"></span></a></td>
                     </tr>
                     <?php
