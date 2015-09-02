@@ -56,7 +56,7 @@ class Cart extends CI_Controller {
         $order[0]->id_utilisateur = $this->user->get();
 
 
-        if ($this->session->userdata('logged_in')["id"] !== $order[0]->id_utilisateur[0]->id) {
+        if ($this->session->userdata('logged_in')["id"] != $order[0]->id_utilisateur[0]->id) {
             return false;
         }
 
