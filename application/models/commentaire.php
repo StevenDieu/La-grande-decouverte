@@ -56,6 +56,37 @@ Class Commentaire extends CI_Model {
         }
     }
 
+    function getLastComs() {
+        $this->db->select('*');
+        $this->db->from('commentaire');
+        $this->db->order_by("id", "desc");
+        $this->db->limit(5);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function getLastComsSignale() {
+        $this->db->select('*');
+        $this->db->from('commentaire');
+        $this->db->where('signal', '1');
+        $this->db->order_by("id", "desc");
+        $this->db->limit(5);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() != 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
     function setSignalArticle() {
         $data = array(
             'signal' => $this->signal,

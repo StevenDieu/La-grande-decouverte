@@ -26,6 +26,7 @@ class Dashboard extends CI_Controller {
             $this->load->model('productView');
             $this->load->model('voyage');
             $this->load->model('newsletter');
+            $this->load->model('commentaire');
             $data['somme'] = $this->order->getSum();
             $data['moyenne'] = $this->order->getMoyenne();
             $data['order_last'] = $this->order->getLastOrder();
@@ -34,6 +35,8 @@ class Dashboard extends CI_Controller {
             $data['newsletter'] = $this->newsletter->getLastNewsletter();
             $data['graphique'] = $this->order->sumOrderByMonth();
             $data['log'] = $this->productView->getVisiteByMonth();
+            $data['last_com'] = $this->commentaire->getLastComs();
+            $data['last_com_signale'] = $this->commentaire->getLastComsSignale();
 
             if($data['moyenne'] != false){
                 $total = 0;

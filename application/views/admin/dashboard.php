@@ -44,6 +44,46 @@
                 <h4>Actions à faire</h4>
                 <p><input type="submit" class="btn btn-primary clear_pictures" value="Nettoyage des images"></p>
             </div>
+
+            <div class="bloc_commande price com1">
+                <h4>5 derniers commentaires</h4>
+                <table>
+                    <tr class="entete">
+                        <th>Nom</th>
+                        <th>Mail</th>
+                        <th>Commentaire</th>
+                    </tr>
+                    <?php if (isset($last_com) && $last_com != false): ?>
+                        <?php foreach ($last_com as $com): ?>
+                            <tr class="ligne" data-id="<?php echo $com->id; ?>">
+                                <td><?php echo substr($com->name,0,30); ?></td>
+                                <td><?php echo substr($com->mail,0,30); ?></td>
+                                <td><?php echo substr($com->commentaire,0,50); ?>...</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </table>
+            </div>
+
+            <div class="bloc_commande price com2">
+                <h4>5 derniers commentaires signalés</h4>
+                <table>
+                    <tr class="entete">
+                        <th>Nom</th>
+                        <th>Mail</th>
+                        <th>Commentaire</th>
+                    </tr>
+                    <?php if (isset($last_com_signale) && $last_com_signale != false): ?>
+                        <?php foreach ($last_com_signale as $com): ?>
+                            <tr class="ligne" data-id="<?php echo $com->id; ?>">
+                                <td><?php echo substr($com->name,0,20); ?></td>
+                                <td><?php echo substr($com->mail,0,30); ?></td>
+                                <td><?php echo substr($com->commentaire,0,50); ?>...</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </table>
+            </div>
         </div>
 
         <div class="dash_right">
@@ -396,6 +436,16 @@
         $(".container_dash .bloc_commande.price table tr.ligne").click(function () {
             var id = $(this).data('id');
             window.location = "<?php echo base_url() ?>admin/orders/edit?id=" + id;
+        });
+
+        $(".container_dash .bloc_commande.com1 table tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/commentaires/liste/edit/" + id;
+        });
+
+        $(".container_dash .bloc_commande.com2 table tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/commentaires/liste/edit/" + id;
         });
 
         $("#menu1 tr.ligne").click(function () {
