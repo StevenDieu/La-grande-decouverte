@@ -655,6 +655,7 @@ h2.titre{
 .copyright {
     font-family: 'helvetica';
     margin-bottom: 30px;
+    color: #8b8b8b;
 }
 /******* end footer *********/
 @media (min-width: 768px){
