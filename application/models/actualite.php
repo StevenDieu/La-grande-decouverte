@@ -36,7 +36,7 @@ Class Actualite extends CI_Model {
     function getActualitesListe($limit, $start) {
         $this->db->select('*');
         $this->db->from('actualite');
-
+        $this->db->order_by('id','desc');
         if (isset($limit) && isset($start)) {
             $this->db->limit($limit, $start);
         }

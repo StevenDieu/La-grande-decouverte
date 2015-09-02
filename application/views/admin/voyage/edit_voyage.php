@@ -255,7 +255,7 @@
 
                                     <div class="widget-header">
                                         <h3>Image slider ( taille recommandé <b>2000</b> x <b>1000</b> px ) *</h3> 
-                                        <a href="#image_slider" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image description</a>
+                                        <a href="#image_slider" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image slider</a>
                                         <?php modal("image_slider", "Ajout Image Slider", "add_image", "add_image", "Ajouter") ?>
                                     </div>
                                     <div  class="widget-content"  style="height: auto;">
@@ -377,7 +377,7 @@
                                     <br/>
                                     <div class="widget-header">
                                         <h3>Image Description ( taille recommandé <b>400</b> x <b>300px</b> ) *</h3> 
-                                        <a href="#image_description" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image slider</a>
+                                        <a href="#image_description" role="button" data-toggle="modal" class="btn btn-primary bouton_right">Ajouter image description</a>
                                         <?php modal("image_description", "Ajout Image Description", "add_image", "add_image", "Ajouter") ?>
                                     </div>
                                     <div  class="widget-content"  style="height: auto;">
