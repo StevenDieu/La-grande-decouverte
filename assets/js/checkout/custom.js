@@ -171,6 +171,23 @@ function getInscription() {
     });
 }
 
+function getVerifMailView() {
+    $.ajax({
+        url: urlViewVerifMail, // ici l'url du controleur de la vue que tu veux faire appeller
+        type: "post",
+        data: "mail=" + mail,
+        beforeSend: function () {
+            $(".inside_command_panel.inscription").html(chargement);
+        },
+        success: function (result) {
+            // Le result qui est déclaré est le code html que le controlleur va te renvoyer donc tu fais :
+            $(".inside_command_panel.inscription").html(result) // Pour afficher le contenu de la view
+            $(".inside_command_panel.inscription").parent().addClass('charger');
+            sendMailClick();
+        }
+    });
+}
+
 function getLogin() {
     $.ajax({
         url: urlRecap, // ici l'url du controleur de la vue que tu veux faire appeller
@@ -221,6 +238,13 @@ function createAccountClic() {
     jQuery(".open_command.containInscription").toggleClass("active").next().slideToggle("slow");
 }
 
+function getVerifMail() {
+    jQuery(".open_command.first").next().slideToggle("slow");
+    $('.openInscription').show();
+    getVerifMailView();
+    jQuery(".open_command.containInscription").toggleClass("active").next().slideToggle("slow");
+}
+
 function connexionOnepage() {
     $.ajax({
         url: urlLogin, // ici l'url du controleur de la vue que tu veux faire appeller
@@ -232,13 +256,18 @@ function connexionOnepage() {
         success: function (result) {
             data = jQuery.parseJSON(result);
             if (data.retour == 'connexion') {
-                $('.identification_left .chargement').remove();
-                $(".inside_command_panel.ajaxLogin").html('');
-                $(".inside_command_panel.ajaxLogin").css('display', 'none');
-                $(".open_command.first").addClass('check');
-                $(".open_command.first").removeClass('active');
-                getBilling();
-                jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
+                if (data.verif == true) {
+                    mail = $('.identification_left #mail').val();
+                    getVerifMail();
+                } else {
+                    $('.identification_left .chargement').remove();
+                    $(".inside_command_panel.ajaxLogin").html('');
+                    $(".inside_command_panel.ajaxLogin").css('display', 'none');
+                    $(".open_command.first").addClass('check');
+                    $(".open_command.first").removeClass('active');
+                    getBilling();
+                    jQuery(".open_command.containBilling").toggleClass("active").next().slideToggle("slow");
+                }
             } else {
                 $('.identification_left .chargement').remove();
                 alert('Identifiant ou mot de passe incorrect');
@@ -247,7 +276,7 @@ function connexionOnepage() {
         }
     });
 }
-
+var mail;
 function createAccount() {
     $.ajax({
         url: urlCreate, // ici l'url du controleur de la vue que tu veux faire appeller
@@ -266,6 +295,31 @@ function createAccount() {
         success: function (result) {
             data = jQuery.parseJSON(result);
             if (data.retour == 'creation') {
+                mail = $('#inscription_email').val();
+                getVerifMailView();
+            } else {
+                $('.submit_all_text.ins .chargement').remove();
+                alert(data.message);
+            }
+
+        }
+    });
+    return false;
+}
+
+function verifMail() {
+    $.ajax({
+        url: urlMailConfirm,
+        type: "post",
+        data: {
+            email: mail
+        },
+        beforeSend: function () {
+            $(".submit_all_text.ins").append(chargmeentLogin);
+        },
+        success: function (result) {
+            data = jQuery.parseJSON(result);
+            if (data.retour == 'verifier') {
                 $(".inside_command_panel.inscription").html('');
                 $(".inside_command_panel.inscription").css('display', 'none');
                 $(".open_command.containInscription").removeClass('active');
@@ -282,6 +336,7 @@ function createAccount() {
         }
     });
     return false;
+
 }
 
 function verifChampBilling() {

@@ -28,7 +28,7 @@ function editArticle(id) {
     if ($('#edit').editable('getHTML', false, false) !== "" && $('.titre').val() !== "" && $('#id').val() !== "" && $('#id_carnetvoyage').val() !== "") {
         var contenu = $('#edit').editable('getHTML', false, false);
         var reg = new RegExp('style', "g");
-        contenu = contenu.replace(reg, "style/");
+        contenu = encodeURIComponent(contenu.replace(reg, "style/"));
         $.ajax({
             type: "post",
             url: urlEditArticle,

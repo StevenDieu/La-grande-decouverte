@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class Cart extends CI_Controller {
 
     private $id;
+    private $mail;
 
     function __construct() {
         parent::__construct();
@@ -203,18 +204,34 @@ class Cart extends CI_Controller {
             if ($result) {
                 $sess_array = array();
 
-                foreach ($result as $row) {
-                    $sess_array = array(
-                        'id' => $row->id,
-                        'prenom' => $row->prenom,
+                if ($result[0]->validation == 1) {
+                    foreach ($result as $row) {
+                        $sess_array = array(
+                            'id' => $row->id,
+                            'prenom' => $row->prenom,
+                        );
+                        $this->session->set_userdata('inscription', $sess_array);
+                    }
+
+                    $res = array(
+                        'retour' => 'connexion',
+                        'verif' => true
                     );
+                } else {
+
+                    foreach ($result as $row) {
+                        $sess_array = array(
+                            'id' => $row->id,
+                            'prenom' => $row->prenom,
+                        );
+                        $this->session->set_userdata('logged_in', $sess_array);
+                    }
                     $this->session->set_userdata('logged_in', $sess_array);
+                    $res = array(
+                        'retour' => 'connexion',
+                        'message' => "L'utilisateur est connecte"
+                    );
                 }
-                $this->session->set_userdata('logged_in', $sess_array);
-                $res = array(
-                    'retour' => 'connexion',
-                    'message' => "L'utilisateur est connecte"
-                );
             } else {
                 $res = array(
                     'retour' => 'error',
@@ -263,12 +280,89 @@ class Cart extends CI_Controller {
                         'id' => $result,
                         'prenom' => $this->input->post('prenom'),
                     );
-                    $this->session->set_userdata('logged_in', $sess_array);
+                    $this->session->set_userdata('inscription', $sess_array);
                     $res = array(
                         'retour' => 'creation',
                         'message' => "L'utilisateur est créé"
                     );
+                    $this->mail = $this->input->post('email');
+                    $this->confirmation_user_mail();
                 }
+            }
+        }
+        echo json_encode($res);
+    }
+
+    function confirmation_user_mail() {
+        $this->load->library('phpmailer');
+
+
+        if ($this->mail != null) {
+            $this->user->setMail($this->mail);
+
+            $token = $this->user->generate_token();
+
+            define('GUSER', 'lagrandedecouverte.contact@gmail.com');
+            define('GPWD', 'lagrandecouverte123456');
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = GUSER;
+            $mail->Password = GPWD;
+            $mail->isHTML(true);
+            $mail->SetFrom($this->mail, 'La grande decouverte');
+            $mail->Subject = 'Confirmation compte LA GRANDE DECOUVERTE';
+            $message = confirmation_user_mail(base_url() . 'user/account/confirmationUser?token=' . $token . '&mail=' . $this->mail);
+            $mail->Body = $message;
+            $mail->AddAddress($this->mail);
+            if ($mail->Send()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    function viewVerifMail() {
+        $this->form_validation->set_rules('mail', 'mail', 'trim|required|xss_clean');
+        if ($this->form_validation->run() == FALSE) {
+            return;
+        }
+
+        $data["mail"] = $this->input->post('mail');
+        $this->load->view('checkout/step/validationMail', $data);
+    }
+
+    function mailConfirm() {
+        $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+        if ($this->form_validation->run() == FALSE) {
+
+            $res = array(
+                'retour' => 'error',
+                'message' => "L'utilisateur n'a pas pu etre créé"
+            );
+        } else {
+            $this->user->setMail($this->input->post('email'));
+            $result = $this->user->check_validation();
+            if ($result == true) {
+                $res = array(
+                    'retour' => 'notVerifier',
+                    'message' => "L'adresse mail n'est pas vérifier."
+                );
+            } else {
+                $sess_array = array(
+                    'id' => $this->session->userdata('inscription')["id"],
+                    'prenom' => $this->session->userdata('inscription')["prenom"],
+                );
+                $this->session->set_userdata('logged_in', $sess_array);
+                $res = array(
+                    'retour' => 'verifier',
+                    'message' => "L'utilisateur est créé"
+                );
             }
         }
         echo json_encode($res);

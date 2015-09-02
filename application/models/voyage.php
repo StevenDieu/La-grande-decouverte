@@ -65,6 +65,7 @@ Class Voyage extends CI_Model {
         $this->db->join('order as o', 'v.id = o.id_voyage', 'inner');
         $this->db->join('info_voyage as iv', 'v.id = iv.id_voyage', 'inner');
         $this->db->where('o.id_utilisateur', $id);
+        $this->db->group_by("v.id");
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -98,7 +99,7 @@ Class Voyage extends CI_Model {
         $this->db->from('voyage AS v');
         $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
         $this->db->or_where('v.id', $id);
-        
+
         $this->db->_protect_identifiers = TRUE;
 
         $query = $this->db->get();

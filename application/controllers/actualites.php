@@ -50,7 +50,7 @@ class Actualites extends CI_Controller {
         $sess_array = array(
             'nbrActu' => count($data["actualites"])
         );
-        $this->session->set_userdata('logged_in', $sess_array);
+        $this->session->set_userdata('actu', $sess_array);
         foreach ($data["actualites"] as $actu) {
             $actu->date = $this->DateFr($actu->date);
         }
@@ -73,7 +73,7 @@ class Actualites extends CI_Controller {
 
         if ($acualites) {
             $i = 0;
-            $this->nbrActu = $this->session->userdata('logged_in')["nbrActu"];
+            $this->nbrActu = $this->session->userdata('actu')["nbrActu"];
 
             foreach ($acualites as $actualite) {
                 $this->nbrActu++;
@@ -121,7 +121,7 @@ class Actualites extends CI_Controller {
             $sess_array = array(
                 'nbrActu' => $this->nbrActu
             );
-            $this->session->set_userdata('logged_in', $sess_array);
+            $this->session->set_userdata('actu', $sess_array);
             $json["page"] = "actu";
             $json["nbr_limit"] = $this->limit;
             $json["nbr_list"] = $i;
