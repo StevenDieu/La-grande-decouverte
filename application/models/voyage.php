@@ -112,6 +112,7 @@ Class Voyage extends CI_Model {
         $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
         $this->db->order_by("titre", "asc");
         $this->db->where("v.visible", "1");
+        $this->db->group_by("v.id");
         $this->db->_protect_identifiers = TRUE;
         $this->db->limit(4);
 
