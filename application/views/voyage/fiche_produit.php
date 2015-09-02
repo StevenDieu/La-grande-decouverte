@@ -51,8 +51,8 @@
     <div class="fil_arianne_conteneur">
         <div class="fil_arianne">
             <ul class="breadcrumbs">
-                <li class="acceuil"><a href="/">Accueil</a></li>
-                <li><a href="/voyage/carnet/voyage">Voyages</a></li>
+                <li class="acceuil"><a href="<?php echo base_url(''); ?>">Accueil</a></li>
+                <li><a href="<?php echo base_url('voyages'); ?>">Voyages</a></li>
                 <li class="last"><?php echo $voyage[0]->titre; ?></li>
             </ul>
         </div>
@@ -83,8 +83,8 @@
                 </div>
 
                 <div class="bloc_date">
-                    <p>DU <span><?php echo dateFr($voyageInfo[0]->date_depart); ?></span></p>
-                    <p>AU <span><?php echo dateFr($voyageInfo[0]->date_arrivee); ?></span></p>
+                    <p>Du <span><?php echo dateFr($voyageInfo[0]->date_depart); ?></span></p>
+                    <p>Au <span><?php echo dateFr($voyageInfo[0]->date_arrivee); ?></span></p>
                 </div>
 
                 <input type="hidden" name="id" value="<?php echo $voyage[0]->id; ?>">
@@ -100,7 +100,7 @@
                                 if ($info->id != $voyageInfo[0]->id) {
                                     ?>
 
-                                    > Du  <?= $info->date_depart ?> au <?= $info->date_arrivee ?> :
+                                    > Du <?php echo dateFr($info->date_depart); ?> au <?= dateFr($info->date_arrivee) ?> :
                                     <a href='<?php echo base_url('voyage/fiche') . "?id=" . $voyage[0]->id . "&idInfo=" . $info->id; ?>'>Choisir ces dates</a><br>
                                     <?php
                                 }

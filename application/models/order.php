@@ -246,7 +246,7 @@ Class Order extends CI_Model {
     }
 
     function sumOrderByMonth(){
-        $this->db->select('date,sum(prix_total) as sum');
+        $this->db->select('date,count(*) as sum');
         $this->db->from('order');
         $this->db->where('statut', 'Facturée');
         $this->db->group_by("MONTH(date)");

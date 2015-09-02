@@ -1038,7 +1038,7 @@ span.ou{
     color: #3C3C3C;
 }
 .fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
-    content: url(../images/home.png) center;
+    content: url(../images/home.png);
     margin-right: 8px;
 }
 
@@ -1590,5 +1590,12 @@ a#delete_participant{
     font-size: 20px;
     padding-top: 10px;
     text-shadow: 1px 1px 0px #111;
+}
+
+.inner_cms{
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
 }
 
