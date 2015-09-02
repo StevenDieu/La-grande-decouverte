@@ -51,7 +51,7 @@ class Actualites extends CI_Controller {
             'nbrActu' => count($data["actualites"])
         );
     
-        $this->session->set_userdata('logged_in', $sess_array);
+        $this->session->set_userdata('actu', $sess_array);
         if($data["actualites"] != false){
             foreach ($data["actualites"] as $actu) {
                 $actu->date = $this->DateFr($actu->date);
