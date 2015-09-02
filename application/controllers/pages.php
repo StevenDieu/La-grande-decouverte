@@ -92,6 +92,11 @@ class Pages extends CI_Controller {
         $this->load->templatePages('facture', $data);
     }
 
+    public function introuvable(){
+        $data["titre"] = "404";
+        $this->load->templatePages('introuvable', $data);
+    }
+
     public function cms() {
         $this->load->helper('url');
         $code = $this->uri->segment(3);
@@ -101,6 +106,7 @@ class Pages extends CI_Controller {
             $result = $this->cms->getPageByCode();
             if ($result) {
                 $data['page'] = $result;
+                $data["titre"] = $result[0]->label;
                 $this->load->templatePages('cms', $data);
             } else {
                 redirect('pages/index', 'refresh');

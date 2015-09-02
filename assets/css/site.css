@@ -1601,3 +1601,42 @@ a#delete_participant{
     margin: auto;
 }
 
+.content.introuvable .content-contact{
+    width: 100%;
+    max-width: 580px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.content.introuvable .content-contact p:nth-child(1){
+    text-align: center;
+    font-family: 'NewCicleGordita', sans-serif;
+    font-size: 47px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    color: #565a5c;
+}
+
+.content.introuvable .content-contact p.bas{
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #565a5c;
+    font-family: "helvetica";
+    margin-bottom: 30px;
+}
+
+.content.introuvable .content-contact .separation{
+    width: 20%;
+    height: 2px;
+    border-bottom: 1px solid black;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
