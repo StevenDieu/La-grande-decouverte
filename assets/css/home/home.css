@@ -110,6 +110,38 @@ and open the template in the editor.
     z-index: 60;
 }
 
+.divLeTireurVoyage{
+    position: relative;
+    top: -76px;}
+
+.blurpVoyage {
+    position: absolute;
+    margin: 66px auto 0 auto;
+    top: -40px;
+    text-align: center;
+    width: 99%;
+    z-index: 10;
+    -moz-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -o-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+    -ms-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+}
+
+.btn--bot_textVoyage {
+    color: white;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    cursor: pointer;
+    height: 50px;
+    top: 5px;
+    margin: 0 auto;
+    padding-left: 1%;
+    z-index: 10;
+    width: 20px;
+    transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    
+    -webkit-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    -moz-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    -o-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);    -ms-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+}
+
 @media (min-width: 767px){
     .content-home{
         padding-top: 76px;

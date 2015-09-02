@@ -77,10 +77,12 @@ function afficherCacherMap(afficher) {
 $(window).load(function () {
 
     $('.btn--top_text').click(function () {
-        afficherCacherMap(0)
+        afficherCacherMap(0);
+        $('.divLeTireurVoyage').css({"display":"block"});
     });
     $('.btn--top_textRetour').click(function () {
-        afficherCacherMap(1)
+        afficherCacherMap(1);
+        $('.divLeTireurVoyage').css({"display":"none"});
     });
     sizeForMap = searchSizeWindowsForMap();
     $(window).resize(function () {
