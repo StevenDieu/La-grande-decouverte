@@ -1038,7 +1038,7 @@ span.ou{
     color: #3C3C3C;
 }
 .fil_arianne_conteneur .fil_arianne ul li.acceuil::before{
-    content: url(../images/home.png) center;
+    content: url(../images/home.png);
     margin-right: 8px;
 }
 

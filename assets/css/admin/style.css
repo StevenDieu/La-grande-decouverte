@@ -1501,7 +1501,6 @@ div.bloc_commande.totaux p{
 	font-weight: bold;
 	line-height: 40px;
 	font-size: 20px;
-	padding-top: 10px;
 }
 
 .container_dash .bloc_commande table{
@@ -1585,6 +1584,8 @@ div.bloc_commande.totaux p{
     border-bottom: 4px solid #dfdfdf;
     color: #960018;
     font-size: 16px;
+    color: #eb5e00;
+    font-weight: bold;
 }
 
 
