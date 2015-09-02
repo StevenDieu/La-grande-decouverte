@@ -1592,3 +1592,10 @@ a#delete_participant{
     text-shadow: 1px 1px 0px #111;
 }
 
+.inner_cms{
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
+}
+

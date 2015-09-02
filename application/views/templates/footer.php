@@ -106,12 +106,12 @@
                     </div>
                     <div class="row textFooter">
                         <ul>
-                            <li><a href="<?php echo base_url('/pages/qui_sommes_nous') ?>">Qui sommes-nous ?</a></li>
-                            <li><a href="<?php echo base_url('/pages/presse') ?>">Espace presse</a></li>
+                            <li><a href="<?php echo base_url('pages/cms/qui_sommes_nous') ?>">Qui sommes-nous ?</a></li>
+                            <li><a href="<?php echo base_url('pages/cms/presse') ?>">Espace presse</a></li>
                             <li><a href="<?php echo base_url('/contact/index') ?>">Nous contacter</a></li>
-                            <li><a href="<?php echo base_url('/pages/nous_rejoindre') ?>">Nous rejoindre</a></li>
-                            <li><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></li>
-                            <li><a href="<?php echo base_url('/pages/cgv') ?>">CGV</a></li>
+                            <li><a href="<?php echo base_url('pages/cms/nous_rejoindre') ?>">Nous rejoindre</a></li>
+                            <li><a href="<?php echo base_url('pages/cms/mentionsLegales') ?>">Mentions légales</a></li>
+                            <li><a href="<?php echo base_url('pages/cms/cgv') ?>">CGV</a></li>
                         </ul>
                     </div>
                 </div>
@@ -134,11 +134,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="menuBas">
-                <span><a href="<?php echo base_url('/pages/mentionsLegales') ?>">Mentions légales</a></span>
+                <span><a href="<?php echo base_url('pages/cms/mentionsLegales') ?>">Mentions légales</a></span>
                 &nbsp; &middot; &nbsp;
-                <span><a href="<?php echo base_url('/pages/cgv') ?>">Conditions générales de vente</a></span>
+                <span><a href="<?php echo base_url('pages/cms/cgv') ?>">Conditions générales de vente</a></span>
                 &nbsp; &middot; &nbsp;
-                <span><a href="<?php echo base_url('/pages/cgu') ?>">Conditions générales d'utilisation du site </a></span>
+                <span><a href="<?php echo base_url('pages/cms/cgu') ?>">Conditions générales d'utilisation du site </a></span>
                 &nbsp; &middot; &nbsp;
                 <span><a href="<?php echo base_url('/faq/index') ?>">FAQ</a></span>
             </div>
