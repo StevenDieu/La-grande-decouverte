@@ -89,7 +89,7 @@
         <path fill="#FFFFFF" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z">
         </path>
         </svg>
-        <a href="#voyage">
+        <a href="#contenu_home_ancre">
             <div class="btn--bot_textVoyage"> 
                 <span class="btn__arrow btn__arrow--top"></span> 
                 <span class="btn__arrow btn__arrow--bottom"></span> 
@@ -100,7 +100,7 @@
 
     <div class="clear"></div>
 
-    <div class="contenu_home">
+    <div class="contenu_home" id="contenu_home_ancre">
         <?php if ($this->session->flashdata('result_newsletter') > 0) { ?>
             <div class="messageAlerteCarnet center">
                 <div class="alertType"><div class="alert alert-success fade in limiteMessage">
