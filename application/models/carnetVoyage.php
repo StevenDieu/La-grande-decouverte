@@ -179,6 +179,7 @@ Class CarnetVoyage extends CI_Model {
         $this->db->join('fichevoyage AS fv', 'cv.id = fv.id_carnetvoyage');
         $this->db->where("fv.visible", 0);
         $this->db->or_where('cv.visible', 0);
+        $this->db->group_by('cv.id');
 
         $query = $this->db->get();
 
