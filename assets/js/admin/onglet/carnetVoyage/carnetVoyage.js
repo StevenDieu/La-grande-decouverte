@@ -1,5 +1,30 @@
 var inputTitre = new Array();
 
+function validate(element) {
+    var visible = element.data("visible");
+    var id = element.data("id");
+    $.ajax({
+        url: urlVisibleCarnet,
+        type: "POST",
+        data: "id=" + id + "&visible=" + visible,
+        beforeSend: function () {
+            $(".validate" + id).children().remove();
+            $(".validate" + id).append('<div class="center spinneur"><img src=" ' + urlSpiner + ' " name="spinner" alt="spinner"/></div>');
+        },
+        success: function (result) {
+            $(".validate" + id).children().remove();
+            if (result === "0") {
+                message(urlError, "Une erreure c'est produite veuillez recharger la page...");
+            }
+            if (visible === 1) {
+                $(".validate" + id).append('<span class="validate icon_click" data-visible="0" data-id="' + id + '"><span class="icon-ok"></span></span>');
+            } else {
+                $(".validate" + id).append('<span class="validate icon_click" data-visible="1" data-id="' + id + '"><span class="icon-remove"></span></span>');
+            }
+        }
+    });
+}
+
 function editCarnetVoyage(bouton) {
     if ($("#" + bouton.data("id")).val() !== "") {
         $.ajax({
@@ -49,27 +74,30 @@ function verificationInputTitre(input) {
 
 $(document).ready(function () {
 
-     $(".editCarnetVoyage").on("click", function () {
+    $(".editCarnetVoyage").on("click", function () {
         editCarnetVoyage($(this));
     });
-    
+
     $(".deleteCarnetVoyage").on("click", function () {
         deleteCarnetVoyage($(this));
     });
-    
+
     $(".inputTitreCarnetVoyage").keydown("click", function () {
         if (inputTitre[$(this).attr("id")] === undefined || inputTitre[$(this).attr("id")] === "") {
             inputTitre[$(this).attr("id")] = $(this).val();
         }
     });
-    
+
     $(".inputTitreCarnetVoyage").keyup("click", function () {
         verificationInputTitre($(this));
     });
-    
+
     $(".redoTitreCarnetVoyage").on("click", function () {
         $("#" + $(this).data("id")).val(inputTitre[$(this).data("id")]);
         $("." + $(this).data("id")).addClass("glyphiHide");
     });
 
+    $('.action_validate').on('click', function () {
+        validate($(this).children());
+    });
 });

@@ -32,6 +32,22 @@ class Model_carnet_voyage extends CI_Controller {
         }
     }
 
+    
+
+    public function validateCarnetVoyage() {
+        $id = $this->input->post('id');
+        if (isset($id)) {
+            $this->carnetVoyage->setId($this->input->post('id'));
+            $this->carnetVoyage->setVisible($this->input->post('visible'));
+            if ($this->carnetVoyage->setCarnetVisible()) {
+                echo "1";
+                return;
+            }
+        }
+        echo "0";
+        return;
+    }
+
     public function visible() {
         $id = $this->input->post('id');
         if (isset($id)) {
@@ -129,9 +145,9 @@ class Model_carnet_voyage extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             echo "0";
         } else {
-        $this->carnetVoyage->setTitre(str_replace("'", "&#146;", $this->input->post('titre')));
-        $this->carnetVoyage->setId($this->input->post('id'));
-        $this->carnetVoyage->setId_utilisateur($this->session->userdata('logged_in')["id"]);
+            $this->carnetVoyage->setTitre(str_replace("'", "&#146;", $this->input->post('titre')));
+            $this->carnetVoyage->setId($this->input->post('id'));
+            $this->carnetVoyage->setId_utilisateur($this->session->userdata('logged_in')["id"]);
             $this->carnetVoyage->setCarnetVoyage();
             echo "1";
         }

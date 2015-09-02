@@ -14,7 +14,14 @@ function addComment() {
         url: urlAddComment,
         data: "name=" + $('.name').val() + "&mail=" + $('.mail').val() + "&commentaire=" + $('.commentaire').val().split("\n").join('<br/>') + "&id_article=" + $(".id_article").val() + "&g-recaptcha-response=" + $('.g-recaptcha-response').val(),
         success: function (result) {
-            if (result === '1') {
+            if (result === '0') {
+                message(urlError, "Veuillez recharger la page !");
+                $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');
+            }
+            else if (result === '-1') {
+                message(urlError, "N'oubliez pas de dire que vous n'êtes pas un robot !");
+                $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');
+            } else {
                 $(".list_comment").prepend(
                         '<div class="comment">' +
                         '<div class="titre_comment">' +
@@ -25,13 +32,6 @@ function addComment() {
                         '</div>' +
                         '</div>');
                 clear_comment();
-            }
-            else if (result === '-1') {
-                message(urlError, "N'oubliez pas de dire que vous n'êtes pas un robot !");
-                $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');
-            } else {
-                message(urlError, "Veuillez recharger la page !");
-                $("body").animate({scrollTop: ($('.alertType').next().offset().top) - 80}, 500, 'easeInOutCubic');
             }
             on_click_js();
             $(".addComment").val("ENVOYER");

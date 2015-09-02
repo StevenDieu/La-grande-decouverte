@@ -46,7 +46,17 @@
                                 <a class="deleteCarnetVoyage" data-id="<?php echo $carnet_voyage->id; ?>"><span class="glyphicon glyphicon-trash"></span></a>
                             </td>
                             <td class="tdPetitGlaphi">
-                                <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnet_voyage->id . "&token=" . $carnet_voyage->token; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                                <?php
+                                if ($carnet_voyage->visible == 0) {
+                                    ?>
+                                    <button type="button" class="attentionIcon" data-toggle="tooltip" data-placement="bottom" title="En attente de validation..."></button>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnet_voyage->id . "&token=" . $carnet_voyage->token; ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                                    <?php
+                                }
+                                ?>
                             </td>
                             <td class="tdPetitGlaphi">
                                 <?php if ($carnet_voyage->prive == 0) { ?>
@@ -94,3 +104,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>

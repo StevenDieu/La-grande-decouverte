@@ -14,6 +14,7 @@ Class CarnetVoyage extends CI_Model {
     private $id_utilisateur;
     private $prive;
     private $token;
+    private $visible;
 
     function __construct() {
         parent::__construct();
@@ -24,7 +25,8 @@ Class CarnetVoyage extends CI_Model {
             'titre' => $this->titre,
             'id_voyage' => $this->id_voyage,
             'id_utilisateur' => $this->id_utilisateur,
-            'token' => $this->token
+            'token' => $this->token,
+            'visible' => '0'
         );
         $this->db->insert('carnetvoyage', $data);
         return $this->db->insert_id();
@@ -33,6 +35,7 @@ Class CarnetVoyage extends CI_Model {
     function setCarnetVoyage() {
         $data = array(
             'titre' => $this->titre,
+            'visible' => '0'
         );
         $this->db->where('id', $this->id);
         $this->db->update('carnetvoyage', $data);
@@ -100,28 +103,11 @@ Class CarnetVoyage extends CI_Model {
         $this->db->select('*');
         $this->db->from('carnetvoyage');
         $this->db->where('id', $this->id);
+        $this->db->where('visible', '1');
         $this->db->limit(1);
         $query = $this->db->get();
 
         if ($query->num_rows() == 1) {
-            return $query->result();
-        } else {
-            return false;
-        }
-    }
-
-    function getCarnetVoyagesHome() {
-        $this->db->select('i_s.lien as isLien, i_s.nom as isNom, cv.id AS cvId,cv.titre AS cvTitre, v.titre AS vTitre, v.phrase_accroche AS vAccroche');
-        $this->db->from('carnetvoyage AS cv');
-        $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
-        $this->db->join('images AS i_s', 'i_s.id_voyage = v.id');
-        $this->db->order_by("cv.id", "desc");
-        $this->db->where('prive', '0');
-        $this->db->where('emplacement', 'image_slider');
-        $this->db->limit(3);
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
             return $query->result();
         } else {
             return false;
@@ -134,6 +120,7 @@ Class CarnetVoyage extends CI_Model {
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
         $this->db->order_by("v.id", "desc");
         $this->db->where('prive', '0');
+        $this->db->where('cv.visible', '1');
         $this->db->where('cv.id_voyage', $this->id_voyage);
         $query = $this->db->get();
 
@@ -187,10 +174,11 @@ Class CarnetVoyage extends CI_Model {
     }
 
     function getAllCarnetVoyagesNotVisibleBO() {
-        $this->db->select("cv.token, cv.id, cv.titre");
+        $this->db->select("cv.token, cv.id, cv.titre, cv.visible");
         $this->db->from('carnetvoyage as cv');
         $this->db->join('fichevoyage AS fv', 'cv.id = fv.id_carnetvoyage');
-        $this->db->where("visible", 0);
+        $this->db->where("fv.visible", 0);
+        $this->db->or_where('cv.visible', 0);
 
         $query = $this->db->get();
 
@@ -207,6 +195,7 @@ Class CarnetVoyage extends CI_Model {
         $this->db->from('carnetvoyage AS cv');
         $this->db->join('voyage AS v', 'v.id = cv.id_voyage');
         $this->db->where('prive', '0');
+        $this->db->where('cv.visible', '1');
         $this->db->_protect_identifiers = TRUE;
 
         if (isset($limit) && isset($start)) {
@@ -231,6 +220,18 @@ Class CarnetVoyage extends CI_Model {
 
         if ($query->num_rows() > 0) {
             return $query->num_rows();
+        } else {
+            return false;
+        }
+    }
+
+    function setCarnetVisible() {
+        $data = array(
+            'visible' => $this->visible
+        );
+        $this->db->where('id', $this->id);
+        if ($this->db->update('carnetvoyage', $data) == 1) {
+            return true;
         } else {
             return false;
         }
@@ -261,7 +262,7 @@ Class CarnetVoyage extends CI_Model {
     function setPrive($prive) {
         $this->prive = $prive;
     }
-    
+
     function setToken($token) {
         $this->token = $token;
     }
@@ -270,6 +271,9 @@ Class CarnetVoyage extends CI_Model {
         return $this->token;
     }
 
-}
+    function setVisible($visible) {
+        $this->visible = $visible;
+    }
 
-?>
+
+}

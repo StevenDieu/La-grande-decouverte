@@ -2,6 +2,7 @@
     confirmation = "Etes vous sûre de vouloir supprimer cette valeur ?";
     var urlDeleteCarnet = '<?php echo base_url('admin/model_carnet_voyage/deleteCarnetVoyage'); ?>';
     var urlEditCarnet = '<?php echo base_url('admin/model_carnet_voyage/editCarnetVoyage'); ?>';
+    var urlVisibleCarnet = '<?php echo base_url('admin/model_carnet_voyage/validateCarnetVoyage'); ?>';
     var urlError = '<?php echo base_url('pages/messageErreur'); ?>';
     var urlSucces = '<?php echo base_url('pages/messageSucces'); ?>';
 </script>
@@ -21,7 +22,7 @@
                                 <div class="accordion-group">
                                     <div class="accordion-heading">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                            Carnet avec un article en attente de validation
+                                            Carnets ou articles en attente de validation
                                         </a>
                                     </div>
                                     <div id="collapseOne" class="accordion-body collapse in">
@@ -37,6 +38,7 @@
                                                                 <th>Titre</th>
                                                                 <th class="center w10">Editer</th>
                                                                 <th class="tdPetit">Visuel</th>
+                                                                <th class="center w10">Valider</th>
                                                                 <th class="center w10">Supprimer</th>
                                                             </tr>
                                                         </thead>
@@ -61,6 +63,13 @@
                                                                     <td class="center w10">
                                                                         <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyagesNotVisible->id . "&token=" . $carnetVoyagesNotVisible->token; ?>"><span class="icon-list-alt"></span></a>
                                                                     </td>
+                                                                    <td class="center action_validate validate<?= $carnetVoyagesNotVisible->id; ?>">
+                                                                        <?php if ($carnetVoyagesNotVisible->visible == 1) { ?>
+                                                                            <span class="validate icon_click" data-visible="0" data-id="<?= $carnetVoyagesNotVisible->id; ?>"><span class="icon-ok"></span></span>
+                                                                        <?php } else { ?>
+                                                                            <span class="validate icon_click" data-visible="1" data-id="<?= $carnetVoyagesNotVisible->id; ?>"><span class="icon-remove"></span></span>
+                                                                        <?php } ?>
+                                                                    </td>
                                                                     <td class="center">
                                                                         <a onclick="return confirm(confirmation);" class="btn btn-danger deleteCarnetVoyage" data-id="<?= $carnetVoyagesNotVisible->id ?>">X</a>
                                                                     </td>
@@ -72,7 +81,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <br/>Pas de carnet de voyage avec des articles à valider<br/><br/>
+                                                <br/>Pas de carnets de voyage ou d'articles à valider<br/><br/>
                                                 <?php
                                             }
                                             ?>
@@ -98,6 +107,7 @@
                                                                 <th>Titre</th>
                                                                 <th class="center w10">Editer</th>
                                                                 <th class="tdPetit">Visuel</th>
+                                                                <th class="center w10">Valider</th>
                                                                 <th class="center w10">Supprimer</th>
                                                             </tr>
                                                         </thead>
@@ -121,6 +131,13 @@
                                                                     </td>
                                                                     <td class="center w10">
                                                                         <a target="_BLANK" href="<?php echo base_url('voyage/carnet') . "?id=" . $carnetVoyagesVisible->id . "&token=" . $carnetVoyagesVisible->token; ?>"><span class="icon-list-alt"></span></a>
+                                                                    </td>
+                                                                    <td class="center action_validate validate<?= $carnetVoyagesVisible->id; ?>">
+                                                                        <?php if ($carnetVoyagesVisible->visible == 1) { ?>
+                                                                            <span class="validate icon_click" data-visible="0" data-id="<?= $carnetVoyagesVisible->id; ?>"><span class="icon-ok"></span></span>
+                                                                        <?php } else { ?>
+                                                                            <span class="validate icon_click" data-visible="1" data-id="<?= $carnetVoyagesVisible->id; ?>"><span class="icon-remove"></span></span>
+                                                                        <?php } ?>
                                                                     </td>
                                                                     <td class="center">
                                                                         <a onclick="return confirm(confirmation);" class="btn btn-danger deleteCarnetVoyage" data-id="<?= $carnetVoyagesVisible->id ?>">X</a>

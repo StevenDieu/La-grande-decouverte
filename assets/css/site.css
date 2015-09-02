@@ -376,6 +376,7 @@ form.form-horizontal{
     width: 150px;
     height: 50px;
     margin-top: 13px;
+    margin-left: 15px;
 }
 .imageCompte{
     width: 33px;
@@ -692,9 +693,9 @@ h2.titre{
 @media (max-width: 768px){
     .textMenu{
         line-height: 55px;
-    
+
         text-align: center;
-}
+    }
     .navbar-right{
         display: none;
     }

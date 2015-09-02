@@ -60,7 +60,7 @@
                                             <form action="#">
                                                 <div><p><input class="required" id="mail" name="mail" type="mail" placeholder="Votre Email*" /></p></div>
                                                 <div><p class="mdp"><input class="required" id="password" name="password" type="password" placeholder="Votre Mot de passe*" /></p></div>
-                                                <span><a href="#">J’ai perdu mon mot de passe ?</a></span>
+                                                <span><a href="<?php echo base_url('user/account/motDePasseOublie') ?>">J’ai perdu mon mot de passe ?</a></span>
                                                 <div class="submit_command login"><input id="connexion" type="submit" value="connexion" /></div>
                                             </form>
                                         </div>
