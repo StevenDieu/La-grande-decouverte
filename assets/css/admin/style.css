@@ -1358,11 +1358,10 @@ color: #333;
 }
 
 div.bloc_commande{
-	width: 45%;
+	width: 47%;
 	float: left;
 	min-height: 140px;
-	margin-bottom: 30px;
-	margin-top: 20px;
+	margin-bottom: 25px;
 	margin-left: 20px;
 	border: 1px solid #d6d6d6;
 	background: #fafafa;
@@ -1370,10 +1369,24 @@ div.bloc_commande{
 
 div.bloc_commande p{
 	padding-left: 15px;
+	margin: 11px;
+	font-family: arial;
 }
 
 div.bloc_commande p span{
 	font-weight: bold;
+    display: block;
+    float: right;
+    text-align: left;
+    width: 64%;
+}
+
+.container .widget-content{
+	padding-top: 25px;
+}
+
+div.bloc_commande.parti p span{
+    width: 87%;
 }
 
 div.bloc_commande h4{
@@ -1395,11 +1408,49 @@ div.bloc_commande.totaux, div.bloc_commande.right{
 }
 
 div.bloc_commande.factu p{
-	margin: 0
+	margin: 0;
+	margin-left: 10px;
+}
+
+div.bloc_commande.totaux{
+    background: #fcfac9;
+}
+
+div.bloc_commande.totaux p span{
+	width: 27%;
+	text-align: right;
+}
+
+div.bloc_commande.totaux p span.orange{
+	    color: #eb5e00;
+}
+
+.header_titre_order_edit{
+	margin-left: 20px;
+	margin-bottom: 15px;
+	display: block;
+	padding-bottom: 15px;
+	border-bottom: 5px solid #dfdfdf;
+	color: #eb5e00;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+div.bloc_commande p span a{
+	color: #eb5e00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.header_titre_order_edit img{
+	margin-top: -5px;
+	margin-right: 5px; 
 }
 
 div.bloc_commande.parti, div.bloc_commande.parti table{
 	width: 97%;
+	max-width: 1127px;
+	min-height: auto;
 }
 
 div.bloc_commande td{
@@ -1407,12 +1458,19 @@ div.bloc_commande td{
 }
 
 div.bloc_commande.parti table{
-	margin-top: 20px;
+	/*margin-top: 20px;*/
+	width: 100%;
+}
+
+div.bloc_commande.parti table tr.entete{
+    background: url(../../images/admin/sort_row_bg.gif) 0 50% repeat-x;
+    color: #67767e;
 }
 
 div.bloc_commande.parti table, div.bloc_commande.parti table th, div.bloc_commande.parti table td{
 	border: 1px solid #d6d6d6;
 	text-align: left;
+	padding-left: 5px;
 }
 
 div.bloc_commande.totaux p{
@@ -1443,6 +1501,7 @@ div.bloc_commande.totaux p{
 	font-weight: bold;
 	line-height: 40px;
 	font-size: 20px;
+	padding-top: 10px;
 }
 
 .container_dash .bloc_commande table{
