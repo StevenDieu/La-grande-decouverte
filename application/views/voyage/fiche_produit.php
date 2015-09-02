@@ -48,16 +48,6 @@
 
     <div style="clear:both"></div>
 
-    <div class="fil_arianne_conteneur">
-        <div class="fil_arianne">
-            <ul class="breadcrumbs">
-                <li class="acceuil"><a href="<?php echo base_url(''); ?>">Accueil</a></li>
-                <li><a href="<?php echo base_url('voyages'); ?>">Voyages</a></li>
-                <li class="last"><?php echo $voyage[0]->titre; ?></li>
-            </ul>
-        </div>
-    </div>
-
     <div class="contain_top_bloc">
         <div class="top_bloc">
             <div class="topLeft">

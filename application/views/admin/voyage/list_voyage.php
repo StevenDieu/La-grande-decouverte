@@ -20,7 +20,7 @@
                                 <table class="table  table-striped">
                                     <thead>
                                         <tr>
-                                            <th class="center w10">#</th>
+                                            <th class="center w10">Id</th>
                                             <th>Titre</th>
                                             <th class="center w10">Activer</th>
                                         </tr>
