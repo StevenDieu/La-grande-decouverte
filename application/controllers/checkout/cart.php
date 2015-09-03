@@ -351,7 +351,7 @@ class Cart extends CI_Controller {
             if ($result == true) {
                 $res = array(
                     'retour' => 'notVerifier',
-                    'message' => "L'adresse mail n'est pas vérifier."
+                    'message' => "L'adresse mail n'est pas vérifiée."
                 );
             } else {
                 $sess_array = array(
