@@ -29,6 +29,7 @@ class Commentaires extends CI_Controller {
         $crud->required_fields('name','mail','commentaire','active','date_creation','signal');
         $crud->unset_texteditor('commentaire','full_text');
         $crud->unset_read();
+        $crud->unset_add();
         $output = $crud->render();
         $this->_example_output($output);
     }
