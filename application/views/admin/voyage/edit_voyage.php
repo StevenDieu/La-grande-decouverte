@@ -597,7 +597,7 @@
                                                 </div>			
                                             </div>
 
-                                            <div class="control-group">											
+                                            <div class="control-group" style="display: none">											
                                                 <label class="control-label" for="special_price">Prix spécial : </label>
                                                 <div class="controls">
                                                     <div class="input-prepend input-append">
