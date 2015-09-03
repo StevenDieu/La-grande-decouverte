@@ -417,11 +417,11 @@ class Verification extends CI_Controller {
             return;
         }
         if (!isset($_POST["token"]) || !isset($_POST["mail"])) {
-            redirect('pages', 'refresh');
+            redirect('pages/introuvable', 'refresh');
             return;
         }
         if ($this->form_validation->run() == FALSE) {
-            redirect('pages', 'refresh');
+            redirect('pages/introuvable', 'refresh');
             return;
         }
 
@@ -445,7 +445,7 @@ class Verification extends CI_Controller {
             $this->load->templateUser('motDePasseOublieMail', $data);
             return;
         }
-        redirect('pages', 'refresh');
+        redirect('pages/introuvable', 'refresh');
         return;
     }
 

@@ -10,7 +10,7 @@ class Fiche extends CI_Controller {
     function __construct() {
         parent::__construct();
         if ($this->input->get('id') == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
         $this->load->model('voyage');
         $this->load->model('pays');
@@ -28,7 +28,16 @@ class Fiche extends CI_Controller {
      */
     public function index() {
         if ($this->input->get('id') == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
+        }
+
+        $this->id_voyage = $this->input->get('id');
+
+        $this->voyage->setId($this->id_voyage);
+        $data['voyage'] = $this->voyage->getVoyageFiche();
+
+        if ($data['voyage'] == null) {
+            redirect('pages/introuvable', 'refresh');
         }
 
         $this->load->model('productView');
@@ -42,12 +51,6 @@ class Fiche extends CI_Controller {
         } else {
             $this->productView->add();
         }
-
-
-        $this->id_voyage = $this->input->get('id');
-
-        $this->voyage->setId($this->id_voyage);
-        $data['voyage'] = $this->voyage->getVoyageFiche();
 
         $this->images->setId_voyage($this->id_voyage);
         $data['images'] = $this->images->getImagesByVoyage();
@@ -66,9 +69,7 @@ class Fiche extends CI_Controller {
 
         $data['date'] = new DateTime(null, new DateTimeZone('America/Santiago'));
 
-        if ($data['voyage'] == null) {
-            redirect('pages/index/', 'refresh');
-        }
+
 
         $this->infoVoyage->__set('id_voyage', $this->id_voyage);
 
@@ -82,7 +83,7 @@ class Fiche extends CI_Controller {
         $data['allInfoVoyage'] = $this->infoVoyage->getInfoVoyageByVoyage();
 
         if ($data['voyage'] == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
         $this->carnetVoyage->setId_voyage($this->input->get('id'));
         $data["carnetVoyages"] = $this->carnetVoyage->getVoyageProduit();

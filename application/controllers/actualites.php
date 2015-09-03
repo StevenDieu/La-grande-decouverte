@@ -17,14 +17,14 @@ class Actualites extends CI_Controller {
     public function partage() {
         $id_actualite = $this->input->get("idActu");
         if (!isset($id_actualite)) {
-            redirect('actualites', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
 
         $this->actualite->setId($id_actualite);
         $data["actualite"] = $this->actualite->getActualite();
 
         if (!$data["actualite"]) {
-            redirect('actualites', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
 
         foreach ($data["actualite"] as $actu) {
@@ -50,14 +50,14 @@ class Actualites extends CI_Controller {
         $sess_array = array(
             'nbrActu' => count($data["actualites"])
         );
-    
+
         $this->session->set_userdata('actu', $sess_array);
-        if($data["actualites"] != false){
+        if ($data["actualites"] != false) {
             foreach ($data["actualites"] as $actu) {
                 $actu->date = $this->DateFr($actu->date);
             }
         }
-        
+
 
         $data["alljs"] = array("slide", "ajaxPaginate");
         $data["allCss"] = array("listeActu", "ficheProduit");

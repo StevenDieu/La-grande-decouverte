@@ -41,7 +41,7 @@ class Cart extends CI_Controller {
         $this->load->model('participant');
 
         if ($this->id == null) {
-            redirect('admin/orders/liste', 'refresh');
+            return false;
         }
 
         $id_voyage = $this->id;
@@ -87,7 +87,7 @@ class Cart extends CI_Controller {
         $this->form_validation->set_rules('idInfo', 'idInfo', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            redirect('pages', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         } else {
             $id = $this->input->post('id');
             $idInfo = $this->input->post('idInfo');

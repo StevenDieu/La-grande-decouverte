@@ -25,7 +25,7 @@ class Carnet extends CI_Controller {
         $data["alljs"] = array("slide", "ficheVoyage");
 
         if ($this->input->get('id') == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
 
         $this->carnetVoyage->setId($this->input->get('id'));
@@ -34,7 +34,7 @@ class Carnet extends CI_Controller {
 
 
         if ($data['carnetVoyage'] == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
         $this->article->setId_carnetvoyage($data['carnetVoyage'][0]->id);
         $this->user->setId($data['carnetVoyage'][0]->id_utilisateur);
@@ -59,13 +59,13 @@ class Carnet extends CI_Controller {
 
     public function article() {
         if ($this->input->get('id') == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
         $this->article->setId($this->input->get('id'));
         $data["articles"] = $this->article->getArticlePublic();
 
         if ($data['articles'] == null) {
-            redirect('pages/index/', 'refresh');
+            redirect('pages/introuvable', 'refresh');
         }
         $this->carnetVoyage->setId($data["articles"][0]->id_carnetvoyage);
         $data['imagesCarnetVoyages'] = $this->carnetVoyage->getImagesCarnetVoyage();

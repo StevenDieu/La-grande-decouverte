@@ -92,7 +92,7 @@ class Pages extends CI_Controller {
         $this->load->templatePages('facture', $data);
     }
 
-    public function introuvable(){
+    public function introuvable() {
         $data["titre"] = "404";
         $this->load->templatePages('introuvable', $data);
     }
@@ -109,7 +109,7 @@ class Pages extends CI_Controller {
                 $data["titre"] = $result[0]->label;
                 $this->load->templatePages('cms', $data);
             } else {
-                redirect('pages/index', 'refresh');
+                redirect('pages/introuvable', 'refresh');
             }
         }
     }
@@ -150,7 +150,6 @@ class Pages extends CI_Controller {
             $this->load->view('templates/great.php', $data);
             return;
         }
-        redirect('pages/index', 'refresh');
     }
 
     public function messageErreur() {
@@ -159,7 +158,6 @@ class Pages extends CI_Controller {
             $this->load->view('templates/error.php', $data);
             return;
         }
-        redirect('pages/index', 'refresh');
     }
 
     public function addNewletter() {

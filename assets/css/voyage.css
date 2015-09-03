@@ -287,8 +287,10 @@
 }
 
 .voyage_home ul li.voyage .bloc_image img{
-    width: 100%;
+    /* width: 100%; */
     margin-top: -5%;
+    min-width: 100%;      max-width: 125%;      
+    min-height: 110%;  };
 }
 
 .voyage_home ul li.voyage .bloc_image{
@@ -333,8 +335,8 @@
     width: 20%;
     text-align: left;
     color: #960018;
-    padding-left: 29px;
-    padding-top: 29px;
+    padding-left: 0px;
+    padding-top: 25px;
     font-family: 'NewCicleGordita', sans-serif;
 }
 
@@ -376,4 +378,12 @@
 }
 .content.liste-voyage {
     background-color: #edefed !important;
+}
+
+.voyage_home .bloc_bottom a span {
+    white-space: nowrap;
+}
+
+.voyage .bloc_image {
+    overflow: hidden;      margin: 0 auto;      height: 245px;      z-index: -1;
 }
