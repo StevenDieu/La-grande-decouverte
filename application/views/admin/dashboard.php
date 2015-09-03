@@ -107,7 +107,7 @@
                             <table>
                                 <tr class="entete">
                                     <th>Nom du produit</th>
-                                    <th>Prix</th>
+                                    <th>Durée</th>
                                     <th>Quantité commandée</th>
                                 </tr>
                                 <?php foreach ($order_vente as $v): ?>
