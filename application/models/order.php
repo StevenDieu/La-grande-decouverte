@@ -256,4 +256,14 @@ Class Order extends CI_Model {
 
     }
 
+    function bestorder(){
+        $this->db->select('id_voyage, sum(nb_participant) as sum');
+        $this->db->from('order');
+        $this->db->where('statut', 'Facturée');
+        $this->db->group_by("id_voyage");
+        $this->db->limit(5);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

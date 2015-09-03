@@ -103,18 +103,18 @@
 
                 <div class="tab-content">
                     <div id="home" class="tab-pane fade in active">
-                        <?php if ($view): ?>
+                        <?php if ($order_vente): ?>
                             <table>
                                 <tr class="entete">
                                     <th>Nom du produit</th>
                                     <th>Prix</th>
                                     <th>Quantité commandée</th>
                                 </tr>
-                                <?php foreach ($view as $v): ?>
-                                    <tr class="ligne" data-id="<?php echo $v->product_id[0]->id; ?>">
-                                        <td><?php echo $v->product_id[0]->titre; ?></td>
-                                        <td><?php echo $v->product_id[0]->duree; ?> jours</td>
-                                        <td><?php echo $v->view; ?></td>
+                                <?php foreach ($order_vente as $v): ?>
+                                    <tr class="ligne" data-id="<?php echo $v->id_voyage[0]->id; ?>">
+                                        <td><?php echo $v->id_voyage[0]->titre; ?></td>
+                                        <td><?php echo $v->id_voyage[0]->duree; ?> jours</td>
+                                        <td><?php echo $v->sum; ?></td>
                                     </tr>
 
                                 <?php endforeach; ?>
@@ -446,6 +446,11 @@
         $(".container_dash .bloc_commande.com2 table tr.ligne").click(function () {
             var id = $(this).data('id');
             window.location = "<?php echo base_url() ?>admin/commentaires/liste/edit/" + id;
+        });
+
+        $("#home tr.ligne").click(function () {
+            var id = $(this).data('id');
+            window.location = "<?php echo base_url() ?>admin/voyages/edit?id=" + id;
         });
 
         $("#menu1 tr.ligne").click(function () {

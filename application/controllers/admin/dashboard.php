@@ -31,6 +31,7 @@ class Dashboard extends CI_Controller {
             $data['moyenne'] = $this->order->getMoyenne();
             $data['order_last'] = $this->order->getLastOrder();
             $data['view'] = $this->productView->getMoreView();
+            $data['order_vente'] = $this->order->bestorder();
             $data['users'] = $this->user->getLastUser();
             $data['newsletter'] = $this->newsletter->getLastNewsletter();
             $data['graphique'] = $this->order->sumOrderByMonth();
@@ -49,8 +50,14 @@ class Dashboard extends CI_Controller {
             }else{
                 $data['moyenne'] = 0;
             }
-            
 
+            if($data['order_vente']){
+                foreach ($data['order_vente'] as $cmd) {
+                    $this->voyage->setId($cmd->id_voyage);
+                    $cmd->id_voyage = $this->voyage->getVoyage();
+                }
+            }
+            
             if($data['somme'] != false){
                 $total = 0;
                 foreach ($data['somme'] as $cmd) {
