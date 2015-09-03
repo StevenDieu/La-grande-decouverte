@@ -90,11 +90,19 @@
                                 ACTUALIT&Eacute;S
                             </div>
                         </a>
+                        <?php if (!$this->session->userdata('logged_in')) { ?>
                         <a href="<?php echo base_url('/user/verification/login') ?>" class="textMenu cacher">
                             <div>
                                 CONNEXION / INSCRIPTION
                             </div>
                         </a>
+                        <?php } else { ?>
+                        <a href="<?= base_url('user/account') ?>#comptes" data-onglet="comptes" class="textMenu cacher">
+                            <div>
+                                MON COMPTE
+                            </div>
+                        </a>
+                        <?php } ?>
                     </div>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

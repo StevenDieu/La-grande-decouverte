@@ -202,6 +202,8 @@
 
 .floarLeft a {
     color: #000;
+    display: block;      margin: auto;      border: 1px solid #c4c4c4;      background: white;      color: #565a5c;      width: 300px;      padding: 10px 0;      text-align: center;      font-family: 'NewCicleGordita', sans-serif;      
+    font-size: 19px;
 }
 
 .floarLeft {
@@ -212,6 +214,8 @@
 .floarRight {
     float: right;
     margin-bottom: 20px;
+    display: block;      margin: auto;      border: 1px solid #c4c4c4;      background: white;      color: #565a5c;      width: 300px;      padding: 10px 0;      text-align: center;      font-family: 'NewCicleGordita', sans-serif;      
+    font-size: 19px;
 }
 
 .content-voyage{
@@ -369,6 +373,7 @@
 
 .voyage_home .erreur{
     margin-bottom: 20px;
+    text-align: center;
 }
 
 @media (min-width: 767px){
@@ -386,4 +391,21 @@
 
 .voyage .bloc_image {
     overflow: hidden;      margin: 0 auto;      height: 245px;      z-index: -1;
+}
+
+.erreurTitle {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 30px;
+    padding-top: 15px;
+    font-weight: 700;
+}
+
+span.erreurSSTitle {
+    font-size: 21px;
+}
+
+.erreurSSTitle {
+    font-size: 18px;
+    padding-bottom: 12px;
 }

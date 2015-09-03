@@ -219,7 +219,7 @@ Class Voyage extends CI_Model {
         $this->db->where('c.id', $continent);
         $this->db->where('v.visible', "1");
         $this->db->order_by("titre", "asc");
-
+        $this->db->group_by('v.id');
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {

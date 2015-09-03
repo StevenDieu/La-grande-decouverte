@@ -13,11 +13,14 @@
             <p class="soush"> Laissez-vous embarquer par l’un de nos voyages en cours pour vivre des moments exceptionnelles dont vous vous souviendrez longtemps ! </p>
             <div class="voyage_home list">
 
-                <?php if (isset($erreur)) echo "<div class='erreur'>" . $erreur . "</div>"; ?>
+                <?php if (isset($erreur)) { ?>
+                <div class="erreurTitle">Aucun voyage n'est disponible pour ce continent</div>
+                <div class="erreurSSTitle">Voici la liste de nos voyages disponibles : </div>
+                <?php } ?>
 
                 <?php if (isset($nomContinent)): ?>
                     <div class="floarLeft">
-                        <a href="<?php echo base_url('voyage/carnet/voyage') ?>">
+                        <a href="<?php echo base_url('voyages') ?>">
                             Retour à tous les voyages
                         </a>
                     </div>
