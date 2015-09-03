@@ -245,16 +245,16 @@ $(document).ready(function () {
     $('.info_de_vente').on('click', '.delete_ligne', function () {
         if (confirm(confirmation)) {
             if ($(this).data("idinfo") !== undefined) {
-                $(".info_de_vente").append('<type type="hidden" value="' + $(this).data("idinfo") + '" name="deleteInfoVente[]" />')
+                $(".info_de_vente").append('<input type="hidden" value="' + $(this).data("idinfo") + '" name="deleteInfoVente[]" />');
             }
             $(this).parent().remove();
         }
     });
 
-    $('.info_deroulement').on('click', '.delete_ligne_deroulement', function () {
+    $('.info_deroulement').on('click', '.delete_ligne', function () {
         if (confirm(confirmation)) {
             if ($(this).data("idderoulement") !== undefined) {
-                $(".info_deroulement").append('<type type="hidden" value="' + $(this).data("idderoulement") + '" name="deleteDeroulement[]" />')
+                $(".info_deroulement").append('<input type="hidden" value="' + $(this).data("idderoulement") + '" name="deleteDeroulement[]" />');
             }
             $(this).parent().remove();
         }

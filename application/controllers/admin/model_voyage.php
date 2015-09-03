@@ -83,7 +83,9 @@ class Model_voyage extends CI_Controller {
             $this->ajouterPicto();
             $this->editerInfoVoyages();
             $this->editerDeroulementVoyages();
-            $this->redirectEditOrder();
+            $this->deleteDeroulementVoyage();
+            $this->deleteInfoVoyage();
+            //$this->redirectEditOrder();
         }
     }
 
@@ -249,21 +251,33 @@ class Model_voyage extends CI_Controller {
 
     private function editerInfoVoyage($i, $id) {
         foreach ($this->inputInfoVoyage as $input) {
-            $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+            if (isset($this->input->post($input)[$i])) {
+                $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+            }
         }
         $this->infoVoyage->__set('id_voyage', $this->id_voyage);
         $this->infoVoyage->setId($id);
         $this->infoVoyage->editInfoVoyage();
     }
 
-    private function deleteDeroulementVoyage($id) {
-        $this->deroulementVoyage->setId($id);
-        $this->deroulementVoyage->deleteDeroulement();
+    private function deleteDeroulementVoyage() {
+        $inputs = $this->input->post("deleteDeroulement");
+        if (isset($inputs) && !empty($inputs)) {
+            foreach ($inputs as $input) {
+                $this->deroulementVoyage->setId($input);
+                $this->deroulementVoyage->deleteDeroulement();
+            }
+        }
     }
 
-    private function deleteInfoVoyage($id) {
-        $this->infoVoyage->setId($id);
-        $this->infoVoyage->deleteInfoVoyage();
+    private function deleteInfoVoyage() {
+        $inputs = $this->input->post("deleteInfoVente");
+        if (isset($inputs) && !empty($inputs)) {
+            foreach ($inputs as $input) {
+                $this->infoVoyage->setId($input);
+                $this->infoVoyage->deleteInfoVoyage();
+            }
+        }
     }
 
     private function ajouterInfoVoyages() {
@@ -275,7 +289,9 @@ class Model_voyage extends CI_Controller {
 
     private function ajouterInfoVoyage($i) {
         foreach ($this->inputInfoVoyage as $input) {
-            $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+            if (isset($this->input->post($input)[$i])) {
+                $this->infoVoyage->__set($input, $this->input->post($input)[$i]);
+            }
         }
         $this->infoVoyage->__set('id_voyage', $this->id_voyage);
         $this->infoVoyage->addInfoVoyage();
