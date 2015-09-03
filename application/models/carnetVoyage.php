@@ -42,6 +42,15 @@ Class CarnetVoyage extends CI_Model {
         return true;
     }
 
+    function setCarnetVoyageBo() {
+        $data = array(
+            'titre' => $this->titre,
+        );
+        $this->db->where('id', $this->id);
+        $this->db->update('carnetvoyage', $data);
+        return true;
+    }
+
     function setCarnetVoyagePrive() {
         if ($this->prive == 1) {
             $this->prive = 0;
@@ -275,6 +284,5 @@ Class CarnetVoyage extends CI_Model {
     function setVisible($visible) {
         $this->visible = $visible;
     }
-
 
 }

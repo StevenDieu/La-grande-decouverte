@@ -143,7 +143,7 @@ class Model_carnet_voyage extends CI_Controller {
             $this->carnetVoyage->setTitre(str_replace("'", "&#146;", $this->input->post('titre')));
             $this->carnetVoyage->setId($this->input->post('id'));
             $this->carnetVoyage->setId_utilisateur($this->session->userdata('logged_in')["id"]);
-            $this->carnetVoyage->setCarnetVoyage();
+            $this->carnetVoyage->setCarnetVoyageBo();
             echo "1";
         }
     }
