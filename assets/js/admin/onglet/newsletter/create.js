@@ -1,8 +1,9 @@
 function sendNewsletter() {
-    $(".sendNewsletter").val("Envoi en cours...");
-    $(".sendNewsletter").prop('onclick', null).off('click');
+
 
     if ($('#edit').editable('getHTML', false, false) !== "" && $('.titre').val() !== "" && $('#id').val() !== "" && $('#id_carnetvoyage').val() !== "") {
+        $(".sendNewsletter").val("Envoi en cours...");
+        $(".sendNewsletter").prop('onclick', null).off('click');
         var contenu = $('#edit').editable('getHTML', false, false);
         var reg = new RegExp('style', "g");
         contenu = encodeURIComponent(contenu.replace(reg, "style/"));

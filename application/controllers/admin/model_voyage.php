@@ -85,7 +85,7 @@ class Model_voyage extends CI_Controller {
             $this->editerDeroulementVoyages();
             $this->deleteDeroulementVoyage();
             $this->deleteInfoVoyage();
-            //$this->redirectEditOrder();
+            $this->redirectEditOrder();
         }
     }
 

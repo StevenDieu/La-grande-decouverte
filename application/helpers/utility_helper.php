@@ -50,7 +50,7 @@ function deroulementHTMLHelper() {
     </div>
 
     <div class="control-group">											
-        <label class="control-label" for="jour">Jour * : </label>
+        <label class="control-label" for="jour">Nombre de jours * : </label>
         <div class="controls">
             <div class="input-prepend input-append">
                 <input type="text" name="jour[]" class="span6 required" id="jour"  placeholder="Jour">
