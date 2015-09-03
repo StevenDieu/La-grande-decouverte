@@ -47,10 +47,10 @@
                 <span>
                     Suivez nous :
                 </span><br/>
-                <a href="#">
+                <a href="https://www.facebook.com/pages/La-grande-decouverte/1611626992384420?skip_nax_wizard=true&ref_type=bookmark">
                     <img src="http://stevendieu.com/mailling/img-social-facebook.png" style="  width: 45px;margin: 10px auto;padding: 0 20px 0px 0px;" alt="facebook" />
                 </a>
-                <a href="#">
+                <a href="https://twitter.com/LGD_officiel">
                     <img src="http://stevendieu.com/mailling/img-social-twitter.png" style="  width: 45px;margin: 10px auto;" alt="twitter" />
                 </a>
                 <br/><br/>
@@ -60,8 +60,6 @@
         <tr>
             <td style="text-align: center;font-size: 0.8em">
                 <br/><br/>
-                Cet email vous est envoy&eacute; car vous &ecirc;tes membre de Lagrandecouverte.com, enregistr&eacute; depuis le XX/XX/XXXX <br/>
-                avec l'adresse mail : xx@aaaa.com<br/>
                 Attention ce message contient vos informations personnelles - ne pas le transf&eacute;rer.<br/>
                 <br/>
                 Pour &ecirc;tre s&ucirc;r(e) de recevoir nos prochaines invitations, ajoutez "email@lagrandecouverte.com"<br/>
