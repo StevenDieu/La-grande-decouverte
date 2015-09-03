@@ -110,9 +110,10 @@ Class Voyage extends CI_Model {
         $this->db->select('v.id as vId, v.titre as titre, v.phrase_accroche, phrase_accroche, i.nom as nom, i.lien as lien');
         $this->db->from('voyage AS v');
         $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
-        $this->db->order_by("titre", "asc");
+        $this->db->order_by("v.id", "desc");
         $this->db->where("v.visible", "1");
         $this->db->group_by("v.id");
+        
         $this->db->_protect_identifiers = TRUE;
         $this->db->limit(4);
 
@@ -176,7 +177,7 @@ Class Voyage extends CI_Model {
         $this->db->from('voyage AS v');
         $this->db->join("images AS i", "emplacement = 'image_slider' AND i.id_voyage = v.id", "inner");
         $this->db->where("v.visible", "1");
-        $this->db->order_by("titre", "asc");
+        $this->db->order_by("v.id", "desc");
         $this->db->group_by("v.id");
         $this->db->_protect_identifiers = TRUE; //remet l'ajout de quotes automatique
         if (isset($limit) && isset($start)) {
@@ -218,7 +219,7 @@ Class Voyage extends CI_Model {
         $this->db->join("continent as c", "c.id = p.id_continent");
         $this->db->where('c.id', $continent);
         $this->db->where('v.visible', "1");
-        $this->db->order_by("titre", "asc");
+        $this->db->order_by("v.id", "desc");
         $this->db->group_by('v.id');
         $query = $this->db->get();
 
